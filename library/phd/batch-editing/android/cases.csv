@@ -497,7 +497,12 @@ TC-099,AI Enhance,"1. Signed in with a Free (non-Premium) account
 TC-100,AI Enhance,"1. Signed in with a PhotoDirector Premium account
 2. Batch Edit Room open with 12 photos (Launcher 「Edit」 › 「Batch」), no edit yet
 3. AI Enhance page open on photo 1, no photo enhanced yet
-4. Enhance finished",Tap ✕,Returns to the Batch Edit Room main screen with the enhanced results kept,P1,"R-130, R-114, R-213",The Design draws the Discard Dialog over the AI Enhance page (Q-19): record if ✕ asks first.
+4. Enhance finished",Tap ✕,"The Discard Dialog opens: 「Discard changes?」 (the batch Enhance counts as an edit)
+Record where 「Discard」 and 「Keep Editing」 lead",P1,"R-130, R-114, R-213","Ruling REQ-018 (Q-19 answered): with edits made, ✕ asks first."
+TC-171,AI Enhance,"1. Signed in with a PhotoDirector Premium account
+2. Batch Edit Room open with 12 photos (Launcher 「Edit」 › 「Batch」), no edit yet
+3. AI Enhance page open on photo 1, no photo enhanced yet",Tap ✕,"Returns to the Batch Edit Room main screen at once
+No Discard Dialog",P2,R-130,Ruling REQ-018: no dialog when nothing was edited.
 TC-101,AI Enhance failures,"1. Signed in with a PhotoDirector Premium account
 2. Batch Edit Room open with 12 photos (Launcher 「Edit」 › 「Batch」), no edit yet
 3. AI Enhance page open on photo 1, no photo enhanced yet
@@ -625,7 +630,7 @@ TC-141,Android Back,"1. Signed in with a PhotoDirector Premium account
 TC-142,Android Back,"1. Signed in with a PhotoDirector Premium account
 2. Batch Edit Room open with 12 photos (Launcher 「Edit」 › 「Batch」), no edit yet
 3. AI Enhance page open on photo 1, no photo enhanced yet
-4. Enhance finished",Press system Back,Same as ✕: back to Batch Edit Room with the results kept,P2,"R-170, R-130",The Design draws the Discard Dialog over the AI Enhance page (Q-19): record if Back asks first.
+4. Enhance finished",Press system Back,Same as ✕: the Discard Dialog opens (「Discard changes?」),P2,"R-170, R-130","Ruling REQ-018 (Q-19 answered): with edits made, Back asks first."
 TC-143,Android Back,Batch enhance processing,Press system Back,"Processing is not interrupted or cancelled
 The screen stays under the mask",P1,"R-170, R-121, R-122",
 TC-144,Android Back,Confirm Dialog open,Press system Back,Same as 「Cancel」: the dialog closes and nothing is processed,P2,"R-170, R-137",

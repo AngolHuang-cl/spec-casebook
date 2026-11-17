@@ -309,7 +309,7 @@ TC-169,調整,"1. 以 PhotoDirector Premium 帳號登入
 3. 點 ﹀ 收合面板
 4. 點 ︿ 再次展開","步驟 3：面板收合時，照片仍保持加強後的紅色
 步驟 4：仍選取紅色色版
-步驟 4：曲線上的控制點仍在剛才拖曳的位置",P2,"R-230, R-238",收合只是把面板藏起來（隱含條款，REQ-013）。規格沒有寫重新展開後應選取哪個色版／顏色；若選取被重設，開給 PM 決定。,新增,REQ-013：第 10b 輪，收合面板後數值與選取應保留（Figma Agent 比較）
+步驟 4：曲線上的控制點仍在剛才拖曳的位置",P2,"R-230, R-238",收合只是把面板藏起來（隱含條款，REQ-013）。規格沒有寫重新展開後應選取哪個色版／顏色；若選取被重設，開給 PM 決定。,未變更,REQ-013：第 10b 輪，收合面板後數值與選取應保留（Figma Agent 比較）
 TC-170,調整,"1. 以 PhotoDirector Premium 帳號登入
 2. 已開啟有 12 張照片的 Batch Edit Room（Launcher「Edit」›「Batch」），尚未編輯
 3. 已在第 1 張開啟 Adjustment
@@ -318,7 +318,7 @@ TC-170,調整,"1. 以 PhotoDirector Premium 帳號登入
 3. 點 ﹀ 收合面板
 4. 點 ︿ 再次展開","步驟 3：面板收合時，照片仍保持綠色的調整
 步驟 4：仍選取綠色色點
-步驟 4：顯示「Hue」+30、「Saturation」-20、「Lightness」+10",P2,"R-230, R-238",收合只是把面板藏起來（隱含條款，REQ-013）。規格沒有寫重新展開後應選取哪個色版／顏色；若選取被重設，開給 PM 決定。,新增,REQ-013：第 10b 輪，收合面板後數值與選取應保留（Figma Agent 比較）
+步驟 4：顯示「Hue」+30、「Saturation」-20、「Lightness」+10",P2,"R-230, R-238",收合只是把面板藏起來（隱含條款，REQ-013）。規格沒有寫重新展開後應選取哪個色版／顏色；若選取被重設，開給 PM 決定。,未變更,REQ-013：第 10b 輪，收合面板後數值與選取應保留（Figma Agent 比較）
 TC-166,調整,"1. 以 PhotoDirector Premium 帳號登入
 2. 已開啟 Batch Edit Room，共 12 張照片（Launcher「Edit」›「Batch」），尚未做任何編輯
 3. 已在第 1 張開啟 Adjustment room","1. 點「Color」
@@ -497,7 +497,12 @@ TC-099,AI Enhance,"1. 以 Free（非 Premium）帳號登入
 TC-100,AI Enhance,"1. 以 PhotoDirector Premium 帳號登入
 2. 已開啟 Batch Edit Room，共 12 張照片（Launcher「Edit」›「Batch」），尚未做任何編輯
 3. 已在第 1 張開啟 AI Enhance 頁，尚未 Enhance 任何照片
-4. Enhance 已完成",點 ✕,回到 Batch Edit Room 主畫面，Enhance 結果保留,P1,"R-130, R-114, R-213",Design 把 Discard Dialog 畫在 AI Enhance 頁上（Q-19）：如果 ✕ 會先詢問請記錄。,未變更,
+4. Enhance 已完成",點 ✕,"跳出 Discard Dialog：「Discard changes?」（整批 Enhance 也算編輯）
+請記錄「Discard」和「Keep Editing」各自會回到哪裡",P1,"R-130, R-114, R-213",依 REQ-018 判定（Q-19 已回答）：有做過編輯時，按 ✕ 要先詢問。,修改,REQ-018 對 Q-19 的判定：有編輯後按 ✕ 會跳 Discard Dialog（原本是不跳視窗、保留結果直接返回）
+TC-171,AI Enhance,"1. 以 PhotoDirector Premium 帳號登入
+2. 已開啟 Batch Edit Room，共 12 張照片（Launcher「Edit」›「Batch」），尚未做任何編輯
+3. 已在第 1 張開啟 AI Enhance 頁，尚未 Enhance 任何照片",點 ✕,"立刻回到 Batch Edit Room 主畫面
+不會跳出 Discard Dialog",P2,R-130,依 REQ-018 判定：沒有任何編輯時不跳視窗。,新增,REQ-018 判定：沒有編輯時按 ✕ 直接返回（TC-100 那條規則的另一半）
 TC-101,AI Enhance 失敗,"1. 以 PhotoDirector Premium 帳號登入
 2. 已開啟 Batch Edit Room，共 12 張照片（Launcher「Edit」›「Batch」），尚未做任何編輯
 3. 已在第 1 張開啟 AI Enhance 頁，尚未 Enhance 任何照片
@@ -625,7 +630,7 @@ TC-141,Android 返回鍵,"1. 以 PhotoDirector Premium 帳號登入
 TC-142,Android 返回鍵,"1. 以 PhotoDirector Premium 帳號登入
 2. 已開啟 Batch Edit Room，共 12 張照片（Launcher「Edit」›「Batch」），尚未做任何編輯
 3. 已在第 1 張開啟 AI Enhance 頁，尚未 Enhance 任何照片
-4. Enhance 已完成",按系統返回鍵,與 ✕ 相同：回到 Batch Edit Room，結果保留,P2,"R-170, R-130",Design 把 Discard Dialog 畫在 AI Enhance 頁上（Q-19）：如果返回鍵會先詢問請記錄。,未變更,
+4. Enhance 已完成",按系統返回鍵,與 ✕ 相同：跳出 Discard Dialog（「Discard changes?」）,P2,"R-170, R-130",依 REQ-018 判定（Q-19 已回答）：有做過編輯時，按返回鍵要先詢問。,修改,REQ-018 對 Q-19 的判定：有編輯後按返回鍵會跳 Discard Dialog，與 ✕ 相同
 TC-143,Android 返回鍵,批次 Enhance 處理中,按系統返回鍵,"處理不會被中斷或取消
 畫面仍在遮罩下",P1,"R-170, R-121, R-122",,未變更,
 TC-144,Android 返回鍵,已開啟確認對話框,按系統返回鍵,與「Cancel」相同：對話框關閉，不處理任何照片,P2,"R-170, R-137",,未變更,

@@ -14,7 +14,10 @@ not redo it per case, nor when the round's plan later switches the subscription 
 Edit Room › Settings › About: tap the backdoor button under [<] until the debug dialog opens. Turn 「set to
 subscriber」 off, reset UUID and member token each with the 「rest」 button in its own row, tap OK, close and reopen
 the app (never clear app data). Check again; if it cannot be confirmed, record the setup Blocked `--as test-data`.
-On Android 20.19.0 Settings is the Launcher gear (top right), and the dialog is reached as in KP-131.
+On Android 20.19.0 Settings is the Launcher gear (top right), and the dialog is reached as in KP-131. There (S23,
+batch-editing R3-g, 2026-11-13) the dialog view showed only switches (Test server, Set to subscriber, Support
+ScreenShot for free user, Show landmark for Muse, Force fetch remote config value, Force show UGC tab), no UUID or
+member token rows; where the reset rows are on Android is not known yet.
 
 ## KP-106 The account reset is setup, not a row
 - kind: howto · platform: both · use: run · tags: setup, privacy
@@ -26,7 +29,7 @@ iPhone it replaces reinstalling.
 
 ## KP-131 Switching Free / Premium on Android with 「Set to subscriber」
 - kind: howto · platform: android · use: run · tags: setup, debug, tier, subscription
-- source: user 2026-11-09 (chat; inbox I-002) · verified: 20.19.0 (90201900) (2026-11-10)
+- source: user 2026-11-09 (chat; inbox I-002); batch-editing run 2026-11-13-r3 R3-a, R3-g (S23) · verified: 20.19.0 (90201900) (2026-11-13)
 
 No sign-in needed. Launcher gear (top right, `topToolBarSettingBtn`) › About: tap repeatedly just below the ‹ button
 until the debug dialog opens; turn 「Set to subscriber」 on (Premium) or off (Free), tap OK, then relaunch the app.

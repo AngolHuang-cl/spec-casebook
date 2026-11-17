@@ -138,7 +138,7 @@ and has DR-05g before its 2026-11-11 change (KF-005). Where the two differ, the 
 - R-127 [PM:enhance-network, enhance-offline; D1-05] 「Retry Failed (x)」 reruns the unfinished photos; tapped while still offline it shows the toast 「No internet connection」 and does not start.
 - R-128 [PM:enhance-network, server-task-notes; D1-05, D1-10] If the app is killed, Batch Edit Room is gone and finished AI Enhance results are not kept (Standard results are not saved to My AI Artwork).
 - R-129 [PM:server-task-notes; D1-05] Sending the app to the background pauses processing; it continues on return.
-- R-130 [PM:flow-ai-enhance] ✕ on the AI Enhance page returns to Batch Edit Room with the finished Enhance results kept (results are applied when done, R-114). (The Design draws the Discard Dialog over the AI Enhance page: Q-19.)
+- R-130 [PM:flow-ai-enhance; DS: Discard Dialog over the AI Enhance page; ruling REQ-018] ✕ (and Android Back) on the AI Enhance page asks 「Discard changes?」 once an edit has been made (a finished Enhance counts); with no edit it returns straight to Batch Edit Room (user ruling 2026-11-17, Q-19).
 
 ## AI Enhance Confirm Dialog
 - R-135 [PM:confirm-dialog; D1-02, D1-03] Copy (as drawn, confirmed with RD): 「Enhance {xx} photos?」 / 「Processing takes a moment and cannot be canceled once started.」 / 「Cancel」 / 「Start」; {xx} = the photos to enhance.
@@ -184,6 +184,7 @@ and has DR-05g before its 2026-11-11 change (KF-005). Where the two differ, the 
 ## Answered questions
 - Q-16 (when 「All」 is greyed) — answered by the PM Figma DR-04 【NEW】 list (REQ-011): R-234, R-236; TC-042, TC-153, TC-162, TC-163, TC-059, TC-062, TC-063, TC-075, TC-076, TC-164, TC-165.
 - Q-17 (the strip in HSL / Curve) — answered by the PM Figma D1-12 rule: the strip hides while the panel is open (REQ-011): R-237, R-238; TC-166, TC-167, TC-168.
+- Q-19 (✕ / Back on the AI Enhance page) — answered by the user, 2026-11-17 (REQ-018): with edits made it asks 「Discard changes?」, with none it goes straight back: R-130; TC-100, TC-142, TC-171.
 
 ## Added 2026-10-30 (updated 2026-11-09) — coverage passes and standing inputs
 
@@ -348,7 +349,7 @@ The PDF has no Figma links, so arrows are read from the drawn flows (`arrows.jso
 | REQ-013 | R-238 (hidden clause: folding the Curve / HSL panel keeps its values and selection; TC-169, TC-170) |
 - Q-15 The PM entry board now plans a Launcher Batch Edit shortcut (icon to be designed after Meitu) and the deeplink `phd://navigate/page?name=batch_edit`, while D0-04 still says Batch Edit appears only in the two pickers. Where do the shortcut and the deeplink land (Photo Picker on 「Batch」?), and is the shortcut in 26'11/E? Assumption: the deeplink opens the Photo Picker on 「Batch」; rows record it. (R-022, TC-022, TC-152)
 - Q-18 PM (re-exported 2026-11-09) says the Adjustment room shows no AI Exposure; every Design Adjustment frame draws 「AI Exposure」 between 「Exposure」 and 「Contrast」. Which holds? Assumption: PM (no AI Exposure); the row records what the app shows. (R-090, TC-070)
-- Q-19 The Design draws the Discard Dialog over the AI Enhance page (with a credit pill 「100」 and a history icon at the top right), while PM says ✕ on that page returns to Batch Edit Room keeping the results and the dialog comes from Home / Replace photo. Does ✕ (or Back) on the AI Enhance page ask to discard, and does that page show a credit pill? Assumption: PM (no dialog, results kept). (R-130, TC-100, TC-142)
+- Q-19 The Design's Discard Dialog frame over the AI Enhance page shows a credit pill 「100」 and a history icon at the top right, which batch AI Enhance does not otherwise draw. Does the page show a credit pill? Assumption: not asserted. (Whether ✕ / Back asks first is answered: REQ-018, R-130.)
 - Q-20 Batch Save page title: Design 「Save 12 photos」, PM 「Saved 12 photos」 (D1-07). Assumption: the Design copy. (R-153, TC-128)
 - Q-21 The Design adds a feedback button (speech bubble with !) to the Batch Edit Room top bar; PM lists only Home, Replace photo, Save and Setting. Is it in the batch room, and what does it open? Assumption: present; rows record what opens. (R-031, TC-024, TC-154)
 - Q-22 The Design Crop & Rotate room has ‹ at the top left as well as ✕ at the bottom. Is ‹ the same as ✕ (drop the room's changes) or as ✓? Assumption: same as ✕; rows record it. (R-050, TC-155)
