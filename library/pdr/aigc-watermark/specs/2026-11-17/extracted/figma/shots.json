@@ -1,0 +1,61 @@
+{
+  "pm-rules.png": {
+    "board": "0:1/pm-rules",
+    "group": "pm-a",
+    "hash": "f705e933",
+    "overlay": "",
+    "captured_at": "2026-11-17T02:24:47.425Z",
+    "box": [
+      -1700,
+      -150,
+      1580,
+      2050
+    ]
+  },
+  "pm-settings.png": {
+    "board": "0:1/pm-settings",
+    "group": "pm-a",
+    "hash": "31c5978f",
+    "overlay": "",
+    "captured_at": "2026-11-17T02:24:47.684Z",
+    "box": [
+      250,
+      -150,
+      1050,
+      2100
+    ]
+  },
+  "pm-export.png": {
+    "board": "0:1/pm-export",
+    "group": "pm-b",
+    "hash": "7c540eff",
+    "overlay": "",
+    "captured_at": "2026-11-17T02:24:47.898Z",
+    "box": [
+      250,
+      2120,
+      1600,
+      1050
+    ]
+  },
+  "pm-music.png": {
+    "board": "0:1/pm-music",
+    "group": "pm-b",
+    "hash": "6fa176cd",
+    "overlay": "",
+    "captured_at": "2026-11-17T02:24:48.113Z",
+    "box": [
+      250,
+      3480,
+      1480,
+      1300
+    ]
+  },
+  "aigc-watermark-settings.png": {
+    "board": "3815:9037",
+    "group": "d-aigc",
+    "hash": "e45b327e",
+    "overlay": "",
+    "captured_at": "2026-11-17T02:24:48.394Z"
+  }
+}

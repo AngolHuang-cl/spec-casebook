@@ -1,0 +1,35 @@
+{
+  "boards": {
+    "3815:9037": {
+      "hash": "e45b327e",
+      "overlay": "",
+      "at": "2026-11-17T02:20:36.671Z",
+      "group": "d-aigc"
+    },
+    "0:1/pm-rules": {
+      "hash": "f705e933",
+      "overlay": "",
+      "at": "2026-11-17T02:19:31.749Z",
+      "group": "pm-a"
+    },
+    "0:1/pm-settings": {
+      "hash": "31c5978f",
+      "overlay": "",
+      "at": "2026-11-17T02:19:31.749Z",
+      "group": "pm-a"
+    },
+    "0:1/pm-export": {
+      "hash": "7c540eff",
+      "overlay": "",
+      "at": "2026-11-17T02:19:32.650Z",
+      "group": "pm-b"
+    },
+    "0:1/pm-music": {
+      "hash": "6fa176cd",
+      "overlay": "",
+      "at": "2026-11-17T02:19:32.650Z",
+      "group": "pm-b"
+    }
+  },
+  "files": {}
+}
