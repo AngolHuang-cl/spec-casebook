@@ -126,3 +126,29 @@
   screenshots/R1-h-music-filled.png, screenshots/R1-h-music-after-generate.png. Also: the reset left the switch On by
   default (TC-008); set Off afterwards. TC-129 ticked the export dialog's 「Don't show again」 before the reset; the reset
   cleared it.
+- O-28 (closest TC-054 / TC-128, R1-i 2026-11-18 09:10-09:13, sign-in for the music recheck): the phone's Google account
+  (acda.test7, authorized by the user 2026-11-18) could not sign the app in without a step outside the brief. Mine ›
+  User Sign in › Google button opens Chrome (ChromeTabbedActivity), not the Android account chooser: first Chrome's own
+  「Sign in to Chrome」 sheet (「Continue as Acda」 / 「Skip」; continuing would sign the Chrome browser itself into
+  acda.test7, a browser account change, not taken), then after Skip the web page accounts.google.com 「Sign in to
+  continue to CyberLink」 with an empty 「Email or phone」 box and no account list (typing the address would lead to
+  Google's password/verification step, user only). Nothing typed; Chrome left on that page in the background. The app
+  stays signed out (Mine 「Free」, credit log totalRemain=0), Stage (yellow bar, [AID]Stage_Server), switch Off, English.
+  No generation possible, so TC-054/057 stay Fail and TC-055/056/128 Blocked as recorded (O-27). To finish: the user
+  either taps 「Continue as Acda」 (signs Chrome in) or signs the app in by hand, then one Generate Music with the
+  switch Off settles TC-054 and lets TC-055/056/057 and TC-128 (last) run. Evidence screenshots/R1-i-signin2.png,
+  screenshots/R1-i-after-continue.png, screenshots/R1-i-chrome-page.png, screenshots/R1-i-end-switch.png.
+- O-29 (closest TC-054 / TC-128, R1-i2 2026-11-18 09:15-09:18, sign-in with the approved route): Mine › User Sign in ›
+  Google › Chrome 「Sign in to Chrome」 › 「Continue as Acda」 (user-approved 2026-11-18) worked on Google's side: Chrome
+  signed in and landed on mauth-stage.cyberlink.com/auth/all-set (「You Are All Set!」, Stage auth), no password asked.
+  Back in the app the dialog 「Account Not Found」 「Looks like you signed in with a different account. Use your original
+  one to access credits and cloud files.」 with only 「Switch Account」 opened, and the app stayed signed out (Mine
+  「Free」, 「User Sign in」, credit log totalRemain=0). Log: `CreditSystemManager: bindMember … 403
+  {"detail":"invalid device identity"}` then `[updateAfterLogin] bindMember failed` (09:17:23), right after a Play
+  Integrity (StandardIntegrity) call. So the app binds the credit account to the device and the Stage credit server
+  rejects this phone's identity after the TC-008 `pm clear` (compare O-27 and run-android.md's 「Fail to verify
+  uuid」 note); the dialog's text blames the account although the log names the device. Not retried. Still no
+  generation possible: TC-054/057 Fail, TC-055/056/128 Blocked unchanged. Needs RD/the user: a device identity Stage
+  accepts (or the original account ethan.hsu.cl@gmail.com signed in by the user, which may hit the same 403). Evidence
+  screenshots/R1-i2-chrome2.png, screenshots/R1-i2-account-not-found.png, screenshots/R1-i2-end-switch.png; log
+  excerpt logs/R1-i2-20261118-091804.

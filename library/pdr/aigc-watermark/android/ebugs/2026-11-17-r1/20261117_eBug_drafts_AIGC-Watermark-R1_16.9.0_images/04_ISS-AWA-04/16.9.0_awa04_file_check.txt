@@ -1,0 +1,10 @@
+# ISS-AWA-04 gallery file check
+# The first file was saved with the switch Off (TC-009); the second is the only gallery copy pulled after the
+# second save with the switch On (TC-051). Same bytes = no new file was written.
+
+TC-009-t2i-portrait-off.jpg	655,306 bytes	MD5 b96b9ab5dd439f69920101499a36c677
+TC-051-gallery-after-on-save.jpg	655,306 bytes	MD5 b96b9ab5dd439f69920101499a36c677
+
+On the phone (adb ls, 14:35–14:39): Pictures/cyberlink/PowerDirector/Text to Image/ held 1_1794896846878.jpg
+(mtime 14:27:40) before and after the On save; after TC-121 / TC-089 it held 1_1794897465270.jpg (14:37) before and
+after the Off save. The app showed 「Saved to Gallery」 both times.

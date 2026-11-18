@@ -3688,3 +3688,88 @@
 2026-11-17T12:06:14.285Z file screenshots/R1-h-music-after-generate.png
 2026-11-17T12:07:35.294Z file screenshots/R1-h-end-launcher.png
 2026-11-17T12:07:52.484Z file logs/R1-h-20261117-200750
+2026-11-18T01:10:59.483Z status 
+2026-11-18T01:11:03.675Z restart 
+2026-11-18T01:11:11.106Z shot R1-i-start
+2026-11-18T01:11:20.988Z lbl Mine
+2026-11-18T01:11:22.098Z texts 
+2026-11-18T01:11:25.703Z lbl User Sign in
+2026-11-18T01:11:26.224Z els 
+2026-11-18T01:11:26.864Z shot R1-i-signin
+2026-11-18T01:11:33.043Z waitfor Google|Continue|Sign --timeout 20
+2026-11-18T01:11:33.515Z els 
+2026-11-18T01:11:33.895Z shot R1-i-signin2
+2026-11-18T01:11:40.378Z tap 412 1313
+2026-11-18T01:11:40.830Z shot R1-i-google
+2026-11-18T01:11:47.201Z els 
+2026-11-18T01:11:51.054Z shot R1-i-account-picker
+2026-11-18T01:11:51.760Z id account_picker_continue_as_button
+2026-11-18T01:11:52.128Z els 
+2026-11-18T01:11:52.625Z shot R1-i-after-continue
+2026-11-18T01:12:01.967Z lbl Skip
+2026-11-18T01:12:02.429Z texts 
+2026-11-18T01:12:03.702Z shot R1-i-chrome-page
+2026-11-18T01:12:15.521Z activate 
+2026-11-18T01:12:15.942Z shot R1-i-back-in-app
+2026-11-18T01:12:16.746Z texts 
+2026-11-18T01:12:20.215Z id btnBack
+2026-11-18T01:12:20.545Z texts 
+2026-11-18T01:12:21.731Z lbl Home
+2026-11-18T01:12:23.218Z lbl Menu
+2026-11-18T01:12:24.793Z shot R1-i-menu
+2026-11-18T01:12:25.849Z texts 
+2026-11-18T01:12:30.389Z tap 92 115
+2026-11-18T01:12:30.631Z lbl Settings
+2026-11-18T01:12:31.855Z scrollto Remove AIGC Watermark
+2026-11-18T01:12:32.797Z shot R1-i-end-switch
+2026-11-18T01:12:39.621Z back 
+2026-11-18T01:12:40.296Z pull-logs R1-i
+2026-11-18T01:16:56.026Z shot R1-i2-start
+2026-11-18T01:16:57.179Z texts 
+2026-11-18T01:17:05.075Z lbl Mine
+2026-11-18T01:17:06.197Z lbl User Sign in
+2026-11-18T01:17:07.022Z waitfor Forgot Password --timeout 20
+2026-11-18T01:17:11.889Z tap 412 1313
+2026-11-18T01:17:12.126Z waitfor Continue as|Email or phone|Choose an account --timeout 25
+2026-11-18T01:17:15.040Z shot R1-i2-chrome
+2026-11-18T01:17:15.663Z texts 
+2026-11-18T01:17:19.600Z lbl Continue as Acda
+2026-11-18T01:17:20.048Z shot R1-i2-after-continue
+2026-11-18T01:17:20.659Z texts 
+2026-11-18T01:17:27.477Z shot R1-i2-chrome2
+2026-11-18T01:17:28.176Z texts 
+2026-11-18T01:17:31.664Z activate 
+2026-11-18T01:17:32.055Z shot R1-i2-app
+2026-11-18T01:17:32.767Z texts 
+2026-11-18T01:17:38.489Z shot R1-i2-account-not-found
+2026-11-18T01:17:39.178Z els 
+2026-11-18T01:17:51.058Z back 
+2026-11-18T01:17:51.551Z texts 
+2026-11-18T01:17:51.877Z id btnBack
+2026-11-18T01:17:52.563Z texts 
+2026-11-18T01:18:00.054Z lbl Home
+2026-11-18T01:18:00.540Z tap 92 115
+2026-11-18T01:18:00.813Z scrollto Remove AIGC Watermark
+2026-11-18T01:18:02.358Z shot R1-i2-end-switch
+2026-11-18T01:18:03.132Z back 
+2026-11-18T01:18:03.788Z texts 
+2026-11-18T01:18:04.772Z pull-logs R1-i2
+2026-11-18T01:11:12.362Z file screenshots/R1-i-start.png
+2026-11-18T01:11:27.296Z file screenshots/R1-i-signin.png
+2026-11-18T01:11:34.444Z file screenshots/R1-i-signin2.png
+2026-11-18T01:11:41.300Z file screenshots/R1-i-google.png
+2026-11-18T01:11:51.609Z file screenshots/R1-i-account-picker.png
+2026-11-18T01:11:53.192Z file screenshots/R1-i-after-continue.png
+2026-11-18T01:12:04.176Z file screenshots/R1-i-chrome-page.png
+2026-11-18T01:12:16.596Z file screenshots/R1-i-back-in-app.png
+2026-11-18T01:12:25.676Z file screenshots/R1-i-menu.png
+2026-11-18T01:12:33.495Z file screenshots/R1-i-end-switch.png
+2026-11-18T01:12:45.103Z file logs/R1-i-20261118-091240
+2026-11-18T01:16:57.004Z file screenshots/R1-i2-start.png
+2026-11-18T01:17:15.514Z file screenshots/R1-i2-chrome.png
+2026-11-18T01:17:20.511Z file screenshots/R1-i2-after-continue.png
+2026-11-18T01:17:28.017Z file screenshots/R1-i2-chrome2.png
+2026-11-18T01:17:32.621Z file screenshots/R1-i2-app.png
+2026-11-18T01:17:39.025Z file screenshots/R1-i2-account-not-found.png
+2026-11-18T01:18:02.999Z file screenshots/R1-i2-end-switch.png
+2026-11-18T01:18:06.468Z file logs/R1-i2-20261118-091804

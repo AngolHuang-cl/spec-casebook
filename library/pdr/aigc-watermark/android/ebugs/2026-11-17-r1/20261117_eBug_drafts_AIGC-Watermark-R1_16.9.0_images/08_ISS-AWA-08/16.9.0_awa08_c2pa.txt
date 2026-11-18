@@ -1,0 +1,57 @@
+# ISS-AWA-08 Content Credentials of the saved files
+# c2patool 0.29 on the files pulled from the phone (Sony XQ-BT52, PowerDirector 16.9.0 (2611161), Stage, 2026-11-17).
+# Per file: active manifest signer, claim generator, actions, ingredients, validation failures. Hashes and certificate serials omitted.
+
+## TC-093-itv-klingO3-off.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## TC-094-itv-vidu-off.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## TC-096-itv-pixverse-off.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## TC-097-itv-wan27-off.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## TC-012-t2v-klingO3-portrait-off.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## TC-106-t2v-wan27-off.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## TC-107-cms-klingmc-off.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## TC-018-vebc-kling-off.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## app cache raw: cms-klingmc-raw.mp4
+  manifests: 1  signer: CN=Kling AI C2PA Claim Signing / issuer=Kling AI
+  claim generator: ks-c2pa-service 0.1.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted

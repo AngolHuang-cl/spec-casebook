@@ -15,3 +15,10 @@ The Sony XQ-BT52 (Xperia 10 III, Snapdragon 690) hardware decoders stop at 3840�
 120); a 4K 60 H.264 clip fails at decoder setup (`InsufficientResources`, 「Failed to initialize decoder」) in any
 player, while 4K 30 plays. A 4K 60/120 result that will not play on it is a phone limit, not an app bug; check
 4K 60 playback on the Samsung SM-A5360. Whether the app should offer 4K 60 on such phones is a PM question.
+
+## KP-089 Appium screen recording stops early on the full-screen player
+- kind: quirk · platform: android · use: run · tags: recording, player, tools
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-11 · verified: 16.9.0 build 2611161 (2026-11-17)
+
+An Appium screen recording of the in-app full-screen result player stops after about 1.5 s with few frames. To judge
+what the player draws in its first seconds, take rapid `adb exec-out screencap` captures instead.

@@ -39,3 +39,25 @@ the empty marker.
 The project list can show a broken-media placeholder (film icon and 「?」) for a valid project (ISS-PRJ-01). Unconfirmed:
 a 0:00 project opened into an empty editor and then vanished from the list, as if 0-duration projects are cleaned up.
 Check project lists after AI results and empty projects.
+
+## KP-075 The full-screen hint covers the first Play of each project
+- kind: quirk · platform: android · use: run · tags: editor, preview, hint
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-26 · verified: 16.9.0 build 2611161 (2026-11-17)
+
+Every time a project opens, its first Play shows 「Double tap on preview to watch your video at full screen.」 while
+playback runs behind it. Close it with X (「Don't show again」 left unticked), seek to 0:00 and play again before
+judging the preview.
+
+## KP-076 AI Anime Video from the editor is slow and adds a clip
+- kind: fact · platform: android · use: analysis, run · tags: editor, ai-anime-video, timeline
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-25 · verified: 16.9.0 build 2611161 (2026-11-17)
+
+AI Anime Video started from the editor (Vivid 10 s) took about 22 minutes (「17 minutes left…」); 「Add to Timeline」
+puts the result after the source clip, not in its place. Start it early in a segment.
+
+## KP-077 AI Style Transfer turns portrait photos sideways
+- kind: risk · platform: android · use: analysis, run, ebug · tags: editor, style-transfer, orientation
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-22 (not filed yet) · verified: 16.9.0 build 2611161 (2026-11-17)
+
+AI Cartoon (Elf) and AI Sketch (Oil Painting) on an upright portrait photo (DSC_0047.JPG) return the image turned 90°
+in the preview and the export; likely EXIF orientation. Use portrait photos with EXIF rotation when testing them.

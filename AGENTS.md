@@ -280,6 +280,11 @@ lines; put the full rule in the skill or reference file that applies it and poin
   sign-in stays the user's when the agent cannot log in (the agent never types passwords); where a phone signs in with
   its Google account button and no password (the SM-A5360, `fixtures.md`), the agent does it. Every permission the app
   asks for (notifications, photos, microphone…) is allowed (user, 2026-11-04).
+- **Android sign-in: the phone's Google account first (user, 2026-11-18).** On Android the agent signs the app in with
+  the Google account already on the phone (its account button, no password) before asking the user for anything; on
+  the Sony that is acda.test7. When the app's Google button opens Chrome, the agent may tap 「Continue as <name>」,
+  signing Chrome on the test phone into that account too (user, 2026-11-18). Only when that fails does sign-in go to
+  the user (`fixtures.md`).
 - **Chat waits go to the bottom (user, 2026-11-06, REQ-107).** The AI Mini Drama chat pins the sent message to the
   top (R-250), so a wait or check for a new card taps ↓ first (`waitfor … --bottom`, `expect … --bottom`, `bottom`),
   except in the rows that test the scrolling itself (`run-android.md`).

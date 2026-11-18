@@ -103,3 +103,10 @@ follows the Play account, so after `pm clear` the app reads Pro before sign-in. 
 「Welcome! Enter your email to get started」 with a marketing box ticked by default and adds 「Loyalty Credit Bonus
 (for PowerDirector Subscribers) +30」. Logcat's `acknowledgePurchaseResponse 2 Server error` at purchase has no
 visible effect.
+
+## KP-074 The Pro paywall opens by itself on a Free account
+- kind: quirk · platform: android · use: run · tags: paywall, tier, export
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-2, O-21, O-23 · verified: 16.9.0 build 2611161 (2026-11-17)
+
+On a Free account the 「PowerDirector Pro」 paywall can open at a launch, and opens after every Produce (over 「Saved to
+Gallery」, before any export dialog). Close it with `[AID]IAP_Back`; the file is saved regardless.

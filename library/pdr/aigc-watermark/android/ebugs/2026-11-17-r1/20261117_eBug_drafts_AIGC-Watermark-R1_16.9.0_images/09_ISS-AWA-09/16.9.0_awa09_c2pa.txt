@@ -1,0 +1,51 @@
+# ISS-AWA-09 Content Credentials of the saved files
+# c2patool 0.29 on the files pulled from the phone (Sony XQ-BT52, PowerDirector 16.9.0 (2611161), Stage, 2026-11-17).
+# Per file: active manifest signer, claim generator, actions, ingredients, validation failures. Hashes and certificate serials omitted.
+
+## TC-021-itv-veo-off.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## TC-022-itv-veo-on.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [compositeWithTrainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## TC-036-t2v-veo-off.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## TC-113-vebc-gemini-off.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## app cache raw: EditByChat - Nov 17 - 2 - 1794899471753.mp4
+  manifests: 1  signer: CN=Google Media Processing Services / issuer=Google LLC
+  claim generator: Google C2PA Core Generator Library 1022441403:1022441403
+  actions: c2pa.created [trainedAlgorithmicMedia] "Created by Google Generative AI."; c2pa.edited [trainedAlgorithmicMedia] "Applied imperceptible SynthID watermark."
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## TC-024-crc-off.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## app cache raw: crc-raw.mp4
+  manifests: 1  signer: CN=Byteplus Pte. Ltd. / issuer=Byteplus Pte. Ltd.
+  claim generator: c2pa-tool 0.1.0
+  actions: c2pa.created [trainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted
+
+## TC-033-story-off.mp4
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0
+  actions: c2pa.created [compositeWithTrainedAlgorithmicMedia]
+  ingredients: 0   validation failures: signingCredential.untrusted

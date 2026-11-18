@@ -33,4 +33,6 @@ first segment; a new row that needs something new adds it here in the same draft
 ## Reset
 - The default-value row (TC-008) and the 「Don’t show again」 rows are one-way: they run last (segment R1-h). The
   default row clears the app (`adb shell pm clear com.cyberlink.powerdirector.DRA140225_01`, logs pulled first) and
-  signs in again with the phone's account button.
+  signs in again with the phone's account button: the Google account on the phone (acda.test7 on the Sony) is tried
+  first (user, 2026-11-18). The app's Google button opens Chrome: tap 「Continue as Acda」 (signs Chrome into
+  acda.test7 too, allowed by the user 2026-11-18), then pick the account; the user is asked only if that fails.

@@ -1,0 +1,16 @@
+# Dedupe per OS (user, 2026-10-28): same-OS matches are left off the drafts and the review page.
+# Android pool (PowerDirector Mobile for Android), read-only ecl_query.py, 2026-11-18.
+# Same-OS matches (not drafted):
+O-29 (sign-in after pm clear: 「Account Not Found」, bindMember 403 invalid device identity)	DRA262611P0200	Assigned, RD, S1, 16.9.0.2611161, TR261116-0056: 「SIgn In: Sign in CL account fail」 — likely the same failure; not drafted
+
+# ecl_query.py dedupe upload/bodies.json --product "PowerDirector Mobile for Android" (dedupe-query.txt): every candidate read by title, none a duplicate.
+ISS-AWA-02	DRA262607-0266 (NAB), DRA231224-0080, AI Art naming / intro tickets	other symptoms (Delete button, thumbnails, names)
+ISS-AWA-03	DRA262609P0047 (Close)	「Add to Timeline」 on a History item does nothing — other symptom
+ISS-AWA-07	DRA262601-0093	scrollbar in landscape My Artwork — unrelated
+ISS-AWA-08	DRA262609-0040	Template Settings sheet copy — unrelated
+ISS-AWA-11	DRA262607-0285, DRA252502-0112	Favorite tab / file names — unrelated
+ISS-AWA-14	DRA262609P0042 (NAB), DRA262611P0202	ad after Produce / Template V2V picker — unrelated
+# Text searches (Android): 「AIGC」 (1 hit, Black Friday dialog, unrelated), 「C2PA」 0, 「AI label」 0, 「Content Credentials」 0,
+# 「watermark」 40 (Free / Pro watermark tickets, none about the AIGC label), 「AI Cartoon」, 「AI Sketch」, 「Style Transfer」,
+# 「rotate」, 「rotated」, 「orientation」, 「sideways」 (none about a styled photo turned 90°), 「spoken」, 「AI Music Generator」.
+# iOS tickets were not searched (per OS rule: they never make an Android finding a duplicate).
