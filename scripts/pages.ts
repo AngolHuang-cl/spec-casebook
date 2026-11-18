@@ -30,7 +30,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, statSync, watch } from 'node:fs';
 import { createServer, request } from 'node:http';
 import { networkInterfaces } from 'node:os';
-import { join, sep } from 'node:path';
+import { join, relative, sep } from 'node:path';
 import { createGzip, gzipSync } from 'node:zlib';
 import { hasDraft, listBoards, newestPlan, openDrafts } from './lib/boards.ts';
 import { housekeeping } from './lib/housekeeping.ts';
@@ -38,6 +38,7 @@ import { LIBRARY, PLATFORMS, arg, assertIds, readManifest, tableDir } from './li
 import { isLocal } from './lib/local.ts';
 import { COOKIE, attempts, hasSession, makePasscode, passcodeMatches, safeNext, sessionOf } from './lib/passcode.ts';
 import { withShared } from './lib/page-shared.ts';
+import { SEAT_PRESETS, readSettings, seatAt, setSeat, settingsFile } from './lib/settings.ts';
 
 const IDLE_MS = Number(arg('idle') ?? 10) * 60_000, MAX_LIVE = 12;
 const argv = process.argv.slice(2), lan = argv.includes('--lan');
@@ -324,6 +325,23 @@ const loginPage = (next: string, error = '') => withShared(readFileSync(script('
 const boardsPage = () => withShared(readFileSync(script('boards-page.tpl'), 'utf8')).replace('/*__BAR_CSS__*/', () => barCss.replace(/<\/?style>/g, ''))
   .replace('__NOTE__', () => shareNote()).replace('__DATA__', () => JSON.stringify(boardsData()).replace(/</g, '\\u003c'));
 
+// The Settings page (user, 2026-11-17): this computer's settings (lib/settings.ts), linked only from the navigation
+// page's top bar so the table pages stay uncrowded. Other computers see it read-only; saving is local, like Save.
+const settingsData = (local: boolean) => ({ ...readSettings(), now: seatAt() ?? null, presets: SEAT_PRESETS, local, file: settingsFile() });
+const settingsPage = (local: boolean) => withShared(readFileSync(script('settings-page.tpl'), 'utf8')).replace('/*__BAR_CSS__*/', () => barCss.replace(/<\/?style>/g, ''))
+  .replace('__NOTE__', () => shareNote()).replace('__DATA__', () => JSON.stringify(settingsData(local)).replace(/</g, '\\u003c'));
+async function saveSeat(req: import('node:http').IncomingMessage, res: import('node:http').ServerResponse) {
+  const json = (status: number, body: unknown) => { res.writeHead(status, { 'content-type': 'application/json', 'cache-control': 'no-store' }); res.end(JSON.stringify(body)); };
+  if (!isLocal(req.socket.remoteAddress)) { json(403, { error: 'Only this computer can change its settings.' }); return; }
+  let raw = ''; for await (const c of req) { raw += c; if (raw.length > 4096) break; }
+  let body: any; try { body = JSON.parse(raw); } catch { json(400, { error: 'Bad request.' }); return; }
+  try {
+    const { entry, marked } = setSeat(Number(body.seat), LIBRARY, String(body.note ?? '').slice(0, 200));
+    const root = join(import.meta.dirname, '..');
+    json(200, { entry, marked: marked.map(m => relative(root, m).split(sep).join('/')), data: settingsData(true) });
+  } catch (e: any) { json(400, { error: e?.message ?? String(e) }); }
+}
+
 // HTML, JSON and other text go out gzipped to a browser that takes it (a page is ~100 KB; it matters over --lan);
 // images are compressed already and the event stream must not be buffered
 const gz = (req: import('node:http').IncomingMessage) => /\bgzip\b/.test(String(req.headers['accept-encoding'] ?? ''));
@@ -377,6 +395,8 @@ async function handle(req: import('node:http').IncomingMessage, res: import('nod
     }
     res.writeHead(200, { 'content-type': 'application/json' }); res.end(JSON.stringify({ casebook: true, lan, live: live().map(c => c.key), ...(passcode && isLocal(req.socket.remoteAddress) ? { passcode } : {}) })); return;
   }
+  if (url === '/settings' || url === '/settings/') { if (url === '/settings') { res.writeHead(301, { location: '/settings/' }); res.end(); return; } sendText(req, res, 200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }, settingsPage(isLocal(req.socket.remoteAddress))); return; }
+  if (url === '/settings/seat' && req.method === 'POST') { await saveSeat(req, res); return; }
   if (url === '/favicon.ico') { res.writeHead(204); res.end(); return; }
   // old addresses, from before there was a table in the path (user, 2026-11-06); /review/ and /plan/ are older names
   const names: Record<string, string> = { review: 'cases', plan: 'progress' };

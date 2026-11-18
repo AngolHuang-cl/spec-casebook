@@ -6,8 +6,8 @@ first segment; a new row that needs something new adds it here in the same draft
 ## Phone, app and account
 - Phone: the Sony XQ-BT52 on adb (serial HQ61563393, Android 12) is the one connected on 2026-11-17. It cannot play
   4K 60fps (KP-069): choose 1080p in the Produce sheet.
-- Build: a PowerDirector for Android build that has the AIGC watermark (none named yet; 16.9.0 (2611091) is installed
-  and predates it). Name the TR before the run.
+- Build: round 1 is 16.9.0 (2611161), TR261116-0056; its zip is in `~/.casebook/android/apks/2611161/` (outside the
+  repo). 16.9.0 (2611091) and older predate the feature.
 - Accounts: a Free test account and a Pro test account (Android sells Pro, no Pro+; KP-006). The tier comes from the
   signed-in account, so the Pro rows need the Pro account. Never buy, never type a password.
 - Credits: about 40 AI generations across the scope features (one per feature and per model the C2PA rows name, plus

@@ -749,6 +749,7 @@ All scripts run from the repository root with `node scripts/<name>.ts`. In the u
 | `log-slice.ts <run dir> <pull dir>` | Cuts a log pull into per-case excerpts (failures, toasts, charges, stage timings) |
 | `plan-page.ts <feature> <platform> <draft> <plan.md> [--serve [port] [--lan]]` | Builds or serves the live run plan |
 | `token-usage.ts`, `usage-log.ts` | Claude token use and plan-usage snapshots for run reports |
+| `settings.ts` | This computer's settings (the Claude account's seat size), also on the pages server's Settings page |
 | `ebug-defaults.ts <feature> <platform>` | Filing defaults (creator, TR, source tag) from the newest filed batch |
 
 `npm run <name>` shortcuts exist for the common ones (`status`, `check`, `review`, `export`, `fingerprint`,

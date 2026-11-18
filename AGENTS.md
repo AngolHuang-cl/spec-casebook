@@ -297,6 +297,10 @@ lines; put the full rule in the skill or reference file that applies it and poin
   commit, with no second confirmation; a plain "commit" stays local.
 - **Parallel phones: investigate only.** Running segments on several phones at once is an open idea in
   `INVESTIGATE.md`; do not build multi-device support without asking.
+- **Seat size in Settings (user, 2026-11-17).** The account's seat size (Pro 1, Team 1.25 / 6.25) is set per computer on
+  the pages server's Settings page (from All features) or `scripts/settings.ts seat N`; usage readings use it, the
+  orchestrator reads the usage card itself (`get_usage`) at every segment, and asks for the seat only when none is set
+  (`run.md` › Time and token summary).
 - **Plan usage (2026-10-21).** The account is shared, so usage-card readings overstate a run. The run plan's main
   figure is a token-rate estimate calibrated on P1 (`runs/usage-calibration.json`: P1 ≈ 3 full 5-hour windows of a 1×
   Pro account); the account total is shown muted. Seat sizes: round 1/P1 1× Pro, round 2 a Team seat = 6.25× Pro,

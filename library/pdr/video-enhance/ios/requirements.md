@@ -57,6 +57,12 @@ for every combination (TC-278 – TC-313, Q-26 prices); R-204 timed on 19 combin
 - R-010 [PM:pm-draft-logic A1 [建議]] Ticking 「Don’t show again」 and leaving with back (without 「Try It Now」) does not save it: the Demo page appears on the next entry.
 - R-011 [PM:pm-draft-logic A1 [建議]] Back on the Demo page returns to the entry page (Launcher or AI Magic) without opening Add Media.
 
+Draft 20261117-105552 [Req: REQ-020]: the spec agent rebuilt its Android set at 4f9efe41 (373 definitions); 47 had
+no casebook row in its crosswalk. 39 are covered by today's rows and 2 cannot be encoded (719p, 721p). The other 6:
+R-205 – R-207 are new, from the spec agent's user-approved observed UI (2026-10-12, seen on iOS; the Design and PM are
+silent, so a difference is a PM question) (TC-315 – TC-317); R-046 is walked through every Professional resolution
+(TC-063) and R-030 one hundredth either side of 8:00 (TC-270). Requirement text otherwise unchanged.
+
 ## Add Media
 - R-012 [DS:ds-main-flow Add Media; PM:pm-draft-logic A2 [Design]] Add Media (title 「Add Media」) shows only the 「Video」 tab and takes one video (v1 single pick).
 - R-013 [DS:ds-main-flow arrow 3293-13715; PM:pm-draft-logic A2 [建議]] Tapping a video thumbnail opens the panel with that video (no Next button).
@@ -65,6 +71,8 @@ for every combination (TC-278 – TC-313, Q-26 prices); R-204 timed on 19 combin
 - R-196 [DS:ds-ai-video-enhance 預設值規則 「來源超過最高選項時取最高」 + lookup 1081p → 4K; Req: REQ-011] A source of 2K or higher (1440p, 4K 3840 × 2160, 8K 7680 × 4320; either orientation) opens the panel like any other: 「4K」 is selected, the Preview shows and plays the video and its badge shows the source's own fps and resolution. Before 2026-11-11 this was a 2K+ block taken from the spec agent (TC-VE2-097 / 098), whose PDF is a 2026-10-07 export of the old board state; today's board contradicts it (REQ-011). PM E1's 「≤ 4K」 is older than the Design (Q-13).
 - R-202 [Req: REQ-008; spec agent TC-VE2-153, TC-VE2-154, TC-VE2-155, TC-VE2-156, TC-VE2-225 (colleague's build, not in the Design)] Add Media (the 「Video」 tab of R-012) offers every video source of PowerDirector's media picker: the local albums (All / Recents and named albums or folders) and the stock video libraries in its provider tab row (Pexels, Pixabay among them); a supported video picked from any of them opens the panel with that video in the Preview.
 - R-016 [PM:pm-draft-logic A2 [建議]] With no videos on the device Add Media shows the empty state 「No videos yet」.
+- R-205 [Req: REQ-020; spec agent TC-VE2-331, VE-1012-S001-B001 / B002 (user-approved observed iOS UI, 2026-10-12; not in the Design or PM)] While a picked local video is imported, an overlay shows the progress as a percentage and a 「Cancel」 control before the panel opens; what 「Cancel」 does is not specified.
+- R-206 [Req: REQ-020; spec agent TC-VE2-332, VE-1012-S001-B003 (user-approved observed iOS UI, 2026-10-12; not in the Design or PM)] Add Media's sort control opens a panel offering 「Default」, 「Date」, 「Duration」 and 「Modified Date」, each in 「Ascending」 or 「Descending」 order.
 
 ## Panel layout and first-run bubble
 - R-020 [DS:ds-main-flow VE · 01 / VE · 02] The panel shows: top bar back ‹, title 「AI Video Enhance」, a credit pill with the balance (「0」 on Free, 「35」 after the purchase) and a Recent task icon; the Preview with play, the time 「00:00/<video length>」 and a full-screen icon; 「Selected Length ⓘ」 with the selected length; the thumbnail strip with a left ‹ and a right › trim handle and the playhead (R-192); 「Mode ⓘ」 Standard / Professional; 「Enhancement style ⓘ」 Natural / Sharp; 「fps」 30fps / 60fps / 120fps; 「Resolution」 720p / 1080p / 4K; the CTA; the line 「Charge X credits per second」 under it.
@@ -168,6 +176,7 @@ for every combination (TC-278 – TC-313, Q-26 prices); R-204 timed on 19 combin
 - R-116 [DS:ds-main-flow 「Manage」] 「Manage」 opens the management of the stored tasks (Q-8).
 - R-117 [DS:ds-main-flow 「Tasks are stored on the cloud for 1 Year」] Tasks are kept on the cloud for one year — NOT TESTABLE: needs a year.
 - R-198 [DS:ds-main-flow 「Tasks are stored on the cloud for 1 Year」; Req: REQ-008; spec agent TC-VE2-077] The part of the one-year retention a run can see: a completed task stays on Recent task after the app is closed and reopened, and its 「View」 still opens its Result after the longest wait the run allows (days later, not only minutes); the one-year limit itself is confirmed with RD (R-117).
+- R-207 [Req: REQ-020; spec agent TC-VE2-333, VE-1012-S001-B004 (user-approved observed iOS UI, 2026-10-12; not in the Design or PM)] Recent task for an account with no Video Enhance task shows no card and 「No results found」 (the Design draws no empty state).
 
 ## Result
 - R-120 [DS:ds-main-flow result; DS:ds-alt-exception result] The Result page shows back ‹, the tabs 「Original」 / 「Result」 (Result selected), the video with play, a progress slider and the time (「04:48/08:00」), and the buttons 「Save Result」, 「Add to Timeline」 and 「Enhance More」 (PM 「Edit More」 is older; PM D3 [衝突] settles it).
@@ -183,8 +192,8 @@ for every combination (TC-278 – TC-313, Q-26 prices); R-204 timed on 19 combin
 
 ## Timeline entry
 - R-130 [PM:pm-timeline arrow 397-1887; DS:ds-entry-points] From the Timeline, the tool opens the panel with the selected clip; after 「Enhance」 the flow is the main one (upload, Recent task, notice).
-- R-131 [PM:pm-timeline arrow 397-1921 「Applied Video Enhance」; PM:pm-draft-logic D4 [建議] 「Video Enhance applied」 3 s] After a Timeline task succeeds, the result replaces the original clip on the timeline and the app shows 「Applied Video Enhance」. PM-only: no Design frame yet (Design v2 does not draw the paste-back; Q-11).
-- R-132 [PM:pm-draft-logic D4 [建議]] If the clip was deleted or the project closed during generation, nothing is pasted back and the result stays in Recent task.
+- R-131 [PM:pm-timeline arrow 397-1921 「Applied Video Enhance」; PM:pm-draft-logic D4 [建議] 「Video Enhance applied」 3 s] After a Timeline task succeeds, the result replaces the original clip on the timeline, keeping its position, transitions and audio (D4 「位置、轉場、音訊保留」) [Req: REQ-021], and the app shows 「Applied Video Enhance」. PM-only: no Design frame yet (Design v2 does not draw the paste-back; Q-11).
+- R-132 [PM:pm-draft-logic D4 [建議]] If the clip was deleted or modified or the project closed during generation (D4 「被刪除、修改或專案被關閉」; spec agent TC-VE2-299 – 301) [Req: REQ-021], nothing is pasted back and the result stays in Recent task.
 - R-133 [DS:ds-routing Timeline entry] Back ‹ on a panel opened from the Timeline returns to the editor with the project unchanged.
 - R-134 [PM:pm-draft-logic D4 [建議]] On a Result opened for a Timeline task, 「Add to Timeline」 returns to the original project.
 

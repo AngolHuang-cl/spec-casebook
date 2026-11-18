@@ -1,0 +1,138 @@
+{
+  "active_manifest": "urn:c2pa:9894de36-f30b-4372-99a4-91199e552f32",
+  "manifests": {
+    "urn:c2pa:9894de36-f30b-4372-99a4-91199e552f32": {
+      "assertions": [
+        {
+          "created": true,
+          "data": {
+            "alg": "sha256",
+            "exclusions": [
+              {
+                "data": [
+                  {
+                    "offset": 8,
+                    "value": "b64'2P7D1hsOSDySl1goh37EgQ=='"
+                  }
+                ],
+                "xpath": "/uuid"
+              },
+              {
+                "xpath": "/ftyp"
+              },
+              {
+                "xpath": "/mfra"
+              },
+              {
+                "xpath": "/free"
+              },
+              {
+                "xpath": "/skip"
+              }
+            ],
+            "hash": "b64'2h/KkJ/kKLCH2uKeYssnsh5C9nWwchSu3i26aUnyMHA='",
+            "name": "jumbf manifest"
+          },
+          "label": "c2pa.hash.bmff.v3"
+        },
+        {
+          "data": {
+            "actions": [
+              {
+                "action": "c2pa.created",
+                "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+                "parameters": {
+                  "log_id": "ATMABwm5WBMm1SqPiUcAAAAA",
+                  "model_name": "dreamina-seedance-2-0",
+                  "name": "BytePlus_ModelArk",
+                  "time": "2026-11-17T07:21:08Z"
+                },
+                "softwareAgent": {
+                  "name": "BytePlus_ModelArk",
+                  "version": "1.0.0"
+                },
+                "when": "2026-11-17T07:21:08Z"
+              }
+            ]
+          },
+          "label": "c2pa.actions.v2"
+        }
+      ],
+      "claim_generator_info": [
+        {
+          "name": "c2pa-tool",
+          "org.contentauth.c2pa_rs": "0.90.1",
+          "version": "0.1.0"
+        }
+      ],
+      "claim_version": 2,
+      "instance_id": "xmp:iid:7411c7b7-1a0a-4d1e-9269-f8e58469f241",
+      "label": "urn:c2pa:9894de36-f30b-4372-99a4-91199e552f32",
+      "signature_info": {
+        "alg": "Ps256",
+        "cert_serial_number": "28188312013239140738324169547",
+        "common_name": "Byteplus Pte. Ltd.",
+        "issuer": "Byteplus Pte. Ltd."
+      }
+    }
+  },
+  "validation_results": {
+    "activeManifest": {
+      "failure": [
+        {
+          "code": "signingCredential.untrusted",
+          "explanation": "signing certificate untrusted",
+          "url": "self#jumbf=/c2pa/urn:c2pa:9894de36-f30b-4372-99a4-91199e552f32/c2pa.signature"
+        }
+      ],
+      "informational": [
+        {
+          "code": "signingCredential.ocsp.skipped",
+          "explanation": "OCSP fetching skipped",
+          "url": "self#jumbf=/c2pa/urn:c2pa:9894de36-f30b-4372-99a4-91199e552f32/c2pa.signature"
+        },
+        {
+          "code": "assertion.bmffHash.additionalExclusionsPresent",
+          "explanation": "extra BMFF hash exclusion(s) found",
+          "url": "self#jumbf=/c2pa/urn:c2pa:9894de36-f30b-4372-99a4-91199e552f32/c2pa.assertions/c2pa.hash.bmff.v3"
+        }
+      ],
+      "success": [
+        {
+          "code": "claimSignature.insideValidity",
+          "explanation": "claim signature valid",
+          "url": "self#jumbf=/c2pa/urn:c2pa:9894de36-f30b-4372-99a4-91199e552f32/c2pa.signature"
+        },
+        {
+          "code": "claimSignature.validated",
+          "explanation": "claim signature valid",
+          "url": "self#jumbf=/c2pa/urn:c2pa:9894de36-f30b-4372-99a4-91199e552f32/c2pa.signature"
+        },
+        {
+          "code": "assertion.hashedURI.match",
+          "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/c2pa.hash.bmff.v3",
+          "url": "self#jumbf=/c2pa/urn:c2pa:9894de36-f30b-4372-99a4-91199e552f32/c2pa.assertions/c2pa.hash.bmff.v3"
+        },
+        {
+          "code": "assertion.hashedURI.match",
+          "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/c2pa.actions.v2",
+          "url": "self#jumbf=/c2pa/urn:c2pa:9894de36-f30b-4372-99a4-91199e552f32/c2pa.assertions/c2pa.actions.v2"
+        },
+        {
+          "code": "assertion.bmffHash.match",
+          "explanation": "BMFF hash valid",
+          "url": "self#jumbf=/c2pa/urn:c2pa:9894de36-f30b-4372-99a4-91199e552f32/c2pa.assertions/c2pa.hash.bmff.v3"
+        }
+      ]
+    },
+    "specVersion": "2.4.0"
+  },
+  "validation_state": "Valid",
+  "validation_status": [
+    {
+      "code": "signingCredential.untrusted",
+      "explanation": "signing certificate untrusted",
+      "url": "self#jumbf=/c2pa/urn:c2pa:9894de36-f30b-4372-99a4-91199e552f32/c2pa.signature"
+    }
+  ]
+}

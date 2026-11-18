@@ -1,0 +1,9 @@
+{
+  "logs": {
+    "files": "[_/](logcat-live|cl_credit)\\.txt$",
+    "failure": "(watermark|c2pa|aigc|provenance|cheetah).*(fail|error|exception)|status=fail|error=",
+    "toast": "Toast|toast for",
+    "credit": "CreditSystemManager|credit=|refund|returned",
+    "timing": "(watermark|c2pa|aigc|provenance|cheetah)"
+  }
+}

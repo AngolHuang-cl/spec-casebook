@@ -7,7 +7,8 @@
 // Lengths are whole frames, so a 30 fps 「02:30.01」 is 4501 frames = 150.033 s (still over 150 s, which is what the
 // rows test); the printed ffprobe length is the one to quote in a result. 1920 × 1081 cannot be encoded as 4:2:0
 // H.264, so the 「1081p」 video is 1920 × 1082 (the row tests 「just above 1080p」); likewise 「719p」 and 「721p」 are
-// 1280 × 718 and 1280 × 722, and 07:59.99 / 08:00.01 are one frame either side of 08:00 (479.967 s / 480.033 s).
+// 1280 × 718 and 1280 × 722, and 07:59.97 / 08:00.03 are one frame either side of 08:00 (479.967 s / 480.033 s);
+// the 100 fps ve-075999 / ve-080001 are one hundredth either side (479.99 s / 480.01 s).
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, utimesSync } from 'node:fs';
 import { homedir } from 'node:os';
@@ -39,6 +40,8 @@ const VIDEOS: V[] = [
   v('ve-0759-1080p30', 479 * 30, ...P1080, 30),
   v('ve-075997-1080p30', 14399, ...P1080, 30),
   v('ve-080003-1080p30', 14401, ...P1080, 30),
+  v('ve-075999-720p100', 47999, ...P720, 100), // one hundredth under 8:00 (TC-270, REQ-020)
+  v('ve-080001-720p100', 48001, ...P720, 100), // one hundredth over 8:00
   v('ve-0600-1080p30', 360 * 30, ...P1080, 30),
   v('ve-0524-1080p30', 324 * 30, ...P1080, 30),
   v('ve-0030-1080p30', 900, ...P1080, 30),

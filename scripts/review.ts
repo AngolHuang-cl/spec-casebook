@@ -125,14 +125,14 @@ const server = createServer(async (req, res) => {
     }
     if (req.method === 'POST' && req.url === '/save') {
       if (!local) { res.writeHead(403, { 'content-type': 'application/json' }); res.end(JSON.stringify({ error: 'Save works only on the computer running scripts/review.ts.' })); return; }
-      let raw = ''; for await (const c of req) raw += c;
+      const parts: Buffer[] = []; for await (const c of req) parts.push(c as Buffer); const raw = Buffer.concat(parts).toString('utf8'); // decode once: a 「 split across chunks became U+FFFD
       const result = await save(JSON.parse(raw));
       console.log(`Saved version ${result.version}: ${result.cases} cases → ${result.csv}${result.notes ? ` · ${result.notes} new-case notes → ${result.notes_file}` : ''}`);
       res.writeHead(200, { 'content-type': 'application/json' }); res.end(JSON.stringify(result)); return;
     }
     if (req.method === 'POST' && req.url === '/answers') {
       if (!local) { res.writeHead(403, { 'content-type': 'application/json' }); res.end(JSON.stringify({ error: 'Answers are saved only on the computer running scripts/review.ts.' })); return; }
-      let raw = ''; for await (const c of req) raw += c;
+      const parts: Buffer[] = []; for await (const c of req) parts.push(c as Buffer); const raw = Buffer.concat(parts).toString('utf8'); // decode once: a 「 split across chunks became U+FFFD
       const result = saveAnswers(feature, platform, JSON.parse(raw));
       console.log(`Saved question answers → ${result.file}`);
       res.writeHead(200, { 'content-type': 'application/json' }); res.end(JSON.stringify(result)); return;
