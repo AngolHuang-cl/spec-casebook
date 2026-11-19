@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-11-06T03:39:52.982Z",
+  "built_at": "2026-11-19T04:53:03.707Z",
   "spec_set": "2026-11-06",
   "file": {
     "fileKey": "4ZIfFu5NTnCEi1Nqo04k2S",
@@ -200,7 +200,8 @@
     ],
     "page_listed": true
   },
-  "casebook": false,
+  "not_screens": [],
+  "casebook": true,
   "counts": {
     "screens": 0,
     "routed": 0,

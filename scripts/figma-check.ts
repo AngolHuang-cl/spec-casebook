@@ -13,7 +13,8 @@
 //                     changed when what is drawn over it changed (overlays: loose arrows, connectors, notes) or when
 //                     an arrow drawn over it is missing from its group's read (user, 2026-11-04: reads before the
 //                     overlays existed missed them; the first check finds those boards, no extra Figma call)
-//   --plan [--add <group>=<id>[@name],…] / --save   re-read calls packed by expected reply size, saved from the
+//   --plan [--add <group>=<id>[@name],…] [--group <names>] / --save   re-read calls packed by expected reply size
+//                     (--group: groups to read again though unchanged, after inventory.js changed), saved from the
 //                     transcripts, pending and dropped groups packed again (see readPlan at the end)
 //   --ack <id,…>      new boards that are not part of the spec (scratch frames): stop reporting them
 //   --shot <png> <board id> [--box x,y,w,h] [--tiles id,…]   shrinks a saved board screenshot (extracted/figma/<png>)
@@ -231,6 +232,11 @@ function readPlan() {
     if (!rep) { console.error('No figma-check.json: run the check calls and --compare first'); process.exit(2); }
     const want = new Map<string, { key: string; page: string; entries: any[] }>();
     for (const r of rep.reread ?? []) { const g = groupByName.get(r.group); if (g && !(g.hashed_at && g.hashed_at > rep.checked_at)) want.set(g.name, { key: g.file, page: g.page, entries: g.entries }); }
+    // --group <names>: re-read these groups although the Figma is unchanged, after the inventory script learned to take
+    // something it missed (video-enhance REQ-030: phone-wide close-ups as panels)
+    for (const n of (arg('group') ?? '').split(',').filter(Boolean)) { const g = groupByName.get(n);
+      if (!g) { console.error(`--group ${n}: no such group (${[...groupByName.keys()].join(', ')})`); process.exit(2); }
+      want.set(g.name, { key: g.file, page: g.page, entries: g.entries }); }
     for (const a of (arg('add') ?? '').split(',').filter(Boolean)) {
       const m = a.match(/^(?:([\w.-]+)=)?([\d:]+)(?:@(.+))?$/);
       const name = m?.[1] ?? [...want.keys()].at(-1), nb = m && (rep.new_boards ?? []).find((n: any) => n.id === m[2]), fs = nb && store.files[nb.file];

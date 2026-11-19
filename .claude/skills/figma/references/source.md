@@ -187,7 +187,9 @@ incomplete, so nothing reads a stale or partial board, and the design check list
   and the library copy's node id, because the real sublayer id cannot be read.
 - `<board>.metadata.xml`: the same tree in `get_metadata`'s layout (x / y relative to the nearest non-group ancestor),
   with the instances' insides included, for tools that read that format.
-- `screens.json` (phone frames 300–450 pt wide, not nested), `arrows.json` (path, start screen and control, end
+- `screens.json` (phone frames 300–450 pt wide, not nested, plus `partial` close-ups as wide as a phone and 300 pt or
+  taller; `figma-source.ts … screens design` finds them again from the board files, conformance.md › *What counts as
+  a screen*), `arrows.json` (path, start screen and control, end
   screen, `style` (stroke colour and weight), `kind`: `flow` when drawn in the style most arrows share, `pointer`
   when not (a designer's note pointing at a detail, not a screen-to-screen flow), and `crop` after `crop`),
   `library.json` (variables, styles and components used; each variable and style has the `value` it has on the

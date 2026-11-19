@@ -1,0 +1,685 @@
+2026-11-18T07:37:47.664Z start 58221FDCR003BJ
+2026-11-18T07:38:21.461Z launch 
+2026-11-18T07:38:29.004Z texts 
+2026-11-18T07:38:37.204Z launch --lang en
+2026-11-18T07:38:45.703Z texts 
+2026-11-18T07:38:53.214Z lbl Get Started
+2026-11-18T07:39:04.690Z texts 
+2026-11-18T07:39:10.899Z lbl 允許
+2026-11-18T07:39:17.932Z texts 
+2026-11-18T07:39:23.131Z els 允許
+2026-11-18T07:39:30.027Z tap 540 1321
+2026-11-18T07:39:36.633Z texts 
+2026-11-18T07:40:19.059Z lbl IAP_Back
+2026-11-18T07:41:27.494Z texts 
+2026-11-18T07:41:35.842Z els 
+2026-11-18T07:42:08.406Z tap 84 278
+2026-11-18T07:42:13.025Z texts 
+2026-11-18T07:42:19.298Z lbl Sign in to CyberLink
+2026-11-18T07:42:25.060Z texts 
+2026-11-18T07:42:35.701Z els 
+2026-11-18T07:42:41.886Z texts 
+2026-11-18T07:42:42.465Z shot signin-screen
+2026-11-18T07:42:58.625Z tap 421 1327
+2026-11-18T07:43:04.457Z texts 
+2026-11-18T07:43:18.054Z launch 
+2026-11-18T07:43:25.522Z texts 
+2026-11-18T07:43:34.041Z launch --lang en
+2026-11-18T07:43:42.143Z texts 
+2026-11-18T07:44:40.919Z tap 84 278
+2026-11-18T07:44:45.512Z texts 
+2026-11-18T07:44:52.815Z texts 
+2026-11-18T07:49:18.720Z restart 58221FDCR003BJ
+2026-11-18T07:49:32.148Z logcat start
+2026-11-18T07:49:32.623Z build 
+2026-11-18T07:49:38.323Z launch --lang en
+2026-11-18T07:49:39.465Z texts 
+2026-11-18T07:49:49.129Z case TC-020
+2026-11-18T07:49:55.073Z lbl Video Enhance
+2026-11-18T07:49:59.045Z texts 
+2026-11-18T07:50:08.928Z lbl Try It Now
+2026-11-18T07:50:14.098Z texts 
+2026-11-18T07:50:19.992Z lbl Next
+2026-11-18T07:50:24.779Z texts 
+2026-11-18T07:50:31.373Z tapif 允許
+2026-11-18T07:50:34.160Z tapif 允許
+2026-11-18T07:50:36.851Z tapif 允許
+2026-11-18T07:50:39.544Z tapif 允許
+2026-11-18T07:50:42.226Z tapif 允許
+2026-11-18T07:50:44.886Z texts 
+2026-11-18T07:50:50.786Z lbl 全部允許
+2026-11-18T07:50:54.463Z texts 
+2026-11-18T07:51:04.100Z els 
+2026-11-18T07:51:10.256Z els duration_text
+2026-11-18T07:51:19.417Z tap 880 1480
+2026-11-18T07:51:25.365Z texts 
+2026-11-18T07:51:56.263Z case TC-042
+2026-11-18T07:51:56.539Z design 3310:38462 panel just opened with ve-1230-1080p60, selection 00:00-08:00, Free a
+2026-11-18T07:52:39.563Z els 
+2026-11-18T07:53:12.979Z fingerdrag 120 1281 215 1281 12
+2026-11-18T07:53:16.334Z shot probe1
+2026-11-18T07:53:40.782Z fingerdrag 215 1281 228 1281 6
+2026-11-18T07:53:43.985Z shot probe2
+2026-11-18T07:54:03.573Z fingerdrag 215 1281 231 1281 10
+2026-11-18T07:54:07.059Z shot probe3
+2026-11-18T07:54:24.792Z fingerdrag 215 1281 330 1281 12
+2026-11-18T07:54:27.117Z fingerdrag 330 1281 228 1281 12
+2026-11-18T07:54:30.422Z shot probe4
+2026-11-18T07:54:48.664Z case TC-090
+2026-11-18T07:54:48.935Z design 3305:34438 12:30 video, selection 00:00-08:00 (Selected Length 08:00), playhead 
+2026-11-18T07:55:06.855Z fingerdrag 985 1180 765 1180 15
+2026-11-18T07:55:10.528Z shot probe5
+2026-11-18T07:55:31.919Z fingerdrag 740 1281 389 1281 15
+2026-11-18T07:55:35.367Z shot probe6
+2026-11-18T07:55:47.848Z design 3300:32182 12:30 video trimmed with the right handle to Selected Length 05:54 (F
+2026-11-18T07:56:37.376Z lbl Unlock Pro to Enhance
+2026-11-18T07:56:42.336Z texts 
+2026-11-18T07:57:01.480Z design 3293:13415 PowerDirector Pro IAP page as opened from the panel CTA, Free account
+2026-11-18T07:59:22.596Z design 3293:13415 PowerDirector Pro IAP page as opened from the panel CTA, Free account
+2026-11-18T08:01:55.357Z design 3293:13415 PowerDirector Pro IAP page as opened from the panel CTA, Free account
+2026-11-18T08:04:10.496Z design 3293:13415 PowerDirector Pro IAP page as opened from the panel CTA, Free account
+2026-11-18T08:05:33.756Z design 3293:13415 PowerDirector Pro IAP page as opened from the panel CTA, Free account
+2026-11-18T08:05:48.038Z design 3293:13415 PowerDirector Pro IAP page as opened from the panel CTA, Free account
+2026-11-18T08:06:26.796Z tapif [AID]IAP_Back
+2026-11-18T08:06:30.564Z els layout_credit
+2026-11-18T08:06:31.138Z texts 
+2026-11-18T08:06:43.381Z source 
+2026-11-18T08:06:43.940Z source 
+2026-11-18T08:06:50.580Z source 
+2026-11-18T08:07:28.591Z case -
+2026-11-18T08:07:28.855Z back 
+2026-11-18T08:07:32.444Z texts 
+2026-11-18T08:07:39.685Z back 
+2026-11-18T08:07:43.942Z texts 
+2026-11-18T08:07:50.157Z els 
+2026-11-18T08:07:57.880Z id iv_menu
+2026-11-18T08:08:01.438Z texts 
+2026-11-18T08:08:07.896Z texts 
+2026-11-18T08:08:22.103Z back 
+2026-11-18T08:08:35.632Z pull-logs D1
+2026-11-18T08:09:16.460Z status 
+2026-11-18T09:24:34.781Z status 
+2026-11-18T09:26:39.688Z restart 58221FDCR003BJ
+2026-11-18T09:26:54.640Z logcat start
+2026-11-18T09:26:54.951Z build 
+2026-11-18T09:26:55.480Z status 
+2026-11-18T09:27:04.385Z launch --lang en
+2026-11-18T09:27:10.336Z texts 
+2026-11-18T09:27:19.017Z case TC-001
+2026-11-18T09:27:26.651Z design 3293:14643 Launcher as the app opens, Pro account, English, Stage
+2026-11-18T09:28:13.563Z design 3293:13055 Launcher, same state as 3293:14643 (identical Figma texts; Main Flow 
+2026-11-18T09:28:24.801Z els 
+2026-11-18T09:28:30.849Z lbl Video Enhance
+2026-11-18T09:28:34.822Z texts 
+2026-11-18T09:28:47.189Z case TC-010
+2026-11-18T09:28:53.298Z lbl Try It Now
+2026-11-18T09:28:58.455Z texts 
+2026-11-18T09:29:24.094Z case TC-003
+2026-11-18T09:29:24.492Z back 
+2026-11-18T09:29:27.806Z texts 
+2026-11-18T09:29:51.007Z lbl New Project
+2026-11-18T09:29:54.983Z texts 
+2026-11-18T09:30:01.489Z els 
+2026-11-18T09:30:11.042Z shot addmedia-proj
+2026-11-18T09:30:23.407Z tap 198 1490
+2026-11-18T09:30:26.554Z texts 
+2026-11-18T09:30:33.366Z lbl Next
+2026-11-18T09:30:41.431Z texts 
+2026-11-18T09:30:49.508Z lbl [AID]TimeLineVideo_ve-0130-1080p30.mp4
+2026-11-18T09:30:52.759Z texts 
+2026-11-18T09:31:01.142Z texts 
+2026-11-18T09:31:07.033Z els 
+2026-11-18T09:31:14.429Z scrollto Enhance
+2026-11-18T09:31:27.972Z fingerdrag 900 2270 300 2270 20
+2026-11-18T09:31:31.421Z els 
+2026-11-18T09:31:38.030Z fingerdrag 900 2270 300 2270 20
+2026-11-18T09:31:40.306Z fingerdrag 900 2270 300 2270 20
+2026-11-18T09:31:42.646Z fingerdrag 900 2270 300 2270 20
+2026-11-18T09:31:44.766Z els 
+2026-11-18T09:31:54.410Z fingerdrag 300 2270 750 2270 20
+2026-11-18T09:31:56.723Z els 
+2026-11-18T09:32:06.007Z tap 503 2290
+2026-11-18T09:32:09.284Z els 
+2026-11-18T09:32:16.478Z design 3293:14941 Editor, ve-0130-1080p30 clip selected, clip toolbar Enhance group exp
+2026-11-18T09:32:34.277Z shot tc003-preview-recheck
+2026-11-18T09:32:56.436Z case TC-134
+2026-11-18T09:32:56.707Z lbl [AID]TimeLine_Home
+2026-11-18T09:33:00.408Z texts 
+2026-11-18T09:33:08.821Z els 
+2026-11-18T09:33:15.624Z back 
+2026-11-18T09:33:18.694Z els 
+2026-11-18T09:33:26.510Z id btn_home
+2026-11-18T09:33:32.351Z texts 
+2026-11-18T09:33:43.231Z lbl AI Magic
+2026-11-18T09:33:47.358Z texts 
+2026-11-18T09:33:58.099Z scrollto Video Quick Actions
+2026-11-18T09:34:21.913Z texts 
+2026-11-18T09:34:56.577Z case TC-031
+2026-11-18T09:34:56.876Z lbl Home
+2026-11-18T09:34:59.684Z lbl Video Enhance
+2026-11-18T09:35:04.808Z texts 
+2026-11-18T09:35:11.506Z lbl Try It Now
+2026-11-18T09:35:15.222Z els 
+2026-11-18T09:35:21.964Z tap 880 1490
+2026-11-18T09:35:27.966Z texts 
+2026-11-18T09:36:56.973Z pull-logs D2a
+2026-11-18T09:42:09.302Z restart 58221FDCR003BJ
+2026-11-18T09:42:25.468Z logcat start
+2026-11-18T09:42:25.761Z texts 
+2026-11-18T09:42:33.685Z els 
+2026-11-18T09:42:43.839Z case TC-095
+2026-11-18T09:42:49.477Z design 3294:31104 D2b: subscribed panel, ve-1230-1080p60 whole (08:00), defaults Standa
+2026-11-18T09:43:06.654Z case TC-110
+2026-11-18T09:43:06.919Z id iv_back
+2026-11-18T09:43:14.071Z els 
+2026-11-18T09:43:26.887Z els 
+2026-11-18T09:43:34.034Z tap 540 1495
+2026-11-18T09:43:38.146Z texts 
+2026-11-18T09:44:06.511Z id chip_fps_60
+2026-11-18T09:44:09.992Z els 
+2026-11-18T09:44:18.252Z design 3669:20362 D2b by hand: ve-0500-1080p30 whole, Selected Length 05:00, Mode Stand
+2026-11-18T09:44:48.165Z design 3669:20463 D2b by hand: Professional tapped with a 05:00 selection; toast re-tri
+2026-11-18T09:45:31.381Z els 
+2026-11-18T09:45:43.959Z fingerdrag 986 1179 477 1179 25
+2026-11-18T09:45:48.359Z els 
+2026-11-18T09:45:58.486Z fingerdrag 477 1179 541 1179 15
+2026-11-18T09:46:02.428Z els 
+2026-11-18T09:46:09.547Z id chip_mode_professional
+2026-11-18T09:46:12.976Z els 
+2026-11-18T09:46:21.257Z design 3669:20564 D2b by hand: ve-0500-1080p30 trimmed to Selected Length 02:20, Profes
+2026-11-18T09:46:37.758Z case TC-042
+2026-11-18T09:46:38.037Z id iv_back
+2026-11-18T09:46:42.566Z els 
+2026-11-18T09:46:52.665Z tap 197 1494
+2026-11-18T09:46:56.700Z els 
+2026-11-18T09:47:13.461Z id chip_fps_60
+2026-11-18T09:47:16.446Z design 3300:32521 D2b by hand, correct fixture: ve-0130-1080p30 whole, Selected Length 
+2026-11-18T09:47:38.298Z case TC-038
+2026-11-18T09:47:38.581Z fingerdrag 986 1179 668 1179 20
+2026-11-18T09:47:42.720Z els 
+2026-11-18T09:47:52.654Z fingerdrag 668 1179 721 1179 12
+2026-11-18T09:47:56.214Z els 
+2026-11-18T09:48:04.510Z fingerdrag 721 1179 710 1179 8
+2026-11-18T09:48:07.983Z els 
+2026-11-18T09:48:19.353Z shot tc038-pre
+2026-11-18T09:48:38.594Z fingerdrag 692 1280 253 1280 22
+2026-11-18T09:48:43.160Z texts 
+2026-11-18T09:48:52.332Z design 3313:39430 D2b by hand: ve-0130-1080p30, right handle trimmed to Selected Length
+2026-11-18T09:49:04.870Z case TC-096
+2026-11-18T09:49:05.197Z id layout_credit
+2026-11-18T09:49:10.157Z els 
+2026-11-18T09:50:33.984Z id btn_back
+2026-11-18T09:50:37.590Z id iv_back
+2026-11-18T09:50:42.231Z tap 197 1494
+2026-11-18T09:50:46.510Z els 
+2026-11-18T09:50:54.269Z pull-logs D2b
+2026-11-18T09:56:36.432Z restart 58221FDCR003BJ
+2026-11-18T09:56:52.924Z logcat start
+2026-11-18T09:56:53.278Z build 
+2026-11-18T09:56:53.825Z status 
+2026-11-18T09:57:00.715Z texts 
+2026-11-18T09:57:07.861Z els 
+2026-11-18T09:57:56.414Z case TC-111
+2026-11-18T09:58:02.505Z id iv_back
+2026-11-18T09:58:09.538Z texts 
+2026-11-18T09:58:17.644Z els 
+2026-11-18T09:58:30.716Z tap 600 1200
+2026-11-18T09:58:34.835Z texts 
+2026-11-18T09:58:53.829Z id chip_fps_60
+2026-11-18T09:58:58.972Z id chip_resolution_1080p
+2026-11-18T09:59:02.299Z els 
+2026-11-18T09:59:09.601Z els 
+2026-11-18T09:59:18.345Z els 
+2026-11-18T09:59:35.692Z case TC-114
+2026-11-18T09:59:35.969Z design 3293:13651 Recent task, processing card (AI Video Enhance 1118, Processing..., 4
+2026-11-18T09:59:45.076Z case TC-117
+2026-11-18T09:59:45.379Z design 3300:31478 Recent task, same processing card; Alternative & Exception copy of th
+2026-11-18T10:00:17.111Z case TC-001
+2026-11-18T10:00:17.379Z back 
+2026-11-18T10:00:20.732Z texts 
+2026-11-18T10:00:21.408Z back 
+2026-11-18T10:00:23.984Z texts 
+2026-11-18T10:00:24.608Z back 
+2026-11-18T10:00:27.165Z texts 
+2026-11-18T10:00:27.875Z back 
+2026-11-18T10:00:30.385Z texts 
+2026-11-18T10:00:54.050Z waitfor Good news|has been completed|Tap here to view --timeout 420 --every 5
+2026-11-18T10:00:54.410Z design 3293:15687 Launcher with the task-completion banner, from the ve-000320-720p30 t
+2026-11-18T10:01:04.941Z els 
+2026-11-18T10:01:17.598Z case TC-143
+2026-11-18T10:01:17.898Z id tv_view
+2026-11-18T10:01:22.550Z els 
+2026-11-18T10:01:35.102Z design 3293:13684 Result page of the completed ve-000320-720p30 task, opened from the L
+2026-11-18T10:01:39.247Z case TC-150
+2026-11-18T10:01:39.564Z design 3300:31547 Same Result page (Alternative & Exception copy of the result frame), 
+2026-11-18T10:01:51.181Z case TC-143
+2026-11-18T10:01:51.460Z id iv_back
+2026-11-18T10:01:56.187Z els 
+2026-11-18T10:02:06.541Z lbl Video Enhance
+2026-11-18T10:02:11.493Z texts 
+2026-11-18T10:02:17.751Z lbl Try It Now
+2026-11-18T10:02:24.461Z els 
+2026-11-18T10:02:38.164Z tap 943 1200
+2026-11-18T10:02:43.162Z els 
+2026-11-18T10:02:50.425Z id iv_history
+2026-11-18T10:02:56.389Z els 
+2026-11-18T10:03:08.562Z design 3293:13664 Recent task with the ve-000320-720p30 task completed: thumbnail, 2026
+2026-11-18T10:03:55.599Z id btnBack
+2026-11-18T10:03:59.444Z id chip_fps_60
+2026-11-18T10:04:02.724Z tap 540 2078
+2026-11-18T10:04:06.701Z els 
+2026-11-18T10:04:13.888Z els 
+2026-11-18T10:04:23.213Z back 
+2026-11-18T10:04:26.914Z texts 
+2026-11-18T10:04:33.865Z case TC-111
+2026-11-18T10:04:34.316Z lbl Video Enhance
+2026-11-18T10:04:39.336Z lbl Try It Now
+2026-11-18T10:04:44.978Z els 
+2026-11-18T10:04:58.973Z tap 943 1200
+2026-11-18T10:05:04.053Z id chip_fps_60
+2026-11-18T10:05:07.937Z tap 540 2078
+2026-11-18T10:05:14.119Z els 
+2026-11-18T10:05:49.452Z case TC-113
+2026-11-18T10:05:49.730Z design 3388:17664 Default subscribed panel before the cancel task: ve-000320-720p30, Se
+2026-11-18T10:06:02.086Z case TC-111
+2026-11-18T10:06:02.405Z id btn_cta
+2026-11-18T10:06:03.782Z design 3310:38112 Generating screen right after Enhance on ve-000320-720p30 720p source
+2026-11-18T10:06:07.437Z texts 
+2026-11-18T10:06:20.158Z design 3388:17754 Same generating/uploading moment, Cancel-board copy: 0%, Video upload
+2026-11-18T10:06:23.745Z lbl Cancel
+2026-11-18T10:06:25.236Z design 3393:18282 Cancel-board generating state with the leave dialog after tapping Can
+2026-11-18T10:06:28.874Z texts 
+2026-11-18T10:07:17.324Z id btnBack
+2026-11-18T10:07:21.062Z texts 
+2026-11-18T10:07:26.988Z lbl Video Enhance
+2026-11-18T10:07:33.051Z lbl Try It Now
+2026-11-18T10:07:37.763Z els 
+2026-11-18T10:07:45.052Z tap 258 1540
+2026-11-18T10:07:50.095Z id chip_fps_60
+2026-11-18T10:07:53.470Z els 
+2026-11-18T10:08:04.446Z id btn_cta
+2026-11-18T10:08:09.836Z texts 
+2026-11-18T10:08:10.226Z design 3310:38112 Generating screen on ve-0030-1080p30 (1080p/60fps Standard, price 60)
+2026-11-18T10:08:13.499Z design 3388:17754 Same uploading moment, Cancel-board copy
+2026-11-18T10:08:16.732Z texts 
+2026-11-18T10:08:23.323Z lbl Cancel
+2026-11-18T10:08:25.940Z texts 
+2026-11-18T10:08:32.713Z design 3393:18282 Leave dialog over the generating screen: 'Sure You Want to Leave?' / 
+2026-11-18T10:08:36.158Z els 
+2026-11-18T10:08:45.545Z case TC-113
+2026-11-18T10:08:45.867Z lbl Leave
+2026-11-18T10:08:50.747Z els 
+2026-11-18T10:09:11.659Z id btnBack
+2026-11-18T10:09:15.496Z lbl Video Enhance
+2026-11-18T10:09:20.498Z lbl Try It Now
+2026-11-18T10:09:25.032Z tap 943 1200
+2026-11-18T10:09:29.621Z id chip_fps_60
+2026-11-18T10:09:31.185Z tap 540 2078
+2026-11-18T10:09:33.747Z els 
+2026-11-18T10:09:40.459Z els 
+2026-11-18T10:09:47.982Z id tv_close
+2026-11-18T10:09:52.101Z texts 
+2026-11-18T10:10:00.359Z lbl Video Enhance
+2026-11-18T10:10:05.462Z texts 
+2026-11-18T10:10:13.043Z els 
+2026-11-18T10:10:23.987Z back 
+2026-11-18T10:10:28.297Z els 
+2026-11-18T10:10:36.745Z tap 883 1090
+2026-11-18T10:10:43.525Z texts 
+2026-11-18T10:10:51.340Z lbl Try It Now
+2026-11-18T10:10:58.669Z els 
+2026-11-18T10:11:09.325Z tap 258 1540
+2026-11-18T10:11:14.514Z id chip_fps_60
+2026-11-18T10:11:16.901Z tap 540 2078
+2026-11-18T10:11:19.728Z els 
+2026-11-18T10:11:29.851Z id btn_cta
+2026-11-18T10:11:34.214Z lbl Cancel
+2026-11-18T10:11:36.632Z lbl Leave
+2026-11-18T10:11:41.559Z els 
+2026-11-18T10:12:06.194Z id btnBack
+2026-11-18T10:12:09.968Z tap 883 1090
+2026-11-18T10:12:15.878Z lbl Try It Now
+2026-11-18T10:12:21.739Z els 
+2026-11-18T10:12:28.373Z tap 600 1540
+2026-11-18T10:12:33.463Z id chip_fps_60
+2026-11-18T10:12:36.417Z els 
+2026-11-18T10:12:44.989Z id btn_cta
+2026-11-18T10:12:50.462Z lbl Cancel
+2026-11-18T10:12:52.141Z lbl Leave
+2026-11-18T10:12:55.869Z els 
+2026-11-18T10:13:02.904Z els 
+2026-11-18T10:13:12.100Z id action1Button
+2026-11-18T10:13:15.800Z els 
+2026-11-18T10:13:30.088Z case TC-113
+2026-11-18T10:13:30.632Z design 3388:17664 Panel after cancelling back: Leave tapped on the upload dialog of a 3
+2026-11-18T10:14:35.232Z els 
+2026-11-18T10:14:44.087Z id layout_credit
+2026-11-18T10:14:49.373Z texts 
+2026-11-18T10:15:00.834Z back 
+2026-11-18T10:15:04.946Z id iv_history
+2026-11-18T10:15:11.732Z els 
+2026-11-18T10:15:22.580Z id btnBack
+2026-11-18T10:15:26.454Z texts 
+2026-11-18T10:15:26.809Z pull-logs D2c
+2026-11-18T10:15:35.493Z id tv_close
+2026-11-18T10:15:38.948Z texts 
+2026-11-18T07:42:43.151Z file screenshots\signin-screen.png
+2026-11-18T07:51:29.971Z file screenshots\design\3294-30796.png
+2026-11-18T07:51:29.971Z file screenshots\design\3294-30796.xml
+2026-11-18T07:51:29.990Z file screenshots\design\3294-30796.viewdump.json
+2026-11-18T07:51:29.992Z file screenshots\design\3294-30796.views.json
+2026-11-18T07:52:00.238Z file screenshots\design\3310-38462.png
+2026-11-18T07:52:00.239Z file screenshots\design\3310-38462.xml
+2026-11-18T07:52:00.242Z file screenshots\design\3310-38462.viewdump.json
+2026-11-18T07:52:00.243Z file screenshots\design\3310-38462.views.json
+2026-11-18T07:53:17.045Z file screenshots\probe1.png
+2026-11-18T07:53:44.735Z file screenshots\probe2.png
+2026-11-18T07:54:07.786Z file screenshots\probe3.png
+2026-11-18T07:54:31.118Z file screenshots\probe4.png
+2026-11-18T07:54:52.658Z file screenshots\design\3305-34438.png
+2026-11-18T07:54:52.659Z file screenshots\design\3305-34438.xml
+2026-11-18T07:54:52.663Z file screenshots\design\3305-34438.viewdump.json
+2026-11-18T07:54:52.665Z file screenshots\design\3305-34438.views.json
+2026-11-18T07:55:11.289Z file screenshots\probe5.png
+2026-11-18T07:55:36.069Z file screenshots\probe6.png
+2026-11-18T07:55:51.474Z file screenshots\design\3300-32182.png
+2026-11-18T07:55:51.487Z file screenshots\design\3300-32182.xml
+2026-11-18T07:55:51.491Z file screenshots\design\3300-32182.viewdump.json
+2026-11-18T07:55:51.492Z file screenshots\design\3300-32182.views.json
+2026-11-18T08:05:52.170Z file screenshots\design\3293-13415.png
+2026-11-18T08:05:52.171Z file screenshots\design\3293-13415.xml
+2026-11-18T08:05:52.178Z file screenshots\design\3293-13415.viewdump.json
+2026-11-18T08:05:52.179Z file screenshots\design\3293-13415.views.json
+2026-11-18T08:08:36.711Z file logs\D1-20261118-160835
+2026-11-18T09:27:30.825Z file screenshots\design\3293-14643.png
+2026-11-18T09:27:30.827Z file screenshots\design\3293-14643.xml
+2026-11-18T09:27:30.855Z file screenshots\design\3293-14643.viewdump.json
+2026-11-18T09:27:30.857Z file screenshots\design\3293-14643.views.json
+2026-11-18T09:28:17.291Z file screenshots\design\3293-13055.png
+2026-11-18T09:28:17.292Z file screenshots\design\3293-13055.xml
+2026-11-18T09:28:17.301Z file screenshots\design\3293-13055.viewdump.json
+2026-11-18T09:28:17.303Z file screenshots\design\3293-13055.views.json
+2026-11-18T09:28:38.606Z file screenshots\design\3294-23969.png
+2026-11-18T09:28:38.607Z file screenshots\design\3294-23969.xml
+2026-11-18T09:28:38.610Z file screenshots\design\3294-23969.viewdump.json
+2026-11-18T09:28:38.611Z file screenshots\design\3294-23969.views.json
+2026-11-18T09:29:02.743Z file screenshots\design\3293-13369.png
+2026-11-18T09:29:02.744Z file screenshots\design\3293-13369.xml
+2026-11-18T09:29:02.757Z file screenshots\design\3293-13369.viewdump.json
+2026-11-18T09:29:02.758Z file screenshots\design\3293-13369.views.json
+2026-11-18T09:30:11.903Z file screenshots\addmedia-proj.png
+2026-11-18T09:32:20.130Z file screenshots\design\3293-14941.png
+2026-11-18T09:32:20.131Z file screenshots\design\3293-14941.xml
+2026-11-18T09:32:20.144Z file screenshots\design\3293-14941.viewdump.json
+2026-11-18T09:32:20.145Z file screenshots\design\3293-14941.views.json
+2026-11-18T09:32:34.915Z file screenshots\tc003-preview-recheck.png
+2026-11-18T09:34:05.693Z file screenshots\design\3293-14884.png
+2026-11-18T09:34:05.695Z file screenshots\design\3293-14884.xml
+2026-11-18T09:34:05.698Z file screenshots\design\3293-14884.viewdump.json
+2026-11-18T09:34:05.709Z file screenshots\design\3293-14884.views.json
+2026-11-18T09:35:31.537Z file screenshots\design\3328-45377.png
+2026-11-18T09:35:31.538Z file screenshots\design\3328-45377.xml
+2026-11-18T09:35:31.541Z file screenshots\design\3328-45377.viewdump.json
+2026-11-18T09:35:31.542Z file screenshots\design\3328-45377.views.json
+2026-11-18T09:36:58.255Z file logs\D2a-20261118-173656
+2026-11-18T09:42:53.311Z file screenshots\design\3294-31104.png
+2026-11-18T09:42:53.313Z file screenshots\design\3294-31104.xml
+2026-11-18T09:42:53.316Z file screenshots\design\3294-31104.viewdump.json
+2026-11-18T09:42:53.317Z file screenshots\design\3294-31104.views.json
+2026-11-18T09:44:22.098Z file screenshots\design\3669-20362.png
+2026-11-18T09:44:22.099Z file screenshots\design\3669-20362.xml
+2026-11-18T09:44:22.102Z file screenshots\design\3669-20362.viewdump.json
+2026-11-18T09:44:22.103Z file screenshots\design\3669-20362.views.json
+2026-11-18T09:44:52.265Z file screenshots\design\3669-20463.png
+2026-11-18T09:44:52.266Z file screenshots\design\3669-20463.xml
+2026-11-18T09:44:52.269Z file screenshots\design\3669-20463.viewdump.json
+2026-11-18T09:44:52.270Z file screenshots\design\3669-20463.views.json
+2026-11-18T09:46:24.692Z file screenshots\design\3669-20564.png
+2026-11-18T09:46:24.692Z file screenshots\design\3669-20564.xml
+2026-11-18T09:46:24.696Z file screenshots\design\3669-20564.viewdump.json
+2026-11-18T09:46:24.696Z file screenshots\design\3669-20564.views.json
+2026-11-18T09:47:21.153Z file screenshots\design\3300-32521.png
+2026-11-18T09:47:21.155Z file screenshots\design\3300-32521.xml
+2026-11-18T09:47:21.158Z file screenshots\design\3300-32521.viewdump.json
+2026-11-18T09:47:21.159Z file screenshots\design\3300-32521.views.json
+2026-11-18T09:48:19.936Z file screenshots\tc038-pre.png
+2026-11-18T09:48:55.954Z file screenshots\design\3313-39430.png
+2026-11-18T09:48:55.955Z file screenshots\design\3313-39430.xml
+2026-11-18T09:48:55.958Z file screenshots\design\3313-39430.viewdump.json
+2026-11-18T09:48:55.959Z file screenshots\design\3313-39430.views.json
+2026-11-18T09:49:13.947Z file screenshots\design\3293-15145.png
+2026-11-18T09:49:13.948Z file screenshots\design\3293-15145.xml
+2026-11-18T09:49:13.950Z file screenshots\design\3293-15145.viewdump.json
+2026-11-18T09:49:13.951Z file screenshots\design\3293-15145.views.json
+2026-11-18T09:50:55.656Z file logs\D2b-20261118-175054
+2026-11-18T09:59:39.559Z file screenshots\design\3293-13651.png
+2026-11-18T09:59:39.559Z file screenshots\design\3293-13651.xml
+2026-11-18T09:59:39.561Z file screenshots\design\3293-13651.viewdump.json
+2026-11-18T09:59:39.562Z file screenshots\design\3293-13651.views.json
+2026-11-18T09:59:49.038Z file screenshots\design\3300-31478.png
+2026-11-18T09:59:49.039Z file screenshots\design\3300-31478.xml
+2026-11-18T09:59:49.041Z file screenshots\design\3300-31478.viewdump.json
+2026-11-18T09:59:49.042Z file screenshots\design\3300-31478.views.json
+2026-11-18T10:00:58.106Z file screenshots\design\3293-15687.png
+2026-11-18T10:00:58.108Z file screenshots\design\3293-15687.xml
+2026-11-18T10:00:58.118Z file screenshots\design\3293-15687.viewdump.json
+2026-11-18T10:00:58.120Z file screenshots\design\3293-15687.views.json
+2026-11-18T10:01:38.955Z file screenshots\design\3293-13684.png
+2026-11-18T10:01:38.956Z file screenshots\design\3293-13684.xml
+2026-11-18T10:01:38.958Z file screenshots\design\3293-13684.viewdump.json
+2026-11-18T10:01:38.959Z file screenshots\design\3293-13684.views.json
+2026-11-18T10:01:43.257Z file screenshots\design\3300-31547.png
+2026-11-18T10:01:43.258Z file screenshots\design\3300-31547.xml
+2026-11-18T10:01:43.261Z file screenshots\design\3300-31547.viewdump.json
+2026-11-18T10:01:43.262Z file screenshots\design\3300-31547.views.json
+2026-11-18T10:03:12.421Z file screenshots\design\3293-13664.png
+2026-11-18T10:03:12.426Z file screenshots\design\3293-13664.xml
+2026-11-18T10:03:12.429Z file screenshots\design\3293-13664.viewdump.json
+2026-11-18T10:03:12.430Z file screenshots\design\3293-13664.views.json
+2026-11-18T10:08:13.058Z file screenshots\design\3310-38112.png
+2026-11-18T10:08:13.060Z file screenshots\design\3310-38112.xml
+2026-11-18T10:08:13.068Z file screenshots\design\3310-38112.viewdump.json
+2026-11-18T10:08:13.070Z file screenshots\design\3310-38112.views.json
+2026-11-18T10:08:16.387Z file screenshots\design\3388-17754.png
+2026-11-18T10:08:16.388Z file screenshots\design\3388-17754.xml
+2026-11-18T10:08:16.391Z file screenshots\design\3388-17754.viewdump.json
+2026-11-18T10:08:16.392Z file screenshots\design\3388-17754.views.json
+2026-11-18T10:08:35.850Z file screenshots\design\3393-18282.png
+2026-11-18T10:08:35.850Z file screenshots\design\3393-18282.xml
+2026-11-18T10:08:35.854Z file screenshots\design\3393-18282.viewdump.json
+2026-11-18T10:08:35.856Z file screenshots\design\3393-18282.views.json
+2026-11-18T10:13:35.055Z file screenshots\design\3388-17664.png
+2026-11-18T10:13:35.056Z file screenshots\design\3388-17664.xml
+2026-11-18T10:13:35.060Z file screenshots\design\3388-17664.viewdump.json
+2026-11-18T10:13:35.061Z file screenshots\design\3388-17664.views.json
+2026-11-18T10:15:27.530Z file logs\.live
+2026-11-18T10:15:27.985Z file logs\D2c-20261118-181526
+2026-11-18T10:20:07.306Z file screenshots\design\3294-30796-sheet.png
+2026-11-18T10:20:07.598Z file screenshots\design\3310-38462-sheet.png
+2026-11-18T10:20:07.879Z file screenshots\design\3300-32521-sheet.png
+2026-11-18T10:20:08.525Z file screenshots\design\3305-34438-sheet.png
+2026-11-18T10:20:09.051Z file screenshots\design\3300-32182-sheet.png
+2026-11-18T10:20:10.072Z file screenshots\design\3293-13415-sheet.png
+2026-11-18T10:20:10.745Z file screenshots\design\3293-14643-sheet.png
+2026-11-18T10:20:11.331Z file screenshots\design\3293-13055-sheet.png
+2026-11-18T10:20:11.878Z file screenshots\design\3294-23969-sheet.png
+2026-11-18T10:20:12.762Z file screenshots\design\3293-13369-sheet.png
+2026-11-18T10:20:13.293Z file screenshots\design\3293-14941-sheet.png
+2026-11-18T10:20:13.946Z file screenshots\design\3293-14884-sheet.png
+2026-11-18T10:20:14.229Z file screenshots\design\3328-45377-sheet.png
+2026-11-18T10:20:14.525Z file screenshots\design\3294-31104-sheet.png
+2026-11-18T10:20:14.900Z file screenshots\design\3669-20362-sheet.png
+2026-11-18T10:20:15.175Z file screenshots\design\3669-20463-sheet.png
+2026-11-18T10:20:15.553Z file screenshots\design\3669-20564-sheet.png
+2026-11-18T10:20:15.784Z file screenshots\design\3313-39430-sheet.png
+2026-11-18T10:20:16.114Z file screenshots\design\3293-15145-sheet.png
+2026-11-18T10:20:16.353Z file screenshots\design\3393-18282-sheet.png
+2026-11-18T10:20:16.570Z file screenshots\design\3388-17754-sheet.png
+2026-11-18T10:20:16.771Z file screenshots\design\3310-38112-sheet.png
+2026-11-18T10:20:16.985Z file screenshots\design\3388-17664-sheet.png
+2026-11-18T10:20:17.124Z file screenshots\design\3293-13651-sheet.png
+2026-11-18T10:20:17.283Z file screenshots\design\3300-31478-sheet.png
+2026-11-18T10:20:17.568Z file screenshots\design\3293-15687-sheet.png
+2026-11-18T10:20:17.815Z file screenshots\design\3293-13684-sheet.png
+2026-11-18T10:20:18.089Z file screenshots\design\3300-31547-sheet.png
+2026-11-18T10:20:18.293Z file screenshots\design\3293-13664-sheet.png
+2026-11-18T07:42:44.000Z file screenshots/signin-screen.png
+2026-11-18T07:51:30.000Z file screenshots/design/3294-30796.png
+2026-11-18T07:51:30.000Z file screenshots/design/3294-30796.viewdump.json
+2026-11-18T07:51:30.000Z file screenshots/design/3294-30796.views.json
+2026-11-18T07:51:30.000Z file screenshots/design/3294-30796.xml
+2026-11-18T07:52:02.000Z file screenshots/design/3310-38462.png
+2026-11-18T07:52:02.000Z file screenshots/design/3310-38462.viewdump.json
+2026-11-18T07:52:02.000Z file screenshots/design/3310-38462.views.json
+2026-11-18T07:52:02.000Z file screenshots/design/3310-38462.xml
+2026-11-18T07:53:18.000Z file screenshots/probe1.png
+2026-11-18T07:53:46.000Z file screenshots/probe2.png
+2026-11-18T07:54:08.000Z file screenshots/probe3.png
+2026-11-18T07:54:32.000Z file screenshots/probe4.png
+2026-11-18T07:54:54.000Z file screenshots/design/3305-34438.png
+2026-11-18T07:54:54.000Z file screenshots/design/3305-34438.viewdump.json
+2026-11-18T07:54:54.000Z file screenshots/design/3305-34438.views.json
+2026-11-18T07:54:54.000Z file screenshots/design/3305-34438.xml
+2026-11-18T07:55:12.000Z file screenshots/probe5.png
+2026-11-18T07:55:38.000Z file screenshots/probe6.png
+2026-11-18T07:55:52.000Z file screenshots/design/3300-32182.png
+2026-11-18T07:55:52.000Z file screenshots/design/3300-32182.viewdump.json
+2026-11-18T07:55:52.000Z file screenshots/design/3300-32182.views.json
+2026-11-18T07:55:52.000Z file screenshots/design/3300-32182.xml
+2026-11-18T08:05:54.000Z file screenshots/design/3293-13415.png
+2026-11-18T08:05:54.000Z file screenshots/design/3293-13415.viewdump.json
+2026-11-18T08:05:54.000Z file screenshots/design/3293-13415.views.json
+2026-11-18T08:05:54.000Z file screenshots/design/3293-13415.xml
+2026-11-18T09:27:32.000Z file screenshots/design/3293-14643.png
+2026-11-18T09:27:32.000Z file screenshots/design/3293-14643.viewdump.json
+2026-11-18T09:27:32.000Z file screenshots/design/3293-14643.views.json
+2026-11-18T09:27:32.000Z file screenshots/design/3293-14643.xml
+2026-11-18T09:28:18.000Z file screenshots/design/3293-13055.png
+2026-11-18T09:28:18.000Z file screenshots/design/3293-13055.viewdump.json
+2026-11-18T09:28:18.000Z file screenshots/design/3293-13055.views.json
+2026-11-18T09:28:18.000Z file screenshots/design/3293-13055.xml
+2026-11-18T09:28:40.000Z file screenshots/design/3294-23969.png
+2026-11-18T09:28:40.000Z file screenshots/design/3294-23969.viewdump.json
+2026-11-18T09:28:40.000Z file screenshots/design/3294-23969.views.json
+2026-11-18T09:28:40.000Z file screenshots/design/3294-23969.xml
+2026-11-18T09:29:04.000Z file screenshots/design/3293-13369.png
+2026-11-18T09:29:04.000Z file screenshots/design/3293-13369.viewdump.json
+2026-11-18T09:29:04.000Z file screenshots/design/3293-13369.views.json
+2026-11-18T09:29:04.000Z file screenshots/design/3293-13369.xml
+2026-11-18T09:30:12.000Z file screenshots/addmedia-proj.png
+2026-11-18T09:32:22.000Z file screenshots/design/3293-14941.png
+2026-11-18T09:32:22.000Z file screenshots/design/3293-14941.viewdump.json
+2026-11-18T09:32:22.000Z file screenshots/design/3293-14941.views.json
+2026-11-18T09:32:22.000Z file screenshots/design/3293-14941.xml
+2026-11-18T09:32:36.000Z file screenshots/tc003-preview-recheck.png
+2026-11-18T09:34:06.000Z file screenshots/design/3293-14884.png
+2026-11-18T09:34:06.000Z file screenshots/design/3293-14884.viewdump.json
+2026-11-18T09:34:06.000Z file screenshots/design/3293-14884.views.json
+2026-11-18T09:34:06.000Z file screenshots/design/3293-14884.xml
+2026-11-18T09:35:32.000Z file screenshots/design/3328-45377.png
+2026-11-18T09:35:32.000Z file screenshots/design/3328-45377.viewdump.json
+2026-11-18T09:35:32.000Z file screenshots/design/3328-45377.views.json
+2026-11-18T09:35:32.000Z file screenshots/design/3328-45377.xml
+2026-11-18T09:42:54.000Z file screenshots/design/3294-31104.png
+2026-11-18T09:42:54.000Z file screenshots/design/3294-31104.viewdump.json
+2026-11-18T09:42:54.000Z file screenshots/design/3294-31104.views.json
+2026-11-18T09:42:54.000Z file screenshots/design/3294-31104.xml
+2026-11-18T09:44:24.000Z file screenshots/design/3669-20362.png
+2026-11-18T09:44:24.000Z file screenshots/design/3669-20362.viewdump.json
+2026-11-18T09:44:24.000Z file screenshots/design/3669-20362.views.json
+2026-11-18T09:44:24.000Z file screenshots/design/3669-20362.xml
+2026-11-18T09:44:54.000Z file screenshots/design/3669-20463.png
+2026-11-18T09:44:54.000Z file screenshots/design/3669-20463.viewdump.json
+2026-11-18T09:44:54.000Z file screenshots/design/3669-20463.views.json
+2026-11-18T09:44:54.000Z file screenshots/design/3669-20463.xml
+2026-11-18T09:46:26.000Z file screenshots/design/3669-20564.png
+2026-11-18T09:46:26.000Z file screenshots/design/3669-20564.viewdump.json
+2026-11-18T09:46:26.000Z file screenshots/design/3669-20564.views.json
+2026-11-18T09:46:26.000Z file screenshots/design/3669-20564.xml
+2026-11-18T09:47:22.000Z file screenshots/design/3300-32521.png
+2026-11-18T09:47:22.000Z file screenshots/design/3300-32521.viewdump.json
+2026-11-18T09:47:22.000Z file screenshots/design/3300-32521.views.json
+2026-11-18T09:47:22.000Z file screenshots/design/3300-32521.xml
+2026-11-18T09:48:20.000Z file screenshots/tc038-pre.png
+2026-11-18T09:48:56.000Z file screenshots/design/3313-39430.png
+2026-11-18T09:48:56.000Z file screenshots/design/3313-39430.viewdump.json
+2026-11-18T09:48:56.000Z file screenshots/design/3313-39430.views.json
+2026-11-18T09:48:56.000Z file screenshots/design/3313-39430.xml
+2026-11-18T09:49:14.000Z file screenshots/design/3293-15145.png
+2026-11-18T09:49:14.000Z file screenshots/design/3293-15145.viewdump.json
+2026-11-18T09:49:14.000Z file screenshots/design/3293-15145.views.json
+2026-11-18T09:49:14.000Z file screenshots/design/3293-15145.xml
+2026-11-18T09:59:40.000Z file screenshots/design/3293-13651.png
+2026-11-18T09:59:40.000Z file screenshots/design/3293-13651.viewdump.json
+2026-11-18T09:59:40.000Z file screenshots/design/3293-13651.views.json
+2026-11-18T09:59:40.000Z file screenshots/design/3293-13651.xml
+2026-11-18T09:59:50.000Z file screenshots/design/3300-31478.png
+2026-11-18T09:59:50.000Z file screenshots/design/3300-31478.viewdump.json
+2026-11-18T09:59:50.000Z file screenshots/design/3300-31478.views.json
+2026-11-18T09:59:50.000Z file screenshots/design/3300-31478.xml
+2026-11-18T10:01:00.000Z file screenshots/design/3293-15687.png
+2026-11-18T10:01:00.000Z file screenshots/design/3293-15687.viewdump.json
+2026-11-18T10:01:00.000Z file screenshots/design/3293-15687.views.json
+2026-11-18T10:01:00.000Z file screenshots/design/3293-15687.xml
+2026-11-18T10:01:40.000Z file screenshots/design/3293-13684.png
+2026-11-18T10:01:40.000Z file screenshots/design/3293-13684.viewdump.json
+2026-11-18T10:01:40.000Z file screenshots/design/3293-13684.views.json
+2026-11-18T10:01:40.000Z file screenshots/design/3293-13684.xml
+2026-11-18T10:01:44.000Z file screenshots/design/3300-31547.png
+2026-11-18T10:01:44.000Z file screenshots/design/3300-31547.viewdump.json
+2026-11-18T10:01:44.000Z file screenshots/design/3300-31547.views.json
+2026-11-18T10:01:44.000Z file screenshots/design/3300-31547.xml
+2026-11-18T10:03:14.000Z file screenshots/design/3293-13664.png
+2026-11-18T10:03:14.000Z file screenshots/design/3293-13664.viewdump.json
+2026-11-18T10:03:14.000Z file screenshots/design/3293-13664.views.json
+2026-11-18T10:03:14.000Z file screenshots/design/3293-13664.xml
+2026-11-18T10:08:14.000Z file screenshots/design/3310-38112.png
+2026-11-18T10:08:14.000Z file screenshots/design/3310-38112.viewdump.json
+2026-11-18T10:08:14.000Z file screenshots/design/3310-38112.views.json
+2026-11-18T10:08:14.000Z file screenshots/design/3310-38112.xml
+2026-11-18T10:08:18.000Z file screenshots/design/3388-17754.png
+2026-11-18T10:08:18.000Z file screenshots/design/3388-17754.viewdump.json
+2026-11-18T10:08:18.000Z file screenshots/design/3388-17754.views.json
+2026-11-18T10:08:18.000Z file screenshots/design/3388-17754.xml
+2026-11-18T10:08:36.000Z file screenshots/design/3393-18282.png
+2026-11-18T10:08:36.000Z file screenshots/design/3393-18282.viewdump.json
+2026-11-18T10:08:36.000Z file screenshots/design/3393-18282.views.json
+2026-11-18T10:08:36.000Z file screenshots/design/3393-18282.xml
+2026-11-18T10:13:36.000Z file screenshots/design/3388-17664.png
+2026-11-18T10:13:36.000Z file screenshots/design/3388-17664.viewdump.json
+2026-11-18T10:13:36.000Z file screenshots/design/3388-17664.views.json
+2026-11-18T10:13:36.000Z file screenshots/design/3388-17664.xml
+2026-11-18T10:20:08.000Z file screenshots/design/3294-30796-sheet.png
+2026-11-18T10:20:08.000Z file screenshots/design/3300-32521-sheet.png
+2026-11-18T10:20:08.000Z file screenshots/design/3310-38462-sheet.png
+2026-11-18T10:20:10.000Z file screenshots/design/3300-32182-sheet.png
+2026-11-18T10:20:10.000Z file screenshots/design/3305-34438-sheet.png
+2026-11-18T10:20:12.000Z file screenshots/design/3293-13055-sheet.png
+2026-11-18T10:20:12.000Z file screenshots/design/3293-13415-sheet.png
+2026-11-18T10:20:12.000Z file screenshots/design/3293-14643-sheet.png
+2026-11-18T10:20:12.000Z file screenshots/design/3294-23969-sheet.png
+2026-11-18T10:20:14.000Z file screenshots/design/3293-13369-sheet.png
+2026-11-18T10:20:14.000Z file screenshots/design/3293-14884-sheet.png
+2026-11-18T10:20:14.000Z file screenshots/design/3293-14941-sheet.png
+2026-11-18T10:20:16.000Z file screenshots/design/3294-31104-sheet.png
+2026-11-18T10:20:16.000Z file screenshots/design/3313-39430-sheet.png
+2026-11-18T10:20:16.000Z file screenshots/design/3328-45377-sheet.png
+2026-11-18T10:20:16.000Z file screenshots/design/3669-20362-sheet.png
+2026-11-18T10:20:16.000Z file screenshots/design/3669-20463-sheet.png
+2026-11-18T10:20:16.000Z file screenshots/design/3669-20564-sheet.png
+2026-11-18T10:20:18.000Z file screenshots/design/3293-13651-sheet.png
+2026-11-18T10:20:18.000Z file screenshots/design/3293-13684-sheet.png
+2026-11-18T10:20:18.000Z file screenshots/design/3293-15145-sheet.png
+2026-11-18T10:20:18.000Z file screenshots/design/3293-15687-sheet.png
+2026-11-18T10:20:18.000Z file screenshots/design/3300-31478-sheet.png
+2026-11-18T10:20:18.000Z file screenshots/design/3310-38112-sheet.png
+2026-11-18T10:20:18.000Z file screenshots/design/3388-17664-sheet.png
+2026-11-18T10:20:18.000Z file screenshots/design/3388-17754-sheet.png
+2026-11-18T10:20:18.000Z file screenshots/design/3393-18282-sheet.png
+2026-11-18T10:20:20.000Z file screenshots/design/3293-13664-sheet.png
+2026-11-18T10:20:20.000Z file screenshots/design/3300-31547-sheet.png
+2026-11-19T03:55:32.000Z file logs/.live
+2026-11-19T03:55:34.000Z file logs/D1-20261118-160835
+2026-11-19T03:55:34.000Z file logs/D2a-20261118-173656
+2026-11-19T03:55:34.000Z file logs/D2b-20261118-175054
+2026-11-19T03:55:34.000Z file logs/D2c-20261118-181526

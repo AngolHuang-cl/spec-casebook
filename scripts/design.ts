@@ -116,10 +116,12 @@ const imageOf = (rel: string) => existsSync(join(runDir, rel)) ? join(runDir, re
 const sourceOf = (rel: string) => existsSync(join(runDir, rel)) ? join(runDir, rel) : sharedOf(rel, '.xml');
 
 if (cmd === 'plan') {
-  const skip = arg('skip')?.split(',').filter(Boolean);
+  // --skip <ids> replaces the skip list; --also-skip <ids> adds to it (a frame not taken as a screen, REQ-030)
   const old = existsSync(join(table, 'design', 'plan.json')) ? read(join(table, 'design', 'plan.json')) : null;
-  const reason = arg('skip-reason'), reasons = { ...(old?.skip_reasons ?? {}), ...(skip && reason ? Object.fromEntries(skip.map(id => [id, reason])) : {}) };
-  const plan = buildPlan(feature, platform, { ...kept(old), skip: skip ?? old?.skip, skipReason: reason ?? old?.skip_reason ?? undefined, reasons });
+  const also = arg('also-skip')?.split(',').filter(Boolean);
+  const skip = also ? [...new Set([...(old?.skip ?? []), ...also])] : arg('skip')?.split(',').filter(Boolean);
+  const reason = arg('skip-reason'), reasons = { ...(old?.skip_reasons ?? {}), ...((also ?? skip) && reason ? Object.fromEntries((also ?? skip)!.map(id => [id, reason])) : {}) };
+  const plan = buildPlan(feature, platform, { ...kept(old), skip: skip ?? old?.skip, skipReason: (also ? old?.skip_reason : reason) ?? old?.skip_reason ?? undefined, reasons });
   console.log(`${shown(join(table, 'design', 'plan.json'))}: ${summary(plan)}`);
   if (gapLine(plan.source_gaps)) console.log(`  SOURCE READ NOT COMPLETE: ${gapLine(plan.source_gaps)}`);
   for (const e of plan.screens.filter((e: any) => e.status === 'no-route').slice(0, 15)) console.log(`  no route: ${e.id} ${e.name} (${e.board_name}) — ${e.why}`);
@@ -198,8 +200,9 @@ function measure() {
     const onScreen = inv.controls.filter((c: any) => c.screens?.includes(scr.inventory_screen ?? scr.id));
     const controlNodes = new Set<string>(onScreen.filter((c: any) => !c.label && !otherFeature.has(c.id)).map((c: any) => c.node));
     const ctl = (c: any) => ({ node: c.node, name: c.name, box: c.box });
-    const fig = figmaScreen(nodesOf(scr.board), scr, controlNodes, { other: onScreen.filter((c: any) => otherFeature.has(c.id)).map(ctl), mine: onScreen.filter((c: any) => !otherFeature.has(c.id)).map(ctl) },
+    const figOf = (sc: any) => figmaScreen(nodesOf(scr.board), sc, controlNodes, { other: onScreen.filter((c: any) => otherFeature.has(c.id)).map(ctl), mine: onScreen.filter((c: any) => !otherFeature.has(c.id)).map(ctl) },
       new Set<string>(onScreen.filter((c: any) => !otherFeature.has(c.id) && c.node).map((c: any) => c.node)));
+    let fig = figOf(scr);
     for (const c of [cap, ...parts.get(cap.screen)!]) {
       if (!existsSync(sourceOf(c.xml)) || !existsSync(imageOf(c.png))) { console.error(`  ${c.screen}: its capture is on another computer (no ${c.xml} or shared copy), skipped`); continue; }
       if (existsSync(join(runDir, c.xml))) { mkdirSync(join(designDir, 'captures'), { recursive: true }); copyFileSync(join(runDir, c.xml), sharedOf(c.xml, '.xml')); }
@@ -212,7 +215,16 @@ function measure() {
     // text's colour, size, weight and lines and each fill's colour and radius exactly, ahead of OCR and pixels
     const vFile = cap.views && [join(runDir, cap.views), join(designDir, 'captures', basename(cap.views))].find(f => existsSync(f));
     const V: Views | null = vFile ? read(vFile) : null;
-    const [Wf, Hf] = [scr.abs[2], scr.abs[3]], k = Wf / cap.win.w, Ha = cap.win.h * k;
+    const Wf = scr.abs[2], k = Wf / cap.win.w, Ha = cap.win.h * k;
+    // a partial screen (REQ-030: a close-up of part of a phone, such as the panel with a tooltip open) is measured as a
+    // whole phone frame with the drawn part where the app shows it: `off` (Figma units from the window's top) is the
+    // median offset of the texts both sides hold exactly once, else the bottom of the window (panels and sheets). Only
+    // that part of the capture is checked (`inFrame`), and every Figma box goes out in the frame's own coordinates.
+    const off = scr.partial ? partialOffset(fig.texts, els.filter(e => e.text).map(a => ({ n: normLabel(a.text), f: [a.box[0] * k, a.box[1] * k, a.box[2] * k, a.box[3] * k] })), Ha - scr.abs[3]) : 0;
+    if (scr.partial) fig = figOf({ ...scr, abs: [scr.abs[0], scr.abs[1] - off, Wf, Ha] });
+    const Hf = scr.partial ? Ha : scr.abs[3];
+    const inFrame = (f: number[]) => !scr.partial || (f[1] + f[3] / 2 >= off - 8 && f[1] + f[3] / 2 <= off + scr.abs[3] + 8);
+    const back = (b: any) => off && Array.isArray(b) ? [b[0], r1n(b[1] - off), b[2], b[3]] : b;
     const toFig = (b: Box): Box => [b[0] * k, b[1] * k, b[2] * k, b[3] * k];
     const cands: Cand[] = [], used = new Set<number>();
     const FAR: Box = [0, 1e6, 0, 0];
@@ -227,7 +239,8 @@ function measure() {
     // what no dump holds: glyph bounds, so lines, size and position. A source without layers (iOS, older captures):
     // a text no OCR line near it reads is left out. A Figma text without render bounds is read on its image the same
     // way. No OCR (not macOS, no cache): view boxes, and on Android the layers alone.
-    const oA = ocr.get(`app:${scr.id}`) ?? null, oF = ocr.get(`fig:${scr.id}`) ?? null;
+    const oA = ocr.get(`app:${scr.id}`) ?? null, oF0 = ocr.get(`fig:${scr.id}`) ?? null;
+    const oF = oF0 && off ? oF0.map(o => ({ ...o, box: [o.box[0], o.box[1] + off, o.box[2], o.box[3]] as Box })) : oF0;
     const lineNs = (t: string) => t.split('\n').map(normLabel).filter(x => x.replace(/[#\W_]/g, '').length >= 2);
     // an OCR line reads part of a text when it is that text, holds it (an icon read beside a label) or is one of its
     // wrapped lines; whether the text is on the screen at all takes most of its characters read (`readMost`): a short
@@ -374,7 +387,7 @@ function measure() {
     const outApp = fig.out.map(o => { const p = near(o.box); return p ? [o.box[0] + p.a.f[0] - p.t.box[0], o.box[1] + p.a.f[1] - p.t.box[1], o.box[2], o.box[3]] : toFig(toApp(o.box)); });
     const inOut = (f: Box) => outApp.some(o => f[0] + f[2] / 2 >= o[0] && f[0] + f[2] / 2 <= o[0] + o[2] && f[1] + f[3] / 2 >= o[1] && f[1] + f[3] / 2 <= o[1] + o[3]);
     const figNorm = new Set(fig.texts.map(t => normLabel(t.text))), outNorm = new Set(fig.outTexts.map(normLabel));
-    appT.forEach((a, i) => { if (!used.has(i) && a.text.length <= 40 && !figNorm.has(a.n) && !outNorm.has(a.n) && a.n.replace(/[#\W_]/g, '') && !(a.part === 1 && inOut(a.f)))
+    appT.forEach((a, i) => { if (!used.has(i) && (a.part > 1 || inFrame(a.f)) && a.text.length <= 40 && !figNorm.has(a.n) && !outNorm.has(a.n) && a.n.replace(/[#\W_]/g, '') && !(a.part === 1 && inOut(a.f)))
       cands.push({ id: `extra:${a.n}`, kind: 'extra', severity: 'info', app: { text: a.text, box: a.part > 1 ? undefined : r1(a.f) } }); });
     // controls without a label (icons: close, back, more): some app element must sit where Figma draws them
     for (const c of fig.controls) {
@@ -421,7 +434,7 @@ function measure() {
       const overlap = (a: number[], b: number[]) => Math.max(0, Math.min(a[0] + a[2], b[0] + b[2]) - Math.max(a[0], b[0])) * Math.max(0, Math.min(a[1] + a[3], b[1] + b[3]) - Math.max(a[1], b[1]));
       const lone = els.filter(e => e.clickable && !e.covered && area(e.box) > 0 && area(e.box) < 0.3 * winA
         && e.box[0] + e.box[2] / 2 > 0 && e.box[0] + e.box[2] / 2 < cap.win.w && e.box[1] + e.box[3] / 2 > 0 && e.box[1] + e.box[3] / 2 < cap.win.h
-        && !inOut(toFig(e.box))
+        && !inOut(toFig(e.box)) && inFrame(toFig(e.box))
         && !figBoxes.some(f => { const r = area(f) / area(e.box); return r >= 1 / 25 && r <= 4 && overlap(f, e.box) >= 0.5 * Math.min(area(f), area(e.box)); })
         && !nearFig(e.box));
       const within = (o: Box, i: Box) => o !== i && i[0] >= o[0] && i[1] >= o[1] && i[0] + i[2] <= o[0] + o[2] && i[1] + i[3] <= o[1] + o[3];
@@ -457,7 +470,9 @@ function measure() {
     // padding, centring, borders and the gaps between buttons (user, 2026-11-06)
     const lay = layoutCands({ fig, base, els, V, k, Wf, cands, placed });
     cands.push(...lay.cands);
-    for (const b of lay.borders) borders.push({ ...b, screen: scr.id, png: imageOf(cap.png), win: cap.win, k });
+    if (off) { for (const c of cands as any[]) if (c.figma?.box) c.figma = { ...c.figma, box: back(c.figma.box) };
+      for (const x of samples.filter(x => x.screen === scr.id)) x.figBox = back(x.figBox); }
+    for (const b of lay.borders) borders.push({ ...b, ...(off ? { figBox: back(b.figBox) } : {}), screen: scr.id, png: imageOf(cap.png), win: cap.win, k });
     for (const m of lay.pend) pends.push({ ...m, screen: scr.id, png: imageOf(cap.png), win: cap.win, k, Wf });
     // recheck: the bugs settled on an earlier build, still measured here or gone
     let recheck: any = null;
@@ -468,14 +483,14 @@ function measure() {
     }
     results.push({ id: scr.id, name: scr.name, board: scr.board, board_name: scr.board_name, case: cap.case || scr.route?.case || '', captured_at: cap.t, png: cap.png,
       parts: parts.get(cap.screen)!.map(p => p.png), note: cap.note || '', build, ...(full ? { rules: 'full' } : {}), win: cap.win, k: r3(k), fw: Wf, arrival, fit,
-      ...(fig.out.length ? { out: fig.out.map(o => ({ name: o.name, box: r1(o.box) })) } : {}), ...(cap.unsettled ? { unsettled: true } : {}),
+      ...(fig.out.length ? { out: fig.out.map(o => ({ name: o.name, box: back(r1(o.box)) })) } : {}), ...(off ? { partial: { offset: r1n(off), frame_h: scr.abs[3] } } : {}), ...(cap.unsettled ? { unsettled: true } : {}),
       ...(lay.unmatched ? { layout_unmatched: lay.unmatched } : {}),
 
       ...(hidden.length ? { hidden } : {}), ...(disagree.length ? { layers_disagree: disagree } : {}),
       ...(V ? { views: { texts: V.texts.length, fills: V.fills.length, font_scale: V.fontScale, matched: base.filter((p: any) => p.vt).length } } : {}), ...(sizes.length ? { sizes } : {}), ocr: { app: !!oA, figma: !!oF }, layers: layered,
       // every text of both sides as read, for the reviewers to quote (conformance.md §4: never read text off the image)
-      texts: { figma: fig.texts.map(t => ({ node: t.node, text: t.text, box: r1(t.box) })), app: appT.filter(a => a.part === 1).map(a => ({ text: a.text, box: r1(a.f) })),
-        ...(oA ? { app_ocr: oA.map(o => ({ text: o.text, box: r1(o.box) })) } : {}), ...(oF ? { figma_ocr: oF.map(o => ({ text: o.text, box: r1(o.box) })) } : {}) },
+      texts: { figma: fig.texts.map(t => ({ node: t.node, text: t.text, box: back(r1(t.box)) })), app: appT.filter(a => a.part === 1).map(a => ({ text: a.text, box: r1(a.f) })),
+        ...(oA ? { app_ocr: oA.map(o => ({ text: o.text, box: r1(o.box) })) } : {}), ...(oF0 ? { figma_ocr: oF0.map(o => ({ text: o.text, box: r1(o.box) })) } : {}) },
       counts: { figma_texts: fig.texts.length, app_texts: appT.length, matched: pairs.length, shapes: fig.fills.length, controls: fig.controls.length }, candidates: cands, recheck });
     sheets.push({ screen: scr.id, png: imageOf(cap.png), sheet: join(runDir, cap.png.replace(/\.png$/, '-sheet.png')), figma: figmaCrop(scr, out), win: cap.win, k, fw: Wf });
   }
@@ -552,6 +567,15 @@ function viewFillOf(V: Views, at: Box, near: number): ViewFill | null {
   return V.fills.filter(f => ok(f.box[2] / at[2]) && ok(f.box[3] / at[3]) && dist(f) <= near).sort((a, b) => dist(a) - dist(b))[0] ?? null;
 }
 function rgb(argb: string) { return `#${argb.slice(3, 9)}`; }
+// where a partial screen's top sits on the capture (Figma units): the median of app − Figma over texts each side holds
+// exactly once, kept inside the window; `fallback` (the window's bottom) when none match
+function partialOffset(texts: any[], app: { n: string; f: number[] }[], fallback: number) {
+  const once = <T,>(xs: T[], key: (x: T) => string) => { const c = new Map<string, number>(); for (const x of xs) c.set(key(x), (c.get(key(x)) ?? 0) + 1); return (x: T) => c.get(key(x)) === 1; };
+  const fOnce = once(texts, (t: any) => normLabel(t.text)), aOnce = once(app, a => a.n);
+  const d = texts.filter(fOnce).flatMap((t: any) => { const a = app.find(a => a.n === normLabel(t.text) && aOnce(a)); return a ? [a.f[1] - t.box[1]] : []; }).sort((x, y) => x - y);
+  const v = d.length ? d[Math.floor(d.length / 2)] : fallback;
+  return Math.max(0, Math.min(fallback, v));
+}
 // the phone's font scale changes every size and wrap: sizes are compared in sp (before it), lines say so
 function scaleNote(V: Views) { return V.fontScale !== 1 ? `the phone's font scale is ${V.fontScale}: wrapping at 1.0 may differ` : undefined; }
 // size in sp against Figma's points (6 % and 0.5 sp, twice that is major) and weight (100 apart), from the app's view
@@ -962,6 +986,11 @@ function status() {
   const listed = plan.source_gaps?.listed ?? [];
   if (listed.length) console.log(`  note: ${listed.length} board(s) on the Design page are neither read nor in the casebook (${listed.slice(0, 6).map((b: any) => b.name).join(', ')}${listed.length > 6 ? ', …' : ''}): read them if the spec covers them, else exclude them on the Plan view`);
   else if (plan.source_gaps && !plan.source_gaps.page_listed) console.log('  note: the Design page was never listed (figma-source.ts … calls list design), so boards neither read nor in the casebook are not known');
+  // frames on read boards that are neither screens nor inside one (REQ-030): each is looked at once, then routed as a
+  // screen (figma-source.ts findScreens) or skipped with a reason
+  const ns = plan.not_screens ?? [];
+  if (ns.length) console.log(`  CHECK ${ns.length} frame(s) not taken as screens: ${ns.slice(0, 6).map((f: any) => `${f.id} 「${f.name}」 ${f.size.join('×')}`).join(', ')}${ns.length > 6 ? ', …' : ''}\n` +
+    `    a state of the feature drawn at this size is a missed screen (fix findScreens); anything else: design.ts ${feature} ${platform} plan --also-skip <ids> --skip-reason "<why>"`);
   const rv = plan.scope_review, fresh = rv ? plan.screens.filter((s: any) => !rv.ids?.includes(s.id)).length : 0;
   const scopeLine = rv ? `scope reviewed ${rv.at}${fresh ? `, ${fresh} screen(s) new since` : ''}` : 'scope not reviewed';
   if (!runDir || !existsSync(designDir)) {

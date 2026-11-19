@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-11-12T01:42:16.533Z",
+  "built_at": "2026-11-19T04:53:07.366Z",
   "spec_set": "2026-11-05",
   "file": {
     "fileKey": "iUy5kOrVNG7IjcyxGGnp9t",
@@ -93,6 +93,28 @@
     "listed": [],
     "page_listed": true
   },
+  "not_screens": [
+    {
+      "id": "129:3239",
+      "name": "import_img  ·  109×109  ·  empty photo slot (tap to import)",
+      "board": "116:3010",
+      "board_name": "Dark mode · Canvas icon buttons",
+      "size": [
+        366,
+        169
+      ]
+    },
+    {
+      "id": "130:3280",
+      "name": "import_img  ·  109×109  ·  empty photo slot (tap to import)",
+      "board": "130:3237",
+      "board_name": "Light mode · Canvas icon buttons",
+      "size": [
+        366,
+        169
+      ]
+    }
+  ],
   "casebook": true,
   "counts": {
     "screens": 57,

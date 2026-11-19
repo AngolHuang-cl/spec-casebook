@@ -93,6 +93,24 @@ test('a check returns the overlay fingerprint, the arrows over the board and a h
   note.characters = '• The page has no Discard button';
 });
 
+// a close-up of part of a phone named only 「panel」 (video-enhance REQ-030: the settings panel with a tooltip open) is
+// a screen of the inventory; a narrower lookup table with text is not
+test('a group read takes a phone-wide close-up as a panel, whatever its name', async () => {
+  const b2 = node({ id: '1:20', type: 'FRAME', name: 'Settings board', box: [5000, 0, 1400, 1000] }, [
+    node({ id: '2:20', type: 'FRAME', name: 'Phone', box: [5000, 0, 375, 812] }, [text('2:21', 'Enhance', [5020, 700, 100, 20])]),
+    node({ id: '2:30', type: 'FRAME', name: 'panel', box: [5450, 0, 375, 494] }, [text('2:31', 'Professional suits short clips', [5470, 40, 300, 20])]),
+    node({ id: '2:40', type: 'FRAME', name: 'fps table', box: [5900, 0, 302, 180] }, [text('2:41', '30 fps', [5910, 10, 60, 20])]),
+  ]);
+  const p2 = node({ id: '0:2', type: 'PAGE', name: 'Page 2', box: [0, 0, 0, 0] }, [b2]);
+  p2.absoluteBoundingBox = null;
+  const src = readFileSync(join(ROOT, 'scripts', 'figma', 'inventory.js'), 'utf8').replace('const PAGE = __PAGE__, BOARDS = __BOARDS__;', `const PAGE = '0:2', BOARDS = ["1:20"];`);
+  const AsyncFunction = Object.getPrototypeOf(async () => {}).constructor;
+  const out = await new AsyncFunction('figma', src)(figma);
+  const sc = out.screens.map((s: any[]) => [s[0], s[7] ?? '']);
+  assert.deepEqual(sc.find((s: any[]) => s[0] === '2:30'), ['2:30', 'panel'], 'the 375 × 494 close-up is a panel');
+  assert.ok(!sc.some((s: any[]) => s[0] === '2:40'), 'the 302 pt table is not');
+});
+
 // ---- figma-check.ts --compare and figma-text.ts on a fixture feature --------------------------------------------------
 before(() => {
   rmSync(FEAT, { recursive: true, force: true });

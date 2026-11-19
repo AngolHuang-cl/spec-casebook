@@ -819,3 +819,49 @@ test("appElements: Android layers by drawing order, icon names, other windows", 
   assert.ok(!appElements(kb).some(e => e.text === 'Q'), "the keyboard's keys are left out");
   assert.equal(keyboardInSource(page('')), null, 'one window: not known');
 });
+
+// ---- partial screens (video-enhance REQ-030) ---------------------------------------------------------------------------
+// a state drawn as a close-up of part of a phone (375 × 400 here, the panel with a tooltip open) is a screen; a narrower
+// lookup table is not, and the plan lists it until someone skips it; the check measures only the part drawn
+test('partial screens: found, flagged, the rest listed, and only the drawn part is checked', () => {
+  const S6 = [{ id: '1:60', parent: '1:1', type: 'FRAME', name: 'panel', abs: [0, 1800, 375, 400], depth: 1 },
+    text('1:61', '1:60', 'Mode', [20, 1830, 100, 20]), text('1:62', '1:60', 'Standard', [20, 1870, 100, 20]),
+    text('1:63', '1:60', 'Professional', [150, 1870, 120, 20]), text('1:64', '1:60', 'Enhancement style', [20, 1920, 200, 20])];
+  const TABLE = [{ id: '1:70', parent: '1:1', type: 'FRAME', name: 'fps table', abs: [500, 1800, 302, 180], depth: 1 }];
+  const nodes = [{ id: '1:1', parent: null, type: 'FRAME', name: 'Board', abs: [0, 0, 1200, 2300], depth: 0 },
+    ...[...S1, ...S2, ...S3, ...S4].map(n => ({ ...n, depth: n.parent === '1:1' ? 1 : 2 })), ...S6.map((n, i) => ({ ...n, depth: i ? 2 : 1 })), ...TABLE]
+    .map(n => ({ ...n, box: n.abs }));
+  put(join(OUT, '1-1.json'), { board: { id: '1:1', name: 'Board', box: [0, 0, 1200, 2300] }, nodes });
+  put(join(OUT, '2-1.json'), { board: { id: '2:1', name: 'Other', box: [3000, 0, 375, 812] }, nodes: S5.map(n => ({ ...n, box: n.abs, depth: 0 })) });
+  const r = run('figma-source.ts', [F, '2026-01-01', 'screens', 'design']);
+  assert.equal(r.status, 0, r.out); assert.match(r.out, /\(1 partial\)/);
+  const sc = read(join(OUT, 'screens.json'));
+  assert.ok(sc.find((s: any) => s.id === '1:60')?.partial, 'the 375 × 400 panel is a partial screen');
+  assert.ok(!sc.some((s: any) => s.id === '1:70'), 'the 302 pt table is not a screen');
+  // a row quoting a line only the panel draws reaches it (`quoted`): it shares no control or arrow with anything
+  const csv = readFileSync(join(T, 'cases.csv'), 'utf8');
+  writeFileSync(join(T, 'cases.csv'), csv + 'TC-003,Panel,Panel open,Tap ⓘ next to 「Mode」,A bubble lists 「Enhancement style」,P3,R-002,\n');
+  assert.equal(design('plan').status, 0);
+  const plan = read(join(T, 'design', 'plan.json'));
+  assert.ok(plan.screens.find((s: any) => s.id === '1:60').flags.includes('partial'));
+  assert.deepEqual([plan.screens.find((s: any) => s.id === '1:60').route?.case, plan.screens.find((s: any) => s.id === '1:60').route?.how], ['TC-003', 'quoted']);
+  writeFileSync(join(T, 'cases.csv'), csv);
+  assert.deepEqual(plan.not_screens.map((f: any) => f.id), ['1:70']);
+  assert.match(design('status').out, /CHECK 1 frame\(s\) not taken as screens: 1:70/);
+  assert.equal(design('plan', '--also-skip', '1:70', '--skip-reason', 'a lookup table, not a screen').status, 0);
+  assert.deepEqual(read(join(T, 'design', 'plan.json')).not_screens, []);
+  // the capture: the panel at the bottom of the phone (412 pt down), a preview title above it that the frame does not draw
+  put(join(RUNS, 'r9', 'design', '.keep'), '');
+  png(join(RUNS, 'r9', 'screenshots', 'design', '1-60.png'), 1125, 2436, [[20, 100, 200, 20], [20, 1242, 100, 20], [20, 1282, 100, 20], [150, 1282, 120, 20], [20, 1332, 200, 20]].map(b => [s3(b), '#ffffff'] as [number[], string]));
+  capture('r9', '1:60', '1-60', `<A>${st('Preview title', 20, 100, 200, 20)}${st('Mode', 20, 442, 100, 20)}${st('Standard', 20, 482, 100, 20)}${st('Professional', 150, 482, 120, 20)}${st('Enhancement style', 20, 532, 200, 20)}</A>`, { w: 375, h: 812 });
+  const c = design('check', 'r9');
+  assert.equal(c.status, 0, c.out);
+  const s = read(join(RUNS, 'r9', 'design', 'compare.json')).screens.find((x: any) => x.id === '1:60');
+  assert.equal(s.partial.offset, 412);
+  assert.ok(!s.candidates.some((x: any) => x.kind === 'missing'), 'every panel text is found');
+  assert.ok(!s.candidates.some((x: any) => x.id === 'extra:preview title'), 'a text above the panel is not this frame\'s');
+  assert.deepEqual(s.texts.figma.find((t: any) => t.text === 'Mode').box.slice(0, 2), [20, 30], 'Figma boxes go out in the frame\'s own coordinates');
+  // back to the shared fixture
+  rmSync(join(RUNS, 'r9'), { recursive: true });
+  writeOut(); assert.equal(design('plan', '--skip', '').status, 0);
+});

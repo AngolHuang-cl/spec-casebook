@@ -52,6 +52,9 @@ every rebuild). For each Design screen of the source read, the route that reache
   (「Design 5366:70814」). The analysis writes it for a frame the casebook inventory does not list (drawn after the
   inventory read, or a page the inventory knows only by a card inside it); a screen holding a smaller inventory
   screen inside it takes that screen's controls.
+- **A row quoting the screen's own text** (`how: quoted`, fit `high`), only for a screen no other way reaches at
+  high fit: a row whose Action or Expected Result quotes 「…」 a line (12+ characters) that this screen alone draws.
+  A state drawn open over shared controls (a tooltip on a close-up of the panel) is reached this way (REQ-030).
 - **The Design's own arrows** (no table, or no row reaches it): the shortest path along the flow arrows from the first
   screen of the flow (`how: figma`, `steps`: each screen and the control pressed on it; `fit: entry` for a first
   screen). A screen no arrow reaches takes the path of the nearest reached screen on its board (`fit: variant`: a
@@ -60,6 +63,19 @@ every rebuild). For each Design screen of the source read, the route that reache
   Design draws. Report it; the analysis fixes it in the reading step or pass that missed it (AGENTS.md *What the repo
   is for*), never the design check.
 - A screen with none of these is `no-route`: ask the user how it is reached.
+
+**What counts as a screen (video-enhance REQ-030, 2026-11-19).** A phone frame (300–450 pt wide, 600 pt or taller),
+and a **partial screen**: a close-up of part of a phone (the settings panel with a tooltip open, 375 × 494), as wide
+as a phone on its board and 300 pt or taller, flagged `partial`. The check places a partial screen where the capture
+shows its texts (else at the window's bottom) and measures only that part. Every other frame of 150 × 150 pt or more
+on a read board, neither a screen nor inside one, is listed in `plan.json` `not_screens` and by `status`
+(`CHECK … frame(s) not taken as screens`) until it becomes a screen or is skipped with a reason
+(`plan --also-skip <ids> --skip-reason "<why>"`; `--skip` replaces the whole list). A state of the feature in that
+list is a missed screen: fix `findScreens` (figma-source.ts) and the inventory's panel rule (inventory.js) together,
+never skip it. Both rules took only full-height frames until 2026-11-19, so the two Video Enhance tooltip states
+(3479:106886, 3494:106998) were in both reads but never planned; the Figma Agent checked them. When `figma-source.ts`
+changes, every feature's `screens.json` is found again from its board files on the next command (no Figma call).
+Standalone dialogs narrower than a phone (270 pt) are listed, not yet checked.
 
 ## 1b. Scope review (user, 2026-11-03)
 

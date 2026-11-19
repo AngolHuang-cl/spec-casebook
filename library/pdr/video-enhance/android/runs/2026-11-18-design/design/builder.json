@@ -1,0 +1,2900 @@
+{
+ "screens": {
+  "3293:15687": {
+   "missing:I3293:15868;11856:6758;11856:6474;186:3127": {
+    "verdict": "ok",
+    "note": "The fifth tab is in the Design's place on the bottom bar, but the app puts a gold 「Pro」 upgrade entry there instead of 「Mine」. The bottom bar is the host app's own navigation, shared by every feature, so it is not a Video Enhance defect — Design may still want to know the slot now carries an upgrade entry.",
+    "note_zh": "底部分頁列第五個位置在 Design 指定的位置上有分頁，但 App 放的是金色的「Pro」升級入口，而不是「Mine」。底部分頁列是主程式自己的導覽、所有功能共用，因此不是 Video Enhance 的缺陷 — 但 Design 可能想知道這個位置現在放的是升級入口。"
+   },
+   "unspecced:iv_banner_tagline_chevron": {
+    "verdict": "ok",
+    "note": "The chevron on the banner belongs to another feature's area of the Launcher (AI Mini Drama), which the design check leaves out; the Video Enhance entry itself is in its place.",
+    "note_zh": "橫幅上的箭頭屬於 Launcher 上其他功能（AI Mini Drama）的區域，設計檢查不納入；Video Enhance 本身的入口在它該在的位置。"
+   },
+   "missing:I3293:15872;13719:12894;13719:12868": {
+    "verdict": "n/a",
+    "note": "The frame's 「Try Pro+ 7 days for free」 trial line sits behind the task-completion banner in the Design itself, and the capture is on a Pro account, which is shown no trial promotion at all.",
+    "note_zh": "畫面上的「Try Pro+ 7 days for free」試用字樣在 Design 裡本來就被任務完成橫幅蓋住，而且擷取時帳號是 Pro，根本不會顯示試用推廣。"
+   },
+   "unspecced:tv_banner_tagline": {
+    "verdict": "ok",
+    "note": "The banner headline 「Create Your Own Drama」 belongs to another feature's area of the Launcher (AI Mini Drama), which the design check leaves out; the Video Enhance entry itself is in its place.",
+    "note_zh": "橫幅標題「Create Your Own Drama」屬於 Launcher 上其他功能（AI Mini Drama）的區域，設計檢查不納入；Video Enhance 本身的入口在它該在的位置。"
+   },
+   "unspecced:shortcut_entry_item": {
+    "verdict": "ok",
+    "note": "The shortcut tile 「Image to Video」 belongs to another feature's area of the Launcher (AI Mini Drama), which the design check leaves out; the Video Enhance entry itself is in its place.",
+    "note_zh": "捷徑圖塊「Image to Video」屬於 Launcher 上其他功能（AI Mini Drama）的區域，設計檢查不納入；Video Enhance 本身的入口在它該在的位置。"
+   },
+   "unspecced:shortcut_entry_item#2": {
+    "verdict": "ok",
+    "note": "The shortcut tile 「AI Storytelling」 belongs to another feature's area of the Launcher (AI Mini Drama), which the design check leaves out; the Video Enhance entry itself is in its place.",
+    "note_zh": "捷徑圖塊「AI Storytelling」屬於 Launcher 上其他功能（AI Mini Drama）的區域，設計檢查不納入；Video Enhance 本身的入口在它該在的位置。"
+   },
+   "lines:3293:15728": {
+    "verdict": "ok",
+    "note": "Roboto sets 「AI Mini Drama」 narrow enough to fit the tile on one line where the Design wraps it onto two; the whole label is shown and every tile label in the app follows the same rule.",
+    "note_zh": "Roboto 把「AI Mini Drama」排得夠窄，能在圖塊內一行放完，Design 則斷成兩行；標籤完整顯示，App 所有圖塊標籤都依同一規則。"
+   },
+   "weight:3293:15728": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The shortcut tile label is drawn Regular where the Design sets Medium; every tile label on the Launcher is Regular, so the whole shortcut grid reads lighter than the Design.",
+    "note_zh": "捷徑圖塊標籤以 Regular 繪製，Design 設定為 Medium；Launcher 上每個圖塊標籤都是 Regular，使整個捷徑區塊看起來比 Design 更輕。"
+   },
+   "colour:3293:15728": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The shortcut tile label is drawn in a light blue-grey (#CCD5E1) where the Design asks for pure white; beside the white headings above it the labels look slightly dimmed, and every tile label on the Launcher uses the same colour.",
+    "note_zh": "捷徑圖塊標籤以淺藍灰 (#CCD5E1) 繪製，Design 要求純白；與上方白色標題並排時標籤顯得略為灰暗，Launcher 上每個圖塊標籤都用同一個顏色。"
+   },
+   "padding:I3293:15873;580:16458": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "In the task-completion banner the text starts about 4 pt closer to the card's left edge than the Design, which narrows the gap after the icon.",
+    "note_zh": "任務完成橫幅中的文字起始位置比 Design 更靠近卡片左緣約 4 pt，使圖示與文字之間的間距變窄。"
+   },
+   "visual:1": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "cosmetic",
+    "figma": {
+     "box": [
+      30,
+      56,
+      26,
+      24
+     ]
+    },
+    "note": "The icon at the left of the task-completion banner is drawn differently: the Design uses a white outlined video card with a sparkle, the app a small filled pink-and-blue wand that reads faint against the banner.",
+    "note_zh": "任務完成橫幅左側的圖示畫法不同：Design 用的是白色線稿的影片卡片加星芒，App 用的是粉藍色實心魔法棒，在橫幅上顯得很淡。"
+   }
+  },
+  "3293:14643": {
+   "missing:I3293:14873;11856:6758;11856:6474;186:3127": {
+    "verdict": "ok",
+    "note": "The fifth tab is in the Design's place on the bottom bar, but the app puts a gold 「Pro」 upgrade entry there instead of 「Mine」. The bottom bar is the host app's own navigation, shared by every feature, so it is not a Video Enhance defect — Design may still want to know the slot now carries an upgrade entry.",
+    "note_zh": "底部分頁列第五個位置在 Design 指定的位置上有分頁，但 App 放的是金色的「Pro」升級入口，而不是「Mine」。底部分頁列是主程式自己的導覽、所有功能共用，因此不是 Video Enhance 的缺陷 — 但 Design 可能想知道這個位置現在放的是升級入口。"
+   },
+   "unspecced:iv_banner_tagline_chevron": {
+    "verdict": "ok",
+    "note": "The chevron on the banner belongs to another feature's area of the Launcher (AI Mini Drama), which the design check leaves out; the Video Enhance entry itself is in its place.",
+    "note_zh": "橫幅上的箭頭屬於 Launcher 上其他功能（AI Mini Drama）的區域，設計檢查不納入；Video Enhance 本身的入口在它該在的位置。"
+   }
+  },
+  "3293:13055": {
+   "missing:I3293:13285;11856:6758;11856:6474;186:3127": {
+    "verdict": "ok",
+    "note": "The fifth tab is in the Design's place on the bottom bar, but the app puts a gold 「Pro」 upgrade entry there instead of 「Mine」. The bottom bar is the host app's own navigation, shared by every feature, so it is not a Video Enhance defect — Design may still want to know the slot now carries an upgrade entry.",
+    "note_zh": "底部分頁列第五個位置在 Design 指定的位置上有分頁，但 App 放的是金色的「Pro」升級入口，而不是「Mine」。底部分頁列是主程式自己的導覽、所有功能共用，因此不是 Video Enhance 的缺陷 — 但 Design 可能想知道這個位置現在放的是升級入口。"
+   },
+   "unspecced:iv_banner_tagline_chevron": {
+    "verdict": "ok",
+    "note": "The chevron on the banner belongs to another feature's area of the Launcher (AI Mini Drama), which the design check leaves out; the Video Enhance entry itself is in its place.",
+    "note_zh": "橫幅上的箭頭屬於 Launcher 上其他功能（AI Mini Drama）的區域，設計檢查不納入；Video Enhance 本身的入口在它該在的位置。"
+   }
+  },
+  "3294:23969": {
+   "weight:3294:23992": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The demo page's title 「AI Video Enhance」 is drawn bold where the Design sets Medium; title, button and checkbox label are all a step heavier than the Design on this page.",
+    "note_zh": "示範頁標題「AI Video Enhance」以粗體繪製，Design 設定為 Medium；這一頁的標題、按鈕與勾選項文字都比 Design 重一級。"
+   },
+   "weight:3294:23990": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The 「Try It Now」 button label is drawn extra-bold, two steps above the Design's Medium, which makes the button shout more than the Design intends.",
+    "note_zh": "「Try It Now」按鈕文字以特粗繪製，比 Design 的 Medium 重兩級，讓按鈕比 Design 預期的更搶眼。"
+   },
+   "weight:3294:23988": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The 「Don't show again」 label is drawn Medium where the Design sets Regular; together with its much lighter colour it competes with the button below it.",
+    "note_zh": "「Don't show again」文字以 Medium 繪製，Design 設定為 Regular；加上顏色明顯偏亮，與下方按鈕互相搶注意力。"
+   },
+   "colour:3294:23988": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The 「Don't show again」 label is drawn near-white (#CDCED4) where the Design uses a quiet mid grey (#8893A6), so the option stands out much more than the Design intends.",
+    "note_zh": "「Don't show again」文字以接近白色 (#CDCED4) 繪製，Design 用的是低調的中灰 (#8893A6)，使這個選項比 Design 預期的醒目許多。"
+   },
+   "control:3294:23996": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The demo page's top bar holds only the back arrow: the recent-task (history) icon the Design draws at its right is not there, so this page is the only AI Video Enhance screen with no way through to the task list.",
+    "note_zh": "示範頁頂列只有返回箭頭：Design 在右側畫的近期任務（歷史紀錄）圖示不存在，使這一頁成為唯一沒有任務清單入口的 AI Video Enhance 畫面。"
+   },
+   "colour:3294:23981": {
+    "verdict": "ok",
+    "note": "The Design's grey rectangle is a placeholder for the demo clip, which the app plays in that box; placeholder fills are not compared with real media.",
+    "note_zh": "Design 的灰色矩形是示範影片的佔位圖，App 在該位置播放影片；佔位色塊不與實際影片內容比較。"
+   },
+   "visual:1": {
+    "kind": "visual",
+    "verdict": "ok",
+    "figma": {
+     "box": [
+      57,
+      249,
+      106,
+      328
+     ]
+    },
+    "note": "The demo media differs (the Design shows a before/after split still, the app plays a promo clip with the feature's round tool icons over it); demo media is content served to the app, not a drawn difference.",
+    "note_zh": "示範影片內容不同（Design 是前後對比的靜態圖，App 播放的是疊著功能圓形圖示的宣傳影片）；示範影片是後台供應的內容，不是繪製上的差異。"
+   }
+  },
+  "3293:15145": {
+   "weight:3293:15152": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The 「My Credits」 heading is drawn Medium where the Design sets Regular, so it reads as a stronger heading than the Design intends.",
+    "note_zh": "「My Credits」標題以 Medium 繪製，Design 設定為 Regular，因此比 Design 預期的更像強調標題。"
+   },
+   "colour:3293:15157": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The 「Buy More」 button is a pale mint (#6EEDCB) where the Design asks for a vivid mint-green (#00F1C9); beside the 「Claim」 button's bright cyan outline it looks washed out.",
+    "note_zh": "「Buy More」按鈕為淡薄荷綠 (#6EEDCB)，Design 要求的是鮮明的薄荷綠 (#00F1C9)；與「Claim」按鈕的亮青色外框並排時顯得褪色。"
+   }
+  },
+  "3293:13369": {
+   "size:I3293:13372;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13372;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13373;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13373;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13374;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13374;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13375;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13375;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13376;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13376;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13377;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13377;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13378;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13378;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13379;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13379;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13380;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13380;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13381;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13381;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13382;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13382;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13383;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13383;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13384;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13384;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13385;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13385;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13386;6848:2899": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 11 pt on a 375-pt-wide iPhone frame comes out as about 12.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 11 pt，換算到這支 411 dp 寬的 Android 螢幕約為 12.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13386;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration on the thumbnail is drawn Regular where the Design sets Medium; all fifteen thumbnails are the same, so the times read fainter over the artwork than the Design intends.",
+    "note_zh": "縮圖上的時間長度以 Regular 繪製，Design 設定為 Medium；十五張縮圖都一樣，使時間疊在畫面上時比 Design 預期的更不清楚。"
+   },
+   "size:I3293:13414;13610:4834": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 18 pt on a 375-pt-wide iPhone frame comes out as about 20.19 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 18 pt，換算到這支 411 dp 寬的 Android 螢幕約為 20.19 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:I3293:13414;13610:4834": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The page title 「Add Media」 is drawn bold where the Design sets Medium.",
+    "note_zh": "頁面標題「Add Media」以粗體繪製，Design 設定為 Medium。"
+   },
+   "unspecced:8,816": {
+    "verdict": "ok",
+    "note": "The phone's screen is taller than the Design's frame, so the next row of media tiles starts just below where the frame ends.",
+    "note_zh": "手機螢幕比 Design 的畫面高，因此下一列媒體圖塊就從畫面結束的地方下方開始出現。"
+   },
+   "unspecced:128,816": {
+    "verdict": "ok",
+    "note": "The phone's screen is taller than the Design's frame, so the next row of media tiles starts just below where the frame ends.",
+    "note_zh": "手機螢幕比 Design 的畫面高，因此下一列媒體圖塊就從畫面結束的地方下方開始出現。"
+   },
+   "unspecced:248,816": {
+    "verdict": "ok",
+    "note": "The phone's screen is taller than the Design's frame, so the next row of media tiles starts just below where the frame ends.",
+    "note_zh": "手機螢幕比 Design 的畫面高，因此下一列媒體圖塊就從畫面結束的地方下方開始出現。"
+   },
+   "spacing:3293:13372-3293:13373": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13372-3293:13375": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13373-3293:13374": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13373-3293:13376": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13374-3293:13377": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13375-3293:13376": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13375-3293:13378": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13376-3293:13377": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13376-3293:13379": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13377-3293:13380": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13378-3293:13379": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13378-3293:13381": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13379-3293:13380": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13379-3293:13382": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13380-3293:13383": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13381-3293:13382": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13381-3293:13384": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13382-3293:13383": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13382-3293:13385": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13383-3293:13386": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13384-3293:13385": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "spacing:3293:13385-3293:13386": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the tiles are about 5 pt wider and the gaps between them about 4 pt narrower than the Design's 12 pt, in both directions and all the way down the grid, so the thumbnails almost touch.",
+    "note_zh": "媒體格狀排列比 Design 緊：圖塊約寬 5 pt，彼此間距比 Design 的 12 pt 窄約 4 pt，橫縱兩個方向、整個格狀區都如此，使縮圖幾乎相連。"
+   },
+   "padding:3293:13393": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The 「Video」 media-type bar is about 9 pt shorter than the Design's, so its label sits closer to the bar's edges — about 6 pt less space underneath.",
+    "note_zh": "「Video」媒體類型列比 Design 矮約 9 pt，標籤因此更貼近列的上下緣 — 下方少了約 6 pt 的空間。"
+   }
+  },
+  "3293:14941": {
+   "state:3293:14941": {
+    "verdict": "ok",
+    "note": "The capture is this frame's state: the editor with the clip selected and the clip toolbar's Enhance group open, showing the same four tools. The frame's other texts are the clip toolbar's own labels, which the open panel covers, and the Pro badges, which a Pro account is not shown.",
+    "note_zh": "擷取畫面就是本畫面的狀態：編輯器中片段已選取、片段工具列的 Enhance 群組已展開，顯示相同的四個工具。畫面其餘文字是片段工具列自己的標籤（被展開的面板遮住）與 Pro 標章（Pro 帳號不會顯示）。"
+   },
+   "missing:I3293:15033;4444:16141;4419:5389;4366:19725": {
+    "verdict": "ok",
+    "note": "The clip toolbar is on the screen under the open Enhance panel with its labels showing; it scrolls and holds other entries than the Design's row, and its labels cannot be read while the panel covers them.",
+    "note_zh": "片段工具列就在展開的 Enhance 面板下方、標籤清楚可見；它可以左右捲動，項目與 Design 畫的那一排不完全相同，而且被面板遮住時讀不到標籤。"
+   },
+   "missing:I3293:15033;4444:16712;4419:5484;4366:19725": {
+    "verdict": "ok",
+    "note": "The clip toolbar is on the screen under the open Enhance panel with its labels showing; it scrolls and holds other entries than the Design's row, and its labels cannot be read while the panel covers them.",
+    "note_zh": "片段工具列就在展開的 Enhance 面板下方、標籤清楚可見；它可以左右捲動，項目與 Design 畫的那一排不完全相同，而且被面板遮住時讀不到標籤。"
+   },
+   "missing:I3293:15033;4444:16653;5268:34721;4366:19725": {
+    "verdict": "ok",
+    "note": "The clip toolbar is on the screen under the open Enhance panel with its labels showing; it scrolls and holds other entries than the Design's row, and its labels cannot be read while the panel covers them.",
+    "note_zh": "片段工具列就在展開的 Enhance 面板下方、標籤清楚可見；它可以左右捲動，項目與 Design 畫的那一排不完全相同，而且被面板遮住時讀不到標籤。"
+   },
+   "missing:I3293:15033;4444:16107;4419:5484;4366:19725": {
+    "verdict": "ok",
+    "note": "The clip toolbar is on the screen under the open Enhance panel with its labels showing; it scrolls and holds other entries than the Design's row, and its labels cannot be read while the panel covers them.",
+    "note_zh": "片段工具列就在展開的 Enhance 面板下方、標籤清楚可見；它可以左右捲動，項目與 Design 畫的那一排不完全相同，而且被面板遮住時讀不到標籤。"
+   },
+   "missing:I3293:15033;4444:16754;4419:5484;4366:19725": {
+    "verdict": "ok",
+    "note": "The clip toolbar is on the screen under the open Enhance panel with its labels showing; it scrolls and holds other entries than the Design's row, and its labels cannot be read while the panel covers them.",
+    "note_zh": "片段工具列就在展開的 Enhance 面板下方、標籤清楚可見；它可以左右捲動，項目與 Design 畫的那一排不完全相同，而且被面板遮住時讀不到標籤。"
+   },
+   "missing:I3293:15037;556:1822;553:19688": {
+    "verdict": "n/a",
+    "note": "The 「Pro+ Only / Upgrade Now」 tag over the preview is drawn for a user without the plan; the capture is on a Pro account, which the app shows no upgrade tag.",
+    "note_zh": "預覽上方的「Pro+ Only / Upgrade Now」標籤是畫給沒有方案的使用者；擷取時帳號為 Pro，App 不會顯示升級標籤。"
+   },
+   "missing:I3293:15040;4475:12800;4366:19727;4475:13727;553:19834": {
+    "verdict": "n/a",
+    "note": "The 「Pro」 badge on the tool button is drawn for a user without the plan; the capture is on a Pro account, where none of the four tools carries a badge.",
+    "note_zh": "工具按鈕上的「Pro」標章是畫給沒有方案的使用者；擷取時帳號為 Pro，四個工具都不會有標章。"
+   },
+   "missing:I3293:15041;4475:12800;4366:19727;4475:13727;553:19834": {
+    "verdict": "n/a",
+    "note": "The 「Pro」 badge on the tool button is drawn for a user without the plan; the capture is on a Pro account, where none of the four tools carries a badge.",
+    "note_zh": "工具按鈕上的「Pro」標章是畫給沒有方案的使用者；擷取時帳號為 Pro，四個工具都不會有標章。"
+   },
+   "missing:I3293:15042;4475:12800;4366:19727;621:14133;553:19834": {
+    "verdict": "n/a",
+    "note": "The 「Pro」 badge on the tool button is drawn for a user without the plan; the capture is on a Pro account, where none of the four tools carries a badge.",
+    "note_zh": "工具按鈕上的「Pro」標章是畫給沒有方案的使用者；擷取時帳號為 Pro，四個工具都不會有標章。"
+   },
+   "colour:I3293:15040;4475:12800;4366:19727;4475:13727": {
+    "verdict": "n/a",
+    "note": "The 「Pro」 badge on the tool button is drawn for a user without the plan; the capture is on a Pro account, where none of the four tools carries a badge.",
+    "note_zh": "工具按鈕上的「Pro」標章是畫給沒有方案的使用者；擷取時帳號為 Pro，四個工具都不會有標章。"
+   },
+   "colour:I3293:15041;4475:12800;4366:19727;4475:13727": {
+    "verdict": "n/a",
+    "note": "The 「Pro」 badge on the tool button is drawn for a user without the plan; the capture is on a Pro account, where none of the four tools carries a badge.",
+    "note_zh": "工具按鈕上的「Pro」標章是畫給沒有方案的使用者；擷取時帳號為 Pro，四個工具都不會有標章。"
+   },
+   "colour:I3293:15042;4475:12800;4366:19727;621:14133": {
+    "verdict": "n/a",
+    "note": "The 「Pro」 badge on the tool button is drawn for a user without the plan; the capture is on a Pro account, where none of the four tools carries a badge.",
+    "note_zh": "工具按鈕上的「Pro」標章是畫給沒有方案的使用者；擷取時帳號為 Pro，四個工具都不會有標章。"
+   },
+   "size:I3293:15040;4475:12800;4366:19725": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The label under the tool icon is drawn about 7 % larger than the Design's 11 pt even after the phone's wider layout is allowed for, which is why 「AI Video Enhance」 and 「AI Video Upscaler」 fill their two lines edge to edge.",
+    "note_zh": "工具圖示下方的文字即使把手機較寬的版面換算進去，仍比 Design 的 11 pt 大約 7%，這也是「AI Video Enhance」與「AI Video Upscaler」兩行文字幾乎塞滿的原因。"
+   },
+   "size:I3293:15041;4475:12800;4366:19725": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The label under the tool icon is drawn about 7 % larger than the Design's 11 pt even after the phone's wider layout is allowed for, which is why 「AI Video Enhance」 and 「AI Video Upscaler」 fill their two lines edge to edge.",
+    "note_zh": "工具圖示下方的文字即使把手機較寬的版面換算進去，仍比 Design 的 11 pt 大約 7%，這也是「AI Video Enhance」與「AI Video Upscaler」兩行文字幾乎塞滿的原因。"
+   },
+   "size:I3293:15042;4475:12800;4366:19725": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The label under the tool icon is drawn about 7 % larger than the Design's 11 pt even after the phone's wider layout is allowed for, which is why 「AI Video Enhance」 and 「AI Video Upscaler」 fill their two lines edge to edge.",
+    "note_zh": "工具圖示下方的文字即使把手機較寬的版面換算進去，仍比 Design 的 11 pt 大約 7%，這也是「AI Video Enhance」與「AI Video Upscaler」兩行文字幾乎塞滿的原因。"
+   },
+   "size:I3293:15043;4419:5389;4366:19725": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The label under the tool icon is drawn about 7 % larger than the Design's 11 pt even after the phone's wider layout is allowed for, which is why 「AI Video Enhance」 and 「AI Video Upscaler」 fill their two lines edge to edge.",
+    "note_zh": "工具圖示下方的文字即使把手機較寬的版面換算進去，仍比 Design 的 11 pt 大約 7%，這也是「AI Video Enhance」與「AI Video Upscaler」兩行文字幾乎塞滿的原因。"
+   },
+   "control:I3293:15038;14091:1648;14096:1683": {
+    "verdict": "ok",
+    "note": "The play button is drawn in the preview bar on the phone, in the Design's place; the page source holds only the open Enhance panel's own window, so nothing behind it can be read as tappable.",
+    "note_zh": "播放鍵在手機的預覽列上有畫出來，位置與 Design 相同；頁面結構只含展開中的 Enhance 面板那個視窗，面板後方的元件讀不到可點擊狀態。"
+   },
+   "control:I3293:15038;4351:19287": {
+    "verdict": "ok",
+    "note": "The full-screen button is drawn at the right of the preview bar on the phone, in the Design's place; the page source holds only the open Enhance panel's own window, so nothing behind it can be read as tappable.",
+    "note_zh": "全螢幕鍵在手機預覽列右側有畫出來，位置與 Design 相同；頁面結構只含展開中的 Enhance 面板那個視窗，面板後方的元件讀不到可點擊狀態。"
+   },
+   "colour:I3293:15033;4444:16141;4419:5389": {
+    "verdict": "ok",
+    "note": "The clip toolbar on the phone is scrolled to other entries than the Design's row, so the highlighted blue button and the dark ones fall in different slots; the buttons themselves are the same dark navy and the open group is highlighted blue on both sides.",
+    "note_zh": "手機上的片段工具列捲動到與 Design 那一排不同的項目，因此藍色高亮按鈕與深色按鈕落在不同位置；按鈕本身都是同一個深藍黑色，展開中的群組兩側也都是藍色高亮。"
+   },
+   "colour:I3293:15033;4444:16712;4419:5484": {
+    "verdict": "ok",
+    "note": "The clip toolbar on the phone is scrolled to other entries than the Design's row, so the highlighted blue button and the dark ones fall in different slots; the buttons themselves are the same dark navy and the open group is highlighted blue on both sides.",
+    "note_zh": "手機上的片段工具列捲動到與 Design 那一排不同的項目，因此藍色高亮按鈕與深色按鈕落在不同位置；按鈕本身都是同一個深藍黑色，展開中的群組兩側也都是藍色高亮。"
+   },
+   "colour:I3293:15033;4444:16653;5268:34721": {
+    "verdict": "ok",
+    "note": "The clip toolbar on the phone is scrolled to other entries than the Design's row, so the highlighted blue button and the dark ones fall in different slots; the buttons themselves are the same dark navy and the open group is highlighted blue on both sides.",
+    "note_zh": "手機上的片段工具列捲動到與 Design 那一排不同的項目，因此藍色高亮按鈕與深色按鈕落在不同位置；按鈕本身都是同一個深藍黑色，展開中的群組兩側也都是藍色高亮。"
+   },
+   "colour:I3293:15033;4444:16107;4419:5484": {
+    "verdict": "ok",
+    "note": "The clip toolbar on the phone is scrolled to other entries than the Design's row, so the highlighted blue button and the dark ones fall in different slots; the buttons themselves are the same dark navy and the open group is highlighted blue on both sides.",
+    "note_zh": "手機上的片段工具列捲動到與 Design 那一排不同的項目，因此藍色高亮按鈕與深色按鈕落在不同位置；按鈕本身都是同一個深藍黑色，展開中的群組兩側也都是藍色高亮。"
+   },
+   "colour:I3293:15033;4444:16754;4419:5484": {
+    "verdict": "ok",
+    "note": "The clip toolbar on the phone is scrolled to other entries than the Design's row, so the highlighted blue button and the dark ones fall in different slots; the buttons themselves are the same dark navy and the open group is highlighted blue on both sides.",
+    "note_zh": "手機上的片段工具列捲動到與 Design 那一排不同的項目，因此藍色高亮按鈕與深色按鈕落在不同位置；按鈕本身都是同一個深藍黑色，展開中的群組兩側也都是藍色高亮。"
+   },
+   "colour:I3293:15040;4475:12800": {
+    "verdict": "ok",
+    "note": "The tool button is drawn the same dark navy on both sides; the brighter value on the Design's side is the component's base fill before the panel's own dimming, not what the frame shows.",
+    "note_zh": "工具按鈕兩側畫出來都是同一個深藍黑色；Design 那側較亮的值是元件的底色（尚未套用面板本身的變暗效果），不是畫面上呈現的顏色。"
+   },
+   "colour:I3293:15041;4475:12800": {
+    "verdict": "ok",
+    "note": "The tool button is drawn the same dark navy on both sides; the brighter value on the Design's side is the component's base fill before the panel's own dimming, not what the frame shows.",
+    "note_zh": "工具按鈕兩側畫出來都是同一個深藍黑色；Design 那側較亮的值是元件的底色（尚未套用面板本身的變暗效果），不是畫面上呈現的顏色。"
+   },
+   "colour:I3293:15042;4475:12800": {
+    "verdict": "ok",
+    "note": "The tool button is drawn the same dark navy on both sides; the brighter value on the Design's side is the component's base fill before the panel's own dimming, not what the frame shows.",
+    "note_zh": "工具按鈕兩側畫出來都是同一個深藍黑色；Design 那側較亮的值是元件的底色（尚未套用面板本身的變暗效果），不是畫面上呈現的顏色。"
+   },
+   "colour:I3293:15043;4419:5389": {
+    "verdict": "ok",
+    "note": "The tool button is drawn the same dark navy on both sides; the brighter value on the Design's side is the component's base fill before the panel's own dimming, not what the frame shows.",
+    "note_zh": "工具按鈕兩側畫出來都是同一個深藍黑色；Design 那側較亮的值是元件的底色（尚未套用面板本身的變暗效果），不是畫面上呈現的顏色。"
+   },
+   "colour:I3293:15037;556:1822": {
+    "verdict": "n/a",
+    "note": "The gold 「Pro+ Only / Upgrade Now」 tag is drawn for a user without the plan; the capture is on a Pro account, where the preview carries no tag at all.",
+    "note_zh": "金色的「Pro+ Only / Upgrade Now」標籤是畫給沒有方案的使用者；擷取時帳號為 Pro，預覽上完全沒有標籤。"
+   },
+   "spacing:3293:15040-3293:15041": {
+    "verdict": "ok",
+    "note": "The four tool buttons are spread evenly across the panel on both sides; each button on the phone is about 5 pt wider inside a panel about 9 pt narrower, so their touch areas meet where the Design's drawings only touch.",
+    "note_zh": "四顆工具按鈕在兩側都平均分布於面板中；手機上每顆按鈕約寬 5 pt，而面板約窄 9 pt，因此觸控範圍相接，Design 上則是圖形剛好相鄰。"
+   },
+   "spacing:3293:15041-3293:15042": {
+    "verdict": "ok",
+    "note": "The four tool buttons are spread evenly across the panel on both sides; each button on the phone is about 5 pt wider inside a panel about 9 pt narrower, so their touch areas meet where the Design's drawings only touch.",
+    "note_zh": "四顆工具按鈕在兩側都平均分布於面板中；手機上每顆按鈕約寬 5 pt，而面板約窄 9 pt，因此觸控範圍相接，Design 上則是圖形剛好相鄰。"
+   },
+   "spacing:3293:15042-3293:15043": {
+    "verdict": "ok",
+    "note": "The four tool buttons are spread evenly across the panel on both sides; each button on the phone is about 5 pt wider inside a panel about 9 pt narrower, so their touch areas meet where the Design's drawings only touch.",
+    "note_zh": "四顆工具按鈕在兩側都平均分布於面板中；手機上每顆按鈕約寬 5 pt，而面板約窄 9 pt，因此觸控範圍相接，Design 上則是圖形剛好相鄰。"
+   },
+   "align:I3293:15040;4475:12800;4366:19725": {
+    "verdict": "ok",
+    "note": "The label is centred under its own tool icon on both sides; it is measured against the whole four-button panel, which the app draws a little narrower, so the offset is the panel's width and not the label's centring.",
+    "note_zh": "文字在兩側都置中於自己的工具圖示下方；量測是以整個四鍵面板為基準，而 App 的面板略窄，因此位移來自面板寬度，不是文字沒有置中。"
+   },
+   "align:I3293:15041;4475:12800;4366:19725": {
+    "verdict": "ok",
+    "note": "The label is centred under its own tool icon on both sides; it is measured against the whole four-button panel, which the app draws a little narrower, so the offset is the panel's width and not the label's centring.",
+    "note_zh": "文字在兩側都置中於自己的工具圖示下方；量測是以整個四鍵面板為基準，而 App 的面板略窄，因此位移來自面板寬度，不是文字沒有置中。"
+   },
+   "align:I3293:15042;4475:12800;4366:19725": {
+    "verdict": "ok",
+    "note": "The label is centred under its own tool icon on both sides; it is measured against the whole four-button panel, which the app draws a little narrower, so the offset is the panel's width and not the label's centring.",
+    "note_zh": "文字在兩側都置中於自己的工具圖示下方；量測是以整個四鍵面板為基準，而 App 的面板略窄，因此位移來自面板寬度，不是文字沒有置中。"
+   },
+   "visual:1": {
+    "kind": "visual",
+    "verdict": "question",
+    "severity": "major",
+    "figma": {
+     "box": [
+      83,
+      91,
+      208,
+      365
+     ]
+    },
+    "note": "The editor's Preview is pure black on the capture while the timeline thumbnails of the same clip draw normally; the Design shows the clip's frame there. A video surface often fails to appear in an Android screenshot, so someone has to confirm on the phone by eye whether the Preview is really blank before this is filed.",
+    "note_zh": "擷取畫面中編輯器的預覽區為全黑，但時間軸上同一個片段的縮圖正常顯示；Design 在該處顯示影片畫面。Android 截圖常拍不到影片圖層，因此開單前需有人用肉眼在手機上確認預覽是否真的空白。"
+   }
+  },
+  "3294:30796": {
+   "missing:3313:39299": {
+    "verdict": "ok",
+    "note": "The blue time bubble above the trim bar is drawn on the phone (visible on the capture); it is not a text the page source holds, and the time it shows follows the playhead, which is sample content.",
+    "note_zh": "修剪列上方的藍色時間泡泡在手機上有畫出來（截圖可見）；它不是頁面結構中可讀取的文字，顯示的時間跟著播放頭走，屬於樣本內容。"
+   },
+   "missing:I3305:34764;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The panel shows no current-time / total label at the left of the preview bar, where the Design draws one; on the phone the label appears only after the playhead or a trim handle has been moved, so a freshly opened panel has nothing there. It is the same on every panel captured straight after opening.",
+    "note_zh": "預覽列左側沒有顯示目前時間／總長度標籤，Design 有畫；手機上要等播放頭或修剪把手被移動過，標籤才會出現，因此剛開啟的面板這個位置是空的。所有剛開啟即擷取的面板畫面都一樣。"
+   },
+   "missing:I3294:30877;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The credit pill in the top bar shows only its icon and no number, where the Design draws the balance beside it; on the Free account the app could not read the balance at all, so the pill looks like a bare icon.",
+    "note_zh": "頂列的點數膠囊只有圖示、沒有數字，Design 在旁邊畫有餘額；在免費帳號下 App 根本讀不到餘額，因此膠囊看起來只是一個孤立的圖示。"
+   },
+   "missing:I3294:30969;513:536": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The hint bubble 「Max 8 minutes. Drag to choose which part.」 that the Design draws over the trim bar when the panel opens is not shown; no capture in this run caught it on any panel, so a user is never told the eight-minute limit or that the selection can be dragged.",
+    "note_zh": "面板開啟時 Design 在修剪列上方畫的提示泡泡「Max 8 minutes. Drag to choose which part.」沒有出現；本次所有面板擷取都沒看到它，使用者因此不會被告知八分鐘上限，也不知道選取範圍可以拖曳。"
+   },
+   "weight:3313:39256": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Selected Length」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Selected Length」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3294:30841": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Mode」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Mode」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3294:30847": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Enhancement style」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Enhancement style」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3294:30853": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「fps」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「fps」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3294:30860": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Resolution」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Resolution」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:I3294:30877;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The page title 「AI Video Enhance」 in the top bar is bold where the Design sets Medium — the same weight difference as the panel headings below it.",
+    "note_zh": "頂列的頁面標題「AI Video Enhance」為粗體，Design 設定為 Medium — 與下方面板標題相同的字重差異。"
+   },
+   "control:3313:39257": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "control:3313:39300": {
+    "verdict": "ok",
+    "note": "The round two-way drag handle under the trim bar is drawn on the phone exactly where the Design puts it; the trim bar is one custom view, so no separate tappable element can be read for the handle.",
+    "note_zh": "修剪列下方的圓形雙向拖曳鈕在手機上確實畫在 Design 指定的位置；修剪列是單一自繪元件，因此讀不到獨立的可點擊元素。"
+   },
+   "control:3413:17819": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "unspecced:iv_selected_length_info": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "colour:3294:30864": {
+    "verdict": "ok",
+    "note": "The unselected chip is drawn the same dark navy on both sides; the lighter value on the Design's side is the component's base fill before the frame's own dimming, not what the frame shows.",
+    "note_zh": "未選取的晶片兩邊畫出來都是同一個深藍黑色；Design 那側較淺的值是元件的底色（尚未套用畫面本身的變暗效果），不是畫面上呈現的顏色。"
+   },
+   "colour:3294:30977": {
+    "verdict": "ok",
+    "note": "The phone draws the same gold upgrade bar as the Design; the colour was read a few points above it, on the sheet behind the button, because the button floats lower on the taller phone screen.",
+    "note_zh": "手機畫出與 Design 相同的金色升級列；顏色是在按鈕上方幾個點、按鈕後方的面板上量到的，因為在較高的手機螢幕上按鈕浮在更下方。"
+   },
+   "colour:I3294:30969;513:535": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The blue hint bubble the Design draws over the trim bar is not drawn at all — the same missing hint as its text; the trim area is plain dark where the Design puts the bubble.",
+    "note_zh": "Design 在修剪列上方畫的藍色提示泡泡完全沒有畫出來 — 與其文字同屬一個缺失；Design 放泡泡的位置在 App 上是單純的深色背景。"
+   }
+  },
+  "3310:38462": {
+   "missing:3310:38511": {
+    "verdict": "ok",
+    "note": "The blue time bubble above the trim bar is drawn on the phone (visible on the capture); it is not a text the page source holds, and the time it shows follows the playhead, which is sample content.",
+    "note_zh": "修剪列上方的藍色時間泡泡在手機上有畫出來（截圖可見）；它不是頁面結構中可讀取的文字，顯示的時間跟著播放頭走，屬於樣本內容。"
+   },
+   "missing:I3310:38543;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The panel shows no current-time / total label at the left of the preview bar, where the Design draws one; on the phone the label appears only after the playhead or a trim handle has been moved, so a freshly opened panel has nothing there. It is the same on every panel captured straight after opening.",
+    "note_zh": "預覽列左側沒有顯示目前時間／總長度標籤，Design 有畫；手機上要等播放頭或修剪把手被移動過，標籤才會出現，因此剛開啟的面板這個位置是空的。所有剛開啟即擷取的面板畫面都一樣。"
+   },
+   "missing:I3310:38551;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The credit pill in the top bar shows only its icon and no number, where the Design draws the balance beside it; on the Free account the app could not read the balance at all, so the pill looks like a bare icon.",
+    "note_zh": "頂列的點數膠囊只有圖示、沒有數字，Design 在旁邊畫有餘額；在免費帳號下 App 根本讀不到餘額，因此膠囊看起來只是一個孤立的圖示。"
+   },
+   "missing:I3310:38552;513:536": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The hint bubble 「Max 8 minutes. Drag to choose which part.」 that the Design draws over the trim bar when the panel opens is not shown; no capture in this run caught it on any panel, so a user is never told the eight-minute limit or that the selection can be dragged.",
+    "note_zh": "面板開啟時 Design 在修剪列上方畫的提示泡泡「Max 8 minutes. Drag to choose which part.」沒有出現；本次所有面板擷取都沒看到它，使用者因此不會被告知八分鐘上限，也不知道選取範圍可以拖曳。"
+   },
+   "weight:3310:38468": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Selected Length」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Selected Length」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3310:38516": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Mode」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Mode」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3310:38522": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Enhancement style」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Enhancement style」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3310:38528": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「fps」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「fps」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3310:38535": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Resolution」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Resolution」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:I3310:38551;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The page title 「AI Video Enhance」 in the top bar is bold where the Design sets Medium — the same weight difference as the panel headings below it.",
+    "note_zh": "頂列的頁面標題「AI Video Enhance」為粗體，Design 設定為 Medium — 與下方面板標題相同的字重差異。"
+   },
+   "control:3310:38469": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "control:3310:38512": {
+    "verdict": "ok",
+    "note": "The round two-way drag handle under the trim bar is drawn on the phone exactly where the Design puts it; the trim bar is one custom view, so no separate tappable element can be read for the handle.",
+    "note_zh": "修剪列下方的圓形雙向拖曳鈕在手機上確實畫在 Design 指定的位置；修剪列是單一自繪元件，因此讀不到獨立的可點擊元素。"
+   },
+   "control:3413:17855": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "unspecced:iv_selected_length_info": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "colour:3310:38539": {
+    "verdict": "ok",
+    "note": "The unselected chip is drawn the same dark navy on both sides; the lighter value on the Design's side is the component's base fill before the frame's own dimming, not what the frame shows.",
+    "note_zh": "未選取的晶片兩邊畫出來都是同一個深藍黑色；Design 那側較淺的值是元件的底色（尚未套用畫面本身的變暗效果），不是畫面上呈現的顏色。"
+   },
+   "colour:3310:38546": {
+    "verdict": "ok",
+    "note": "The phone draws the same gold upgrade bar as the Design; the colour was read a few points above it, on the sheet behind the button, because the button floats lower on the taller phone screen.",
+    "note_zh": "手機畫出與 Design 相同的金色升級列；顏色是在按鈕上方幾個點、按鈕後方的面板上量到的，因為在較高的手機螢幕上按鈕浮在更下方。"
+   },
+   "colour:I3310:38552;513:535": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The blue hint bubble the Design draws over the trim bar is not drawn at all — the same missing hint as its text; the trim area is plain dark where the Design puts the bubble.",
+    "note_zh": "Design 在修剪列上方畫的藍色提示泡泡完全沒有畫出來 — 與其文字同屬一個缺失；Design 放泡泡的位置在 App 上是單純的深色背景。"
+   }
+  },
+  "3300:32521": {
+   "missing:3310:38789": {
+    "verdict": "ok",
+    "note": "The blue time bubble above the trim bar is drawn on the phone (visible on the capture); it is not a text the page source holds, and the time it shows follows the playhead, which is sample content.",
+    "note_zh": "修剪列上方的藍色時間泡泡在手機上有畫出來（截圖可見）；它不是頁面結構中可讀取的文字，顯示的時間跟著播放頭走，屬於樣本內容。"
+   },
+   "missing:I3305:34747;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The panel shows no current-time / total label at the left of the preview bar, where the Design draws one; on the phone the label appears only after the playhead or a trim handle has been moved, so a freshly opened panel has nothing there. It is the same on every panel captured straight after opening.",
+    "note_zh": "預覽列左側沒有顯示目前時間／總長度標籤，Design 有畫；手機上要等播放頭或修剪把手被移動過，標籤才會出現，因此剛開啟的面板這個位置是空的。所有剛開啟即擷取的面板畫面都一樣。"
+   },
+   "weight:3310:38746": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Selected Length」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Selected Length」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3310:38794": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Mode」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Mode」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3310:38800": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Enhancement style」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Enhancement style」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3310:38806": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「fps」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「fps」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3310:38813": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Resolution」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Resolution」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:I3310:38358;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The page title 「AI Video Enhance」 in the top bar is bold where the Design sets Medium — the same weight difference as the panel headings below it.",
+    "note_zh": "頂列的頁面標題「AI Video Enhance」為粗體，Design 設定為 Medium — 與下方面板標題相同的字重差異。"
+   },
+   "weight:I3310:38358;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The credit balance in the top bar is bold where the Design sets Medium; it is the same pill on every AI Video Enhance screen.",
+    "note_zh": "頂列的點數餘額為粗體，Design 設定為 Medium；每個 AI Video Enhance 畫面上的這顆點數膠囊都相同。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "padding:I3310:38358;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The pill holds a three-digit balance where the Design draws a one- or two-digit one, so it is wider and its insets shift by 2–3 pt; the gap between the credit icon and the number is the same.",
+    "note_zh": "膠囊內是三位數的餘額，Design 畫的是一到兩位數，因此膠囊較寬、內距差 2–3 pt；點數圖示與數字之間的間距相同。"
+   },
+   "colour:3310:38817": {
+    "verdict": "ok",
+    "note": "The unselected chip is drawn the same dark navy on both sides; the lighter value on the Design's side is the component's base fill before the frame's own dimming, not what the frame shows.",
+    "note_zh": "未選取的晶片兩邊畫出來都是同一個深藍黑色；Design 那側較淺的值是元件的底色（尚未套用畫面本身的變暗效果），不是畫面上呈現的顏色。"
+   },
+   "colour:3300:32597": {
+    "verdict": "n/a",
+    "note": "This frame draws the non-subscribed gold 「Unlock Pro+ to Enhance」 bar; the capture is on a Pro account, where the button is the blue 「Enhance」 with the price (Android sells no Pro+), so the state is not the frame's.",
+    "note_zh": "這個畫面畫的是未訂閱的金色「Unlock Pro+ to Enhance」按鈕；擷取時帳號為 Pro，按鈕是藍色的「Enhance」加價格（Android 沒有 Pro+ 方案），因此狀態與畫面不符。"
+   }
+  },
+  "3328:45377": {
+   "missing:3328:45426": {
+    "verdict": "ok",
+    "note": "The blue time bubble above the trim bar is drawn on the phone (visible on the capture); it is not a text the page source holds, and the time it shows follows the playhead, which is sample content.",
+    "note_zh": "修剪列上方的藍色時間泡泡在手機上有畫出來（截圖可見）；它不是頁面結構中可讀取的文字，顯示的時間跟著播放頭走，屬於樣本內容。"
+   },
+   "missing:I3328:45458;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The panel shows no current-time / total label at the left of the preview bar, where the Design draws one; on the phone the label appears only after the playhead or a trim handle has been moved, so a freshly opened panel has nothing there. It is the same on every panel captured straight after opening.",
+    "note_zh": "預覽列左側沒有顯示目前時間／總長度標籤，Design 有畫；手機上要等播放頭或修剪把手被移動過，標籤才會出現，因此剛開啟的面板這個位置是空的。所有剛開啟即擷取的面板畫面都一樣。"
+   },
+   "missing:I3328:45461;931:2392;325:186": {
+    "verdict": "ok",
+    "note": "The Design's 「XX」 is a placeholder for the price; the app shows the real credit cost in the same place on the button.",
+    "note_zh": "Design 的「XX」是價格的佔位字；App 在按鈕的同一位置顯示實際的點數花費。"
+   },
+   "size:3328:45383": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 14 pt on a 375-pt-wide iPhone frame comes out as about 14.86 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 14 pt，換算到這支 411 dp 寬的 Android 螢幕約為 14.86 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:3328:45383": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Selected Length」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Selected Length」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "size:3328:45431": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 14 pt on a 375-pt-wide iPhone frame comes out as about 14.86 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 14 pt，換算到這支 411 dp 寬的 Android 螢幕約為 14.86 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:3328:45431": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Mode」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Mode」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "size:3328:45437": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 14 pt on a 375-pt-wide iPhone frame comes out as about 14.86 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 14 pt，換算到這支 411 dp 寬的 Android 螢幕約為 14.86 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:3328:45437": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Enhancement style」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Enhancement style」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "size:3328:45443": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 14 pt on a 375-pt-wide iPhone frame comes out as about 14.86 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 14 pt，換算到這支 411 dp 寬的 Android 螢幕約為 14.86 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:3328:45443": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「fps」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「fps」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "size:3328:45450": {
+    "verdict": "ok",
+    "note": "The text is the same size on screen as the Design's: the Design's 14 pt on a 375-pt-wide iPhone frame comes out as about 14.86 sp on this 411-dp-wide Android screen, so the two numbers differ but the letters are drawn the same height.",
+    "note_zh": "這個文字在螢幕上與 Design 同樣大小：Design 在 375 pt 寬的 iPhone 畫面上的 14 pt，換算到這支 411 dp 寬的 Android 螢幕約為 14.86 sp，數值不同但字實際畫出來一樣高。"
+   },
+   "weight:3328:45450": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Resolution」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Resolution」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:I3328:45461;931:2392;315:8365": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The Enhance button's label is bold where the Design sets Medium, so the button text looks heavier than the Medium type around it.",
+    "note_zh": "Enhance 按鈕的文字為粗體，Design 設定為 Medium，按鈕文字因此比周圍 Medium 字重的文字更重。"
+   },
+   "weight:I3328:45466;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The page title 「AI Video Enhance」 in the top bar is bold where the Design sets Medium — the same weight difference as the panel headings below it.",
+    "note_zh": "頂列的頁面標題「AI Video Enhance」為粗體，Design 設定為 Medium — 與下方面板標題相同的字重差異。"
+   },
+   "weight:I3328:45466;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The credit balance in the top bar is bold where the Design sets Medium; it is the same pill on every AI Video Enhance screen.",
+    "note_zh": "頂列的點數餘額為粗體，Design 設定為 Medium；每個 AI Video Enhance 畫面上的這顆點數膠囊都相同。"
+   },
+   "control:3328:45384": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "control:3328:45427": {
+    "verdict": "ok",
+    "note": "The round two-way drag handle under the trim bar is drawn on the phone exactly where the Design puts it; the trim bar is one custom view, so no separate tappable element can be read for the handle.",
+    "note_zh": "修剪列下方的圓形雙向拖曳鈕在手機上確實畫在 Design 指定的位置；修剪列是單一自繪元件，因此讀不到獨立的可點擊元素。"
+   },
+   "control:3447:29481": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "unspecced:iv_selected_length_info": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "padding:I3328:45466;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The pill holds a three-digit balance where the Design draws a one- or two-digit one, so it is wider and its insets shift by 2–3 pt; the gap between the credit icon and the number is the same.",
+    "note_zh": "膠囊內是三位數的餘額，Design 畫的是一到兩位數，因此膠囊較寬、內距差 2–3 pt；點數圖示與數字之間的間距相同。"
+   },
+   "colour:3328:45453": {
+    "verdict": "ok",
+    "note": "The unselected chip is drawn the same dark navy on both sides; the lighter value on the Design's side is the component's base fill before the frame's own dimming, not what the frame shows.",
+    "note_zh": "未選取的晶片兩邊畫出來都是同一個深藍黑色；Design 那側較淺的值是元件的底色（尚未套用畫面本身的變暗效果），不是畫面上呈現的顏色。"
+   },
+   "colour:3328:45454": {
+    "verdict": "ok",
+    "note": "The unselected chip is drawn the same dark navy on both sides; the lighter value on the Design's side is the component's base fill before the frame's own dimming, not what the frame shows.",
+    "note_zh": "未選取的晶片兩邊畫出來都是同一個深藍黑色；Design 那側較淺的值是元件的底色（尚未套用畫面本身的變暗效果），不是畫面上呈現的顏色。"
+   },
+   "colour:I3328:45461;931:2392": {
+    "verdict": "ok",
+    "note": "Both sides draw the same blue Enhance button; the colour was read a few points above the button, on the sheet behind it, because the button floats lower on the taller phone screen.",
+    "note_zh": "兩側畫的都是同一顆藍色 Enhance 按鈕；顏色是在按鈕上方幾個點、按鈕後方的面板上量到的，因為在較高的手機螢幕上按鈕浮在更下方。"
+   }
+  },
+  "3313:39430": {
+   "missing:3313:39468": {
+    "verdict": "ok",
+    "note": "The blue time bubble above the trim bar is drawn on the phone (visible on the capture); it is not a text the page source holds, and the time it shows follows the playhead, which is sample content. The capture's playhead sits at the start of the clip where this frame draws it part-way in, so nothing is drawn at the point the Design marks.",
+    "note_zh": "修剪列上方的藍色時間泡泡在手機上有畫出來（截圖可見）；它不是頁面結構中可讀取的文字，顯示的時間跟著播放頭走，屬於樣本內容。擷取時播放頭停在片段開頭，而這個畫面把它畫在片段中間，因此 Design 標示的位置上沒有東西。"
+   },
+   "weight:3313:39436": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Selected Length」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Selected Length」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3313:39473": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Mode」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Mode」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3313:39479": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Enhancement style」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Enhancement style」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3313:39485": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「fps」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「fps」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3313:39492": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Resolution」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Resolution」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:I3313:39508;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The page title 「AI Video Enhance」 in the top bar is bold where the Design sets Medium — the same weight difference as the panel headings below it.",
+    "note_zh": "頂列的頁面標題「AI Video Enhance」為粗體，Design 設定為 Medium — 與下方面板標題相同的字重差異。"
+   },
+   "weight:I3313:39508;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The credit balance in the top bar is bold where the Design sets Medium; it is the same pill on every AI Video Enhance screen.",
+    "note_zh": "頂列的點數餘額為粗體，Design 設定為 Medium；每個 AI Video Enhance 畫面上的這顆點數膠囊都相同。"
+   },
+   "control:3313:39598": {
+    "verdict": "ok",
+    "note": "The trim strip is drawn on the phone over the same part of the clip and drags the same way; it is one custom view, so no separate tappable element can be read for it.",
+    "note_zh": "修剪條在手機上有畫出來，涵蓋片段的同一段落、拖曳方式也相同；它是單一自繪元件，因此讀不到獨立的可點擊元素。"
+   },
+   "control:3313:39469": {
+    "verdict": "ok",
+    "note": "The round two-way drag handle under the trim bar is drawn on the phone exactly where the Design puts it; the trim bar is one custom view, so no separate tappable element can be read for the handle.",
+    "note_zh": "修剪列下方的圓形雙向拖曳鈕在手機上確實畫在 Design 指定的位置；修剪列是單一自繪元件，因此讀不到獨立的可點擊元素。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "padding:I3313:39508;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The pill holds a three-digit balance where the Design draws a one- or two-digit one, so it is wider and its insets shift by 2–3 pt; the gap between the credit icon and the number is the same.",
+    "note_zh": "膠囊內是三位數的餘額，Design 畫的是一到兩位數，因此膠囊較寬、內距差 2–3 pt；點數圖示與數字之間的間距相同。"
+   },
+   "colour:3313:39467": {
+    "verdict": "ok",
+    "note": "The blue time bubble above the trim bar is drawn on the phone (visible on the capture); it is not a text the page source holds, and the time it shows follows the playhead, which is sample content. The capture's playhead sits at the start of the clip where this frame draws it part-way in, so nothing is drawn at the point the Design marks.",
+    "note_zh": "修剪列上方的藍色時間泡泡在手機上有畫出來（截圖可見）；它不是頁面結構中可讀取的文字，顯示的時間跟著播放頭走，屬於樣本內容。擷取時播放頭停在片段開頭，而這個畫面把它畫在片段中間，因此 Design 標示的位置上沒有東西。"
+   },
+   "colour:3313:39496": {
+    "verdict": "ok",
+    "note": "The unselected chip is drawn the same dark navy on both sides; the lighter value on the Design's side is the component's base fill before the frame's own dimming, not what the frame shows.",
+    "note_zh": "未選取的晶片兩邊畫出來都是同一個深藍黑色；Design 那側較淺的值是元件的底色（尚未套用畫面本身的變暗效果），不是畫面上呈現的顏色。"
+   },
+   "colour:3313:39503": {
+    "verdict": "n/a",
+    "note": "This frame draws the non-subscribed gold 「Unlock Pro+ to Enhance」 bar; the capture is on a Pro account, where the button is the blue 「Enhance」 with the price (Android sells no Pro+), so the state is not the frame's.",
+    "note_zh": "這個畫面畫的是未訂閱的金色「Unlock Pro+ to Enhance」按鈕；擷取時帳號為 Pro，按鈕是藍色的「Enhance」加價格（Android 沒有 Pro+ 方案），因此狀態與畫面不符。"
+   }
+  },
+  "3669:20362": {
+   "missing:3669:20419": {
+    "verdict": "ok",
+    "note": "The blue time bubble above the trim bar is drawn on the phone (visible on the capture); it is not a text the page source holds, and the time it shows follows the playhead, which is sample content. The capture's playhead sits at the start of the clip where this frame draws it part-way in, so nothing is drawn at the point the Design marks.",
+    "note_zh": "修剪列上方的藍色時間泡泡在手機上有畫出來（截圖可見）；它不是頁面結構中可讀取的文字，顯示的時間跟著播放頭走，屬於樣本內容。擷取時播放頭停在片段開頭，而這個畫面把它畫在片段中間，因此 Design 標示的位置上沒有東西。"
+   },
+   "missing:I3669:20454;4351:19280": {
+    "verdict": "n/a",
+    "note": "This frame draws the label with the playhead part-way into the clip; the capture never moved the playhead or a trim handle, so the panel is still in its just-opened state. The same missing label is recorded on the frames the capture does match.",
+    "note_zh": "這個畫面畫的是播放頭移到片段中間時的標籤；擷取過程未移動播放頭或修剪把手，面板仍是剛開啟的狀態。狀態相符的其他畫面已記錄同一個標籤缺失。"
+   },
+   "missing:I3669:138905;931:2392;325:186": {
+    "verdict": "ok",
+    "note": "The Design's 「XX」 is a placeholder for the price; the app shows the real credit cost in the same place on the button.",
+    "note_zh": "Design 的「XX」是價格的佔位字；App 在按鈕的同一位置顯示實際的點數花費。"
+   },
+   "weight:I3669:138909;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The page title 「AI Video Enhance」 in the top bar is bold where the Design sets Medium — the same weight difference as the panel headings below it.",
+    "note_zh": "頂列的頁面標題「AI Video Enhance」為粗體，Design 設定為 Medium — 與下方面板標題相同的字重差異。"
+   },
+   "weight:I3669:138909;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The credit balance in the top bar is bold where the Design sets Medium; it is the same pill on every AI Video Enhance screen.",
+    "note_zh": "頂列的點數餘額為粗體，Design 設定為 Medium；每個 AI Video Enhance 畫面上的這顆點數膠囊都相同。"
+   },
+   "weight:3669:20368": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Selected Length」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Selected Length」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3669:20424": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Mode」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Mode」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3669:20431": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Enhancement style」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Enhancement style」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3669:20438": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「fps」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「fps」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3669:20445": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Resolution」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Resolution」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:I3669:138905;931:2392;315:8365": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The Enhance button's label is bold where the Design sets Medium, so the button text looks heavier than the Medium type around it.",
+    "note_zh": "Enhance 按鈕的文字為粗體，Design 設定為 Medium，按鈕文字因此比周圍 Medium 字重的文字更重。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "padding:I3669:138909;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The pill holds a three-digit balance where the Design draws a one- or two-digit one, so it is wider and its insets shift by 2–3 pt; the gap between the credit icon and the number is the same.",
+    "note_zh": "膠囊內是三位數的餘額，Design 畫的是一到兩位數，因此膠囊較寬、內距差 2–3 pt；點數圖示與數字之間的間距相同。"
+   },
+   "colour:3669:20418": {
+    "verdict": "ok",
+    "note": "The blue time bubble above the trim bar is drawn on the phone (visible on the capture); it is not a text the page source holds, and the time it shows follows the playhead, which is sample content. The capture's playhead sits at the start of the clip where this frame draws it part-way in, so nothing is drawn at the point the Design marks.",
+    "note_zh": "修剪列上方的藍色時間泡泡在手機上有畫出來（截圖可見）；它不是頁面結構中可讀取的文字，顯示的時間跟著播放頭走，屬於樣本內容。擷取時播放頭停在片段開頭，而這個畫面把它畫在片段中間，因此 Design 標示的位置上沒有東西。"
+   },
+   "colour:3669:20449": {
+    "verdict": "ok",
+    "note": "The unselected chip is drawn the same dark navy on both sides; the lighter value on the Design's side is the component's base fill before the frame's own dimming, not what the frame shows.",
+    "note_zh": "未選取的晶片兩邊畫出來都是同一個深藍黑色；Design 那側較淺的值是元件的底色（尚未套用畫面本身的變暗效果），不是畫面上呈現的顏色。"
+   },
+   "colour:I3669:138905;931:2392": {
+    "verdict": "ok",
+    "note": "Both sides draw the same blue Enhance button; the colour was read a few points above the button, on the sheet behind it, because the button floats lower on the taller phone screen.",
+    "note_zh": "兩側畫的都是同一顆藍色 Enhance 按鈕；顏色是在按鈕上方幾個點、按鈕後方的面板上量到的，因為在較高的手機螢幕上按鈕浮在更下方。"
+   }
+  },
+  "3669:20463": {
+   "missing:3669:20520": {
+    "verdict": "ok",
+    "note": "The blue time bubble above the trim bar is drawn on the phone (visible on the capture); it is not a text the page source holds, and the time it shows follows the playhead, which is sample content. The capture's playhead sits at the start of the clip where this frame draws it part-way in, so nothing is drawn at the point the Design marks.",
+    "note_zh": "修剪列上方的藍色時間泡泡在手機上有畫出來（截圖可見）；它不是頁面結構中可讀取的文字，顯示的時間跟著播放頭走，屬於樣本內容。擷取時播放頭停在片段開頭，而這個畫面把它畫在片段中間，因此 Design 標示的位置上沒有東西。"
+   },
+   "missing:I3669:20555;4351:19280": {
+    "verdict": "n/a",
+    "note": "This frame draws the label with the playhead part-way into the clip; the capture never moved the playhead or a trim handle, so the panel is still in its just-opened state. The same missing label is recorded on the frames the capture does match.",
+    "note_zh": "這個畫面畫的是播放頭移到片段中間時的標籤；擷取過程未移動播放頭或修剪把手，面板仍是剛開啟的狀態。狀態相符的其他畫面已記錄同一個標籤缺失。"
+   },
+   "missing:I3669:138912;931:2392;325:186": {
+    "verdict": "ok",
+    "note": "The Design's 「XX」 is a placeholder for the price; the app shows the real credit cost in the same place on the button.",
+    "note_zh": "Design 的「XX」是價格的佔位字；App 在按鈕的同一位置顯示實際的點數花費。"
+   },
+   "weight:I3669:138916;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The page title 「AI Video Enhance」 in the top bar is bold where the Design sets Medium — the same weight difference as the panel headings below it.",
+    "note_zh": "頂列的頁面標題「AI Video Enhance」為粗體，Design 設定為 Medium — 與下方面板標題相同的字重差異。"
+   },
+   "weight:I3669:138916;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The credit balance in the top bar is bold where the Design sets Medium; it is the same pill on every AI Video Enhance screen.",
+    "note_zh": "頂列的點數餘額為粗體，Design 設定為 Medium；每個 AI Video Enhance 畫面上的這顆點數膠囊都相同。"
+   },
+   "weight:3669:20469": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Selected Length」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Selected Length」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3669:20525": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Mode」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Mode」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3669:20532": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Enhancement style」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Enhancement style」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3669:20539": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「fps」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「fps」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3669:20546": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Resolution」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Resolution」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:I3669:138912;931:2392;315:8365": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The Enhance button's label is bold where the Design sets Medium, so the button text looks heavier than the Medium type around it.",
+    "note_zh": "Enhance 按鈕的文字為粗體，Design 設定為 Medium，按鈕文字因此比周圍 Medium 字重的文字更重。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "padding:I3669:138916;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The pill holds a three-digit balance where the Design draws a one- or two-digit one, so it is wider and its insets shift by 2–3 pt; the gap between the credit icon and the number is the same.",
+    "note_zh": "膠囊內是三位數的餘額，Design 畫的是一到兩位數，因此膠囊較寬、內距差 2–3 pt；點數圖示與數字之間的間距相同。"
+   },
+   "colour:3669:20519": {
+    "verdict": "ok",
+    "note": "The blue time bubble above the trim bar is drawn on the phone (visible on the capture); it is not a text the page source holds, and the time it shows follows the playhead, which is sample content. The capture's playhead sits at the start of the clip where this frame draws it part-way in, so nothing is drawn at the point the Design marks.",
+    "note_zh": "修剪列上方的藍色時間泡泡在手機上有畫出來（截圖可見）；它不是頁面結構中可讀取的文字，顯示的時間跟著播放頭走，屬於樣本內容。擷取時播放頭停在片段開頭，而這個畫面把它畫在片段中間，因此 Design 標示的位置上沒有東西。"
+   },
+   "colour:3669:20550": {
+    "verdict": "ok",
+    "note": "The unselected chip is drawn the same dark navy on both sides; the lighter value on the Design's side is the component's base fill before the frame's own dimming, not what the frame shows.",
+    "note_zh": "未選取的晶片兩邊畫出來都是同一個深藍黑色；Design 那側較淺的值是元件的底色（尚未套用畫面本身的變暗效果），不是畫面上呈現的顏色。"
+   },
+   "colour:I3669:138912;931:2392": {
+    "verdict": "ok",
+    "note": "Both sides draw the same blue Enhance button; the colour was read a few points above the button, on the sheet behind it, because the button floats lower on the taller phone screen.",
+    "note_zh": "兩側畫的都是同一顆藍色 Enhance 按鈕；顏色是在按鈕上方幾個點、按鈕後方的面板上量到的，因為在較高的手機螢幕上按鈕浮在更下方。"
+   }
+  },
+  "3669:20564": {
+   "missing:3669:20621": {
+    "verdict": "ok",
+    "note": "The blue time bubble above the trim bar is drawn on the phone (visible on the capture); it is not a text the page source holds, and the time it shows follows the playhead, which is sample content. The capture's playhead sits at the start of the clip where this frame draws it part-way in, so nothing is drawn at the point the Design marks.",
+    "note_zh": "修剪列上方的藍色時間泡泡在手機上有畫出來（截圖可見）；它不是頁面結構中可讀取的文字，顯示的時間跟著播放頭走，屬於樣本內容。擷取時播放頭停在片段開頭，而這個畫面把它畫在片段中間，因此 Design 標示的位置上沒有東西。"
+   },
+   "missing:I3669:138919;931:2392;325:186": {
+    "verdict": "ok",
+    "note": "The Design's 「XX」 is a placeholder for the price; the app shows the real credit cost in the same place on the button.",
+    "note_zh": "Design 的「XX」是價格的佔位字；App 在按鈕的同一位置顯示實際的點數花費。"
+   },
+   "weight:I3669:138923;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The page title 「AI Video Enhance」 in the top bar is bold where the Design sets Medium — the same weight difference as the panel headings below it.",
+    "note_zh": "頂列的頁面標題「AI Video Enhance」為粗體，Design 設定為 Medium — 與下方面板標題相同的字重差異。"
+   },
+   "weight:I3669:138923;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The credit balance in the top bar is bold where the Design sets Medium; it is the same pill on every AI Video Enhance screen.",
+    "note_zh": "頂列的點數餘額為粗體，Design 設定為 Medium；每個 AI Video Enhance 畫面上的這顆點數膠囊都相同。"
+   },
+   "weight:3669:20570": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Selected Length」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Selected Length」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3669:20626": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Mode」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Mode」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3669:20633": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Enhancement style」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Enhancement style」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3669:20640": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「fps」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「fps」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:3669:20647": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Resolution」 is drawn bold; the Design sets it in Medium. Every heading in the AI Video Enhance panel is bold the same way, so the whole settings sheet reads heavier than the Design.",
+    "note_zh": "面板的區段標題「Resolution」以粗體繪製，Design 設定為 Medium。AI Video Enhance 面板中每個區段標題都一樣是粗體，使整個設定面板看起來比 Design 更重。"
+   },
+   "weight:I3669:138919;931:2392;315:8365": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The Enhance button's label is bold where the Design sets Medium, so the button text looks heavier than the Medium type around it.",
+    "note_zh": "Enhance 按鈕的文字為粗體，Design 設定為 Medium，按鈕文字因此比周圍 Medium 字重的文字更重。"
+   },
+   "unspecced:iv_selected_length_info": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "The ⓘ icon is on the phone, right after its heading; it only sits further left than the Design because Roboto sets the heading narrower than SF Pro, so the icon follows the shorter word.",
+    "note_zh": "ⓘ 圖示在手機上確實存在，就在標題文字後面；它比 Design 偏左只是因為 Roboto 把標題排得比 SF Pro 窄，圖示跟著較短的文字往左移。"
+   },
+   "padding:I3669:138923;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The pill holds a three-digit balance where the Design draws a one- or two-digit one, so it is wider and its insets shift by 2–3 pt; the gap between the credit icon and the number is the same.",
+    "note_zh": "膠囊內是三位數的餘額，Design 畫的是一到兩位數，因此膠囊較寬、內距差 2–3 pt；點數圖示與數字之間的間距相同。"
+   },
+   "align:I3669:138919;931:2392;315:8365": {
+    "verdict": "ok",
+    "note": "The button's label and price are centred as one group on both sides; the price on the phone is four digits against the Design's two-character placeholder, so the whole group sits a few points further left.",
+    "note_zh": "按鈕的文字與價格在兩側都是整組置中；手機上的價格是四位數，Design 是兩個字元的佔位字，因此整組往左移了幾個點。"
+   },
+   "colour:3669:20620": {
+    "verdict": "ok",
+    "note": "The blue time bubble above the trim bar is drawn on the phone (visible on the capture); it is not a text the page source holds, and the time it shows follows the playhead, which is sample content. The capture's playhead sits at the start of the clip where this frame draws it part-way in, so nothing is drawn at the point the Design marks.",
+    "note_zh": "修剪列上方的藍色時間泡泡在手機上有畫出來（截圖可見）；它不是頁面結構中可讀取的文字，顯示的時間跟著播放頭走，屬於樣本內容。擷取時播放頭停在片段開頭，而這個畫面把它畫在片段中間，因此 Design 標示的位置上沒有東西。"
+   },
+   "colour:3669:20651": {
+    "verdict": "ok",
+    "note": "The unselected chip is drawn the same dark navy on both sides; the lighter value on the Design's side is the component's base fill before the frame's own dimming, not what the frame shows.",
+    "note_zh": "未選取的晶片兩邊畫出來都是同一個深藍黑色；Design 那側較淺的值是元件的底色（尚未套用畫面本身的變暗效果），不是畫面上呈現的顏色。"
+   },
+   "colour:I3669:138919;931:2392": {
+    "verdict": "ok",
+    "note": "Both sides draw the same blue Enhance button; the colour was read a few points above the button, on the sheet behind it, because the button floats lower on the taller phone screen.",
+    "note_zh": "兩側畫的都是同一顆藍色 Enhance 按鈕；顏色是在按鈕上方幾個點、按鈕後方的面板上量到的，因為在較高的手機螢幕上按鈕浮在更下方。"
+   }
+  },
+  "3294:31104": {
+   "missing:3313:39358": {
+    "verdict": "ok",
+    "note": "The blue time chip above the playhead is drawn on the phone — the trim track shows it with the playhead's time — but it is painted inside the custom trim control, so it is not a text the check can read on its own.",
+    "note_zh": "播放頭上方的藍色時間標籤手機上有畫出來，修剪軌上可以看到目前時間；它畫在自訂的修剪元件裡，所以不是檢查能單獨讀到的文字。"
+   },
+   "missing:I3305:34781;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "When the panel opens, the preview bar carries no time label at all: the Design draws 「00:00/12:30」 and the drag handle at its left. The label only appears once the playhead or a trim handle has been moved — the trimmed captures do show 「02:33/12:30」 — so the panel's opening state is missing it.",
+    "note_zh": "面板剛開啟時，預覽列完全沒有時間標籤：Design 在左側畫了「00:00/12:30」與拖曳握把。只有拖動播放頭或修剪點之後才會出現（修剪後的畫面確實顯示「02:33/12:30」），所以初始狀態少了這個標籤。"
+   },
+   "missing:I3294:31180;931:2392;325:186": {
+    "verdict": "ok",
+    "note": "Sample content: the Design draws a placeholder here and the app fills in the figure for this clip and this account.",
+    "note_zh": "示意內容：Design 在這裡畫的是佔位文字，App 會依本次素材與帳號填入實際數值。"
+   },
+   "weight:3313:39315": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3310:37251": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3310:37257": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3310:37263": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3310:37270": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3294:31180;931:2392;315:8365": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3310:38086;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3310:38086;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "unspecced:iv_selected_length_info": {
+    "verdict": "ok",
+    "note": "The information button is on the screen beside this title; it sits a few points further left than the Design because Roboto sets the title narrower than SF Pro.",
+    "note_zh": "這個標題旁的資訊按鈕畫面上有；因為 Roboto 把標題排得比 SF Pro 窄，所以它比 Design 稍微靠左幾點。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "The information button is on the screen beside this title; it sits a few points further left than the Design because Roboto sets the title narrower than SF Pro.",
+    "note_zh": "這個標題旁的資訊按鈕畫面上有；因為 Roboto 把標題排得比 SF Pro 窄，所以它比 Design 稍微靠左幾點。"
+   },
+   "padding:I3310:38086;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The pill is the same size as the Design's; the balance has three digits here where the Design draws two, so the number reaches about 3 pt nearer each edge.",
+    "note_zh": "膠囊大小和 Design 一樣；這裡的點數是三位數、Design 畫的是兩位數，所以數字兩邊各靠近邊緣約 3 pt。"
+   },
+   "colour:3310:37274": {
+    "verdict": "ok",
+    "note": "Every chip is the Design's dark blue-grey #303B49 and the selected one carries the blue #2589FE outline; the sample for this item was taken off the chip, on the panel behind it.",
+    "note_zh": "每個選項膠囊都是 Design 的深藍灰 #303B49，被選取的那個有藍色 #2589FE 外框；這個項目的取樣點落在膠囊外的面板上。"
+   },
+   "colour:I3294:31180;931:2392": {
+    "verdict": "ok",
+    "note": "The 「Enhance」 button is the Design's blue #2589FE; the sample was taken about 50 pt above the button, on the dark panel.",
+    "note_zh": "「Enhance」按鈕就是 Design 的藍色 #2589FE；取樣點落在按鈕上方約 50 pt 的深色面板上。"
+   }
+  },
+  "3388:17664": {
+   "missing:3388:17713": {
+    "verdict": "ok",
+    "note": "The blue time chip above the playhead is drawn on the phone — the trim track shows it with the playhead's time — but it is painted inside the custom trim control, so it is not a text the check can read on its own.",
+    "note_zh": "播放頭上方的藍色時間標籤手機上有畫出來，修剪軌上可以看到目前時間；它畫在自訂的修剪元件裡，所以不是檢查能單獨讀到的文字。"
+   },
+   "missing:I3388:17745;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "When the panel opens, the preview bar carries no time label at all: the Design draws 「00:00/12:30」 and the drag handle at its left. The label only appears once the playhead or a trim handle has been moved — the trimmed captures do show 「02:33/12:30」 — so the panel's opening state is missing it.",
+    "note_zh": "面板剛開啟時，預覽列完全沒有時間標籤：Design 在左側畫了「00:00/12:30」與拖曳握把。只有拖動播放頭或修剪點之後才會出現（修剪後的畫面確實顯示「02:33/12:30」），所以初始狀態少了這個標籤。"
+   },
+   "missing:I3388:17748;931:2392;325:186": {
+    "verdict": "ok",
+    "note": "Sample content: the Design draws a placeholder here and the app fills in the figure for this clip and this account.",
+    "note_zh": "示意內容：Design 在這裡畫的是佔位文字，App 會依本次素材與帳號填入實際數值。"
+   },
+   "weight:3388:17670": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3388:17718": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3388:17724": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3388:17730": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3388:17737": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3388:17748;931:2392;315:8365": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3388:17753;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3388:17753;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "control:3388:17671": {
+    "verdict": "ok",
+    "note": "The information button is on the screen beside this title; it sits a few points further left than the Design because Roboto sets the title narrower than SF Pro.",
+    "note_zh": "這個標題旁的資訊按鈕畫面上有；因為 Roboto 把標題排得比 SF Pro 窄，所以它比 Design 稍微靠左幾點。"
+   },
+   "control:3388:17714": {
+    "verdict": "ok",
+    "note": "The playhead's drag handle is drawn under the trim track as the Design has it; it belongs to the custom trim control, so the check finds no tappable element of its own for it.",
+    "note_zh": "播放頭的拖曳握把和 Design 一樣畫在修剪軌下方；它屬於自訂的修剪元件，所以檢查找不到對應的獨立可點元素。"
+   },
+   "control:3413:17915": {
+    "verdict": "ok",
+    "note": "The information button is on the screen beside this title; it sits a few points further left than the Design because Roboto sets the title narrower than SF Pro.",
+    "note_zh": "這個標題旁的資訊按鈕畫面上有；因為 Roboto 把標題排得比 SF Pro 窄，所以它比 Design 稍微靠左幾點。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "The information button is on the screen beside this title; it sits a few points further left than the Design because Roboto sets the title narrower than SF Pro.",
+    "note_zh": "這個標題旁的資訊按鈕畫面上有；因為 Roboto 把標題排得比 SF Pro 窄，所以它比 Design 稍微靠左幾點。"
+   },
+   "align:I3388:17748;931:2392;315:8365": {
+    "verdict": "ok",
+    "note": "The button's label, credit icon and figure are centred as a group, as in the Design; the figure here is 「60」 where the Design draws the placeholder 「XX」, which shifts the label inside the button.",
+    "note_zh": "按鈕的文字、點數圖示與數字是整組置中，和 Design 一樣；這裡的數字是「60」，Design 畫的是示意的「XX」，因此按鈕內的文字位置會跟著位移。"
+   },
+   "padding:I3388:17753;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The pill is the same size as the Design's; the balance has three digits here where the Design draws two, so the number reaches about 3 pt nearer each edge.",
+    "note_zh": "膠囊大小和 Design 一樣；這裡的點數是三位數、Design 畫的是兩位數，所以數字兩邊各靠近邊緣約 3 pt。"
+   },
+   "colour:3388:17741": {
+    "verdict": "ok",
+    "note": "Every chip is the Design's dark blue-grey #303B49 and the selected one carries the blue #2589FE outline; the sample for this item was taken off the chip, on the panel behind it.",
+    "note_zh": "每個選項膠囊都是 Design 的深藍灰 #303B49，被選取的那個有藍色 #2589FE 外框；這個項目的取樣點落在膠囊外的面板上。"
+   },
+   "colour:I3388:17748;931:2392": {
+    "verdict": "ok",
+    "note": "The 「Enhance」 button is the Design's blue #2589FE; the sample was taken about 50 pt above the button, on the dark panel.",
+    "note_zh": "「Enhance」按鈕就是 Design 的藍色 #2589FE；取樣點落在按鈕上方約 50 pt 的深色面板上。"
+   }
+  },
+  "3300:32182": {
+   "missing:3305:35019": {
+    "verdict": "ok",
+    "note": "The blue time chip above the playhead is drawn on the phone — the trim track shows it with the playhead's time — but it is painted inside the custom trim control, so it is not a text the check can read on its own.",
+    "note_zh": "播放頭上方的藍色時間標籤手機上有畫出來，修剪軌上可以看到目前時間；它畫在自訂的修剪元件裡，所以不是檢查能單獨讀到的文字。"
+   },
+   "missing:I3310:38384;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "On the Free account the credit pill in the top bar shows only its icon and no figure; the Design draws 「0」 there. The app's credit lookup returned nothing for this account, so a free user is left with an empty pill.",
+    "note_zh": "免費帳號在上方的點數膠囊只有圖示、沒有數字；Design 在該處畫的是「0」。App 的點數查詢在這個帳號上沒有回傳結果，免費使用者看到的是空膠囊。"
+   },
+   "weight:3300:32188": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3300:32227": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3300:32233": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3300:32239": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3300:32246": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3310:38384;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "control:3305:35020": {
+    "verdict": "ok",
+    "note": "The playhead's drag handle is drawn under the trim track as the Design has it; it belongs to the custom trim control, so the check finds no tappable element of its own for it.",
+    "note_zh": "播放頭的拖曳握把和 Design 一樣畫在修剪軌下方；它屬於自訂的修剪元件，所以檢查找不到對應的獨立可點元素。"
+   },
+   "unspecced:iv_selected_length_info": {
+    "verdict": "ok",
+    "note": "The information button is on the screen beside this title; it sits a few points further left than the Design because Roboto sets the title narrower than SF Pro.",
+    "note_zh": "這個標題旁的資訊按鈕畫面上有；因為 Roboto 把標題排得比 SF Pro 窄，所以它比 Design 稍微靠左幾點。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "The information button is on the screen beside this title; it sits a few points further left than the Design because Roboto sets the title narrower than SF Pro.",
+    "note_zh": "這個標題旁的資訊按鈕畫面上有；因為 Roboto 把標題排得比 SF Pro 窄，所以它比 Design 稍微靠左幾點。"
+   },
+   "colour:3305:35018": {
+    "verdict": "ok",
+    "note": "The time chip above the playhead is drawn in the Design's blue; the sample for this item fell beside it, on the panel.",
+    "note_zh": "播放頭上方的時間標籤畫的是 Design 的藍色；這個項目的取樣點落在它旁邊的面板上。"
+   },
+   "colour:3300:32250": {
+    "verdict": "ok",
+    "note": "Every chip is the Design's dark blue-grey #303B49 and the selected one carries the blue #2589FE outline; the sample for this item was taken off the chip, on the panel behind it.",
+    "note_zh": "每個選項膠囊都是 Design 的深藍灰 #303B49，被選取的那個有藍色 #2589FE 外框；這個項目的取樣點落在膠囊外的面板上。"
+   },
+   "colour:3300:32258": {
+    "verdict": "ok",
+    "note": "The 「Unlock Pro to Enhance」 button is the Design's gold #FFCD65; the sample was taken above the button, on the dark panel.",
+    "note_zh": "「Unlock Pro to Enhance」按鈕就是 Design 的金色 #FFCD65；取樣點落在按鈕上方的深色面板上。"
+   }
+  },
+  "3305:34438": {
+   "missing:3310:37789": {
+    "verdict": "ok",
+    "note": "The blue time chip above the playhead is drawn on the phone — the trim track shows it with the playhead's time — but it is painted inside the custom trim control, so it is not a text the check can read on its own.",
+    "note_zh": "播放頭上方的藍色時間標籤手機上有畫出來，修剪軌上可以看到目前時間；它畫在自訂的修剪元件裡，所以不是檢查能單獨讀到的文字。"
+   },
+   "missing:I3310:38385;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "On the Free account the credit pill in the top bar shows only its icon and no figure; the Design draws 「0」 there. The app's credit lookup returned nothing for this account, so a free user is left with an empty pill.",
+    "note_zh": "免費帳號在上方的點數膠囊只有圖示、沒有數字；Design 在該處畫的是「0」。App 的點數查詢在這個帳號上沒有回傳結果，免費使用者看到的是空膠囊。"
+   },
+   "weight:3310:37738": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3310:37794": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3310:37800": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3310:37806": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3310:37813": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3310:38385;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "unspecced:iv_selected_length_info": {
+    "verdict": "ok",
+    "note": "The information button is on the screen beside this title; it sits a few points further left than the Design because Roboto sets the title narrower than SF Pro.",
+    "note_zh": "這個標題旁的資訊按鈕畫面上有；因為 Roboto 把標題排得比 SF Pro 窄，所以它比 Design 稍微靠左幾點。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "The information button is on the screen beside this title; it sits a few points further left than the Design because Roboto sets the title narrower than SF Pro.",
+    "note_zh": "這個標題旁的資訊按鈕畫面上有；因為 Roboto 把標題排得比 SF Pro 窄，所以它比 Design 稍微靠左幾點。"
+   },
+   "colour:3310:37788": {
+    "verdict": "ok",
+    "note": "The time chip above the playhead is drawn in the Design's blue; the sample for this item fell beside it, on the panel.",
+    "note_zh": "播放頭上方的時間標籤畫的是 Design 的藍色；這個項目的取樣點落在它旁邊的面板上。"
+   },
+   "colour:3310:37817": {
+    "verdict": "ok",
+    "note": "Every chip is the Design's dark blue-grey #303B49 and the selected one carries the blue #2589FE outline; the sample for this item was taken off the chip, on the panel behind it.",
+    "note_zh": "每個選項膠囊都是 Design 的深藍灰 #303B49，被選取的那個有藍色 #2589FE 外框；這個項目的取樣點落在膠囊外的面板上。"
+   },
+   "colour:3305:34522": {
+    "verdict": "ok",
+    "note": "The 「Unlock Pro to Enhance」 button is the Design's gold #FFCD65; the sample was taken above the button, on the dark panel.",
+    "note_zh": "「Unlock Pro to Enhance」按鈕就是 Design 的金色 #FFCD65；取樣點落在按鈕上方的深色面板上。"
+   }
+  },
+  "3310:38112": {
+   "state:3310:38112": {
+    "verdict": "ok",
+    "note": "This is the frame's state: the uploading overlay is on screen with 「Video uploading...」, 「Please keep the app open」 and 「Cancel」. The low count is only because the overlay is its own window, so only its four texts can be read from the running screen; the panel behind it is still there under the dim layer.",
+    "note_zh": "擷取的確實是這張圖的狀態：畫面上就是上傳覆蓋層，含「Video uploading...」「Please keep the app open」「Cancel」。比對數偏低只是因為覆蓋層是獨立視窗，畫面上只讀得到它的四段文字；後方面板仍在遮罩下方。"
+   },
+   "missing:3313:39374": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3313:39376": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, with this clip's and this account's own figures in place of the Design's placeholder.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，只是填的是本次素材與帳號的數值，而不是 Design 的示意文字。"
+   },
+   "missing:3313:39417": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3310:38166": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3310:38168;14062:52": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3310:38169;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3310:38172": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3447:29549;14062:52": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3447:29548;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3310:38178": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3310:38180;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3310:38181;14062:52": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3310:38182;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3310:38185": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3310:38187;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3310:38188;14062:52": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3310:38189;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3656:4787;623:14754": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, with this clip's and this account's own figures in place of the Design's placeholder.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，只是填的是本次素材與帳號的數值，而不是 Design 的示意文字。"
+   },
+   "missing:I3310:38193;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "Behind the uploading overlay the panel's preview bar still carries no time label, the same as on the panel frames: the Design draws 「00:00/12:30」 with the drag handle at its left, and the app shows only the play and full-screen buttons.",
+    "note_zh": "上傳覆蓋層後方的面板預覽列同樣沒有時間標籤，和面板畫面一致：Design 在左側畫了「00:00/12:30」與拖曳握把，App 只有播放與全螢幕按鈕。"
+   },
+   "missing:I3310:38196;931:2392;315:8365": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3310:38196;931:2392;325:186": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, with this clip's and this account's own figures in place of the Design's placeholder.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，只是填的是本次素材與帳號的數值，而不是 Design 的示意文字。"
+   },
+   "missing:3310:38197": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, with this clip's and this account's own figures in place of the Design's placeholder.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，只是填的是本次素材與帳號的數值，而不是 Design 的示意文字。"
+   },
+   "missing:I3310:38201;13730:4997;13730:4989": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "lines:I3310:38201;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "Nothing comparable: the credit figure of the top bar was paired with the progress ring in front of it. The credit pill itself is unchanged behind the dim layer.",
+    "note_zh": "沒有可比的對象：上方的點數被配對到前方的進度圓環。點數膠囊本身在遮罩後方並沒有變。"
+   },
+   "size:I3310:38296;8125:4936;575:7300": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The percentage inside the ring is set 16 sp where the Design sets 18 pt, so the figure in the middle of the ring is smaller than drawn.",
+    "note_zh": "圓環中央的百分比設成 16 sp，Design 是 18 pt，中間的數字比圖上小。"
+   },
+   "colour:I3310:38296;8125:4939": {
+    "verdict": "bug",
+    "severity": "cosmetic",
+    "note": "The lines under the ring are drawn in 70 % white instead of the Design's light blue-grey #CCD5E1, so they read a touch greyer; 「Video uploading...」 above them is pure white on both sides.",
+    "note_zh": "圓環下方的文字用的是 70% 白，而不是 Design 的淺灰藍 #CCD5E1，看起來稍微偏灰；上方的「Video uploading...」兩邊都是純白。"
+   },
+   "colour:I3310:38296;8125:4940": {
+    "verdict": "bug",
+    "severity": "cosmetic",
+    "note": "The lines under the ring are drawn in 70 % white instead of the Design's light blue-grey #CCD5E1, so they read a touch greyer; 「Video uploading...」 above them is pure white on both sides.",
+    "note_zh": "圓環下方的文字用的是 70% 白，而不是 Design 的淺灰藍 #CCD5E1，看起來稍微偏灰；上方的「Video uploading...」兩邊都是純白。"
+   },
+   "padding:I3310:38296;8125:4936;575:7300": {
+    "verdict": "ok",
+    "note": "The app's uploading card is about 20 pt narrower and 17 pt shorter than the Design's, which is what lifts its contents; the gaps between the ring, the two lines and 「Cancel」 are within 3 pt of the Design.",
+    "note_zh": "App 的上傳卡片比 Design 窄約 20 pt、矮約 17 pt，內容因此整體上移；圓環、兩行文字與「Cancel」之間的間距和 Design 相差都在 3 pt 內。"
+   },
+   "padding:I3310:38296;8125:4938": {
+    "verdict": "ok",
+    "note": "The app's uploading card is about 20 pt narrower and 17 pt shorter than the Design's, which is what lifts its contents; the gaps between the ring, the two lines and 「Cancel」 are within 3 pt of the Design.",
+    "note_zh": "App 的上傳卡片比 Design 窄約 20 pt、矮約 17 pt，內容因此整體上移；圓環、兩行文字與「Cancel」之間的間距和 Design 相差都在 3 pt 內。"
+   },
+   "padding:I3310:38296;8125:4939": {
+    "verdict": "ok",
+    "note": "The app's uploading card is about 20 pt narrower and 17 pt shorter than the Design's, which is what lifts its contents; the gaps between the ring, the two lines and 「Cancel」 are within 3 pt of the Design.",
+    "note_zh": "App 的上傳卡片比 Design 窄約 20 pt、矮約 17 pt，內容因此整體上移；圓環、兩行文字與「Cancel」之間的間距和 Design 相差都在 3 pt 內。"
+   },
+   "padding:I3310:38296;8125:4940": {
+    "verdict": "ok",
+    "note": "The app's uploading card is about 20 pt narrower and 17 pt shorter than the Design's, which is what lifts its contents; the gaps between the ring, the two lines and 「Cancel」 are within 3 pt of the Design.",
+    "note_zh": "App 的上傳卡片比 Design 窄約 20 pt、矮約 17 pt，內容因此整體上移；圓環、兩行文字與「Cancel」之間的間距和 Design 相差都在 3 pt 內。"
+   },
+   "colour:3313:39416": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay; the time chip itself is drawn in the Design's blue, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色；時間標籤本身畫的是 Design 的藍色，面板畫面可以看到。"
+   },
+   "colour:3310:38187": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay, so the two values are the same dark; the chip's own colour is the Design's #303B49, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色，兩個數值其實是同一種暗色；膠囊本身是 Design 的 #303B49，面板畫面可以看到。"
+   },
+   "colour:3310:38188": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay, so the two values are the same dark; the chip's own colour is the Design's #303B49, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色，兩個數值其實是同一種暗色；膠囊本身是 Design 的 #303B49，面板畫面可以看到。"
+   },
+   "colour:3310:38189": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay, so the two values are the same dark; the chip's own colour is the Design's #303B49, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色，兩個數值其實是同一種暗色；膠囊本身是 Design 的 #303B49，面板畫面可以看到。"
+   },
+   "visual:1": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "minor",
+    "figma": {
+     "box": [
+      68,
+      280,
+      240,
+      252
+     ]
+    },
+    "note": "The uploading card is smaller than the Design's — about 219 × 235 pt against 240 × 252 — with the same dark #252C36 fill and rounded corners.",
+    "note_zh": "上傳卡片比 Design 小——約 219 × 235 pt，Design 為 240 × 252——底色 #252C36 與圓角相同。"
+   },
+   "visual:2": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "cosmetic",
+    "figma": {
+     "box": [
+      148,
+      312,
+      80,
+      80
+     ]
+    },
+    "note": "The progress ring is about 73 pt across where the Design draws 80, and its unfilled track is a mid grey instead of the Design's near-white #E2E7EE.",
+    "note_zh": "進度圓環約 73 pt 寬，Design 畫的是 80 pt；未完成的軌道是中灰色，而不是 Design 的近白色 #E2E7EE。"
+   }
+  },
+  "3388:17754": {
+   "state:3388:17754": {
+    "verdict": "ok",
+    "note": "This is the frame's state: the uploading overlay is on screen with 「Video uploading...」, 「Please keep the app open」 and 「Cancel」. The low count is only because the overlay is its own window, so only its four texts can be read from the running screen; the panel behind it is still there under the dim layer.",
+    "note_zh": "擷取的確實是這張圖的狀態：畫面上就是上傳覆蓋層，含「Video uploading...」「Please keep the app open」「Cancel」。比對數偏低只是因為覆蓋層是獨立視窗，畫面上只讀得到它的四段文字；後方面板仍在遮罩下方。"
+   },
+   "missing:3388:17760": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3388:17762": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, with this clip's and this account's own figures in place of the Design's placeholder.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，只是填的是本次素材與帳號的數值，而不是 Design 的示意文字。"
+   },
+   "missing:3388:17803": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3388:17808": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3388:17810;14062:52": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3388:17811;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3388:17814": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3447:29537;14062:52": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3447:29536;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3388:17820": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3388:17822;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3388:17823;14062:52": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3388:17824;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3388:17827": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3388:17829;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3388:17830;14062:52": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3388:17831;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3656:4803;623:14754": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, with this clip's and this account's own figures in place of the Design's placeholder.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，只是填的是本次素材與帳號的數值，而不是 Design 的示意文字。"
+   },
+   "missing:I3388:17835;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "Behind the uploading overlay the panel's preview bar still carries no time label, the same as on the panel frames: the Design draws 「00:00/12:30」 with the drag handle at its left, and the app shows only the play and full-screen buttons.",
+    "note_zh": "上傳覆蓋層後方的面板預覽列同樣沒有時間標籤，和面板畫面一致：Design 在左側畫了「00:00/12:30」與拖曳握把，App 只有播放與全螢幕按鈕。"
+   },
+   "missing:I3388:17838;931:2392;315:8365": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3388:17838;931:2392;325:186": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, with this clip's and this account's own figures in place of the Design's placeholder.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，只是填的是本次素材與帳號的數值，而不是 Design 的示意文字。"
+   },
+   "missing:3388:17839": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, with this clip's and this account's own figures in place of the Design's placeholder.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，只是填的是本次素材與帳號的數值，而不是 Design 的示意文字。"
+   },
+   "missing:I3388:17843;13730:4997;13730:4989": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "lines:I3388:17843;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "Nothing comparable: the credit figure of the top bar was paired with the progress ring in front of it. The credit pill itself is unchanged behind the dim layer.",
+    "note_zh": "沒有可比的對象：上方的點數被配對到前方的進度圓環。點數膠囊本身在遮罩後方並沒有變。"
+   },
+   "size:I3388:17845;8125:4936;575:7300": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The percentage inside the ring is set 16 sp where the Design sets 18 pt, so the figure in the middle of the ring is smaller than drawn.",
+    "note_zh": "圓環中央的百分比設成 16 sp，Design 是 18 pt，中間的數字比圖上小。"
+   },
+   "colour:I3388:17845;8125:4939": {
+    "verdict": "bug",
+    "severity": "cosmetic",
+    "note": "The lines under the ring are drawn in 70 % white instead of the Design's light blue-grey #CCD5E1, so they read a touch greyer; 「Video uploading...」 above them is pure white on both sides.",
+    "note_zh": "圓環下方的文字用的是 70% 白，而不是 Design 的淺灰藍 #CCD5E1，看起來稍微偏灰；上方的「Video uploading...」兩邊都是純白。"
+   },
+   "colour:I3388:17845;8125:4940": {
+    "verdict": "bug",
+    "severity": "cosmetic",
+    "note": "The lines under the ring are drawn in 70 % white instead of the Design's light blue-grey #CCD5E1, so they read a touch greyer. On this board a pink flow arrow crosses the word on the Figma image, so only the value set can be compared.",
+    "note_zh": "圓環下方的文字用的是 70% 白，而不是 Design 的淺灰藍 #CCD5E1，看起來稍微偏灰。這張圖上有粉紅色流程箭頭穿過該文字，因此只能比對設定值。"
+   },
+   "padding:I3388:17845;8125:4936;575:7300": {
+    "verdict": "ok",
+    "note": "The app's uploading card is about 20 pt narrower and 17 pt shorter than the Design's, which is what lifts its contents; the gaps between the ring, the two lines and 「Cancel」 are within 3 pt of the Design.",
+    "note_zh": "App 的上傳卡片比 Design 窄約 20 pt、矮約 17 pt，內容因此整體上移；圓環、兩行文字與「Cancel」之間的間距和 Design 相差都在 3 pt 內。"
+   },
+   "padding:I3388:17845;8125:4938": {
+    "verdict": "ok",
+    "note": "The app's uploading card is about 20 pt narrower and 17 pt shorter than the Design's, which is what lifts its contents; the gaps between the ring, the two lines and 「Cancel」 are within 3 pt of the Design.",
+    "note_zh": "App 的上傳卡片比 Design 窄約 20 pt、矮約 17 pt，內容因此整體上移；圓環、兩行文字與「Cancel」之間的間距和 Design 相差都在 3 pt 內。"
+   },
+   "padding:I3388:17845;8125:4939": {
+    "verdict": "ok",
+    "note": "The app's uploading card is about 20 pt narrower and 17 pt shorter than the Design's, which is what lifts its contents; the gaps between the ring, the two lines and 「Cancel」 are within 3 pt of the Design.",
+    "note_zh": "App 的上傳卡片比 Design 窄約 20 pt、矮約 17 pt，內容因此整體上移；圓環、兩行文字與「Cancel」之間的間距和 Design 相差都在 3 pt 內。"
+   },
+   "padding:I3388:17845;8125:4940": {
+    "verdict": "ok",
+    "note": "The app's uploading card is about 20 pt narrower and 17 pt shorter than the Design's, which is what lifts its contents; the gaps between the ring, the two lines and 「Cancel」 are within 3 pt of the Design.",
+    "note_zh": "App 的上傳卡片比 Design 窄約 20 pt、矮約 17 pt，內容因此整體上移；圓環、兩行文字與「Cancel」之間的間距和 Design 相差都在 3 pt 內。"
+   },
+   "colour:3388:17802": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay; the time chip itself is drawn in the Design's blue, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色；時間標籤本身畫的是 Design 的藍色，面板畫面可以看到。"
+   },
+   "colour:3388:17829": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay, so the two values are the same dark; the chip's own colour is the Design's #303B49, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色，兩個數值其實是同一種暗色；膠囊本身是 Design 的 #303B49，面板畫面可以看到。"
+   },
+   "colour:3388:17830": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay, so the two values are the same dark; the chip's own colour is the Design's #303B49, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色，兩個數值其實是同一種暗色；膠囊本身是 Design 的 #303B49，面板畫面可以看到。"
+   },
+   "colour:3388:17831": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay, so the two values are the same dark; the chip's own colour is the Design's #303B49, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色，兩個數值其實是同一種暗色；膠囊本身是 Design 的 #303B49，面板畫面可以看到。"
+   },
+   "visual:1": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "minor",
+    "figma": {
+     "box": [
+      68,
+      280,
+      240,
+      252
+     ]
+    },
+    "note": "The uploading card is smaller than the Design's — about 219 × 235 pt against 240 × 252 — with the same dark #252C36 fill and rounded corners.",
+    "note_zh": "上傳卡片比 Design 小——約 219 × 235 pt，Design 為 240 × 252——底色 #252C36 與圓角相同。"
+   },
+   "visual:2": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "cosmetic",
+    "figma": {
+     "box": [
+      148,
+      312,
+      80,
+      80
+     ]
+    },
+    "note": "The progress ring is about 73 pt across where the Design draws 80, and its unfilled track is a mid grey instead of the Design's near-white #E2E7EE.",
+    "note_zh": "進度圓環約 73 pt 寬，Design 畫的是 80 pt；未完成的軌道是中灰色，而不是 Design 的近白色 #E2E7EE。"
+   }
+  },
+  "3393:18282": {
+   "state:3393:18282": {
+    "verdict": "ok",
+    "note": "This is the frame's state: the leave dialog is on screen with 「Sure You Want to Leave?」, its message and 「Leave」 / 「Keep Uploading」. The low count is only because the dialog and the uploading overlay are windows of their own; the panel behind them is still there under the dim layer.",
+    "note_zh": "擷取的確實是這張圖的狀態：畫面上就是離開確認對話框，含「Sure You Want to Leave?」、說明文字與「Leave」/「Keep Uploading」。比對數偏低只是因為對話框與上傳覆蓋層是獨立視窗；後方面板仍在遮罩下方。"
+   },
+   "missing:3393:18288": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3393:18290": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, with this clip's and this account's own figures in place of the Design's placeholder.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，只是填的是本次素材與帳號的數值，而不是 Design 的示意文字。"
+   },
+   "missing:3393:18331": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3393:18336": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3393:18338;14062:52": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3393:18339;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3393:18342": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3447:29543;14062:52": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3447:29542;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3393:18348": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3393:18350;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3393:18351;14062:52": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3393:18352;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:3393:18355": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3393:18357;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3393:18358;14062:52": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3393:18359;14062:50": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3656:4805;623:14754": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, with this clip's and this account's own figures in place of the Design's placeholder.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，只是填的是本次素材與帳號的數值，而不是 Design 的示意文字。"
+   },
+   "missing:I3393:18363;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "Behind the uploading overlay the panel's preview bar still carries no time label, the same as on the panel frames: the Design draws 「00:00/12:30」 with the drag handle at its left, and the app shows only the play and full-screen buttons.",
+    "note_zh": "上傳覆蓋層後方的面板預覽列同樣沒有時間標籤，和面板畫面一致：Design 在左側畫了「00:00/12:30」與拖曳握把，App 只有播放與全螢幕按鈕。"
+   },
+   "missing:I3393:18366;931:2392;315:8365": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3393:18366;931:2392;325:186": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, with this clip's and this account's own figures in place of the Design's placeholder.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，只是填的是本次素材與帳號的數值，而不是 Design 的示意文字。"
+   },
+   "missing:3393:18367": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, with this clip's and this account's own figures in place of the Design's placeholder.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，只是填的是本次素材與帳號的數值，而不是 Design 的示意文字。"
+   },
+   "missing:I3393:18371;13730:4997;13730:4989": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, as the frame draws it. The overlay is a window of its own, so only its own four texts can be read from the running screen, which is why the check did not find this one.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，和圖上畫的一樣。覆蓋層是獨立視窗，畫面上只讀得到它自己的四段文字，所以檢查找不到這一段。"
+   },
+   "missing:I3393:18371;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The panel behind the overlay is unchanged: this text is still on the screen under the dim layer, with this clip's and this account's own figures in place of the Design's placeholder.",
+    "note_zh": "覆蓋層後方的面板沒有變：這段文字仍在遮罩下方的畫面上，只是填的是本次素材與帳號的數值，而不是 Design 的示意文字。"
+   },
+   "weight:I3424:135947;14264:1864": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "lines:I3424:135947;14264:1865": {
+    "verdict": "ok",
+    "note": "The same sentence fits into three lines instead of the Design's four because Roboto sets it narrower; nothing is cut and the dialog keeps its shape.",
+    "note_zh": "同一段文字在 App 排成三行、Design 是四行，因為 Roboto 字寬較窄；文字沒有被截斷，對話框形狀也一樣。"
+   },
+   "padding:I3424:135947;14264:1864": {
+    "verdict": "ok",
+    "note": "The title sits the same distance below the dialog's top edge; the 15 pt missing underneath is the 「Don't show again」 row the app does not draw, which is raised as its own item.",
+    "note_zh": "標題距離對話框上緣的距離和 Design 一樣；下方少掉的 15 pt 是 App 沒有畫的「Don't show again」那一列，已另外提出。"
+   },
+   "colour:3393:18330": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay; the time chip itself is drawn in the Design's blue, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色；時間標籤本身畫的是 Design 的藍色，面板畫面可以看到。"
+   },
+   "colour:3393:18338": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay, so the two values are the same dark; the chip's own colour is the Design's #303B49, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色，兩個數值其實是同一種暗色；膠囊本身是 Design 的 #303B49，面板畫面可以看到。"
+   },
+   "colour:3447:29543": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay, so the two values are the same dark; the chip's own colour is the Design's #303B49, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色，兩個數值其實是同一種暗色；膠囊本身是 Design 的 #303B49，面板畫面可以看到。"
+   },
+   "colour:3447:29542": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay, so the two values are the same dark; the chip's own colour is the Design's #303B49, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色，兩個數值其實是同一種暗色；膠囊本身是 Design 的 #303B49，面板畫面可以看到。"
+   },
+   "colour:3393:18357": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay, so the two values are the same dark; the chip's own colour is the Design's #303B49, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色，兩個數值其實是同一種暗色；膠囊本身是 Design 的 #303B49，面板畫面可以看到。"
+   },
+   "colour:3393:18358": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay, so the two values are the same dark; the chip's own colour is the Design's #303B49, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色，兩個數值其實是同一種暗色；膠囊本身是 Design 的 #303B49，面板畫面可以看到。"
+   },
+   "colour:3393:18359": {
+    "verdict": "ok",
+    "note": "Both sides are dimmed to near-black behind the overlay, so the two values are the same dark; the chip's own colour is the Design's #303B49, as the panel frames show.",
+    "note_zh": "兩邊都在覆蓋層後被壓暗成近黑色，兩個數值其實是同一種暗色；膠囊本身是 Design 的 #303B49，面板畫面可以看到。"
+   },
+   "visual:1": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "major",
+    "figma": {
+     "box": [
+      115,
+      389,
+      146,
+      24
+     ]
+    },
+    "note": "The Design puts a 「Don't show again」 checkbox between the message and the buttons; the app's dialog goes straight from the message to 「Leave」 / 「Keep Uploading」, so there is no way to stop the dialog coming back.",
+    "note_zh": "Design 在訊息與按鈕之間放了「Don't show again」勾選框；App 的對話框從訊息直接接到「Leave」/「Keep Uploading」，因此無法讓這個對話框不再出現。"
+   }
+  },
+  "3293:13651": {
+   "missing:3293:13663": {
+    "verdict": "question",
+    "note": "The Design's control at the right of the notice row reads 「Manage」; the app shows 「Select」 in the same place. Words are not compared in this check, so Design and PM should confirm which control the Android Recent list is meant to carry.",
+    "note_zh": "Design 在說明列右端的控制項是「Manage」，App 在同一位置顯示「Select」。本次檢查不比對文字，請 Design 與 PM 確認 Android 的 Recent 清單應該放哪一個控制項。"
+   },
+   "weight:I3293:13653;12395:9323": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3293:13657;12383:9233": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "control:I3293:13657;12383:9248;13647:4409": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The Design puts a home shortcut at the right end of the Recent page's title bar; the app's title bar has nothing there.",
+    "note_zh": "Design 在 Recent 頁標題列右端放了回首頁的捷徑；App 的標題列右端什麼都沒有。"
+   },
+   "unspecced:btn_edit_another": {
+    "verdict": "question",
+    "note": "The app adds a full-width blue 「Create another one」 button across the foot of the Recent page; the Design's Recent frames draw nothing there. Design should say whether it belongs in the spec.",
+    "note_zh": "App 在 Recent 頁底部多了一顆整列寬的藍色「Create another one」按鈕，Design 的 Recent 畫面沒有畫。請 Design 確認是否納入規格。"
+   },
+   "align:I3293:13653;12902:5598;8383:7615": {
+    "verdict": "ok",
+    "note": "「Processing…」 sits about 4 pt left of the thumbnail's centre, roughly the width of the single ellipsis character the app uses; on screen it reads centred.",
+    "note_zh": "「Processing…」比縮圖中央偏左約 4 pt，差距約等於 App 使用的單一刪節號字元寬度；畫面上看起來仍是置中。"
+   },
+   "visual:1": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "minor",
+    "figma": {
+     "box": [
+      16,
+      56,
+      24,
+      24
+     ]
+    },
+    "note": "The Design draws a back arrow at the top left of the Recent page; the app draws a house there instead, so the page offers Home where the Design offers Back.",
+    "note_zh": "Design 在 Recent 頁左上角畫的是返回箭頭；App 畫的是房子圖示，等於把返回換成了回首頁。"
+   },
+   "visual:2": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "minor",
+    "figma": {
+     "box": [
+      34,
+      238,
+      84,
+      4
+     ]
+    },
+    "note": "The Design draws the task's progress as a short bar inside the thumbnail's lower edge; the app draws a full-width bar under the task name, beside 「4 minutes left…」.",
+    "note_zh": "Design 把任務進度畫成縮圖下緣內的一小條；App 則在任務名稱下方、「4 minutes left…」旁邊畫了一條整列寬的進度條。"
+   }
+  },
+  "3300:31478": {
+   "missing:3300:31490": {
+    "verdict": "question",
+    "note": "The Design's control at the right of the notice row reads 「Manage」; the app shows 「Select」 in the same place. Words are not compared in this check, so Design and PM should confirm which control the Android Recent list is meant to carry.",
+    "note_zh": "Design 在說明列右端的控制項是「Manage」，App 在同一位置顯示「Select」。本次檢查不比對文字，請 Design 與 PM 確認 Android 的 Recent 清單應該放哪一個控制項。"
+   },
+   "weight:I3300:31480;12395:9323": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3300:31484;12383:9233": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "control:I3300:31484;12383:9248;13647:4409": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The Design puts a home shortcut at the right end of the Recent page's title bar; the app's title bar has nothing there.",
+    "note_zh": "Design 在 Recent 頁標題列右端放了回首頁的捷徑；App 的標題列右端什麼都沒有。"
+   },
+   "unspecced:btn_edit_another": {
+    "verdict": "question",
+    "note": "The app adds a full-width blue 「Create another one」 button across the foot of the Recent page; the Design's Recent frames draw nothing there. Design should say whether it belongs in the spec.",
+    "note_zh": "App 在 Recent 頁底部多了一顆整列寬的藍色「Create another one」按鈕，Design 的 Recent 畫面沒有畫。請 Design 確認是否納入規格。"
+   },
+   "align:I3300:31480;12902:5598;8383:7615": {
+    "verdict": "ok",
+    "note": "「Processing…」 sits about 4 pt left of the thumbnail's centre, roughly the width of the single ellipsis character the app uses; on screen it reads centred.",
+    "note_zh": "「Processing…」比縮圖中央偏左約 4 pt，差距約等於 App 使用的單一刪節號字元寬度；畫面上看起來仍是置中。"
+   },
+   "visual:1": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "minor",
+    "figma": {
+     "box": [
+      16,
+      56,
+      24,
+      24
+     ]
+    },
+    "note": "The Design draws a back arrow at the top left of the Recent page; the app draws a house there instead, so the page offers Home where the Design offers Back.",
+    "note_zh": "Design 在 Recent 頁左上角畫的是返回箭頭；App 畫的是房子圖示，等於把返回換成了回首頁。"
+   },
+   "visual:2": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "minor",
+    "figma": {
+     "box": [
+      34,
+      238,
+      84,
+      4
+     ]
+    },
+    "note": "The Design draws the task's progress as a short bar inside the thumbnail's lower edge; the app draws a full-width bar under the task name, beside 「4 minutes left…」.",
+    "note_zh": "Design 把任務進度畫成縮圖下緣內的一小條；App 則在任務名稱下方、「4 minutes left…」旁邊畫了一條整列寬的進度條。"
+   }
+  },
+  "3293:13664": {
+   "missing:3293:13676": {
+    "verdict": "question",
+    "note": "The Design's control at the right of the notice row reads 「Manage」; the app shows 「Select」 in the same place. Words are not compared in this check, so Design and PM should confirm which control the Android Recent list is meant to carry.",
+    "note_zh": "Design 在說明列右端的控制項是「Manage」，App 在同一位置顯示「Select」。本次檢查不比對文字，請 Design 與 PM 確認 Android 的 Recent 清單應該放哪一個控制項。"
+   },
+   "weight:I3293:13666;12395:9340": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3293:13666;12395:9342;576:13056": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「View」 is Regular where the Design sets Medium, so the card's only action reads lighter than the task name beside it.",
+    "note_zh": "「View」是 Regular，Design 設定為 Medium，卡片上唯一的動作按鈕看起來比旁邊的任務名稱細。"
+   },
+   "weight:I3293:13670;12383:9233": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "unspecced:btn_edit_another": {
+    "verdict": "question",
+    "note": "The app adds a full-width blue 「Create another one」 button across the foot of the Recent page; the Design's Recent frames draw nothing there. Design should say whether it belongs in the spec.",
+    "note_zh": "App 在 Recent 頁底部多了一顆整列寬的藍色「Create another one」按鈕，Design 的 Recent 畫面沒有畫。請 Design 確認是否納入規格。"
+   },
+   "visual:1": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "major",
+    "figma": {
+     "box": [
+      32,
+      156,
+      37,
+      16
+     ]
+    },
+    "note": "The Design draws a small 「Added」 badge on the finished task's thumbnail; the app's completed card carries none, although the result is already in the gallery.",
+    "note_zh": "Design 在完成任務的縮圖上畫了一個小的「Added」標記；App 的完成卡片沒有，雖然成果其實已經存進相簿。"
+   },
+   "visual:2": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "minor",
+    "figma": {
+     "box": [
+      16,
+      56,
+      24,
+      24
+     ]
+    },
+    "note": "The Design draws a back arrow at the top left of the Recent page; the app draws a house there instead, so the page offers Home where the Design offers Back.",
+    "note_zh": "Design 在 Recent 頁左上角畫的是返回箭頭；App 畫的是房子圖示，等於把返回換成了回首頁。"
+   },
+   "visual:3": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "major",
+    "figma": {
+     "box": [
+      335,
+      56,
+      24,
+      24
+     ]
+    },
+    "note": "The Design puts a home shortcut at the right end of the Recent page's title bar; the app's title bar has nothing there.",
+    "note_zh": "Design 在 Recent 頁標題列右端放了回首頁的捷徑；App 的標題列右端什麼都沒有。"
+   }
+  },
+  "3293:13684": {
+   "weight:I3293:13711;13834:20621;13755:17346": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3293:13711;13834:20621;13755:17348": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "control:I3294:31284;14057:10254": {
+    "verdict": "ok",
+    "note": "The preview slider is on the screen with the time 「00:00/00:03」 beside it; it is a seek bar, which the check does not count as a tappable element.",
+    "note_zh": "預覽滑桿畫面上有，旁邊就是時間「00:00/00:03」；它是 seek bar，檢查不會把它算成可點元素。"
+   },
+   "padding:3293:13690": {
+    "verdict": "ok",
+    "note": "Each label sits the same distance under its icon tile as in the Design; the tiles themselves are a few points smaller on Android, which is what lifts the labels inside the panel. All three buttons behave the same.",
+    "note_zh": "每個標籤距離上方圖示方塊的距離和 Design 一樣；Android 的方塊本身小了幾點，才讓標籤在面板裡整體上移。三個按鈕情況相同。"
+   },
+   "padding:3293:13694": {
+    "verdict": "ok",
+    "note": "Each label sits the same distance under its icon tile as in the Design; the tiles themselves are a few points smaller on Android, which is what lifts the labels inside the panel. All three buttons behave the same.",
+    "note_zh": "每個標籤距離上方圖示方塊的距離和 Design 一樣；Android 的方塊本身小了幾點，才讓標籤在面板裡整體上移。三個按鈕情況相同。"
+   },
+   "padding:3293:13698": {
+    "verdict": "ok",
+    "note": "Each label sits the same distance under its icon tile as in the Design; the tiles themselves are a few points smaller on Android, which is what lifts the labels inside the panel. All three buttons behave the same.",
+    "note_zh": "每個標籤距離上方圖示方塊的距離和 Design 一樣；Android 的方塊本身小了幾點，才讓標籤在面板裡整體上移。三個按鈕情況相同。"
+   },
+   "colour:I3293:13711;13834:20621;13755:17345": {
+    "verdict": "ok",
+    "note": "Both sides show 「Result」 selected: the app paints the Result half the Design's blue #2589FE and leaves 「Original」 on the same dark slate #3C4A5D. The fill compared here is the selected-state blue of the 「Original」 half, which the frame itself hides.",
+    "note_zh": "兩邊都是「Result」被選取：App 把 Result 半邊塗成 Design 的藍色 #2589FE，「Original」維持同樣的深藍灰 #3C4A5D。這裡比對到的是「Original」半邊在元件中的選取態藍色，而該圖本身並未顯示它。"
+   },
+   "visual:1": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "minor",
+    "figma": {
+     "box": [
+      30,
+      664,
+      316,
+      82
+     ]
+    },
+    "note": "The three action tiles are smaller than the Design's — about 84 × 55 pt against 92 × 60 — so the row is some 27 pt narrower overall; the gaps between the tiles match the Design.",
+    "note_zh": "三個動作方塊比 Design 小——約 84 × 55 pt，Design 為 92 × 60——整排因此窄了約 27 pt；方塊之間的間距則和 Design 相同。"
+   }
+  },
+  "3300:31547": {
+   "weight:I3300:31568;13834:20621;13755:17346": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3300:31568;13834:20621;13755:17348": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "control:I3300:31565;14057:10254": {
+    "verdict": "ok",
+    "note": "The preview slider is on the screen with the time 「00:00/00:03」 beside it; it is a seek bar, which the check does not count as a tappable element.",
+    "note_zh": "預覽滑桿畫面上有，旁邊就是時間「00:00/00:03」；它是 seek bar，檢查不會把它算成可點元素。"
+   },
+   "padding:3300:31553": {
+    "verdict": "ok",
+    "note": "Each label sits the same distance under its icon tile as in the Design; the tiles themselves are a few points smaller on Android, which is what lifts the labels inside the panel. All three buttons behave the same.",
+    "note_zh": "每個標籤距離上方圖示方塊的距離和 Design 一樣；Android 的方塊本身小了幾點，才讓標籤在面板裡整體上移。三個按鈕情況相同。"
+   },
+   "padding:3300:31557": {
+    "verdict": "ok",
+    "note": "Each label sits the same distance under its icon tile as in the Design; the tiles themselves are a few points smaller on Android, which is what lifts the labels inside the panel. All three buttons behave the same.",
+    "note_zh": "每個標籤距離上方圖示方塊的距離和 Design 一樣；Android 的方塊本身小了幾點，才讓標籤在面板裡整體上移。三個按鈕情況相同。"
+   },
+   "padding:3300:31561": {
+    "verdict": "ok",
+    "note": "Each label sits the same distance under its icon tile as in the Design; the tiles themselves are a few points smaller on Android, which is what lifts the labels inside the panel. All three buttons behave the same.",
+    "note_zh": "每個標籤距離上方圖示方塊的距離和 Design 一樣；Android 的方塊本身小了幾點，才讓標籤在面板裡整體上移。三個按鈕情況相同。"
+   },
+   "colour:I3300:31568;13834:20621;13755:17345": {
+    "verdict": "ok",
+    "note": "Both sides show 「Result」 selected: the app paints the Result half the Design's blue #2589FE and leaves 「Original」 on the same dark slate #3C4A5D. The fill compared here is the selected-state blue of the 「Original」 half, which the frame itself hides.",
+    "note_zh": "兩邊都是「Result」被選取：App 把 Result 半邊塗成 Design 的藍色 #2589FE，「Original」維持同樣的深藍灰 #3C4A5D。這裡比對到的是「Original」半邊在元件中的選取態藍色，而該圖本身並未顯示它。"
+   },
+   "visual:1": {
+    "kind": "visual",
+    "verdict": "bug",
+    "severity": "minor",
+    "figma": {
+     "box": [
+      30,
+      664,
+      316,
+      82
+     ]
+    },
+    "note": "The three action tiles are smaller than the Design's — about 84 × 55 pt against 92 × 60 — so the row is some 27 pt narrower overall; the gaps between the tiles match the Design.",
+    "note_zh": "三個動作方塊比 Design 小——約 84 × 55 pt，Design 為 92 × 60——整排因此窄了約 27 pt；方塊之間的間距則和 Design 相同。"
+   }
+  },
+  "3293:14884": {
+   "missing:3339:17648": {
+    "verdict": "n/a",
+    "note": "「Video Quick Actions」 is another feature's card, so it falls outside the Video Enhance part of the Launcher; the app's AI Enhance section holds Video Enhance, AI Video Upscaler and Photo Enhance.",
+    "note_zh": "「Video Quick Actions」是其他功能的卡片，不屬於 Launcher 上 Video Enhance 的範圍；App 的 AI Enhance 區塊只有 Video Enhance、AI Video Upscaler 與 Photo Enhance。"
+   },
+   "missing:I3293:14928;11856:6758;11856:6474;186:3127": {
+    "verdict": "ok",
+    "note": "The bottom bar's fifth item reads 「Pro」 in gold where the Design draws 「Mine」. That bar belongs to the app as a whole rather than to this feature, and the words themselves are not compared here.",
+    "note_zh": "底部列第五個項目是金色的「Pro」，Design 畫的是「Mine」。那一列屬於整個 App、不屬於這個功能，本次檢查也不比對文字。"
+   },
+   "missing:I3293:14934;1187:7885;1187:7874;138:5126": {
+    "verdict": "ok",
+    "note": "The 「AI Magic」 tab is on the screen at the top left with its blue underline; the check matched the app's only reading of those words to the bottom bar's 「AI Magic」.",
+    "note_zh": "「AI Magic」分頁在畫面左上角，下方還有藍色底線；檢查把 App 唯一一次讀到的這組字配對到底部列的「AI Magic」。"
+   },
+   "size:3293:14911": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The card labels are set 13 sp where the Design sets 14 pt — about a point smaller on every card in the section.",
+    "note_zh": "卡片標籤設成 13 sp，Design 是 14 pt——這個區塊每張卡片都小了約一點。"
+   },
+   "weight:3293:14914": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The section heading is drawn in the system's heaviest weight; the Design's Semibold is Roboto Medium on Android, so it is two steps heavier than drawn. 「AI Tools」 below it is set the same way.",
+    "note_zh": "區段標題用了系統最粗的字重；Design 的 Semibold 在 Android 對應 Roboto Medium，比圖上重了兩階。下方的「AI Tools」也是同樣設定。"
+   },
+   "size:3293:14927": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The card labels are set 13 sp where the Design sets 14 pt — about a point smaller on every card in the section.",
+    "note_zh": "卡片標籤設成 13 sp，Design 是 14 pt——這個區塊每張卡片都小了約一點。"
+   },
+   "size:3293:14919": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The card labels are set 13 sp where the Design sets 14 pt — about a point smaller on every card in the section.",
+    "note_zh": "卡片標籤設成 13 sp，Design 是 14 pt——這個區塊每張卡片都小了約一點。"
+   },
+   "weight:I3293:14935;1187:7886;1187:7876;138:5129": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   }
+  },
+  "3293:13415": {
+   "missing:3293:13420": {
+    "verdict": "question",
+    "note": "The Android page is not this iOS page: a hero image and a carousel of benefits sit over two plan rows that show only the store's own price. The Design has no Android purchase page, so PM and Design should settle what Android must show.",
+    "note_zh": "Android 的頁面和這張 iOS 圖不同：上方是主視覺與權益輪播，下方兩列方案只顯示商店自己的價格。Design 沒有 Android 版購買頁，請 PM 與 Design 決定 Android 應該呈現什麼。"
+   },
+   "missing:3293:13443": {
+    "verdict": "question",
+    "note": "The Android page is not this iOS page: a hero image and a carousel of benefits sit over two plan rows that show only the store's own price. The Design has no Android purchase page, so PM and Design should settle what Android must show.",
+    "note_zh": "Android 的頁面和這張 iOS 圖不同：上方是主視覺與權益輪播，下方兩列方案只顯示商店自己的價格。Design 沒有 Android 版購買頁，請 PM 與 Design 決定 Android 應該呈現什麼。"
+   },
+   "missing:3293:13445": {
+    "verdict": "question",
+    "note": "The Android page is not this iOS page: a hero image and a carousel of benefits sit over two plan rows that show only the store's own price. The Design has no Android purchase page, so PM and Design should settle what Android must show.",
+    "note_zh": "Android 的頁面和這張 iOS 圖不同：上方是主視覺與權益輪播，下方兩列方案只顯示商店自己的價格。Design 沒有 Android 版購買頁，請 PM 與 Design 決定 Android 應該呈現什麼。"
+   },
+   "missing:3293:13446": {
+    "verdict": "question",
+    "note": "The Android page is not this iOS page: a hero image and a carousel of benefits sit over two plan rows that show only the store's own price. The Design has no Android purchase page, so PM and Design should settle what Android must show.",
+    "note_zh": "Android 的頁面和這張 iOS 圖不同：上方是主視覺與權益輪播，下方兩列方案只顯示商店自己的價格。Design 沒有 Android 版購買頁，請 PM 與 Design 決定 Android 應該呈現什麼。"
+   },
+   "missing:3293:13459": {
+    "verdict": "question",
+    "note": "The Android page is not this iOS page: a hero image and a carousel of benefits sit over two plan rows that show only the store's own price. The Design has no Android purchase page, so PM and Design should settle what Android must show.",
+    "note_zh": "Android 的頁面和這張 iOS 圖不同：上方是主視覺與權益輪播，下方兩列方案只顯示商店自己的價格。Design 沒有 Android 版購買頁，請 PM 與 Design 決定 Android 應該呈現什麼。"
+   },
+   "missing:3293:13488": {
+    "verdict": "ok",
+    "note": "Android sells Free and Pro only (REQ-017), so the page carries no Pro / Pro+ tabs; the tabs in the frame are the iOS state.",
+    "note_zh": "Android 只販售 Free 與 Pro（REQ-017），所以頁面沒有 Pro / Pro+ 分頁；圖上的分頁是 iOS 的狀態。"
+   },
+   "missing:3293:13490": {
+    "verdict": "ok",
+    "note": "Android sells Free and Pro only (REQ-017), so the page carries no Pro / Pro+ tabs; the tabs in the frame are the iOS state.",
+    "note_zh": "Android 只販售 Free 與 Pro（REQ-017），所以頁面沒有 Pro / Pro+ 分頁；圖上的分頁是 iOS 的狀態。"
+   },
+   "size:3293:13449": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The discount figure is set 16 sp where the Design sets 18 pt. The Android plan row is laid out differently, so it is worth settling together with the rest of that row.",
+    "note_zh": "折扣數字設成 16 sp，Design 是 18 pt。Android 的方案列版面本來就不同，建議和整列一起確認。"
+   },
+   "weight:3293:13449": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:3293:13453": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "weight:I3293:13466;638:20585;638:20572": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The app sets this label Bold where the Design's Semibold is Roboto Medium on Android, so it reads heavier than the frame draws it. Every bold label on this screen is set the same way.",
+    "note_zh": "App 把這段文字設成 Bold，而 Design 的 Semibold 在 Android 對應 Roboto Medium，看起來比圖上重。本畫面所有粗體文字都是同一個設定。"
+   },
+   "size:3293:13469": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The three legal links are set 11 sp where the Design sets 10 pt; all three are the same, and they sit across the foot of the page as drawn.",
+    "note_zh": "頁尾三個條款連結設成 11 sp，Design 是 10 pt；三個都一樣，排列方式和圖上相同。"
+   },
+   "size:3293:13471": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The three legal links are set 11 sp where the Design sets 10 pt; all three are the same, and they sit across the foot of the page as drawn.",
+    "note_zh": "頁尾三個條款連結設成 11 sp，Design 是 10 pt；三個都一樣，排列方式和圖上相同。"
+   },
+   "size:3293:13473": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The three legal links are set 11 sp where the Design sets 10 pt; all three are the same, and they sit across the foot of the page as drawn.",
+    "note_zh": "頁尾三個條款連結設成 11 sp，Design 是 10 pt；三個都一樣，排列方式和圖上相同。"
+   },
+   "colour:3293:13449": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The discount on the yearly row is drawn in gold where the Design draws it white; on Android it sits straight on the card's background, with the gold 「POPULAR」 badge above it.",
+    "note_zh": "年繳方案的折扣文字是金色，Design 畫的是白色；Android 上它直接放在卡片底色上，上方還有金色的「POPULAR」標記。"
+   },
+   "padding:3293:13453": {
+    "verdict": "question",
+    "note": "The monthly price sits about 7 pt nearer the card's left edge because the Android page uses a narrower side margin and a wider card. It belongs with the plan rows' own layout, for which there is no Android frame.",
+    "note_zh": "月繳價格比 Design 靠近卡片左緣約 7 pt，因為 Android 頁面左右邊距較窄、卡片較寬。這屬於方案列本身的版面，而 Android 並沒有對應的設計圖。"
+   },
+   "colour:3293:13444": {
+    "verdict": "question",
+    "note": "The Design's gold 「Best Value」 tag sits beside the plan name; the app has no such tag — its gold 「POPULAR」 badge sits above the card's right corner instead — so the sample found the page background.",
+    "note_zh": "Design 的金色「Best Value」標籤放在方案名稱旁；App 沒有這個標籤，改成金色的「POPULAR」放在卡片右上角，因此取樣點落在頁面底色上。"
+   },
+   "colour:3293:13489": {
+    "verdict": "ok",
+    "note": "Android sells Free and Pro only (REQ-017), so the page carries no Pro / Pro+ tabs; the tabs in the frame are the iOS state.",
+    "note_zh": "Android 只販售 Free 與 Pro（REQ-017），所以頁面沒有 Pro / Pro+ 分頁；圖上的分頁是 iOS 的狀態。"
+   }
+  }
+ }
+}

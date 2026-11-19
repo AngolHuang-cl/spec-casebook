@@ -179,6 +179,10 @@ lines; put the full rule in the skill or reference file that applies it and poin
 - **Source read before the design check (user, 2026-11-04, REQ-081).** Every Design board the casebook inventories
   is read whole before any design pass walks its rows; `design.ts status` stops on a source gap until it is read or
   excluded with a reason (`figma/references/conformance.md` › *Plan*, `source.md` step 1).
+- **Every Design state is a screen (user, 2026-11-19, video-enhance REQ-030).** A close-up of part of a phone (a
+  tooltip drawn open on the panel) is a `partial` screen of the design check and a panel of the inventory, whatever
+  its name; every other frame on a read board is listed by `design.ts … status` until it is a screen or skipped with
+  a reason (`figma/references/conformance.md` › *What counts as a screen*).
 - **Design captures ride on runs (user, 2026-11-04).** In a casebook run, `device.ts … case <ID>` arms automatic
   design captures (every page source already read is matched to the row's Design screens); a design pass walks only
   what runs left (`screens --left`), and the Design tab shows the Progress page's time and usage table for it (`figma/references/conformance.md`

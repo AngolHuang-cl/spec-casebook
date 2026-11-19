@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-11-12T01:42:14.614Z",
+  "built_at": "2026-11-19T04:58:35.691Z",
   "spec_set": "2026-11-03",
   "file": {
     "fileKey": "HceGLJVaxnKsv7gXSXzKWh",
@@ -8,9 +8,19 @@
     "account": "qa-dm@cyberlink.com (figma-design); refused earlier on 2026-11-03, opened later the same day"
   },
   "phases": null,
-  "skip": [],
+  "skip": [
+    "3497:12",
+    "3486:3113",
+    "3601:24155",
+    "3601:24176"
+  ],
   "skip_reason": null,
-  "skip_reasons": {},
+  "skip_reasons": {
+    "3497:12": "spec note on the board (defaults rules, chip states, fps / resolution lookup tables), not a screen",
+    "3486:3113": "spec note on the board (defaults rules, chip states, fps / resolution lookup tables), not a screen",
+    "3601:24155": "spec note on the board (defaults rules, chip states, fps / resolution lookup tables), not a screen",
+    "3601:24176": "spec note on the board (defaults rules, chip states, fps / resolution lookup tables), not a screen"
+  },
   "scope_review": {
     "at": "2026-11-10",
     "by": "user",
@@ -57,10 +67,11 @@
     "listed": [],
     "page_listed": true
   },
+  "not_screens": [],
   "casebook": true,
   "counts": {
-    "screens": 33,
-    "routed": 33,
+    "screens": 35,
+    "routed": 35,
     "figma_paths": 0,
     "gaps": 0,
     "no_route": 0,
@@ -73,10 +84,12 @@
     ],
     "TC-110": [
       "3669:20362",
-      "3669:20463",
       "3669:20564",
       "3388:17754",
       "3310:38112"
+    ],
+    "TC-071": [
+      "3669:20463"
     ],
     "TC-090": [
       "3300:32182",
@@ -85,6 +98,12 @@
     ],
     "TC-038": [
       "3313:39430"
+    ],
+    "TC-035": [
+      "3479:106886"
+    ],
+    "TC-036": [
+      "3494:106998"
     ],
     "TC-031": [
       "3328:45377"
@@ -286,23 +305,23 @@
       "inventory_screen": "3669:20463",
       "status": "routed",
       "route": {
-        "case": "TC-110",
-        "how": "on",
-        "via": "K-68e6ce",
-        "fit": "mid",
-        "edge": "Enhance",
+        "case": "TC-071",
+        "how": "quoted",
+        "via": "3669:20463",
+        "fit": "high",
+        "edge": "professional supports clips up to #:#. shorten your selection to switch.",
         "segment": "",
-        "section": "Generating and cancel",
-        "precondition": "1. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits\n2. Panel open with a 01:30 1080p 30 fps video and the defaults kept (Standard, Natural, 30fps, 1080p)\n3. Note the balance",
-        "action": "Tap 「Enhance ◆ <credits>」",
+        "section": "Mode length limit",
+        "precondition": "Panel open with the 12:30 video in Standard, selection 00:30–05:30 (「05:00」)",
+        "action": "Tap 「Professional」",
         "result": "Not run",
         "run": ""
       },
       "alternatives": [
-        "TC-031",
-        "TC-033",
-        "TC-035",
-        "TC-036"
+        "TC-076",
+        "TC-160",
+        "TC-262",
+        "TC-263"
       ],
       "flags": []
     },
@@ -469,6 +488,94 @@
         "TC-033"
       ],
       "flags": []
+    },
+    {
+      "id": "3479:106886",
+      "name": "panel",
+      "board": "3300:32003",
+      "board_name": "AI Video Enhance",
+      "abs": [
+        23489,
+        3368,
+        375,
+        494
+      ],
+      "board_box": [
+        20612,
+        3054,
+        4148,
+        2590
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/ai-video-enhance.png",
+      "inventory_screen": "3479:106886",
+      "partial": true,
+      "status": "routed",
+      "route": {
+        "case": "TC-035",
+        "how": "quoted",
+        "via": "3479:106886",
+        "fit": "high",
+        "edge": "standard: great quality · up to # min",
+        "segment": "",
+        "section": "Panel layout and first-run bubble",
+        "precondition": "Panel open",
+        "action": "Tap ⓘ next to 「Mode」",
+        "result": "Not run",
+        "run": ""
+      },
+      "alternatives": [
+        "TC-031",
+        "TC-036",
+        "TC-061",
+        "TC-062"
+      ],
+      "flags": [
+        "partial"
+      ]
+    },
+    {
+      "id": "3494:106998",
+      "name": "panel",
+      "board": "3300:32003",
+      "board_name": "AI Video Enhance",
+      "abs": [
+        23489,
+        3954,
+        375,
+        494
+      ],
+      "board_box": [
+        20612,
+        3054,
+        4148,
+        2590
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/ai-video-enhance.png",
+      "inventory_screen": "3494:106998",
+      "partial": true,
+      "status": "routed",
+      "route": {
+        "case": "TC-036",
+        "how": "quoted",
+        "via": "3494:106998",
+        "fit": "high",
+        "edge": "natural: lighter enhancement with fewer artifacts, for a more realistic look",
+        "segment": "",
+        "section": "Panel layout and first-run bubble",
+        "precondition": "Panel open",
+        "action": "Tap ⓘ next to 「Enhancement style」",
+        "result": "Not run",
+        "run": ""
+      },
+      "alternatives": [
+        "TC-031",
+        "TC-035",
+        "TC-061",
+        "TC-062"
+      ],
+      "flags": [
+        "partial"
+      ]
     },
     {
       "id": "3328:45377",
@@ -786,7 +893,7 @@
         "segment": "",
         "section": "Generating and cancel",
         "precondition": "1. A new task: the leave dialog showing after 「Cancel」 on the processing dialog\n2. Balance before 「Enhance」 noted",
-        "action": "Tap 「Leave」",
+        "action": "1. Tap 「Leave」\n2. Open the credit history (「Details」 on the Credit page)",
         "result": "Not run",
         "run": ""
       },
@@ -985,8 +1092,8 @@
         "edge": "Opacity",
         "segment": "",
         "section": "Entry points",
-        "precondition": "1. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine)\n2. A project open in the editor with one video clip of 2:30 or less on the timeline",
-        "action": "1. Tap the clip on the timeline\n2. Tap 「AI Video Enhance」 in the clip toolbar",
+        "precondition": "1. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine)\n2. A project open in the editor with one video clip of 2:30 or less on the timeline\n3. 「Don't show again」 on the Demo page not saved yet (run before TC-014)",
+        "action": "1. Tap the clip on the timeline\n2. Tap 「AI Video Enhance」 in the clip toolbar (inside its 「Enhance」 group when the toolbar groups the tools)",
         "result": "Not run",
         "run": ""
       },

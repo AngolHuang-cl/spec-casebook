@@ -104,10 +104,12 @@ and look at the tile images where layout, arrows or states matter.**
      elements one by one, and never re-read an unchanged file.
    - **Read.** `scripts/figma/inventory.js` (read-only `use_figma`; its header says how): one call with
      `__BOARDS__ = []` lists the boards, then **one call per board group** (about 4 boards or 40 KB of output) returns
-     every phone frame, every tappable instance (deduplicated by board + layer + label + position) and every flow
+     every phone frame and panel (a dialog, sheet or tooltip by name or arrow, or a close-up as wide as a phone and
+     300 pt or taller whatever its name: REQ-030), every tappable instance (deduplicated by board + layer + label + position) and every flow
      arrow with its tail control and head screen from the vector geometry (arrow layer names are stale; the geometry
      is not). **Plan, call, save (2026-11-05)**: `figma-check.ts <feature> --plan [--add <group>=<id>[@name],…]`
-     packs the groups to read (the compare's re-reads, new boards as new groups) into a few `call-<n>.js` files of
+     packs the groups to read (the compare's re-reads, new boards as new groups; `--group <names>` reads groups again
+     though unchanged, after inventory.js learned to take something it missed) into a few `call-<n>.js` files of
      several groups each, sized by their last reply (under ~35 KB; the MCP reply limit is ~48 KB). Run each call with
      the exact `description` it prints, **one call at a time per server** (Design and PM servers may run side by
      side), never retyping a reply: `figma-check.ts <feature> --save` copies every reply from the session transcripts

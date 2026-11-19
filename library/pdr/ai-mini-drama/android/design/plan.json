@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-11-12T01:42:13.119Z",
+  "built_at": "2026-11-19T04:58:36.966Z",
   "spec_set": "2026-10-21-2",
   "file": {
     "fileKey": "dZk5HLzZTdcZwWwvN9aZfZ",
@@ -323,12 +323,104 @@
     ],
     "page_listed": true
   },
+  "not_screens": [
+    {
+      "id": "2566:113285",
+      "name": "Preview_Template",
+      "board": "2566:113114",
+      "board_name": "Template Detail",
+      "size": [
+        299,
+        532
+      ]
+    },
+    {
+      "id": "2566:114799",
+      "name": "home_bg",
+      "board": "2566:114674",
+      "board_name": "AI Mini Drama home page",
+      "size": [
+        558,
+        454
+      ]
+    },
+    {
+      "id": "2566:114800",
+      "name": "home_bg",
+      "board": "2566:114674",
+      "board_name": "AI Mini Drama home page",
+      "size": [
+        558,
+        454
+      ]
+    },
+    {
+      "id": "2811:90148",
+      "name": "Dialog_text_02-1",
+      "board": "2811:89056",
+      "board_name": "Choose Character",
+      "size": [
+        270,
+        194
+      ]
+    },
+    {
+      "id": "3999:73578",
+      "name": "Dialog_text_03",
+      "board": "2820:113353",
+      "board_name": "Storyboard",
+      "size": [
+        270,
+        206
+      ]
+    },
+    {
+      "id": "3999:73591",
+      "name": "Dialog_text_03",
+      "board": "2820:113353",
+      "board_name": "Storyboard",
+      "size": [
+        270,
+        206
+      ]
+    },
+    {
+      "id": "4877:33062",
+      "name": "Dialog_leave_chat",
+      "board": "4858:34930",
+      "board_name": "1016_Chat navigation",
+      "size": [
+        270,
+        194
+      ]
+    },
+    {
+      "id": "4887:33006",
+      "name": "Dialog_leave_1",
+      "board": "4858:34930",
+      "board_name": "1016_Chat navigation",
+      "size": [
+        270,
+        194
+      ]
+    },
+    {
+      "id": "4887:33018",
+      "name": "Dialog_leave_2",
+      "board": "4858:34930",
+      "board_name": "1016_Chat navigation",
+      "size": [
+        270,
+        194
+      ]
+    }
+  ],
   "casebook": true,
   "counts": {
-    "screens": 230,
-    "routed": 230,
-    "figma_paths": 0,
-    "gaps": 0,
+    "screens": 234,
+    "routed": 234,
+    "figma_paths": 1,
+    "gaps": 1,
     "no_route": 0,
     "excluded": 0
   },
@@ -361,7 +453,6 @@
       "2824:132503"
     ],
     "TC-020": [
-      "3949:74761",
       "4609:32138",
       "2824:131340",
       "2824:131522",
@@ -402,6 +493,12 @@
     "TC-027": [
       "4863:32482"
     ],
+    "TC-030": [
+      "3949:74854"
+    ],
+    "TC-031": [
+      "3949:74761"
+    ],
     "TC-033": [
       "2811:89281",
       "2811:89778",
@@ -435,11 +532,15 @@
       "2778:139610",
       "2778:139660"
     ],
+    "TC-040": [
+      "2811:89895"
+    ],
     "TC-041": [
       "3153:105431",
       "3153:105502",
       "2811:90050",
-      "2811:90158"
+      "2811:90158",
+      "2811:89945"
     ],
     "TC-043": [
       "3167:119462"
@@ -588,6 +689,9 @@
       "2820:123272",
       "2820:123310"
     ],
+    "TC-136": [
+      "2811:90582"
+    ],
     "TC-152": [
       "2824:132753",
       "2831:134270",
@@ -632,13 +736,15 @@
       "2820:115378",
       "3172:102015"
     ],
+    "TC-091": [
+      "2820:115461"
+    ],
     "TC-092": [
       "2820:115790",
       "3172:101541"
     ],
     "TC-098": [
       "3946:72100",
-      "3949:74854",
       "4077:177188",
       "4272:129309"
     ],
@@ -665,7 +771,6 @@
       "2820:116794"
     ],
     "TC-150": [
-      "2820:115461",
       "3172:101853",
       "3806:67807",
       "3806:68062"
@@ -686,7 +791,6 @@
       "2566:113168",
       "2566:113181",
       "2566:113192",
-      "2566:113252",
       "2566:113265",
       "2566:113276"
     ],
@@ -706,6 +810,9 @@
     ],
     "TC-440": [
       "2778:128606"
+    ],
+    "TC-257": [
+      "2566:113252"
     ],
     "TC-520": [
       "4858:35398"
@@ -1503,49 +1610,6 @@
         "TC-075"
       ],
       "flags": []
-    },
-    {
-      "id": "3949:74761",
-      "name": "Outline failed_4xxx",
-      "board": "3946:68005",
-      "board_name": "1005_Chat",
-      "abs": [
-        -17713,
-        32611,
-        375,
-        812
-      ],
-      "board_box": [
-        -18405,
-        32152,
-        2453,
-        1645
-      ],
-      "board_png": "specs/2026-10-21-2/extracted/figma/1005-chat.png",
-      "inventory_screen": "3949:74761",
-      "status": "routed",
-      "route": {
-        "case": "TC-020",
-        "how": "on",
-        "via": "K-1ba96e",
-        "fit": "low",
-        "edge": "Enter your idea to create drama",
-        "segment": "A1-a1",
-        "section": "Format card",
-        "precondition": "Empty chat",
-        "action": "Send an idea (e.g. 「A barista and a regular fall in love over a lost umbrella」)",
-        "result": "Pass",
-        "run": "2026-10-29-a7-full"
-      },
-      "alternatives": [
-        "TC-025",
-        "TC-026",
-        "TC-524",
-        "TC-519"
-      ],
-      "flags": [
-        "area"
-      ]
     },
     {
       "id": "4609:32138",
@@ -2765,6 +2829,88 @@
       "flags": []
     },
     {
+      "id": "3949:74854",
+      "name": "Outline failed_5xxx",
+      "board": "3946:68005",
+      "board_name": "1005_Chat",
+      "abs": [
+        -17238,
+        32611,
+        375,
+        812
+      ],
+      "board_box": [
+        -18405,
+        32152,
+        2453,
+        1645
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/1005-chat.png",
+      "inventory_screen": "3949:74854",
+      "status": "routed",
+      "route": {
+        "case": "TC-030",
+        "how": "quoted",
+        "via": "3949:74854",
+        "fit": "high",
+        "edge": "something went wrong on my end. lets try that again.",
+        "segment": "A1-a2",
+        "section": "Story outline",
+        "precondition": "Outline request failed with 5xxx: 「Something went wrong on my end. Let's try that again.」 with 「Try again」 (fault switch (iOS Pink; none on Android 16.8) › Fail every call, or a natural 5xxx such as a network/SSL failure; record which)",
+        "action": "1. Read the failure message\n2. Tap 「Try again」 and wait for the reply",
+        "result": "Blocked",
+        "run": "2026-10-29-a7-full"
+      },
+      "alternatives": [
+        "TC-098",
+        "TC-020",
+        "TC-025",
+        "TC-026"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3949:74761",
+      "name": "Outline failed_4xxx",
+      "board": "3946:68005",
+      "board_name": "1005_Chat",
+      "abs": [
+        -17713,
+        32611,
+        375,
+        812
+      ],
+      "board_box": [
+        -18405,
+        32152,
+        2453,
+        1645
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/1005-chat.png",
+      "inventory_screen": "3949:74761",
+      "status": "routed",
+      "route": {
+        "case": "TC-031",
+        "how": "quoted",
+        "via": "3949:74761",
+        "fit": "high",
+        "edge": "i couldnt write a story from this idea. it may not meet our terms of service. try describing it a different way.",
+        "segment": "A1-a2",
+        "section": "Story outline",
+        "precondition": "Outline request fails with 4xxx",
+        "action": "Send an idea that violates policy",
+        "result": "Fail",
+        "run": "2026-10-29-a7-full"
+      },
+      "alternatives": [
+        "TC-020",
+        "TC-025",
+        "TC-026",
+        "TC-524"
+      ],
+      "flags": []
+    },
+    {
       "id": "2811:89281",
       "name": "Character Library",
       "board": "2811:89056",
@@ -3814,6 +3960,45 @@
       ]
     },
     {
+      "id": "2811:89895",
+      "name": "custom character",
+      "board": "2811:89056",
+      "board_name": "Choose Character",
+      "abs": [
+        -14727,
+        8153,
+        375,
+        350
+      ],
+      "board_box": [
+        -18405,
+        7196,
+        9294,
+        8350
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/choose-character.png",
+      "inventory_screen": null,
+      "partial": true,
+      "status": "routed",
+      "route": {
+        "case": "TC-040",
+        "how": "quoted",
+        "via": "2811:89895",
+        "fit": "high",
+        "edge": "# character isnt set yet",
+        "segment": "A1-b1",
+        "section": "Characters",
+        "precondition": "Exactly 1 unset character",
+        "action": "Tap ✓ in Choose Character",
+        "result": "Fail",
+        "run": "2026-10-29-a7-full"
+      },
+      "alternatives": [],
+      "flags": [
+        "partial"
+      ]
+    },
+    {
       "id": "3153:105431",
       "name": "Character Library",
       "board": "2811:89056",
@@ -3976,6 +4161,50 @@
         "TC-026"
       ],
       "flags": []
+    },
+    {
+      "id": "2811:89945",
+      "name": "custom character",
+      "board": "2811:89056",
+      "board_name": "Choose Character",
+      "abs": [
+        -13853,
+        8151,
+        375,
+        350
+      ],
+      "board_box": [
+        -18405,
+        7196,
+        9294,
+        8350
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/choose-character.png",
+      "inventory_screen": "2811:89945",
+      "partial": true,
+      "status": "routed",
+      "route": {
+        "case": "TC-041",
+        "how": "on",
+        "via": "K-c0ac9a",
+        "fit": "high",
+        "edge": "Generate all",
+        "segment": "A1-b1",
+        "section": "Characters",
+        "precondition": "Unset-characters sheet shown",
+        "action": "1. Tap 「Generate all」\n2. Wait\n3. Tap 「Confirm」",
+        "result": "Pass",
+        "run": "2026-10-29-a7-full"
+      },
+      "alternatives": [
+        "TC-136",
+        "TC-037",
+        "TC-120",
+        "TC-067"
+      ],
+      "flags": [
+        "partial"
+      ]
     },
     {
       "id": "3167:119462",
@@ -7447,6 +7676,50 @@
       "flags": []
     },
     {
+      "id": "2811:90582",
+      "name": "credit",
+      "board": "2811:89056",
+      "board_name": "Choose Character",
+      "abs": [
+        -13400,
+        8051,
+        375,
+        450
+      ],
+      "board_box": [
+        -18405,
+        7196,
+        9294,
+        8350
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/choose-character.png",
+      "inventory_screen": "2811:90582",
+      "partial": true,
+      "status": "routed",
+      "route": {
+        "case": "TC-136",
+        "how": "arrow",
+        "via": "2811-90216",
+        "fit": "high",
+        "edge": "Insufficient missing-character Generate → credit top-up",
+        "segment": "A1-e",
+        "section": "Characters",
+        "precondition": "Finish your characters with a balance below the Generate price",
+        "action": "Tap Generate / Generate all",
+        "result": "Blocked",
+        "run": "2026-10-29-a7-full"
+      },
+      "alternatives": [
+        "TC-225",
+        "TC-037",
+        "TC-121",
+        "TC-134"
+      ],
+      "flags": [
+        "partial"
+      ]
+    },
+    {
       "id": "2824:132753",
       "name": "AI Mini Drama_template",
       "board": "2820:125545",
@@ -8335,6 +8608,47 @@
       "flags": []
     },
     {
+      "id": "2820:115461",
+      "name": "storyboard",
+      "board": "2820:113981",
+      "board_name": "video",
+      "abs": [
+        -15437,
+        21468,
+        375,
+        812
+      ],
+      "board_box": [
+        -18405,
+        20951,
+        11069,
+        3145
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/video.png",
+      "inventory_screen": "2820:115461",
+      "status": "routed",
+      "route": {
+        "case": "TC-091",
+        "how": "quoted",
+        "via": "2820:115461",
+        "fit": "high",
+        "edge": "{n} scenes couldnt be generated. your credits have been refunded. tap edit to regenerate, or tell me what to change.",
+        "segment": "A1-g1",
+        "section": "Video errors",
+        "precondition": "Video with two or more failed scenes, all failed by moderation (4xxx) (no fault switch on Android 16.8: needs clips that really failed; fixtures.md)",
+        "action": "Read the chat and the video card",
+        "result": "Blocked",
+        "run": "2026-10-29-a7-full"
+      },
+      "alternatives": [
+        "TC-296",
+        "TC-559",
+        "TC-560",
+        "TC-150"
+      ],
+      "flags": []
+    },
+    {
       "id": "2820:115790",
       "name": "AI Mini Drama_storyboard",
       "board": "2820:113981",
@@ -8434,47 +8748,6 @@
       ],
       "board_png": "specs/2026-10-21-2/extracted/figma/1005-chat.png",
       "inventory_screen": "3946:72100",
-      "status": "routed",
-      "route": {
-        "case": "TC-098",
-        "how": "on",
-        "via": "K-ff1a1c",
-        "fit": "mid",
-        "edge": "Try again",
-        "segment": "A1-g2",
-        "section": "Captions",
-        "precondition": "Caption generation failed",
-        "action": "Read the video card and tap Try again",
-        "result": "Blocked",
-        "run": "2026-10-29-a7-full"
-      },
-      "alternatives": [
-        "TC-020",
-        "TC-025",
-        "TC-026",
-        "TC-524"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3949:74854",
-      "name": "Outline failed_5xxx",
-      "board": "3946:68005",
-      "board_name": "1005_Chat",
-      "abs": [
-        -17238,
-        32611,
-        375,
-        812
-      ],
-      "board_box": [
-        -18405,
-        32152,
-        2453,
-        1645
-      ],
-      "board_png": "specs/2026-10-21-2/extracted/figma/1005-chat.png",
-      "inventory_screen": "3949:74854",
       "status": "routed",
       "route": {
         "case": "TC-098",
@@ -8904,47 +9177,6 @@
         "TC-025",
         "TC-382",
         "TC-519"
-      ],
-      "flags": []
-    },
-    {
-      "id": "2820:115461",
-      "name": "storyboard",
-      "board": "2820:113981",
-      "board_name": "video",
-      "abs": [
-        -15437,
-        21468,
-        375,
-        812
-      ],
-      "board_box": [
-        -18405,
-        20951,
-        11069,
-        3145
-      ],
-      "board_png": "specs/2026-10-21-2/extracted/figma/video.png",
-      "inventory_screen": "2820:115461",
-      "status": "routed",
-      "route": {
-        "case": "TC-150",
-        "how": "on",
-        "via": "K-c89bc1",
-        "fit": "mid",
-        "edge": "Fix scenes",
-        "segment": "A1-g3",
-        "section": "Video errors",
-        "precondition": "Video result with failed scenes",
-        "action": "1. Tap 「Fix scenes」\n2. Use system back",
-        "result": "Blocked",
-        "run": "2026-10-29-a7-full"
-      },
-      "alternatives": [
-        "TC-020",
-        "TC-025",
-        "TC-026",
-        "TC-143"
       ],
       "flags": []
     },
@@ -9441,47 +9673,6 @@
       "flags": []
     },
     {
-      "id": "2566:113252",
-      "name": "AI Mini Drama",
-      "board": "2566:113114",
-      "board_name": "Template Detail",
-      "abs": [
-        -15712,
-        5229,
-        375,
-        812
-      ],
-      "board_box": [
-        -18405,
-        4738,
-        9294,
-        2116
-      ],
-      "board_png": "specs/2026-10-21-2/extracted/figma/template-detail.png",
-      "inventory_screen": "2566:113252",
-      "status": "routed",
-      "route": {
-        "case": "TC-008",
-        "how": "on",
-        "via": "K-940021",
-        "fit": "mid",
-        "edge": "round/ic_volume",
-        "segment": "A1-i1",
-        "section": "Templates",
-        "precondition": "Template detail playing",
-        "action": "1. Tap the video\n2. Tap ▶\n3. Tap the volume icon twice",
-        "result": "Pass",
-        "run": "2026-10-29-a7-full"
-      },
-      "alternatives": [
-        "TC-009",
-        "TC-235",
-        "TC-237",
-        "TC-025"
-      ],
-      "flags": []
-    },
-    {
       "id": "2566:113265",
       "name": "AI Mini Drama",
       "board": "2566:113114",
@@ -9933,6 +10124,47 @@
       "flags": []
     },
     {
+      "id": "2566:113252",
+      "name": "AI Mini Drama",
+      "board": "2566:113114",
+      "board_name": "Template Detail",
+      "abs": [
+        -15712,
+        5229,
+        375,
+        812
+      ],
+      "board_box": [
+        -18405,
+        4738,
+        9294,
+        2116
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/template-detail.png",
+      "inventory_screen": "2566:113252",
+      "status": "routed",
+      "route": {
+        "case": "TC-257",
+        "how": "quoted",
+        "via": "2566:113252",
+        "fit": "high",
+        "edge": "the fake engagement",
+        "segment": "A1-i2",
+        "section": "Templates",
+        "precondition": "1. More › Urban Romance › position 2\n2. Balance at least 300 credits (stop rule below)",
+        "action": "1. Open 「The Fake Engagement」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version",
+        "result": "Pass",
+        "run": "2026-10-29-a7-full"
+      },
+      "alternatives": [
+        "TC-008",
+        "TC-009",
+        "TC-235",
+        "TC-237"
+      ],
+      "flags": []
+    },
+    {
       "id": "4858:35398",
       "name": "Credit page_free",
       "board": "4858:34930",
@@ -10049,6 +10281,54 @@
       },
       "alternatives": [],
       "flags": []
+    },
+    {
+      "id": "2811:89917",
+      "name": "custom character",
+      "board": "2811:89056",
+      "board_name": "Choose Character",
+      "abs": [
+        -14290,
+        8151,
+        375,
+        350
+      ],
+      "board_box": [
+        -18405,
+        7196,
+        9294,
+        8350
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/choose-character.png",
+      "inventory_screen": null,
+      "partial": true,
+      "status": "routed",
+      "gap": true,
+      "route": {
+        "case": "",
+        "how": "figma",
+        "fit": "variant",
+        "steps": [
+          {
+            "screen": "custom character",
+            "control": "(bring about 「custom character」 here)",
+            "variant_of": "2811:89945"
+          }
+        ],
+        "edge": "(bring about 「custom character」 here)",
+        "segment": "",
+        "section": "",
+        "precondition": "",
+        "action": "custom character › (bring about 「custom character」 here)",
+        "result": "",
+        "run": ""
+      },
+      "alternatives": [],
+      "flags": [
+        "variant",
+        "partial",
+        "gap"
+      ]
     },
     {
       "id": "5366:70814",

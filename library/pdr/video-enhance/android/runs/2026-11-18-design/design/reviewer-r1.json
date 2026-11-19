@@ -1,0 +1,1476 @@
+{
+ "screens": {
+  "3294:30796": {
+   "missing:3313:39299": {
+    "verdict": "ok",
+    "note": "The playhead's blue time bubble is on the screen above the filmstrip, where the frame draws it; only the time itself reads differently because the run used another clip.",
+    "note_zh": "播放頭的藍色時間氣泡有出現在影格縮圖列上方，位置與框稿一致；只是因為測試用的是另一支影片，時間數字不同。"
+   },
+   "missing:I3305:34764;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "On a freshly opened panel the app shows no current-time / total-length label at the left of the preview bar, which the frame always draws; it appears only after the playhead or a trim handle has been moved. The same on every panel screen captured before a scrub.",
+    "note_zh": "面板剛開啟時，App 的預覽列左側沒有「目前時間/總長度」標籤，框稿則一定會畫出來；要等到拖動播放頭或修剪把手之後才出現。所有在拖動前擷取的面板畫面都一樣。"
+   },
+   "missing:I3294:30877;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "On the Free account the credit pill in the panel's top bar shows only its icon with no number at all, while the frame draws a figure in it. On the Pro account the number is there, so the balance simply never loaded for a free user.",
+    "note_zh": "使用 Free 帳號時，面板上方的點數膠囊只剩圖示、完全沒有數字，框稿則會畫出數字。Pro 帳號下數字正常，顯示免費帳號根本沒載到餘額。"
+   },
+   "missing:I3294:30969;513:536": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The blue hint bubble 「Max 8 minutes. Drag to choose which part.」 over the trim area is not shown at all; the frame draws it on the panel's default state. It was absent on the first panel opening after a clean install, so it is not a hint that had been dismissed earlier.",
+    "note_zh": "修剪區上方的藍色提示氣泡「Max 8 minutes. Drag to choose which part.」完全沒有出現，框稿在面板預設狀態就有畫。重新安裝後第一次開啟面板時也沒有，所以不是先前被關掉的提示。"
+   },
+   "weight:3313:39256": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Selected Length」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Selected Length」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3294:30841": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Mode」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Mode」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3294:30847": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Enhancement style」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Enhancement style」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3294:30853": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「fps」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「fps」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3294:30860": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Resolution」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Resolution」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3294:30877;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「AI Video Enhance」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「AI Video Enhance」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "control:3313:39257": {
+    "verdict": "ok",
+    "note": "The information icon is on the screen, just after a shorter label: Roboto sets 「Selected Length」 and 「Enhancement style」 narrower than the frame's font, so the icon follows a little further left.",
+    "note_zh": "資訊圖示有出現在畫面上，只是跟在較短的標題後面：Roboto 把「Selected Length」「Enhancement style」排得比框稿字體窄，圖示因此往左移一些。"
+   },
+   "control:3313:39300": {
+    "verdict": "ok",
+    "note": "The round drag handle under the filmstrip is on the screen in the place the frame draws it; it is a dragging control, so nothing reports it as a button.",
+    "note_zh": "影格縮圖列下方的圓形拖曳把手有出現，位置與框稿相同；它是用拖曳操作的控制項，所以不會被辨識成按鈕。"
+   },
+   "control:3413:17819": {
+    "verdict": "ok",
+    "note": "The information icon is on the screen, just after a shorter label: Roboto sets 「Selected Length」 and 「Enhancement style」 narrower than the frame's font, so the icon follows a little further left.",
+    "note_zh": "資訊圖示有出現在畫面上，只是跟在較短的標題後面：Roboto 把「Selected Length」「Enhancement style」排得比框稿字體窄，圖示因此往左移一些。"
+   },
+   "unspecced:iv_selected_length_info": {
+    "verdict": "ok",
+    "note": "This is the information icon the Design itself draws beside the row's title on the sibling panel frames; it is not an extra control.",
+    "note_zh": "這就是 Design 在其他面板框稿中畫在同列標題旁的資訊圖示，不是多出來的控制項。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "This is the information icon the Design itself draws beside the row's title on the sibling panel frames; it is not an extra control.",
+    "note_zh": "這就是 Design 在其他面板框稿中畫在同列標題旁的資訊圖示，不是多出來的控制項。"
+   },
+   "colour:3294:30864": {
+    "verdict": "ok",
+    "note": "The unselected chip is the same dark grey-blue on both sides; the frame's own image shows that colour too.",
+    "note_zh": "未選取的選項膠囊兩邊都是同一個深灰藍，框稿的圖面顯示的也是這個顏色。"
+   },
+   "colour:3294:30977": {
+    "verdict": "ok",
+    "note": "The floating call-to-action is the same colour in the app; on this taller phone the reading was taken from the strip beside the button, not from the button itself.",
+    "note_zh": "浮動主按鈕在 App 中是同一個顏色；在這支較高的手機上，量到的是按鈕旁邊的背景，不是按鈕本身。"
+   },
+   "colour:I3294:30969;513:535": {
+    "verdict": "ok",
+    "note": "Nothing to compare here: the hint bubble itself is missing, which is reported on its own.",
+    "note_zh": "這裡沒有可比較的對象：提示氣泡本身沒有出現，已另外單獨回報。"
+   }
+  },
+  "3310:38462": {
+   "missing:3310:38511": {
+    "verdict": "ok",
+    "note": "The playhead's blue time bubble is on the screen above the filmstrip, where the frame draws it; only the time itself reads differently because the run used another clip.",
+    "note_zh": "播放頭的藍色時間氣泡有出現在影格縮圖列上方，位置與框稿一致；只是因為測試用的是另一支影片，時間數字不同。"
+   },
+   "missing:I3310:38543;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "On a freshly opened panel the app shows no current-time / total-length label at the left of the preview bar, which the frame always draws; it appears only after the playhead or a trim handle has been moved. The same on every panel screen captured before a scrub.",
+    "note_zh": "面板剛開啟時，App 的預覽列左側沒有「目前時間/總長度」標籤，框稿則一定會畫出來；要等到拖動播放頭或修剪把手之後才出現。所有在拖動前擷取的面板畫面都一樣。"
+   },
+   "missing:I3310:38551;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "On the Free account the credit pill in the panel's top bar shows only its icon with no number at all, while the frame draws a figure in it. On the Pro account the number is there, so the balance simply never loaded for a free user.",
+    "note_zh": "使用 Free 帳號時，面板上方的點數膠囊只剩圖示、完全沒有數字，框稿則會畫出數字。Pro 帳號下數字正常，顯示免費帳號根本沒載到餘額。"
+   },
+   "missing:I3310:38552;513:536": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The blue hint bubble 「Max 8 minutes. Drag to choose which part.」 over the trim area is not shown at all; the frame draws it on the panel's default state. It was absent on the first panel opening after a clean install, so it is not a hint that had been dismissed earlier.",
+    "note_zh": "修剪區上方的藍色提示氣泡「Max 8 minutes. Drag to choose which part.」完全沒有出現，框稿在面板預設狀態就有畫。重新安裝後第一次開啟面板時也沒有，所以不是先前被關掉的提示。"
+   },
+   "weight:3310:38468": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Selected Length」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Selected Length」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3310:38516": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Mode」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Mode」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3310:38522": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Enhancement style」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Enhancement style」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3310:38528": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「fps」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「fps」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3310:38535": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Resolution」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Resolution」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3310:38551;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「AI Video Enhance」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「AI Video Enhance」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "control:3310:38469": {
+    "verdict": "ok",
+    "note": "The information icon is on the screen, just after a shorter label: Roboto sets 「Selected Length」 and 「Enhancement style」 narrower than the frame's font, so the icon follows a little further left.",
+    "note_zh": "資訊圖示有出現在畫面上，只是跟在較短的標題後面：Roboto 把「Selected Length」「Enhancement style」排得比框稿字體窄，圖示因此往左移一些。"
+   },
+   "control:3310:38512": {
+    "verdict": "ok",
+    "note": "The round drag handle under the filmstrip is on the screen in the place the frame draws it; it is a dragging control, so nothing reports it as a button.",
+    "note_zh": "影格縮圖列下方的圓形拖曳把手有出現，位置與框稿相同；它是用拖曳操作的控制項，所以不會被辨識成按鈕。"
+   },
+   "control:3413:17855": {
+    "verdict": "ok",
+    "note": "The information icon is on the screen, just after a shorter label: Roboto sets 「Selected Length」 and 「Enhancement style」 narrower than the frame's font, so the icon follows a little further left.",
+    "note_zh": "資訊圖示有出現在畫面上，只是跟在較短的標題後面：Roboto 把「Selected Length」「Enhancement style」排得比框稿字體窄，圖示因此往左移一些。"
+   },
+   "unspecced:iv_selected_length_info": {
+    "verdict": "ok",
+    "note": "This is the information icon the Design itself draws beside the row's title on the sibling panel frames; it is not an extra control.",
+    "note_zh": "這就是 Design 在其他面板框稿中畫在同列標題旁的資訊圖示，不是多出來的控制項。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "This is the information icon the Design itself draws beside the row's title on the sibling panel frames; it is not an extra control.",
+    "note_zh": "這就是 Design 在其他面板框稿中畫在同列標題旁的資訊圖示，不是多出來的控制項。"
+   },
+   "colour:3310:38539": {
+    "verdict": "ok",
+    "note": "The unselected chip is the same dark grey-blue on both sides; the frame's own image shows that colour too.",
+    "note_zh": "未選取的選項膠囊兩邊都是同一個深灰藍，框稿的圖面顯示的也是這個顏色。"
+   },
+   "colour:3310:38546": {
+    "verdict": "ok",
+    "note": "The floating call-to-action is the same colour in the app; on this taller phone the reading was taken from the strip beside the button, not from the button itself.",
+    "note_zh": "浮動主按鈕在 App 中是同一個顏色；在這支較高的手機上，量到的是按鈕旁邊的背景，不是按鈕本身。"
+   },
+   "colour:I3310:38552;513:535": {
+    "verdict": "ok",
+    "note": "Nothing to compare here: the hint bubble itself is missing, which is reported on its own.",
+    "note_zh": "這裡沒有可比較的對象：提示氣泡本身沒有出現，已另外單獨回報。"
+   }
+  },
+  "3328:45377": {
+   "missing:3328:45426": {
+    "verdict": "ok",
+    "note": "The playhead's blue time bubble is on the screen above the filmstrip, where the frame draws it; only the time itself reads differently because the run used another clip.",
+    "note_zh": "播放頭的藍色時間氣泡有出現在影格縮圖列上方，位置與框稿一致；只是因為測試用的是另一支影片，時間數字不同。"
+   },
+   "missing:I3328:45458;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "On a freshly opened panel the app shows no current-time / total-length label at the left of the preview bar, which the frame always draws; it appears only after the playhead or a trim handle has been moved. The same on every panel screen captured before a scrub.",
+    "note_zh": "面板剛開啟時，App 的預覽列左側沒有「目前時間/總長度」標籤，框稿則一定會畫出來；要等到拖動播放頭或修剪把手之後才出現。所有在拖動前擷取的面板畫面都一樣。"
+   },
+   "missing:I3328:45461;931:2392;325:186": {
+    "verdict": "ok",
+    "note": "The frame leaves the price on the Enhance button as a placeholder 「XX」; the app fills in the real figure (「960」).",
+    "note_zh": "框稿的 Enhance 按鈕價格只是佔位字「XX」，App 填入的是實際點數（「960」）。"
+   },
+   "size:3328:45383": {
+    "verdict": "ok",
+    "note": "「Selected Length」 is set about 15 sp against the 14 pt this frame draws, and the other panel frames (the unsubscribed ones) draw the same label at 15 pt, so the app sits on the Design's own larger value; under 1 sp apart, nothing to fix.",
+    "note_zh": "「Selected Length」 的字級約 15 sp，本框稿畫的是 14 pt，但其他面板框稿（未訂閱版）同一個標題就是 15 pt，App 用的正是 Design 自己的較大值；差距不到 1 sp，不需修正。"
+   },
+   "weight:3328:45383": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Selected Length」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Selected Length」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "size:3328:45431": {
+    "verdict": "ok",
+    "note": "「Mode」 is set about 15 sp against the 14 pt this frame draws, and the other panel frames (the unsubscribed ones) draw the same label at 15 pt, so the app sits on the Design's own larger value; under 1 sp apart, nothing to fix.",
+    "note_zh": "「Mode」 的字級約 15 sp，本框稿畫的是 14 pt，但其他面板框稿（未訂閱版）同一個標題就是 15 pt，App 用的正是 Design 自己的較大值；差距不到 1 sp，不需修正。"
+   },
+   "weight:3328:45431": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Mode」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Mode」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "size:3328:45437": {
+    "verdict": "ok",
+    "note": "「Enhancement style」 is set about 15 sp against the 14 pt this frame draws, and the other panel frames (the unsubscribed ones) draw the same label at 15 pt, so the app sits on the Design's own larger value; under 1 sp apart, nothing to fix.",
+    "note_zh": "「Enhancement style」 的字級約 15 sp，本框稿畫的是 14 pt，但其他面板框稿（未訂閱版）同一個標題就是 15 pt，App 用的正是 Design 自己的較大值；差距不到 1 sp，不需修正。"
+   },
+   "weight:3328:45437": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Enhancement style」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Enhancement style」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "size:3328:45443": {
+    "verdict": "ok",
+    "note": "「fps」 is set about 15 sp against the 14 pt this frame draws, and the other panel frames (the unsubscribed ones) draw the same label at 15 pt, so the app sits on the Design's own larger value; under 1 sp apart, nothing to fix.",
+    "note_zh": "「fps」 的字級約 15 sp，本框稿畫的是 14 pt，但其他面板框稿（未訂閱版）同一個標題就是 15 pt，App 用的正是 Design 自己的較大值；差距不到 1 sp，不需修正。"
+   },
+   "weight:3328:45443": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「fps」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「fps」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "size:3328:45450": {
+    "verdict": "ok",
+    "note": "「Resolution」 is set about 15 sp against the 14 pt this frame draws, and the other panel frames (the unsubscribed ones) draw the same label at 15 pt, so the app sits on the Design's own larger value; under 1 sp apart, nothing to fix.",
+    "note_zh": "「Resolution」 的字級約 15 sp，本框稿畫的是 14 pt，但其他面板框稿（未訂閱版）同一個標題就是 15 pt，App 用的正是 Design 自己的較大值；差距不到 1 sp，不需修正。"
+   },
+   "weight:3328:45450": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Resolution」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Resolution」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3328:45461;931:2392;315:8365": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Enhance」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Enhance」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3328:45466;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「AI Video Enhance」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「AI Video Enhance」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3328:45466;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「0」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「0」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "control:3328:45384": {
+    "verdict": "ok",
+    "note": "The information icon is on the screen, just after a shorter label: Roboto sets 「Selected Length」 and 「Enhancement style」 narrower than the frame's font, so the icon follows a little further left.",
+    "note_zh": "資訊圖示有出現在畫面上，只是跟在較短的標題後面：Roboto 把「Selected Length」「Enhancement style」排得比框稿字體窄，圖示因此往左移一些。"
+   },
+   "control:3328:45427": {
+    "verdict": "ok",
+    "note": "The round drag handle under the filmstrip is on the screen in the place the frame draws it; it is a dragging control, so nothing reports it as a button.",
+    "note_zh": "影格縮圖列下方的圓形拖曳把手有出現，位置與框稿相同；它是用拖曳操作的控制項，所以不會被辨識成按鈕。"
+   },
+   "control:3447:29481": {
+    "verdict": "ok",
+    "note": "The information icon is on the screen, just after a shorter label: Roboto sets 「Selected Length」 and 「Enhancement style」 narrower than the frame's font, so the icon follows a little further left.",
+    "note_zh": "資訊圖示有出現在畫面上，只是跟在較短的標題後面：Roboto 把「Selected Length」「Enhancement style」排得比框稿字體窄，圖示因此往左移一些。"
+   },
+   "unspecced:iv_selected_length_info": {
+    "verdict": "ok",
+    "note": "This is the information icon the Design itself draws beside the row's title on the sibling panel frames; it is not an extra control.",
+    "note_zh": "這就是 Design 在其他面板框稿中畫在同列標題旁的資訊圖示，不是多出來的控制項。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "This is the information icon the Design itself draws beside the row's title on the sibling panel frames; it is not an extra control.",
+    "note_zh": "這就是 Design 在其他面板框稿中畫在同列標題旁的資訊圖示，不是多出來的控制項。"
+   },
+   "padding:I3328:45466;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The credit pill holds a three-digit balance where the frame draws a single digit, so its icon and number sit about 3 pt nearer the edges; the pill itself is the same shape and size.",
+    "note_zh": "點數膠囊內是三位數餘額，框稿畫的是個位數，所以圖示與數字離邊緣大約近 3 pt；膠囊本身的形狀與尺寸相同。"
+   },
+   "colour:3328:45453": {
+    "verdict": "ok",
+    "note": "The unselected chip is the same dark grey-blue on both sides; the frame's own image shows that colour too.",
+    "note_zh": "未選取的選項膠囊兩邊都是同一個深灰藍，框稿的圖面顯示的也是這個顏色。"
+   },
+   "colour:3328:45454": {
+    "verdict": "ok",
+    "note": "The unselected chip is the same dark grey-blue on both sides; the frame's own image shows that colour too.",
+    "note_zh": "未選取的選項膠囊兩邊都是同一個深灰藍，框稿的圖面顯示的也是這個顏色。"
+   },
+   "colour:I3328:45461;931:2392": {
+    "verdict": "ok",
+    "note": "The floating call-to-action is the same colour in the app; on this taller phone the reading was taken from the strip beside the button, not from the button itself.",
+    "note_zh": "浮動主按鈕在 App 中是同一個顏色；在這支較高的手機上，量到的是按鈕旁邊的背景，不是按鈕本身。"
+   }
+  },
+  "3313:39430": {
+   "missing:3313:39468": {
+    "verdict": "ok",
+    "note": "The playhead's blue time bubble is on the screen above the filmstrip, where the frame draws it; only the time itself reads differently because the run used another clip.",
+    "note_zh": "播放頭的藍色時間氣泡有出現在影格縮圖列上方，位置與框稿一致；只是因為測試用的是另一支影片，時間數字不同。"
+   },
+   "weight:3313:39436": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Selected Length」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Selected Length」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3313:39473": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Mode」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Mode」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3313:39479": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Enhancement style」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Enhancement style」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3313:39485": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「fps」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「fps」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3313:39492": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Resolution」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Resolution」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3313:39508;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「AI Video Enhance」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「AI Video Enhance」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3313:39508;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「0」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「0」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "control:3313:39598": {
+    "verdict": "ok",
+    "note": "This is not a control: it is the dimmed part of the filmstrip outside the selection, which the app draws too (on the right of the selection here, because the trimmed part sits at the other end).",
+    "note_zh": "這不是控制項，而是選取範圍外變暗的影格縮圖區；App 也有畫出來（此處在選取範圍右側，因為被修剪掉的是後段）。"
+   },
+   "control:3313:39469": {
+    "verdict": "ok",
+    "note": "The round drag handle under the filmstrip is on the screen in the place the frame draws it; it is a dragging control, so nothing reports it as a button.",
+    "note_zh": "影格縮圖列下方的圓形拖曳把手有出現，位置與框稿相同；它是用拖曳操作的控制項，所以不會被辨識成按鈕。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "This is the information icon the Design itself draws beside the row's title on the sibling panel frames; it is not an extra control.",
+    "note_zh": "這就是 Design 在其他面板框稿中畫在同列標題旁的資訊圖示，不是多出來的控制項。"
+   },
+   "padding:I3313:39508;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The credit pill holds a three-digit balance where the frame draws a single digit, so its icon and number sit about 3 pt nearer the edges; the pill itself is the same shape and size.",
+    "note_zh": "點數膠囊內是三位數餘額，框稿畫的是個位數，所以圖示與數字離邊緣大約近 3 pt；膠囊本身的形狀與尺寸相同。"
+   },
+   "colour:3313:39467": {
+    "verdict": "ok",
+    "note": "The playhead's time bubble is the same blue in the app; the reading was taken beside the bubble because the playhead stands at another point on this clip.",
+    "note_zh": "播放頭時間氣泡在 App 中也是同一個藍色；因為本支影片的播放頭位置不同，量到的是氣泡旁邊的背景。"
+   },
+   "colour:3313:39496": {
+    "verdict": "ok",
+    "note": "The unselected chip is the same dark grey-blue on both sides; the frame's own image shows that colour too.",
+    "note_zh": "未選取的選項膠囊兩邊都是同一個深灰藍，框稿的圖面顯示的也是這個顏色。"
+   },
+   "colour:3313:39503": {
+    "verdict": "n/a",
+    "note": "The frame draws the unsubscribed amber 「Unlock Pro+ to Enhance」 button; this screen was captured on a Pro account, where the app shows the blue 「Enhance」 button with the price. Not the frame's state.",
+    "note_zh": "框稿畫的是未訂閱狀態的琥珀色「Unlock Pro+ to Enhance」按鈕；本畫面是用 Pro 帳號擷取的，App 顯示的是藍色「Enhance」加價格按鈕，與框稿狀態不同。"
+   }
+  },
+  "3300:32521": {
+   "missing:3310:38789": {
+    "verdict": "ok",
+    "note": "The playhead's blue time bubble is on the screen above the filmstrip, where the frame draws it; only the time itself reads differently because the run used another clip.",
+    "note_zh": "播放頭的藍色時間氣泡有出現在影格縮圖列上方，位置與框稿一致；只是因為測試用的是另一支影片，時間數字不同。"
+   },
+   "missing:I3305:34747;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "On a freshly opened panel the app shows no current-time / total-length label at the left of the preview bar, which the frame always draws; it appears only after the playhead or a trim handle has been moved. The same on every panel screen captured before a scrub.",
+    "note_zh": "面板剛開啟時，App 的預覽列左側沒有「目前時間/總長度」標籤，框稿則一定會畫出來；要等到拖動播放頭或修剪把手之後才出現。所有在拖動前擷取的面板畫面都一樣。"
+   },
+   "weight:3310:38746": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Selected Length」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Selected Length」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3310:38794": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Mode」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Mode」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3310:38800": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Enhancement style」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Enhancement style」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3310:38806": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「fps」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「fps」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3310:38813": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Resolution」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Resolution」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3310:38358;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「AI Video Enhance」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「AI Video Enhance」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3310:38358;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「0」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「0」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "This is the information icon the Design itself draws beside the row's title on the sibling panel frames; it is not an extra control.",
+    "note_zh": "這就是 Design 在其他面板框稿中畫在同列標題旁的資訊圖示，不是多出來的控制項。"
+   },
+   "padding:I3310:38358;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The credit pill holds a three-digit balance where the frame draws a single digit, so its icon and number sit about 3 pt nearer the edges; the pill itself is the same shape and size.",
+    "note_zh": "點數膠囊內是三位數餘額，框稿畫的是個位數，所以圖示與數字離邊緣大約近 3 pt；膠囊本身的形狀與尺寸相同。"
+   },
+   "colour:3310:38817": {
+    "verdict": "ok",
+    "note": "The unselected chip is the same dark grey-blue on both sides; the frame's own image shows that colour too.",
+    "note_zh": "未選取的選項膠囊兩邊都是同一個深灰藍，框稿的圖面顯示的也是這個顏色。"
+   },
+   "colour:3300:32597": {
+    "verdict": "n/a",
+    "note": "The frame draws the unsubscribed amber 「Unlock Pro+ to Enhance」 button; this screen was captured on a Pro account, where the app shows the blue 「Enhance」 button with the price. Not the frame's state.",
+    "note_zh": "框稿畫的是未訂閱狀態的琥珀色「Unlock Pro+ to Enhance」按鈕；本畫面是用 Pro 帳號擷取的，App 顯示的是藍色「Enhance」加價格按鈕，與框稿狀態不同。"
+   }
+  },
+  "3669:20362": {
+   "missing:3669:20419": {
+    "verdict": "ok",
+    "note": "The playhead's blue time bubble is on the screen above the filmstrip, where the frame draws it; only the time itself reads differently because the run used another clip.",
+    "note_zh": "播放頭的藍色時間氣泡有出現在影格縮圖列上方，位置與框稿一致；只是因為測試用的是另一支影片，時間數字不同。"
+   },
+   "missing:I3669:20454;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "On a freshly opened panel the app shows no current-time / total-length label at the left of the preview bar, which the frame always draws; it appears only after the playhead or a trim handle has been moved. The same on every panel screen captured before a scrub.",
+    "note_zh": "面板剛開啟時，App 的預覽列左側沒有「目前時間/總長度」標籤，框稿則一定會畫出來；要等到拖動播放頭或修剪把手之後才出現。所有在拖動前擷取的面板畫面都一樣。"
+   },
+   "missing:I3669:138905;931:2392;325:186": {
+    "verdict": "ok",
+    "note": "The frame leaves the price on the Enhance button as a placeholder 「XX」; the app fills in the real figure (「600」).",
+    "note_zh": "框稿的 Enhance 按鈕價格只是佔位字「XX」，App 填入的是實際點數（「600」）。"
+   },
+   "weight:I3669:138909;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「AI Video Enhance」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「AI Video Enhance」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3669:138909;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「35」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「35」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20368": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Selected Length」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Selected Length」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20424": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Mode」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Mode」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20431": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Enhancement style」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Enhancement style」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20438": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「fps」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「fps」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20445": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Resolution」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Resolution」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3669:138905;931:2392;315:8365": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Enhance」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Enhance」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "This is the information icon the Design itself draws beside the row's title on the sibling panel frames; it is not an extra control.",
+    "note_zh": "這就是 Design 在其他面板框稿中畫在同列標題旁的資訊圖示，不是多出來的控制項。"
+   },
+   "padding:I3669:138909;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The credit pill holds a three-digit balance where the frame draws a single digit, so its icon and number sit about 3 pt nearer the edges; the pill itself is the same shape and size.",
+    "note_zh": "點數膠囊內是三位數餘額，框稿畫的是個位數，所以圖示與數字離邊緣大約近 3 pt；膠囊本身的形狀與尺寸相同。"
+   },
+   "colour:3669:20418": {
+    "verdict": "ok",
+    "note": "The playhead's time bubble is the same blue in the app; the reading was taken beside the bubble because the playhead stands at another point on this clip.",
+    "note_zh": "播放頭時間氣泡在 App 中也是同一個藍色；因為本支影片的播放頭位置不同，量到的是氣泡旁邊的背景。"
+   },
+   "colour:3669:20449": {
+    "verdict": "ok",
+    "note": "The unselected chip is the same dark grey-blue on both sides; the frame's own image shows that colour too.",
+    "note_zh": "未選取的選項膠囊兩邊都是同一個深灰藍，框稿的圖面顯示的也是這個顏色。"
+   },
+   "colour:I3669:138905;931:2392": {
+    "verdict": "ok",
+    "note": "The floating call-to-action is the same colour in the app; on this taller phone the reading was taken from the strip beside the button, not from the button itself.",
+    "note_zh": "浮動主按鈕在 App 中是同一個顏色；在這支較高的手機上，量到的是按鈕旁邊的背景，不是按鈕本身。"
+   }
+  },
+  "3669:20463": {
+   "missing:3669:20520": {
+    "verdict": "ok",
+    "note": "The playhead's blue time bubble is on the screen above the filmstrip, where the frame draws it; only the time itself reads differently because the run used another clip.",
+    "note_zh": "播放頭的藍色時間氣泡有出現在影格縮圖列上方，位置與框稿一致；只是因為測試用的是另一支影片，時間數字不同。"
+   },
+   "missing:I3669:20555;4351:19280": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "On a freshly opened panel the app shows no current-time / total-length label at the left of the preview bar, which the frame always draws; it appears only after the playhead or a trim handle has been moved. The same on every panel screen captured before a scrub.",
+    "note_zh": "面板剛開啟時，App 的預覽列左側沒有「目前時間/總長度」標籤，框稿則一定會畫出來；要等到拖動播放頭或修剪把手之後才出現。所有在拖動前擷取的面板畫面都一樣。"
+   },
+   "missing:I3669:138912;931:2392;325:186": {
+    "verdict": "ok",
+    "note": "The frame leaves the price on the Enhance button as a placeholder 「XX」; the app fills in the real figure (「600」).",
+    "note_zh": "框稿的 Enhance 按鈕價格只是佔位字「XX」，App 填入的是實際點數（「600」）。"
+   },
+   "weight:I3669:138916;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「AI Video Enhance」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「AI Video Enhance」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3669:138916;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「35」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「35」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20469": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Selected Length」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Selected Length」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20525": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Mode」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Mode」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20532": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Enhancement style」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Enhancement style」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20539": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「fps」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「fps」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20546": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Resolution」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Resolution」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3669:138912;931:2392;315:8365": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Enhance」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Enhance」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "This is the information icon the Design itself draws beside the row's title on the sibling panel frames; it is not an extra control.",
+    "note_zh": "這就是 Design 在其他面板框稿中畫在同列標題旁的資訊圖示，不是多出來的控制項。"
+   },
+   "padding:I3669:138916;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The credit pill holds a three-digit balance where the frame draws a single digit, so its icon and number sit about 3 pt nearer the edges; the pill itself is the same shape and size.",
+    "note_zh": "點數膠囊內是三位數餘額，框稿畫的是個位數，所以圖示與數字離邊緣大約近 3 pt；膠囊本身的形狀與尺寸相同。"
+   },
+   "colour:3669:20519": {
+    "verdict": "ok",
+    "note": "The playhead's time bubble is the same blue in the app; the reading was taken beside the bubble because the playhead stands at another point on this clip.",
+    "note_zh": "播放頭時間氣泡在 App 中也是同一個藍色；因為本支影片的播放頭位置不同，量到的是氣泡旁邊的背景。"
+   },
+   "colour:3669:20550": {
+    "verdict": "ok",
+    "note": "The unselected chip is the same dark grey-blue on both sides; the frame's own image shows that colour too.",
+    "note_zh": "未選取的選項膠囊兩邊都是同一個深灰藍，框稿的圖面顯示的也是這個顏色。"
+   },
+   "colour:I3669:138912;931:2392": {
+    "verdict": "ok",
+    "note": "The floating call-to-action is the same colour in the app; on this taller phone the reading was taken from the strip beside the button, not from the button itself.",
+    "note_zh": "浮動主按鈕在 App 中是同一個顏色；在這支較高的手機上，量到的是按鈕旁邊的背景，不是按鈕本身。"
+   }
+  },
+  "3669:20564": {
+   "missing:3669:20621": {
+    "verdict": "ok",
+    "note": "The playhead's blue time bubble is on the screen above the filmstrip, where the frame draws it; only the time itself reads differently because the run used another clip.",
+    "note_zh": "播放頭的藍色時間氣泡有出現在影格縮圖列上方，位置與框稿一致；只是因為測試用的是另一支影片，時間數字不同。"
+   },
+   "missing:I3669:138919;931:2392;325:186": {
+    "verdict": "ok",
+    "note": "The frame leaves the price on the Enhance button as a placeholder 「XX」; the app fills in the real figure (「1128」).",
+    "note_zh": "框稿的 Enhance 按鈕價格只是佔位字「XX」，App 填入的是實際點數（「1128」）。"
+   },
+   "weight:I3669:138923;13730:4997;13730:4989": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「AI Video Enhance」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「AI Video Enhance」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3669:138923;13730:5077;13730:5020;245:2027": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「35」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「35」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20570": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Selected Length」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Selected Length」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20626": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Mode」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Mode」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20633": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Enhancement style」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Enhancement style」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20640": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「fps」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「fps」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:3669:20647": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Resolution」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Resolution」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "weight:I3669:138919;931:2392;315:8365": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Enhance」 is drawn Bold where the Design asks for the Medium weight (the Android equivalent of the frame's Semibold). Every label on the Video Enhance panel, the page title and the credit figure are affected, on every panel screen.",
+    "note_zh": "「Enhance」 以粗體 (Bold) 呈現，Design 要求的是 Medium 字重（對應框稿 Semibold 的 Android 字重）。AI Video Enhance 面板上的每個標題、頁面標題與點數數字都一樣，且每個面板畫面都重複出現。"
+   },
+   "unspecced:iv_selected_length_info": {
+    "verdict": "ok",
+    "note": "This is the information icon the Design itself draws beside the row's title on the sibling panel frames; it is not an extra control.",
+    "note_zh": "這就是 Design 在其他面板框稿中畫在同列標題旁的資訊圖示，不是多出來的控制項。"
+   },
+   "unspecced:iv_style_info": {
+    "verdict": "ok",
+    "note": "This is the information icon the Design itself draws beside the row's title on the sibling panel frames; it is not an extra control.",
+    "note_zh": "這就是 Design 在其他面板框稿中畫在同列標題旁的資訊圖示，不是多出來的控制項。"
+   },
+   "padding:I3669:138923;13730:5077;13730:5020;245:2027": {
+    "verdict": "ok",
+    "note": "The credit pill holds a three-digit balance where the frame draws a single digit, so its icon and number sit about 3 pt nearer the edges; the pill itself is the same shape and size.",
+    "note_zh": "點數膠囊內是三位數餘額，框稿畫的是個位數，所以圖示與數字離邊緣大約近 3 pt；膠囊本身的形狀與尺寸相同。"
+   },
+   "align:I3669:138919;931:2392;315:8365": {
+    "verdict": "ok",
+    "note": "The 「Enhance」 wording and its price are centred as a pair, and the app's price is a four-digit figure where the frame draws a placeholder, so the pair sits about 5 pt further left. Nothing is off-centre by itself.",
+    "note_zh": "「Enhance」 文字與價格是一起置中的，App 的價格是四位數、框稿只是佔位字，所以整組往左約 5 pt。單獨看沒有任何元素偏離中心。"
+   },
+   "colour:3669:20620": {
+    "verdict": "ok",
+    "note": "The playhead's time bubble is the same blue in the app; the reading was taken beside the bubble because the playhead stands at another point on this clip.",
+    "note_zh": "播放頭時間氣泡在 App 中也是同一個藍色；因為本支影片的播放頭位置不同，量到的是氣泡旁邊的背景。"
+   },
+   "colour:3669:20651": {
+    "verdict": "ok",
+    "note": "The unselected chip is the same dark grey-blue on both sides; the frame's own image shows that colour too.",
+    "note_zh": "未選取的選項膠囊兩邊都是同一個深灰藍，框稿的圖面顯示的也是這個顏色。"
+   },
+   "colour:I3669:138919;931:2392": {
+    "verdict": "ok",
+    "note": "The floating call-to-action is the same colour in the app; on this taller phone the reading was taken from the strip beside the button, not from the button itself.",
+    "note_zh": "浮動主按鈕在 App 中是同一個顏色；在這支較高的手機上，量到的是按鈕旁邊的背景，不是按鈕本身。"
+   }
+  },
+  "3293:15687": {
+   "missing:I3293:15868;11856:6758;11856:6474;186:3127": {
+    "verdict": "ok",
+    "note": "The fifth tab of the bottom bar is there; on this build it is a gold 「Pro」 entry instead of the frame's 「Mine」. Only the wording and the icon differ, which this check does not hold the app to — worth a word with PM all the same.",
+    "note_zh": "底部導覽列第五個項目有出現，只是這版是金色的「Pro」入口，而不是框稿的「Mine」。差別在文字與圖示，本檢查不比對用字，但仍建議與 PM 確認。"
+   },
+   "missing:I3293:15872;13719:12894;13719:12868": {
+    "verdict": "n/a",
+    "note": "The frame's free-trial pill in the top bar belongs to a non-subscribed user and sits behind the completion banner; this screen was captured on a Pro account, which shows a Pro badge there instead.",
+    "note_zh": "框稿上方列的免費試用膠囊是未訂閱使用者才會看到的，而且被完成通知橫幅蓋住；本畫面以 Pro 帳號擷取，該處顯示的是 Pro 標記。"
+   },
+   "lines:3293:15728": {
+    "verdict": "ok",
+    "note": "「AI Mini Drama」 is another feature's shortcut on the shared Launcher, and the app lays that grid out four tiles to a row with one-line labels. Not a Video Enhance difference.",
+    "note_zh": "「AI Mini Drama」是共用啟動頁上其他功能的捷徑，App 的捷徑格線是一列四個、標題單行。不屬於 Video Enhance 的差異。"
+   },
+   "weight:3293:15728": {
+    "verdict": "ok",
+    "note": "The tile belongs to another feature on the shared Launcher; all of the app's shortcut labels are drawn Regular, so this is the Launcher's own styling rather than a Video Enhance difference.",
+    "note_zh": "這個圖塊屬於共用啟動頁上的其他功能；App 所有捷徑標題都是 Regular 字重，屬於啟動頁本身的樣式，不是 Video Enhance 的差異。"
+   },
+   "extra:create your own drama": {
+    "verdict": "ok",
+    "note": "Part of the Launcher that belongs to other features — the 「Create Your Own Drama」 promotion strip with its arrow, the extra shortcut tiles and the 「Pro」 entry. The frame draws a different set of tiles, so nothing here is a Video Enhance difference.",
+    "note_zh": "這是啟動頁上屬於其他功能的部分：「Create Your Own Drama」宣傳列與其箭頭、多出來的捷徑圖塊，以及「Pro」入口。框稿畫的是另一組圖塊，這些都不是 Video Enhance 的差異。"
+   },
+   "extra:ai storytelling": {
+    "verdict": "ok",
+    "note": "Part of the Launcher that belongs to other features — the 「Create Your Own Drama」 promotion strip with its arrow, the extra shortcut tiles and the 「Pro」 entry. The frame draws a different set of tiles, so nothing here is a Video Enhance difference.",
+    "note_zh": "這是啟動頁上屬於其他功能的部分：「Create Your Own Drama」宣傳列與其箭頭、多出來的捷徑圖塊，以及「Pro」入口。框稿畫的是另一組圖塊，這些都不是 Video Enhance 的差異。"
+   },
+   "extra:pro": {
+    "verdict": "ok",
+    "note": "Part of the Launcher that belongs to other features — the 「Create Your Own Drama」 promotion strip with its arrow, the extra shortcut tiles and the 「Pro」 entry. The frame draws a different set of tiles, so nothing here is a Video Enhance difference.",
+    "note_zh": "這是啟動頁上屬於其他功能的部分：「Create Your Own Drama」宣傳列與其箭頭、多出來的捷徑圖塊，以及「Pro」入口。框稿畫的是另一組圖塊，這些都不是 Video Enhance 的差異。"
+   },
+   "unspecced:tv_banner_tagline": {
+    "verdict": "ok",
+    "note": "Part of the Launcher that belongs to other features — the 「Create Your Own Drama」 promotion strip with its arrow, the extra shortcut tiles and the 「Pro」 entry. The frame draws a different set of tiles, so nothing here is a Video Enhance difference.",
+    "note_zh": "這是啟動頁上屬於其他功能的部分：「Create Your Own Drama」宣傳列與其箭頭、多出來的捷徑圖塊，以及「Pro」入口。框稿畫的是另一組圖塊，這些都不是 Video Enhance 的差異。"
+   },
+   "unspecced:iv_banner_tagline_chevron": {
+    "verdict": "ok",
+    "note": "Part of the Launcher that belongs to other features — the 「Create Your Own Drama」 promotion strip with its arrow, the extra shortcut tiles and the 「Pro」 entry. The frame draws a different set of tiles, so nothing here is a Video Enhance difference.",
+    "note_zh": "這是啟動頁上屬於其他功能的部分：「Create Your Own Drama」宣傳列與其箭頭、多出來的捷徑圖塊，以及「Pro」入口。框稿畫的是另一組圖塊，這些都不是 Video Enhance 的差異。"
+   },
+   "unspecced:shortcut_entry_item": {
+    "verdict": "ok",
+    "note": "Part of the Launcher that belongs to other features — the 「Create Your Own Drama」 promotion strip with its arrow, the extra shortcut tiles and the 「Pro」 entry. The frame draws a different set of tiles, so nothing here is a Video Enhance difference.",
+    "note_zh": "這是啟動頁上屬於其他功能的部分：「Create Your Own Drama」宣傳列與其箭頭、多出來的捷徑圖塊，以及「Pro」入口。框稿畫的是另一組圖塊，這些都不是 Video Enhance 的差異。"
+   },
+   "unspecced:shortcut_entry_item#2": {
+    "verdict": "ok",
+    "note": "Part of the Launcher that belongs to other features — the 「Create Your Own Drama」 promotion strip with its arrow, the extra shortcut tiles and the 「Pro」 entry. The frame draws a different set of tiles, so nothing here is a Video Enhance difference.",
+    "note_zh": "這是啟動頁上屬於其他功能的部分：「Create Your Own Drama」宣傳列與其箭頭、多出來的捷徑圖塊，以及「Pro」入口。框稿畫的是另一組圖塊，這些都不是 Video Enhance 的差異。"
+   },
+   "colour:3293:15728": {
+    "verdict": "ok",
+    "note": "Every shortcut label on the app's Launcher is drawn in a pale blue-grey (#CCD5E1) rather than the frame's white. The tile measured belongs to another feature, so it is left out here, but Design may want to settle the tile-label colour for the whole Launcher.",
+    "note_zh": "App 啟動頁上所有捷徑標題都用淺灰藍 (#CCD5E1)，而不是框稿的白色。量到的這個圖塊屬於其他功能，因此此處不列為問題，但建議 Design 一併確認整個啟動頁的圖塊標題顏色。"
+   },
+   "padding:I3293:15873;580:16458": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "In the task-completion banner the message starts about 4 pt closer to the banner's left edge than the frame draws it, so the gap between the banner icon and the text is tighter.",
+    "note_zh": "工作完成通知橫幅裡，訊息文字距離橫幅左緣比框稿近約 4 pt，圖示與文字之間的間距因此偏窄。"
+   },
+   "visual:1": {
+    "verdict": "bug",
+    "severity": "cosmetic",
+    "note": "The icon at the left of the task-completion banner is a different drawing from the frame's: the app shows a coloured sparkle emblem where the Design draws a plain outlined video icon with a sparkle.",
+    "note_zh": "工作完成通知橫幅左側的圖示與框稿不同：App 用的是彩色的閃亮圖徽，Design 畫的是線條式的影片加閃亮圖示。"
+   }
+  },
+  "3293:14643": {
+   "missing:I3293:14873;11856:6758;11856:6474;186:3127": {
+    "verdict": "ok",
+    "note": "The fifth tab of the bottom bar is there; on this build it is a gold 「Pro」 entry instead of the frame's 「Mine」. The wording and icon differ, which this check does not hold the app to.",
+    "note_zh": "底部導覽列第五個項目有出現，只是這版是金色的「Pro」入口，而非框稿的「Mine」。差別在文字與圖示，本檢查不比對用字。"
+   },
+   "extra:pro": {
+    "verdict": "ok",
+    "note": "The 「Pro」 entry is the fifth tab of the bottom bar, reported with the tab itself.",
+    "note_zh": "「Pro」就是底部導覽列的第五個項目，已與該項目一併說明。"
+   },
+   "unspecced:iv_banner_tagline_chevron": {
+    "verdict": "ok",
+    "note": "The arrow belongs to the Launcher's 「Create Your Own Drama」 promotion strip, another feature's area on this shared screen.",
+    "note_zh": "這個箭頭屬於啟動頁上「Create Your Own Drama」宣傳列，是共用畫面上其他功能的區域。"
+   }
+  },
+  "3293:13055": {
+   "missing:I3293:13285;11856:6758;11856:6474;186:3127": {
+    "verdict": "ok",
+    "note": "The fifth tab of the bottom bar is there; on this build it is a gold 「Pro」 entry instead of the frame's 「Mine」. The wording and icon differ, which this check does not hold the app to.",
+    "note_zh": "底部導覽列第五個項目有出現，只是這版是金色的「Pro」入口，而非框稿的「Mine」。差別在文字與圖示，本檢查不比對用字。"
+   },
+   "extra:pro": {
+    "verdict": "ok",
+    "note": "The 「Pro」 entry is the fifth tab of the bottom bar, reported with the tab itself.",
+    "note_zh": "「Pro」就是底部導覽列的第五個項目，已與該項目一併說明。"
+   },
+   "unspecced:iv_banner_tagline_chevron": {
+    "verdict": "ok",
+    "note": "The arrow belongs to the Launcher's 「Create Your Own Drama」 promotion strip, another feature's area on this shared screen.",
+    "note_zh": "這個箭頭屬於啟動頁上「Create Your Own Drama」宣傳列，是共用畫面上其他功能的區域。"
+   }
+  },
+  "3294:23969": {
+   "weight:3294:23988": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Don’t show again」 is drawn heavier than the Design asks: the app uses Bold (and Extra Bold on the button) where the frame's weights come out as Regular for the checkbox label and Medium for the title and the button.",
+    "note_zh": "「Don’t show again」比 Design 要求的更粗：App 用了 Bold（按鈕甚至是 Extra Bold），而框稿換算後，勾選標題應為 Regular、頁面標題與按鈕應為 Medium。"
+   },
+   "weight:3294:23990": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「Try It Now」 is drawn heavier than the Design asks: the app uses Bold (and Extra Bold on the button) where the frame's weights come out as Regular for the checkbox label and Medium for the title and the button.",
+    "note_zh": "「Try It Now」比 Design 要求的更粗：App 用了 Bold（按鈕甚至是 Extra Bold），而框稿換算後，勾選標題應為 Regular、頁面標題與按鈕應為 Medium。"
+   },
+   "weight:3294:23992": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「AI Video Enhance」 is drawn heavier than the Design asks: the app uses Bold (and Extra Bold on the button) where the frame's weights come out as Regular for the checkbox label and Medium for the title and the button.",
+    "note_zh": "「AI Video Enhance」比 Design 要求的更粗：App 用了 Bold（按鈕甚至是 Extra Bold），而框稿換算後，勾選標題應為 Regular、頁面標題與按鈕應為 Medium。"
+   },
+   "control:3294:23996": {
+    "verdict": "bug",
+    "severity": "major",
+    "note": "The demo page's top bar is missing its right-hand button: the Design draws a Recent-task (history) icon beside the back arrow, and the app's page has only the back arrow.",
+    "note_zh": "示範頁上方列少了右側按鈕：Design 在返回箭頭之外還畫了「Recent task（歷史紀錄）」圖示，App 的頁面只有返回箭頭。"
+   },
+   "colour:3294:23988": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The 「Don't show again」 label is drawn almost white, where the Design asks for the muted grey-blue (#8893A6) it uses for secondary text; in the app it reads as strong as the main copy.",
+    "note_zh": "「Don't show again」文字幾乎是白色，Design 用的是次要文字的灰藍色 (#8893A6)；在 App 中它看起來和主要說明文字一樣醒目。"
+   },
+   "colour:3294:23981": {
+    "verdict": "ok",
+    "note": "The grey block in the frame is a placeholder for the demo video; both sides show the video area, so there is no colour to compare.",
+    "note_zh": "框稿中的灰色方塊只是示範影片的佔位圖；兩邊顯示的都是影片區域，沒有可比對的顏色。"
+   },
+   "visual:1": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The demo clip on the page is not the one the Design draws: the frame shows a before/after split of one shot, while the app plays a clip with a 「Video Enhance」 chip and a row of tool icons over it — the Auto Reframe demo. The page's description under the title is Auto Reframe's wording too, so the whole demo card looks taken from that feature.",
+    "note_zh": "頁面上的示範影片不是 Design 畫的那支：框稿顯示同一個畫面的前後對比，App 播的則是上面有「Video Enhance」標籤與一排工具圖示的影片，也就是 Auto Reframe 的示範。標題下方的說明文字同樣是 Auto Reframe 的內容，整張示範卡看起來都是沿用該功能的素材。"
+   }
+  },
+  "3293:13369": {
+   "size:I3293:13372;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13372;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13373;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13373;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13374;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13374;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13375;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13375;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13376;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13376;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13377;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13377;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13378;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13378;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13379;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13379;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13380;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13380;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13381;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13381;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13382;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13382;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13383;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13383;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13384;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13384;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13385;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13385;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13386;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is set about 12 sp against the Design's 11 pt. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤字級約 12 sp，Design 畫的是 11 pt。格線中每一張縮圖都一樣。"
+   },
+   "weight:I3293:13386;6848:2899": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The duration badge on the media thumbnails is drawn Regular where the Design asks for Medium, so it reads lighter than the frame. The same on every thumbnail of the grid.",
+    "note_zh": "媒體縮圖上的長度標籤使用 Regular 字重，Design 要求的是 Medium，因此看起來比框稿細。格線中每一張縮圖都一樣。"
+   },
+   "size:I3293:13414;13610:4834": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The page title 「Add Media」 is set about 20 sp against the Design's 18 pt, a tenth bigger than the frame.",
+    "note_zh": "頁面標題「Add Media」字級約 20 sp，Design 畫的是 18 pt，比框稿大約一成。"
+   },
+   "weight:I3293:13414;13610:4834": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The page title 「Add Media」 is drawn Bold where the Design asks for Medium.",
+    "note_zh": "頁面標題「Add Media」以 Bold 呈現，Design 要求的是 Medium 字重。"
+   },
+   "unspecced:8,816": {
+    "verdict": "ok",
+    "note": "These are the few pixels of the next row of thumbnails showing above the bottom edge, not controls the Design left out.",
+    "note_zh": "這些只是下一列縮圖露在畫面底緣上方的幾個像素，不是 Design 漏畫的控制項。"
+   },
+   "unspecced:128,816": {
+    "verdict": "ok",
+    "note": "These are the few pixels of the next row of thumbnails showing above the bottom edge, not controls the Design left out.",
+    "note_zh": "這些只是下一列縮圖露在畫面底緣上方的幾個像素，不是 Design 漏畫的控制項。"
+   },
+   "unspecced:248,816": {
+    "verdict": "ok",
+    "note": "These are the few pixels of the next row of thumbnails showing above the bottom edge, not controls the Design left out.",
+    "note_zh": "這些只是下一列縮圖露在畫面底緣上方的幾個像素，不是 Design 漏畫的控制項。"
+   },
+   "spacing:3293:13372-3293:13373": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13372-3293:13375": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13373-3293:13374": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13373-3293:13376": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13374-3293:13377": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13375-3293:13376": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13375-3293:13378": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13376-3293:13377": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13376-3293:13379": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13377-3293:13380": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13378-3293:13379": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13378-3293:13381": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13379-3293:13380": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13379-3293:13382": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13380-3293:13383": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13381-3293:13382": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13381-3293:13384": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13382-3293:13383": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13382-3293:13385": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13383-3293:13386": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13384-3293:13385": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "spacing:3293:13385-3293:13386": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The media grid is tighter than the Design: the gap between thumbnails is about 8 pt where the frame draws 12 pt, across and down, and the thumbnails are correspondingly wider. It repeats over the whole grid.",
+    "note_zh": "媒體格線比 Design 緊：縮圖之間的間距橫向與縱向都約 8 pt，框稿畫的是 12 pt，縮圖本身因此略大。整個格線都一樣。"
+   },
+   "padding:3293:13393": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "In the blue media-type button the 「Video」 label has less room above and below than the frame gives it (about 3 pt at the top and 6 pt at the bottom), so the button reads shorter than the Design draws it.",
+    "note_zh": "藍色媒體類型按鈕中，「Video」文字上下的留白比框稿少（上方約 3 pt、下方約 6 pt），按鈕因此看起來比 Design 畫的矮。"
+   }
+  },
+  "3293:14941": {
+   "state:3293:14941": {
+    "verdict": "ok",
+    "note": "The capture is this screen and this moment: the clip is selected and the 「Enhance」 group is open with its four tools, as the frame draws. Two things explain the texts that were not found — the run was on a Pro account, so no Pro badges and no 「Pro+ Only Upgrade Now」 tag are shown, and the clip toolbar behind the open group is scrolled one tile along.",
+    "note_zh": "這張擷取就是本畫面與本狀態：影片片段已選取、「Enhance」群組展開並顯示四個工具，與框稿一致。對不到的文字有兩個原因——測試使用 Pro 帳號，因此沒有 Pro 標記，也沒有「Pro+ Only Upgrade Now」標籤；另外底下的片段工具列往旁捲動了一格。"
+   },
+   "missing:I3293:15033;4444:16141;4419:5389;4366:19725": {
+    "verdict": "ok",
+    "note": "The clip toolbar is scrolled one tile along, and the app's own first tool is 「Adjust」 rather than 「Opacity」 — a difference of wording, which this check does not hold the app to.",
+    "note_zh": "片段工具列往旁捲動了一格，而且 App 自己的第一個工具是「Adjust」而非「Opacity」——屬於用字差異，本檢查不比對用字。"
+   },
+   "missing:I3293:15033;4444:16712;4419:5484;4366:19725": {
+    "verdict": "ok",
+    "note": "「Background」 is on the screen in the clip toolbar under the open Enhance group.",
+    "note_zh": "「Background」有出現在展開的 Enhance 群組下方的片段工具列中。"
+   },
+   "missing:I3293:15033;4444:16653;5268:34721;4366:19725": {
+    "verdict": "ok",
+    "note": "The highlighted 「Enhance」 tile is on the screen in the clip toolbar, blue and selected under the open group, as the frame draws it.",
+    "note_zh": "被選取的「Enhance」圖塊有出現在片段工具列中，呈藍色選取狀態、位於展開的群組下方，與框稿一致。"
+   },
+   "missing:I3293:15033;4444:16107;4419:5484;4366:19725": {
+    "verdict": "question",
+    "note": "The frame draws two neighbouring tiles both labelled 「Enhance」 (with different icons); the app's toolbar has one 「Enhance」 and then 「Tools」 and 「Duplicate」. Design should say whether the second tile is a real entry or a duplicate in the frame.",
+    "note_zh": "框稿並排畫了兩個都叫「Enhance」的圖塊（圖示不同）；App 的工具列只有一個「Enhance」，後面接「Tools」與「Duplicate」。請 Design 確認第二個圖塊是真的入口，還是框稿重複。"
+   },
+   "missing:I3293:15033;4444:16754;4419:5484;4366:19725": {
+    "verdict": "ok",
+    "note": "「Tools」 is on the screen in the clip toolbar under the open Enhance group.",
+    "note_zh": "「Tools」有出現在展開的 Enhance 群組下方的片段工具列中。"
+   },
+   "missing:I3293:15037;556:1822;553:19688": {
+    "verdict": "n/a",
+    "note": "The frame is drawn for a user without the subscription; this screen was captured on a Pro account, where the tools carry no Pro badge and the 「Pro+ Only Upgrade Now」 tag over the preview is not shown.",
+    "note_zh": "框稿畫的是未訂閱使用者的狀態；本畫面以 Pro 帳號擷取，工具上不會有 Pro 標記，預覽上方也不會出現「Pro+ Only Upgrade Now」標籤。"
+   },
+   "missing:I3293:15040;4475:12800;4366:19727;4475:13727;553:19834": {
+    "verdict": "n/a",
+    "note": "The frame is drawn for a user without the subscription; this screen was captured on a Pro account, where the tools carry no Pro badge and the 「Pro+ Only Upgrade Now」 tag over the preview is not shown.",
+    "note_zh": "框稿畫的是未訂閱使用者的狀態；本畫面以 Pro 帳號擷取，工具上不會有 Pro 標記，預覽上方也不會出現「Pro+ Only Upgrade Now」標籤。"
+   },
+   "missing:I3293:15041;4475:12800;4366:19727;4475:13727;553:19834": {
+    "verdict": "n/a",
+    "note": "The frame is drawn for a user without the subscription; this screen was captured on a Pro account, where the tools carry no Pro badge and the 「Pro+ Only Upgrade Now」 tag over the preview is not shown.",
+    "note_zh": "框稿畫的是未訂閱使用者的狀態；本畫面以 Pro 帳號擷取，工具上不會有 Pro 標記，預覽上方也不會出現「Pro+ Only Upgrade Now」標籤。"
+   },
+   "missing:I3293:15042;4475:12800;4366:19727;621:14133;553:19834": {
+    "verdict": "n/a",
+    "note": "The frame is drawn for a user without the subscription; this screen was captured on a Pro account, where the tools carry no Pro badge and the 「Pro+ Only Upgrade Now」 tag over the preview is not shown.",
+    "note_zh": "框稿畫的是未訂閱使用者的狀態；本畫面以 Pro 帳號擷取，工具上不會有 Pro 標記，預覽上方也不會出現「Pro+ Only Upgrade Now」標籤。"
+   },
+   "size:I3293:15040;4475:12800;4366:19725": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The tool labels in the open Enhance group (「AI Video Enhance」) are set about 13 sp against the Design's 11 pt, which is why 「AI Video Enhance」 and 「AI Video Upscaler」 fill their tiles edge to edge.",
+    "note_zh": "展開的 Enhance 群組內工具標題（「AI Video Enhance」）字級約 13 sp，Design 畫的是 11 pt，所以「AI Video Enhance」與「AI Video Upscaler」會把圖塊塞滿。"
+   },
+   "size:I3293:15041;4475:12800;4366:19725": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The tool labels in the open Enhance group (「Fix Shake」) are set about 13 sp against the Design's 11 pt, which is why 「AI Video Enhance」 and 「AI Video Upscaler」 fill their tiles edge to edge.",
+    "note_zh": "展開的 Enhance 群組內工具標題（「Fix Shake」）字級約 13 sp，Design 畫的是 11 pt，所以「AI Video Enhance」與「AI Video Upscaler」會把圖塊塞滿。"
+   },
+   "size:I3293:15042;4475:12800;4366:19725": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The tool labels in the open Enhance group (「AI Color」) are set about 13 sp against the Design's 11 pt, which is why 「AI Video Enhance」 and 「AI Video Upscaler」 fill their tiles edge to edge.",
+    "note_zh": "展開的 Enhance 群組內工具標題（「AI Color」）字級約 13 sp，Design 畫的是 11 pt，所以「AI Video Enhance」與「AI Video Upscaler」會把圖塊塞滿。"
+   },
+   "size:I3293:15043;4419:5389;4366:19725": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The tool labels in the open Enhance group (「AI Video Upscaler」) are set about 13 sp against the Design's 11 pt, which is why 「AI Video Enhance」 and 「AI Video Upscaler」 fill their tiles edge to edge.",
+    "note_zh": "展開的 Enhance 群組內工具標題（「AI Video Upscaler」）字級約 13 sp，Design 畫的是 11 pt，所以「AI Video Enhance」與「AI Video Upscaler」會把圖塊塞滿。"
+   },
+   "control:I3293:15038;14091:1648;14096:1683": {
+    "verdict": "ok",
+    "note": "The play and full-screen buttons are on the screen under the preview, where the frame draws them; the open tool group is what was measured, so they were not picked up.",
+    "note_zh": "播放與全螢幕按鈕有出現在預覽下方，位置與框稿一致；因為量測的是展開中的工具群組，才沒有被對到。"
+   },
+   "control:I3293:15038;4351:19287": {
+    "verdict": "ok",
+    "note": "The play and full-screen buttons are on the screen under the preview, where the frame draws them; the open tool group is what was measured, so they were not picked up.",
+    "note_zh": "播放與全螢幕按鈕有出現在預覽下方，位置與框稿一致；因為量測的是展開中的工具群組，才沒有被對到。"
+   },
+   "colour:I3293:15033;4444:16141;4419:5389": {
+    "verdict": "ok",
+    "note": "The tool tiles are the same dark navy on both sides, and the open group's tile is the highlighted blue one in the app as well; the toolbar behind is scrolled one tile along, so the tiles were read against their neighbours.",
+    "note_zh": "工具圖塊兩邊都是同一個深藍底，展開中的群組在 App 裡同樣是亮藍色的那一格；底下的工具列往旁捲動了一格，所以每格是和隔壁格比對的。"
+   },
+   "colour:I3293:15033;4444:16712;4419:5484": {
+    "verdict": "ok",
+    "note": "The tool tiles are the same dark navy on both sides, and the open group's tile is the highlighted blue one in the app as well; the toolbar behind is scrolled one tile along, so the tiles were read against their neighbours.",
+    "note_zh": "工具圖塊兩邊都是同一個深藍底，展開中的群組在 App 裡同樣是亮藍色的那一格；底下的工具列往旁捲動了一格，所以每格是和隔壁格比對的。"
+   },
+   "colour:I3293:15033;4444:16653;5268:34721": {
+    "verdict": "ok",
+    "note": "The tool tiles are the same dark navy on both sides, and the open group's tile is the highlighted blue one in the app as well; the toolbar behind is scrolled one tile along, so the tiles were read against their neighbours.",
+    "note_zh": "工具圖塊兩邊都是同一個深藍底，展開中的群組在 App 裡同樣是亮藍色的那一格；底下的工具列往旁捲動了一格，所以每格是和隔壁格比對的。"
+   },
+   "colour:I3293:15033;4444:16107;4419:5484": {
+    "verdict": "ok",
+    "note": "The tool tiles are the same dark navy on both sides, and the open group's tile is the highlighted blue one in the app as well; the toolbar behind is scrolled one tile along, so the tiles were read against their neighbours.",
+    "note_zh": "工具圖塊兩邊都是同一個深藍底，展開中的群組在 App 裡同樣是亮藍色的那一格；底下的工具列往旁捲動了一格，所以每格是和隔壁格比對的。"
+   },
+   "colour:I3293:15033;4444:16754;4419:5484": {
+    "verdict": "ok",
+    "note": "The tool tiles are the same dark navy on both sides, and the open group's tile is the highlighted blue one in the app as well; the toolbar behind is scrolled one tile along, so the tiles were read against their neighbours.",
+    "note_zh": "工具圖塊兩邊都是同一個深藍底，展開中的群組在 App 裡同樣是亮藍色的那一格；底下的工具列往旁捲動了一格，所以每格是和隔壁格比對的。"
+   },
+   "spacing:3293:15040-3293:15041": {
+    "verdict": "ok",
+    "note": "The four tool tiles sit side by side on both sides; the app's tap areas simply overlap a few points, which is not a visible gap difference.",
+    "note_zh": "四個工具圖塊兩邊都是緊鄰排列；App 的觸控範圍只是重疊了幾個點，看得到的間距並沒有差異。"
+   },
+   "spacing:3293:15041-3293:15042": {
+    "verdict": "ok",
+    "note": "The four tool tiles sit side by side on both sides; the app's tap areas simply overlap a few points, which is not a visible gap difference.",
+    "note_zh": "四個工具圖塊兩邊都是緊鄰排列；App 的觸控範圍只是重疊了幾個點，看得到的間距並沒有差異。"
+   },
+   "spacing:3293:15042-3293:15043": {
+    "verdict": "ok",
+    "note": "The four tool tiles sit side by side on both sides; the app's tap areas simply overlap a few points, which is not a visible gap difference.",
+    "note_zh": "四個工具圖塊兩邊都是緊鄰排列；App 的觸控範圍只是重疊了幾個點，看得到的間距並沒有差異。"
+   },
+   "align:I3293:15040;4475:12800;4366:19725": {
+    "verdict": "ok",
+    "note": "Each label is centred under its own tile; the shift only comes from the labels being set larger than the Design asks, which is reported as the font size.",
+    "note_zh": "每個標題都置中在自己的圖塊下方；位移只是因為字級比 Design 要求的大，已在字級項目中回報。"
+   },
+   "align:I3293:15041;4475:12800;4366:19725": {
+    "verdict": "ok",
+    "note": "Each label is centred under its own tile; the shift only comes from the labels being set larger than the Design asks, which is reported as the font size.",
+    "note_zh": "每個標題都置中在自己的圖塊下方；位移只是因為字級比 Design 要求的大，已在字級項目中回報。"
+   },
+   "align:I3293:15042;4475:12800;4366:19725": {
+    "verdict": "ok",
+    "note": "Each label is centred under its own tile; the shift only comes from the labels being set larger than the Design asks, which is reported as the font size.",
+    "note_zh": "每個標題都置中在自己的圖塊下方；位移只是因為字級比 Design 要求的大，已在字級項目中回報。"
+   },
+   "colour:I3293:15037;556:1822": {
+    "verdict": "n/a",
+    "note": "The Pro badge and the 「Pro+ Only Upgrade Now」 tag are not shown on a Pro account, so there is no colour to compare.",
+    "note_zh": "Pro 標記與「Pro+ Only Upgrade Now」標籤在 Pro 帳號下不會顯示，沒有可比對的顏色。"
+   },
+   "colour:I3293:15040;4475:12800": {
+    "verdict": "ok",
+    "note": "The tool tiles are the same dark navy on both sides, and the open group's tile is the highlighted blue one in the app as well; the toolbar behind is scrolled one tile along, so the tiles were read against their neighbours.",
+    "note_zh": "工具圖塊兩邊都是同一個深藍底，展開中的群組在 App 裡同樣是亮藍色的那一格；底下的工具列往旁捲動了一格，所以每格是和隔壁格比對的。"
+   },
+   "colour:I3293:15040;4475:12800;4366:19727;4475:13727": {
+    "verdict": "n/a",
+    "note": "The Pro badge and the 「Pro+ Only Upgrade Now」 tag are not shown on a Pro account, so there is no colour to compare.",
+    "note_zh": "Pro 標記與「Pro+ Only Upgrade Now」標籤在 Pro 帳號下不會顯示，沒有可比對的顏色。"
+   },
+   "colour:I3293:15041;4475:12800": {
+    "verdict": "ok",
+    "note": "The tool tiles are the same dark navy on both sides, and the open group's tile is the highlighted blue one in the app as well; the toolbar behind is scrolled one tile along, so the tiles were read against their neighbours.",
+    "note_zh": "工具圖塊兩邊都是同一個深藍底，展開中的群組在 App 裡同樣是亮藍色的那一格；底下的工具列往旁捲動了一格，所以每格是和隔壁格比對的。"
+   },
+   "colour:I3293:15041;4475:12800;4366:19727;4475:13727": {
+    "verdict": "n/a",
+    "note": "The Pro badge and the 「Pro+ Only Upgrade Now」 tag are not shown on a Pro account, so there is no colour to compare.",
+    "note_zh": "Pro 標記與「Pro+ Only Upgrade Now」標籤在 Pro 帳號下不會顯示，沒有可比對的顏色。"
+   },
+   "colour:I3293:15042;4475:12800": {
+    "verdict": "ok",
+    "note": "The tool tiles are the same dark navy on both sides, and the open group's tile is the highlighted blue one in the app as well; the toolbar behind is scrolled one tile along, so the tiles were read against their neighbours.",
+    "note_zh": "工具圖塊兩邊都是同一個深藍底，展開中的群組在 App 裡同樣是亮藍色的那一格；底下的工具列往旁捲動了一格，所以每格是和隔壁格比對的。"
+   },
+   "colour:I3293:15042;4475:12800;4366:19727;621:14133": {
+    "verdict": "n/a",
+    "note": "The Pro badge and the 「Pro+ Only Upgrade Now」 tag are not shown on a Pro account, so there is no colour to compare.",
+    "note_zh": "Pro 標記與「Pro+ Only Upgrade Now」標籤在 Pro 帳號下不會顯示，沒有可比對的顏色。"
+   },
+   "colour:I3293:15043;4419:5389": {
+    "verdict": "ok",
+    "note": "The tool tiles are the same dark navy on both sides, and the open group's tile is the highlighted blue one in the app as well; the toolbar behind is scrolled one tile along, so the tiles were read against their neighbours.",
+    "note_zh": "工具圖塊兩邊都是同一個深藍底，展開中的群組在 App 裡同樣是亮藍色的那一格；底下的工具列往旁捲動了一格，所以每格是和隔壁格比對的。"
+   },
+   "visual:1": {
+    "verdict": "question",
+    "note": "The Preview area is pure black while the timeline thumbnails of the same clip draw its colours normally, both on this build and on the 2026-11-13 run. A video surface often comes out black in a screenshot, so someone should look at the phone itself before this is filed; if the eye sees black too, it is a serious defect of the editor preview.",
+    "note_zh": "預覽區整片全黑，但時間軸上同一段影片的縮圖顏色正常，這版與 2026-11-13 那次都一樣。影片畫面在截圖中常會變成全黑，因此開單前應直接看手機螢幕確認；若肉眼看也是黑的，就是編輯器預覽的嚴重問題。"
+   }
+  },
+  "3293:15145": {
+   "weight:3293:15152": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "「My Credits」 is drawn Medium where the Design asks for Regular, so the heading reads heavier than the frame.",
+    "note_zh": "「My Credits」使用 Medium 字重，Design 要求的是 Regular，因此標題看起來比框稿粗。"
+   },
+   "colour:3293:15157": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The 「Buy More」 button is a paler mint (#6EEDCB) than the Design's strong mint green (#00F1C9); beside the Design it looks washed out.",
+    "note_zh": "「Buy More」按鈕是較淡的薄荷綠 (#6EEDCB)，Design 用的是飽和的薄荷綠 (#00F1C9)，與 Design 相比顯得偏淡。"
+   }
+  }
+ }
+}
