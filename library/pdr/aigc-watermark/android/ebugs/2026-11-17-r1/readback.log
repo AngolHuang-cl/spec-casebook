@@ -28,3 +28,9 @@ Required fields the API cannot set — fill them on each ticket's web edit form:
   DRA262611P0225  OS Language (Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean)
   DRA262611P0226  OS Language (Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean)
   DRA262611P0227  OS Language (Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean)
+
+# 2026-11-19 F-10
+  DRA262611P0229  sev 2  RD  BugNeedReview  build 2611171  by ETHAN_HSU
+
+Required fields the API cannot set — fill them on each ticket's web edit form:
+  DRA262611P0229  OS Language (Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean)

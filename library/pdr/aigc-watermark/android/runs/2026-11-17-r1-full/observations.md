@@ -152,3 +152,14 @@
   accepts (or the original account ethan.hsu.cl@gmail.com signed in by the user, which may hit the same 403). Evidence
   screenshots/R1-i2-chrome2.png, screenshots/R1-i2-account-not-found.png, screenshots/R1-i2-end-switch.png; log
   excerpt logs/R1-i2-20261118-091804.
+- O-30 (closest TC-054 / TC-128, R1-j 2026-11-19 08:50-08:52, music recheck precheck): recheck NOT run, the phone no
+  longer has the build under test. `dumpsys package`: PowerDirector 16.9.0 versionCode **2611171** (not 2611161),
+  firstInstallTime = lastUpdateTime 2026-11-18 14:43:25 (a fresh install by the phone's other user, new app uid 11809,
+  installer com.google.android.packageinstaller), so the R1 app data, Stage sign-in state and the music dialog's
+  「Don't show again」 state are gone with it. `testserver.config` still in /sdcard/cyberlink/PDR/. Found in front: AI
+  Video Enhance setup (VideoEnhanceSetupActivity, another user's work, credit pill 2349, so signed in on that build;
+  left untouched, nothing tapped). The R1 log capture up to the reinstall shows the other user's sign-in on 2611161 at
+  2026-11-18 10:45: `bindMember … 403 {"detail":"invalid device identity"}` (10:45:48) then `bindMemberSuccess: 1`
+  (10:45:52), totalRemain=0 — so the 403 of O-29 was followed by a successful bind on a retry. No rows changed: TC-054/057
+  Fail, TC-055/056/128 Blocked stay as recorded against 2611161. Evidence screenshots/R1-j-phone-found.png, logs
+  R1-j-precheck-20261119-085154.

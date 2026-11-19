@@ -14,3 +14,9 @@ ISS-AWA-14	DRA262609P0042 (NAB), DRA262611P0202	ad after Produce / Template V2V 
 # 「watermark」 40 (Free / Pro watermark tickets, none about the AIGC label), 「AI Cartoon」, 「AI Sketch」, 「Style Transfer」,
 # 「rotate」, 「rotated」, 「orientation」, 「sideways」 (none about a styled photo turned 90°), 「spoken」, 「AI Music Generator」.
 # iOS tickets were not searched (per OS rule: they never make an Android finding a duplicate).
+
+# F-10 / ISS-AWA-10 re-dedupe 2026-11-19 before filing on TR261117-0042 (16.9.0.2611171), Android pool only, read-only ecl_query.py.
+# ecl_query.py dedupe upload/bodies-f10.json (dedupe-query-f10.txt): 83 candidates, no likely duplicate.
+# Build 2611171 / TR261117-0042 tickets by other testers: DRA262611P0211, P0212 (Template Category), P0213 (Auto Caption), P0228 (Image to Video preview) — unrelated.
+# Text searches since 2026-10-01: 「AIGC」 (P0214/P0223/P0225/P0227 ours, P0301 Black Friday), 「AI Music Generator」 / 「Music Generator」 (P0222 spoken clip, P0223 export of a music project, DRA262610-0069/0070/0071 tag text), 「watermark dialog」 0, 「Don't show again」 (P0088 Video Enhance) — none is the generator's missing AIGC dialog.
+ISS-AWA-10	none	filed as a new ticket

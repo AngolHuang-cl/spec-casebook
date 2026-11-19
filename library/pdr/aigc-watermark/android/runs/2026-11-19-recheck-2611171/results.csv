@@ -1,0 +1,18 @@
+﻿ID,Phase,Segment,Needs,Section,Action,Expected Result,Result,Disposition,Actual,Evidence,Recorded At
+TC-054,RC,RC-a,,Music Generator (pure audio),Tap 「Generate for ◆ 6」,"The dialog 「AIGC Watermark」 opens
+Body 「Your generated music will include an AIGC watermark. To remove the watermark, go to Menu > Settings.」
+An unticked checkbox 「Don’t show again」
+Buttons 「Cancel」 and 「Generate」",Fail,defect,"Recheck on acda.test7@gmail.com (Free), build 16.9.0 (2611171), TR261117-0042, Stage, English. 「Remove AIGC Watermark」 read Off (set Off from the found On, screenshots/RC-switch-off-a.png). AI Music Generator (intro 「Don't show again」 unticked, 「Try It Now」), Acoustic / Dreamy / Cinematic, 1:30, 2 songs, 「Generate for ◆ 10」 tapped 08:58:2x: no 「AIGC Watermark」 dialog; the 「Generating...」 popup (「Visit My AI Music to see the progress…」, 「Go to My AI Music」) opened at once and the 2 songs finished in ~15 s (My AI Music 「01./02. Cinematic, Dreamy, Acoustic」 01:33 / 01:34). Charged 10 (log totalRemain 2529 at 08:58:25 → 2519 at 08:59:49; Mine 2519). Same as R1 on 2611161. Caveat: the app was installed fresh 2026-11-18 14:43 by another tester, who used it before this run; a 「Don't show again」 ticked by them cannot be read off the phone (no debuggable build), but the music intro still showed with its own box unticked.",screenshots/RC-TC-054-filled.png screenshots/RC-TC-054-after-generate.png screenshots/RC-TC-054-end.png screenshots/RC-mine-after.png,2026-11-19T01:00:02.422Z
+TC-055,RC,RC-a,,Music Generator (pure audio),Tap 「Cancel」,"The dialog closes
+The AI Music Generator page shows the same description and settings
+Nothing is generating
+The credit balance is unchanged",Blocked,defect,"Upstream TC-054: on acda.test7@gmail.com (Free), build 16.9.0 (2611171), TR261117-0042, Stage, English the music 「AIGC Watermark」 dialog never opens with the switch Off, so there is no dialog to close.",,2026-11-19T01:00:02.650Z
+TC-056,RC,RC-a,,Android system Back,Press system Back,"The dialog closes like 「Cancel」
+Nothing is generating",Blocked,defect,"Upstream TC-054: on acda.test7@gmail.com (Free), build 16.9.0 (2611171), TR261117-0042, Stage, English the music 「AIGC Watermark」 dialog never opens with the switch Off, so there is no dialog to close.",,2026-11-19T01:00:02.761Z
+TC-057,RC,RC-a,,Music Generator (pure audio),Tap 「Generate」 (checkbox left unticked),"The dialog closes
+The popup 「Generating...」 with a percentage and 「Go to My AI Music」 appears",Fail,defect,"Recheck on acda.test7@gmail.com (Free), build 16.9.0 (2611171), TR261117-0042, Stage, English: the dialog it closes never opened (TC-054); 「Generate」 went straight to 「Generating...」 with a percentage and 「Go to My AI Music」, so only the second half of the Expected Result is seen.",screenshots/RC-TC-054-after-generate.png,2026-11-19T01:00:02.540Z
+TC-128,RC,RC-a,,Music Generator (pure audio),"1. Tick 「Don’t show again」
+2. Tap 「Generate」
+3. When it finishes, start another generation","Step 2: the generation starts
+Step 3: no AIGC dialog, the second generation starts at once
+Step 3: the second song still starts with the spoken clip",Blocked,defect,"Upstream TC-054: on acda.test7@gmail.com (Free), build 16.9.0 (2611171), TR261117-0042, Stage, English the music 「AIGC Watermark」 dialog never opens with the switch Off, so 「Don't show again」 cannot be ticked. No second generation made.",,2026-11-19T01:00:02.872Z

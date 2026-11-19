@@ -30,3 +30,18 @@ TRCode: TR261116-0056 (header: 16.9.0.2611161, read 2026-11-18 — the build the
 | F-14 | ISS-AWA-14 | 3 | PM | UX | file | PDR-A 16.9.0 - [AIAgent][UX] Export: AIGC dialog opens after 「Produce」, not on 「Export」; Cancel returns to Produce | |
 | F-15 | ISS-AWA-15 | 2 | RD | Functional | file | PDR-A 16.9.0 - [AIAgent] Editor (AI Style Transfer): AI Cartoon and AI Sketch results of a portrait photo are turned 90° | |
 | F-16 | ISS-AWA-16 | 3 | PM | UX | file | PDR-A 16.9.0 - [AIAgent][UX] Settings (AIGC Watermark): 「Remove AIGC Watermark」 is On by default on a fresh install | |
+
+## F-10 — 2026-11-19 (REQ-006)
+
+User, 2026-11-18: "if a recheck is needed, check it, otherwise file it"; 2026-11-19: recheck on build 2611171 (the phone
+had 2611171, installed by another tester). The recheck (`runs/2026-11-19-recheck-2611171/`, acda.test7 Free, Stage)
+again showed no 「AIGC Watermark」 dialog, so F-10 is filed on the newer build:
+
+Account: ETHAN_HSU · Method: API · Source tag: [AIAgent] · TRCode: TR261117-0042 (header: 16.9.0.2611171 (R3), read 2026-11-19)
+Entry rewritten for this build: Verified on 16.9.0.2611171, images and log excerpt from the recheck run, one action per
+step (Try It Now, Acoustic, Dreamy, Cinematic), and a `Related:` Note line: also seen on 16.9.0.2611161 (TR261116-0056),
+upgraded with adb install -r; on both installs QA did not tick a music 「Don't show again」.
+
+| # | ISS | Sev | Belong | Type | Action | Short Description | Note |
+|---|---|---|---|---|---|---|---|
+| F-10 | ISS-AWA-10 | 2 | RD | Functional | file | PDR-A 16.9.0 - [AIAgent] AI Music Generator: Generate starts with no 「AIGC Watermark」 dialog when the switch is Off | |

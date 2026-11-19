@@ -157,14 +157,16 @@ E = [
 
  dict(iss="ISS-AWA-10", title="AI Music Generator starts generating with no 「AIGC Watermark」 dialog when the switch is Off",
       cls="Functional", sev=2, owner="RD", cases=["TC-054", "TC-057"], rep=(1, 1), feat="AI Music Generator",
-      hold=True,
       short="Generate starts with no 「AIGC Watermark」 dialog when the switch is Off",
-      note="RECHECK PENDING — keep on hold. R-027 (PM Music Generator Case, arrow 97:1818, 「If Remove AIGC Watermark toggle off」): 「Generate」 opens the dialog 「AIGC Watermark」 (「Your generated music will include an AIGC watermark…」, 「Don’t show again」, 「Cancel」, 「Generate」). On 2611161 (switch Off, signed in) 「Generate for ◆ 10」 went straight to 「Generating...」 and 10 credits were taken. Caveat: the build was updated with adb install -r, so a 「Don't show again」 ticked before this run could hide it (no run in this round ticked it). The post-reset recheck could not run: after TC-008's pm clear the Stage credit server rejects the phone (bindMember 403 「invalid device identity」, O-28 / O-29; related DRA262611P0200, sign-in fails on this build). Recheck with one signed-in generation (switch Off) before filing; TC-055 / TC-056 / TC-128 (Blocked upstream) run then. The build's generator is the V2 form (Genre / Mood / Theme, Lyria, 5 credits a song), not the PM board's 「Describe your idea」 form (O-19).",
-      steps=[L1] + ["Tap ☰ on the Launcher", "Turn 「Remove AIGC Watermark」 Off", "Tap the back button", "Tap 「AI Magic」", "Tap 「AI Music Generator」", "Tap a Genre, a Mood and a Theme", "Tap 「Generate for ◆ 10」"],
+      note="Rechecked 2026-11-19 on 16.9.0 build 2611171 (TR261117-0042, R3; runs/2026-11-19-recheck-2611171, O-1), acda.test7 (Free), Stage, English: switch set Off, AI Music Generator (intro's 「Don't show again」 unticked, 「Try It Now」), Acoustic / Dreamy / Cinematic, 2 songs, 「Generate for ◆ 10」 at 08:58:22 went straight to 「Generating...」; 10 credits taken (2529 → 2519). Same as R1 on 2611161 (1/1). R-027 (PM Music Generator Case, arrow 97:1818, 「If Remove AIGC Watermark toggle off」): 「Generate」 opens the dialog 「AIGC Watermark」 (「Your generated music will include an AIGC watermark…」, 「Don’t show again」, 「Cancel」, 「Generate」). Caveat: the 2611171 install was used by another tester before the run; a music 「Don't show again」 ticked by them cannot be read without a debuggable build. User decision 2026-11-18/19: recheck on 2611171, then file on TR261117-0042. TC-055 / TC-056 / TC-128 stay Blocked upstream. The build's generator is the V2 form (Genre / Mood / Theme, Lyria, 5 credits a song), not the PM board's 「Describe your idea」 form (O-19).",
+      steps=[L1] + ["Tap ☰ on the Launcher", "Turn 「Remove AIGC Watermark」 Off", "Tap the back button", "Tap 「AI Magic」", "Tap 「AI Music Generator」", "Tap 「Try It Now」 on the intro", "Tap 「Acoustic」 under Genre", "Tap 「Dreamy」 under Mood", "Tap 「Cinematic」 under Theme", "Tap 「Generate for ◆ 10」"],
       res="No 「AIGC Watermark」 dialog opens: the popup 「Generating...」 appears at once and 10 credits are taken.",
       res_zh="未出現「AIGC Watermark」對話框，直接顯示「Generating...」並扣 10 點。",
       exp="With the switch Off, Generate first opens the 「AIGC Watermark」 dialog with Cancel and Generate.",
       exp_zh="開關關閉時，按生成應先跳出「AIGC Watermark」對話框（Cancel / Generate）。",
+      # Filed 2026-11-19 on TR261117-0042 (2611171) from the recheck run; the draft entry and its images were updated by
+      # hand (images from runs/2026-11-19-recheck-2611171, verified on 16.9.0.2611171, Related line in the Note).
+      # Re-running this generator would put back the R1 (2611161) evidence below.
       imgs=[("screenshots/TC-054-form-filled.png", "awa10_music_form"), ("screenshots/TC-054-dialog.png", "awa10_generating_no_dialog")],
       log=("awa10_log", "2026-11-17", "16:25:30", "16:32:20"),
       links=[pm("pm-music (Music Generator Case)", "(If Remove AIGC Watermark toggle off: AIGC Watermark dialog, arrow 97:1818)", "97-1818")]),

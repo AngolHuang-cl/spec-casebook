@@ -2,13 +2,13 @@
 
 **Source:** pdr-spec-casebook run `library/pdr/aigc-watermark/android/runs/2026-11-17-r1-full/` — round R1 of draft `drafts/20261117-102353` (table v1, 129 cases), 2026-11-17 14:19 → 20:08 plus the 2026-11-18 sign-in attempts, on Sony XQ-BT52 (Xperia 10 III) / Android 12 (adb HQ61563393) through Appium / UiAutomator2, TR261116-0056 (16.9.0.2611161 R2, SR DRA261109-01), Stage server, Free account ethan.hsu.cl@gmail.com. Tally: 60 Pass, 24 Blocked, 45 Fail.
 
-**Filed by:** ETHAN_HSU on 2026-11-18 (IF3 API, TR261116-0056, attachments uploaded, read back): F-1 DRA262611P0214, F-3 DRA262611P0215, F-4 DRA262611P0216, F-5 DRA262611P0217, F-6 DRA262611P0218, F-7 DRA262611P0219, F-8 DRA262611P0220, F-9 DRA262611P0221, F-11 DRA262611P0222, F-12 DRA262611P0223, F-13 DRA262611P0224, F-14 DRA262611P0225, F-15 DRA262611P0226, F-16 DRA262611P0227. Not filed: F-2 (held, REQ-003), F-10 (held until the music recheck). `filed_bugcodes.md`.
+**Filed by:** ETHAN_HSU on 2026-11-18 (IF3 API, TR261116-0056, attachments uploaded, read back): F-1 DRA262611P0214, F-3 DRA262611P0215, F-4 DRA262611P0216, F-5 DRA262611P0217, F-6 DRA262611P0218, F-7 DRA262611P0219, F-8 DRA262611P0220, F-9 DRA262611P0221, F-11 DRA262611P0222, F-12 DRA262611P0223, F-13 DRA262611P0224, F-14 DRA262611P0225, F-15 DRA262611P0226, F-16 DRA262611P0227. F-10 DRA262611P0229 filed 2026-11-19 on TR261117-0042 (16.9.0.2611171) after the recheck on that build (REQ-006). Not filed: F-2 (held, REQ-003). `filed_bugcodes.md`.
 
 **Status (before filing):** nothing filed, uploaded or commented. First AIGC Watermark batch (`ebug-defaults.ts pdr/aigc-watermark android`: no filed batch), so the review page prefills the filing account from the newest PowerDirector Android casebook batch (Video Enhance 2026-11-11-r1c: Creator ETHAN_HSU, [AIAgent], API) and this run's TR (TR261116-0056, whose header names 16.9.0.2611161), each marked 「confirm」. Dedupe: read-only, Android pool only (per OS, user 2026-10-28): no entry repeats an Android ticket (`dedupe.txt`).
 
 Rules: reviewer rules 2026-10-21 (one action per Repro step, a Spec Link on every entry with the URL on its own line, an image on every entry, the log or file evidence on failure-related ones, no video); `[AIAgent]` / `[AIAgent][UI]` owner RD for defects; open questions the run cannot settle filed to PM (BugBelong PM), `[AIAgent][UX]` for user-experience decisions (2026-11-11). Design outranks PM (2608 draws only Settings and the label size); the C2PA sheet decides which effects are signed (REQ-002). The sheet `[C2PA] GAI effects.xlsx` has no URL: its entries link the Jira it belongs to (Link needed). Severity is proposed; Video Enhance's R1 cards were all filed at 2 by the user's decision.
 
-**What is drafted:** 16 entries (ISS-AWA-01…16): 9 RD Functional, 2 RD UI, 3 PM Functional, 2 PM UX. Entry 10 (music dialog) is on hold until the signed-in recheck.
+**What is drafted:** 16 entries (ISS-AWA-01…16): 9 RD Functional, 2 RD UI, 3 PM Functional, 2 PM UX. Entry 10 (music dialog) was held until the signed-in recheck, then rechecked and filed on 16.9.0.2611171 (2026-11-19).
 
 Legend — Class: Functional / UI / UX · Severity: S1 critical and blocking only, S2 important, S3 moderate, S4 minor · Owner: RD or PM.
 
@@ -458,9 +458,9 @@ https://cyberlinkcorp.atlassian.net/browse/PDRIOS-722
 
 ## 10. ISS-AWA-10 — AI Music Generator starts generating with no 「AIGC Watermark」 dialog when the switch is Off  ·  Class: Functional  ·  Severity: S2  ·  Owner: RD
 
-**Report step:** TC-054, TC-057  ·  **Reproduce:** 1/1  ·  **Verified on:** 16.9.0.2611161
+**Report step:** TC-054, TC-057  ·  **Reproduce:** 1/1  ·  **Verified on:** 16.9.0.2611171
 
-> **⛔ QA note — do NOT paste into eBug; resolve before filing.** RECHECK PENDING — keep on hold. R-027 (PM Music Generator Case, arrow 97:1818, 「If Remove AIGC Watermark toggle off」): 「Generate」 opens the dialog 「AIGC Watermark」 (「Your generated music will include an AIGC watermark…」, 「Don’t show again」, 「Cancel」, 「Generate」). On 2611161 (switch Off, signed in) 「Generate for ◆ 10」 went straight to 「Generating...」 and 10 credits were taken. Caveat: the build was updated with adb install -r, so a 「Don't show again」 ticked before this run could hide it (no run in this round ticked it). The post-reset recheck could not run: after TC-008's pm clear the Stage credit server rejects the phone (bindMember 403 「invalid device identity」, O-28 / O-29; related DRA262611P0200, sign-in fails on this build). Recheck with one signed-in generation (switch Off) before filing; TC-055 / TC-056 / TC-128 (Blocked upstream) run then. The build's generator is the V2 form (Genre / Mood / Theme, Lyria, 5 credits a song), not the PM board's 「Describe your idea」 form (O-19).
+> **⛔ QA note — do NOT paste into eBug; resolve before filing.** Rechecked 2026-11-19 on 16.9.0 build 2611171 (TR261117-0042, R3; runs/2026-11-19-recheck-2611171, O-1), acda.test7 (Free), Stage, English: switch set Off, AI Music Generator (intro's 「Don't show again」 unticked, 「Try It Now」), Acoustic / Dreamy / Cinematic, 2 songs, 「Generate for ◆ 10」 at 08:58:22 went straight to 「Generating...」; 10 credits taken (2529 → 2519). Same as R1 on 2611161 (1/1). R-027 (PM Music Generator Case, arrow 97:1818, 「If Remove AIGC Watermark toggle off」): 「Generate」 opens the dialog 「AIGC Watermark」 (「Your generated music will include an AIGC watermark…」, 「Don’t show again」, 「Cancel」, 「Generate」). Caveat: the 2611171 install was used by another tester before the run; a music 「Don't show again」 ticked by them cannot be read without a debuggable build. User decision 2026-11-18/19: recheck on 2611171, then file on TR261117-0042. TC-055 / TC-056 / TC-128 stay Blocked upstream. The build's generator is the V2 form (Genre / Mood / Theme, Lyria, 5 credits a song), not the PM board's 「Describe your idea」 form (O-19).
 
 **Short Description:**
 
@@ -478,14 +478,17 @@ Repro Steps:
 4. Tap the back button
 5. Tap 「AI Magic」
 6. Tap 「AI Music Generator」
-7. Tap a Genre, a Mood and a Theme
-8. Tap 「Generate for ◆ 10」
-9. Check the result
+7. Tap 「Try It Now」 on the intro
+8. Tap 「Acoustic」 under Genre
+9. Tap 「Dreamy」 under Mood
+10. Tap 「Cinematic」 under Theme
+11. Tap 「Generate for ◆ 10」
+12. Check the result
 
 Result:
 No 「AIGC Watermark」 dialog opens: the popup 「Generating...」 appears at once and 10 credits are taken.
 摘要：未出現「AIGC Watermark」對話框，直接顯示「Generating...」並扣 10 點。
-{16.9.0_awa10_music_form.jpg} {16.9.0_awa10_generating_no_dialog.jpg} {16.9.0_awa10_log.txt}
+{16.9.0_awa10_2611171_music_form.jpg} {16.9.0_awa10_2611171_generating_no_dialog.jpg} {16.9.0_awa10_2611171_log.txt}
 
 Expect Result:
 With the switch Off, Generate first opens the 「AIGC Watermark」 dialog with Cancel and Generate.
@@ -495,6 +498,7 @@ Note:
 Device: Sony XQ-BT52 (Xperia 10 III) / Android 12
 Spec Link: Remove AIGC Watermark PM spec, pm-music (Music Generator Case) board (If Remove AIGC Watermark toggle off: AIGC Watermark dialog, arrow 97:1818) -
 https://www.figma.com/design/IgV9rMxI8bmutyVmQX1kUm/Remove-AIGC-Watermark?node-id=97-1818
+Related: Also seen on 16.9.0.2611161 (TR261116-0056), installed as an upgrade with adb install -r; on both installs QA did not tick a music 「Don't show again」.
 <Claude Reviewed>
 ```
 
@@ -869,8 +873,8 @@ https://www.figma.com/design/IgV9rMxI8bmutyVmQX1kUm/Remove-AIGC-Watermark?node-i
 | TC-014 | Fail | defect | 11. ISS-AWA-11 |
 | TC-015 | Fail | defect | 11. ISS-AWA-11 |
 | TC-016 | Fail | defect | 11. ISS-AWA-11 |
-| TC-054 | Fail | defect | 10. ISS-AWA-10 (hold: recheck) |
-| TC-057 | Fail | defect | 10. ISS-AWA-10 (hold: recheck) |
+| TC-054 | Fail | defect | 10. ISS-AWA-10 (rechecked on 2611171, filed) |
+| TC-057 | Fail | defect | 10. ISS-AWA-10 (rechecked on 2611171, filed) |
 | TC-058 | Fail | defect | 11. ISS-AWA-11 |
 | TC-059 | Fail | defect | 11. ISS-AWA-11 |
 | TC-061 | Fail | defect | 12. ISS-AWA-12 |
