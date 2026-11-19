@@ -204,12 +204,12 @@ lines; put the full rule in the skill or reference file that applies it and poin
   uncaptured or in the wrong state (Android: or without view data) is discarded for the design check, not topped up:
   once the phone is free, a design pass on the re-signed debuggable build captures every routed screen again
   (`figma/references/conformance.md` §2, *All or again*).
-- **What the design check holds the app to (user, 2026-11-06).** A text box's padding and border, font size and the
-  text's centring in its box, and the gaps between buttons; never a text's words or its own place on the screen
-  (`copy` and `position` are gone; texts pair by place when the words differ) (`figma/references/conformance.md` §3).
-- **Full design check on request (user, 2026-11-09).** The standard check above stays the default; when the user asks
-  for the old format with no limits, `design.ts … check <run> --full` brings back `copy` and `position` items, kept
-  for that run until `--standard` (`figma/references/conformance.md` › *Full check, on request*).
+- **Full design check by default (user, 2026-11-19; replaces the 2026-11-06 / 11-09 order).** `design.ts … check` holds
+  the app to a text box's padding and border, font size and centring, the gaps between buttons, and also a text's
+  words (`copy`) and its place on the screen (`position`). The standard check (user, 2026-11-06: no words, no own
+  place; texts pair by place when the words differ) is optional: `check <run> --standard`, only when asked, kept for
+  that run until `--full`. A run checked before 2026-11-19 (no `rules` in its compare.json) was standard and stays so
+  (`figma/references/conformance.md` §3, *Standard check, on request*).
 - **Android text against the Android font (user, 2026-11-06).** Figma is drawn for iOS (SF Pro); on Android the design
   check holds weights to the PDRM guideline's Roboto equivalents (Semibold 600 → Medium 500), KP-066
   (`library/pdr/knowledge/design-guideline.md`). Padding is measured from the letters' pixels, so a chip narrower only

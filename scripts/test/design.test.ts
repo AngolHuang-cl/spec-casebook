@@ -257,7 +257,7 @@ test('scope: the Plan view block excludes with a reason, includes again and mark
 
 // ---- check -----------------------------------------------------------------------------------------------------------
 test('check: every planted difference is found, and nothing else', () => {
-  const r = design('check', 'r1');
+  const r = design('check', 'r1', '--standard');
   assert.equal(r.status, 0, r.out);
   const c = cands('r1', '1:10');
   assert.deepEqual(ids(c.filter((x: any) => x.severity !== 'info')), [
@@ -307,7 +307,7 @@ test("check: the app's own view data (Android) gives size, weight, colour, lines
   png(join(RUNS, 'a-views', 'screenshots', 'design', '1-10.png'), 1080, 2338, [[[346, 1699, 749, 1826], '#3366ff']]);
   put(join(RUNS, 'a-views', 'screenshots', 'design', '1-10.views.json'), views);
   capture('a-views', '1:10', '1-10', xml, { w: 1080, h: 2338 }, { views: 'screenshots/design/1-10.views.json' });
-  const r = design('check', 'a-views');
+  const r = design('check', 'a-views', '--standard');
   assert.equal(r.status, 0, r.out);
   const c = cands('a-views', '1:10'), by = (id: string) => c.find((x: any) => x.id === id);
   assert.equal(by('size:1:11')?.src, 'app', '18 sp against 16 pt');
@@ -345,16 +345,16 @@ test('check: a half with too few anchors has no fit, and a text\'s own place is 
   put(join(RUNS, 'r0', 'design', '.keep'), '');
   homeShot(join(RUNS, 'r0', 'screenshots', 'design', '1-10.png'));
   capture('r0', '1:10', '1-10', `<A>${st('Create Your Drama', 60, 160, 180, 24)}${st('Start', 165, 602, 45, 20)}${st('Templates', 20, 700, 100, 20)}</A>`, { w: 375, h: 812 });
-  assert.equal(design('check', 'r0').status, 0);
+  assert.equal(design('check', 'r0', '--standard').status, 0);
   const s = read(join(RUNS, 'r0', 'design', 'compare.json')).screens[0];
   assert.equal(s.fit.top.ok, false);
   assert.ok(!s.candidates.some((x: any) => x.kind === 'position'));
 });
 
-test('check --full: the words and a text\'s own place are items again, and the run keeps the rule set', () => {
+test('check: the full check is the default, --standard is asked for, and the run keeps its rule set', () => {
   cpSync(join(RUNS, 'r1'), join(RUNS, 'r1-full'), { recursive: true }); rmSync(join(RUNS, 'r1-full', 'design', 'compare.json'), { force: true });
-  const r = design('check', 'r1-full', '--full');
-  assert.equal(r.status, 0, r.out); assert.match(r.out, /full check/);
+  const r = design('check', 'r1-full');
+  assert.equal(r.status, 0, r.out); assert.match(r.out, /full check/); assert.doesNotMatch(r.out, /kept from/);
   const c = cands('r1-full', '1:10');
   const by = (id: string) => c.find((x: any) => x.id === id);
   assert.equal(by('copy:1:1a')?.app.text, 'Choose the template', 'other words are a copy item');
@@ -363,12 +363,17 @@ test('check --full: the words and a text\'s own place are items again, and the r
   assert.equal(read(join(RUNS, 'r1-full', 'design', 'compare.json')).rules, 'full');
   // everything the standard check finds is still found
   for (const id of ['align:1:14', 'padding:1:1i', 'missing:1:1e', 'truncated:1:1b']) assert.ok(c.some((x: any) => x.id === id), id);
-  // a later check without the flag keeps the full rules; --standard goes back
-  assert.match(design('check', 'r1-full').out, /kept from this run's last check/);
-  assert.ok(cands('r1-full', '1:10').some((x: any) => x.kind === 'copy'));
+  // --standard leaves words and places out, and a later check without a flag keeps it; --full goes back
   assert.equal(design('check', 'r1-full', '--standard').status, 0);
   assert.ok(!cands('r1-full', '1:10').some((x: any) => ['copy', 'position'].includes(x.kind)));
-  assert.equal(read(join(RUNS, 'r1-full', 'design', 'compare.json')).rules, undefined);
+  assert.equal(read(join(RUNS, 'r1-full', 'design', 'compare.json')).rules, 'standard');
+  assert.match(design('check', 'r1-full').out, /standard check.*kept from this run's last check/);
+  assert.ok(!cands('r1-full', '1:10').some((x: any) => x.kind === 'copy'));
+  assert.equal(design('check', 'r1-full', '--full').status, 0);
+  assert.ok(cands('r1-full', '1:10').some((x: any) => x.kind === 'copy'));
+  // a run checked before 2026-11-19 has no `rules` in its compare.json: it was standard and stays standard
+  const f = join(RUNS, 'r1-full', 'design', 'compare.json'), cmp = read(f); delete cmp.rules; put(f, cmp);
+  assert.match(design('check', 'r1-full').out, /standard check.*kept from this run's last check/);
   rmSync(join(RUNS, 'r1-full'), { recursive: true });
 });
 
@@ -451,7 +456,7 @@ test('check --recheck: earlier bugs fixed, still there, or to look at again', ()
   put(join(RUNS, 'r2', 'design', '.keep'), '');
   homeShot(join(RUNS, 'r2', 'screenshots', 'design', '1-10.png'));
   capture('r2', '1:10', '1-10', iosHome('Recently created dramas'), { w: 375, h: 812 });
-  const r = design('check', 'r2', '--recheck', 'r1', '--build', '15.3.0 (190100)');
+  const r = design('check', 'r2', '--recheck', 'r1', '--build', '15.3.0 (190100)', '--standard');
   assert.equal(r.status, 0, r.out);
   const s = read(join(RUNS, 'r2', 'design', 'compare.json')).screens[0];
   const now = Object.fromEntries(s.recheck.items.map((i: any) => [i.id, i.now]));
@@ -465,7 +470,7 @@ test('shared captures: another computer checks and shows the run from the commit
   const before = read(join(RUNS, 'r2', 'design', 'compare.json')).screens[0].candidates.map((c: any) => c.id).sort();
   // the phone's files are gone (a computer that pulled the repo)
   rmSync(join(RUNS, 'r2', 'screenshots'), { recursive: true, force: true });
-  const r = design('check', 'r2', '--recheck', 'r1');
+  const r = design('check', 'r2', '--recheck', 'r1', '--standard');
   assert.equal(r.status, 0, r.out);
   const after = read(join(RUNS, 'r2', 'design', 'compare.json')).screens[0].candidates.map((c: any) => c.id).sort();
   assert.deepEqual(after, before, 'the same differences from the 750 px copy');
@@ -854,7 +859,7 @@ test('partial screens: found, flagged, the rest listed, and only the drawn part 
   put(join(RUNS, 'r9', 'design', '.keep'), '');
   png(join(RUNS, 'r9', 'screenshots', 'design', '1-60.png'), 1125, 2436, [[20, 100, 200, 20], [20, 1242, 100, 20], [20, 1282, 100, 20], [150, 1282, 120, 20], [20, 1332, 200, 20]].map(b => [s3(b), '#ffffff'] as [number[], string]));
   capture('r9', '1:60', '1-60', `<A>${st('Preview title', 20, 100, 200, 20)}${st('Mode', 20, 442, 100, 20)}${st('Standard', 20, 482, 100, 20)}${st('Professional', 150, 482, 120, 20)}${st('Enhancement style', 20, 532, 200, 20)}</A>`, { w: 375, h: 812 });
-  const c = design('check', 'r9');
+  const c = design('check', 'r9', '--standard');
   assert.equal(c.status, 0, c.out);
   const s = read(join(RUNS, 'r9', 'design', 'compare.json')).screens.find((x: any) => x.id === '1:60');
   assert.equal(s.partial.offset, 412);

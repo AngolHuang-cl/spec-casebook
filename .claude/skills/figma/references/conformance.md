@@ -219,21 +219,21 @@ text size against the platform's own rendering of Figma's font (Android draws SF
 reports `font_width` once and flags a text 12 % off it); a date's digit counts (`copy`, number format). Shapes holding
 an image are not colour-checked, and a shape's colour is the most common colour inside it.
 
-**What the check holds the app to (user, 2026-11-06).** Not a text's words, and not where a text sits on the screen
-(a small offset of its own place is never an item). It does hold: (1) the padding and border of a text's box (button,
-chip, card, tag) the same as Figma's, (2) font size and the text's centring in its box, (3) the gaps between buttons.
-A text is paired by its words when they match, else by its place (the app text on the same line where Figma draws one),
-so other wording is neither `missing` nor `extra` and its box is still measured.
+**What the check holds the app to (full check, the default; user, 2026-11-19).** (1) The padding and border of a
+text's box (button, chip, card, tag) the same as Figma's, (2) font size and the text's centring in its box, (3) the
+gaps between buttons, and (4) a text's words (`copy`: a text paired with other words, one holding the other, or a
+number in another format; a text cut short stays `truncated` only) and (5) its place (`position`: an exactly matched
+text more than 4 pt from Figma's place after the projection, in a half with a fit). The run keeps its rule set
+(`rules: "full"` or `"standard"` in compare.json and on each screen; the Design tab names it on each screen).
 
-**Full check, on request (user, 2026-11-09).** The standard check above is the default: it tolerates a text's words and
-small absolute shifts. Only when the user asks for the old, unrestricted check ("full check", "old format", "check the
-words and positions too"), add `--full` to `check`: everything above, plus `copy` (a text paired with other words,
-one holding the other, or a number in another format; a text cut short stays `truncated` only) and `position` (an
-exactly matched text more than 4 pt from Figma's place after the projection, in a half with a fit). The run keeps the
-rule set (`rules: "full"` in compare.json and on each screen; the Design tab says 「Full check」 on the screen), so a
-later `check` of the same run stays full until `--standard`. Never switch a run to `--full` on your own judgment.
+**Standard check, on request (user, 2026-11-06; optional since 2026-11-19).** Only when the user asks for it ("standard
+check", "don't check the words", "ignore positions"), add `--standard` to `check`: no `copy` and no `position` items,
+and a text is paired by its words when they match, else by its place (the app text on the same line where Figma draws
+one), so other wording is neither `missing` nor `extra` and its box is still measured. A later `check` of the same
+run stays standard until `--full`. A run checked before 2026-11-19 has no `rules` in its compare.json: it was checked
+standard and stays so until `--full`. Never switch a run's rule set on your own judgment.
 
-`node scripts/design.ts … check <run dir> [--screen <ids>] [--recheck <earlier run>] [--full | --standard]` measures every new capture
+`node scripts/design.ts … check <run dir> [--screen <ids>] [--recheck <earlier run>] [--standard | --full]` measures every new capture
 against the Figma screen and draws its review sheet (`screenshots/design/<id>-sheet.png`: Figma and app side by side
 at one width, every candidate numbered on both). The script header has the rules; in short, Figma's width maps to the
 window width, each half of the screen is aligned on its matched texts (that fit only places shapes and icons), and
@@ -255,8 +255,8 @@ what is left is a candidate:
 | `control` | an icon control of the inventory (no label) with no tappable app element where Figma draws it | major |
 | `unspecced` | Android: a tappable app control (clickable and enabled in the page source, not under a later layer, under 30 % of the window) where Figma draws no node of about its size (overlapping half of the smaller, 1/25 to 4 times its area): not in the Design, or drawn elsewhere; the outer one of nested controls. Only on a capture in the frame's state, outside other features' areas (ported from rdqe-spec-contract-agent COVER-02, 2026-11-11: two misplaced Replace buttons passed every Figma-first item) | minor |
 | `extra` | short app text Figma does not draw, on no line where Figma draws a text | info |
-| `copy` | `--full` only: other words than Figma's (minor when one holds the other or only a number's format differs) | major |
-| `position` | `--full` only: an exactly matched text more than 4 pt from where Figma puts it | minor |
+| `copy` | full check (default; not with `--standard`): other words than Figma's (minor when one holds the other or only a number's format differs) | major |
+| `position` | full check (default; not with `--standard`): an exactly matched text more than 4 pt from where Figma puts it | minor |
 
 Letters, not OCR boxes (user, 2026-11-06): OCR boxes run about 2 pt wide on each side, which put the language chips
 3–5 pt short of padding in all where their letters sit 12–13 pt in from each edge, as in Figma; both review passes

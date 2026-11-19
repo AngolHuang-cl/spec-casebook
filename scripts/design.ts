@@ -12,11 +12,13 @@
 //                     only those the run has not captured (a design pass after a casebook run walks just these).
 //                     In a casebook run the device scripts capture a row's screens on their own (`case ID` arms
 //                     lib/design-watch.ts); this list is for the ones they could not match.
-//   check <run dir> [--screen <id,…>] [--recheck <earlier run>] [--build <version (build)>] [--full | --standard]
-//                     measure every new capture (below) and draw its sheet. --full: the full check (user, 2026-11-09),
-//                     only when the user asks for it: the words (`copy`) and each text's place on the screen
-//                     (`position`) are items again, beside everything the standard check holds; the run keeps the
-//                     rule set it was last checked with (compare.json `rules`) until --standard
+//   check <run dir> [--screen <id,…>] [--recheck <earlier run>] [--build <version (build)>] [--standard | --full]
+//                     measure every new capture (below) and draw its sheet. The full check is the default (user,
+//                     2026-11-19): the words (`copy`) and each text's place on the screen (`position`) are items,
+//                     beside layout, size, weight and colour. --standard: the standard check (user, 2026-11-06),
+//                     only when asked for: words and a text's own place are not items. The run keeps the rule set it
+//                     was last checked with (compare.json `rules`) until the other flag; a run checked before
+//                     2026-11-19 with no `rules` in its compare.json was checked standard and stays so
 //   settle <run dir>  merge the two review passes into design/findings.json
 //   decide [file]     apply a Design-tab decisions block (sent by its Save, or pasted from a file or stdin) to the runs' findings
 //   ebugs <run dir>   write design/ebug-findings.md: the settled bugs ticked for filing (all bugs with --all), each with
@@ -38,9 +40,9 @@
 //   state     under 40 % of the frame's short texts were found (another state), the keyboard is up where the frame has
 //             it down (or the other way), or the screen kept moving while it was captured                  major
 //   appearance the frame is dark and the capture light (or the other way)                                     major
-//   (no `copy` and no `position` since 2026-11-06, user: a text's words and its own place are not checked. A text
-//   is paired by its words, else by its place: the app text on the same line where Figma draws it. Both come back
-//   with --full, the full check (user, 2026-11-09):
+//   (the full check, the default again since 2026-11-19; with --standard, as from 2026-11-06 to 2026-11-19, there is
+//   no `copy` and no `position`: a text's words and its own place are not checked, and a text is paired by its words,
+//   else by its place: the app text on the same line where Figma draws it):
 //   copy      a Figma text paired with app text of other words (most similar, or on its line), or one holding the
 //             other, or a number in another format (a date's digit counts)                         major (minor: part, format)
 //   position  an exactly matched text more than 4 pt from where Figma puts it, after the projection     minor)
@@ -154,12 +156,16 @@ type Cand = { id: string; kind: string; severity: string; figma?: any; app?: any
 
 function measure() {
   const plan = planFresh(feature, platform);
-  // the rule set (user, 2026-11-09): standard by default; --full only when the user asks, and kept for the run's later
-  // checks (a check of one more screen must not mix rule sets) until --standard
-  if (process.argv.includes('--full') && process.argv.includes('--standard')) { console.error('--full or --standard, not both'); process.exit(2); }
-  const cmpWas = join(designDir, 'compare.json'), wasRules = existsSync(cmpWas) ? read(cmpWas).rules : undefined;
-  const full = process.argv.includes('--full') || (!process.argv.includes('--standard') && wasRules === 'full');
-  console.log(full ? `full check: words (copy) and each text's place (position) are items too${process.argv.includes('--full') ? '' : ' (kept from this run\'s last check; --standard to go back)'}` : 'standard check (words and a text\'s own place not checked; --full for the full check)');
+  // the rule set (user, 2026-11-19): full by default; --standard only when the user asks, and kept for the run's later
+  // checks (a check of one more screen must not mix rule sets) until --full. A compare.json written before 2026-11-19
+  // without `rules` was checked standard, so that run stays standard until --full.
+  const askFull = process.argv.includes('--full'), askStd = process.argv.includes('--standard');
+  if (askFull && askStd) { console.error('--full or --standard, not both'); process.exit(2); }
+  const cmpWas = join(designDir, 'compare.json'), wasRules: string | undefined = existsSync(cmpWas) ? read(cmpWas).rules ?? 'standard' : undefined;
+  const full = askFull ? true : askStd ? false : wasRules ? wasRules === 'full' : true;
+  const kept = !askFull && !askStd && wasRules;
+  console.log(full ? `full check: words (copy) and each text's place (position) are items${kept ? ' (kept from this run\'s last check; --standard for the standard check)' : ''}`
+    : `standard check: words and a text's own place not checked${kept ? ' (kept from this run\'s last check; --full for the full check)' : ''}`);
   if (gapLine(plan.source_gaps ?? { unread: [], incomplete: [] })) console.error(`  WARNING source read not complete: ${gapLine(plan.source_gaps)}; captures of those boards' screens cannot be checked (design.ts … status)`);
   const ex = join(featureDir(feature), 'specs', plan.spec_set, 'extracted'), out = join(ex, 'figma-source', 'design', 'out');
   const inv = existsSync(join(ex, 'inventory.json')) ? read(join(ex, 'inventory.json')) : { controls: [] };
@@ -176,7 +182,7 @@ function measure() {
     if (c.part > 1) { if (caps.has(c.screen)) parts.get(c.screen)!.push(c); } else { caps.set(c.screen, c); parts.set(c.screen, []); }
   }
   const prev = existsSync(join(designDir, 'compare.json')) ? read(join(designDir, 'compare.json')).screens.filter((s: any) => !caps.has(s.id)) : [];
-  const mixed = prev.filter((s: any) => (s.rules === 'full') !== full);
+  const mixed = prev.filter((s: any) => ((s.rules ?? 'standard') === 'full') !== full);
   if (mixed.length) console.error(`  NOTE ${mixed.length} screen(s) kept from the last check were measured with the ${full ? 'standard' : 'full'} check (${mixed.map((s: any) => s.id).join(', ')}): check them again without --screen to put the run on one rule set`);
   const state = existsSync(join(runDir, 'run-state.md')) ? readFileSync(join(runDir, 'run-state.md'), 'utf8') : '';
   const build = state.match(/\b[A-Z][A-Za-z]+(?: iOS| Android)? (\d+\.\d+\.\d+ \(\d+\))/)?.[1] ?? arg('build') ?? '';
@@ -301,7 +307,7 @@ function measure() {
         cands.push({ id: `${sample ? 'sample' : 'missing'}:${t.node}`, kind: sample ? 'sample' : 'missing', severity: sample ? 'info' : 'major', figma: { node: t.node, text: t.text, box: r1(t.box) } }); continue; }
       pairs.push({ t, a: hit.a, how });
       const appBox = hit.a.part > 1 ? undefined : r1(hit.a.f);
-      // no `copy` item: the words are not checked (user, 2026-11-06), except in the full check (--full, 2026-11-09)
+      // `copy` items in the full check (the default since 2026-11-19); none with --standard (words not checked, 2026-11-06)
       // a text cut short (its start, then an ellipsis) is the `truncated` item below, not other words
       const cut = /(…|\.\.\.)$/.test(hit.a.text) && n.startsWith(normLabel(hit.a.text.replace(/(…|\.\.\.)$/, '')));
       if (full && !cut) {
@@ -365,7 +371,7 @@ function measure() {
       // where a text sits on the screen is not an item (user, 2026-11-06: small offsets of a text's own place are not
       // checked); the offset is kept for the fit only. Padding and centring inside its box are (layoutCands).
       (p as any).off = { x: r1n(dx), y: r1n(dy) };
-      // the full check (--full, user 2026-11-09) holds it to Figma's place: more than 4 pt off, where the half has a fit
+      // the full check (the default since 2026-11-19) holds it to Figma's place: more than 4 pt off, where the half has a fit
       if (full && fit[half(p.t.box)].ok && (Math.abs(dx) > 4 || Math.abs(dy) > 4))
         cands.push({ id: `position:${p.t.node}`, kind: 'position', severity: 'minor', figma: { node: p.t.node, text: p.t.text, box: r1(tb) }, app: { text: p.a.text, box: r1(ab) }, delta: { x: r1n(dx), y: r1n(dy) } });
       // wrapping: the lines the OCR reads on each side (a text view's box is often taller than its lines: 「AI Mini⏎Drama」
@@ -489,7 +495,7 @@ function measure() {
         .map(([id, v]) => ({ id, note: v.note ?? '', ...(v.note_zh ? { note_zh: v.note_zh } : {}), now: id.startsWith('visual:') ? 'check' : now.has(id) ? 'still' : 'fixed' })) };
     }
     results.push({ id: scr.id, name: scr.name, board: scr.board, board_name: scr.board_name, case: cap.case || scr.route?.case || '', captured_at: cap.t, png: cap.png,
-      parts: parts.get(cap.screen)!.map(p => p.png), note: cap.note || '', build, ...(full ? { rules: 'full' } : {}), win: cap.win, k: r3(k), fw: Wf, arrival, fit,
+      parts: parts.get(cap.screen)!.map(p => p.png), note: cap.note || '', build, rules: full ? 'full' : 'standard', win: cap.win, k: r3(k), fw: Wf, arrival, fit,
       ...(fig.out.length ? { out: fig.out.map(o => ({ name: o.name, box: back(r1(o.box)) })) } : {}), ...(off ? { partial: { offset: r1n(off), frame_h: scr.abs[3] } } : {}), ...(cap.unsettled ? { unsettled: true } : {}),
       ...(lay.unmatched ? { layout_unmatched: lay.unmatched } : {}),
 
@@ -543,7 +549,7 @@ function measure() {
     for (const it of r.recheck.items) if (!it.id.startsWith('visual:')) it.now = now.has(it.id) ? 'still' : 'fixed'; }
   // one screen per line (writeJsonRows): the file is rewritten on every check and committed with the run
   writeJsonRows(join(designDir, 'compare.json'), { built_at: new Date().toISOString(), spec_set: plan.spec_set, platform, build, recheck_of: old ? basename(oldDir!) : undefined,
-    ...(full ? { rules: 'full' } : {}), ...(fontWidth ? { font_width: fontWidth } : {}), screens: all });
+    rules: full ? 'full' : 'standard', ...(fontWidth ? { font_width: fontWidth } : {}), screens: all });
   const n = (kind: string) => results.reduce((t, r) => t + r.candidates.filter((c: Cand) => c.kind === kind).length, 0);
   console.log(`${shown(join(designDir, 'compare.json'))}: ${results.length} screens measured (${all.length} in the file); ` +
     KINDS.map(k => `${n(k)} ${k}`).join(', '));
