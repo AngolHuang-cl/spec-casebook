@@ -1,0 +1,35 @@
+# 16.9.0.2611181 ISS-VEA-35 — play tapped at 09:20:53.395 with the playhead at 04:01 (selection end): decoder flushed/resumed, TextureView frame rate set 30.0 then back to 0.0 after ~0.14 s, no further frames (play does nothing)
+2026-11-19 09:20:53.395 10731 10731 I VRI[VideoEnhanceSetupActivity]@a338c0a: ViewPostIme pointer 0
+2026-11-19 09:20:53.395 10731 10731 I VRI[VideoEnhanceSetupActivity]@a338c0a: call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[VideoEnhanceSetupActivity]@a338c0a
+2026-11-19 09:20:53.404 10731 10731 I VRI[VideoEnhanceSetupActivity]@a338c0a: ViewPostIme pointer 1
+2026-11-19 09:20:53.412 10731 10731 I View    : setRequestedFrameRate frameRate=30.0, this=android.view.TextureView{9957eed V.ED..... ........ 0,0-1000,563}, caller=android.view.TextureView.lambda$getTextureLayer$0:488 android.view.TextureView.$r8$lambda$d3tcM
+2026-11-19 09:20:53.422 10731 11958 W SpeakerLayoutUtil: Built-in speaker's getSpeakerLayoutChannelMask not usable, defaulting to stereo.
+2026-11-19 09:20:53.424 10731 11958 D AudioTrack: getTimestamp_l(6363): device stall time corrected using current time 116122741327133
+2026-11-19 09:20:53.483 10731 11963 I MediaCodec: setCodecState state(1), called in 6, domain 1, 1
+2026-11-19 09:20:53.534 10731 10731 I View    : setRequestedFrameRate frameRate=0.0, this=android.view.TextureView{9957eed V.ED..... ........ 0,0-1000,563}, caller=android.view.TextureView.lambda$getTextureLayer$0:488 android.view.TextureView.$r8$lambda$d3tcMw
+2026-11-19 09:20:53.535 10731 11963 I CCodec  : [c2.exynos.h264.decoder] state->set(FLUSHING)
+2026-11-19 09:20:53.536 10731 11964 I CCodec  : [c2.exynos.h264.decoder] state->set(FLUSHED)
+2026-11-19 09:20:53.536 10731 11958 D MediaCodec: keep callback message for reclaim
+2026-11-19 09:20:53.537 10731 11963 I CCodec  : [c2.exynos.h264.decoder] state->set(RESUMING)
+2026-11-19 09:20:53.537 10731 11963 I CCodecConfig: query failed after returning 15 values (BAD_INDEX)
+2026-11-19 09:20:53.541 10731 11963 I CCodecBufferChannel: [c2.exynos.h264.decoder#40] 4 initial input buffers available
+2026-11-19 09:20:53.541 10731 11963 I CCodec  : [c2.exynos.h264.decoder] state->set(RUNNING)
+2026-11-19 09:20:53.542 10731 11976 I CCodec  : [c2.android.aac.decoder] state->set(FLUSHING)
+2026-11-19 09:20:53.543 10731 11976 I CCodec  : [c2.android.aac.decoder] state->set(FLUSHED)
+2026-11-19 09:20:53.543 10731 11958 D MediaCodec: keep callback message for reclaim
+2026-11-19 09:20:53.543 10731 11976 I CCodec  : [c2.android.aac.decoder] state->set(RESUMING)
+2026-11-19 09:20:53.544 10731 11976 I CCodecConfig: query failed after returning 21 values (BAD_INDEX)
+2026-11-19 09:20:53.544 10731 11976 I CCodecBufferChannel: [c2.android.aac.decoder#10] 4 initial input buffers available
+2026-11-19 09:20:53.545 10731 11976 I CCodec  : [c2.android.aac.decoder] state->set(RUNNING)
+2026-11-19 09:20:53.574 10731 11291 D CCodecBufferChannel: [c2.exynos.h264.decoder#40] Ignoring stale input buffer done callback: last flush index = 1190, frameIndex = 1190
+2026-11-19 09:20:53.590 10731 11958 D AudioTrack: setVolume(1.000000, 1.000000) pid : 10731
+
+# positive control — play tapped with the playhead at 02:00 (selection start)
+2026-11-19 09:21:14.677 10731 10731 I VRI[VideoEnhanceSetupActivity]@a338c0a: ViewPostIme pointer 0
+2026-11-19 09:21:14.686 10731 10731 I VRI[VideoEnhanceSetupActivity]@a338c0a: ViewPostIme pointer 1
+2026-11-19 09:21:14.691 10731 10731 I View    : setRequestedFrameRate frameRate=30.0, this=android.view.TextureView{9957eed V.ED..... ........ 0,0-1000,563}, caller=android.view.TextureView.lambda$getTextureLayer$0:488 android.view.TextureView.$r8$lambda$d3tcM
+2026-11-19 09:21:17.184 10731 11636 I CCodec  : [c2.android.aac.decoder] state->set(FLUSHING)
+2026-11-19 09:21:17.185 10731 11636 I CCodec  : [c2.android.aac.decoder] state->set(FLUSHED)
+2026-11-19 09:21:17.185 10731 11636 I CCodec  : [c2.android.aac.decoder] state->set(RESUMING)
+2026-11-19 09:21:17.187 10731 11636 I CCodec  : [c2.android.aac.decoder] state->set(RUNNING)
+2026-11-19 09:21:17.686 10731 10731 I VRI[VideoEnhanceSetupActivity]@a338c0a: call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[VideoEnhanceSetupActivity]@a338c0a

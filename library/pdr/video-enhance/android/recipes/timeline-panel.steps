@@ -1,0 +1,11 @@
+# Open AI Video Enhance from the Timeline clip toolbar. Starts: editor with clip $1 (file name prefix, e.g. ve-0600)
+# on the main track, clip not selected. Ends: the panel open. The clip toolbar opens at Split…; two 700 px drags
+# bring 「Enhance」 into view (the first drag is ignored if sent before the toolbar settles, hence the wait).
+lbl [AID]TimeLineVideo_$1
+waitfor "Split" --timeout 5
+fingerdrag 900 2250 200 2250 8
+fingerdrag 900 2250 200 2250 8
+lbl Enhance
+waitfor "AI Video Enhance" --timeout 5
+lbl AI Video Enhance
+waitfor "Selected Length" --timeout 10

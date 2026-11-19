@@ -1,0 +1,27 @@
+# ISS-VEA-41 Two failed tasks: charge at the tap and the failure (refunds are server-side, no app line)
+# PowerDirector Mobile for Android 16.9.0 (2611091), Stage server, Samsung SM-A5360 / Android 15 (phone time, UTC+8)
+# Video Enhance task lines (session = charge, transcode, upload, status, errors, push, toasts) and the balance
+# when it changes, in the windows below; identical status polls folded; tokens dropped, URL queries cut at '?'.
+
+## TC-152 Enhance tap (2026-11-18 17:40:30–17:41:20; logs/R2-f-20261118-192243/logcat-live.txt)
+2026-11-18 17:40:36.317 CreditSystemManager: totalRemain=30810
+2026-11-18 17:40:37.212 Create session: start
+2026-11-18 17:40:37.981 AIVideoAnime:  create session response code->200
+2026-11-18 17:40:37.984 Create session: end
+2026-11-18 17:40:37.991 Transcode: start
+2026-11-18 17:41:15.696 Transcode: finish
+2026-11-18 17:41:15.936 Upload to S3: start
+
+## TC-152 failure (2026-11-18 18:51:15–18:51:30; logs/R2-f-20261118-192243/logcat-live.txt)
+2026-11-18 18:51:22.039 AIVideoAnime:  upload response code->200
+2026-11-18 18:51:22.040 Apply Effect: start
+2026-11-18 18:51:22.040 Upload to S3: finish
+2026-11-18 18:51:22.312 AIVideoAnime:  apply effect response code->401
+2026-11-18 18:51:22.360 Toast   : show: caller = o2m.emit:84
+2026-11-18 18:51:22.367 Toast   : show: contextDispId = 0 mCustomDisplayId = -1 focusedDisplayId = 0 isActivityContext = true
+
+## TC-112 upload 400 (2026-11-18 13:47:50–13:48:30; logs/R2-e-20261118-173519/logcat-live.txt)
+2026-11-18 13:48:10.419 AIVideoAnime:  upload response code->400
+2026-11-18 13:48:10.422 Upload to S3: finish
+2026-11-18 13:48:10.461 Toast   : show: caller = o2m.emit:84
+2026-11-18 13:48:10.466 Toast   : show: contextDispId = 0 mCustomDisplayId = -1 focusedDisplayId = 0 isActivityContext = true

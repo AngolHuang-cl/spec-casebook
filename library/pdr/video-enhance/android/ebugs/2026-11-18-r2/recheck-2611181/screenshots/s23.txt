@@ -1,0 +1,3 @@
+Allow PowerDirector to access music and audio on this device?
+[Button] Allow
+[Button] Don’t allow

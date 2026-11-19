@@ -2,6 +2,10 @@
 
 Part of the `ebug-tr-filer` skill (read `SKILL.md` and `references/casebook-overlay.md` first). Build it before any sign-off (order of work, step 6).
 
+**In the casebook repo the page is built by `node scripts/ebug-review.ts <batch dir>`** (user, 2026-11-19): drafts →
+`bodies.json` → format check → page from `scripts/ebug-review-page.tpl`, with the batch's optional `review.json`.
+Change the layout in the template, never in a batch folder; the rules below describe what it already does.
+
 ### Build it from the eBug draft file, not from the report (2026-09-16)
 
 **The cards on the review page are the eBug entries themselves.** Read

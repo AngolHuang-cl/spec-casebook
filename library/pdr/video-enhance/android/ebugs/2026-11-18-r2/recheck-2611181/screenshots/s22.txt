@@ -1,0 +1,4 @@
+[AID]File_Access_Permission
+File access permission is required
+Before starting your video editing, PowerDirector needs your permission to access your media files (videos, photos, music), and save projects and produced videos to your storage.
+Next

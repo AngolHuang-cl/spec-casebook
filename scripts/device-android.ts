@@ -97,7 +97,8 @@
 // Defaults (override with env): ANDROID_HOME ~/Library/Android/sdk, JAVA_HOME Homebrew openjdk@17,
 // CASEBOOK_ANDROID_PACKAGE (else android.package in library/<product>/product.json), CASEBOOK_SERIAL (else the only adb device).
 // Every command stamps <run dir>/activity.log (run-log.ts `time` reads it). The script never changes a system setting
-// except `wifi`; UiAutomator2 itself relaxes the hidden-API policy while a session is open and restores it on `stop`.
+// except `wifi` (other settings a row needs: scripts/phone-settings.ts); UiAutomator2 itself relaxes the hidden-API
+// policy while a session is open and restores it on `stop`.
 import { appendFileSync, closeSync, existsSync, mkdirSync, openSync, readdirSync, readFileSync, renameSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
 import { execFileSync, spawn } from 'node:child_process';
 import { homedir } from 'node:os';

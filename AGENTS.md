@@ -263,6 +263,10 @@ lines; put the full rule in the skill or reference file that applies it and poin
   runs are too frequent and the repo would bloat. Pages say when a run's images are not on this computer.
 - **Page layout (user, 2026-11-06).** Every tab has the same page width and side gutter (`--gutter` in
   `scripts/page-shared.css.tpl`); Results shows each case in full by default, with Compact list as the option.
+- **Formatting check on every page (user, 2026-11-19).** Any HTML page or artifact made or changed is looked at
+  rendered before hand-over (about 1100 px and 375 px, both languages, light and dark): no mark orphaned on its own
+  line, even columns, unambiguous legends, a better side on every compared row; fix and look again
+  (`spec-casebook/references/page-checks.md`).
 - **One-off HTML pages (user, 2026-11-05).** A page asked for as HTML is a local file, not an artifact, and never goes
   on the Desktop: it goes in `library/<product>/<feature>/comparisons/` (git-ignored, local only), named
   `<date>_<topic>.html`. The committed spec agent comparisons stay in `<platform>/comparisons/`.
@@ -279,9 +283,23 @@ lines; put the full rule in the skill or reference file that applies it and poin
 - **Chat waits go to the bottom (user, 2026-11-06, REQ-107).** The AI Mini Drama chat pins the sent message to the
   top (R-250), so a wait or check for a new card taps ↓ first (`waitfor … --bottom`, `expect … --bottom`, `bottom`),
   except in the rows that test the scrolling itself (`run-android.md`).
-- **On the phone (2026-10-21/27).** Wi-Fi may be toggled for offline cases once the phone is on USB (other system
-  settings need the user's go-ahead); rows are reached only with `scrollto` / `pink`; Auto-Lock Never, `device.ts
+- **On the phone (2026-10-21/27).** Wi-Fi may be toggled for offline cases once the phone is on USB (other settings
+  a row needs: *Phone settings for fixtures*, below); rows are reached only with `scrollto` / `pink`; Auto-Lock Never, `device.ts
   restart` at every segment, never uninstall WDA; exit 75 = BLOCKER, pushed to the user (`run.md` steps 1, 3, 4).
+- **Phone settings for fixtures (user, 2026-11-18).** When a row's fixture or setup needs a phone or app setting (app
+  notifications off/on, app permissions, photo/media access, gallery contents such as hiding the test videos for an
+  empty-album row, in-app account consents such as Google Drive for the test account), the run changes it itself, with
+  no separate go-ahead, and restores it after the row; Android via `scripts/phone-settings.ts` (`run.md` step 4,
+  `run-android.md`). Never typing passwords, purchases, and the no-uninstall rules (PowerDirector on the QA iPhone, WDA) stay.
+- **eBug review page by script (user, 2026-11-19).** Every batch's review page is built automatically right after its
+  drafts by `node scripts/ebug-review.ts <batch dir>` from `scripts/ebug-review-page.tpl` (per-batch wording in an
+  optional `review.json`), never by a batch's own generator, and handed over by opening it in the browser pane and
+  sending the file (`spec-casebook/references/ebugs.md` step 4).
+- **Test purchases in the app (user, 2026-11-19).** The agent may always buy the Pro test subscription and credit
+  packs in PowerDirector on the test account, with no separate go-ahead, as long as the Google Play sheet shows a test
+  purchase (license tester, 「Test card, always approves」); a sheet showing a real payment method stops for the user
+  (`fixtures.md`). Never types a password. Claude Code's auto mode allows it through `autoMode.allow` in
+  `.claude/settings.json` (the safety check refused the tap without it).
 - **One Appium server per port (user, 2026-11-12).** Segments never start `appium` by hand; `device-android.ts
   start|restart` starts the shared server only when none exists (also on Windows) and `status` counts them
   (`scripts/lib/appium-server.ts`, `run-android.md`).

@@ -1,0 +1,4 @@
+Allow PowerDirector to access photos and videos on this device?
+[Button] Allow limited access
+[Button] Allow all
+[Button] Don’t allow

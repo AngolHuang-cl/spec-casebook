@@ -1,0 +1,50 @@
+Filing as Creator: ETHAN_HSU
+  Creator verified — last filed DRA262611P0229 on 2026-11-19
+Format check: PDR-A 16.9.0
+
+1 bug(s) checked — 0 error(s), 0 warning(s)
+Format OK — clear to file.
+
+[Video-Enhance-R2-01] created DRA262611P0230
+  DRA262611P0230  sev 2  RD  BugNeedReview  build 2611181  by ETHAN_HSU
+
+created 1 · skipped 0 · failed 0
+
+Read-back (Status: OK is not proof — Version has been seen not to persist):
+  DRA262611P0230  sev 2  RD  BugNeedReview  build 2611181  by ETHAN_HSU
+
+Required fields the API cannot set — fill them on each ticket's web edit form:
+  DRA262611P0230  OS Language (Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean)
+
+Attachments are NOT part of create — upload them with `ecl_if3.py upload <BugCode> <files…>` (SKILL.md → IF3 attachments over the API).
+Filing as Creator: ETHAN_HSU
+  Creator verified — last filed DRA262611P0230 on 2026-11-19
+Format check: PDR-A 16.9.0
+
+5 bug(s) checked — 0 error(s), 0 warning(s)
+Format OK — clear to file.
+
+[Video-Enhance-R2-02] created DRA262611P0231
+  DRA262611P0231  sev 2  RD  BugNeedReview  build 2611181  by ETHAN_HSU
+[Video-Enhance-R2-03] created DRA262611P0232
+[Video-Enhance-R2-04] created DRA262611P0233
+[Video-Enhance-R2-05] created DRA262611P0234
+[Video-Enhance-R2-06] created DRA262611P0235
+
+created 5 · skipped 0 · failed 0
+
+Read-back (Status: OK is not proof — Version has been seen not to persist):
+  DRA262611P0231  sev 2  RD  BugNeedReview  build 2611181  by ETHAN_HSU
+  DRA262611P0232  sev 2  RD  BugNeedReview  build 2611181  by ETHAN_HSU
+  DRA262611P0233  sev 2  PM  BugNeedReview  build 2611181  by ETHAN_HSU
+  DRA262611P0234  sev 2  PM  BugNeedReview  build 2611181  by ETHAN_HSU
+  DRA262611P0235  sev 2  PM  BugNeedReview  build 2611181  by ETHAN_HSU
+
+Required fields the API cannot set — fill them on each ticket's web edit form:
+  DRA262611P0231  OS Language (Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean)
+  DRA262611P0232  OS Language (Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean)
+  DRA262611P0233  OS Language (Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean)
+  DRA262611P0234  OS Language (Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean)
+  DRA262611P0235  OS Language (Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean)
+
+Attachments are NOT part of create — upload them with `ecl_if3.py upload <BugCode> <files…>` (SKILL.md → IF3 attachments over the API).

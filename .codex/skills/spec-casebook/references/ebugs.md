@@ -49,12 +49,23 @@ controls, and the `decision` entries (Won't Fix, NAB, PM rulings) that make a fi
    the other OS is not a duplicate (new entry; its BugCode may go in the Note); a match on the same OS's TRs, open or
    resolved, is left off the drafts and the review page entirely and recorded only in `dedupe.txt`; a **closed**
    same-OS ticket whose bug is back stays a new entry naming the closed ticket as related.
-4. Build the self-contained review page (`ebug-tr-filer/references/review-page.md` layout), publish it, give the link, and stop. Log excerpts on
+   **Whole pool (2026-11-19, Video Enhance Android R2).** Check that each entry's `searched N candidate(s)` matches the
+   pool (`ecl_query.py bugs --text "<feature core>" --product "<ecl_product>"`), and read every ticket in the
+   closing 「Open in the pool on <version>」 list against every entry, ranked or not. The R2 batch searched 90 of 182
+   tickets (only Short Descriptions containing 「AI Video Enhance」, not 「Video Enhance」) and the word-overlap ranking
+   scored the rewordings at 0–20 %, so DRA262611P0115 and P0113 were drafted again as ISS-VEA-36 / 42; `dedupe` now
+   also searches the name without 「AI」 and prints that list (`ebug-tr-filer/references/dedupe.md`).
+4. Build the review page with `node scripts/ebug-review.ts library/<product>/<feature>/<platform>/ebugs/<batch>` right
+   after the drafts, every time they change (user, 2026-11-19): it runs `drafts_to_bodies.py` and the format check, then
+   writes `<date>_eBug_review_<…>.html` next to the drafts from `scripts/ebug-review-page.tpl`; no per-batch review
+   generator. What the drafts do not say (TR, a card's one-line why, context) goes in the batch's optional
+   `review.json` (keys in the script header). Hand it over without being asked (user, 2026-11-19): open it for the user in the browser pane (a
+   static server on the batch folder, tab fronted) and send the HTML file itself in chat, then stop. Log excerpts on
    the cards start collapsed (`<details>`) and wrap (`pre-wrap`); nothing on the page may run past the right edge in a
    half-width window (user, 2026-10-28): check at 600 px with every section open before handing it over. Filing
    waits for the reviewer's Copy decisions, the account, the TRCode and the source tag. The page prefills Creator,
    TRCode, source tag and method from the newest filed batch (`node scripts/ebug-defaults.ts <feature> <platform>
-   --json`, read by the batch's review generator), each marked 「from <batch> — confirm」 rather than left blank.
+   --json --before <batch>`, read by `ebug-review.ts`), each marked 「from <batch> — confirm」 rather than left blank.
 5. On the decisions: "Same build" / "Same TR" means the previous batch's TR when the build matches — read the TR
    header first and stop if it names another build. Save the decisions verbatim as `ebugs/<date>/decisions.md`
    (with any split or rewrite note), rewrite the entries, regenerate bodies, format check to 0 errors, dedupe again

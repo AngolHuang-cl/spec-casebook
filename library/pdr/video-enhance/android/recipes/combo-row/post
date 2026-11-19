@@ -1,0 +1,14 @@
+#!/bin/bash
+# post <ID>: pull the newest Video Enhance file to exports/<ID>.mp4, ffprobe it, compare frame 45 with the source.
+ID=$1; R=/Users/ethanhsu/Desktop/pdr-spec-casebook/library/pdr/video-enhance/android/runs/2026-11-18-r2-full; S=$(dirname $0)
+DIR="/sdcard/Movies/cyberlink/PowerDirector/Video Enhance"
+F=$(adb -s R5CTB22S05Y shell "ls -t \"$DIR\" | head -1" | tr -d '\r')
+adb -s R5CTB22S05Y shell "ls -l \"$DIR/$F\"" | tr -d '\r'
+adb -s R5CTB22S05Y pull "$DIR/$F" $R/exports/$ID.mp4 >/dev/null || exit 1
+echo "file: $F -> exports/$ID.mp4"
+ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height,r_frame_rate,avg_frame_rate,nb_frames,duration -show_entries format=duration -of compact $R/exports/$ID.mp4
+W=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 $R/exports/$ID.mp4)
+# PSNR of result scaled to 720p vs source (first 96 frames, at source frame rate)
+ffmpeg -hide_banner -i $R/exports/$ID.mp4 -i $S/src/ve-real-000320-720p30.mp4 -filter_complex "[0:v]fps=30,scale=1280:720:flags=lanczos,setpts=PTS-STARTPTS[a];[1:v]fps=30,setpts=PTS-STARTPTS[b];[a][b]psnr" -frames:v 96 -f null - 2>&1 | grep -o "PSNR y:.*average:[0-9.inf]*"
+# compare image: frame at 1.5 s, crop 640x360 from centre-ish region, 2x, original | result
+ffmpeg -v error -y -ss 1.5 -i $S/src/ve-real-000320-720p30.mp4 -ss 1.5 -i $R/exports/$ID.mp4 -filter_complex "[0:v]crop=480:270:400:180,scale=960:540:flags=neighbor[a];[1:v]scale=1280:720:flags=lanczos,crop=480:270:400:180,scale=960:540:flags=neighbor[b];[a][b]hstack" -frames:v 1 $R/screenshots/$ID-compare.png && echo "screenshots/$ID-compare.png"

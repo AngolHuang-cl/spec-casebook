@@ -59,8 +59,9 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
   `purchase`, `low-balance`, `new-account`, `chat-count`, `voice`, `system-setting`, `app-language`) and lists the
   needs this run cannot meet under `unavailable` with the reason. `run-log init` records those cases Blocked
   (test-data) at once; a reason that starts with a disposition (`"observability: no fault switch makes STT fail"`)
-  records that disposition instead. Delete a line from `unavailable` when the user provides the fixture or allows the
-  setting. When a phase has `video` cases, its **first** step after setup is the preflight: one template drama
+  records that disposition instead. Delete a line from `unavailable` when the user provides the fixture. Phone and
+  app settings (`system-setting`, `app-language`, gallery contents such as `no-videos`) are never `unavailable`: the
+  run sets them itself (step 4, *Phone settings for fixtures*, user 2026-11-18). When a phase has `video` cases, its **first** step after setup is the preflight: one template drama
   straight to a Seedance 2.0 preview (`waitfor` with the success and failure texts), then
   `run-log.ts <run dir> gate video pass|fail "<time, duration, log cause>"`. A fail records every video case Blocked
   (defect, "Gate video failed …", retest queue); keep the preflight drama for the storyboard and video segments.
@@ -232,8 +233,16 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
    **Wi-Fi during a run (user, 2026-10-21, REQ-020):** offline cases may turn Wi-Fi off and on once the phone is
    confirmed on USB (`xcrun devicectl device info details --device <udid>` shows transport `wired`; a loopback proxy
    to the phone's Wi-Fi address is still Wi-Fi) and `device.ts status` shows the live session. Turn it back on right
-   after the case and confirm the app is online. Other system settings (Airplane mode, notifications, language) need
-   the user's go-ahead; cases that need them are Blocked `--as test-data` with that reason.
+   after the case and confirm the app is online.
+   **Phone settings for fixtures (user, 2026-11-18):** a row whose fixture or setup needs a phone or app setting gets
+   it from the run, with no separate go-ahead: app notifications off/on, app permissions (grant every one asked for;
+   the user also said "you can access anything you want on the phone"), photo/media access, gallery contents (hide
+   the test videos for an empty-album row), language, Airplane mode, and in-app account consents such as Google Drive
+   for the test account. Change it right before the row, restore it right after (also when the row fails), read back
+   both, and record each change in the result text. Such a row is never Blocked for the setting. Android:
+   `scripts/phone-settings.ts` (`run-android.md`); the iOS equivalent is not scripted yet, so on iOS the agent does
+   it through the Settings app with Appium. Unchanged: never type a password, purchases follow their own rule (`topup`),
+   never uninstall PowerDirector on the QA iPhone or WDA.
 5. Keep off-case findings in `<run dir>/observations.md` (O-1, O-2 …, closest case, evidence).
 6. Blocked needs an exact reason (missing fixture, upstream failure, account state). Never mark Pass on prior
    evidence.

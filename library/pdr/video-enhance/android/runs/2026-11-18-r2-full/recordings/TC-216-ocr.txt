@@ -1,0 +1,38 @@
+0 0.000000 frame  | preview 06:29/12:30 | sel 06:00
+1 1.535511 frame  | preview 06:10/12:30 | sel 06:19
+2 1.631167 frame  | preview 06:04/12:30 | sel 06:25
+3 1.720956 frame  | preview 05:57/12:30 | sel 06:32
+4 1.821278 frame  | preview 05:51/12:30 | sel 06:38
+5 1.906267 frame  | preview 05:45/12:30 | sel 06:44
+6 1.990500 frame  | preview 05:39/12:30 | sel 06:50
+7 2.088622 frame  | preview 05:32/12:30 | sel 06:57
+8 2.188822 frame  | preview 05:26/12:30 | sel 07:03
+9 2.257044 frame  | preview 05:19/12:30 | sel 07:10
+10 2.338889 frame  | preview 05:13/12:30 | sel 07:16
+11 2.426556 frame  | preview 05:06/12:30 | sel 07:23
+12 2.507733 frame  | preview 05:00/12:30 | sel 07:29
+13 2.606567 frame  | preview 04:53/12:30 | sel 07:36
+14 2.689867 frame  | preview 04:47/12:30 | sel 07:42
+15 2.773122 frame  | preview 04:41/12:30 | sel 07:48
+16 2.873922 frame  | preview 04:34/12:30 | sel 07:55
+17 2.990556 frame  | preview 04:34/12:30 | sel 07:55
+18 3.017322 frame  | preview 04:34/12:30 | sel 07:55
+19 3.039778 frame  | preview 04:30 | sel 08:00
+20 3.060933 frame  | preview 04:30 | sel 08:00
+21 3.091978 frame  | preview 04:30 | sel 08:00
+22 3.097944 frame  | preview 04:30 | sel 08:00
+23 3.114478 frame  | preview 04:30 | sel 08:00
+24 3.192167 frame  | preview 04:30 | sel 08:00
+25 3.259867 frame  | preview 04:30 | sel 08:00
+26 3.343256 frame  | preview 04:30 | sel 08:00
+27 3.426544 frame  | preview 04:30 | sel 08:00
+28 3.444244 frame 54 | preview 04:30 | sel 08:00
+29 3.525922 frame 54 | preview 04:30 | sel 08:00
+30 3.609500 frame 54 | preview 04:30 | sel 08:00
+31 3.676200 frame 54 | preview 04:30 | sel 08:00
+32 3.743067 frame 54 | preview 04:30 | sel 08:00
+33 3.809378 frame 54 | preview 04:30 | sel 08:00
+34 3.876033 frame 54 | preview 04:30 | sel 08:00
+35 6.005867 frame 54 | preview 04:30 | sel 08:00
+36 6.035822 frame 54 | preview 04:30/12:30 | sel 08:00
+37 6.053333 frame 54 | preview 04:30/12:30 | sel 08:00

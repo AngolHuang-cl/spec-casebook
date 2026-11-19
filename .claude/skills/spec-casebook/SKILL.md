@@ -254,6 +254,7 @@ CSV rather than asking the user to open the page. Never edit an approved `cases.
 | `references/run.md` | Any on-device run segment, phase wrap-up or run plan (iPhone and shared run rules) |
 | `references/run-android.md` | Android runs, together with `run.md` |
 | `references/ebugs.md` | Turning run failures into eBug drafts, the review page and filing |
+| `references/page-checks.md` | The formatting check every HTML page or artifact gets before hand-over |
 
 Paths are relative to this skill's folder (`.claude/skills/spec-casebook/`, Codex: `.codex/skills/spec-casebook/`).
 A segment subagent reads this file and `run.md` (plus `run-android.md` on Android), not the analysis references.

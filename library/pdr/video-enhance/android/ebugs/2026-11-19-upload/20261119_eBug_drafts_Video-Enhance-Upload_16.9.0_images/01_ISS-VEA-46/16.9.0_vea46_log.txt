@@ -1,0 +1,20 @@
+# PowerDirector Android 16.9.0.2611181 (Stage), SM-A5360, Wi-Fi 17F_QA_Wifi_5G, account cltqauiap2 (Pro). Video Enhance, clip ve-real-000320-720p30 (1.02 MB, 1,018,610 bytes; 00:03, 30fps · 720p), Standard / Natural / 30fps / 720p, Enhance 4.
+# Enhance tapped 11:35:00. Upload to S3 11:35:04.690 -> upload response 200 at 11:36:09.713: 65.0 s (earlier today 10:46:34 -> 10:47:39 and 10:48:30 -> 10:49:35, 65 s each).
+# The dialog read 0% at +2..+4 s, 100% from +6 s, and stayed at 100% until it closed at ~+69 s (Recent task opened 11:36:10.3).
+# Excerpt: lines with URLs, keys, tokens or signatures removed; credit detail cut to the total.
+2026-11-19 11:35:00.997 26954 30410 D CreditSystemManager: getMemberCreditRemain, gGetMemberRemainResponse: GGetMemberRemainResponse(totalRemain=29684)
+2026-11-19 11:35:01.347 26954 30929 D CreditSystemManager: getMemberCreditRemain, gGetMemberRemainResponse: GGetMemberRemainResponse(totalRemain=29684)
+2026-11-19 11:35:01.925 26954 30929 E Create session: start
+2026-11-19 11:35:03.283 26954 27060 D AIVideoAnime:  create session response code->200
+2026-11-19 11:35:03.286 26954 30929 D Create session: createNewSession: [B@4aebd77
+2026-11-19 11:35:03.286 26954 30929 E Create session: end
+2026-11-19 11:35:03.294 26954 30929 E Transcode: start
+2026-11-19 11:35:04.506 26954 30929 E Transcode: finish
+2026-11-19 11:35:04.690 26954 27081 E Upload to S3: start
+2026-11-19 11:36:09.713 26954 27060 D AIVideoAnime:  upload response code->200
+2026-11-19 11:36:09.713 26954 27081 E Apply Effect: start
+2026-11-19 11:36:09.713 26954 27081 E Upload to S3: finish
+2026-11-19 11:36:10.103 26954 27060 D AIVideoAnime:  apply effect response code->200
+2026-11-19 11:36:10.252 26954 26954 D AIFeatureRepository: applyEffect: delay start 12800
+2026-11-19 11:36:10.300 26954 26954 I VRI[VideoEnhanceRecentTasksActivity]@c7eebce: setView = com.android.internal.policy.DecorView@2039e00 IsHRR=false TM=true
+2026-11-19 11:36:10.878 26954 30410 E Apply Effect: finish

@@ -1,5 +1,17 @@
 {
   "deniedMcpServers": [
-    { "serverName": "claude.ai Figma" }
-  ]
+    {
+      "serverName": "claude.ai Figma"
+    }
+  ],
+  "autoMode": {
+    "environment": [
+      "$defaults",
+      "This repo drives CyberLink's own QA phones (Android over adb with scripts/device-android.ts, iOS with scripts/device.ts) to test PowerDirector builds. The Android test account (cltqauiap2@gmail.com) is a Google Play license tester of PowerDirector, so its in-app purchases go through Google Play's test sheet (「Test card, always approves」, 「This is a test subscription … You will not be charged.」) and cost no real money."
+    ],
+    "allow": [
+      "$defaults",
+      "Test purchases in PowerDirector on a QA phone (user, 2026-11-19, AGENTS.md › Test purchases in the app): tapping 「Subscribe」, 「Buy」, 「1-tap buy」 or the equivalent confirm button on a Google Play purchase sheet to buy the PowerDirector Pro test subscription or an in-app credit pack, through scripts/device-android.ts or scripts/device.ts (lbl, tap, el and similar), when the sheet shows a test purchase (「Test card, always approves」 or 「You will not be charged」). Not allowed: a sheet showing a real card or other real payment method, typing a password, or any purchase outside PowerDirector."
+    ]
+  }
 }

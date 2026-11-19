@@ -33,3 +33,20 @@ offer (16.9.0 build 2611091); its amount there is unchecked.
 Right after a Google Play subscription, Mine › Credits shows 「--」 and every launch logs `getCreditRemain error,
 creditSystemUUID is null` (also `doVerifyPurchase error`, `checkFeatureCredit … JsonSyntaxException`). A relaunch a
 minute later shows the balance with the monthly credits added; relaunch before reading prices or the pill.
+
+## KP-070 Credit Details drops the current month after local midnight
+- kind: quirk · platform: android · use: run, ebug · tags: credits, ledger, date
+- source: Video Enhance Android run 2026-11-18-r2-full O-25, O-31 · verified: 16.9.0 build 2611091 (2026-11-19)
+
+Between local midnight (UTC+8) and the server's UTC date change, Mine › Credits › Details opened on the previous
+month's group with no current-month group, also after a relaunch, while logcat `getCreditHistory` listed the new
+charges; before midnight they showed. Read ledger rows in daytime or from logcat; recheck across a month boundary
+before filing.
+
+## KP-071 Buying credits is followed by an offer and a backup dialog
+- kind: fact · platform: android · use: analysis, run · tags: credits, buy-more, dialog
+- source: Video Enhance Android run 2026-11-18-r2-full O-12 · verified: 16.9.0 build 2611091 (2026-11-18)
+
+After a 500-credit test purchase the app offered 「Want to get 50 Credits, too?」 (「NT$170.00」, 「Not now」); 「Not
+now」 then opened 「Check Backup Protection」 over My Credits (「Back up now」, 「Later」, 「Don't show again」 unticked).
+Neither is in a feature spec; close both before the next step.

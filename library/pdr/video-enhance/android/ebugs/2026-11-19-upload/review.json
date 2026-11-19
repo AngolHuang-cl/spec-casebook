@@ -1,0 +1,1 @@
+{ "run": false, "related": { "ISS-VEA-46": "No ticket on the upload time. Related, not the same: DRA262611P0084 (total task time), DRA262608-0071 / 0072 (processing progress); DRA252508-0102 (the 100% ring, closed NAB in 15.6.0)." }, "why": { "ISS-VEA-46": "Defect against your 1-minute rule: every 1 MB upload on 2611181 took 65 s, with the ring at 100% from +6 s." } }

@@ -1,0 +1,36 @@
+# 16.9.0.2611181 ISS-VEA-38 — PowerDirector notifications off (POST_NOTIFICATIONS revoked USER_FIXED, app-op ignore, channel NONE at 10:43:00).
+# Task 1: Enhance 10:46:29, upload 10:46:34 → 10:47:39, Recent task opens 10:47:39.9; task 2: Enhance 10:48:26, upload 10:48:30 → 10:49:35, Recent task 10:49:36.2.
+# No 'Turn on notifications' dialog after either upload (screen read every ~2 s for 14 s after each). notify() lines below are the task-done notifications, posted while blocked.
+# Excerpt: URLs, keys and per-item credit data removed.
+2026-11-19 10:46:31.327 26954 27091 D CreditSystemManager: getMemberCreditRemain, gGetMemberRemainResponse: GGetMemberRemainResponse(totalRemain=29692)
+2026-11-19 10:46:31.672 26954 27091 D CreditSystemManager: getMemberCreditRemain, gGetMemberRemainResponse: GGetMemberRemainResponse(totalRemain=29692)
+2026-11-19 10:46:32.129 26954 27091 E Create session: start
+2026-11-19 10:46:32.626 26954 27060 D AIVideoAnime:  create session response code->200
+2026-11-19 10:46:32.629 26954 27091 E Create session: end
+2026-11-19 10:46:34.424 26954 27091 E Upload to S3: start
+2026-11-19 10:47:39.380 26954 27060 D AIVideoAnime:  upload response code->200
+2026-11-19 10:47:39.380 26954 27091 E Upload to S3: finish
+2026-11-19 10:47:39.779 26954 27060 D AIVideoAnime:  apply effect response code->200
+2026-11-19 10:47:39.909 26954 26954 I InsetsController: setRequestedVisibleTypes: visible=false, mask=statusBars captionBar, host=com.cyberlink.powerdirector.DRA140225_01/com.cyberlink.powerdirector.f
+2026-11-19 10:47:39.913 26954 26954 I InsetsController: onStateChanged: host=com.cyberlink.powerdirector.DRA140225_01/com.cyberlink.powerdirector.feature.aivideoenhance.ui.VideoEnhanceRecentTasksActiv
+2026-11-19 10:47:39.916 26954 26954 I VRI[VideoEnhanceRecentTasksActivity]@32cdefb: setView = com.android.internal.policy.DecorView@2ed50c4 IsHRR=false TM=true
+2026-11-19 10:48:00.966 26954 28228 D CreditSystemManager: getMemberCreditRemain, gGetMemberRemainResponse: GGetMemberRemainResponse(totalRemain=29688)
+2026-11-19 10:48:26.880 26954 28228 D CreditSystemManager: getMemberCreditRemain, gGetMemberRemainResponse: GGetMemberRemainResponse(totalRemain=29688)
+2026-11-19 10:48:27.232 26954 28228 D CreditSystemManager: getMemberCreditRemain, gGetMemberRemainResponse: GGetMemberRemainResponse(totalRemain=29688)
+2026-11-19 10:48:27.687 26954 28228 E Create session: start
+2026-11-19 10:48:28.621 26954 27060 D AIVideoAnime:  create session response code->200
+2026-11-19 10:48:28.624 26954 28228 E Create session: end
+2026-11-19 10:48:30.059 26954 28228 E Upload to S3: start
+2026-11-19 10:48:41.894 26954 28489 I NotificationManager: com.cyberlink.powerdirector.DRA140225_01: notify(2, null, Notification(channel=default channel …)
+2026-11-19 10:49:35.439 26954 27060 D AIVideoAnime:  upload response code->200
+2026-11-19 10:49:35.439 26954 27081 E Upload to S3: finish
+2026-11-19 10:49:35.686 26954 27060 D AIVideoAnime:  get file list response code->200
+2026-11-19 10:49:36.065 26954 27060 D AIVideoAnime:  apply effect response code->200
+2026-11-19 10:49:36.204 26954 26954 I InsetsController: setRequestedVisibleTypes: visible=false, mask=statusBars captionBar, host=com.cyberlink.powerdirector.DRA140225_01/com.cyberlink.powerdirector.f
+2026-11-19 10:49:36.209 26954 26954 I InsetsController: onStateChanged: host=com.cyberlink.powerdirector.DRA140225_01/com.cyberlink.powerdirector.feature.aivideoenhance.ui.VideoEnhanceRecentTasksActiv
+2026-11-19 10:49:36.211 26954 26954 I VRI[VideoEnhanceRecentTasksActivity]@f0419a3: setView = com.android.internal.policy.DecorView@1bd3cf7 IsHRR=false TM=true
+2026-11-19 10:49:36.343 26954 27060 D AIVideoAnime:  download file response code->200
+2026-11-19 10:49:36.949 26954 27060 D AIVideoAnime:  query session response code->200
+2026-11-19 10:50:47.833 26954 28659 I NotificationManager: com.cyberlink.powerdirector.DRA140225_01: notify(4, null, Notification(channel=default channel …)
+2026-11-19 10:50:48.392 26954 27060 D AIVideoAnime:  get file list response code->200
+2026-11-19 10:50:48.649 26954 27060 D AIVideoAnime:  download file response code->200

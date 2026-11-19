@@ -1,0 +1,138 @@
+
+6 of 6 entries have a possible duplicate (overlap >= 34%, or a shared quoted label / rare phrase, marked !). Judge each one yourself — wording varies, so this ranks candidates, it does not decide.
+2 candidate(s) were declined (NAB / Won't Fix / Not Reproducible). Resolve each before filing.
+
+[Video-Enhance-R2-01] PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Play does nothing when the playhead sits at the selection's end
+      feature='AI Video Enhance'  terms=['AI Video Enhance', 'Video Enhance']  searched 1058 candidate(s)
+    ! 17%  closed    VDE257510-0027  PDR23.3 Mac - [9L] My GenAI Creations (AI Video Enhancement): The tooltip of "Play" butt
+              shares label "play"
+    ! 17%  OPEN      DRI231475-0020  PDR-I 12.7.0 - [Landscape]Video Enhancer: The "Play" button can not work after don't app
+              shares label "play"
+
+[Video-Enhance-R2-02] PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Empty gallery: Add Media shows the partial-access prompt, not an empty state
+      feature='AI Video Enhance'  terms=['AI Video Enhance', 'Video Enhance']  searched 1058 candidate(s)
+    ! 22%  closed    DRI261895P0013  PDR-I 16.9.0 - [AIAgent] AI Video Enhance : Back opens the editor instead of Add Media
+              shares phrase "add media"
+    ! 22%  closed    DRI231475-0019  PDR-I 12.7.0 - [Landscape]Video Enhancer: Clip doesn't auto deselect when tapping add me
+              shares phrase "add media"
+
+[Video-Enhance-R2-03] PDR-A 16.9.0 - [AIAgent] AI Video Enhance: With notifications off, no 「Turn on notifications」 dialog after the upload
+      feature='AI Video Enhance'  terms=['AI Video Enhance', 'Video Enhance']  searched 1058 candidate(s)
+    ! 20%  closed    DRI231449-0040  PDR-I 12.5.0 - Shortcut(Video Enhancer): Display "Off" in AI Color and Stabilizer when d
+              shares label "off"
+      40%  OPEN      VDE261117P0003  PDR25.0.11 - [AIFound][UI] AI Video Enhancement (Import warning): Long file name is cut 
+      40%  closed    VDE261109P0011  PowerDirector 25.0.11 - [AIAgent][UI]AI Video Enhancement : The upload dialog puts remai
+      40%  closed    VDE261109P0008  PowerDirector 25.0.11 - [AIAgent][UI]AI Video Enhancement: The import dialog is too shor
+      40%  closed    DRI251703-0099  PDR-I 15.2.0  - [CS] [UX] Enhance > AI Video Enhancer : When user turn off the screen wh
+
+[Video-Enhance-R2-04] PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Picking a video opens the panel with no import overlay or 「Cancel」
+      feature='AI Video Enhance'  terms=['AI Video Enhance', 'Video Enhance']  searched 1058 candidate(s)
+    ! 14%  closed    DRI251730-0021  PDR-I 15.6.0 - [Landscape] Video Enhance: "Cancel" button not displayed correctly on Pro
+              shares label "cancel"
+
+[Video-Enhance-R2-05] PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Add Media sort keys differ from iOS (no Default or Modified Date)
+      feature='AI Video Enhance'  terms=['AI Video Enhance', 'Video Enhance']  searched 1058 candidate(s)
+    ! 22%  closed    DRI261895P0013  PDR-I 16.9.0 - [AIAgent] AI Video Enhance : Back opens the editor instead of Add Media
+              shares phrase "add media"
+    ! 22%  closed    DRI231475-0019  PDR-I 12.7.0 - [Landscape]Video Enhancer: Clip doesn't auto deselect when tapping add me
+              shares phrase "add media"
+
+[Video-Enhance-R2-06] PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Empty Recent task reads 「No Generated Videos」, not 「No results found」
+      feature='AI Video Enhance'  terms=['AI Video Enhance', 'Video Enhance']  searched 1058 candidate(s)
+    ! 38%  OPEN      DRA262611P0082  PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Recent task notice reads 「1 year」 and 「Se
+              shares phrase "recent task"
+    ! 38%  closed    DRA242411-0023  PDR-A 14.6.0 - [Side Effect]AI Video Enhancer: Recent task is empty after uploading
+              shares phrase "recent task"
+    ! 25%  OPEN      VDE261114P0042  PDR25.0.11 - [AIAgent][UI] AI Video Enhancement: Empty import area still shows "video(s)
+              shares label "videos"
+    ! 25%  closed    DRA262611P0097  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Recent task's 「Select」 offers only Delete; wh
+              shares phrase "recent task"
+    ! 25%  OPEN      DRA262611P0081  PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Recent task has no ‹ and system Back exit
+              shares phrase "recent task"
+    ! 25%  closed    DRA252503-0298  PDR-A 15.1.0 - Imgae to Video/Talking Avatar/AI Video Enhancer/AI Video Upscaler/AI Anim
+              shares phrase "recent task"
+    ! 25%  closed    DRI251697-0107  PDR-I 15.1.0 - Talking Avatar/ AI Video Enhancer/ AI Video Upscaler/ AI Anime Video/ Sup
+              shares phrase "recent task"
+    ! 25%  closed    DRI251697-0104  PDR-I 15.1.0 - AI Creation(Image to Video/ Talking Avatar/ AI Video Enhancer/ AI Video U
+              shares phrase "recent task"
+    ! 25%  closed    DRI251697-0101  PDR-I 15.1.0 - AI Video Enhancer(Recent Task): Project doesn't save when tapping home bu
+              shares phrase "recent task"
+    ! 25%  REJECTED  VDE251308-0036  PDR23.1 - My GenAI Creations (AI Video Enhancement/Talking Avatar/AI Anime Video Effect)
+              shares phrase "generated videos"
+              ⚠ Won't Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against VDE251308-0036.
+    ! 25%  closed    DRI241669-0019  PDR-I 14.7.0 - Timeline (Enhance, AI Video Enhancer) : The Recent Task for AI Video Enha
+              shares phrase "recent task"
+    ! 25%  closed    VDE241022-0016  PDR23.0.10 - [10L] AI Video Enhancement: "Your generated videos will be viewable for 30 
+              shares phrase "generated videos"
+    ! 25%  closed    VDE241015-0014  PDR23.0.10 - [SPEC] AI Video Enhancement: Lack of "Your generated videos will be viewabl
+              shares phrase "generated videos"
+    ! 25%  closed    VDE241014-0015  PDR23.0.10 - My GenAI Creation (AI Video Enhancement): Lack of [Start Now] button and st
+              shares phrase "generated videos"
+    ! 25%  closed    DRA262603-0103  PDR-A 16.1.5 - [Google Everywhere] Video Enhance：Recent Task button tooltip shows "Full 
+              shares phrase "recent task"
+    ! 25%  closed    DRA262603-0102  PDR-A 16.1.5 - [Google Everywhere] Video Enhance：Recent Task button tooltip shows "Histo
+              shares label "recent task"
+    ! 25%  closed    DRI251803-0003  PDR-I 15.9.0 - [UI] [UX] Video Enhance: The size of the recent task icon does not match 
+              shares phrase "recent task"
+    ! 25%  REJECTED  DRI251797-0016  PDR-I 15.8.0 - Video Enhance: The home icon does not work normally when entering the rec
+              shares phrase "recent task"
+              ⚠ NotReproducible — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI251797-0016.
+    ! 25%  closed    DRI251797-0014  PDR-I 15.8.0 - Video Enhance: After tapping home on the recent task page, it returns to 
+              shares phrase "recent task"
+    ! 25%  closed    DRI251740-0008  PDR-I 15.6.1 - Video Enhance : Blank space click doesn't deselect video clip after Recen
+              shares phrase "recent task"
+    ! 25%  closed    DRA242411-0185  PDR-A 14.6.0 - AI Creation : After more than a month, the Recent Task still hasn't delet
+              shares phrase "recent task"
+    ! 12%  OPEN      VDE261104P0007  PDR25.0.11 - [AIFound][UI] AI Video Enhancement: Upload message uses plural "videos" for
+              shares label "videos"
+    ! 12%  closed    DRA242410-0074  PDR-A 14.5.0 - AI Video Enhancer: When the Launcher is returned from "Recent", it someti
+              shares label "recent"
+
+== Open in the pool on 16.9.0: 47 ticket(s) of 1058 searched. Judge every entry against each one; the ranking above misses rewordings.
+      DRA262611P0071  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Launcher and AI Magic name it 「Video Enhance」, not 「AI Video Enhance」
+      DRA262611P0073  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Badge reads 「0fps」 and fps chips are disabled for stock and Timeline clips
+      DRA262611P0074  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Panel Preview shows no 「00:00/12:30」 time until play is tapped
+      DRA262611P0075  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: A selection shown as 「02:30」 cannot switch to Professional
+      DRA262611P0076  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Videos of exactly 1 s, 3 s, 30 s or 3:00 are billed one extra second
+      DRA262611P0077  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Tapping Enhance with no network shows nothing at all
+      DRA262611P0078  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UX] AI Video Enhance: Processing ring sits at 0% for 48 s, then stalls 30–40 s at a time
+      DRA262611P0079  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Home during upload ends the task but charges 30 credits, refunded 3 h later
+      DRA262611P0080  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Completion banner's View opens a black Result page that never loads or plays
+      DRA262611P0081  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Recent task has no ‹ and system Back exits to the Launcher, not the panel
+      DRA262611P0082  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Recent task notice reads 「1 year」 and 「Select」, not 「1 Year」 and 「Manage」
+      DRA262611P0083  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Cancelled task leaves a card of length 「3961:06:40」 with Retry
+      DRA262611P0084  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][Performance] AI Video Enhance: Tasks take 53–103 s for 1–30 s videos, far over 1.5–2.5× their length
+      DRA262611P0085  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: In Professional, the Sharp result is practically identical to Natural
+      DRA262611P0086  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Demo page description is AI Reframe's text, not Video Enhance's
+      DRA262611P0087  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Trim handles can meet, leaving a 「00:00」 selection under the 1 s minimum
+      DRA262611P0089  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Videos under 1 s and MKV files are not greyed; they open the panel
+      DRA262611P0090  TRCreated    PM   2611091  PDR-A 16.9.0 - [AIAgent][UX] AI Video Enhance: Switching to Professional does not re-lay the strip to 2:30 per width
+      DRA262611P0091  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Dragging the selection moves the range the opposite way to the finger
+      DRA262611P0092  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UX] AI Video Enhance: Full-screen preview has no close control and always restarts at 00:00
+      DRA262611P0093  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: 「Up to 8 minutes in Standard mode」 bubble covers Preview time and play
+      DRA262611P0094  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: 「Leave」 during upload charges 30 credits, then a refund comes 3 h later
+      DRA262611P0095  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Notification copy is the banner's, not 「Your video is ready. Tap to view」
+      DRA262611P0098  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UX] AI Video Enhance: Each finished task is auto-saved to Movies; Save Result makes a second copy
+      DRA262611P0099  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UX] AI Video Enhance: Timeline clip over 8:00 opens the panel capped at 08:00, no split toast
+      DRA262611P0100  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Timeline task result is not pasted back; Add to Timeline makes a new project
+      DRA262611P0101  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: 8K video is converted to Full HD; panel shows a black Preview, 「0fps · 1080p」
+      DRA262611P0113  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Clarification: allowed Preview delay while trimming
+      DRA262611P0114  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UX] AI Video Enhance: Credit-pack purchase returns to My Credits
+      DRA262611P0115  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: A 1fps source has no selectable output frame rate
+      DRA262611P0116  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Credit Details names the debit Video Enhancer
+      DRA262611P0117  Assigned     RD   2611091  PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Fractional source total displays 02:30 instead of 02:31
+      DRA262611P0208  Assigned     RD   2611161  PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Preview lags behind the double-arrow seek handle
+      DRI261895P0015  NewCreated   PM   189520  PDR-I 16.9.0 - [AIAgent] AI Video Enhance (Launcher shortcut): Function name is missing AI
+      DRI261895P0019  BuildResolve PM   189520  PDR-I 16.9.0 - [AIAgent] AI Video Enhance (AI Magic entry): Entry name is missing AI
+      DRI261895P0021  QA Propose W PM   189520  PDR-I 16.9.0 - [AIAgent] AI Video Enhance (Credit Details): Service name displays Video Enhancer
+      DRI261895P0038  ProposeNAB   RD   189566  PDR-I 16.9.0 - [AIAgent] AI Video Enhance: Processing exceeds the expected time for a 3.2-second video
+      DRI261897P0026  Assigned     RD   189729  PDR-I 16.9.0 - [AIAgent] AI Video Enhance: Enhance remains disabled after canceling upload with Leave
+      DRI261897P0027  RDResolved   RD   189729  PDR-I 16.9.0 - [AIAgent] AI Video Enhance: No fps option is selected for a 1fps source
+      DRI261897P0028  RDResolved   RD   189729  PDR-I 16.9.0 - [AIAgent] AI Video Enhance: 31fps source incorrectly defaults to 30fps
+      DRI261897P0033  RDResolved   RD   189729  PDR-I 16.9.0 - [AIAgent] AI Video Enhance: 61fps source defaults to 60fps instead of 120fps
+      DRI261897P0034  RDResolved   RD   189729  PDR-I 16.9.0 - [AIAgent] AI Video Enhance: 721p source defaults to 720p instead of 1080p
+      DRI261897P0035  RDResolved   RD   189729  PDR-I 16.9.0 - [AIAgent] AI Video Enhance: 1081p source defaults to 1080p instead of 4K
+      DRI261897P0036  Assigned     RD   189729  PDR-I 16.9.0 - [AIAgent] AI Video Enhance: 4K source is accepted instead of blocked
+      DRI261897P0037  Assigned     RD   189729  PDR-I 16.9.0 - [AIAgent] AI Video Enhance: 8K source is accepted instead of blocked
+      DRI261897P0040  RDResolved   RD   189729  PDR-I 16.9.0 - [AIAgent] AI Video Enhance: Source player displays 02:30 for a 150.01-second video
+      DRI261897P0041  RDResolved   RD   189729  PDR-I 16.9.0 - [AIAgent] AI Video Enhance: Professional mode accepts a 150.01-second source without warning

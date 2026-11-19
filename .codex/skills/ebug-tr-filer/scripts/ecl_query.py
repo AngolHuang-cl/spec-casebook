@@ -281,7 +281,7 @@ def _keywords(short):
     words = {w for w in re.findall(r"[a-z0-9]+", symptom.lower())
              if w not in STOP and len(w) > 2}
     if feature:
-        terms = [feature]
+        terms = _feature_terms(feature)
     else:
         ordered = [w for w in re.findall(r"[A-Za-z0-9]+", symptom)
                    if w.lower() not in STOP and len(w) > 3]
@@ -295,6 +295,21 @@ def _keywords(short):
                 terms.append(w)
         terms = terms[:4]
     return feature, words, terms
+
+
+def _feature_terms(feature):
+    """The feature name, plus its core without a leading "AI" / "AI-".
+
+    `match` is a substring match, so "AI Video Enhance" misses every ticket filed
+    as "Video Enhance: …" or "Video Enhancer: …" — on 2026-11-19 that cut the
+    Android Video Enhance pool from 182 to 90 and the batch missed DRA262611P0113
+    and P0115. The core ("Video Enhance") also finds "AI Video Enhance(r)".
+    """
+    terms = [feature]
+    core = re.sub(r"^\s*AI[\s-]+", "", feature, flags=re.I).strip()
+    if core and core.lower() != feature.lower() and len(core) > 3:
+        terms.append(core)
+    return terms
 
 
 # Quoted UI labels: "More ideas +", 'Try again', “Leave anyway”. Straight
@@ -358,6 +373,7 @@ def cmd_dedupe(a):
                       for i, ln in enumerate(f) if ln.strip()]
 
     hits = rejected_hits = 0
+    pool, versions = {}, set()  # every candidate searched; the batch's versions
     for key, short in shorts:
         feature, words, terms = _keywords(short)
         # Quoted labels are searched on their own too: the same button can be
@@ -369,6 +385,9 @@ def cmd_dedupe(a):
                   file=sys.stderr)
             continue
         rows, seen_codes = [], set()
+        ver = re.match(r"^\s*[A-Z][A-Za-z\-]*\s+([\d.]+)\s*-", short)
+        if ver:
+            versions.add(ver.group(1))
         for term in terms + [l for l in labels if l not in {t.lower() for t in terms}]:
             conds = [{"field": "ShortDescription", "match": {"query": term}}]
             if a.product:
@@ -378,7 +397,11 @@ def cmd_dedupe(a):
             except ECLError as e:
                 print(f"[{key}] search on {term!r} failed: {e}", file=sys.stderr)
                 continue
+            if len(got) >= a.limit:
+                print(f"[{key}] search on {term!r} hit --limit {a.limit}: the pool is "
+                      f"cut, raise --limit", file=sys.stderr)
             for r in got:
+                pool.setdefault(r.get("BugCode"), r)
                 if r.get("BugCode") not in seen_codes:
                     seen_codes.add(r.get("BugCode"))
                     rows.append(r)
@@ -421,7 +444,7 @@ def cmd_dedupe(a):
                f"NO FEATURE NAME, fell back to keywords {terms}")
         if labels:
             how += f"  labels={labels}"
-        print(f"      {how}  searched {len(rows)} candidate(s)")
+        print(f"      {how}  terms={terms}  searched {len(rows)} candidate(s)")
         if not shown:
             print("      no likely duplicate")
             continue
@@ -442,6 +465,23 @@ def cmd_dedupe(a):
                       f"this. Filing again re-raises that decision: read its "
                       f"status log, and only refile with new grounds (e.g. a "
                       f"newer spec) cited against {r['BugCode']}.")
+
+    # Word overlap misses rewordings even inside the pool: on 2026-11-19
+    # "1 fps video opens with no fps chip selected" scored 0% against
+    # DRA262611P0115 "A 1fps source has no selectable output frame rate". So every
+    # OPEN candidate on the batch's own version is listed for reading, ranked or not.
+    if versions and not a.no_open_list:
+        same = sorted((r for r in pool.values() if _is_open(r) and any(
+            re.match(rf"^\s*[A-Z][A-Za-z\-]*\s+{re.escape(v)}\s*-",
+                     str(r.get("ShortDescription", ""))) for v in versions)),
+            key=lambda r: str(r.get("BugCode")))
+        print(f"\n== Open in the pool on {', '.join(sorted(versions))}: {len(same)} "
+              f"ticket(s) of {len(pool)} searched. Judge every entry against each "
+              f"one; the ranking above misses rewordings.")
+        for r in same:
+            print(f"      {r['BugCode']}  {str(r.get('Status', ''))[:12]:12s} "
+                  f"{str(r.get('BugBelong') or ''):4s} {r.get('Build')}  "
+                  f"{r.get('ShortDescription')}")
 
     print(f"\n{hits} of {len(shorts)} entries have a possible duplicate "
           f"(overlap >= {a.threshold:.0%}, or a shared quoted label / rare "
@@ -528,7 +568,10 @@ def main():
     s.add_argument("--phrase-share", type=float, default=0.02,
                    help="a shared word pair flags only if at most this share "
                         "of candidates carry it (min 2)")
-    s.add_argument("--limit", type=int, default=200)
+    s.add_argument("--limit", type=int, default=2000,
+                   help="max candidates per search term (warns when reached)")
+    s.add_argument("--no-open-list", action="store_true",
+                   help="skip the list of every open candidate on the batch's version")
     s.set_defaults(fn=cmd_dedupe)
 
     s = sub.add_parser("calibrate", help="severity / belong distribution")

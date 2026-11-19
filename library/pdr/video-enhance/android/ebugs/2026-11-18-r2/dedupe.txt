@@ -1,0 +1,46 @@
+# Dedupe per OS (user, 2026-10-28): same-OS matches are left off the drafts and the review page.
+# R2 failures already covered by the Android tickets filed from R1 (DRA262611P0071 – P0101), on 2026-11-12 (P0113 – P0117) or another Android ticket.
+# The ECL pool candidates for the new entries are in dedupe-query.txt.
+
+DRA262611P0071	Launcher / AI Magic name 「Video Enhance」	TC-002
+DRA262611P0086	Demo page description is AI Reframe's text	TC-011, O-34
+DRA262611P0101	8K converted to Full HD, 「0fps · 1080p」 (steps 1–3)	TC-022
+DRA262611P0089	Under-1 s and MKV sources not greyed (TC-022 steps 4–5, TC-269 0.9 s)	TC-022, TC-269
+DRA262611P0074	No Preview time at rest	TC-033, TC-259, TC-215
+DRA262611P0075	Shown lengths truncated while price and limit round up: 「02:30」 refused by Professional; a hand-set 「00:30」 / 「01:30」 priced 31 / 91 s (the 36 price-grid rows; the ticket's O-5b already records 「one second over the shown length」)	TC-259, TC-263, TC-274, O-9, O-14, TC-278, TC-279, TC-280, TC-281, TC-282, TC-283, TC-284, TC-285, TC-286, TC-287, TC-288, TC-289, TC-290, TC-291, TC-292, TC-293, TC-294, TC-295, TC-296, TC-297, TC-298, TC-299, TC-300, TC-301, TC-302, TC-303, TC-304, TC-305, TC-306, TC-307, TC-308, TC-309, TC-310, TC-311, TC-312, TC-313
+DRA262611P0076	Exact-second files billed one extra second (padding, KF-001)	TC-269, TC-270
+DRA262611P0077	Offline Enhance shows nothing	TC-100
+DRA262611P0078	Ring 0% then stalls	TC-110
+DRA262611P0083	Failed / cancelled task card with a nonsense length (「25000:00:00」) and Retry, blank thumbnail	TC-112
+DRA262611P0082	Recent task notice 「1 year」 / 「Select」	TC-140, TC-144
+DRA262611P0081	Recent task has no ‹; Back to the Launcher	TC-141, TC-208
+DRA262611P0084	Tasks far over 1.5–2.5× their length (R-204)	TC-265, TC-266, TC-267, TC-219, TC-220, TC-221, TC-222, TC-224, TC-225, TC-226, TC-227, TC-228, TC-229, TC-230, TC-231, TC-232, TC-233, TC-234, TC-235, TC-236, TC-237, TC-238
+DRA262611P0095	Notification copy is the banner's	TC-133
+DRA262611P0090	Strip not re-laid to 2:30 in Professional	TC-045, TC-264
+DRA262611P0087	Handles meet, 「00:00」 under 1 s	TC-046, TC-217
+DRA262611P0091	Dragging the selection moves the range against the finger	TC-043, O-7
+DRA262611P0092	Full-screen preview: no close, restarts at 00:00 (steps 4–5)	TC-037
+DRA262611P0093	Limit bubble covers the Preview time	TC-044, TC-216
+DRA262611P0099	Timeline clip over 8:00 opens capped at 08:00	TC-161
+DRA262611P0100	Timeline result not pasted back; Add to Timeline makes a new project	TC-162, TC-165
+DRA262611P0208	Preview lags behind the double-arrow seek handle (knob); Android, Assigned, RD, filed 2026-11-17 on 2611161 by another tester	TC-215
+DRA262611P0073	「0fps」 badge for a non-album pick (Google Photos joins stock and Timeline sources, KF-008)	O-2
+DRA262611P0115	1 fps source: no fps chip selected, all disabled (was ISS-VEA-36; 「A 1fps source has no selectable output frame rate」, Assigned, RD, filed 2026-11-12 on 2611091)	TC-052
+DRA262611P0113	Preview frame lags behind a dragged trim handle, Q-27 (was ISS-VEA-42; 「Clarification: allowed Preview delay while trimming」, Assigned, RD, filed 2026-11-12 on 2611091)	TC-042, TC-214, TC-216, TC-044, TC-272
+DRA262611P0116	Credit Details names the debit 「Video Enhancer」, R-203 (Assigned, RD, filed 2026-11-12; replaces the citation of iOS DRI261895P0021)	TC-219, TC-220, TC-221, TC-222, TC-223, TC-224, TC-225, TC-226, TC-227, TC-228, TC-229, TC-230, TC-231, TC-232, TC-233, TC-234, TC-235, TC-236, TC-237, TC-238, TC-239, TC-240, TC-241, TC-242, TC-243, TC-244, TC-245, TC-246, TC-247, TC-248, TC-249, TC-250, TC-251, TC-252, TC-253, TC-254
+DRA262611P0117	Source total 「02:30」 for a 150.03 s video, not rounded up to 「02:31」 (Assigned, RD, filed 2026-11-12)	TC-259
+
+# Pool re-read 2026-11-19 (dedupe-query.txt): product PowerDirector Mobile for Android, terms 「AI Video Enhance」 and
+# 「Video Enhance」, 182 candidates (the first pass searched only 「AI Video Enhance」: 90, and ranked P0113 / P0115 under the cut).
+# Every open 16.9.0 ticket (33) was read against every draft. Judged:
+# ISS-VEA-36 1 fps chips = DRA262611P0115 (open, RD): same fixture class, same symptom. Left off the drafts (above).
+# ISS-VEA-42 trim-handle drag lag = DRA262611P0113 (open, RD): trim endpoint at 00:09 while the Preview stays at 0. Left off (above).
+# Credit Details 「Video Enhancer」 (TC-219 – TC-254) = DRA262611P0116 (open, RD); was cited to iOS DRI261895P0021. Moved above.
+# TC-259 source total 02:30 = DRA262611P0117 (open, RD), beside P0074 / P0075. Added above.
+# DRA262611P0114 (credit-pack purchase returns to My Credits, open): no R2 failure; TC-097 (500-credit pack) passed. No draft affected.
+# ISS-VEA-41 late refund: DRA262611P0079 / P0094 (open) are Home / Leave during the upload, refunded ~3 h later; a failed task is a different trigger. Not duplicates; named as related.
+# ISS-VEA-38 notification dialog: DRA252503-0299 / DRA262604-0102 (closed) are the upload dialog. Not duplicates.
+# ISS-VEA-39 / 40: DRA262604-0094 (closed, same failed task twice), DRA242410-0021 (closed, no View details button), DRA262611P0083 (open, cancelled card length). Not duplicates.
+# ISS-VEA-45 empty Recent task: DRA262611P0082 (open, notice label), DRA262603-0102 / DRA242411-0023 / DRA242410-0074 (closed). Not duplicates.
+# ISS-VEA-35, 37, 43, 44: no candidate (P0080, P0085, P0098 and the rest are other symptoms).
+# Closed same-OS PM tickets on the same build (P0088, P0096, P0097) are cited as rulings in the drafts, not re-filed.

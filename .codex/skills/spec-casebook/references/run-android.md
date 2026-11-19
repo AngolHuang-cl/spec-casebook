@@ -43,7 +43,15 @@ adb serial HQ61563393, Android 12, 1080 × 2520; setup in README › Android pho
   the phone awake: the user turns on Developer options › Stay awake (or the longest Screen timeout) and uses no PIN
   lock. Rows in a list: `scrollto` (it also prints a row's switch state, `| row Switch on at X,Y`). Pages opened as
   fragments leave the previous page in the source; `els`, `texts`, `waitfor` and `scrollto` drop covered subtrees,
-  `source` stays raw. Wi-Fi for offline cases: `wifi off|on|status` (refuses unless adb sees the phone over USB). App
+  `source` stays raw. Wi-Fi for offline cases: `wifi off|on|status` (refuses unless adb sees the phone over USB).
+  Other settings a row's fixture needs (user, 2026-11-18; run step 4, no separate go-ahead, restore after the row):
+  `node scripts/phone-settings.ts notifications <serial> [pkg] off|on|status` (Android 13+: POST_NOTIFICATIONS revoked
+  or granted with user-set/user-fixed flags plus the POST_NOTIFICATION app-op, so the Settings switch matches; revoking
+  kills the app, relaunch after `off`), `permissions <serial> [pkg] grant-all|status` (every runtime permission the app
+  requests, full photo and video access included), `gallery <serial> hide|restore|status [folder…]` (moves /sdcard
+  folders into `/sdcard/.casebook-hidden/` and rescans until MediaStore lists none of their videos; `restore` puts them
+  back exactly; `status` counts the videos MediaStore sees per folder). `--feature <product>/<feature>` stands in for
+  the package. Each reads its result back and exits 1 when it did not take. App
   language (user, 2026-10-30, REQ-063): `launch --lang en|zh-Hant|ja|fr` runs the app in that language, as on iOS:
   per-app language on Android 13+, and on this Android 12 phone the system locale switched by the Appium Settings
   helper (`io.appium.settings`) without the Settings UI. The original is saved in `<run dir>/.locale-orig`; a plain

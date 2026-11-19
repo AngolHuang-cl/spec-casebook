@@ -263,6 +263,8 @@ line each with the reason, so the reviewer can overrule it.
 4. **Park, don't drop,** rows that need a fixture the run cannot provide (purchase, new account, finite chat limit,
    failure fixture, microphone): keep them, tag their `needs` in `phases.json` with the reason under `unavailable`,
    so runs record them Blocked without spending time. Money and quota rows matter even when they can't run yet.
+   A phone or app setting (notifications, permissions, gallery contents, language) is not such a fixture: the run
+   sets it itself (`run.md` step 4, user 2026-11-18).
    **Look for a free route first (user, 2026-11-12, video-enhance REQ-015).** Before parking, and again at every
    update, check whether the blocker has a route that costs nothing: a store purchase can run with the store's test
    card on a license-tester account (Google Play 「Test card, always approves」, no charge) once the user agrees; a

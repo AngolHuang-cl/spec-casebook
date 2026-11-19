@@ -1,0 +1,7 @@
+[ImageButton] Open the home page
+[EditText] mauth-stage.cyberlink.com/auth/all-set?lang=ENU&mode=dark
+[ImageButton] New tab
+[ImageButton] See 6 tabs
+[ImageButton] Customize and control Google Chrome
+You Are All Set!
+You can now close this window.
