@@ -11,7 +11,7 @@ TC-003,入口,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › 
 2. 編輯器已開啟專案，時間軸上有一段 2:30 以內的影片片段
 3. Demo 頁的「Don't show again」還沒存過（要在 TC-014 之前跑）","1. 點時間軸上的片段
 2. 點片段工具列的「AI Video Enhance」（工具列有分組時，在「Enhance」群組裡）","直接開啟 AI Video Enhance 面板，預覽區就是那段片段
-即使 Demo 還沒關掉，也不會出現 Demo 頁和 Add Media",P1,"R-003, R-130",PM 把這個工具叫「Enhance」（pm-timeline），Design 則是直接畫在工具列上的「AI Video Enhance」；R1 版本把它收在「Enhance」群組下（也是 spec agent 走的路徑，TC-VE2-003）：兩種都算通過，記下有沒有分組。Demo 還沒關掉的情況：spec agent TC-VE2-009 [Req: REQ-016]。裁切範圍是否適用於時間軸片段，見 Q-10。,修改,REQ-016：spec agent 是從工具列的「Enhance」群組進入這個工具（和 R1 看到的一樣），而且是在關掉 Demo 之前跑（TC-VE2-003、TC-VE2-009）
+即使 Demo 還沒關掉，也不會出現 Demo 頁和 Add Media",P1,"R-003, R-130",PM 把這個工具叫「Enhance」（pm-timeline），Design 則是直接畫在工具列上的「AI Video Enhance」；R1 版本把它收在「Enhance」群組下（也是 spec agent 走的路徑，TC-VE2-003）：兩種都算通過，記下有沒有分組。Demo 還沒關掉的情況：spec agent TC-VE2-009 [Req: REQ-016]。裁切範圍是否適用於時間軸片段，見 Q-10。,未變更,
 TC-004,入口,編輯器已開啟專案，並選取一段影片片段,查看片段工具列上的「AI Video Enhance」工具,工具上有「Pro+」標章（和「Fix Shake」一樣）,P3,R-005,,未變更,
 TC-010,Demo 頁,"1. 從 Launcher 開啟 Demo 頁（TC-001）
 2. 沒有勾選「Don’t show again」",點「Try It Now」,"點之前，Demo 頁上有 ‹、「AI Video Enhance」、範例影片、說明文字、「Don’t show again」和「Try It Now」
@@ -35,6 +35,18 @@ TC-020,Add Media,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP �
 2. 已從此功能開啟 Add Media
 3. 相簿裡有一支 12:30、1080p、60 fps 的影片",點那支影片的縮圖,"只有「Video」分頁，而且只能選一支影片
 點下去後立刻開啟面板，預覽區就是那支影片（沒有 Next 按鈕）",P1,"R-012, R-013",,未變更,
+TC-315,Add Media,"1. 等級為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認）
+2. 已從本功能開啟 Add Media
+3. 相簿裡有一支較大的本機影片（12:30、1080p、60 fps 的 ve-1230-1080p60）
+4. 正在錄影（匯入可能不到一秒就結束）","1. 點那支影片的縮圖
+2. 一直看著畫面，直到面板開啟","面板開啟前，會出現匯入畫面，以百分比顯示進度（不檢查實際數字）
+匯入畫面上有「Cancel」
+接著面板開啟，Preview 顯示這支影片",P3,R-205,這是 spec agent 的使用者在 2026-10-12 認可的實機觀察畫面（spec agent TC-VE2-331，VE-1012-S001-B001 / B002，在 iOS 上看到）；Design 和 PM 都沒有畫匯入這一步 [Req: REQ-020]。只檢查有沒有「Cancel」，按下去會怎樣規格沒寫。如有不同，屬於 PM 問題：這條規則在 Design 和 PM 都沒有依據（依 AGENTS.md 2026-11-11 開給 PM）。,新增,REQ-020：本機匯入的進度與 Cancel（spec agent TC-VE2-331）
+TC-316,Add Media,"1. 等級為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認）
+2. 已從本功能開啟 Add Media","1. 點排序按鈕
+2. 不選任何項目，直接關掉排序面板","步驟 1：排序面板有「Default」、「Date」、「Duration」和「Modified Date」
+步驟 1：兩種順序「Ascending」和「Descending」都有
+步驟 2：面板關閉，影片的排列順序不變",P3,R-206,這是 spec agent 的使用者在 2026-10-12 認可的實機觀察畫面（spec agent TC-VE2-332，VE-1012-S001-B003，在 iOS 上看到）；Design 畫的 Add Media 沒有排序按鈕 [Req: REQ-020]。如有不同，屬於 PM 問題：這條規則在 Design 和 PM 都沒有依據（依 AGENTS.md 2026-11-11 開給 PM）。,新增,REQ-020：媒體排序選項（spec agent TC-VE2-332）
 TC-255,Add Media,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 正在顯示 Demo 頁
 3. Recents 和至少一個命名的相簿或資料夾裡都有影片
@@ -101,23 +113,28 @@ TC-037,面板版面與首次提示泡泡,"1. 已用 12:30 的影片開啟面板
 5. 關閉全螢幕預覽","步驟 1 從選取範圍內（02:00 起）開始播放，時間往前走
 步驟 2 暫停，到步驟 3 結束為止時間和畫面都維持不動
 步驟 4 以全螢幕顯示
-步驟 5 回到面板，還是同一支影片，選取範圍 02:00–04:00（「02:00」）、「Professional」、「Sharp」、「60fps」、「4K」和先前記下的 CTA 價格都沒變",P3,"R-027, R-200",暫停：spec agent TC-VE2-163（通用播放器規則，Design 沒有畫）[Req: REQ-008]。這裡用的是裁切過、非預設設定的面板（spec agent TC-VE2-162、TC-VE2-170）[Req: REQ-016]。,修改,REQ-016：播放裁切過的選取範圍，並在非預設設定下從全螢幕回來（TC-VE2-162、170）
+步驟 5 回到面板，還是同一支影片，選取範圍 02:00–04:00（「02:00」）、「Professional」、「Sharp」、「60fps」、「4K」和先前記下的 CTA 價格都沒變",P3,"R-027, R-200",暫停：spec agent TC-VE2-163（通用播放器規則，Design 沒有畫）[Req: REQ-008]。這裡用的是裁切過、非預設設定的面板（spec agent TC-VE2-162、TC-VE2-170）[Req: REQ-016]。,未變更,
 TC-038,面板版面與首次提示泡泡,從 Add Media 進入面板，目前沒有任何處理中的工作,點面板頂端列的 ‹,回到 Add Media,P2,R-028,,未變更,
 TC-040,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有一支 12:30、1080p、30 fps 的影片",在 Add Media 選這支影片,"選取範圍從 00:00 開始，「Selected Length」顯示「08:00」（mm:ss 格式）
 Mode 是 Standard",P1,R-030,PM 9/29 的「5m 00s / 8m max」和 B1 的「18s」格式輸給 Design，以 Design 為準（Q-19）。,未變更,
 TC-041,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有一支 01:30、1080p、30 fps 的影片",在 Add Media 選這支影片,整支影片都被選取，「Selected Length」顯示「01:30」,P2,R-030,,未變更,
-TC-270,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
+TC-270,裁切與選取長度,"1. 等級為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認）
 2. 相簿裡有 00:01（ve-000100-720p30）、07:59（ve-0759-1080p30）、07:59.97（ve-075997-1080p30，比 8:00 少一格）、08:00（ve-0800-1080p30）、08:00.03（ve-080003-1080p30，多一格）和 08:01（ve-0801-1080p30）的影片，長度都用 ffprobe 確認過
-3. 每支影片的畫面上都燒入了時間","1. 用 00:01 的影片開啟面板
+3. 每支影片的畫面上都燒入了時間
+4. 相簿裡有 07:59.99（ve-075999-720p100）和 08:00.01（ve-080001-720p100）兩支 100 fps 的影片，長度都用 ffprobe 確認過","1. 用 00:01 的影片開啟面板
 2. 返回，改用 07:59 的影片開啟
 3. 返回，改用 07:59.97 的影片開啟
 4. 把播放指示線拖到右側把手
 5. 返回，改用 08:00 的影片開啟
 6. 返回，改用 08:00.03 的影片開啟
 7. 把播放指示線拖到右側把手
-8. 返回，改用 08:01 的影片開啟","每支影片開啟時都是「Standard」，選取範圍從 00:00 開始
+8. 返回，改用 08:01 的影片開啟
+9. 返回，改用 07:59.99 的影片開啟
+10. 把播放指示線拖到右側把手
+11. 返回，改用 08:00.01 的影片開啟
+12. 把播放指示線拖到右側把手","每支影片開啟時都是「Standard」，選取範圍從 00:00 開始
 步驟 1：選取整支影片，「Selected Length」顯示「00:01」，CTA 是「Enhance ◆ 1」
 步驟 2：選取整支影片，「Selected Length」顯示「07:59」，「Enhance ◆ 958」（1080p 每秒 2 點）
 步驟 3–4：選取整支影片：右側把手所在的畫面是影片最後一格（燒入時間 07:59.9x）
@@ -126,7 +143,11 @@ TC-270,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ �
 步驟 5：00:00–08:00，也就是整支影片，「Selected Length」顯示「08:00」，「Enhance ◆ 960」
 步驟 6–7：選取範圍是 00:00–08:00，不是整支影片：右側把手所在的畫面是 08:00.00，不是最後一格
 步驟 6–7：「Selected Length」顯示「08:00」，「Enhance ◆ 960」
-步驟 8：00:00–08:00，「Selected Length」顯示「08:00」，「Enhance ◆ 960」",P2,"R-030, R-050, R-060",整數和小數長度下的 8:00 預設選取（spec agent TC-VE2-099 – TC-VE2-102、TC-VE2-251、TC-VE2-252）[Req: REQ-016]。價格是 Standard / Natural / 30fps 加上來源的預設解析度（1 s 的影片是 720p，每秒 1 點；其他是 1080p，每秒 2 點）。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。需要這六支測試素材。,新增,REQ-016：在 1 s、479 s、479.97 s、480 s、480.03 s 和 481 s 讀預設選取範圍（TC-VE2-099 – 102、251、252）；原本的列只開過 12:30 和 01:30
+步驟 8：00:00–08:00，「Selected Length」顯示「08:00」，「Enhance ◆ 960」
+步驟 9–10：選取整支影片：右側把手所在的畫面是影片最後一格（燒入時間 07:59.99）
+步驟 9–10：「Selected Length」照 App 的進位方式顯示 479.99 s（記錄下來）
+步驟 11–12：選取範圍是 00:00–08:00，不是整支影片：右側把手所在的畫面是 08:00.00，不是最後一格
+步驟 11–12：「Selected Length」顯示「08:00」",P2,"R-030, R-050, R-060",整數和小數長度下的 8:00 預設選取（spec agent TC-VE2-099 – TC-VE2-102、TC-VE2-251、TC-VE2-252）[Req: REQ-016]。價格是 Standard / Natural / 30fps 加上來源的預設解析度（1 s 的影片是 720p，每秒 1 點；其他是 1080p，每秒 2 點）。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。需要這六支測試素材。步驟 9–12：在 100 fps 下比 8:00 少／多百分之一秒（spec agent TC-VE2-435、TC-VE2-437）[Req: REQ-020]；不檢查價格（100 fps 的來源預設是「120fps」）。,修改,REQ-020：比 8:00 少／多百分之一秒（100 fps 的 07:59.99、08:00.01；spec agent TC-VE2-435、TC-VE2-437）
 TC-042,裁切與選取長度,已用 12:30 的影片開啟面板，選取範圍是 00:00–08:00,把右側把手向左拖到約 06:00,"拖曳時預覽區會顯示右側把手所在位置的畫面
 「Selected Length」跟著變（約「06:00」），CTA 的價格也立刻降低",P1,"R-031, R-061",,未變更,
 TC-214,裁切與選取長度,"1. 已用 12:30 的影片開啟面板，選取範圍是 00:00–08:00
@@ -136,7 +157,7 @@ TC-043,裁切與選取長度,已用 12:30 的影片以 Standard 開啟面板，�
 2. 拖曳選取範圍的中間向左，直到起點約在 02:00","步驟 1：兩個把手移動相同的距離，終點停在 12:30（起點 04:30）
 步驟 1：「Selected Length」維持「08:00」，預覽區顯示新起點的畫面（燒入時間 04:30）
 步驟 2：兩個把手往回移動相同的距離（約 02:00–10:00）
-步驟 2：「Selected Length」維持「08:00」，預覽區顯示新起點的畫面",P2,R-032,用完整的 8:00 選取範圍往兩個方向拖（spec agent TC-VE2-232、TC-VE2-233）[Req: REQ-016]。,修改,REQ-016：用完整的 08:00 選取範圍往兩個方向拖中間；原本只把 6:00 的範圍往一個方向拖（TC-VE2-232、233）
+步驟 2：「Selected Length」維持「08:00」，預覽區顯示新起點的畫面",P2,R-032,用完整的 8:00 選取範圍往兩個方向拖（spec agent TC-VE2-232、TC-VE2-233）[Req: REQ-016]。,未變更,
 TC-271,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有一支畫面燒入時間的 05:24（324 s）、1080p、30 fps 影片（ve-0524-1080p30）
 3. 已用這支影片以 Standard 開啟面板","1. 把選取範圍裁成 01:00–01:30（「00:30」）
@@ -150,7 +171,7 @@ TC-271,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ �
 9. 把中間向左拖，直到起點約在 00:30","每次拖完，兩個把手都移動了相同的距離
 每次拖完「Selected Length」都不變：步驟 2–3 是「00:30」，步驟 5–6 是「01:30」，步驟 8–9 是「03:00」
 每次拖完，預覽區都顯示新起點的畫面（燒入時間等於起點）
-步驟 8：終點停在 05:24（起點 02:24）",P3,R-032,Spec agent TC-VE2-104 – TC-VE2-109（在 324 s 的來源上，把 30 s、90 s 和 180 s 的選取範圍往兩個方向拖）[Req: REQ-016]。需要 ve-0524-1080p30。,新增,REQ-016：spec agent 會把 30 s、90 s 和 180 s 的選取範圍往兩個方向拖（TC-VE2-104 – 109），原本沒有任何一列這樣做
+步驟 8：終點停在 05:24（起點 02:24）",P3,R-032,Spec agent TC-VE2-104 – TC-VE2-109（在 324 s 的來源上，把 30 s、90 s 和 180 s 的選取範圍往兩個方向拖）[Req: REQ-016]。需要 ve-0524-1080p30。,未變更,
 TC-215,裁切與選取長度,"1. 已用 12:30 的影片開啟面板，選取範圍是 00:00–08:00
 2. 先記下 CTA 的價格","1. 查看縮圖列
 2. 把「00:00」泡泡下方的 ◀▶ 圓鈕向右拖到約 03:00
@@ -168,7 +189,7 @@ TC-044,裁切與選取長度,已用 12:30 的影片以 Standard 開啟面板，�
 4. 停止錄製","步驟 2：拖曳中每個取樣時間點，預覽區都顯示右側把手所在位置的畫面（燒入時間一路跟到 08:00，看不出延遲）
 步驟 2：「Selected Length」跟著把手變長
 步驟 2：把手停在 8:00（「Selected Length」顯示「08:00」），伴隨輕微震動，並跳出泡泡「Up to 8 minutes in Standard mode」
-步驟 3：把手停在 8:00 不動，「Selected Length」始終不會顯示「08:01」",P2,"R-033, R-050",僅 PM 有寫，Design 還沒有對應畫面（PM 9/29 UI）。這列是較晚才拖右側把手（spec agent TC-VE2-023、TC-VE2-113）；TC-042 是較早拖 [Req: REQ-016]。證據：整段拖曳的螢幕錄影（run-android.md，*Judging a drag*）；測試素材每一格都燒入了時間。可接受的延遲：Q-27（暫定：看不出延遲）。,修改,REQ-016：較晚拖右側把手，並在拖曳過程中確認預覽區有跟上（TC-VE2-023、113）；原本只記錄了較早那次拖曳
+步驟 3：把手停在 8:00 不動，「Selected Length」始終不會顯示「08:01」",P2,"R-033, R-050",僅 PM 有寫，Design 還沒有對應畫面（PM 9/29 UI）。這列是較晚才拖右側把手（spec agent TC-VE2-023、TC-VE2-113）；TC-042 是較早拖 [Req: REQ-016]。證據：整段拖曳的螢幕錄影（run-android.md，*Judging a drag*）；測試素材每一格都燒入了時間。可接受的延遲：Q-27（暫定：看不出延遲）。,未變更,
 TC-216,裁切與選取長度,"1. 已用 12:30 的影片以 Standard 開啟面板
 2. 選取範圍已移動並裁切為 06:30–12:30（「06:00」）",把左側把手盡可能向左拖,"拖曳時預覽區顯示左側把手所在位置的畫面（時間隨把手往回走，到約「04:30/12:30」）
 左側把手停在 04:30（「Selected Length」顯示「08:00」），伴隨輕微震動，並跳出泡泡「Up to 8 minutes in Standard mode」
@@ -180,7 +201,7 @@ TC-272,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ �
 3. 停止錄製","步驟 2：拖曳中每個取樣時間點，預覽區都顯示左側把手所在位置的畫面（看不出延遲）
 步驟 2：「Selected Length」跟著拖曳變長，最後是「02:00」（終點 − 起點）
 步驟 2：右側把手停在 03:30 不動
-步驟 2：不會出現長度上限泡泡（還不到 8:00）",P3,"R-031, R-033",用左側把手在上限內拉長選取範圍（spec agent TC-VE2-157）；TC-216 只檢查停在 8:00 的情況 [Req: REQ-016]。證據：整段拖曳的螢幕錄影（run-android.md，*Judging a drag*）；測試素材每一格都燒入了時間。可接受的延遲：Q-27（暫定：看不出延遲）。,新增,REQ-016：用左側把手在上限內拉長選取範圍（TC-VE2-157）
+步驟 2：不會出現長度上限泡泡（還不到 8:00）",P3,"R-031, R-033",用左側把手在上限內拉長選取範圍（spec agent TC-VE2-157）；TC-216 只檢查停在 8:00 的情況 [Req: REQ-016]。證據：整段拖曳的螢幕錄影（run-android.md，*Judging a drag*）；測試素材每一格都燒入了時間。可接受的延遲：Q-27（暫定：看不出延遲）。,未變更,
 TC-045,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有一支 08:00（480 秒）和一支 12:30（750 秒）的影片","1. 用 08:00 的影片開啟面板（Standard）
 2. 把右側把手向左拖，直到「Selected Length」顯示「02:00」
@@ -199,7 +220,7 @@ TC-045,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ �
 步驟 6–7：12:30 的縮圖列可左右捲動，8:00 填滿一個寬度
 步驟 9–10：縮圖列重新排列為每個寬度 2:30，而且滑得到最後（12:30 的畫面）
 步驟 11：沒有做任何裁切，回到每個寬度 8:00
-每個步驟中縮圖都依時間順序排列，選取範圍的起點、終點和長度都不變（設定成 00:00–02:00 之後維持此範圍）",P3,"R-034, R-051",Q-24：依 spec agent 對 PM 9/29 ⑥ 的解讀（TC-VE2-026、TC-VE2-265、TC-VE2-267），等 PM 確認 [Req: REQ-008]；在 PM 確認前，若排列方式不同屬於 PM 要決定的問題。僅 PM 有寫，Design 還沒有對應畫面。,修改,REQ-016：在 Professional 下滑得到 12:30 的結尾，並切回 Standard（TC-VE2-265）
+每個步驟中縮圖都依時間順序排列，選取範圍的起點、終點和長度都不變（設定成 00:00–02:00 之後維持此範圍）",P3,"R-034, R-051",Q-24：依 spec agent 對 PM 9/29 ⑥ 的解讀（TC-VE2-026、TC-VE2-265、TC-VE2-267），等 PM 確認 [Req: REQ-008]；在 PM 確認前，若排列方式不同屬於 PM 要決定的問題。僅 PM 有寫，Design 還沒有對應畫面。,未變更,
 TC-277,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有 00:30（ve-0030-1080p30）和 02:30.00（ve-023000-1080p30）的影片各一支","1. 用 00:30 的影片開啟面板（Standard）
 2. 左右滑動縮圖列
@@ -212,7 +233,7 @@ TC-277,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ �
 步驟 3–4：仍然是一個寬度，不能左右捲動
 步驟 5–6：一個寬度，不能左右捲動
 步驟 7–8：仍然是一個寬度（剛好在 2:30 上限），不能左右捲動
-縮圖始終依時間順序排列，選取範圍一直是整支影片",P3,"R-034, R-051",來源長度在兩個上限之內（spec agent TC-VE2-026）[Req: REQ-016]。Q-24 同 TC-045。,新增,REQ-016：來源長度在兩個上限之內時，兩種 Mode 下縮圖列都維持一個寬度（TC-VE2-026）
+縮圖始終依時間順序排列，選取範圍一直是整支影片",P3,"R-034, R-051",來源長度在兩個上限之內（spec agent TC-VE2-026）[Req: REQ-016]。Q-24 同 TC-045。,未變更,
 TC-264,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有一支 02:30.01（150.01 秒）和一支 08:01（481 秒）的影片（為測試自製）","1. 用 02:30.01 的影片開啟面板（Standard）
 2. 把右側把手向左拖，直到「Selected Length」顯示「02:00」
@@ -230,7 +251,7 @@ TC-264,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ �
 步驟 6–7：08:01 的縮圖列可左右捲動，每個寬度 8:00
 步驟 9–10：重新排列為每個寬度 2:30，而且滑得到最後（08:01 的畫面）
 步驟 11：回到每個寬度 8:00
-每次切換 Mode，縮圖都依時間順序排列，選取範圍維持 00:00–02:00",P3,"R-034, R-051",Mode 上限再加 1 秒的邊界情況（spec agent TC-VE2-264、TC-VE2-266）[Req: REQ-008]。Q-24 同 TC-045。需要這兩支測試素材。,修改,REQ-016：每次重新排列後都切回 Standard，並確認滑得到 08:01 的結尾（TC-VE2-264、266）
+每次切換 Mode，縮圖都依時間順序排列，選取範圍維持 00:00–02:00",P3,"R-034, R-051",Mode 上限再加 1 秒的邊界情況（spec agent TC-VE2-264、TC-VE2-266）[Req: REQ-008]。Q-24 同 TC-045。需要這兩支測試素材。,未變更,
 TC-046,裁切與選取長度,已用 01:30 的影片開啟面板,把右側把手盡可能向左側把手拖近,選取範圍不能短於 1 秒,P3,R-035,PM B1 [建議]（提案）。,未變更,
 TC-217,裁切與選取長度,已用 01:30 的影片開啟面板,把左側把手盡可能向右側把手拖近,"選取範圍不能短於 1 秒
 右側把手維持在原位",P3,R-035,與 TC-046 成對，改測左側把手。PM B1 [建議]（提案）。,未變更,
@@ -251,14 +272,14 @@ TC-052,預設設定,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 3：預設選「30fps」
 步驟 3：預覽區標籤顯示「29fps · 1080p」
 步驟 4：預設選「30fps」
-步驟 4：預覽區標籤顯示「30fps · 1080p」",P1,"R-043, R-021",1 fps 是 R-043「1–30」區間的最低值（analysis.md 第 4 輪：範圍的兩個外端都要測）[Req: REQ-015]；29 fps 剛好在上緣之下（spec agent TC-VE2-079、TC-VE2-081）[Req: REQ-016]。,修改,REQ-016：比照 Android 補上 1 fps，再加上 29 fps，也就是這個區間的兩端，並讀預覽區標籤（TC-VE2-079、081）
+步驟 4：預覽區標籤顯示「30fps · 1080p」",P1,"R-043, R-021",1 fps 是 R-043「1–30」區間的最低值（analysis.md 第 4 輪：範圍的兩個外端都要測）[Req: REQ-015]；29 fps 剛好在上緣之下（spec agent TC-VE2-079、TC-VE2-081）[Req: REQ-016]。,未變更,
 TC-053,預設設定,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有 50 fps、59 fps（ve-fps59-1080p）和 60 fps 的 1080p 影片各一支","1. 用 50 fps 的影片開啟面板
 2. 返回，改用 59 fps 的影片開啟
 3. 返回，改用 60 fps 的影片開啟","三次都預設選「60fps」
 步驟 1：預覽區標籤顯示「50fps · 1080p」
 步驟 2：預覽區標籤顯示「59fps · 1080p」
-步驟 3：預覽區標籤顯示「60fps · 1080p」",P1,R-043,59 fps 剛好落在 60 fps 這個邊界的下方一點點（spec agent TC-VE2-084）[Req: REQ-016]。,修改,REQ-016：補上 60 fps 邊界下方的 59 fps，並讀預覽區標籤（TC-VE2-084）
+步驟 3：預覽區標籤顯示「60fps · 1080p」",P1,R-043,59 fps 剛好落在 60 fps 這個邊界的下方一點點（spec agent TC-VE2-084）[Req: REQ-016]。,未變更,
 TC-054,預設設定,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡已準備好四支 1080p 的影片，幀率分別是 119 fps（ve-fps119-1080p）、120 fps、144 fps（ve-fps144-1080p）和 240 fps（慢動作）","1. 用 119 fps 的影片開啟面板
 2. 返回，改用 120 fps 的影片開啟
@@ -267,12 +288,12 @@ TC-054,預設設定,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 1：預覽區標籤顯示「119fps · 1080p」
 步驟 2：預覽區標籤顯示「120fps · 1080p」
 步驟 3：預覽區標籤顯示「144fps · 1080p」
-步驟 4：預覽區標籤顯示「240fps · 1080p」",P2,R-043,119 fps 和 144 fps 分別落在 120 fps 這個邊界的下方和上方（spec agent TC-VE2-087 – TC-VE2-090）[Req: REQ-016]。,修改,REQ-016：補上 119 和 144 fps，並讀預覽區標籤（TC-VE2-087 – 090）
+步驟 4：預覽區標籤顯示「240fps · 1080p」",P2,R-043,119 fps 和 144 fps 分別落在 120 fps 這個邊界的下方和上方（spec agent TC-VE2-087 – TC-VE2-090）[Req: REQ-016]。,未變更,
 TC-055,預設設定,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有一支 31 fps 和一支 61 fps 的影片（為測試自製）","1. 用 31 fps 的影片開啟面板
 2. 返回，改用 61 fps 的影片開啟","31 fps 預設選「60fps」，61 fps 預設選「120fps」（選不低於來源的最小選項）
 步驟 1：預覽區標籤顯示「31fps · 1080p」
-步驟 2：預覽區標籤顯示「61fps · 1080p」",P3,R-043,"這是 Design 查表規則的邊界值。PM 1002 的「nearest, tie lower」（取最近、同距取低）會得到 30fps / 60fps，以 Design 為準。需要這兩支測試素材。",修改,REQ-016：讀來源的預覽區標籤（TC-VE2-083、086）
+步驟 2：預覽區標籤顯示「61fps · 1080p」",P3,R-043,"這是 Design 查表規則的邊界值。PM 1002 的「nearest, tie lower」（取最近、同距取低）會得到 30fps / 60fps，以 Design 為準。需要這兩支測試素材。",未變更,
 TC-056,預設設定,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡已準備好四支影片，解析度分別是 360p（ve-res360p，640 × 360）、480p、718p（ve-res718p，1280 × 718，略低於 720p）和 720p","1. 用 360p 的影片開啟面板
 2. 返回，改用 480p 的影片開啟
@@ -281,18 +302,18 @@ TC-056,預設設定,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 1：預覽區標籤顯示「30fps · 360p」
 步驟 2：預覽區標籤顯示「30fps · 480p」
 步驟 3：預覽區標籤顯示「30fps · 718p」
-步驟 4：預覽區標籤顯示「30fps · 720p」",P1,R-044,360p 和略低於 720p 的來源（spec agent TC-VE2-091 – TC-VE2-093；他們用的 719p 無法編碼，所以測試素材改用 718p）[Req: REQ-016]。,修改,REQ-016：補上 360p 和略低於 720p 的來源，並讀預覽區標籤（TC-VE2-091 – 093）
+步驟 4：預覽區標籤顯示「30fps · 720p」",P1,R-044,360p 和略低於 720p 的來源（spec agent TC-VE2-091 – TC-VE2-093；他們用的 719p 無法編碼，所以測試素材改用 718p）[Req: REQ-016]。,未變更,
 TC-057,預設設定,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有 722p（ve-res722p，1280 × 722，略高於 720p）、900p（例如 1600×900）和 1080p 的影片各一支","1. 用 722p 的影片開啟面板
 2. 返回，改用 900p 的影片開啟
 3. 返回，改用 1080p 的影片開啟","三次都預設選「1080p」
 步驟 1：預覽區標籤顯示「30fps · 722p」
-步驟 3：預覽區標籤顯示「30fps · 1080p」",P1,R-044,"PM B3 的「nearest, tie lower」會讓 900p 變成 720p（解析度反而降低）；以 Design 的規則（不低於來源）為準。略高於 720p 的來源：spec agent TC-VE2-094（他們用的 721p 無法編碼，所以測試素材改用 722p）[Req: REQ-016]。",修改,REQ-016：補上略高於 720p 的來源，並讀預覽區標籤（TC-VE2-094）
+步驟 3：預覽區標籤顯示「30fps · 1080p」",P1,R-044,"PM B3 的「nearest, tie lower」會讓 900p 變成 720p（解析度反而降低）；以 Design 的規則（不低於來源）為準。略高於 720p 的來源：spec agent TC-VE2-094（他們用的 721p 無法編碼，所以測試素材改用 722p）[Req: REQ-016]。",未變更,
 TC-058,預設設定,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有一支 1081p（例如 1920 × 1081，為測試自製）和一支 1200p（1920 × 1200）的影片","1. 用 1081p 的影片開啟面板
 2. 返回，改用 1200p 的影片開啟","兩次開啟面板後都預設選「4K」（來源從 1081p 到不足 2K，預設都是 4K）
 步驟 1：預覽區標籤顯示「30fps · 1082p」
-步驟 2：預覽區標籤顯示「30fps · 1200p」",P2,R-044,1440p、4K 和 8K 的來源預設也是 4K（R-196、TC-022 步驟 1–3）：Design ds-ai-video-enhance 預設值規則「Resolution 依來源（選不低於來源解析度的最小選項；來源超過最高選項時取最高）」，查表 1081p → 4K [Req: REQ-011]。需要這兩支測試素材。,修改,REQ-016：讀來源的預覽區標籤（TC-VE2-096）
+步驟 2：預覽區標籤顯示「30fps · 1200p」",P2,R-044,1440p、4K 和 8K 的來源預設也是 4K（R-196、TC-022 步驟 1–3）：Design ds-ai-video-enhance 預設值規則「Resolution 依來源（選不低於來源解析度的最小選項；來源超過最高選項時取最高）」，查表 1081p → 4K [Req: REQ-011]。需要這兩支測試素材。,未變更,
 TC-059,預設設定,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有一支直式 1080×1920 的影片",用這支影片開啟面板,預設選「1080p」（以短邊判斷）,P3,R-044,Q-5：這是依 PM B3 做的假設；開單前先在裝置上確認，並和使用者討論後再決定。,未變更,
 TC-061,設定選項,"1. 已開啟面板，目前選的是「Natural」
@@ -301,9 +322,15 @@ TC-061,設定選項,"1. 已開啟面板，目前選的是「Natural」
 CTA 的價格維持不變（風格不影響價格）",P2,"R-046, R-062",,未變更,
 TC-062,設定選項,已用 60 fps 的影片開啟面板（目前選「60fps」）,點另一個沒有被停用的 fps 選項,"該選項被選取，「60fps」取消選取
 fps 一次只會選一個",P2,R-046,,未變更,
-TC-063,設定選項,"1. 已用 1080p 的影片開啟面板（目前選「1080p」）
-2. 先記下 CTA 的價格",點「4K」（如果 4K 被停用，就改點「720p」）,"被點的選項被選取，「1080p」取消選取
-CTA 的價格和「Charge X credits per second」會變成該解析度的費率",P2,"R-046, R-065",,未變更,
+TC-063,設定選項,"1. 已用 00:30 的 1080p 影片（ve-0030-1080p30）開啟面板，目前選「Standard」和「1080p」
+2. 先記下 CTA 的價格","1. 點「4K」（如果 4K 不能按，就改點「720p」）
+2. 點「Professional」
+3. 點「720p」
+4. 點「1080p」
+5. 點「4K」","步驟 1：點的那個選項被選取，「1080p」取消選取
+步驟 1：CTA 的價格和「Charge X credits per second」變成該解析度的費率
+步驟 3–5：點的那個 Resolution 選項被選取，另外兩個沒有（同時只會選一個）
+步驟 3–5：「Charge X credits per second」變成該解析度在 Professional、30fps 的費率（同 TC-296 – TC-298）",P2,"R-046, R-065",Professional 下逐一點每個 Resolution（spec agent TC-VE2-334）[Req: REQ-020]。,修改,REQ-020：Professional 下逐一點每個解析度，每次只選一個（spec agent TC-VE2-334）
 TC-064,設定選項,已開啟面板，且目前的 Mode 下有 fps 或 Resolution 選項是停用（灰色）的,點被停用的選項,沒有任何變化：選取狀態維持原樣，也不會跳出提示訊息,P3,R-047,Q-6：哪些組合要停用還在等結果（BytePlus）；PM B5 寫的是點下去會跳出提示。如果這個版本沒有任何選項被停用，就不跑這一列（並記錄下來）。,未變更,
 TC-070,Mode 長度上限,"1. 已用 12:30 的影片開啟面板，Standard 下選取範圍約 02:00
 2. 先記下 CTA 的價格","1. 點「Professional」
@@ -338,11 +365,11 @@ TC-273,Mode 長度上限,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [
 步驟 8：左側把手停在 04:59，跳出泡泡「Up to 2m 30s in Professional mode」，顯示「02:30」
 步驟 9：終點 − 起點剛好是 2:30.00（不會是 2:30.0x）
 步驟 11：右側把手停在 07:30，跳出同樣的泡泡，顯示「02:30」
-步驟 12：終點 − 起點剛好是 2:30.00",P2,"R-033, R-050, R-054",四個上限都不能超出小數部分，每個都從差 1 s 的位置開始拖（spec agent TC-VE2-256 – TC-VE2-259）[Req: REQ-016]。播放指示線可能會落在把手旁一格：以把手本身所在的畫面為準。,新增,REQ-016：四個上限都從差 1 s 的地方逼近，並逐格確認（TC-VE2-256 – 259）
+步驟 12：終點 − 起點剛好是 2:30.00",P2,"R-033, R-050, R-054",四個上限都不能超出小數部分，每個都從差 1 s 的位置開始拖（spec agent TC-VE2-256 – TC-VE2-259）[Req: REQ-016]。播放指示線可能會落在把手旁一格：以把手本身所在的畫面為準。,未變更,
 TC-075,Mode 長度上限,已用 12:30 的影片開啟面板，選 Professional，選取範圍是 00:30–03:00（「02:30」）,"1. 點「Standard」
 2. 把右側把手向右拖到底","步驟 1：Mode 是「Standard」，選取範圍仍是 00:30–03:00（起點、終點和「02:30」都沒變）
 步驟 2：選取範圍可以拉長到超過 2:30，停在 08:30（「08:00」）
-步驟 2：「Selected Length」始終不會顯示「08:01」",P2,R-055,除了長度，也確認起點和終點，以及切換後的 Standard 上限（spec agent TC-VE2-244）[Req: REQ-016]。,修改,REQ-016：切回後確認起點和終點，以及停在 8:00（TC-VE2-244）
+步驟 2：「Selected Length」始終不會顯示「08:01」",P2,R-055,除了長度，也確認起點和終點，以及切換後的 Standard 上限（spec agent TC-VE2-244）[Req: REQ-016]。,未變更,
 TC-076,Mode 長度上限,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有一支長度 2:30.4 的影片（為測試自製）","1. 用這支影片開啟面板（Standard 下整支影片都被選取）
 2. 點「Professional」",跳出提示「Professional supports clips up to 2:30. Shorten your selection to switch.」，Mode 維持 Standard（2:30.4 算 151 秒）,P3,R-056,,未變更,
@@ -374,7 +401,7 @@ TC-274,Mode 長度上限,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [
 步驟 9：切到「Professional」，沒有 toast，00:30–03:00，「Enhance ◆ 300」
 步驟 10：00:30–03:00，「Enhance ◆ 150」
 步驟 11：「Enhance ◆ 151」
-步驟 12：跳出 toast「Professional supports clips up to 2:30. Shorten your selection to switch.」約 3 秒，Mode 維持「Standard」，選取範圍維持 00:30–03:01，「Enhance ◆ 151」",P1,"R-052, R-053, R-055, R-063, R-065, R-061",起點在 00:00 之後時，在 140、149、150 和 151 s 來回切換 Mode，並確認每個方向的價格（spec agent TC-VE2-226、TC-VE2-228、TC-VE2-260 – TC-VE2-263）；步驟 1 點了「720p」，其他列都沒點過（TC-VE2-034）[Req: REQ-016]。ECL 費率：Standard 720p 30fps 每秒 1 點，Professional 每秒 2 點。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：起點較晚時切換 Mode 及其價格（TC-VE2-226、228、260 – 263），以及點 720p（TC-VE2-034）
+步驟 12：跳出 toast「Professional supports clips up to 2:30. Shorten your selection to switch.」約 3 秒，Mode 維持「Standard」，選取範圍維持 00:30–03:01，「Enhance ◆ 151」",P1,"R-052, R-053, R-055, R-063, R-065, R-061",起點在 00:00 之後時，在 140、149、150 和 151 s 來回切換 Mode，並確認每個方向的價格（spec agent TC-VE2-226、TC-VE2-228、TC-VE2-260 – TC-VE2-263）；步驟 1 點了「720p」，其他列都沒點過（TC-VE2-034）[Req: REQ-016]。ECL 費率：Standard 720p 30fps 每秒 1 點，Professional 每秒 2 點。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-275,Mode 長度上限,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30 的影片以 Standard 開啟面板（每一格畫面都燒入了時間）","1. 把選取範圍的起點設在 00:30，微調右側把手，直到它所在的畫面顯示 02:59.99（選取 149.99 s）
 2. 點「Professional」
@@ -383,7 +410,7 @@ TC-275,Mode 長度上限,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [
 5. 點「Professional」","步驟 2：切到「Professional」，沒有 toast
 步驟 2：兩個把手所在的畫面仍是 00:30 和 02:59.99
 步驟 5：跳出 toast「Professional supports clips up to 2:30. Shorten your selection to switch.」，Mode 維持「Standard」
-步驟 5：兩個把手所在的畫面仍是 00:30 和 03:00.01",P3,"R-052, R-053",起點較晚時的小數邊界（spec agent TC-VE2-253、TC-VE2-254）；TC-261 / TC-262 用的是從 00:00 開始的整支影片 [Req: REQ-016]。如果把手沒辦法調到百分之一秒，就記錄實際能停到的最近一格。,新增,REQ-016：起點在 00:00 之後時的 149.99 s / 150.01 s 邊界（TC-VE2-253、254）
+步驟 5：兩個把手所在的畫面仍是 00:30 和 03:00.01",P3,"R-052, R-053",起點較晚時的小數邊界（spec agent TC-VE2-253、TC-VE2-254）；TC-261 / TC-262 用的是從 00:00 開始的整支影片 [Req: REQ-016]。如果把手沒辦法調到百分之一秒，就記錄實際能停到的最近一格。,未變更,
 TC-260,Mode 長度上限,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有一支 00:01（1 秒）和一支 00:30 的影片（720p 30 fps）","1. 用 00:01 的影片開啟面板
 2. 點「Professional」
@@ -444,7 +471,7 @@ TC-278,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 3：按鈕顯示「Enhance ◆ 30」（30 s × 1）
 步驟 4：按鈕顯示「Enhance ◆ 90」（90 s × 1）
 步驟 5：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 480」（480 s × 1）
-步驟 6：按鈕回到「Enhance ◆ 30」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 30fps · 720p（在 TC-223 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-114 [Req: REQ-016]。費率每秒 1 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Natural · 30fps · 720p 在 30 s、90 s 和 480 s 的價目表（TC-VE2-114）；TC-223 只驗了 1 s 和 3.2 s 的價格
+步驟 6：按鈕回到「Enhance ◆ 30」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 30fps · 720p（在 TC-223 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-114 [Req: REQ-016]。費率每秒 1 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-279,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「30fps」
 2. 點「1080p」
@@ -455,7 +482,7 @@ TC-279,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 3：按鈕顯示「Enhance ◆ 60」（30 s × 2）
 步驟 4：按鈕顯示「Enhance ◆ 180」（90 s × 2）
 步驟 5：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 960」（480 s × 2）
-步驟 6：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 30fps · 1080p（在 TC-225 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-115 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Natural · 30fps · 1080p 在 30 s、90 s 和 480 s 的價目表（TC-VE2-115）；TC-225 只驗了 1 s 和 3.2 s 的價格
+步驟 6：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 30fps · 1080p（在 TC-225 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-115 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-280,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「30fps」
 2. 點「4K」
@@ -466,7 +493,7 @@ TC-280,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 3：按鈕顯示「Enhance ◆ 90」（30 s × 3）
 步驟 4：按鈕顯示「Enhance ◆ 270」（90 s × 3）
 步驟 5：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 1440」（480 s × 3）
-步驟 6：按鈕回到「Enhance ◆ 90」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 30fps · 4K（在 TC-224 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-116 [Req: REQ-016]。費率每秒 3 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Natural · 30fps · 4K 在 30 s、90 s 和 480 s 的價目表（TC-VE2-116）；TC-224 只驗了 1 s 和 3.2 s 的價格
+步驟 6：按鈕回到「Enhance ◆ 90」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 30fps · 4K（在 TC-224 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-116 [Req: REQ-016]。費率每秒 3 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-281,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「60fps」
 2. 點「720p」
@@ -477,7 +504,7 @@ TC-281,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 3：按鈕顯示「Enhance ◆ 30」（30 s × 1）
 步驟 4：按鈕顯示「Enhance ◆ 90」（90 s × 1）
 步驟 5：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 480」（480 s × 1）
-步驟 6：按鈕回到「Enhance ◆ 30」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 60fps · 720p（在 TC-226 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-117 [Req: REQ-016]。費率每秒 1 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Natural · 60fps · 720p 在 30 s、90 s 和 480 s 的價目表（TC-VE2-117）；TC-226 只驗了 1 s 和 3.2 s 的價格
+步驟 6：按鈕回到「Enhance ◆ 30」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 60fps · 720p（在 TC-226 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-117 [Req: REQ-016]。費率每秒 1 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-282,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「60fps」
 2. 點「1080p」
@@ -488,7 +515,7 @@ TC-282,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 3：按鈕顯示「Enhance ◆ 60」（30 s × 2）
 步驟 4：按鈕顯示「Enhance ◆ 180」（90 s × 2）
 步驟 5：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 960」（480 s × 2）
-步驟 6：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 60fps · 1080p（在 TC-221 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-118 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Natural · 60fps · 1080p 在 30 s、90 s 和 480 s 的價目表（TC-VE2-118）；TC-221 只驗了 1 s 和 3.2 s 的價格
+步驟 6：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 60fps · 1080p（在 TC-221 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-118 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-283,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「60fps」
 2. 點「4K」
@@ -499,7 +526,7 @@ TC-283,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 3：按鈕顯示「Enhance ◆ 180」（30 s × 6）
 步驟 4：按鈕顯示「Enhance ◆ 540」（90 s × 6）
 步驟 5：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 2880」（480 s × 6）
-步驟 6：按鈕回到「Enhance ◆ 180」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 60fps · 4K（在 TC-227 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-119 [Req: REQ-016]。費率每秒 6 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Natural · 60fps · 4K 在 30 s、90 s 和 480 s 的價目表（TC-VE2-119）；TC-227 只驗了 1 s 和 3.2 s 的價格
+步驟 6：按鈕回到「Enhance ◆ 180」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 60fps · 4K（在 TC-227 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-119 [Req: REQ-016]。費率每秒 6 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-284,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「120fps」
 2. 點「720p」
@@ -510,7 +537,7 @@ TC-284,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 3：按鈕顯示「Enhance ◆ 30」（30 s × 1）
 步驟 4：按鈕顯示「Enhance ◆ 90」（90 s × 1）
 步驟 5：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 480」（480 s × 1）
-步驟 6：按鈕回到「Enhance ◆ 30」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 120fps · 720p（在 TC-228 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-120 [Req: REQ-016]。費率每秒 1 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Natural · 120fps · 720p 在 30 s、90 s 和 480 s 的價目表（TC-VE2-120）；TC-228 只驗了 1 s 和 3.2 s 的價格
+步驟 6：按鈕回到「Enhance ◆ 30」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 120fps · 720p（在 TC-228 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-120 [Req: REQ-016]。費率每秒 1 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-285,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「120fps」
 2. 點「1080p」
@@ -521,7 +548,7 @@ TC-285,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 3：按鈕顯示「Enhance ◆ 60」（30 s × 2）
 步驟 4：按鈕顯示「Enhance ◆ 180」（90 s × 2）
 步驟 5：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 960」（480 s × 2）
-步驟 6：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 120fps · 1080p（在 TC-222 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-121 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Natural · 120fps · 1080p 在 30 s、90 s 和 480 s 的價目表（TC-VE2-121）；TC-222 只驗了 1 s 和 3.2 s 的價格
+步驟 6：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 120fps · 1080p（在 TC-222 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-121 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-286,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「120fps」
 2. 點「4K」
@@ -532,7 +559,7 @@ TC-286,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 3：按鈕顯示「Enhance ◆ 240」（30 s × 8）
 步驟 4：按鈕顯示「Enhance ◆ 720」（90 s × 8）
 步驟 5：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 3840」（480 s × 8）
-步驟 6：按鈕回到「Enhance ◆ 240」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 120fps · 4K（在 TC-229 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-122 [Req: REQ-016]。費率每秒 8 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Natural · 120fps · 4K 在 30 s、90 s 和 480 s 的價目表（TC-VE2-122）；TC-229 只驗了 1 s 和 3.2 s 的價格
+步驟 6：按鈕回到「Enhance ◆ 240」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Natural · 120fps · 4K（在 TC-229 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-122 [Req: REQ-016]。費率每秒 8 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-287,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「Sharp」
 2. 點「30fps」
@@ -544,7 +571,7 @@ TC-287,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4：按鈕顯示「Enhance ◆ 30」（30 s × 1）
 步驟 5：按鈕顯示「Enhance ◆ 90」（90 s × 1）
 步驟 6：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 480」（480 s × 1）
-步驟 7：按鈕回到「Enhance ◆ 30」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 30fps · 720p（在 TC-230 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-123 [Req: REQ-016]。費率每秒 1 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Sharp · 30fps · 720p 在 30 s、90 s 和 480 s 的價目表（TC-VE2-123）；TC-230 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 30」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 30fps · 720p（在 TC-230 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-123 [Req: REQ-016]。費率每秒 1 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-288,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「Sharp」
 2. 點「30fps」
@@ -556,7 +583,7 @@ TC-288,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4：按鈕顯示「Enhance ◆ 60」（30 s × 2）
 步驟 5：按鈕顯示「Enhance ◆ 180」（90 s × 2）
 步驟 6：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 960」（480 s × 2）
-步驟 7：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 30fps · 1080p（在 TC-220 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-124 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Sharp · 30fps · 1080p 在 30 s、90 s 和 480 s 的價目表（TC-VE2-124）；TC-220 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 30fps · 1080p（在 TC-220 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-124 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-289,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「Sharp」
 2. 點「30fps」
@@ -568,7 +595,7 @@ TC-289,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4：按鈕顯示「Enhance ◆ 90」（30 s × 3）
 步驟 5：按鈕顯示「Enhance ◆ 270」（90 s × 3）
 步驟 6：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 1440」（480 s × 3）
-步驟 7：按鈕回到「Enhance ◆ 90」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 30fps · 4K（在 TC-231 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-125 [Req: REQ-016]。費率每秒 3 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Sharp · 30fps · 4K 在 30 s、90 s 和 480 s 的價目表（TC-VE2-125）；TC-231 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 90」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 30fps · 4K（在 TC-231 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-125 [Req: REQ-016]。費率每秒 3 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-290,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「Sharp」
 2. 點「60fps」
@@ -580,7 +607,7 @@ TC-290,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4：按鈕顯示「Enhance ◆ 30」（30 s × 1）
 步驟 5：按鈕顯示「Enhance ◆ 90」（90 s × 1）
 步驟 6：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 480」（480 s × 1）
-步驟 7：按鈕回到「Enhance ◆ 30」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 60fps · 720p（在 TC-232 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-126 [Req: REQ-016]。費率每秒 1 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Sharp · 60fps · 720p 在 30 s、90 s 和 480 s 的價目表（TC-VE2-126）；TC-232 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 30」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 60fps · 720p（在 TC-232 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-126 [Req: REQ-016]。費率每秒 1 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-291,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「Sharp」
 2. 點「60fps」
@@ -592,7 +619,7 @@ TC-291,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4：按鈕顯示「Enhance ◆ 60」（30 s × 2）
 步驟 5：按鈕顯示「Enhance ◆ 180」（90 s × 2）
 步驟 6：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 960」（480 s × 2）
-步驟 7：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 60fps · 1080p（在 TC-233 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-127 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Sharp · 60fps · 1080p 在 30 s、90 s 和 480 s 的價目表（TC-VE2-127）；TC-233 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 60fps · 1080p（在 TC-233 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-127 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-292,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「Sharp」
 2. 點「60fps」
@@ -604,7 +631,7 @@ TC-292,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4：按鈕顯示「Enhance ◆ 180」（30 s × 6）
 步驟 5：按鈕顯示「Enhance ◆ 540」（90 s × 6）
 步驟 6：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 2880」（480 s × 6）
-步驟 7：按鈕回到「Enhance ◆ 180」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 60fps · 4K（在 TC-234 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-128 [Req: REQ-016]。費率每秒 6 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Sharp · 60fps · 4K 在 30 s、90 s 和 480 s 的價目表（TC-VE2-128）；TC-234 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 180」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 60fps · 4K（在 TC-234 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-128 [Req: REQ-016]。費率每秒 6 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-293,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「Sharp」
 2. 點「120fps」
@@ -616,7 +643,7 @@ TC-293,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4：按鈕顯示「Enhance ◆ 30」（30 s × 1）
 步驟 5：按鈕顯示「Enhance ◆ 90」（90 s × 1）
 步驟 6：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 480」（480 s × 1）
-步驟 7：按鈕回到「Enhance ◆ 30」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 120fps · 720p（在 TC-235 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-129 [Req: REQ-016]。費率每秒 1 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Sharp · 120fps · 720p 在 30 s、90 s 和 480 s 的價目表（TC-VE2-129）；TC-235 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 30」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 120fps · 720p（在 TC-235 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-129 [Req: REQ-016]。費率每秒 1 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-294,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「Sharp」
 2. 點「120fps」
@@ -628,7 +655,7 @@ TC-294,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4：按鈕顯示「Enhance ◆ 60」（30 s × 2）
 步驟 5：按鈕顯示「Enhance ◆ 180」（90 s × 2）
 步驟 6：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 960」（480 s × 2）
-步驟 7：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 120fps · 1080p（在 TC-236 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-130 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Sharp · 120fps · 1080p 在 30 s、90 s 和 480 s 的價目表（TC-VE2-130）；TC-236 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 120fps · 1080p（在 TC-236 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-130 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-295,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 點「Sharp」
 2. 點「120fps」
@@ -640,7 +667,7 @@ TC-295,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4：按鈕顯示「Enhance ◆ 240」（30 s × 8）
 步驟 5：按鈕顯示「Enhance ◆ 720」（90 s × 8）
 步驟 6：「Selected Length」顯示「08:00」，按鈕顯示「Enhance ◆ 3840」（480 s × 8）
-步驟 7：按鈕回到「Enhance ◆ 240」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 120fps · 4K（在 TC-237 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-131 [Req: REQ-016]。費率每秒 8 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Standard · Sharp · 120fps · 4K 在 30 s、90 s 和 480 s 的價目表（TC-VE2-131）；TC-237 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 240」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Standard · Sharp · 120fps · 4K（在 TC-237 實際產生）在 30 s、90 s 和 Standard 長度上限的價目表；對應 spec agent 的 TC-VE2-131 [Req: REQ-016]。費率每秒 8 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-296,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -652,7 +679,7 @@ TC-296,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4 之後：按鈕顯示「Enhance ◆ 60」（30 s × 2）
 步驟 5：按鈕顯示「Enhance ◆ 180」（90 s × 2）
 步驟 6：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 300」（150 s × 2）
-步驟 7：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 30fps · 720p（在 TC-238 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-132 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Natural · 30fps · 720p 在 30 s、90 s 和 150 s 的價目表（TC-VE2-132）；TC-238 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 30fps · 720p（在 TC-238 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-132 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-297,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -664,7 +691,7 @@ TC-297,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4 之後：按鈕顯示「Enhance ◆ 120」（30 s × 4）
 步驟 5：按鈕顯示「Enhance ◆ 360」（90 s × 4）
 步驟 6：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 600」（150 s × 4）
-步驟 7：按鈕回到「Enhance ◆ 120」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 30fps · 1080p（在 TC-219 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-133 [Req: REQ-016]。費率每秒 4 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Natural · 30fps · 1080p 在 30 s、90 s 和 150 s 的價目表（TC-VE2-133）；TC-219 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 120」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 30fps · 1080p（在 TC-219 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-133 [Req: REQ-016]。費率每秒 4 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-298,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -676,7 +703,7 @@ TC-298,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4 之後：按鈕顯示「Enhance ◆ 360」（30 s × 12）
 步驟 5：按鈕顯示「Enhance ◆ 1080」（90 s × 12）
 步驟 6：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 1800」（150 s × 12）
-步驟 7：按鈕回到「Enhance ◆ 360」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 30fps · 4K（在 TC-239 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-134 [Req: REQ-016]。費率每秒 12 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Natural · 30fps · 4K 在 30 s、90 s 和 150 s 的價目表（TC-VE2-134）；TC-239 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 360」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 30fps · 4K（在 TC-239 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-134 [Req: REQ-016]。費率每秒 12 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-299,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -688,7 +715,7 @@ TC-299,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4 之後：按鈕顯示「Enhance ◆ 120」（30 s × 4）
 步驟 5：按鈕顯示「Enhance ◆ 360」（90 s × 4）
 步驟 6：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 600」（150 s × 4）
-步驟 7：按鈕回到「Enhance ◆ 120」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 60fps · 720p（在 TC-240 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-135 [Req: REQ-016]。費率每秒 4 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Natural · 60fps · 720p 在 30 s、90 s 和 150 s 的價目表（TC-VE2-135）；TC-240 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 120」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 60fps · 720p（在 TC-240 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-135 [Req: REQ-016]。費率每秒 4 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-300,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -700,7 +727,7 @@ TC-300,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4 之後：按鈕顯示「Enhance ◆ 240」（30 s × 8）
 步驟 5：按鈕顯示「Enhance ◆ 720」（90 s × 8）
 步驟 6：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 1200」（150 s × 8）
-步驟 7：按鈕回到「Enhance ◆ 240」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 60fps · 1080p（在 TC-241 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-136 [Req: REQ-016]。費率每秒 8 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Natural · 60fps · 1080p 在 30 s、90 s 和 150 s 的價目表（TC-VE2-136）；TC-241 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 240」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 60fps · 1080p（在 TC-241 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-136 [Req: REQ-016]。費率每秒 8 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-301,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -712,7 +739,7 @@ TC-301,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4 之後：按鈕顯示「Enhance ◆ 720」（30 s × 24）
 步驟 5：按鈕顯示「Enhance ◆ 2160」（90 s × 24）
 步驟 6：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 3600」（150 s × 24）
-步驟 7：按鈕回到「Enhance ◆ 720」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 60fps · 4K（在 TC-242 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-137 [Req: REQ-016]。費率每秒 24 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Natural · 60fps · 4K 在 30 s、90 s 和 150 s 的價目表（TC-VE2-137）；TC-242 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 720」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 60fps · 4K（在 TC-242 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-137 [Req: REQ-016]。費率每秒 24 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-302,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -724,7 +751,7 @@ TC-302,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4 之後：按鈕顯示「Enhance ◆ 240」（30 s × 8）
 步驟 5：按鈕顯示「Enhance ◆ 720」（90 s × 8）
 步驟 6：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 1200」（150 s × 8）
-步驟 7：按鈕回到「Enhance ◆ 240」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 120fps · 720p（在 TC-243 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-138 [Req: REQ-016]。費率每秒 8 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Natural · 120fps · 720p 在 30 s、90 s 和 150 s 的價目表（TC-VE2-138）；TC-243 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 240」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 120fps · 720p（在 TC-243 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-138 [Req: REQ-016]。費率每秒 8 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-303,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -736,7 +763,7 @@ TC-303,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4 之後：按鈕顯示「Enhance ◆ 480」（30 s × 16）
 步驟 5：按鈕顯示「Enhance ◆ 1440」（90 s × 16）
 步驟 6：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 2400」（150 s × 16）
-步驟 7：按鈕回到「Enhance ◆ 480」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 120fps · 1080p（在 TC-244 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-139 [Req: REQ-016]。費率每秒 16 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Natural · 120fps · 1080p 在 30 s、90 s 和 150 s 的價目表（TC-VE2-139）；TC-244 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 480」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 120fps · 1080p（在 TC-244 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-139 [Req: REQ-016]。費率每秒 16 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-304,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -748,7 +775,7 @@ TC-304,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 4 之後：按鈕顯示「Enhance ◆ 1440」（30 s × 48）
 步驟 5：按鈕顯示「Enhance ◆ 4320」（90 s × 48）
 步驟 6：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 7200」（150 s × 48）
-步驟 7：按鈕回到「Enhance ◆ 1440」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 120fps · 4K（在 TC-245 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-140 [Req: REQ-016]。費率每秒 48 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Natural · 120fps · 4K 在 30 s、90 s 和 150 s 的價目表（TC-VE2-140）；TC-245 只驗了 1 s 和 3.2 s 的價格
+步驟 7：按鈕回到「Enhance ◆ 1440」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Natural · 120fps · 4K（在 TC-245 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-140 [Req: REQ-016]。費率每秒 48 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-305,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -761,7 +788,7 @@ TC-305,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 5 之後：按鈕顯示「Enhance ◆ 60」（30 s × 2）
 步驟 6：按鈕顯示「Enhance ◆ 180」（90 s × 2）
 步驟 7：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 300」（150 s × 2）
-步驟 8：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 30fps · 720p（在 TC-246 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-141 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Sharp · 30fps · 720p 在 30 s、90 s 和 150 s 的價目表（TC-VE2-141）；TC-246 只驗了 1 s 和 3.2 s 的價格
+步驟 8：按鈕回到「Enhance ◆ 60」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 30fps · 720p（在 TC-246 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-141 [Req: REQ-016]。費率每秒 2 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-306,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -774,7 +801,7 @@ TC-306,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 5 之後：按鈕顯示「Enhance ◆ 120」（30 s × 4）
 步驟 6：按鈕顯示「Enhance ◆ 360」（90 s × 4）
 步驟 7：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 600」（150 s × 4）
-步驟 8：按鈕回到「Enhance ◆ 120」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 30fps · 1080p（在 TC-247 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-142 [Req: REQ-016]。費率每秒 4 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Sharp · 30fps · 1080p 在 30 s、90 s 和 150 s 的價目表（TC-VE2-142）；TC-247 只驗了 1 s 和 3.2 s 的價格
+步驟 8：按鈕回到「Enhance ◆ 120」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 30fps · 1080p（在 TC-247 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-142 [Req: REQ-016]。費率每秒 4 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-307,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -787,7 +814,7 @@ TC-307,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 5 之後：按鈕顯示「Enhance ◆ 360」（30 s × 12）
 步驟 6：按鈕顯示「Enhance ◆ 1080」（90 s × 12）
 步驟 7：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 1800」（150 s × 12）
-步驟 8：按鈕回到「Enhance ◆ 360」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 30fps · 4K（在 TC-248 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-143 [Req: REQ-016]。費率每秒 12 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Sharp · 30fps · 4K 在 30 s、90 s 和 150 s 的價目表（TC-VE2-143）；TC-248 只驗了 1 s 和 3.2 s 的價格
+步驟 8：按鈕回到「Enhance ◆ 360」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 30fps · 4K（在 TC-248 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-143 [Req: REQ-016]。費率每秒 12 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-308,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -800,7 +827,7 @@ TC-308,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 5 之後：按鈕顯示「Enhance ◆ 120」（30 s × 4）
 步驟 6：按鈕顯示「Enhance ◆ 360」（90 s × 4）
 步驟 7：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 600」（150 s × 4）
-步驟 8：按鈕回到「Enhance ◆ 120」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 60fps · 720p（在 TC-249 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-144 [Req: REQ-016]。費率每秒 4 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Sharp · 60fps · 720p 在 30 s、90 s 和 150 s 的價目表（TC-VE2-144）；TC-249 只驗了 1 s 和 3.2 s 的價格
+步驟 8：按鈕回到「Enhance ◆ 120」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 60fps · 720p（在 TC-249 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-144 [Req: REQ-016]。費率每秒 4 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-309,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -813,7 +840,7 @@ TC-309,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 5 之後：按鈕顯示「Enhance ◆ 240」（30 s × 8）
 步驟 6：按鈕顯示「Enhance ◆ 720」（90 s × 8）
 步驟 7：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 1200」（150 s × 8）
-步驟 8：按鈕回到「Enhance ◆ 240」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 60fps · 1080p（在 TC-250 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-145 [Req: REQ-016]。費率每秒 8 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Sharp · 60fps · 1080p 在 30 s、90 s 和 150 s 的價目表（TC-VE2-145）；TC-250 只驗了 1 s 和 3.2 s 的價格
+步驟 8：按鈕回到「Enhance ◆ 240」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 60fps · 1080p（在 TC-250 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-145 [Req: REQ-016]。費率每秒 8 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-310,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -826,7 +853,7 @@ TC-310,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 5 之後：按鈕顯示「Enhance ◆ 720」（30 s × 24）
 步驟 6：按鈕顯示「Enhance ◆ 2160」（90 s × 24）
 步驟 7：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 3600」（150 s × 24）
-步驟 8：按鈕回到「Enhance ◆ 720」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 60fps · 4K（在 TC-251 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-146 [Req: REQ-016]。費率每秒 24 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Sharp · 60fps · 4K 在 30 s、90 s 和 150 s 的價目表（TC-VE2-146）；TC-251 只驗了 1 s 和 3.2 s 的價格
+步驟 8：按鈕回到「Enhance ◆ 720」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 60fps · 4K（在 TC-251 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-146 [Req: REQ-016]。費率每秒 24 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-311,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -839,7 +866,7 @@ TC-311,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 5 之後：按鈕顯示「Enhance ◆ 240」（30 s × 8）
 步驟 6：按鈕顯示「Enhance ◆ 720」（90 s × 8）
 步驟 7：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 1200」（150 s × 8）
-步驟 8：按鈕回到「Enhance ◆ 240」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 120fps · 720p（在 TC-252 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-147 [Req: REQ-016]。費率每秒 8 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Sharp · 120fps · 720p 在 30 s、90 s 和 150 s 的價目表（TC-VE2-147）；TC-252 只驗了 1 s 和 3.2 s 的價格
+步驟 8：按鈕回到「Enhance ◆ 240」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 120fps · 720p（在 TC-252 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-147 [Req: REQ-016]。費率每秒 8 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-312,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -852,7 +879,7 @@ TC-312,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 5 之後：按鈕顯示「Enhance ◆ 480」（30 s × 16）
 步驟 6：按鈕顯示「Enhance ◆ 1440」（90 s × 16）
 步驟 7：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 2400」（150 s × 16）
-步驟 8：按鈕回到「Enhance ◆ 480」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 120fps · 1080p（在 TC-253 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-148 [Req: REQ-016]。費率每秒 16 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Sharp · 120fps · 1080p 在 30 s、90 s 和 150 s 的價目表（TC-VE2-148）；TC-253 只驗了 1 s 和 3.2 s 的價格
+步驟 8：按鈕回到「Enhance ◆ 480」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 120fps · 1080p（在 TC-253 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-148 [Req: REQ-016]。費率每秒 16 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-313,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 已用 12:30、1080p、30 fps 的影片開啟面板，設定為 Standard / Natural / 30fps / 1080p，選取範圍是預設的 00:00–08:00","1. 把右側把手向左拖，直到「Selected Length」顯示「00:30」
 2. 點「Professional」
@@ -865,7 +892,7 @@ TC-313,點數價格,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 步驟 5 之後：按鈕顯示「Enhance ◆ 1440」（30 s × 48）
 步驟 6：按鈕顯示「Enhance ◆ 4320」（90 s × 48）
 步驟 7：「Selected Length」顯示「02:30」，按鈕顯示「Enhance ◆ 7200」（150 s × 48）
-步驟 8：按鈕回到「Enhance ◆ 1440」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 120fps · 4K（在 TC-254 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-149 [Req: REQ-016]。費率每秒 48 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,新增,REQ-016：補上 Professional · Sharp · 120fps · 4K 在 30 s、90 s 和 150 s 的價目表（TC-VE2-149）；TC-254 只驗了 1 s 和 3.2 s 的價格
+步驟 8：按鈕回到「Enhance ◆ 1440」，四個選項和費率說明文字都不變",P2,"R-060, R-063, R-065",組合 Professional · Sharp · 120fps · 4K（在 TC-254 實際產生）在 30 s、90 s 和 Professional 長度上限的價目表；對應 spec agent 的 TC-VE2-149 [Req: REQ-016]。費率每秒 48 點，取自 ECL 費率表（form 22061491221）。不點 Enhance，不花點數。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。,未變更,
 TC-090,使用資格與購買,"1. 帳號等級 Free（Launcher › Pink › ☰ › [0] IAP › status = Free，並到 Mine 確認）
 2. 已開啟面板並載入一支影片",點「Unlock Pro+ to Enhance」,"CTA 顯示「Unlock Pro+ to Enhance」（沒有價格），下方有「Charge X credits per second」
 點下去會開啟 IAP 頁",P1,R-070,PM 寫的「Upgrade to Pro+」是比較舊的文案，以 Design 為準。,未變更,
@@ -894,11 +921,15 @@ TC-096,使用資格與購買,"1. 帳號等級 Pro+（Launcher › Pink › ☰ �
 3. 已開啟面板
 4. 先記下餘額",點「Enhance」,"開啟點數頁（「My Credits」、「Buy More」、「Expiring within 7 days: … credits」、「Complimentary daily credits」 「Claim once every 24 hours」 「Claim」、「PowerDirector Pro+」卡片）
 不會出現上傳對話框，Recent task 沒有新增卡片，餘額也沒有變",P1,R-076,暫緩：需要低餘額的狀態（共用帳號裡的點數很多）。,未變更,
+TC-320,使用資格與購買,"1. 已從面板開啟 Credit 頁（TC-096），還沒購買也還沒領取
+2. 已記下面板上的選取範圍和各項設定",點 Credit 頁上的 ‹,"回到面板，影片、選取範圍和設定都沒變
+餘額沒有變
+沒有開始上傳，Recent task 也沒有多出卡片",P2,R-073,與 TC-096 一起暫緩（需要餘額不足的帳號）。PM C2 [建議]（spec agent TC-VE2-285）[Req: REQ-021]。TC-098 是領取之後才關閉這一頁。,新增,REQ-021：沒購買也沒領取就關閉 Credit 頁（spec agent TC-VE2-285）
 TC-097,使用資格與購買,同 TC-096 的設定：已從面板開啟點數頁，並記下餘額,"1. 點「Buy More」
 2. 在 App Store 購買視窗購買一個點數包（記下它的點數）
 3. 開啟 My Credits","步驟 2 之後 App 回到面板，影片、起點、終點、「Selected Length」、Mode、風格、fps 和解析度都和原本一樣
 點數膠囊顯示先前記下的餘額加上點數包的點數
-步驟 3：My Credits 顯示同樣的餘額",P2,R-077,暫緩：需要實際購買。確認餘額的加總，以及每項設定都保留（spec agent TC-VE2-045、TC-VE2-272；他們的點數包和價格是 Google Play 的）[Req: REQ-016]。,修改,REQ-016：餘額等於先前記下的餘額加上點數包，而且每項設定都保留（TC-VE2-045、272）
+步驟 3：My Credits 顯示同樣的餘額",P2,R-077,暫緩：需要實際購買。確認餘額的加總，以及每項設定都保留（spec agent TC-VE2-045、TC-VE2-272；他們的點數包和價格是 Google Play 的）[Req: REQ-016]。,未變更,
 TC-098,使用資格與購買,"1. 已從面板開啟點數頁（TC-096）
 2. 過去 24 小時內沒有領過每日點數","1. 點「Claim」
 2. 點點數頁上的 ‹","步驟 1 會加上每日點數
@@ -922,7 +953,7 @@ TC-113,生成與取消,"1. 全新的任務：在處理中對話框點「Cancel�
 2. 開啟點數紀錄（Credit 頁的「Details」）","步驟 1：回到面板，選取範圍和設定都還在，「Enhance ◆ <credits>」 CTA 重新變成可以按
 步驟 1：處理停止（Recent task 裡不會出現這個任務的完成結果）
 步驟 1：餘額是先前記下的餘額扣掉價格（點數不退，如同對話框所說）
-步驟 2：這個任務有一筆金額等於價格的「AI Video Enhance」扣款，而且沒有對應的退款紀錄",P1,"R-086, R-088",Q-2：PM §8 寫的是在上傳到達伺服器前取消不扣點也不建立任務；Design 比較新，以 Design 為準。不論有沒有扣點，開單前都要先在裝置上確認，並和使用者討論後再決定。點數紀錄的檢查：spec agent TC-VE2-055 [Req: REQ-016]。,修改,REQ-016：查點數紀錄：一筆扣款、沒有退款（TC-VE2-055）
+步驟 2：這個任務有一筆金額等於價格的「AI Video Enhance」扣款，而且沒有對應的退款紀錄",P1,"R-086, R-088",Q-2：PM §8 寫的是在上傳到達伺服器前取消不扣點也不建立任務；Design 比較新，以 Design 為準。不論有沒有扣點，開單前都要先在裝置上確認，並和使用者討論後再決定。點數紀錄的檢查：spec agent TC-VE2-055 [Req: REQ-016]。,未變更,
 TC-114,生成與取消,"1. 正在顯示處理中的對話框（TC-110）
 2. 已記下點「Enhance」前的餘額",等上傳完成,"開啟 Recent task，裡面有一張處理中的卡片（縮圖、日期、名稱、「processing...」、「<n> minutes left...」、進度條）
 餘額是先前記下的餘額扣掉 CTA 的價格
@@ -963,10 +994,14 @@ TC-140,Recent task,已開啟面板,點面板右上角的 Recent task 圖示,開�
 TC-141,Recent task,從面板開啟 Recent task，裡面有一個處理中的任務,"1. 點 Recent task 上的 ‹
 2. 等到沒有處理中的任務後，再從面板開啟 Recent task（只剩已完成的卡片）
 3. 點 ‹","步驟 1：回到面板
-步驟 3：回到面板",P2,R-114,也測只有已完成卡片的情況（spec agent TC-VE2-238）[Req: REQ-016]。,修改,REQ-016：也測只有已完成卡片的情況（TC-VE2-238）
+步驟 3：回到面板",P2,R-114,也測只有已完成卡片的情況（spec agent TC-VE2-238）[Req: REQ-016]。,未變更,
+TC-317,Recent task,"1. 登入一個從沒用過 AI Video Enhance 的帳號（例如從沒付費過的 Free 帳號）：用 Pink 切換等級不會清掉帳號的任務
+2. 不可以為了清空清單去刪任務
+3. 已用任一影片開啟面板",點面板上方列的 Recent task 圖示,"開啟 Recent task，沒有任何任務卡片
+畫面顯示「No results found」",P3,"R-207, R-113",這是 spec agent 的使用者在 2026-10-12 認可的實機觀察畫面（spec agent TC-VE2-333，VE-1012-S001-B004，在 iOS 上看到）；Design 沒有畫 Recent task 的空白狀態 [Req: REQ-020]。需要一個沒有 Video Enhance 任務的帳號（見 fixtures）。如有不同，屬於 PM 問題：這條規則在 Design 和 PM 都沒有依據（依 AGENTS.md 2026-11-11 開給 PM）。,新增,REQ-020：Recent task 的空白狀態（spec agent TC-VE2-333）
 TC-142,Recent task,已開啟 Recent task，裡面有一個還在處理中的任務,"1. 點 Recent task 上的 ⌂
 2. 再次開啟 AI Video Enhance 和它的 Recent task","步驟 1：開啟 Launcher
-步驟 2：任務仍在處理中或已完成（沒有被取消）",P2,R-115,在有任務處理中時操作（spec agent TC-VE2-067）[Req: REQ-016]。,修改,REQ-016：在任務處理中時點 ⌂（TC-VE2-067）
+步驟 2：任務仍在處理中或已完成（沒有被取消）",P2,R-115,在有任務處理中時操作（spec agent TC-VE2-067）[Req: REQ-016]。,未變更,
 TC-143,Recent task,已開啟 Recent task，裡面有一張處理中的卡片,"1. 停在 Recent task 等任務完成
 2. 點該卡片上的「View」
 3. 點 Result 上的 ‹
@@ -1009,12 +1044,12 @@ TC-150,結果頁,已開啟某個已完成任務的 Result（TC-143）,"1. 點播
 步驟 1 播放結果
 步驟 2 暫停，到步驟 3 結束為止時間和畫面都維持不動
 步驟 4：時間和畫面跟著滑桿往後走
-步驟 5：時間和畫面跟著滑桿回到前面",P1,"R-120, R-201",PM 的「Edit More」是較舊的版本（D3 [衝突]：「Enhance More」）。暫停：spec agent TC-VE2-168（通用播放器規則，Design 沒有畫）[Req: REQ-008]。,修改,REQ-016：把滑桿往兩個方向拖，確認時間和畫面都有跟上（TC-VE2-169）
+步驟 5：時間和畫面跟著滑桿回到前面",P1,"R-120, R-201",PM 的「Edit More」是較舊的版本（D3 [衝突]：「Enhance More」）。暫停：spec agent TC-VE2-168（通用播放器規則，Design 沒有畫）[Req: REQ-008]。,未變更,
 TC-151,結果頁,已開啟 Result,"1. 點「Original」
 2. 把滑桿拖到 00:02 並暫停
 3. 點「Result」
 4. 把滑桿拖到 00:02 並暫停","「Original」顯示原始影片，「Result」顯示增強後的影片
-兩邊在 00:02 的畫面看得出差異（Result 比較清晰或乾淨）",P2,R-121,比較同一時間點的畫面（spec agent TC-VE2-166）[Req: REQ-016]。,修改,REQ-016：在同一時間點比較 Original 和 Result（TC-VE2-166）
+兩邊在 00:02 的畫面看得出差異（Result 比較清晰或乾淨）",P2,R-121,比較同一時間點的畫面（spec agent TC-VE2-166）[Req: REQ-016]。,未變更,
 TC-152,結果頁,已開啟 TC-110 那個任務的結果頁（來源為 01:30、1080p、30 fps 的影片；設定為 Standard、Natural、30fps、1080p）,"1. 點「Save Result」
 2. 在「照片」App 裡，對儲存好的影片向上滑，顯示它的資訊
 3. 在 PowerDirector 開啟新專案，並開啟媒體選擇器的「Recents」
@@ -1032,7 +1067,7 @@ TC-314,結果頁,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP �
 3. 等任務完成後點「View」
 4. 點「Add to Timeline」
 5. 回到專案列表，開啟那個已儲存的專案","步驟 4：開啟一個新專案，時間軸上是增強後的影片
-步驟 5：已儲存的專案仍是原本的片段，位置和長度都一樣（沒有換成增強後的影片）",P2,"R-123, R-126",專案裡已經用了這支來源影片（spec agent TC-VE2-065）[Req: REQ-016]。Q-11（時間軸入口的取代行為）不適用：這個任務是從 Add Media 開始的。需完整產生一次影片。,新增,REQ-016：Add to Timeline 不會改動已經用了這支來源影片的專案（TC-VE2-065）
+步驟 5：已儲存的專案仍是原本的片段，位置和長度都一樣（沒有換成增強後的影片）",P2,"R-123, R-126",專案裡已經用了這支來源影片（spec agent TC-VE2-065）[Req: REQ-016]。Q-11（時間軸入口的取代行為）不適用：這個任務是從 Add Media 開始的。需完整產生一次影片。,未變更,
 TC-154,結果頁,已開啟 Result,點「Enhance More」,開啟 Add Media，可以選下一支影片,P2,R-124,,未變更,
 TC-155,結果頁,從 Recent task 的任務卡片開啟結果頁,點結果頁上的 ‹,回到 Recent task 畫面,P3,R-125,Q-9：規格沒有畫箭頭，先假設是回到上一頁。,未變更,
 TC-223,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 4 點
@@ -1080,7 +1115,7 @@ TC-225,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且增強幅度較輕、看起來自然（「Lighter enhancement with fewer artifacts, for a more realistic look」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、1920 × 1080、30 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=30fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_1080p_30fps）的費率每秒 2 點；對應 spec agent 的 TC-VE2-186（生成）和 TC-VE2-115（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-186（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-186）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=30fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_1080p_30fps）的費率每秒 2 點；對應 spec agent 的 TC-VE2-186（生成）和 TC-VE2-115（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-186（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-224,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 12 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 秒的影片開啟面板（選取整支影片）
@@ -1103,7 +1138,7 @@ TC-224,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且增強幅度較輕、看起來自然（「Lighter enhancement with fewer artifacts, for a more realistic look」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、3840 × 2160、30 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 12 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=30fps · Resolution=4K（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_4k_30fps）的費率每秒 3 點；對應 spec agent 的 TC-VE2-187（生成）和 TC-VE2-116（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 12 點。處理時間：對應 spec agent 的 TC-VE2-187（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-187）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 12 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=30fps · Resolution=4K（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_4k_30fps）的費率每秒 3 點；對應 spec agent 的 TC-VE2-187（生成）和 TC-VE2-116（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 12 點。處理時間：對應 spec agent 的 TC-VE2-187（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-226,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 4 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 秒的影片開啟面板（選取整支影片）
@@ -1126,7 +1161,7 @@ TC-226,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且增強幅度較輕、看起來自然（「Lighter enhancement with fewer artifacts, for a more realistic look」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、1280 × 720、60 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 4 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=60fps · Resolution=720p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_720p_60fps）的費率每秒 1 點；對應 spec agent 的 TC-VE2-188（生成）和 TC-VE2-117（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 4 點。處理時間：對應 spec agent 的 TC-VE2-188（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-188）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 4 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=60fps · Resolution=720p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_720p_60fps）的費率每秒 1 點；對應 spec agent 的 TC-VE2-188（生成）和 TC-VE2-117（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 4 點。處理時間：對應 spec agent 的 TC-VE2-188（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-221,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 8 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 秒的影片開啟面板（選取整支影片）
@@ -1150,7 +1185,7 @@ TC-221,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且增強幅度較輕、看起來自然（「Lighter enhancement with fewer artifacts, for a more realistic look」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、1920 × 1080、60 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=60fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_1080p_60fps）的費率每秒 2 點；對應 spec agent 的 TC-VE2-189（生成）和 TC-VE2-118（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-189（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-189）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=60fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_1080p_60fps）的費率每秒 2 點；對應 spec agent 的 TC-VE2-189（生成）和 TC-VE2-118（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-189（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-227,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 24 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 秒的影片開啟面板（選取整支影片）
@@ -1174,7 +1209,7 @@ TC-227,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且增強幅度較輕、看起來自然（「Lighter enhancement with fewer artifacts, for a more realistic look」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、3840 × 2160、60 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 24 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=60fps · Resolution=4K（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_4k_60fps）的費率每秒 6 點；對應 spec agent 的 TC-VE2-190（生成）和 TC-VE2-119（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 24 點。處理時間：對應 spec agent 的 TC-VE2-190（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-190）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 24 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=60fps · Resolution=4K（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_4k_60fps）的費率每秒 6 點；對應 spec agent 的 TC-VE2-190（生成）和 TC-VE2-119（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 24 點。處理時間：對應 spec agent 的 TC-VE2-190（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-228,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 4 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 秒的影片開啟面板（選取整支影片）
@@ -1197,7 +1232,7 @@ TC-228,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且增強幅度較輕、看起來自然（「Lighter enhancement with fewer artifacts, for a more realistic look」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、1280 × 720、120 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 4 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=120fps · Resolution=720p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_720p_120fps）的費率每秒 1 點；對應 spec agent 的 TC-VE2-191（生成）和 TC-VE2-120（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 4 點。處理時間：對應 spec agent 的 TC-VE2-191（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-191）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 4 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=120fps · Resolution=720p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_720p_120fps）的費率每秒 1 點；對應 spec agent 的 TC-VE2-191（生成）和 TC-VE2-120（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 4 點。處理時間：對應 spec agent 的 TC-VE2-191（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-222,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 8 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 秒的影片開啟面板（選取整支影片）
@@ -1221,7 +1256,7 @@ TC-222,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且增強幅度較輕、看起來自然（「Lighter enhancement with fewer artifacts, for a more realistic look」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、1920 × 1080、120 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=120fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_1080p_120fps）的費率每秒 2 點；對應 spec agent 的 TC-VE2-192（生成）和 TC-VE2-121（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-192（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-192）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=120fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_1080p_120fps）的費率每秒 2 點；對應 spec agent 的 TC-VE2-192（生成）和 TC-VE2-121（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-192（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-229,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 32 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 秒的影片開啟面板（選取整支影片）
@@ -1245,7 +1280,7 @@ TC-229,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且增強幅度較輕、看起來自然（「Lighter enhancement with fewer artifacts, for a more realistic look」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、3840 × 2160、120 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 32 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=120fps · Resolution=4K（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_4k_120fps）的費率每秒 8 點；對應 spec agent 的 TC-VE2-193（生成）和 TC-VE2-122（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 32 點。處理時間：對應 spec agent 的 TC-VE2-193（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-193）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 32 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Natural · fps=120fps · Resolution=4K（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_natural_4k_120fps）的費率每秒 8 點；對應 spec agent 的 TC-VE2-193（生成）和 TC-VE2-122（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 32 點。處理時間：對應 spec agent 的 TC-VE2-193（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-230,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 4 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 秒的影片開啟面板（選取整支影片）
@@ -1268,7 +1303,7 @@ TC-230,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且畫面更銳利清晰（「Moderate enhancement for a sharp, clear image」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、1280 × 720、30 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 4 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Sharp · fps=30fps · Resolution=720p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_hd_720p_30fps）的費率每秒 1 點；對應 spec agent 的 TC-VE2-194（生成）和 TC-VE2-123（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 4 點。處理時間：對應 spec agent 的 TC-VE2-194（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-194）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 4 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Sharp · fps=30fps · Resolution=720p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_hd_720p_30fps）的費率每秒 1 點；對應 spec agent 的 TC-VE2-194（生成）和 TC-VE2-123（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 4 點。處理時間：對應 spec agent 的 TC-VE2-194（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-220,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 8 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 秒的影片開啟面板（選取整支影片）
@@ -1292,7 +1327,7 @@ TC-220,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且畫面更銳利清晰（「Moderate enhancement for a sharp, clear image」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、1920 × 1080、30 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Sharp · fps=30fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_hd_1080p_30fps）的費率每秒 2 點；對應 spec agent 的 TC-VE2-195（生成）和 TC-VE2-124（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-195（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-195）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Sharp · fps=30fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_hd_1080p_30fps）的費率每秒 2 點；對應 spec agent 的 TC-VE2-195（生成）和 TC-VE2-124（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-195（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-231,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 12 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 秒的影片開啟面板（選取整支影片）
@@ -1316,7 +1351,7 @@ TC-231,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且畫面更銳利清晰（「Moderate enhancement for a sharp, clear image」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、3840 × 2160、30 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 12 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Sharp · fps=30fps · Resolution=4K（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_hd_4k_30fps）的費率每秒 3 點；對應 spec agent 的 TC-VE2-196（生成）和 TC-VE2-125（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 12 點。處理時間：對應 spec agent 的 TC-VE2-196（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-196）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 12 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Sharp · fps=30fps · Resolution=4K（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_hd_4k_30fps）的費率每秒 3 點；對應 spec agent 的 TC-VE2-196（生成）和 TC-VE2-125（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 12 點。處理時間：對應 spec agent 的 TC-VE2-196（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-232,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 4 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 秒的影片開啟面板（選取整支影片）
@@ -1340,7 +1375,7 @@ TC-232,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且畫面更銳利清晰（「Moderate enhancement for a sharp, clear image」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、1280 × 720、60 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 4 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Sharp · fps=60fps · Resolution=720p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_hd_720p_60fps）的費率每秒 1 點；對應 spec agent 的 TC-VE2-197（生成）和 TC-VE2-126（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 4 點。處理時間：對應 spec agent 的 TC-VE2-197（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-197）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 4 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Sharp · fps=60fps · Resolution=720p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_hd_720p_60fps）的費率每秒 1 點；對應 spec agent 的 TC-VE2-197（生成）和 TC-VE2-126（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 4 點。處理時間：對應 spec agent 的 TC-VE2-197（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-233,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 8 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 秒的影片開啟面板（選取整支影片）
@@ -1365,7 +1400,7 @@ TC-233,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且畫面更銳利清晰（「Moderate enhancement for a sharp, clear image」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、1920 × 1080、60 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Sharp · fps=60fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_hd_1080p_60fps）的費率每秒 2 點；對應 spec agent 的 TC-VE2-198（生成）和 TC-VE2-127（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-198（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-198）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Sharp · fps=60fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_hd_1080p_60fps）的費率每秒 2 點；對應 spec agent 的 TC-VE2-198（生成）和 TC-VE2-127（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-198（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-234,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 24 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 秒的影片開啟面板（選取整支影片）
@@ -1390,7 +1425,7 @@ TC-234,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且畫面更銳利清晰（「Moderate enhancement for a sharp, clear image」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、3840 × 2160、60 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 24 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Sharp · fps=60fps · Resolution=4K（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_hd_4k_60fps）的費率每秒 6 點；對應 spec agent 的 TC-VE2-199（生成）和 TC-VE2-128（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 24 點。處理時間：對應 spec agent 的 TC-VE2-199（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-199）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 24 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合 Mode=Standard · Enhancement style=Sharp · fps=60fps · Resolution=4K（`### Combinations`，analysis pass 10）[Req: REQ-008]。ECL 費率表（表單 22061491221，action genvideo_1_sec_byteplus_std_hd_4k_60fps）的費率每秒 6 點；對應 spec agent 的 TC-VE2-199（生成）和 TC-VE2-128（價格顯示）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。如果這個組合下有選項畫成灰色不能點（Q-6），記為 Blocked --as question。這一列會完整生成一次，花 24 點。處理時間：對應 spec agent 的 TC-VE2-199（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-235,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 4 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 s 的影片開啟面板（整支影片都已選取）
@@ -1414,7 +1449,7 @@ TC-235,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且畫面更銳利清晰（「Moderate enhancement for a sharp, clear image」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、1280 × 720、120 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 4 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合：Mode=Standard · Enhancement style=Sharp · fps=120fps · Resolution=720p（`### Combinations`，analysis pass 10）[Req: REQ-008]。費率每秒 1 點，依據 ECL 費率表（form 22061491221，action genvideo_1_sec_byteplus_std_hd_720p_120fps）；對應 spec agent 的 TC-VE2-200（generate）與 TC-VE2-129（price display）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。若這個組合下有 chip 被畫成灰色不能按（Q-6），記為 Blocked --as question。這一列會實際完整生成一次，花 4 點。處理時間：對應 spec agent 的 TC-VE2-200（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-200）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 4 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合：Mode=Standard · Enhancement style=Sharp · fps=120fps · Resolution=720p（`### Combinations`，analysis pass 10）[Req: REQ-008]。費率每秒 1 點，依據 ECL 費率表（form 22061491221，action genvideo_1_sec_byteplus_std_hd_720p_120fps）；對應 spec agent 的 TC-VE2-200（generate）與 TC-VE2-129（price display）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。若這個組合下有 chip 被畫成灰色不能按（Q-6），記為 Blocked --as question。這一列會實際完整生成一次，花 4 點。處理時間：對應 spec agent 的 TC-VE2-200（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-236,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 8 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 s 的影片開啟面板（整支影片都已選取）
@@ -1439,7 +1474,7 @@ TC-236,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且畫面更銳利清晰（「Moderate enhancement for a sharp, clear image」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、1920 × 1080、120 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合：Mode=Standard · Enhancement style=Sharp · fps=120fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。費率每秒 2 點，依據 ECL 費率表（form 22061491221，action genvideo_1_sec_byteplus_std_hd_1080p_120fps）；對應 spec agent 的 TC-VE2-201（generate）與 TC-VE2-130（price display）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。若這個組合下有 chip 被畫成灰色不能按（Q-6），記為 Blocked --as question。這一列會實際完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-201（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-201）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合：Mode=Standard · Enhancement style=Sharp · fps=120fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。費率每秒 2 點，依據 ECL 費率表（form 22061491221，action genvideo_1_sec_byteplus_std_hd_1080p_120fps）；對應 spec agent 的 TC-VE2-201（generate）與 TC-VE2-130（price display）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。若這個組合下有 chip 被畫成灰色不能按（Q-6），記為 Blocked --as question。這一列會實際完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-201（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-237,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 32 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 s 的影片開啟面板（整支影片都已選取）
@@ -1464,7 +1499,7 @@ TC-237,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」比「Original」畫質有提升（「Great quality」），而且畫面更銳利清晰（「Moderate enhancement for a sharp, clear image」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、3840 × 2160、120 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 32 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合：Mode=Standard · Enhancement style=Sharp · fps=120fps · Resolution=4K（`### Combinations`，analysis pass 10）[Req: REQ-008]。費率每秒 8 點，依據 ECL 費率表（form 22061491221，action genvideo_1_sec_byteplus_std_hd_4k_120fps）；對應 spec agent 的 TC-VE2-202（generate）與 TC-VE2-131（price display）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。若這個組合下有 chip 被畫成灰色不能按（Q-6），記為 Blocked --as question。這一列會實際完整生成一次，花 32 點。處理時間：對應 spec agent 的 TC-VE2-202（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-202）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 32 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合：Mode=Standard · Enhancement style=Sharp · fps=120fps · Resolution=4K（`### Combinations`，analysis pass 10）[Req: REQ-008]。費率每秒 8 點，依據 ECL 費率表（form 22061491221，action genvideo_1_sec_byteplus_std_hd_4k_120fps）；對應 spec agent 的 TC-VE2-202（generate）與 TC-VE2-131（price display）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。若這個組合下有 chip 被畫成灰色不能按（Q-6），記為 Blocked --as question。這一列會實際完整生成一次，花 32 點。處理時間：對應 spec agent 的 TC-VE2-202（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-238,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），且至少有 8 點
 2. 相簿裡有一支 00:03.2（3.2 秒）、720p、30 fps 的橫式影片（為測試自製，所有組合列都用同一支檔案）
 3. 先記下餘額，以及點數紀錄最新的一筆","1. 用 3.2 s 的影片開啟面板（整支影片都已選取）
@@ -1487,7 +1522,7 @@ TC-238,設定組合,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IA
 「Result」的細節比 Standard 的結果更豐富（「Maximum detail」），而且增強幅度較輕、看起來自然（「Lighter enhancement with fewer artifacts, for a more realistic look」）
 點「Save Result」會顯示「Saved to your device」
 儲存的影片長度 3.2 s、1280 × 720、30 fps
-點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合：Mode=Professional · Enhancement style=Natural · fps=30fps · Resolution=720p（`### Combinations`，analysis pass 10）[Req: REQ-008]。費率每秒 2 點，依據 ECL 費率表（form 22061491221，action genvideo_1_sec_byteplus_pro_natural_720p_30fps）；對應 spec agent 的 TC-VE2-203（generate）與 TC-VE2-132（price display）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。若這個組合下有 chip 被畫成灰色不能按（Q-6），記為 Blocked --as question。這一列會實際完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-203（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-203）；原本只量過預設組合
+點數紀錄最新的一筆是扣款「AI Video Enhance」，共 8 點",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合：Mode=Professional · Enhancement style=Natural · fps=30fps · Resolution=720p（`### Combinations`，analysis pass 10）[Req: REQ-008]。費率每秒 2 點，依據 ECL 費率表（form 22061491221，action genvideo_1_sec_byteplus_pro_natural_720p_30fps）；對應 spec agent 的 TC-VE2-203（generate）與 TC-VE2-132（price display）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。若這個組合下有 chip 被畫成灰色不能按（Q-6），記為 Blocked --as question。這一列會實際完整生成一次，花 8 點。處理時間：對應 spec agent 的 TC-VE2-203（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-219,設定組合,"1. Tier Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，在 Mine 確認），且至少有 16 點
 2. 相簿裡有一支 00:03.2（3.2 s）、720p、30 fps 的橫式影片（為這次測試另外準備，所有組合列都用同一個檔案）
 3. 先記下目前餘額和點數紀錄最新的一筆","1. 用 3.2 s 的影片開啟面板（整支影片都已選取）
@@ -1511,7 +1546,7 @@ TC-219,設定組合,"1. Tier Pro+（Launcher › Pink › ☰ › [0] IAP › st
 「Result」比 Standard 的結果更細緻（「Maximum detail」），而且增強幅度較輕、看起來更貼近真實（「Lighter enhancement with fewer artifacts, for a more realistic look」）
 「Save Result」顯示「Saved to your device」
 儲存的影片長 3.2 秒、1920 × 1080、30 fps
-點數記錄最新一筆是一筆「AI Video Enhance」扣款，共 16 credits",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合：Mode=Professional · Enhancement style=Natural · fps=30fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。費率每秒 4 點，依據 ECL 費率表（form 22061491221，action genvideo_1_sec_byteplus_pro_natural_1080p_30fps）；對應 spec agent 的 TC-VE2-204（generate）與 TC-VE2-133（price display）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。若這個組合下有 chip 被畫成灰色不能按（Q-6），記為 Blocked --as question。這一列會實際完整生成一次，花 16 點。處理時間：對應 spec agent 的 TC-VE2-204（公司效能標準，規格沒有寫）[Req: REQ-016]。,修改,REQ-016：依 R-204 量測這個組合的任務處理時間（TC-VE2-204）；原本只量過預設組合
+點數記錄最新一筆是一筆「AI Video Enhance」扣款，共 16 credits",P1,"R-194, R-195, R-060, R-063, R-065, R-062, R-061, R-089, R-122, R-203, R-204",組合：Mode=Professional · Enhancement style=Natural · fps=30fps · Resolution=1080p（`### Combinations`，analysis pass 10）[Req: REQ-008]。費率每秒 4 點，依據 ECL 費率表（form 22061491221，action genvideo_1_sec_byteplus_pro_natural_1080p_30fps）；對應 spec agent 的 TC-VE2-204（generate）與 TC-VE2-133（price display）。點數數字必須完全一致；這些數字來自 spec agent 的 ECL fixture（Android 的費率來源），iOS 還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。若這個組合下有 chip 被畫成灰色不能按（Q-6），記為 Blocked --as question。這一列會實際完整生成一次，花 16 點。處理時間：對應 spec agent 的 TC-VE2-204（公司效能標準，規格沒有寫）[Req: REQ-016]。,未變更,
 TC-239,設定組合,"1. Tier Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，在 Mine 確認），且至少有 48 點
 2. 相簿裡有一支 00:03.2（3.2 s）、720p、30 fps 的橫式影片（為這次測試另外準備，所有組合列都用同一個檔案）
 3. 先記下目前餘額和點數紀錄最新的一筆","1. 用 3.2 s 的影片開啟面板（整支影片都已選取）
@@ -1925,20 +1960,29 @@ TC-276,時間軸入口,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0]
 2. 點「Professional」
 3. 把右側把手向左拖到 02:50（「02:20」）
 4. 點「Professional」","步驟 2：跳出 toast「Professional supports clips up to 2:30. Shorten your selection to switch.」約 3 秒，Mode 維持「Standard」，選取範圍維持 00:30–05:30
-步驟 4：切到「Professional」，沒有 toast，選取範圍維持 00:30–02:50",P3,"R-057, R-052, R-053",時間軸片段的選取範圍從 00:00 之後開始（spec agent TC-VE2-269）[Req: REQ-016]。Q-10 同 TC-160。需要 ve-0600-1080p30。,新增,REQ-016：時間軸片段的選取範圍從 00:00 之後開始（TC-VE2-269）
+步驟 4：切到「Professional」，沒有 toast，選取範圍維持 00:30–02:50",P3,"R-057, R-052, R-053",時間軸片段的選取範圍從 00:00 之後開始（spec agent TC-VE2-269）[Req: REQ-016]。Q-10 同 TC-160。需要 ve-0600-1080p30。,未變更,
 TC-161,時間軸入口,"1. Tier Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，在 Mine 確認）
 2. 專案裡有一段 10:00 的片段","1. 點選該片段
 2. 點片段工具列上的「AI Video Enhance」","面板不會開啟
 跳出 toast「Split clips longer than 8 minutes first」",P3,R-058,PM D4 [建議] / B1-1 ⑦（Q-10）：只有 PM 有寫。,未變更,
 TC-162,時間軸入口,"1. Tier Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，在 Mine 確認）
-2. 專案裡有一段 00:30 的片段
+2. 專案裡有一段 00:30 的片段，夾在另外兩段片段中間，前後兩端各有一個轉場，下方有一條音樂軌
 3. 已從片段工具列對它開啟面板","1. 點「Enhance ◆ <credits>」
 2. 留在編輯器，等到任務完成","上傳對話框和 Recent task 的流程與主流程相同
-任務完成後，時間軸上的片段會在原位置換成處理後的結果，並顯示「Applied Video Enhance」",P2,"R-131, R-130",PM-only：還沒有 Design frame（pm-timeline 397:1888；通知的形式未定，D4 提議用 3 秒的 toast「Video Enhance applied」）。Q-11：Design 的備註寫結果永遠不會取代原片段。,未變更,
+任務完成後，時間軸上的片段會在原位置換成處理後的結果，並顯示「Applied Video Enhance」
+片段前後兩端的轉場都還在
+片段的聲音和音樂軌的播放都和原來一樣",P2,"R-131, R-130",PM-only：還沒有 Design frame（pm-timeline 397:1888；通知的形式未定，D4 提議用 3 秒的 toast「Video Enhance applied」）。Q-11：Design 的備註寫結果永遠不會取代原片段。轉場和音訊要保留：PM D4 [建議]「位置、轉場、音訊保留」（spec agent TC-VE2-298）[Req: REQ-021]。,修改,REQ-021：貼回後轉場和音訊都保留（spec agent TC-VE2-298）
 TC-163,時間軸入口,從片段工具列開啟面板，目前沒有任務在跑,點面板頂端列的 ‹,回到編輯器，專案和片段都沒有改變,P2,R-133,,未變更,
 TC-164,時間軸入口,時間軸上有一個任務正在處理（TC-162 的設定）,"1. 從時間軸刪除該片段
 2. 等到任務完成","不會有任何內容貼進專案
 結果會出現在 Recent task",P3,R-132,PM D4 [建議]（Gap 10）。,未變更,
+TC-318,時間軸入口,時間軸上有一個任務正在處理（TC-162 的設定）,"1. 把時間軸上那段片段的結尾剪掉 5 秒
+2. 等到任務完成","專案裡沒有貼入任何東西：剪過的片段維持原樣
+結果在 Recent task 裡",P3,R-132,TC-164 的對照案例，改成修改片段（spec agent TC-VE2-300）[Req: REQ-021]。PM D4 [建議]（提議）：有差異就向 PM 提問。PM-only：還沒有 Design frame（Q-11）。會用掉一次 00:30 的任務。,新增,REQ-021：片段被修改後不貼回（spec agent TC-VE2-300）
+TC-319,時間軸入口,時間軸上有一個任務正在處理（TC-162 的設定）,"1. 離開編輯器回到 Launcher（專案會關閉）
+2. 等到任務完成
+3. 再打開這個專案","步驟 3：專案裡沒有貼入任何東西：原本的片段還在
+結果在 Recent task 裡",P3,R-132,TC-164 的對照案例，改成關閉專案（spec agent TC-VE2-301）[Req: REQ-021]。PM D4 [建議]（提議）：有差異就向 PM 提問。PM-only：還沒有 Design frame（Q-11）。會用掉一次 00:30 的任務。,新增,REQ-021：專案關閉後不貼回（spec agent TC-VE2-301）
 TC-165,時間軸入口,已開啟一個從時間軸啟動的任務結果,點「Add to Timeline」,開啟原本的專案（不會建立新專案）,P3,R-134,PM D4 [建議]；與 Design 的「Add to Timeline → 開新 timeline」不一致（Q-11）。,未變更,
 TC-170,失敗與退款,有一個在伺服器端失敗的 Video Enhance 任務,開啟 Recent task,失敗任務的卡片顯示「Error」縮圖和「View Details」（沒有 Retry）,P1,R-140,暫緩：需要先有可重現失敗的條件（目前不知道 Video Enhance 有沒有故障開關，要問 RD）。spec agent 的做法之一（TC-VE2-173，[Req: REQ-008]）：拿一支會被內容審核擋下的影片（NSFW 測試相簿）只試一次。,未變更,
 TC-171,失敗與退款,Recent task 裡有一張失敗的卡片（TC-170）,"1. 點「View Details」

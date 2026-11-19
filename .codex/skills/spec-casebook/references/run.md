@@ -152,8 +152,12 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
   handed-off sessions). At each segment start and end the orchestrator reads the app's usage card and runs
   `node scripts/usage-log.ts <runs dir> <5-hour %> <5-hour resetsAt> <weekly %> <weekly resetsAt> [note]` (`-` for
   unknown, `--at <ISO>` to backfill, "approximate" in the note when estimated, `--seat N` = seat size in Pro units:
-  Pro 1, Team 6.25, the 1.25× Team account from 2026-10-22; default the previous snapshot's, never guess) →
-  `runs/usage.jsonl`. On an account switch log a marker (all four values `-`, the new `--seat`, at the switch time);
+  Pro 1, Team 6.25, the 1.25× Team account from 2026-10-22; default this computer's seat, else the previous
+  snapshot's, never guess) → `runs/usage.jsonl`. In the Claude desktop app the orchestrator reads the card itself
+  (`get_usage`: the 5-hour and all-models weekly windows), never asking the user. **Seat size (user, 2026-11-17):**
+  set once per computer on the pages server's Settings page (linked from All features) or `node scripts/settings.ts
+  seat N` (`~/.casebook/settings.json`, outside the repo); saving marks the change in every active run's usage.jsonl.
+  At a run's start, when Settings shows no seat, ask the user which account runs it before the first reading. On an account switch log a marker (all four values `-`, the new `--seat`, at the switch time);
   the first reading after it is a baseline. Put time, tokens and these percentages in each phase report.
 - **Everything stays in the run folder:** `results.csv`, `run-state.md`, `observations.md`, `screenshots/`,
   `logs/<case ID>-<YYYYMMDD-HHMMSS>/` (git-ignored) and `ledger/<case ID>-<time>.json`. Nothing goes to ~/Downloads,

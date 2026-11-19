@@ -1,0 +1,75 @@
+{
+  "arrows": [
+    {
+      "arrow": "3816-10913",
+      "node": "3816-10913",
+      "edge": "Design: Menu › Settings › 「Remove AIGC Watermark」 ⓘ → 「AIGC Watermark」 info sheet",
+      "expected": "Tapping ⓘ beside 「Remove AIGC Watermark」 dims the Menu and opens the bottom sheet 「AIGC Watermark」 with its disclaimer and 「Got it」",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "86-968",
+      "node": "86-968",
+      "edge": "PM: AI Magic › My Artwork › Image to Video tile → Image to Video task list",
+      "expected": "Tapping an Image to Video result tile in My Artwork opens the Image to Video task list (「Tasks are stored on the cloud for 1 year…」, 「View」 per task); the tile thumbnail has no AIGC watermark",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "86-970",
+      "node": "86-970",
+      "edge": "PM: Image to Video task list › 「View」 → result page (Share Video, 「Full Editor」, 「Save」)",
+      "expected": "「View」 opens the result page; its player shows no AIGC watermark; 「Save」 and the Share Video targets apply the watermark by the Preference setting",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4-1680",
+      "node": "4-1680",
+      "edge": "PM (Essential user): Menu › Settings › 「Remove AIGC Watermark」 ⓘ → 「AIGC Watermark」 info sheet",
+      "expected": "Same sheet as the Design arrow 3816-10913, reached by a free (Essential) user",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4-1679",
+      "node": "4-1679",
+      "edge": "PM (Paid user): Menu › Settings › 「Remove AIGC Watermark」 ⓘ → 「AIGC Watermark」 info sheet",
+      "expected": "Same sheet, reached by a paid user whose Settings list has no 「Remove Watermark」 row",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "86-955",
+      "node": "86-955",
+      "edge": "PM: Editor 「Export」 → 「AIGC Watermark」 export dialog",
+      "expected": "With 「Remove AIGC Watermark」 off and AI content in the project, 「Export」 opens the dialog 「AIGC Watermark」 (「Don’t show again」, 「Cancel」, 「Export」)",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "86-956",
+      "node": "86-956",
+      "edge": "PM: export dialog 「Export」 → Produce sheet (Resolution, 「Produce」)",
+      "expected": "「Export」 in the dialog closes it and opens the usual Produce sheet; the produced file carries the AIGC watermark in its first 2 s",
+      "source": "figma-inventory (inventory named the tail 「Cancel」; the tail point 1183,2733 sits on the right button 「Export」, corrected 2026-11-17)"
+    },
+    {
+      "arrow": "97-1818",
+      "node": "97-1818",
+      "edge": "PM: AI Music Generator 「Generate for ◆ 6」 → 「AIGC Watermark」 music dialog",
+      "expected": "With 「Remove AIGC Watermark」 off, the Generate button opens the dialog 「AIGC Watermark」 「Your generated music will include an AIGC watermark…」 with 「Don’t show again」, 「Cancel」, 「Generate」",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "97-1819",
+      "node": "97-1819",
+      "edge": "PM: music dialog 「Generate」 → 「Generating...」 progress popup",
+      "expected": "「Generate」 starts the generation: the popup 「Generating...10%」 with 「Go to My AI Music」 appears",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "97-1820",
+      "node": "97-1820",
+      "edge": "PM: music dialog 「Cancel」 → AI Music Generator page",
+      "expected": "「Cancel」 closes the dialog and returns to the AI Music Generator page with the inputs kept and nothing generated or charged",
+      "source": "figma-inventory (tail 936,4271 on 「Cancel」)"
+    }
+  ],
+  "count": 10
+}

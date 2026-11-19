@@ -35,6 +35,18 @@ TC-020,Add Media,"1. Signed in with a Pro account (no tier switch on Android)
 2. Add Media open from the feature
 3. A 12:30 1080p 60 fps video in the album",Tap that video's thumbnail,"Only the 「Video」 tab is offered and one video can be picked
 The tap opens the panel with that video in the Preview at once (no Next button)",P1,"R-012, R-013",
+TC-315,Add Media,"1. Signed in with a Pro account (no tier switch on Android)
+2. Add Media open from the feature
+3. A large local video in the album (the 12:30 1080p 60 fps ve-1230-1080p60)
+4. A screen recording running (the import may last under a second)","1. Tap that video's thumbnail
+2. Watch the screen until the panel opens","Before the panel opens, an import overlay shows the progress as a percentage (the number itself is not asserted)
+The overlay has a 「Cancel」 control
+The panel then opens with that video in the Preview",P3,R-205,"Observed UI the spec agent's user approved on 2026-10-12 (spec agent TC-VE2-331, VE-1012-S001-B001 / B002, seen on iOS); neither the Design nor the PM draws an import step [Req: REQ-020]. Only that 「Cancel」 is there: what it does is not specified. On Android a local pick may open the panel with no import step: judge from the recording. A difference is a PM question: the rule has no Design or PM basis (filed to PM, AGENTS.md 2026-11-11)."
+TC-316,Add Media,"1. Signed in with a Pro account (no tier switch on Android)
+2. Add Media open from the feature","1. Tap the sort control
+2. Close the sort panel without choosing anything","Step 1: the sort panel offers 「Default」, 「Date」, 「Duration」 and 「Modified Date」
+Step 1: it offers both orders, 「Ascending」 and 「Descending」
+Step 2: the panel closes and the videos keep their order",P3,R-206,"Observed UI the spec agent's user approved on 2026-10-12 (spec agent TC-VE2-332, VE-1012-S001-B003, seen on iOS); the Design draws Add Media without a sort control [Req: REQ-020]. A difference is a PM question: the rule has no Design or PM basis (filed to PM, AGENTS.md 2026-11-11)."
 TC-255,Add Media,"1. Signed in with a Pro account (no tier switch on Android)
 2. The Demo page showing
 3. Videos in All / Recents and in at least one named album or folder
@@ -110,14 +122,19 @@ TC-041,Trim and selected length,"1. Signed in with a Pro account (no tier switch
 2. A 01:30 1080p 30 fps video in the album",Pick the video in Add Media,The whole video is selected and 「Selected Length」 reads 「01:30」,P2,R-030,
 TC-270,Trim and selected length,"1. Signed in with a Pro account (no tier switch on Android)
 2. Videos of 00:01 (ve-000100-720p30), 07:59 (ve-0759-1080p30), 07:59.97 (ve-075997-1080p30, one frame under 8:00), 08:00 (ve-0800-1080p30), 08:00.03 (ve-080003-1080p30, one frame over) and 08:01 (ve-0801-1080p30) in the album, lengths checked with ffprobe
-3. Each video's time is burned into its frames","1. Open the panel with the 00:01 video
+3. Each video's time is burned into its frames
+4. Videos of 07:59.99 (ve-075999-720p100) and 08:00.01 (ve-080001-720p100) at 100 fps in the album, lengths checked with ffprobe","1. Open the panel with the 00:01 video
 2. Go back and open it with the 07:59 video
 3. Go back and open it with the 07:59.97 video
 4. Drag the playhead to the right handle
 5. Go back and open it with the 08:00 video
 6. Go back and open it with the 08:00.03 video
 7. Drag the playhead to the right handle
-8. Go back and open it with the 08:01 video","Every video opens in 「Standard」 with the selection starting at 00:00
+8. Go back and open it with the 08:01 video
+9. Go back and open it with the 07:59.99 video
+10. Drag the playhead to the right handle
+11. Go back and open it with the 08:00.01 video
+12. Drag the playhead to the right handle","Every video opens in 「Standard」 with the selection starting at 00:00
 Step 1: the whole video is selected, 「Selected Length」 「00:01」, the CTA 「Enhance ◆ 1」
 Step 2: the whole video is selected, 「Selected Length」 「07:59」, 「Enhance ◆ 958」 (2 credits/s at 1080p)
 Steps 3–4: the whole video is selected: the frame at the right handle is the video's last (burned-in 07:59.9x)
@@ -126,7 +143,11 @@ Steps 3–4: the CTA reads 「Enhance ◆ 960」 (480 s rounded up × 2)
 Step 5: 00:00–08:00, the whole video, 「Selected Length」 「08:00」, 「Enhance ◆ 960」
 Steps 6–7: the selection is 00:00–08:00, not the whole video: the frame at the right handle reads 08:00.00, not the last frame
 Steps 6–7: 「Selected Length」 「08:00」 and 「Enhance ◆ 960」
-Step 8: 00:00–08:00 with 「Selected Length」 「08:00」 and 「Enhance ◆ 960」",P2,"R-030, R-050, R-060","The 8:00 default at whole and fractional lengths (spec agent TC-VE2-099 – TC-VE2-102, TC-VE2-251, TC-VE2-252) [Req: REQ-016]. Prices are Standard / Natural / 30fps at the source's default resolution (1 s video 720p = 1/s, the others 1080p = 2/s). Needs the six fixture videos."
+Step 8: 00:00–08:00 with 「Selected Length」 「08:00」 and 「Enhance ◆ 960」
+Steps 9–10: the whole video is selected: the frame at the right handle is the video's last (burned-in 07:59.99)
+Steps 9–10: 「Selected Length」 shows 479.99 s as the app rounds it (record it)
+Steps 11–12: the selection is 00:00–08:00, not the whole video: the frame at the right handle reads 08:00.00, not the last frame
+Steps 11–12: 「Selected Length」 「08:00」",P2,"R-030, R-050, R-060","The 8:00 default at whole and fractional lengths (spec agent TC-VE2-099 – TC-VE2-102, TC-VE2-251, TC-VE2-252) [Req: REQ-016]. Prices are Standard / Natural / 30fps at the source's default resolution (1 s video 720p = 1/s, the others 1080p = 2/s). Needs the six fixture videos. Steps 9–12: one hundredth either side of 8:00 at 100 fps (spec agent TC-VE2-435, TC-VE2-437) [Req: REQ-020]; their price is not asserted (a 100 fps source defaults to 「120fps」)."
 TC-042,Trim and selected length,"Panel open with the 12:30 video, selection 00:00–08:00","1. Start a screen recording
 2. Drag the right handle left to about 06:00 over 2–3 seconds
 3. Stop the recording","Step 2: at every sampled moment of the drag the Preview shows the frame at the right handle (its burned-in time matches the handle's time, no visible lag)
@@ -314,9 +335,15 @@ TC-061,Settings chips,"1. Panel open, 「Natural」 selected
 The CTA price stays the same (style does not change the price)",P2,"R-046, R-062",
 TC-062,Settings chips,Panel open with a 60 fps video (「60fps」 selected),Tap another fps chip that is not disabled,"That chip is selected and 「60fps」 unselected
 One fps chip is selected at a time",P2,R-046,
-TC-063,Settings chips,"1. Panel open with a 1080p video (「1080p」 selected)
-2. Note the CTA price",Tap 「4K」 (or 「720p」 when 4K is disabled),"The tapped chip is selected and 「1080p」 unselected
-The CTA price and 「Charge X credits per second」 change to that resolution's rate",P2,"R-046, R-065",
+TC-063,Settings chips,"1. Panel open with the 00:30 1080p video (ve-0030-1080p30), 「Standard」 and 「1080p」 selected
+2. Note the CTA price","1. Tap 「4K」 (or 「720p」 when 4K is disabled)
+2. Tap 「Professional」
+3. Tap 「720p」
+4. Tap 「1080p」
+5. Tap 「4K」","Step 1: the tapped chip is selected and 「1080p」 unselected
+Step 1: the CTA price and 「Charge X credits per second」 change to that resolution's rate
+Steps 3–5: the tapped Resolution chip is selected and the other two are not (exactly one selected at a time)
+Steps 3–5: 「Charge X credits per second」 changes to that resolution's Professional rate at 30fps (as in TC-296 – TC-298)",P2,"R-046, R-065","Professional, each Resolution in turn (spec agent TC-VE2-334) [Req: REQ-020]."
 TC-064,Settings chips,Panel open in a Mode where an fps or Resolution chip is drawn disabled,Tap the disabled chip,Nothing changes: the selection stays where it was and no toast appears,P3,R-047,Q-6: which combinations are disabled is pending (BytePlus); PM B5 says a tap shows a toast. Not run when no chip is disabled on the build (record that).
 TC-070,Mode length limit,"1. Panel open with the 12:30 video, selection about 02:00 in Standard
 2. Note the CTA price","1. Tap 「Professional」
@@ -906,6 +933,10 @@ TC-096,Eligibility and purchase,"1. Signed in with a Pro account (no tier switch
 3. Panel open
 4. Note the balance",Tap 「Enhance」,"The Credit page opens (「My Credits」, 「Buy More」, 「Expiring within 7 days: … credits」, 「Complimentary daily credits」 「Claim once every 24 hours」 「Claim」, the account's plan card, not a 「PowerDirector Pro+」 one: its exact words recorded)
 No upload dialog appears, Recent task gets no card and the balance is unchanged",P1,R-076,Parked: needs low-balance (the shared account holds many credits). The Design's 「PowerDirector Pro+」 card is the iOS page; Android has no Pro+ and no Android Credit page is drawn [Req: REQ-017].
+TC-320,Eligibility and purchase,"1. Credit page open from the panel (TC-096), nothing bought or claimed
+2. The panel's selection and settings noted",Tap ‹ on the Credit page,"The panel is back with the same video, selection and settings
+The balance is unchanged
+No upload starts and Recent task gets no card",P2,R-073,Parked with TC-096 (needs low-balance). PM C2 [建議] (spec agent TC-VE2-285) [Req: REQ-021]. TC-098 closes the page after a claim.
 TC-097,Eligibility and purchase,"1. TC-096 setup: Credit page open from the panel, the balance noted
 2. The signed-in Google account is a license tester of PowerDirector on Google Play, so the purchase sheet offers 「Test card, always approves」 (no charge)
 3. The user's go-ahead for this purchase","1. Tap 「Buy More」
@@ -981,6 +1012,10 @@ TC-141,Recent task,"Recent task open from the panel, a task processing","1. Tap 
 2. Once no task is processing, open Recent task from the panel again (only completed cards)
 3. Tap ‹","Step 1: the panel is shown again
 Step 3: the panel is shown again",P2,R-114,Also with only completed cards (spec agent TC-VE2-238) [Req: REQ-016].
+TC-317,Recent task,"1. Signed in with an account that has never run AI Video Enhance (e.g. a Free account that never had a paid tier)
+2. Never delete tasks to empty the list
+3. Panel open with any video",Tap the Recent task icon in the panel's top bar,"Recent task opens with no task card
+It shows 「No results found」",P3,"R-207, R-113","Observed UI the spec agent's user approved on 2026-10-12 (spec agent TC-VE2-333, VE-1012-S001-B004, seen on iOS); the Design draws no empty Recent task [Req: REQ-020]. Needs an account with no Video Enhance task (fixtures). A difference is a PM question: the rule has no Design or PM basis (filed to PM, AGENTS.md 2026-11-11)."
 TC-142,Recent task,Recent task open with a task still processing,"1. Tap ⌂ on Recent task
 2. Open AI Video Enhance again and its Recent task","Step 1: the Launcher opens
 Step 2: the task is still processing or has completed (not cancelled)",P2,R-115,With a task processing (spec agent TC-VE2-067) [Req: REQ-016].
@@ -1948,14 +1983,23 @@ TC-161,Timeline entry,"1. Signed in with a Pro account (no tier switch on Androi
 2. Tap 「AI Video Enhance」 in the clip toolbar","The panel does not open
 The toast 「Split clips longer than 8 minutes first」 appears",P3,R-058,PM D4 [建議] / B1-1 ⑦ (Q-10): PM-only.
 TC-162,Timeline entry,"1. Signed in with a Pro account (no tier switch on Android)
-2. A project with a 00:30 clip
+2. A project with a 00:30 clip between two other clips, a transition at each end of it and a music track under it
 3. Panel opened on it from the clip toolbar","1. Tap 「Enhance ◆ <credits>」
 2. Stay in the editor until the task completes","The upload dialog and the Recent task flow are those of the main flow
-When the task completes the clip on the timeline is replaced by the result (same position) and 「Applied Video Enhance」 is shown",P2,"R-131, R-130","PM-only: no Design frame yet (pm-timeline 397:1888; form of the notice TBD, D4 proposes a 3 s toast 「Video Enhance applied」). Q-11: the Design note says results never replace the original clip."
+When the task completes the clip on the timeline is replaced by the result (same position) and 「Applied Video Enhance」 is shown
+The transitions at both ends of the clip are still there
+The clip's sound and the music track play as before",P2,"R-131, R-130","PM-only: no Design frame yet (pm-timeline 397:1888; form of the notice TBD, D4 proposes a 3 s toast 「Video Enhance applied」). Q-11: the Design note says results never replace the original clip. Transitions and audio kept: PM D4 [建議] 「位置、轉場、音訊保留」 (spec agent TC-VE2-298) [Req: REQ-021]."
 TC-163,Timeline entry,"Panel opened from the clip toolbar, nothing running",Tap ‹ in the panel's top bar,The editor is back with the project and the clip unchanged,P2,R-133,
 TC-164,Timeline entry,A Timeline task processing (TC-162 setup),"1. Delete the clip from the timeline
 2. Wait until the task completes","Nothing is pasted into the project
 The result is in Recent task",P3,R-132,PM D4 [建議] (Gap 10).
+TC-318,Timeline entry,A Timeline task processing (TC-162 setup),"1. Trim 5 s off the end of the clip on the timeline
+2. Wait until the task completes","Nothing is pasted into the project: the trimmed clip stays as it is
+The result is in Recent task",P3,R-132,Twin of TC-164 for a modified clip (spec agent TC-VE2-300) [Req: REQ-021]. PM D4 [建議] (proposal): a difference is a PM question. PM-only: no Design frame yet (Q-11). Spends one 00:30 task.
+TC-319,Timeline entry,A Timeline task processing (TC-162 setup),"1. Leave the editor to the Launcher (the project closes)
+2. Wait until the task completes
+3. Open the project again","Step 3: nothing was pasted into the project: the original clip is still there
+The result is in Recent task",P3,R-132,Twin of TC-164 for a closed project (spec agent TC-VE2-301) [Req: REQ-021]. PM D4 [建議] (proposal): a difference is a PM question. PM-only: no Design frame yet (Q-11). Spends one 00:30 task.
 TC-165,Timeline entry,Result of a task started from the Timeline open,Tap 「Add to Timeline」,The original project opens (no new project is made),P3,R-134,PM D4 [建議]; conflicts with the Design 「Add to Timeline → 開新 timeline」 (Q-11).
 TC-170,Failure and refund,A Video Enhance task that failed on the server,Open Recent task,The failed task's card shows an 「Error」 thumbnail and 「View Details」 (no Retry),P1,R-140,"Parked: needs a failure fixture (no fault switch for Video Enhance is known; ask RD). One way the spec agent uses (TC-VE2-173, [Req: REQ-008]): one task on a video that content moderation refuses (an NSFW test album), a single attempt."
 TC-171,Failure and refund,A failed card in Recent task (TC-170),"1. Tap 「View Details」

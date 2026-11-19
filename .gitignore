@@ -17,6 +17,12 @@ node_modules/
 *.mp4
 *.mov
 *.m4v
+# audio pulled in runs (AI music, TTS) and raw byte dumps of media headers stay local too (2026-11-18)
+*.m4a
+*.mp3
+*.wav
+*.aac
+*.raw
 
 # Python caches, the local venv and patch leftovers
 __pycache__/

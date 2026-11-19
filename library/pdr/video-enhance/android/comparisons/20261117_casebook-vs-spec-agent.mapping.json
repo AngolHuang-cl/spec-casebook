@@ -1,0 +1,384 @@
+{
+ "date": "2026-11-17",
+ "request": "REQ-020",
+ "spec_agent_commit": "4f9efe41",
+ "spec_agent_source": "test-cases/generated/video-enhance/android-current/ + review/current/android-casebook-crosswalk.json",
+ "casebook": {
+  "android": "v9 (213 rows) → draft 20261117-105552",
+  "ios": "v6 (199 rows) → draft 20261117-105552"
+ },
+ "scope": "The 47 of 373 spec agent Android cases no casebook row maps to in the spec agent crosswalk; the other 326 are mapped there from Android v9 (and REQ-016 / REQ-019 for the 271 originals).",
+ "summary": {
+  "covered_before": 39,
+  "not_encodable": 2,
+  "drafted": 6
+ },
+ "cases": {
+  "TC-VE2-400": {
+   "status": "covered",
+   "rows": [
+    "TC-052"
+   ],
+   "note": "1 / 24 / 29 / 30 fps → 30fps"
+  },
+  "TC-VE2-401": {
+   "status": "covered",
+   "rows": [
+    "TC-052"
+   ],
+   "note": "1 / 24 / 29 / 30 fps → 30fps"
+  },
+  "TC-VE2-402": {
+   "status": "covered",
+   "rows": [
+    "TC-052"
+   ],
+   "note": "1 / 24 / 29 / 30 fps → 30fps"
+  },
+  "TC-VE2-403": {
+   "status": "covered",
+   "rows": [
+    "TC-052"
+   ],
+   "note": "1 / 24 / 29 / 30 fps → 30fps"
+  },
+  "TC-VE2-404": {
+   "status": "covered",
+   "rows": [
+    "TC-055"
+   ],
+   "note": "31 fps → 60fps"
+  },
+  "TC-VE2-405": {
+   "status": "covered",
+   "rows": [
+    "TC-053"
+   ],
+   "note": "50 / 59 / 60 fps → 60fps"
+  },
+  "TC-VE2-406": {
+   "status": "covered",
+   "rows": [
+    "TC-053"
+   ],
+   "note": "50 / 59 / 60 fps → 60fps"
+  },
+  "TC-VE2-407": {
+   "status": "covered",
+   "rows": [
+    "TC-053"
+   ],
+   "note": "50 / 59 / 60 fps → 60fps"
+  },
+  "TC-VE2-408": {
+   "status": "covered",
+   "rows": [
+    "TC-055"
+   ],
+   "note": "61 fps → 120fps"
+  },
+  "TC-VE2-409": {
+   "status": "covered",
+   "rows": [
+    "TC-054"
+   ],
+   "note": "119 / 120 / 144 / 240 fps → 120fps"
+  },
+  "TC-VE2-410": {
+   "status": "covered",
+   "rows": [
+    "TC-054"
+   ],
+   "note": "119 / 120 / 144 / 240 fps → 120fps"
+  },
+  "TC-VE2-411": {
+   "status": "covered",
+   "rows": [
+    "TC-054"
+   ],
+   "note": "119 / 120 / 144 / 240 fps → 120fps"
+  },
+  "TC-VE2-412": {
+   "status": "covered",
+   "rows": [
+    "TC-054"
+   ],
+   "note": "119 / 120 / 144 / 240 fps → 120fps"
+  },
+  "TC-VE2-413": {
+   "status": "covered",
+   "rows": [
+    "TC-056"
+   ],
+   "note": "360p / 480p / 718p / 720p → 720p"
+  },
+  "TC-VE2-414": {
+   "status": "covered",
+   "rows": [
+    "TC-056"
+   ],
+   "note": "360p / 480p / 718p / 720p → 720p"
+  },
+  "TC-VE2-415": {
+   "status": "covered",
+   "rows": [
+    "TC-056"
+   ],
+   "note": "360p / 480p / 718p / 720p → 720p"
+  },
+  "TC-VE2-417": {
+   "status": "covered",
+   "rows": [
+    "TC-056"
+   ],
+   "note": "360p / 480p / 718p / 720p → 720p"
+  },
+  "TC-VE2-416": {
+   "status": "not encodable",
+   "rows": [
+    "TC-056"
+   ],
+   "note": "719p: odd height cannot be 4:2:0 H.264; 718p stands in"
+  },
+  "TC-VE2-418": {
+   "status": "not encodable",
+   "rows": [
+    "TC-057"
+   ],
+   "note": "721p: odd height; 722p stands in"
+  },
+  "TC-VE2-419": {
+   "status": "covered",
+   "rows": [
+    "TC-057"
+   ],
+   "note": "722p / 900p / 1080p → 1080p"
+  },
+  "TC-VE2-420": {
+   "status": "covered",
+   "rows": [
+    "TC-057"
+   ],
+   "note": "722p / 900p / 1080p → 1080p"
+  },
+  "TC-VE2-421": {
+   "status": "covered",
+   "rows": [
+    "TC-057"
+   ],
+   "note": "722p / 900p / 1080p → 1080p"
+  },
+  "TC-VE2-422": {
+   "status": "covered",
+   "rows": [
+    "TC-058"
+   ],
+   "note": "1081p (1082p fixture) / 1200p → 4K"
+  },
+  "TC-VE2-423": {
+   "status": "covered",
+   "rows": [
+    "TC-058"
+   ],
+   "note": "1081p (1082p fixture) / 1200p → 4K"
+  },
+  "TC-VE2-424": {
+   "status": "covered",
+   "rows": [
+    "TC-022"
+   ],
+   "note": "1440p / 2160p / 4320p open, 4K selected"
+  },
+  "TC-VE2-425": {
+   "status": "covered",
+   "rows": [
+    "TC-022"
+   ],
+   "note": "1440p / 2160p / 4320p open, 4K selected"
+  },
+  "TC-VE2-426": {
+   "status": "covered",
+   "rows": [
+    "TC-022"
+   ],
+   "note": "1440p / 2160p / 4320p open, 4K selected"
+  },
+  "TC-VE2-427": {
+   "status": "covered",
+   "rows": [
+    "TC-270"
+   ],
+   "note": "1, 479, 479.97, 480, 480.03, 481 s"
+  },
+  "TC-VE2-433": {
+   "status": "covered",
+   "rows": [
+    "TC-270"
+   ],
+   "note": "1, 479, 479.97, 480, 480.03, 481 s"
+  },
+  "TC-VE2-434": {
+   "status": "covered",
+   "rows": [
+    "TC-270"
+   ],
+   "note": "1, 479, 479.97, 480, 480.03, 481 s"
+  },
+  "TC-VE2-436": {
+   "status": "covered",
+   "rows": [
+    "TC-270"
+   ],
+   "note": "1, 479, 479.97, 480, 480.03, 481 s"
+  },
+  "TC-VE2-438": {
+   "status": "covered",
+   "rows": [
+    "TC-270"
+   ],
+   "note": "1, 479, 479.97, 480, 480.03, 481 s"
+  },
+  "TC-VE2-439": {
+   "status": "covered",
+   "rows": [
+    "TC-270"
+   ],
+   "note": "1, 479, 479.97, 480, 480.03, 481 s"
+  },
+  "TC-VE2-428": {
+   "status": "covered",
+   "rows": [
+    "TC-277"
+   ],
+   "note": "00:30 opens in Standard, whole video"
+  },
+  "TC-VE2-429": {
+   "status": "covered",
+   "rows": [
+    "TC-041",
+    "TC-278"
+   ],
+   "note": "01:30 sources"
+  },
+  "TC-VE2-430": {
+   "status": "covered",
+   "rows": [
+    "TC-261"
+   ],
+   "note": "149.99 / 150 s open in Standard, whole video"
+  },
+  "TC-VE2-431": {
+   "status": "covered",
+   "rows": [
+    "TC-261"
+   ],
+   "note": "149.99 / 150 s open in Standard, whole video"
+  },
+  "TC-VE2-432": {
+   "status": "covered",
+   "rows": [
+    "TC-262"
+   ],
+   "note": "150.01 s whole; 750 s → 00:00–08:00"
+  },
+  "TC-VE2-440": {
+   "status": "covered",
+   "rows": [
+    "TC-262"
+   ],
+   "note": "150.01 s whole; 750 s → 00:00–08:00"
+  },
+  "TC-VE2-435": {
+   "status": "covered (new in draft)",
+   "rows": [
+    "TC-270"
+   ],
+   "note": "07:59.99 / 08:00.01 at 100 fps, steps 9–12 added (REQ-020)"
+  },
+  "TC-VE2-437": {
+   "status": "covered (new in draft)",
+   "rows": [
+    "TC-270"
+   ],
+   "note": "07:59.99 / 08:00.01 at 100 fps, steps 9–12 added (REQ-020)"
+  },
+  "TC-VE2-331": {
+   "status": "covered (new in draft)",
+   "rows": [
+    "TC-315"
+   ],
+   "note": "R-205"
+  },
+  "TC-VE2-332": {
+   "status": "covered (new in draft)",
+   "rows": [
+    "TC-316"
+   ],
+   "note": "R-206"
+  },
+  "TC-VE2-333": {
+   "status": "covered (new in draft)",
+   "rows": [
+    "TC-317"
+   ],
+   "note": "R-207"
+  },
+  "TC-VE2-334": {
+   "status": "covered (modified in draft)",
+   "rows": [
+    "TC-063"
+   ],
+   "note": "every Professional resolution, one selected (R-046)"
+  },
+  "TC-VE2-335": {
+   "status": "covered",
+   "rows": [
+    "TC-038",
+    "TC-202"
+   ],
+   "note": "panel ‹ → Add Media (R-028); TC-202 Android system Back"
+  },
+  "TC-VE2-336": {
+   "status": "covered",
+   "rows": [
+    "TC-270",
+    "TC-278"
+   ],
+   "note": "Pro with credits: enabled Enhance ◆ price on every priced row"
+  }
+ },
+ "reverse_read": {
+  "request": "REQ-021",
+  "scope": "The 55 new authored spec agent cases TC-VE2-277 – 330 and 337, read claim by claim against the rows its crosswalk links them to; the 271 originals stay as in REQ-016 / REQ-019.",
+  "gaps_drafted": {
+   "TC-VE2-298": {
+    "status": "covered (modified in draft)",
+    "rows": [
+     "TC-162"
+    ],
+    "note": "transitions and audio kept after the paste-back (R-131)"
+   },
+   "TC-VE2-300": {
+    "status": "covered (new in draft)",
+    "rows": [
+     "TC-318"
+    ],
+    "note": "clip modified during generation (R-132)"
+   },
+   "TC-VE2-301": {
+    "status": "covered (new in draft)",
+    "rows": [
+     "TC-319"
+    ],
+    "note": "project closed during generation (R-132)"
+   },
+   "TC-VE2-285": {
+    "status": "covered (new in draft)",
+    "rows": [
+     "TC-320"
+    ],
+    "note": "Credit page closed with nothing bought or claimed (R-073)"
+   }
+  }
+ }
+}

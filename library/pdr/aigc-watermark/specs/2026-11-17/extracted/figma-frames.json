@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-11-17",
+  "how": "Figma-only spec set (user, 2026-11-17). PM file 「Remove AIGC Watermark」 page 0:1 (figma-pm, qa1): loose layers with no sections, read as four regions (pm-rules, pm-settings, pm-export, pm-music) in one call, groups pm-a and pm-b. Design file 「Settings」, frame 3815:9037 「2608_AIGC Watermark」 on page 134:3058 「✨ Settings_Color Rebranding」 (figma-design, qa-dm), group d-aigc; it is the only dated frame on that page for this feature. The Design board's 「PM Spec Link」 text carries no hyperlink. The PM Global Rule 圖檔 links open PDR-Main-Page 20538:218619 (the same AI label asset and 12% example as the Design board; read by one screenshot). Red lines on pm-rules (audio Add to timeline / Export, Share) are the PM's latest edits.",
+  "pm_checked_at": "2026-11-17",
+  "files": {
+    "pm": {
+      "fileKey": "IgV9rMxI8bmutyVmQX1kUm",
+      "page": "0:1",
+      "url": "https://www.figma.com/design/IgV9rMxI8bmutyVmQX1kUm/Remove-AIGC-Watermark?node-id=0-1",
+      "account": "qa1@cyberlink.com (Dev seat, PM Workspace)"
+    },
+    "design": {
+      "fileKey": "AZLFwVhAzTopBQn3eXMGAF",
+      "page": "134:3058",
+      "url": "https://www.figma.com/design/AZLFwVhAzTopBQn3eXMGAF/Settings?node-id=3815-9037",
+      "account": "qa-dm@cyberlink.com (Dev seat, CyberLink DC)"
+    }
+  },
+  "frames": [
+    {
+      "label": "2608_AIGC Watermark",
+      "node": "3815:9037",
+      "in_pdf": false,
+      "read": "d-aigc-settings"
+    }
+  ]
+}

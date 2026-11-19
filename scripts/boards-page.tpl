@@ -45,7 +45,7 @@ footer { color: var(--muted); font-size: 0.86rem; margin-top: 18px }
 </style>
 </head>
 <body>
-<nav class="cb-tabs" aria-label="Casebook"><b>Casebook</b><span class="cb-note">__NOTE__</span><span class="cb-lang" role="group" aria-label="Language"><button type="button" data-l="en">English</button><button type="button" data-l="zh">中文</button></span></nav>
+<nav class="cb-tabs" aria-label="Casebook"><b>Casebook</b><span class="cb-note">__NOTE__</span><a class="cb-set" href="/settings/" data-en="Settings" data-zh="設定">Settings</a><span class="cb-lang" role="group" aria-label="Language"><button type="button" data-l="en">English</button><button type="button" data-l="zh">中文</button></span></nav>
 <div class="head"><div><h1 id="t"></h1><p id="s"></p></div><input id="q" type="search" autocomplete="off"></div>
 <div id="recent" hidden></div>
 <main id="list"></main>

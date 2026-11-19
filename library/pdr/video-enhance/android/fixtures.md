@@ -16,13 +16,15 @@ what has to be on the phone or the account instead, because it can't be committe
 - Purchases (TC-095 Pro, TC-097 credit pack) go through Google Play and need the user's go-ahead each time.
   TC-097 runs at no charge (REQ-015): sign in with a Google account that is a license tester of PowerDirector on
   Google Play, and pay with 「Test card, always approves」 on the purchase sheet.
+- No-task account (TC-317, REQ-020): an account that has never run AI Video Enhance, so Recent task is empty (a
+  Free account that never had a paid tier is enough). Never delete tasks to empty the list.
 
 ## Videos in the gallery
 Made by `node library/pdr/video-enhance/fixtures/make-videos.ts` into `~/.casebook/video-enhance/videos/` (never
 committed) and pushed with `--push <serial>` to `Movies/casebook-ve/` (and `Movies/VE test/` for TC-258). Every
 length, frame rate and resolution a Precondition names has a file; lengths are whole frames at the file's fps, so quote
 the ffprobe length the script prints. Two stand-ins: 「1081p」 is 1920 × 1082 (4:2:0 H.264 needs an even height) and
-「not MP4 / MOV」 is an MKV. The 8K file is HEVC. TC-256 / TC-257 use Pexels and Pixabay (network on).
+「not MP4 / MOV」 is an MKV. 07:59.99 / 08:00.01 (TC-270) are 100 fps files so the length can be a hundredth off 8:00. The 8K file is HEVC. TC-256 / TC-257 use Pexels and Pixabay (network on).
 
 ## Phone settings (the user sets these; they are system settings)
 - Developer options › USB debugging on, this computer allowed; Stay awake on; no PIN; on the USB cable.
