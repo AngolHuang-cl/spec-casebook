@@ -1,6 +1,6 @@
 {
   "Q-1": "「Custom」在 Multicolor 分頁的色票列也是第一顆嗎？規格只說它是整條色票列的第一顆，但只畫了 Solid 分頁。假設：兩個分頁都排第一。",
-  "Q-2": "Custom 格子長什麼樣子？註解說還沒設定時是漸層底加＋，套用後顯示用戶選的兩個顏色；但流程圖和 UI 圖的每張樣稿都畫成鉛筆圖示。假設：以註解為準。",
+  "Q-2": "Custom 格子套用後長什麼樣子？PM 註解說會顯示用戶選的兩個顏色，PM 樣稿畫鉛筆圖示，Design 只畫了尚未設定的樣子（橘色漸層加魔術棒圖示，已寫成 R-017）。假設：以 PM 註解為準（顯示兩個顏色）。",
   "Q-3": "在 solid_color 和雙色 style 之間切換時，已選的顏色怎麼處理（Highlight 會保留嗎？Base 會保留嗎？）規格沒寫。假設：只有 Highlight 那一列隱藏或出現，其餘由案例記錄實際行為。",
   "Q-4": "流程註解說在 panel 內按 Generate 的結果見 Spec - UI 的「result_in_panel」，但 Spec - UI 沒有這張圖。假設：照註解文字（結果顯示在上方、Generate 上方出現 44pt Intensity 列且預設 100%、按鈕變「Retry」）。",
   "Q-5": "還沒選 style 或顏色沒選齊就收合 panel 時會怎樣（Custom 還會被選取嗎？外層 Generate 能按嗎？）規格只說收合＝套用。假設：先不寫案例，待回覆。",
@@ -13,5 +13,9 @@
   "Q-12": "原地等 42–48 秒可以接受嗎（ANR、在背景被系統殺掉；Draft / TBD Q3）？fallback：照 10/E 的 lifecycle，配分段文案。",
   "Q-13": "CMS type 名稱和欄位待 CMS 窗口確認（Draft / TBD Q4；fallback：PhDM_AIHairColor_CustomStyle）。",
   "Q-14": "Android 在 Custom panel、臉部警告視窗和生成中按系統返回鍵的行為沒有定義。假設：由案例記錄實際行為。",
-  "Q-15": "沒有提供 Design 檔，所有案例都依 PM 頁面撰寫（PM-only），UI 字串也是 PM 版本；Design 到了再更新案例。"
+  "Q-15": "Design 頁 616:9324（2026-11-17 讀取）畫了房間、Custom panel 的 (1)–(3) 狀態、toast 和調色盤；其他部分（Intro Demo、臉部檢查、生成中、結果、deeplink、點數）仍是 PM-only，等 Design 畫出來再更新。",
+  "Q-17": "Custom panel 要怎麼收合（套用）？PM 畫的是標題「Custom」加右上角 ⌄；Design 只畫上方拉把，沒有標題（已送的 PHA262026P0111 要求 ⌄）。假設：以 Design 為準，往下拖拉把就收合並套用，不一定要有 ⌄。",
+  "Q-18": "選「Solid」時，「Highlight Color」那一列是整列消失（PM D6-04），還是留在畫面上變灰（Design case 2-1）？假設：以 Design 為準（變灰），實機確認。",
+  "Q-20": "Design 的選圖指引「Avoid」只列「Face Coverings」和「Face too small」；10/E 規則 D2-02 另外加了「避免戴帽子」。需要帽子這一項嗎？假設：以 Design 的清單為準。",
+  "Q-21": "推薦色：PM（11/17 修改）給了 8 個色碼，從 #5A3E2B 開始；Design 畫的是白色和米色到咖啡色的中性色。假設：以 PM 的清單為準（較新）。"
 }

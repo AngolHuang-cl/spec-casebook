@@ -132,3 +132,11 @@ sliders record on finger-up with a changed value.
 
 AI Expand took 1 min 48 s on Stage vs ≈ 17 s on Production; an RTDN account hold of 「76320 days」 = 53 × 1440 Stage
 time scale. Not values to assert.
+
+## KP-135 Photo guide heading is 「Recommendation」 in every AI feature
+- kind: decision · platform: android · use: analysis, run, ebug · tags: photo-guide, picker, recommendation · authority: team
+- source: user 2026-11-18 (REQ-009, AI Hair Color Custom ISS-HCC-16: 「其他feature都是Recommendation, 底下的三個會隨著feature改變, photo tab的話那個是相簿名稱本來就會變」); seen on creative-reel run 2026-11-17-r1 TC-033, TC-037 · verified: 20.19.0 (90201901) (2026-11-18)
+
+The guide shown before the photo picker uses the app-wide heading 「Recommendation」. Its recommend / avoid items
+change per feature, and the picker's first tab shows the album name, which changes by itself. Do not file the
+heading, the items or the tab name as differing from the spec.

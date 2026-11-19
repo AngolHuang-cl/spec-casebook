@@ -11,6 +11,7 @@ before calling an item missing or clipped.
 ## KF-002 After pm clear, switch back to the test server
 - kind: howto · platform: android · use: run, ebug · tags: setup, server, pm-clear
 - source: user, eBug review R1 2026-11-12 (F-46, not a bug; inbox I-005); said of Swipe Collage
+- status: superseded by KP-137
 
 `pm clear` puts the app back on its default server. Switch it back to the demo (test) server before going on;
 otherwise every Swipe Collage template opens blank and Add Layer › Frame says No connection. On 20.19.0 the debug

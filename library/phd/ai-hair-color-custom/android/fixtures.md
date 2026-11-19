@@ -4,8 +4,11 @@ What a run needs on the phone or the account, because none of it can be committe
 a new row that needs a new photo or account state adds it here in the same draft.
 
 ## App, build and account
-- PhotoDirector for Android 20.19.0 (versionCode 90201900), the build installed on the phone (user, 2026-11-13: test
-  the installed build; no TR named).
+- PhotoDirector for Android 20.19.0 (versionCode 90201901 from round R2, installed on the S23 on 2026-11-17; R1 ran
+  90201900), the build installed on the phone (user: test the installed build; no TR named).
+- Tier: Free by default; the round-2 premium-style rows turn 「Set to subscriber」 ON in Settings › About's debug
+  dialog (KP-131) and back OFF for the Free rows.
+- The photo guide's 「Don't show again.」 (TC-093) is one-way: after it, the guide no longer shows before the picker.
 - Phone: Samsung SM-S9110 (adb RFCW2198L7B), Android 16, on USB, Stay awake on.
 - The signed-in account has credits (user, 2026-11-13); no round-start reset (KP-104 is waived for this round).
   One Custom generation costs 6 credits (R-040); round 1 needs about 22 generations ≈ 130 credits. When the balance

@@ -154,7 +154,11 @@ and look at the tile images where layout, arrows or states matter.**
    - **Check the arrows.** Check every arrow's `edge` against the geometry (the control under its tail, the screen under
      its head) and correct it, its requirement and its "Walked by" when they disagree: imported labels can be swapped,
      and a label next to a control may be its own button (the banner's 「>」). Annotation pointers (default
-     「Vector N」 name, tail off-screen) are marked `not_flow`.
+     「Vector N」 name, tail off-screen) are marked `not_flow`. A PM flow arrow drawn in the gap between two phones
+     (tail on neither screen) is read as a pointer too: when the board shows it joins two steps, set `flow: true` on
+     its `arrows.json` entry and `--sync-arrows` keeps it a flow (2026-11-17, PHD Creative Reel: 7 of 10 PM arrows).
+     PM mockups often draw buttons as plain frames or bare text, which the extractor skips (Creative Reel: 13 controls
+     read of 59): add them in `inventory-overrides.json` with boxes from the read's `texts` before tracing.
    - **Review before tracing (user, 2026-10-28, REQ-041).** `node scripts/inventory-sheets.ts <feature> <set> --scale
      1.25 [--board …]` cuts every screen and panel out of the PDF with the boxes drawn, plus OCR texts no box covers and
      an edge score (near 0 = the PDF draws nothing there); PM / MX sheets come from the OCR tiles (`--tiles --tag

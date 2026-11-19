@@ -1,0 +1,105 @@
+{
+  "checked_at": "2026-11-17T07:03:37.727Z",
+  "set": "2026-11-12",
+  "unchanged": [
+    {
+      "id": "3287:89/pm-header",
+      "group": "p-a",
+      "box": [
+        0,
+        0,
+        7600,
+        260
+      ],
+      "holder": ""
+    },
+    {
+      "id": "3287:93/pm-flow",
+      "group": "p-a",
+      "box": [
+        0,
+        320,
+        3377,
+        2524
+      ],
+      "holder": "3287:93"
+    },
+    {
+      "id": "3287:95/pm-cms",
+      "group": "p-a",
+      "box": [
+        0,
+        4448,
+        1780,
+        542
+      ],
+      "holder": "3287:95"
+    },
+    {
+      "id": "3287:96/pm-deeplink",
+      "group": "p-a",
+      "box": [
+        1840,
+        4448,
+        1500,
+        356
+      ],
+      "holder": "3287:96"
+    },
+    {
+      "id": "3287:97/pm-draft-tbd",
+      "group": "p-a",
+      "box": [
+        3400,
+        4448,
+        1080,
+        900
+      ],
+      "holder": "3287:97"
+    },
+    {
+      "id": "3370:1666/pm-face-check",
+      "group": "p-a",
+      "box": [
+        0,
+        5500,
+        1636,
+        1300
+      ],
+      "holder": "3370:1666"
+    }
+  ],
+  "changed": [
+    {
+      "id": "3287:94/pm-ui",
+      "group": "p-ui",
+      "box": [
+        0,
+        3004,
+        12557,
+        1284
+      ],
+      "holder": "3287:94",
+      "why": [
+        "board"
+      ]
+    }
+  ],
+  "removed": [],
+  "baseline": [],
+  "new_boards": [],
+  "missed_arrows": [],
+  "reread": [
+    {
+      "group": "p-ui",
+      "server": "figma-pm",
+      "save_as": "library\\phd\\ai-hair-color-custom\\specs\\2026-11-12\\extracted\\figma-inventory-p-ui.json"
+    }
+  ],
+  "shots": [
+    {
+      "png": "pm-ui.png",
+      "board": "3287:94/pm-ui"
+    }
+  ]
+}
