@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-11-19T04:58:38.096Z",
+  "built_at": "2026-11-19T08:23:54.685Z",
   "spec_set": "2026-10-21-2",
   "file": {
     "fileKey": "dZk5HLzZTdcZwWwvN9aZfZ",
@@ -355,70 +355,31 @@
       ]
     },
     {
-      "id": "2811:90148",
-      "name": "Dialog_text_02-1",
+      "id": "2824:129429",
+      "name": "info",
+      "board": "2778:127318",
+      "board_name": "main flow",
+      "size": [
+        238,
+        333
+      ]
+    },
+    {
+      "id": "2910:64896",
+      "name": "info",
       "board": "2811:89056",
       "board_name": "Choose Character",
       "size": [
-        270,
-        194
-      ]
-    },
-    {
-      "id": "3999:73578",
-      "name": "Dialog_text_03",
-      "board": "2820:113353",
-      "board_name": "Storyboard",
-      "size": [
-        270,
-        206
-      ]
-    },
-    {
-      "id": "3999:73591",
-      "name": "Dialog_text_03",
-      "board": "2820:113353",
-      "board_name": "Storyboard",
-      "size": [
-        270,
-        206
-      ]
-    },
-    {
-      "id": "4877:33062",
-      "name": "Dialog_leave_chat",
-      "board": "4858:34930",
-      "board_name": "1016_Chat navigation",
-      "size": [
-        270,
-        194
-      ]
-    },
-    {
-      "id": "4887:33006",
-      "name": "Dialog_leave_1",
-      "board": "4858:34930",
-      "board_name": "1016_Chat navigation",
-      "size": [
-        270,
-        194
-      ]
-    },
-    {
-      "id": "4887:33018",
-      "name": "Dialog_leave_2",
-      "board": "4858:34930",
-      "board_name": "1016_Chat navigation",
-      "size": [
-        270,
-        194
+        238,
+        333
       ]
     }
   ],
+  "as_screens": [],
   "casebook": true,
   "counts": {
-    "screens": 234,
-    "routed": 234,
+    "screens": 240,
+    "routed": 240,
     "figma_paths": 1,
     "gaps": 1,
     "no_route": 0,
@@ -500,6 +461,7 @@
       "2778:128850"
     ],
     "TC-025": [
+      "4877:33062",
       "2820:123321",
       "2820:123401",
       "3172:102080",
@@ -507,7 +469,9 @@
       "3975:78547"
     ],
     "TC-027": [
-      "4863:32482"
+      "4863:32482",
+      "4887:33006",
+      "4887:33018"
     ],
     "TC-030": [
       "3949:74854"
@@ -543,6 +507,9 @@
     ],
     "TC-037": [
       "2811:89227"
+    ],
+    "TC-038": [
+      "2811:90148"
     ],
     "TC-039": [
       "3153:105431"
@@ -591,6 +558,10 @@
       "3153:104065",
       "3153:104082",
       "3153:104099"
+    ],
+    "TC-067": [
+      "3999:73578",
+      "3999:73591"
     ],
     "TC-070": [
       "3142:69654",
@@ -2915,6 +2886,52 @@
       "flags": []
     },
     {
+      "id": "4877:33062",
+      "name": "Dialog_leave_chat",
+      "board": "4858:34930",
+      "board_name": "1016_Chat navigation",
+      "abs": [
+        -14784,
+        32872,
+        270,
+        194
+      ],
+      "board_box": [
+        -15544,
+        32152,
+        3375,
+        1866
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/1016-chat-navigation.png",
+      "inventory_screen": "4877:33062",
+      "partial": true,
+      "phone_w": 375,
+      "dialog": true,
+      "status": "routed",
+      "route": {
+        "case": "TC-025",
+        "how": "arrow",
+        "via": "4877-33073",
+        "fit": "high",
+        "edge": "1016_Chat navigation: Chat (any stage) · Back (←, top left) → leave dialog",
+        "segment": "P1-b",
+        "section": "Story outline",
+        "precondition": "Outline generating",
+        "action": "Tap Back",
+        "result": "Pass",
+        "run": "2026-10-22-p9-full"
+      },
+      "alternatives": [
+        "TC-026",
+        "TC-027",
+        "TC-357",
+        "TC-358"
+      ],
+      "flags": [
+        "partial"
+      ]
+    },
+    {
       "id": "2820:123321",
       "name": "Recent Task",
       "board": "2820:123194",
@@ -3150,6 +3167,98 @@
         "TC-020"
       ],
       "flags": []
+    },
+    {
+      "id": "4887:33006",
+      "name": "Dialog_leave_1",
+      "board": "4858:34930",
+      "board_name": "1016_Chat navigation",
+      "abs": [
+        -15424,
+        33714,
+        270,
+        194
+      ],
+      "board_box": [
+        -15544,
+        32152,
+        3375,
+        1866
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/1016-chat-navigation.png",
+      "inventory_screen": "4887:33006",
+      "partial": true,
+      "phone_w": 375,
+      "dialog": true,
+      "status": "routed",
+      "route": {
+        "case": "TC-027",
+        "how": "on",
+        "via": "C-9dbaad",
+        "fit": "high",
+        "edge": "Leave anyway",
+        "segment": "P1-b",
+        "section": "Story outline",
+        "precondition": "Leave this chat? shown",
+        "action": "Tap 「Stay」",
+        "result": "Pass",
+        "run": "2026-10-22-p9-full"
+      },
+      "alternatives": [
+        "TC-357",
+        "TC-358",
+        "TC-394",
+        "TC-395"
+      ],
+      "flags": [
+        "partial"
+      ]
+    },
+    {
+      "id": "4887:33018",
+      "name": "Dialog_leave_2",
+      "board": "4858:34930",
+      "board_name": "1016_Chat navigation",
+      "abs": [
+        -14944,
+        33714,
+        270,
+        194
+      ],
+      "board_box": [
+        -15544,
+        32152,
+        3375,
+        1866
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/1016-chat-navigation.png",
+      "inventory_screen": "4887:33018",
+      "partial": true,
+      "phone_w": 375,
+      "dialog": true,
+      "status": "routed",
+      "route": {
+        "case": "TC-027",
+        "how": "on",
+        "via": "C-9dbaad",
+        "fit": "high",
+        "edge": "Leave anyway",
+        "segment": "P1-b",
+        "section": "Story outline",
+        "precondition": "Leave this chat? shown",
+        "action": "Tap 「Stay」",
+        "result": "Pass",
+        "run": "2026-10-22-p9-full"
+      },
+      "alternatives": [
+        "TC-357",
+        "TC-358",
+        "TC-394",
+        "TC-395"
+      ],
+      "flags": [
+        "partial"
+      ]
     },
     {
       "id": "3949:74854",
@@ -4199,6 +4308,47 @@
         "TC-026"
       ],
       "flags": []
+    },
+    {
+      "id": "2811:90148",
+      "name": "Dialog_text_02-1",
+      "board": "2811:89056",
+      "board_name": "Choose Character",
+      "abs": [
+        -17478,
+        7516,
+        270,
+        194
+      ],
+      "board_box": [
+        -18405,
+        7196,
+        9294,
+        8350
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/choose-character.png",
+      "inventory_screen": "2811:90148",
+      "partial": true,
+      "phone_w": 375,
+      "dialog": true,
+      "status": "routed",
+      "route": {
+        "case": "TC-038",
+        "how": "on",
+        "via": "C-232cfe",
+        "fit": "high",
+        "edge": "Leave",
+        "segment": "P1-b",
+        "section": "Characters",
+        "precondition": "Leave without finishing? shown",
+        "action": "1. Tap 「Keep choosing」\n2. Tap X again and 「Leave」",
+        "result": "Pass",
+        "run": "2026-10-22-p9-full"
+      },
+      "alternatives": [],
+      "flags": [
+        "partial"
+      ]
     },
     {
       "id": "3153:105431",
@@ -5344,6 +5494,92 @@
         "TC-121"
       ],
       "flags": []
+    },
+    {
+      "id": "3999:73578",
+      "name": "Dialog_text_03",
+      "board": "2820:113353",
+      "board_name": "Storyboard",
+      "abs": [
+        -14494,
+        16331,
+        270,
+        206
+      ],
+      "board_box": [
+        -18405,
+        16140,
+        9294,
+        4271
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/storyboard.png",
+      "inventory_screen": "3999:73578",
+      "partial": true,
+      "phone_w": 375,
+      "dialog": true,
+      "status": "routed",
+      "route": {
+        "case": "TC-067",
+        "how": "on",
+        "via": "K-1e3760",
+        "fit": "high",
+        "edge": "terms of service",
+        "segment": "P1-c",
+        "section": "Storyboard",
+        "precondition": "Scene image failed with 4xx",
+        "action": "1. Open the scene and tap ⓘ\n2. In the dialog tap 「terms of service」, come back and tap 「Got it」",
+        "result": "Fail",
+        "run": "2026-10-22-p9-full"
+      },
+      "alternatives": [
+        "TC-137"
+      ],
+      "flags": [
+        "partial"
+      ]
+    },
+    {
+      "id": "3999:73591",
+      "name": "Dialog_text_03",
+      "board": "2820:113353",
+      "board_name": "Storyboard",
+      "abs": [
+        -14200,
+        16330,
+        270,
+        206
+      ],
+      "board_box": [
+        -18405,
+        16140,
+        9294,
+        4271
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/storyboard.png",
+      "inventory_screen": "3999:73591",
+      "partial": true,
+      "phone_w": 375,
+      "dialog": true,
+      "status": "routed",
+      "route": {
+        "case": "TC-067",
+        "how": "on",
+        "via": "K-1e3760",
+        "fit": "high",
+        "edge": "terms of service",
+        "segment": "P1-c",
+        "section": "Storyboard",
+        "precondition": "Scene image failed with 4xx",
+        "action": "1. Open the scene and tap ⓘ\n2. In the dialog tap 「terms of service」, come back and tap 「Got it」",
+        "result": "Fail",
+        "run": "2026-10-22-p9-full"
+      },
+      "alternatives": [
+        "TC-137"
+      ],
+      "flags": [
+        "partial"
+      ]
     },
     {
       "id": "3142:69654",

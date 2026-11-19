@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-11-19T04:53:03.707Z",
+  "built_at": "2026-11-19T08:23:55.279Z",
   "spec_set": "2026-11-06",
   "file": {
     "fileKey": "4ZIfFu5NTnCEi1Nqo04k2S",
@@ -200,7 +200,29 @@
     ],
     "page_listed": true
   },
-  "not_screens": [],
+  "not_screens": [
+    {
+      "id": "1528:43587",
+      "name": "Group 5250",
+      "board": "1528:43587",
+      "board_name": "Group 5250",
+      "size": [
+        1508,
+        385
+      ]
+    },
+    {
+      "id": "1528:43699",
+      "name": "Slice",
+      "board": "1528:43699",
+      "board_name": "Slice",
+      "size": [
+        515,
+        569
+      ]
+    }
+  ],
+  "as_screens": [],
   "casebook": true,
   "counts": {
     "screens": 0,

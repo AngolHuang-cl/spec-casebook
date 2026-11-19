@@ -71,16 +71,25 @@ shows its texts (else at the window's bottom) and measures only that part. Every
 on a read board, neither a screen nor inside one, is listed in `plan.json` `not_screens` and by `status`
 (`CHECK … frame(s) not taken as screens`) until it becomes a screen or is skipped with a reason
 (`plan --also-skip <ids> --skip-reason "<why>"`; `--skip` replaces the whole list). A state of the feature in that
-list is a missed screen: fix `findScreens` (figma-source.ts) and the inventory's panel rule (inventory.js) together,
-never skip it. Both rules took only full-height frames until 2026-11-19, so the two Video Enhance tooltip states
+list is a missed screen, never skipped: `plan --as-screen <ids>`, and when a whole kind of frame is missed, fix
+`findScreens` (figma-source.ts). Both rules took only full-height frames until 2026-11-19, so the two Video Enhance tooltip states
 (3479:106886, 3494:106998) were in both reads but never planned; the Figma Agent checked them. When `figma-source.ts`
-changes, every feature's `screens.json` is found again from its board files on the next command (no Figma call).
-Standalone dialogs narrower than a phone (270 pt) are listed, not yet checked.
+changes, every feature's `screens.json` is found again from its board files on the next command (no Figma call), and
+screens left without an image get theirs cut from the board images already on disk.
+**Dialogs, groups and lone boards (2026-11-19).** A dialog drawn beside the phones (named like the inventory's panels,
+100 pt or taller, with text; AI Mini Drama's 270 pt iOS alerts) is a partial screen flagged `dialog` with `phone_w`
+(the board's phone width, else 375 pt): the check scales the capture by the phone and places the dialog across and
+down where its texts are (else centred). Toasts and snackbars under 100 pt stay out: too brief to capture reliably.
+`not_screens` also lists GROUPs and boards that are one frame on their own (an icon sheet, a close-up drawn as its own
+board). One that is a screen after all becomes one with `plan --as-screen <ids>` (kept in `plan.json` `as_screens`,
+planned as a partial screen); no code change and no Figma call. None of this changes the inventory (`inventory.js`
+runs inside Figma: changing it would mean reading boards again).
 On Android a tooltip or other popup that has focus hides the app's main window from UiAutomator2's source (even with
 `enableMultiWindows`): such a screen is captured by hand (the watch cannot match it), and the check takes the texts
 the source lacks from the capture's view data when the source holds under half of them. The watch takes a screen
 whose short texts another screen also holds only when a line it alone draws is on the phone too (the plain panel was
-saved as both tooltip screens before; 2026-11-19). Capture at font scale 1.0 and the default display size, and
+saved as both tooltip screens before; 2026-11-19), and never takes the screen it covers (the plain panel) while that
+line is on the phone. Capture at font scale 1.0 and the default display size, and
 relaunch the app after changing them: a running app keeps its old scale in the view data.
 
 ## 1b. Scope review (user, 2026-11-03)

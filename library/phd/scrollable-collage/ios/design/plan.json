@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-11-19T04:53:07.366Z",
+  "built_at": "2026-11-19T08:23:58.387Z",
   "spec_set": "2026-11-05",
   "file": {
     "fileKey": "iUy5kOrVNG7IjcyxGGnp9t",
@@ -95,26 +95,37 @@
   },
   "not_screens": [
     {
-      "id": "129:3239",
-      "name": "import_img  ·  109×109  ·  empty photo slot (tap to import)",
+      "id": "116:3010",
+      "name": "Dark mode · Canvas icon buttons",
       "board": "116:3010",
       "board_name": "Dark mode · Canvas icon buttons",
       "size": [
-        366,
-        169
+        952,
+        1082
       ]
     },
     {
-      "id": "130:3280",
-      "name": "import_img  ·  109×109  ·  empty photo slot (tap to import)",
+      "id": "122:3043",
+      "name": "cut",
+      "board": "122:3043",
+      "board_name": "cut",
+      "size": [
+        407,
+        470
+      ]
+    },
+    {
+      "id": "130:3237",
+      "name": "Light mode · Canvas icon buttons",
       "board": "130:3237",
       "board_name": "Light mode · Canvas icon buttons",
       "size": [
-        366,
-        169
+        952,
+        1082
       ]
     }
   ],
+  "as_screens": [],
   "casebook": true,
   "counts": {
     "screens": 57,

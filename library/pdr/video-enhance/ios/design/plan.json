@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-11-19T04:58:35.691Z",
+  "built_at": "2026-11-19T08:23:56.321Z",
   "spec_set": "2026-11-03",
   "file": {
     "fileKey": "HceGLJVaxnKsv7gXSXzKWh",
@@ -67,7 +67,19 @@
     "listed": [],
     "page_listed": true
   },
-  "not_screens": [],
+  "not_screens": [
+    {
+      "id": "3293:14560",
+      "name": "Routing Logic",
+      "board": "3293:14560",
+      "board_name": "Routing Logic",
+      "size": [
+        824,
+        1172
+      ]
+    }
+  ],
+  "as_screens": [],
   "casebook": true,
   "counts": {
     "screens": 35,

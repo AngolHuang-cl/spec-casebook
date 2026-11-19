@@ -11,7 +11,9 @@
 // screens need 3+ texts and 60 %; any other screen 4+ texts and 80 % and a clear lead (0.15) over the next best, so a
 // state drawn beside it (loading, failure) is not taken for it. A screen whose short texts another screen also holds
 // (a tooltip drawn open on the panel: 13/13 of the plain panel's labels, video-enhance REQ-030) is only taken when a
-// line it alone draws is in the source too (`own`, any length). Screens with fewer texts are listed at `case` for a
+// line it alone draws is in the source too (`own`, any length), and the screen it is covered by is not taken while
+// that screen's own line is on the phone (`not`: the plain panel is not saved from a capture with the tooltip open,
+// 2026-11-19). Screens with fewer texts are listed at `case` for a
 // capture by hand. The check's `state` candidate still catches a wrong state, and the reviewers settle it.
 // Two guards from the first design pass (Android main flow, 2026-11-04): a match is not saved over a screen the run
 // captured since `case` (a hand capture was overwritten by the next tap's source), and a frame whose background is dark
@@ -25,7 +27,7 @@ import { appElements, figmaScreen } from './design-match.ts';
 import { featureOfRunDir } from './feature-config.ts';
 import { featureDir } from './library.ts';
 
-type Watch = { case: string; row: string[]; screens: Record<string, { name: string; texts: string[]; dark?: boolean | null; kb?: boolean; own?: string[] }> };
+type Watch = { case: string; row: string[]; screens: Record<string, { name: string; texts: string[]; dark?: boolean | null; kb?: boolean; own?: string[]; not?: string[] }> };
 const read = (p: string): any => JSON.parse(readFileSync(p, 'utf8'));
 const watchFile = (runDir: string) => join(runDir, '.design-watch.json');
 const planFile = (runDir: string) => join(dirname(dirname(resolve(runDir))), 'design', 'plan.json');
@@ -119,12 +121,12 @@ export function blankShot(png: Buffer): string | null {
 
 // Short Figma texts and the background appearance of every routed screen, cached in the run folder until plan.json
 // changes.
-type Frame = { texts: string[]; dark: boolean | null; kb: boolean; own?: string[] };
+type Frame = { texts: string[]; dark: boolean | null; kb: boolean; own?: string[]; not?: string[] };
 // a frame's appearance from its fill, else from its crop's pixels (a gradient or image background has no single fill:
 // the template chat's dark frame passed a light capture, 2026-11-04); `kb`: the frame draws the keyboard up
 function screenTexts(runDir: string, plan: any, out: string): Record<string, Frame> {
   const cache = join(runDir, '.design-texts.json'), stamp = statSync(planFile(runDir)).mtimeMs;
-  if (existsSync(cache)) { try { const c = read(cache); if (c.plan === stamp && c.v === 4) return c.screens; } catch {} }
+  if (existsSync(cache)) { try { const c = read(cache); if (c.plan === stamp && c.v === 5) return c.screens; } catch {} }
   const boards = new Map<string, any[]>(), screens: Record<string, Frame> = {}, lines = new Map<string, Set<string>>();
   for (const s of plan.screens.filter((x: any) => x.status === 'routed')) {
     if (!boards.has(s.board)) { const f = join(out, `${s.board.replace(/[:;]/g, '-')}.json`); boards.set(s.board, existsSync(f) ? read(f).nodes : []); }
@@ -141,7 +143,13 @@ function screenTexts(runDir: string, plan: any, out: string): Record<string, Fra
     const own = [...lines.get(id) ?? []].filter(l => ![...lines].some(([o, ls]) => o !== id && ls.has(l)));
     if (own.length) f.own = own;
   }
-  writeFileSync(cache, JSON.stringify({ v: 4, plan: stamp, screens }));
+  // and the screen covered is not taken while a line of its own of the covering one shows
+  for (const [id, f] of Object.entries(screens)) {
+    const not = Object.entries(screens).filter(([o, g]) => o !== id && f.texts.length > 0 && f.texts.every(t => g.texts.includes(t)))
+      .flatMap(([o]) => [...lines.get(o) ?? []].filter(l => ![...lines].some(([p, ls]) => p !== o && ls.has(l))));
+    if (not.length) f.not = [...new Set(not)];
+  }
+  writeFileSync(cache, JSON.stringify({ v: 5, plan: stamp, screens }));
   return screens;
 }
 
@@ -183,7 +191,7 @@ export function armWatch(runDir: string, caseId: string | null): string[] {
     const done = capturedScreens(runDir), texts = screenTexts(runDir, plan, out);
     const byId = new Map<string, any>(plan.screens.map((s: any) => [s.id, s]));
     const screens: Watch['screens'] = {};
-    for (const [id, t] of Object.entries(texts)) if (!done.has(id) && byId.has(id)) screens[id] = { name: byId.get(id).name, texts: t.texts, dark: t.dark, kb: t.kb, ...(t.own ? { own: t.own } : {}) };
+    for (const [id, t] of Object.entries(texts)) if (!done.has(id) && byId.has(id)) screens[id] = { name: byId.get(id).name, texts: t.texts, dark: t.dark, kb: t.kb, ...(t.own ? { own: t.own } : {}), ...(t.not ? { not: t.not } : {}) };
     const row = (plan.by_case?.[caseId] ?? []).filter((id: string) => screens[id]);
     writeFileSync(watchFile(runDir), JSON.stringify({ case: caseId, row, screens } satisfies Watch));
     if (row.length) {
@@ -227,7 +235,8 @@ export async function watchSource(runDir: string, xml: string, png: () => Promis
     const has = new Set(app), long = app.filter(a => a.length >= 6);
     const score = (id: string) => {
       const t = w.screens[id].texts, hits = t.filter(x => has.has(x) || (x.length >= 6 && long.some(a => a.includes(x) || x.includes(a)))).length;
-      const own = w.screens[id].own, mine = !own || own.some(x => has.has(x) || long.some(a => a.includes(x) || x.includes(a)));
+      const seen = (x: string) => has.has(x) || long.some(a => a.includes(x) || x.includes(a));
+      const own = w.screens[id].own, not = w.screens[id].not, mine = (!own || own.some(seen)) && !not?.some(seen);
       return { id, hits, of: t.length, r: t.length && mine ? hits / t.length : 0 };
     };
     const all = Object.keys(w.screens).map(score).sort((a, b) => b.r - a.r || b.hits - a.hits);

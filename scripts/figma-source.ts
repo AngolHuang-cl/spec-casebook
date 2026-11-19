@@ -589,8 +589,22 @@ function findScreens(nodes: any[]) {
   const pc = nodes.filter(n => ['FRAME', 'INSTANCE', 'COMPONENT'].includes(n.type) && !n.hidden && (n.drawn ?? 1) >= 0.5 && n.depth > 0
     && n.box[3] >= 300 && n.box[3] < 600 && phoneWide(n.box[2]) && !near(n));
   const partial = pc.filter(n => !pc.some(p => p !== n && inside(n, p)));
+  // dialogs drawn beside the phones (2026-11-19: AI Mini Drama's 270 pt iOS alerts were inventory panels the design
+  // check never measured): the inventory's panel rule (inventory.js, by name) at 100 pt or taller, so a toast or
+  // snackbar stays out (too brief to capture reliably); holding visible text, neither inside nor around a screen. Each
+  // is a partial screen measured inside a phone `phone_w` wide (the board's phones, else 375 pt), placed where the
+  // capture shows its texts, else centred.
+  const PANEL = /dialog|popup|pop-up|sheet|toast|alert|modal|tooltip|menu|snackbar|leave|confirm/i;
+  const taken = [...full, ...partial], phoneW = widths.length ? [...widths].sort((a, b) => a - b)[Math.floor(widths.length / 2)] : 375;
+  const texted = new Set<any>();
+  for (const t of nodes) if (t.type === 'TEXT' && !t.hidden && t.text?.characters?.trim()) for (let q = byId.get(t.parent); q; q = byId.get(q.parent)) texted.add(q);
+  const dc = nodes.filter(n => ['FRAME', 'INSTANCE', 'COMPONENT', 'GROUP'].includes(n.type) && !n.hidden && (n.drawn ?? 1) >= 0.5 && n.depth > 0
+    && PANEL.test(n.name) && n.box[2] >= 160 && n.box[2] <= 460 && n.box[3] >= 100 && n.box[3] <= 700 && texted.has(n)
+    && !taken.some(p => p === n || inside(n, p) || inside(p, n)));
+  const dialogs = dc.filter(n => !dc.some(p => p !== n && inside(n, p)));
   return [...full.map(n => ({ id: n.id, name: n.name, box: n.box, abs: n.abs })),
-    ...partial.map(n => ({ id: n.id, name: n.name, box: n.box, abs: n.abs, partial: true }))];
+    ...partial.map(n => ({ id: n.id, name: n.name, box: n.box, abs: n.abs, partial: true })),
+    ...dialogs.map(n => ({ id: n.id, name: n.name, box: n.box, abs: n.abs, partial: true, dialog: true, phone_w: phoneW }))];
 }
 function findArrows(nodes: any[], screens: any[]) {
   const hit = (b: number[], x: number, y: number, pad: number) => x >= b[0] - pad && x <= b[0] + b[2] + pad && y >= b[1] - pad && y <= b[1] + b[3] + pad;
