@@ -76,6 +76,12 @@ never skip it. Both rules took only full-height frames until 2026-11-19, so the 
 (3479:106886, 3494:106998) were in both reads but never planned; the Figma Agent checked them. When `figma-source.ts`
 changes, every feature's `screens.json` is found again from its board files on the next command (no Figma call).
 Standalone dialogs narrower than a phone (270 pt) are listed, not yet checked.
+On Android a tooltip or other popup that has focus hides the app's main window from UiAutomator2's source (even with
+`enableMultiWindows`): such a screen is captured by hand (the watch cannot match it), and the check takes the texts
+the source lacks from the capture's view data when the source holds under half of them. The watch takes a screen
+whose short texts another screen also holds only when a line it alone draws is on the phone too (the plain panel was
+saved as both tooltip screens before; 2026-11-19). Capture at font scale 1.0 and the default display size, and
+relaunch the app after changing them: a running app keeps its old scale in the view data.
 
 ## 1b. Scope review (user, 2026-11-03)
 

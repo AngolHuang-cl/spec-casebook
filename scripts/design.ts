@@ -215,6 +215,13 @@ function measure() {
     // text's colour, size, weight and lines and each fill's colour and radius exactly, ahead of OCR and pixels
     const vFile = cap.views && [join(runDir, cap.views), join(designDir, 'captures', basename(cap.views))].find(f => existsSync(f));
     const V: Views | null = vFile ? read(vFile) : null;
+    // a popup that has focus (a tooltip open over the panel) leaves the app's main window out of UiAutomator2's source
+    // even with enableMultiWindows (2026-11-19, REQ-030: 3 app nodes, every panel text missing); the view data holds
+    // every window, so when the source has under half of its texts, the rest come from it (not tappable, not covered)
+    if (V) { const have = new Set(els.filter(e => e.text).map(e => normLabel(e.text)));
+      const lack = V.texts.filter(t => t.text?.trim() && !have.has(normLabel(t.text)));
+      if (lack.length > V.texts.length / 2) for (const t of lack)
+        els.push({ type: 'view', text: t.text, box: t.box, actionable: false, covered: false, name: false, clickable: null, rid: t.id ?? '' }); }
     const Wf = scr.abs[2], k = Wf / cap.win.w, Ha = cap.win.h * k;
     // a partial screen (REQ-030: a close-up of part of a phone, such as the panel with a tooltip open) is measured as a
     // whole phone frame with the drawn part where the app shows it: `off` (Figma units from the window's top) is the
