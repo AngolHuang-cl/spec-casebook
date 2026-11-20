@@ -1,0 +1,15 @@
+# ISS-AWA-10 AI Music Generator, Generate with the switch Off (recheck)
+# PowerDirector 16.9.0 (2611171), TR261117-0042, Stage, Sony XQ-BT52 / Android 12, 2026-11-19 phone time (UTC+8); runs/2026-11-19-recheck-2611171/logs/RC-a-20261119-090019/logcat-live.txt
+# Credit balance when it changes and the music tool's lines; tokens, account ids and bonus details dropped.
+# 08:58:22 Generate tapped; 08:58:23 feature list fetched; no AIGC dialog line; 「Generating...」 shown at 08:58:25; 08:59:49 balance 2529 -> 2519 (2 songs x 5).
+
+2026-11-19 08:58:00.251 D NotificationCheck: destinationLibrary = ai_music_generator
+2026-11-19 08:58:00.834 V AIMusicGeneratorActivity: GDPRHandler.checkGDPRPrivacyPolicy: None
+2026-11-19 08:58:00.954 D CreditSystemManager: checkFeatureCredit, Exception: java.lang.IllegalStateException: getCreditSystemFeatureListByFeature, Exception: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 2 path $
+2026-11-19 08:58:01.024 D CreditSystemManager: checkFeatureCredit, Exception: java.lang.IllegalStateException: getCreditSystemFeatureListByFeature, Exception: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 2 path $
+2026-11-19 08:58:01.264 D CreditSystemManager: getMemberCreditRemain, totalRemain=2529
+2026-11-19 08:58:23.389 D CreditSystemManager: getMemberCreditRemain, totalRemain=2529
+2026-11-19 08:58:23.647 D CreditSystemManager: getMemberCreditRemain, totalRemain=2529
+2026-11-19 08:58:23.848 D CreditSystemManager: creditSystemFeatureList (fetched at Generate): FeatureCreditInfo(featureID=AIMusicGeneratorV2, actionID=genaudio_1_music_google_lyria3pro_none, credit=5, minUnit=1) ...
+2026-11-19 08:58:25.601 D CreditSystemManager: getMemberCreditRemain, totalRemain=2529
+2026-11-19 08:59:49.400 D CreditSystemManager: getMemberCreditRemain, totalRemain=2519

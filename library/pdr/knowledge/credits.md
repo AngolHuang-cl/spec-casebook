@@ -2,7 +2,7 @@
 
 ## KP-007 A failed generation refunds its credits
 - kind: rule · platform: both · use: analysis, run, ebug · tags: credits, refund · authority: team
-- source: run.md step 8 (user, 2026-10-19) · verified: 16.9.0 build 2611091 (2026-11-10)
+- source: run.md step 8 (user, 2026-10-19); AIGC Watermark Android run 2026-11-17-r1-full O-7 · verified: 16.9.0 build 2611161 (2026-11-17)
 
 A failed item costs nothing net; a partial failure costs only the items that succeeded. A missing or wrong refund is
 a defect with its own eBug, even when the failure itself is already filed.
@@ -26,10 +26,46 @@ My Credits carries 「Complimentary daily credits / Claim once every 24 hours / 
 (ISS-MP-27, DRI261893-0042). Android's Mine › Credit page shows the same 「Complimentary daily credits ‹Claim›」
 offer (16.9.0 build 2611091); its amount there is unchecked.
 
-## KP-067 Credits read 「--」 right after a Play purchase
-- kind: quirk · platform: android · use: run · tags: credits, billing, logs
-- source: Video Enhance Android run 2026-11-10-r1-full O-1 · verified: 16.9.0 build 2611091 (2026-11-10)
+## KP-067 Credits can read 「--」 or 0 right after a launch
+- kind: quirk · platform: android · use: run · tags: credits, billing, logs, launch
+- source: Video Enhance Android run 2026-11-10-r1-full O-1; AIGC Watermark Android run 2026-11-17-r1-full O-1, O-20 (seen without a purchase: corrected) · verified: 16.9.0 build 2611161 (2026-11-17)
 
-Right after a Google Play subscription, Mine › Credits shows 「--」 and every launch logs `getCreditRemain error,
-creditSystemUUID is null` (also `doVerifyPurchase error`, `checkFeatureCredit … JsonSyntaxException`). A relaunch a
-minute later shows the balance with the monthly credits added; relaunch before reading prices or the pill.
+At some launches (right after a Google Play purchase, but also after a plain relaunch or a `locale reset`),
+CreditSystemManager logs `getCreditRemain error, creditSystemUUID is null`, `refreshMemberToken error` and
+`checkFeatureCredit … JsonSyntaxException` right after the Play Integrity (StandardIntegrity) call: the pill shows
+「--」, AI Magic may say 「No Internet Connection」 and tool pages 0 credits while online. A plain relaunch fixes it;
+relaunch before reading prices or the pill.
+
+## KP-070 Credit Details drops the current month after local midnight
+- kind: quirk · platform: android · use: run, ebug · tags: credits, ledger, date
+- source: Video Enhance Android run 2026-11-18-r2-full O-25, O-31 · verified: 16.9.0 build 2611091 (2026-11-19)
+
+Between local midnight (UTC+8) and the server's UTC date change, Mine › Credits › Details opened on the previous
+month's group with no current-month group, also after a relaunch, while logcat `getCreditHistory` listed the new
+charges; before midnight they showed. Read ledger rows in daytime or from logcat; recheck across a month boundary
+before filing.
+
+## KP-071 Buying credits is followed by an offer and a backup dialog
+- kind: fact · platform: android · use: analysis, run · tags: credits, buy-more, dialog
+- source: Video Enhance Android run 2026-11-18-r2-full O-12 · verified: 16.9.0 build 2611091 (2026-11-18)
+
+After a 500-credit test purchase the app offered 「Want to get 50 Credits, too?」 (「NT$170.00」, 「Not now」); 「Not
+now」 then opened 「Check Backup Protection」 over My Credits (「Back up now」, 「Later」, 「Don't show again」 unticked).
+Neither is in a feature spec; close both before the next step.
+
+## KP-091 Credit prices seen on Android (Free, Stage)
+- kind: fact · platform: android · use: analysis, run · tags: credits, price
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-2..O-25 (charges matched pill and log) · verified: 16.9.0 build 2611161 (2026-11-17)
+
+Text to Image 3, AI Art 6, Text to Speech 2, Talking Avatar 10, AI Music Generator 5 a song; Image to Video Veo 3.1
+4 s 32, Vidu Q2 15, Kling O3 25, Pixverse V6 20, Wan 2.7 40; Text to Video Kling O3 30, Veo 3.1 4 s Fast 28, Wan 2.7
+720p 25; AI Anime Video Vivid 10 s 40; Video Edit by Chat Gemini Omni Flash 1.1 72, Kling O3 45; Character Motion Swap
+Wan 2.2 Animate 39, Kling Motion Control 60; Cinematic Reel 70. AI Cartoon and AI Sketch charged nothing although the
+feature list prices them at 1. Prices are server-set: recheck on each build.
+
+## KP-092 Reading the balance from the Android log
+- kind: howto · platform: android · use: run · tags: credits, logs
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-1, O-7, O-18, O-25 · verified: 16.9.0 build 2611161 (2026-11-17)
+
+CreditSystemManager logs `totalRemain=<n>` after each launch and each charge; it matched the credit pill every time,
+so a charge can be checked by clock time in logcat without opening Mine › Credits.

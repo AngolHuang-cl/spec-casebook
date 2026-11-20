@@ -1,0 +1,5 @@
+# Full pulled logcat (may hold server keys) stays local; only logs/*.txt excerpts may be shared
+logs/*/
+.session
+.serial
+.uia2-started

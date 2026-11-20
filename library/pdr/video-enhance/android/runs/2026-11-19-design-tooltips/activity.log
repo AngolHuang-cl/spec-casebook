@@ -1,0 +1,116 @@
+2026-11-19T05:31:55.457Z start HQ61563393
+2026-11-19T05:31:58.843Z logcat start
+2026-11-19T05:31:59.077Z launch 
+2026-11-19T05:31:59.815Z texts 
+2026-11-19T05:32:04.279Z appstate 
+2026-11-19T05:32:04.877Z launch 
+2026-11-19T05:32:06.034Z waitfor Get Started 20
+2026-11-19T05:34:11.722Z els 
+2026-11-19T05:34:15.725Z id gdpr_accept_button
+2026-11-19T05:34:16.185Z texts 
+2026-11-19T05:34:20.966Z els 
+2026-11-19T05:34:22.849Z shot first-1
+2026-11-19T05:34:28.935Z els 
+2026-11-19T05:34:47.784Z case TC-035
+2026-11-19T05:34:48.000Z lbl [AID]IAP_Back
+2026-11-19T05:36:02.271Z texts 
+2026-11-19T05:36:05.896Z lbl Video Enhance
+2026-11-19T05:36:06.784Z texts 
+2026-11-19T05:36:11.051Z lbl Try It Now
+2026-11-19T05:36:11.554Z els 
+2026-11-19T05:36:15.811Z id btn_remind_ok
+2026-11-19T05:36:16.217Z els 
+2026-11-19T05:36:20.190Z id permission_allow_button
+2026-11-19T05:36:20.555Z els 
+2026-11-19T05:36:24.803Z tap 540 1358
+2026-11-19T05:36:25.197Z els 
+2026-11-19T05:36:34.659Z tap 150 640
+2026-11-19T05:36:35.849Z texts 
+2026-11-19T05:36:56.811Z lbl 60fps
+2026-11-19T05:37:00.535Z els 
+2026-11-19T05:37:05.725Z id iv_mode_info
+2026-11-19T05:37:06.348Z design 3479:106886 by hand: Mode ⓘ tapped, 01:30 clip, 60fps selected (frame draws 60fp
+2026-11-19T05:37:08.972Z texts 
+2026-11-19T05:37:22.053Z case TC-036
+2026-11-19T05:37:22.188Z id tv_style_title
+2026-11-19T05:37:22.817Z texts 
+2026-11-19T05:37:23.233Z id iv_style_info
+2026-11-19T05:37:23.776Z design 3494:106998 by hand: Enhancement style ⓘ tapped, 01:30 clip, 60fps selected (fra
+2026-11-19T05:37:33.604Z case -
+2026-11-19T05:37:33.744Z pull-logs T1
+2026-11-19T05:37:35.738Z logcat stop
+2026-11-19T05:45:50.611Z texts 
+2026-11-19T05:45:54.204Z els 
+2026-11-19T05:46:04.217Z logcat start
+2026-11-19T05:46:04.475Z case TC-035
+2026-11-19T05:46:04.606Z id iv_mode_info
+2026-11-19T05:46:08.687Z design 3479:106886 by hand: Mode ⓘ tapped, 01:30 clip, 60fps selected (frame draws 60fp
+2026-11-19T05:46:11.203Z case TC-036
+2026-11-19T05:46:11.333Z id tv_style_title
+2026-11-19T05:46:11.651Z id iv_style_info
+2026-11-19T05:46:15.790Z design 3494:106998 by hand: Enhancement style ⓘ tapped, 01:30 clip, 60fps selected; fon
+2026-11-19T05:46:18.343Z case -
+2026-11-19T05:46:18.471Z pull-logs T2
+2026-11-19T05:46:20.453Z logcat stop
+2026-11-19T05:46:33.939Z terminate 
+2026-11-19T05:46:34.814Z launch 
+2026-11-19T05:46:35.502Z texts 
+2026-11-19T05:46:39.371Z texts 
+2026-11-19T05:46:42.340Z texts 
+2026-11-19T05:46:47.285Z els 
+2026-11-19T05:46:51.241Z id cancel_button
+2026-11-19T05:46:51.738Z texts 
+2026-11-19T05:47:05.326Z lbl Video Enhance
+2026-11-19T05:47:47.678Z texts 
+2026-11-19T05:48:02.603Z lbl [AID]IAP_Back
+2026-11-19T05:49:04.677Z lbl Video Enhance
+2026-11-19T05:49:05.111Z lbl Try It Now
+2026-11-19T05:49:06.285Z tap 150 640
+2026-11-19T05:49:07.264Z els 
+2026-11-19T05:49:17.519Z logcat start
+2026-11-19T05:49:17.808Z id chip_fps_60
+2026-11-19T05:49:18.300Z case TC-035
+2026-11-19T05:49:18.435Z id iv_mode_info
+2026-11-19T05:49:22.687Z design 3479:106886 by hand: Mode ⓘ tapped, 01:30 clip, 60fps selected (frame draws 60fp
+2026-11-19T05:49:25.325Z tap 800 1180
+2026-11-19T05:49:25.692Z case TC-036
+2026-11-19T05:49:25.821Z id iv_style_info
+2026-11-19T05:49:29.368Z design 3494:106998 by hand: Enhancement style ⓘ tapped, 01:30 clip, 60fps selected; fon
+2026-11-19T05:49:31.947Z case -
+2026-11-19T05:49:32.075Z pull-logs T3
+2026-11-19T05:49:34.135Z logcat stop
+2026-11-19T05:34:23.534Z file screenshots/first-1.png
+2026-11-19T05:37:08.836Z file screenshots/design-discarded-t1/3479-106886.png
+2026-11-19T05:37:08.837Z file screenshots/design-discarded-t1/3479-106886.viewdump.json
+2026-11-19T05:37:08.837Z file screenshots/design-discarded-t1/3479-106886.xml
+2026-11-19T05:37:08.838Z file screenshots/design-discarded-t1/3479-106886.views.json
+2026-11-19T05:37:26.283Z file screenshots/design-discarded-t1/3494-106998.png
+2026-11-19T05:37:26.284Z file screenshots/design-discarded-t1/3494-106998.xml
+2026-11-19T05:37:26.286Z file screenshots/design-discarded-t1/3494-106998.viewdump.json
+2026-11-19T05:37:26.286Z file screenshots/design-discarded-t1/3494-106998.views.json
+2026-11-19T05:37:26.287Z file screenshots/design-discarded-t1/captures.jsonl
+2026-11-19T05:37:35.344Z file logs/T1-20261119-133733
+2026-11-19T05:38:46.388Z file screenshots/design-discarded-t1/3479-106886-sheet.png
+2026-11-19T05:38:46.477Z file screenshots/design-discarded-t1/3494-106998-sheet.png
+2026-11-19T05:46:11.047Z file screenshots/design-discarded-t2/3479-106886.png
+2026-11-19T05:46:11.047Z file screenshots/design-discarded-t2/3479-106886.xml
+2026-11-19T05:46:11.049Z file screenshots/design-discarded-t2/3479-106886.viewdump.json
+2026-11-19T05:46:11.050Z file screenshots/design-discarded-t2/3479-106886.views.json
+2026-11-19T05:46:18.185Z file screenshots/design-discarded-t2/3494-106998.png
+2026-11-19T05:46:18.186Z file screenshots/design-discarded-t2/3494-106998.xml
+2026-11-19T05:46:18.188Z file screenshots/design-discarded-t2/3494-106998.viewdump.json
+2026-11-19T05:46:18.188Z file screenshots/design-discarded-t2/3494-106998.views.json
+2026-11-19T05:46:18.189Z file screenshots/design-discarded-t2/captures.jsonl
+2026-11-19T05:46:20.085Z file logs/T2-20261119-134618
+2026-11-19T05:49:25.163Z file screenshots/design/3479-106886.png
+2026-11-19T05:49:25.163Z file screenshots/design/3479-106886.xml
+2026-11-19T05:49:25.165Z file screenshots/design/3479-106886.viewdump.json
+2026-11-19T05:49:25.165Z file screenshots/design/3479-106886.views.json
+2026-11-19T05:49:31.787Z file screenshots/design/3494-106998.png
+2026-11-19T05:49:31.789Z file screenshots/design/3494-106998.xml
+2026-11-19T05:49:31.790Z file screenshots/design/3494-106998.viewdump.json
+2026-11-19T05:49:31.791Z file screenshots/design/3494-106998.views.json
+2026-11-19T05:49:33.762Z file logs/T3-20261119-134932
+2026-11-19T05:49:34.137Z file logs/.live
+2026-11-19T05:49:43.718Z file screenshots/design/3479-106886-sheet.png
+2026-11-19T05:49:43.804Z file screenshots/design/3494-106998-sheet.png

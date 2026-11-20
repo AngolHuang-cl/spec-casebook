@@ -243,10 +243,11 @@ if (serve) {
   const server = createServer((req, res) => {
     try {
       const url = req.url ?? '/';
-      if (url === '/' || url.startsWith('/?')) { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }); res.end(page(buildData().data, true)); return; }
-      if (url.startsWith('/data.json')) { res.writeHead(200, { 'content-type': 'application/json', 'cache-control': 'no-store' }); res.end(JSON.stringify(buildData().data)); return; }
+      // Build the body before writeHead: a throw must still be able to send the 500 below.
+      if (url === '/' || url.startsWith('/?')) { const body = page(buildData().data, true); res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }); res.end(body); return; }
+      if (url.startsWith('/data.json')) { const body = JSON.stringify(buildData().data); res.writeHead(200, { 'content-type': 'application/json', 'cache-control': 'no-store' }); res.end(body); return; }
       res.writeHead(404); res.end('Not found');
-    } catch (e: any) { res.writeHead(500, { 'content-type': 'text/plain' }); res.end(String(e?.message ?? e)); }
+    } catch (e: any) { console.error(`${req.url}: ${e?.stack ?? e}`); if (res.headersSent) { res.destroy(); return; } res.writeHead(500, { 'content-type': 'text/plain' }); res.end(String(e?.message ?? e)); }
   });
   let port = portArg; const host = lan ? '0.0.0.0' : '127.0.0.1';
   server.on('error', (e: any) => { if (e.code === 'EADDRINUSE' && port < portArg + 60) { port++; server.listen(port, host); } else throw e; });

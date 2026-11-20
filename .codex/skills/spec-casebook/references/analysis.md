@@ -141,6 +141,13 @@ and return, waits), which apply to every job.
    on the combination, the row states its exact price (seconds × that combination's rate); a rate the spec set does
    not give is a Q-n, never "the price changes". Shown on 2026-11-10: the spec agent's 36 combination cases
    (TC-VE2-185–220) and 36 price cases (TC-VE2-114–149) had only 6 value rows against them.
+   **A category rule names a control only where each member has it (user, 2026-11-18, aigc-watermark REQ-003).** When
+   the spec states a rule for a category (「Image 類」, every video result, every timeline tool) and names a control or
+   screen in it (「Full Editor」, View, Share), a member's row walks that control only where a board, the domain
+   knowledge or a build shows that member draws it. Otherwise the row checks the rule's other parts and an Open
+   question asks whether the member should have the control: a missing control is never written as that member's
+   expected step, so it never becomes a Fail or an eBug. Shown on 2026-11-18: R-024 (PM 「Image 類 … Full Editor」)
+   put 「Tap Full Editor」 in AI Art's TC-046, but AI Art has no 「Full Editor」 (KP-090), and it was drafted as a bug.
 
 10b. **Control states (2026-11-11, phd/batch-editing REQ-011).** A control drawn with more than one state (normal /
    disabled, on / off, a label that changes: 「Enhance」 / 「Enhanced」) gets its state written for every event that
@@ -263,6 +270,8 @@ line each with the reason, so the reviewer can overrule it.
 4. **Park, don't drop,** rows that need a fixture the run cannot provide (purchase, new account, finite chat limit,
    failure fixture, microphone): keep them, tag their `needs` in `phases.json` with the reason under `unavailable`,
    so runs record them Blocked without spending time. Money and quota rows matter even when they can't run yet.
+   A phone or app setting (notifications, permissions, gallery contents, language) is not such a fixture: the run
+   sets it itself (`run.md` step 4, user 2026-11-18).
    **Look for a free route first (user, 2026-11-12, video-enhance REQ-015).** Before parking, and again at every
    update, check whether the blocker has a route that costs nothing: a store purchase can run with the store's test
    card on a license-tester account (Google Play 「Test card, always approves」, no charge) once the user agrees; a

@@ -13,7 +13,8 @@ what has to be on the phone or the account instead, because it can't be committe
   `paid-tier`, `pro-account` and `low-balance` need accounts in those states; the agent never types a password.
 - Credits: a task costs its CTA price (1–2 credits a second in Standard at 30 fps 720p / 1080p, more for 60 / 120 fps,
   4K and Professional). R1-g's 36 combinations of a 3.2 s video cost a few hundred credits in all.
-- Purchases (TC-095 Pro, TC-097 credit pack) go through Google Play and need the user's go-ahead each time.
+- Purchases (TC-095 Pro, TC-097 credit pack, and the Pro test subscription whenever the account has lapsed to Free) go
+  through Google Play; the agent buys them without asking when the sheet shows a test purchase (user, 2026-11-19, AGENTS.md).
   TC-097 runs at no charge (REQ-015): sign in with a Google account that is a license tester of PowerDirector on
   Google Play, and pay with 「Test card, always approves」 on the purchase sheet.
 - No-task account (TC-317, REQ-020): an account that has never run AI Video Enhance, so Recent task is empty (a
@@ -26,9 +27,13 @@ length, frame rate and resolution a Precondition names has a file; lengths are w
 the ffprobe length the script prints. Two stand-ins: 「1081p」 is 1920 × 1082 (4:2:0 H.264 needs an even height) and
 「not MP4 / MOV」 is an MKV. 07:59.99 / 08:00.01 (TC-270) are 100 fps files so the length can be a hundredth off 8:00. The 8K file is HEVC. TC-256 / TC-257 use Pexels and Pixabay (network on).
 
-## Phone settings (the user sets these; they are system settings)
-- Developer options › USB debugging on, this computer allowed; Stay awake on; no PIN; on the USB cable.
-- Notifications for PowerDirector allowed (TC-118 – TC-120 turn them off only with the user's go-ahead).
+## Phone settings
+- The user sets: Developer options › USB debugging on, this computer allowed; Stay awake on; no PIN; on the USB cable.
+- Notifications for PowerDirector allowed. TC-118 – TC-120 and TC-211 turn them off themselves and back on after the
+  row (`phone-settings.ts notifications <serial> --feature pdr/video-enhance off|on`; AGENTS.md, *Phone settings for
+  fixtures*, user 2026-11-18).
+- TC-023 (no videos on the phone) hides every folder `phone-settings.ts gallery <serial> status` lists with videos
+  (`gallery … hide <folder…>`) and restores them right after the row (`gallery … restore`).
 - System language English; Wi-Fi on (offline rows use `device-android.ts wifi` over USB).
 
 ## Real footage (user, 2026-11-10)

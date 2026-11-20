@@ -22,6 +22,10 @@
 //                                  layout, instances included), screens.json, arrows.json, library.json (variables,
 //                                  styles, components), summary.json; updates hashes.json for the boards it completed
 //   save <role> [names…]           copies the use_figma returns from the session transcripts into responses/
+//   screens <role>                 finds the screens and arrows again in out/<board>.json (either route) with this
+//                                  file's findScreens / findArrows and rewrites out/screens.json and arrows.json: no
+//                                  Figma call. design-plan.ts runs it whenever this file is newer than screens.json,
+//                                  so a change to what counts as a screen reaches every feature (video-enhance REQ-030)
 //   crop <role>                    cuts each board's shared image (extracted/figma/, shots.json; a new one is shrunk and
 //                                  recorded there first) into out/crops/<board>/<screen>.png per screen and
 //                                  arrow-<arrow>.png per arrow (needs python3 with Pillow), writes out/crops.json and
@@ -235,6 +239,7 @@ if (cmd === 'calls' && sub === 'list') {
 } else if (cmd === 'save') save();
 else if (cmd === 'merge') merge();
 else if (cmd === 'crop') crop();
+else if (cmd === 'screens') rescreen();
 else { console.error(usage); process.exit(2); }
 
 // ---- save ---------------------------------------------------------------------------------------------------------------
@@ -574,7 +579,33 @@ function findScreens(nodes: any[]) {
   const inside = (n: any, a: any) => { for (let q = byId.get(n.parent); q; q = byId.get(q.parent)) if (q === a) return true; return false; };
   const cands = nodes.filter(n => !n.hidden && (n.drawn ?? 1) >= 0.5 && sized(n));
   const phones = cands.filter(n => n.box[3] <= 1000 || !cands.some(c => c !== n && c.box[3] <= 1000 && c.box[2] >= 0.95 * n.box[2] && inside(c, n)));
-  return phones.filter(n => !phones.some(p => p !== n && inside(n, p))).map(n => ({ id: n.id, name: n.name, box: n.box, abs: n.abs }));
+  const full = phones.filter(n => !phones.some(p => p !== n && inside(n, p)));
+  // partial screens (video-enhance REQ-030): a state drawn as a close-up of part of a phone, such as the settings panel
+  // with a tooltip open (375 × 494), is a screen too: as wide as a phone screen on the board (else 360–430 pt), 300 pt
+  // or taller, neither inside nor around a screen nor inside another partial. Narrower frames (a 302 pt lookup table)
+  // are notes, not phones; what is left out is listed by the design plan (`not_screens`) for someone to look at.
+  const widths = full.map(n => n.box[2]);
+  const phoneWide = (w: number) => widths.length ? widths.some(x => Math.abs(w - x) <= 0.02 * x) : w >= 360 && w <= 430;
+  const near = (n: any) => full.some(p => inside(n, p) || inside(p, n));
+  const pc = nodes.filter(n => ['FRAME', 'INSTANCE', 'COMPONENT'].includes(n.type) && !n.hidden && (n.drawn ?? 1) >= 0.5 && n.depth > 0
+    && n.box[3] >= 300 && n.box[3] < 600 && phoneWide(n.box[2]) && !near(n));
+  const partial = pc.filter(n => !pc.some(p => p !== n && inside(n, p)));
+  // dialogs drawn beside the phones (2026-11-19: AI Mini Drama's 270 pt iOS alerts were inventory panels the design
+  // check never measured): the inventory's panel rule (inventory.js, by name) at 100 pt or taller, so a toast or
+  // snackbar stays out (too brief to capture reliably); holding visible text, neither inside nor around a screen. Each
+  // is a partial screen measured inside a phone `phone_w` wide (the board's phones, else 375 pt), placed where the
+  // capture shows its texts, else centred.
+  const PANEL = /dialog|popup|pop-up|sheet|toast|alert|modal|tooltip|menu|snackbar|leave|confirm/i;
+  const taken = [...full, ...partial], phoneW = widths.length ? [...widths].sort((a, b) => a - b)[Math.floor(widths.length / 2)] : 375;
+  const texted = new Set<any>();
+  for (const t of nodes) if (t.type === 'TEXT' && !t.hidden && t.text?.characters?.trim()) for (let q = byId.get(t.parent); q; q = byId.get(q.parent)) texted.add(q);
+  const dc = nodes.filter(n => ['FRAME', 'INSTANCE', 'COMPONENT', 'GROUP'].includes(n.type) && !n.hidden && (n.drawn ?? 1) >= 0.5 && n.depth > 0
+    && PANEL.test(n.name) && n.box[2] >= 160 && n.box[2] <= 460 && n.box[3] >= 100 && n.box[3] <= 700 && texted.has(n)
+    && !taken.some(p => p === n || inside(n, p) || inside(p, n)));
+  const dialogs = dc.filter(n => !dc.some(p => p !== n && inside(n, p)));
+  return [...full.map(n => ({ id: n.id, name: n.name, box: n.box, abs: n.abs })),
+    ...partial.map(n => ({ id: n.id, name: n.name, box: n.box, abs: n.abs, partial: true })),
+    ...dialogs.map(n => ({ id: n.id, name: n.name, box: n.box, abs: n.abs, partial: true, dialog: true, phone_w: phoneW }))];
 }
 function findArrows(nodes: any[], screens: any[]) {
   const hit = (b: number[], x: number, y: number, pad: number) => x >= b[0] - pad && x <= b[0] + b[2] + pad && y >= b[1] - pad && y <= b[1] + b[3] + pad;
@@ -625,6 +656,26 @@ function collectValues(nodes: any[], vals: Map<string, Map<string, number>>) {
 // one full-size board screenshot → one image per screen and one per arrow (its path with ARROW_PAD pt around, enough to
 // show the control it leaves and what it points at); the image covers the board's render bounds (its box when the
 // board clips), and its scale is read from the image width
+function rescreen() {
+  const files = existsSync(outDir) ? readdirSync(outDir).filter(f => /^\d+-\d+\.json$/.test(f)).sort() : [];
+  if (!files.length) { console.error(`No board files in ${rel(outDir)}; run merge first`); process.exit(2); }
+  const screens: any[] = [], arrows: any[] = [];
+  for (const f of files) {
+    const { board, nodes } = read(join(outDir, f)), sc = findScreens(nodes);
+    screens.push(...sc.map(s => ({ board: board.id, ...s })));
+    arrows.push(...findArrows(nodes, sc).map(a => ({ board: board.id, ...a })));
+  }
+  const styleKey = (a: any) => JSON.stringify(a.style), count = new Map<string, number>();
+  for (const a of arrows) count.set(styleKey(a), (count.get(styleKey(a)) ?? 0) + 1);
+  const flow = [...count].sort((a, b) => b[1] - a[1])[0]?.[0];
+  for (const a of arrows) a.kind = styleKey(a) === flow ? 'flow' : 'pointer';
+  // the image crops crop() made are kept (an arrow's path does not change with the screens around it)
+  const old = existsSync(join(outDir, 'arrows.json')) ? new Map<string, any>(read(join(outDir, 'arrows.json')).map((a: any) => [a.id, a.crop])) : new Map();
+  for (const a of arrows) if (old.get(a.id)) a.crop = old.get(a.id);
+  writeJson(join(outDir, 'screens.json'), screens);
+  writeJson(join(outDir, 'arrows.json'), arrows);
+  console.log(`${files.length} board(s): ${screens.length} screens (${screens.filter(s => s.partial).length} partial), ${arrows.length} arrows; out: ${rel(outDir)}`);
+}
 function crop() {
   const ARROW_PAD = 80, ARROW_MIN = 360;
   // [start, length] of a crop side: the path's span plus ARROW_PAD each way, widened about its centre to ARROW_MIN

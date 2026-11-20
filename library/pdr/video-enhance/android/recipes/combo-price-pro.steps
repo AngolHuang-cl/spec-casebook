@@ -1,0 +1,27 @@
+# Setting combinations, Professional rows (TC-238 – TC-254, R2-g2): as combo-price.steps, but taps 「Professional」 first
+# (a 3.2 s selection is under the 02:30 cap, so no toast and the selection stays whole), then the style, fps and
+# Resolution chips, reads the rate line, then drags the right handle to the left handle (1 s) and back to the end
+# (3.2 s), reading the CTA price each time. Charges nothing: Enhance is not tapped.
+# Starts / ends: as combo-price.steps (panel just opened with ve-real-000320-720p30, Standard, whole video selected).
+# Args: $1 = case ID, $2 = style chip id, $3 = fps chip id, $4 = resolution chip id.
+case $1
+fingerdrag 540 1750 540 1250 10
+id chip_mode_professional
+expect-not "supports clips|Shorten your selection"
+id $2
+id $3
+id $4
+wait 1
+els chip_
+els tv_charge
+shot $1-chips
+fingerdrag 540 1250 540 1750 10
+wait 1
+fingerdrag 980 1158 100 1158 20
+wait 1
+els tv_
+shot $1-1s
+fingerdrag 186 1158 1060 1158 15
+wait 2
+els tv_
+shot $1-full

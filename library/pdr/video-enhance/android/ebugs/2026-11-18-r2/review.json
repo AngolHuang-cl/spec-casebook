@@ -1,0 +1,19 @@
+{
+ "tr": "TR261118-0074",
+ "build": "2611181",
+ "trNote": "TR261118-0074, build 16.9.0.2611181 (TR header read 2026-11-19), where every card was rechecked. The R1 batches went on TR261109-0041 (2611091), so \"Same TR\" does not apply — confirm.",
+ "lede": "R2 ran on 2611091; every card was re-exercised on 2611181 (recheck-2611181/verdicts.md) and its evidence is from 2611181. R1's DRA262611P0071 – P0101 and the Android tickets DRA262611P0113 – P0117 are not repeated. Cards proposed as Type UX are drafted as Functional (the format checks) and preset to UX here.",
+ "why": {
+  "ISS-VEA-35": "Defect: after a right-handle trim the playhead sits at the selection end and play does nothing there (R-027).",
+  "ISS-VEA-37": "Defect: with no videos on the phone and full access granted, Add Media shows the partial-access prompt instead of an empty state (PM A2 proposal 「No videos yet」).",
+  "ISS-VEA-38": "Defect: with notifications off, the PM's 「Turn on notifications」 dialog never appears after the first upload; TC-119 / TC-120 / TC-211 wait behind it.",
+  "ISS-VEA-43": "PM decision, proposed Type UX: no import overlay on Android; the expected overlay is iOS UI the spec agent's user approved (no Design or PM frame).",
+  "ISS-VEA-44": "PM decision, proposed Type UX: Android's sort keys differ from the iOS list the spec agent's user approved (no Design or PM frame).",
+  "ISS-VEA-45": "PM decision (text): the empty Recent task copy; Android 「No Generated Videos」 vs iOS 「No results found」 (no Design or PM frame)."
+ },
+ "related": {
+  "ISS-VEA-35": "New in R2. The full-screen steps of TC-037 are DRA262611P0092 (not repeated).",
+  "ISS-VEA-37": "Blocked in R1; run in R2-x with every video folder moved out of MediaStore and restored after.",
+  "ISS-VEA-38": "Blocked in R1; run in R2-x after a pm clear with notifications off (user go-ahead 2026-11-18). O-32: the system permission prompt showed once instead."
+ }
+}

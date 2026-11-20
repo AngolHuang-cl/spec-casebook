@@ -1,0 +1,112 @@
+
+[AIGC-Watermark-R1-01] PDR-A 16.9.0 - [AIAgent][UI] Settings (AIGC Watermark): Info sheet shows an X close button the Design does not draw
+      feature='Settings (AIGC Watermark)'  searched 0 candidate(s)
+      no likely duplicate
+
+[AIGC-Watermark-R1-02] PDR-A 16.9.0 - [AIAgent] AI Art: AI Art result page has no 「Full Editor」, which the AIGC image rule names
+      feature='AI Art'  searched 148 candidate(s)
+    ! 20%  REJECTED  DRA262607-0266  PDR-A 16.6.0 - [AIFound] AI Art: The "Delete" button is missing on the result page after
+              shares phrase "result page"
+              ⚠ NAB — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRA262607-0266.
+    ! 20%  REJECTED  DRA231224-0080  PDR-A 13.0.0 - IAP : There are no thumbnails for "AI Art" and "Text to Image"
+              shares label "ai art"
+              ⚠ ProposeNAB — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRA231224-0080.
+    ! 10%  closed    DRA252510-0049  PDR-A 15.8.0 - [ESP/MAY] Opening Intro (AI Art): "AI Art" intro translation incorrect
+              shares label "ai art"
+    ! 10%  closed    DRA252510-0042  PDR-A 15.8.0 - AI Magic: No credit icon on "AI Art" thumbnail in AI Magic
+              shares label "ai art"
+    ! 10%  closed    DRA252506-0092  PDR-A 15.4.0 - AI Creation : "AI Art" sorting position is different from iOS
+              shares label "ai art"
+    ! 10%  closed    DRA252506-0047  PDR-A 15.4.0 - Launcher: "AI Art" not displayed in AI Creation menu
+              shares label "ai art"
+    ! 10%  closed    DRA252505-0179  PDR-A 15.3.0 - AI Creation (AI Anime) : The new name "AI Anime" (original name "AI Art")
+              shares label "ai art"
+    ! 10%  closed    DRA252505-0142  PDR-A 15.3.0 - [AT Found]AI Anime: Entry name shows "AI Art" instead of "AI Anime"
+              shares label "ai art"
+    ! 10%  REJECTED  DRA252503-0229  PDR-A 15.0.0 - [UX] AI Art: No effect is selected by default when entering "AI Art"
+              shares label "ai art"
+              ⚠ Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRA252503-0229.
+    ! 10%  closed    DRA242408-0366  PDR-A 14.3.0 - Timeline (AI Effect) : Shows "AI Art" , "AI Cartoon" , " AI Stetch", AI S
+              shares label "ai art"
+    ! 10%  closed    DRA242405-0063  PDR-A 14.0.0 - Opening Intro(AI Anime Video): CTA is linked to "AI Art"
+              shares label "ai art"
+    ! 10%  OPEN      DRA242404-0130  PDR-A 14.0.0 - Shortcut(AI Cartoon): IAP highlight on "AI Art"
+              shares label "ai art"
+    ! 10%  OPEN      DRA242404-0129  PDR-A 14.0.0 - Shortcut(AI Scene): IAP highlight on "AI Art"
+              shares label "ai art"
+    ! 10%  OPEN      DRA242404-0128  PDR-A 14.0.0 - Shortcut(AI Sketch): IAP highlight on "AI Art"
+              shares label "ai art"
+    ! 10%  closed    DRA241226-0097  PDR-A 13.2.0 - Shortcut(AI Art) : New tag is not displayed on "AI Art"
+              shares label "ai art"
+
+[AIGC-Watermark-R1-03] PDR-A 16.9.0 - [AIAgent] Text to Image: 「Add to Timeline」 puts the labelled saved image on the timeline
+      feature='Text to Image'  searched 200 candidate(s)
+    ! 33%  closed    DRA262609P0047  PDR-A 16.7.0 - [AIFound] Text to Image: "Add to Timeline" on a History item does nothing
+              shares label "add to timeline"
+      50%  REJECTED  DRA252509-0174  PDR-A 15.8.0 - [UX] Timeline (My Artwork): Cannot add media to timeline after browsing A
+              ⚠ Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRA252509-0174.
+
+[AIGC-Watermark-R1-04] PDR-A 16.9.0 - [AIAgent] Text to Image: A second save of a result writes no new file; the switch change is lost
+      feature='Text to Image'  searched 200 candidate(s)
+      no likely duplicate
+
+[AIGC-Watermark-R1-05] PDR-A 16.9.0 - [AIAgent] Text to Image: Image shared with the switch Off has no AI label; saved copy has one
+      feature='Text to Image'  searched 200 candidate(s)
+      no likely duplicate
+
+[AIGC-Watermark-R1-06] PDR-A 16.9.0 - [AIAgent] Text to Image: Image saved with the switch On is signed by Google, not CyberLink (C2PA)
+      feature='Text to Image'  searched 200 candidate(s)
+      no likely duplicate
+
+[AIGC-Watermark-R1-07] PDR-A 16.9.0 - [AIAgent][UI] My Artwork: Full-screen player of a video result shows the 「AI」 badge over the first ~1 s
+      feature='My Artwork'  searched 58 candidate(s)
+    ! 22%  REJECTED  DRA262601-0093  PDR-A 16.0.0 - [Google everywhere][Landscape] My Artwork: Scrollbar appears when viewing
+              shares phrase "video result"
+              ⚠ QA Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRA262601-0093.
+
+[AIGC-Watermark-R1-08] PDR-A 16.9.0 - [AIAgent] Image to Video: Kling, Vidu, Pixverse, Wan 2.7 saves carry a C2PA manifest; the sheet says none
+      feature='Image to Video'  searched 200 candidate(s)
+    ! 18%  closed    DRA262609-0040  PDR-A 16.6.1 - [ATFound][UI] Image to Video: Template Settings sheet says "Generate Soun
+              shares phrase "sheet says"
+
+[AIGC-Watermark-R1-09] PDR-A 16.9.0 - [AIAgent] Image to Video: Veo, Gemini, BytePlus saves carry CyberLink's C2PA manifest, not the provider's
+      feature='Image to Video'  searched 200 candidate(s)
+      no likely duplicate
+
+[AIGC-Watermark-R1-10] PDR-A 16.9.0 - [AIAgent] AI Music Generator: Generate starts with no 「AIGC Watermark」 dialog when the switch is Off
+      feature='AI Music Generator'  searched 81 candidate(s)
+      no likely duplicate
+
+[AIGC-Watermark-R1-11] PDR-A 16.9.0 - [AIAgent] AI Music Generator: Songs made with the switch Off lack 「This audio was generated by AI.」
+      feature='AI Music Generator'  searched 81 candidate(s)
+    ! 14%  REJECTED  DRA262607-0285  PDR-A 16.6.0 -  [AIFound][UX] AI Music Generator(Favorite): The "Favorite" tab displays 
+              shares label "generated"
+              ⚠ QA Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRA262607-0285.
+    ! 14%  OPEN      DRA252502-0112  PDR-A 14.9.0 - [UX] AI Music Generator: The music file name generated at different times
+              shares label "generated"
+
+[AIGC-Watermark-R1-12] PDR-A 16.9.0 - [AIAgent] Export: Project with an AI Music Generator song exports with no AIGC dialog or AI label
+      feature='Export'  searched 166 candidate(s)
+      no likely duplicate
+
+[AIGC-Watermark-R1-13] PDR-A 16.9.0 - [AIAgent] Timeline: Preview shows no AI label for TTS, AI Anime, AI Cartoon or AI Sketch content
+      feature='Timeline'  searched 200 candidate(s)
+      no likely duplicate
+
+[AIGC-Watermark-R1-14] PDR-A 16.9.0 - [AIAgent][UX] Export: AIGC dialog opens after 「Produce」, not on 「Export」; Cancel returns to Produce
+      feature='Export'  searched 166 candidate(s)
+    ! 14%  REJECTED  DRA262609P0042  PDR-A 16.7.0 - [T2] Export: Show ad after tapping "Produce" button
+              shares label "produce"
+              ⚠ NAB — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRA262609P0042.
+      43%  OPEN      DRA262611P0202  PDR-A 16.9.0 - [AIFound] Template V2V: Picker ↗ preview Next opens Full Editor/Export, c
+
+[AIGC-Watermark-R1-15] PDR-A 16.9.0 - [AIAgent] Editor (AI Style Transfer): AI Cartoon and AI Sketch results of a portrait photo are turned 90°
+      feature='Editor (AI Style Transfer)'  searched 0 candidate(s)
+      no likely duplicate
+
+6 of 16 entries have a possible duplicate (overlap >= 34%, or a shared quoted label / rare phrase, marked !). Judge each one yourself — wording varies, so this ranks candidates, it does not decide.
+7 candidate(s) were declined (NAB / Won't Fix / Not Reproducible). Resolve each before filing.
+
+[AIGC-Watermark-R1-16] PDR-A 16.9.0 - [AIAgent][UX] Settings (AIGC Watermark): 「Remove AIGC Watermark」 is On by default on a fresh install
+      feature='Settings (AIGC Watermark)'  searched 0 candidate(s)
+      no likely duplicate

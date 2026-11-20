@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-11-12T05:58:54.423Z",
+  "built_at": "2026-11-19T08:23:57.601Z",
   "spec_set": "2026-11-09-figma",
   "file": {
     "fileKey": "qZXJfrM5gb5g4tFoCIS1YU",
@@ -60,6 +60,29 @@
     "listed": [],
     "page_listed": true
   },
+  "not_screens": [
+    {
+      "id": "139:10122",
+      "name": "cut",
+      "board": "139:10122",
+      "board_name": "cut",
+      "size": [
+        195,
+        310
+      ]
+    },
+    {
+      "id": "139:10146",
+      "name": "cut",
+      "board": "139:10146",
+      "board_name": "cut",
+      "size": [
+        195,
+        201
+      ]
+    }
+  ],
+  "as_screens": [],
   "casebook": true,
   "counts": {
     "screens": 37,

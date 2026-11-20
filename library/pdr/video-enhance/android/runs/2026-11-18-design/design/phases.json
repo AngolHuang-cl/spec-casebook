@@ -1,0 +1,155 @@
+{
+ "draft": "design-2026-11-18",
+ "current": [
+  "DP1"
+ ],
+ "phases": [
+  {
+   "id": "DP1",
+   "name": "Android design check on build 2611171: all 31 routed Design screens again (REQ-013, REQ-023)",
+   "design": {
+    "run": "2026-11-18-design"
+   },
+   "note": "Figma skill conformance branch, run 2026-11-18-design (DESIGN-PASS.md), Google Pixel 10 (58221FDCR003BJ), PowerDirector 16.9.0 (2611171) re-signed debuggable. The account chenallencw@gmail.com is Free at the start, so (REQ-013 account order) D1 captures the Free-only screens first and D2 the paid ones once a Pro account is available; then check, two review passes and the Chinese for the Design page.",
+   "segments": [
+    {
+     "id": "D1",
+     "name": "Free account (chenallencw@gmail.com): unsubscribed panel, CTA, IAP",
+     "cases": [
+      "3294:30796",
+      "3310:38462",
+      "3300:32182",
+      "3305:34438",
+      "3293:13415",
+      "3293:13491",
+      "3293:13571"
+     ],
+     "windows": [
+      [
+       "2026-11-18T07:49:13Z",
+       "2026-11-18T08:09:30Z"
+      ]
+     ],
+     "agents": []
+    },
+    {
+     "id": "D2a",
+     "name": "Pro account: Launcher entry points, Demo page, Add Media, Timeline, AI Magic, subscribed panel",
+     "cases": [
+      "3293:14643",
+      "3293:13055",
+      "3294:23969",
+      "3293:13369",
+      "3293:14941",
+      "3293:14884",
+      "3328:45377"
+     ],
+     "windows": [
+      [
+       "2026-11-18T09:25:33Z",
+       "2026-11-18T09:38:30Z"
+      ]
+     ],
+     "agents": []
+    },
+    {
+     "id": "D2b",
+     "name": "Pro account: panel settings, modes and the Credit page",
+     "cases": [
+      "3313:39430",
+      "3300:32521",
+      "3294:31104",
+      "3669:20362",
+      "3669:20463",
+      "3669:20564",
+      "3293:15145"
+     ],
+     "windows": [
+      [
+       "2026-11-18T09:42:00Z",
+       "2026-11-18T09:51:00Z"
+      ]
+     ],
+     "agents": []
+    },
+    {
+     "id": "D2c",
+     "name": "Pro account: generating, cancel, Recent and result (one short task)",
+     "cases": [
+      "3388:17754",
+      "3393:18282",
+      "3310:38112",
+      "3388:17664",
+      "3293:13651",
+      "3300:31478",
+      "3293:13664",
+      "3293:13684",
+      "3300:31547",
+      "3293:15687"
+     ],
+     "windows": [
+      [
+       "2026-11-18T09:56:36Z",
+       "2026-11-18T10:15:39Z"
+      ]
+     ],
+     "agents": []
+    },
+    {
+     "id": "CHECK",
+     "name": "design.ts check",
+     "cases": [],
+     "windows": [
+      [
+       "2026-11-18T10:19:02Z",
+       "2026-11-18T10:20:18Z"
+      ]
+     ],
+     "agents": []
+    },
+    {
+     "id": "REV-B",
+     "name": "Builder review pass",
+     "cases": [],
+     "windows": [
+      [
+       "2026-11-18T10:21:55Z",
+       "2026-11-18T12:07:18.445Z"
+      ]
+     ],
+     "agents": [
+      "a2762d62f42cc25da",
+      "a7860c937baef4887"
+     ]
+    },
+    {
+     "id": "REV-R",
+     "name": "Reviewer pass and settle",
+     "cases": [],
+     "windows": [
+      [
+       "2026-11-18T12:08:30Z",
+       "2026-11-18T12:33:48.419Z"
+      ]
+     ],
+     "agents": [
+      "a580b227c7493aea7",
+      "a0fd088aad196e59d"
+     ]
+    },
+    {
+     "id": "ZH",
+     "name": "Chinese for the Design page",
+     "cases": [],
+     "windows": [
+      [
+       "2026-11-18T12:35:00Z",
+       "2026-11-18T12:35:46.654Z"
+      ]
+     ],
+     "agents": []
+    }
+   ]
+  }
+ ]
+}

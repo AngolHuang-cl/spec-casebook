@@ -74,3 +74,12 @@ they are one tier is for PM (ISS-MP-25); don't file the mix as a defect meanwhil
 - source: exploration KB mine-page.md (MX-03 run 2026-09-07, PDRM TestFlight, Free, signed out)
 
 One capability: the Mine Free card calls it 「Advanced Cutout」, the paywall's Compare plans 「AI Smart Cutout」.
+
+## KP-094 Google sign-in goes through Chrome on Android
+- kind: howto · platform: android · use: run · tags: sign-in, google, chrome
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-27, O-28, O-29 (user approved 「Continue as Acda」, 2026-11-18) · verified: 16.9.0 build 2611161 (2026-11-18)
+
+Mine › User Sign in › Google opens Chrome (not the Android account chooser): first Chrome's 「Sign in to Chrome」 sheet
+(「Continue as <name>」 / 「Skip」). 「Continue as …」 signs Chrome into the phone's account and goes on without a
+password (Stage lands on mauth-stage.cyberlink.com 「You Are All Set!」); 「Skip」 leads to an empty Google 「Email or
+phone」 page, which needs the user. Any other account needs its password typed by the user.

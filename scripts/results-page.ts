@@ -162,7 +162,7 @@ if (serve) {
           return; }
       }
       res.writeHead(404); res.end('Not found');
-    } catch (e: any) { res.writeHead(500, { 'content-type': 'text/plain' }); res.end(String(e?.message ?? e)); }
+    } catch (e: any) { console.error(`${req.url}: ${e?.stack ?? e}`); if (res.headersSent) { res.destroy(); return; } res.writeHead(500, { 'content-type': 'text/plain' }); res.end(String(e?.message ?? e)); }
   });
   let port = portArg; const host = lan ? '0.0.0.0' : '127.0.0.1';
   server.on('error', (e: any) => { if (e.code === 'EADDRINUSE' && port < portArg + 60) { port++; server.listen(port, host); } else throw e; });

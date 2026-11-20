@@ -1,0 +1,14 @@
+# ISS-AWA-10 AI Music Generator, Generate with the switch Off
+# PowerDirector 16.9.0 (2611161), Stage, Sony XQ-BT52 / Android 12, 2026-11-17 phone time (UTC+8); logs/R1-f-20261117-172022/logcat-live.txt
+# Credit balance when it changes and the music tool's credit lookup; tokens and account ids dropped.
+# 16:26:07 Generate tapped (feature list fetched); no AIGC dialog line or toast; 16:32:15 balance 5811 -> 5801 (2 songs x 5).
+
+2026-11-17 16:25:35.514 D CreditSystemManager: getMemberCreditRemain totalRemain=5811
+2026-11-17 16:25:35.785 D NotificationCheck: destinationLibrary = ai_music_generator
+2026-11-17 16:25:36.433 V AIMusicGeneratorActivity: GDPRHandler.checkGDPRPrivacyPolicy: None
+2026-11-17 16:25:36.480 D CreditSystemManager: checkFeatureCredit, Exception: java.lang.IllegalStateException: getCreditSystemFeatureListByFeature, Exception: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 2 path $
+2026-11-17 16:25:36.778 D CreditSystemManager: checkFeatureCredit, Exception: java.lang.IllegalStateException: getCreditSystemFeatureListByFeature, Exception: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 2 path $
+2026-11-17 16:26:07.947 D CreditSystemManager: creditSystemFeatureList (fetched at Generate): FeatureCreditInfo(featureID=AIMusicGeneratorV2, actionID=genaudio_1_music_google_lyria3pro_enable, credit=5, minUnit=1), FeatureCreditInfo(featureID=AIMusicGeneratorV2, actionID=genaudio_1_music_google_lyri
+2026-11-17 16:32:14.416 V AIMusicGeneratorActivity: GDPRHandler.checkGDPRPrivacyPolicy: None
+2026-11-17 16:32:15.002 D CreditSystemManager: checkFeatureCredit, Exception: java.lang.IllegalStateException: getCreditSystemFeatureListByFeature, Exception: com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 2 path $
+2026-11-17 16:32:15.105 D CreditSystemManager: getMemberCreditRemain totalRemain=5801

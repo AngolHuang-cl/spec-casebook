@@ -69,6 +69,17 @@ adjacent word pair such as "more ideas" (carried by ≤ 2% of candidates, `--phr
 Quoted labels are searched on their own as well, so a label filed under another feature
 name is still found. Read every `!` candidate.
 
+**Whole pool, and every open ticket read (2026-11-19).** The Video Enhance Android R2 batch was deduped
+against 90 candidates while the Android pool held 182: the feature term was the Short Description's
+feature name 「AI Video Enhance」, and `match` is a substring match, so every ticket titled 「Video Enhance: …」
+or 「Video Enhancer: …」 was never fetched. Two open tickets that *were* fetched still ranked under the cut
+(「1 fps video opens with no fps chip selected」 vs DRA262611P0115 「A 1fps source has no selectable output
+frame rate」: 0 %; the trim-lag draft vs DRA262611P0113 「Clarification: allowed Preview delay while
+trimming」), so both were drafted again. `dedupe` now (1) also searches the feature name without a leading
+「AI」 (`terms=[…]` on each entry's line), (2) reads up to 2000 candidates per term and warns when a term hits
+`--limit`, and (3) ends with 「Open in the pool on <version>」: every open candidate on the batch's own
+version. Read that list against every entry; the ranking only orders it.
+
 Candidates RD/PM already declined — NAB, ProposeNAB, Won't Fix and its Propose variants,
 Not Reproducible — print as **REJECTED** with a warning. Filing the same thing again
 re-raises that decision. Read its status log; refile only with new grounds (a newer spec

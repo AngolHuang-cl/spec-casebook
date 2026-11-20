@@ -1,0 +1,46 @@
+#!/bin/bash
+# R2-g1/R2-g2 combination-row driver (bash, macOS). One row: row ID chip_style_<natural|sharp> chip_fps_<30|60|120> chip_resolution_<720p|1080p|4k>, from the
+# Launcher Home back to it (open panel on ve-real-000320-720p30, combo-price.steps, Enhance, wait, View, play, Original,
+# Result, Save Result, pull + ffprobe + PSNR + compare image (post), Credit Details). chain <rows file> runs rows and
+# records each with rec (Fail --as question with the copy strings; check the result text). post needs the source in
+# ./src/ (adb pull /sdcard/Movies/casebook-ve-real/ve-real-000320-720p30.mp4 src/). $5 = professional uses combo-price-pro.steps (R2-g2); default standard; rec does not add the R-204 timing line (TC-219 – TC-254 step 6): add it from logcat applyEffect Done.
+# row ID style fps res : one combination row from the Launcher Home back to the Launcher Home
+[ -n "$4" ] || { echo "usage: row ID style fps res [standard|professional]"; exit 2; }
+ID=$1; ST=$2; FPS=$3; RES=$4; MODE=${5:-standard}
+case $MODE in standard) STEPS=combo-price.steps;; professional) STEPS=combo-price-pro.steps;; *) echo "bad mode $MODE"; exit 2;; esac
+S=$(dirname $0); D=$S/d
+set -o pipefail; $D case $ID
+$D lbl "Video Enhance" >/dev/null || exit 1; sleep 3
+$D tapif Close >/dev/null 2>&1
+if ! $D texts | grep -q casebook-ve-real; then $D tap 120 500 >/dev/null; sleep 2; $D lbl casebook-ve-real >/dev/null; sleep 3; fi
+$D shot $ID-album >/dev/null
+$D tap 864 840 >/dev/null; sleep 4
+$D texts | grep -q "Selected Length" || { echo "panel not open"; exit 1; }
+echo "panel: $($D els tv_ | grep -E 'tv_credit|tv_source_info|tv_selected_length ' | cut -d'|' -f2,3 | tr '\n' ' ')"
+$D shot $ID-panel >/dev/null
+$D do /Users/ethanhsu/Desktop/pdr-spec-casebook/library/pdr/video-enhance/android/recipes/$STEPS $ID $ST $FPS $RES 2>&1 | grep -E "chip_|tv_charge|tv_selected_length |tv_enhance_cost|clicked|✓|✗|rror"
+[ ${PIPESTATUS[0]} -eq 0 ] || { echo 'price recipe failed: NOT tapping Enhance'; exit 1; }
+[ -n "$4" ] || exit 1
+echo "enhance tap $(date +%T)"; $D id layout_enhance >/dev/null; sleep 1.5; $D texts | head -3 | tr '\n' ' '; echo; $D shot $ID-up >/dev/null
+$D waitfor "Processing|minutes left" --timeout 1800 || { echo "no Recent task"; $D shot $ID-stuck; exit 1; }
+echo "recent task $(date +%T)"; $D shot $ID-task >/dev/null
+$S/waitdone 3000 || exit 1
+$D els "" | grep -E "duration|btn_action" | head -2 | cut -d'|' -f2,3 | tr '\n' ' '; echo
+$D shot $ID-done >/dev/null
+$D tap 916 730 >/dev/null; sleep 4
+$D texts | grep -q "Save Result" || { sleep 3; $D tap 916 730 >/dev/null; sleep 4; }
+$D shot $ID-res >/dev/null
+$D tap 79 1678 >/dev/null; sleep 5; echo "play: $($D els tv_time | cut -d'|' -f3)"; $D shot $ID-play >/dev/null
+$D id tv_segment_original >/dev/null; sleep 2; $D shot $ID-orig >/dev/null
+$D id tv_segment_result >/dev/null; sleep 1
+echo "save $(date +%T)"; $D id tool_save >/dev/null; sleep 0.3; $D shot $ID-toast >/dev/null
+sleep 2
+$S/post $ID
+$D back >/dev/null; sleep 2; $D back >/dev/null; sleep 2; $D tapif Close >/dev/null 2>&1; $D back >/dev/null; sleep 2
+$D tap 972 2214 >/dev/null; sleep 3
+echo "tab: $($D texts | head -1)"
+$D id credit_point_textview >/dev/null; sleep 3; $D lbl Details >/dev/null; sleep 4
+echo "ledger: $($D texts | sed -n 6,13p | tr '\n' ' ')"
+$D shot $ID-ledger >/dev/null
+$D back >/dev/null; sleep 1.5; $D back >/dev/null; sleep 1.5; echo "pro tab: $($D texts | sed -n 1,3p | tr '\n' ' ')"; $D tap 108 2214 >/dev/null; sleep 2
+echo "end $(date +%T)"

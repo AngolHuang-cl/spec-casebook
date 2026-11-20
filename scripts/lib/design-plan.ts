@@ -4,6 +4,9 @@
 //   on      a row that presses a control drawn on this screen (inventory.json controls → control-trace.json press)
 //   arrow   a row that walks a flow arrow ending on this screen (inventory.json arrows → requirements.md → rows)
 //   cited   a row whose Notes or Spec Ref name the screen's node id (a frame the inventory does not list)
+//   quoted  only for a screen no high-fit way reaches (REQ-030: a tooltip drawn open on a close-up of the panel shares
+//           every control with the panel): a row whose Action or Expected Result quotes 「…」 a line of 12 or more
+//           characters that this screen alone draws
 // Shared controls (back, close, tab bar) sit on dozens of screens, so a row pressing one says little about which screen
 // it was on: each way gets a `fit` — high for an arrow into the screen or a control on at most 3 screens, mid up to 10,
 // low beyond. The baseline is the row with the best fit, then the best latest result (Pass, then Fail, then anything
@@ -28,13 +31,22 @@
 //   area     the row only reaches the area (fit low): the runner brings about the state the frame shows
 //   variant  a state drawn beside a reached screen, brought about there (Design path)
 //   drawing  narrower than a phone (under 360 pt): a card or detail drawn on its own, not a whole screen
+//   partial  a close-up of part of a phone (a panel with a tooltip open): the check measures only the area it draws
 //   gap      no casebook row reaches it (the analysis adds one)
+// `not_screens` (video-enhance REQ-030): every other frame on a read board that is neither a screen, inside one nor
+// around one, 150 × 150 pt or larger (a lookup table, a note card, a close-up narrower than a phone). `design.ts …
+// status` lists them until each is a screen or skipped with a reason (`plan --skip <id> --skip-reason …`), so a state
+// drawn at an unusual size is never left out without someone deciding it. Boards that are one frame on their own (an
+// icon sheet, a close-up drawn as its own board) and GROUPs are listed too (2026-11-19: both had slipped past it).
+// `as_screens` (`plan --as-screen <ids>`): listed frames a person decided are screens after all; each is planned as a
+// partial screen measured inside a phone as wide as the board's phones (else 375 pt). No Figma call: the board files
+// already hold them.
 import { spawnSync } from 'node:child_process';
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { readRecords } from './csv.ts';
-import { arrowRequirement, requirementRows, tcList } from './coverage.ts';
+import { arrowRequirement, normLabel, requirementRows, tcList } from './coverage.ts';
 import { draftsDir, featureDir, readTable, tableDir, writeJson } from './library.ts';
 import { listSpecSets } from './specs.ts';
 
@@ -59,18 +71,19 @@ export function ensureSource(feature: string, set: string, quiet = false) {
   const route = existsSync(join(dir, 'source.json')) ? read(join(dir, 'source.json')).route : 'mcp', boards = join(dir, 'rest', 'boards');
   if (route === 'rest' && existsSync(boards)) {
     const gz = readdirSync(boards).filter(f => f.endsWith('.gz')), newestGz = Math.max(0, ...gz.map(f => statSync(join(boards, f)).mtimeMs));
-    if (existsSync(out) && statSync(out).mtimeMs >= newestGz) return;
+    if (existsSync(out) && statSync(out).mtimeMs >= newestGz) { rescreen(feature, set, out, quiet); return; }
     mkdirSync(join(dir, 'out'), { recursive: true });
     for (const f of readdirSync(join(dir, 'out'))) if (/\.(json|xml)$/.test(f)) rmSync(join(dir, 'out', f));
     for (const f of gz) writeFileSync(join(dir, 'out', f.slice(0, -3)), gunzipSync(readFileSync(join(boards, f))));
     if (!quiet) console.log(`(figma source: ${gz.length} file(s) unpacked from rest/boards, the REST read of ${read(join(dir, 'source.json')).read_at})`);
+    rescreen(feature, set, out, quiet, true);
     const r = spawnSync(process.execPath, [join(import.meta.dirname, '..', 'figma-source.ts'), feature, set, 'crop', 'design'], { encoding: 'utf8' });
     if (!quiet) console.log(`(figma-source crop: ${(r.stdout || r.stderr).trim().split('\n').at(-1)})`);
     return;
   }
   const resp = join(dir, 'responses');
   const newest = existsSync(resp) ? Math.max(0, ...readdirSync(resp).map(f => statSync(join(resp, f)).mtimeMs)) : 0;
-  if (existsSync(out) && statSync(out).mtimeMs >= newest) return;
+  if (existsSync(out) && statSync(out).mtimeMs >= newest) { rescreen(feature, set, out, quiet); return; }
   for (const step of ['merge', 'crop']) {
     const r = spawnSync(process.execPath, [join(import.meta.dirname, '..', 'figma-source.ts'), feature, set, step, 'design'], { encoding: 'utf8' });
     if (!quiet) console.log(`(figma-source ${step}: ${(r.stdout || r.stderr).trim().split('\n').at(-1)})`);
@@ -78,6 +91,56 @@ export function ensureSource(feature: string, set: string, quiet = false) {
     // names the gaps (sourceGaps)
     if (r.status !== 0 && r.status !== 10 && r.status !== 11 && step === 'merge') throw new Error(`figma-source merge failed: ${(r.stderr || r.stdout).trim()}`);
   }
+}
+
+// screens.json written by an older findScreens (figma-source.ts changed since, or unpacked from a REST read saved
+// with one) is found again from the board files, so what counts as a screen is the same on every feature (REQ-030)
+function rescreen(feature: string, set: string, out: string, quiet: boolean, always = false) {
+  const src = join(import.meta.dirname, '..', 'figma-source.ts');
+  if (!always && statSync(out).mtimeMs >= statSync(src).mtimeMs) return;
+  const r = spawnSync(process.execPath, [src, feature, set, 'screens', 'design'], { encoding: 'utf8' });
+  if (!quiet) console.log(`(figma-source screens: ${(r.stdout || r.stderr).trim().split('\n').at(-1)})`);
+  // a screen found this way has no image of its own yet: cut them from the board images already on disk (no Figma
+  // call; the check and the Design tab fall back to the board image when Pillow is missing). `always` runs crop anyway.
+  if (always || r.status !== 0) return;
+  const crops = join(dirname(out), 'crops');
+  const missing = read(out).some((s: any) => !existsSync(join(crops, s.board.replace(/[:;]/g, '-'), `${s.id.replace(/[:;]/g, '-')}.png`)));
+  if (!missing) return;
+  const c = spawnSync(process.execPath, [src, feature, set, 'crop', 'design'], { encoding: 'utf8' });
+  if (!quiet) console.log(`(figma-source crop: ${(c.stdout || c.stderr).trim().split('\n').at(-1)})`);
+}
+
+// frames a person made screens (`plan --as-screen`): read from the board files, measured as partial screens
+function promoted(out: string, screens: any[], ids: string[]) {
+  const have = new Set(screens.map((s: any) => s.id)), got: any[] = [];
+  if (!ids.length) return got;
+  for (const f of readdirSync(out).filter(f => /^\d+-\d+\.json$/.test(f)).sort()) {
+    const { board, nodes } = read(join(out, f));
+    const widths = screens.filter((s: any) => s.board === board.id && !s.partial).map((s: any) => s.abs[2]).sort((a: number, b: number) => a - b);
+    for (const n of nodes) if (ids.includes(n.id) && !have.has(n.id) && n.abs) {
+      const w = widths.length ? widths[Math.floor(widths.length / 2)] : 375;
+      got.push({ board: board.id, id: n.id, name: n.name, box: n.box, abs: n.abs, partial: true, promoted: true, ...(Math.abs(n.abs[2] - w) > 0.02 * w ? { phone_w: w } : {}) });
+      have.add(n.id);
+    }
+  }
+  return got;
+}
+
+function notScreens(out: string, screens: any[], skip: Set<string>) {
+  const ids = new Set(screens.map((s: any) => s.id)), left: any[] = [];
+  for (const f of readdirSync(out).filter(f => /^\d+-\d+\.json$/.test(f)).sort()) {
+    const { board, nodes } = read(join(out, f));
+    if (skip.has(board.id)) continue;
+    const byId = new Map<string, any>(nodes.map((n: any) => [n.id, n]));
+    const up = (n: any) => { const a: string[] = []; for (let q = byId.get(n.parent); q; q = byId.get(q.parent)) a.push(q.id); return a; };
+    const under = new Set<string>();   // ancestors of a screen (sections, groups holding screens)
+    for (const n of nodes) if (ids.has(n.id)) for (const a of up(n)) under.add(a);
+    const cands = nodes.filter((n: any) => ['FRAME', 'INSTANCE', 'COMPONENT', 'GROUP'].includes(n.type) && !n.hidden && (n.drawn ?? 1) >= 0.5
+      && n.box && n.box[2] >= 150 && n.box[3] >= 150 && !ids.has(n.id) && !under.has(n.id) && !up(n).some(a => ids.has(a)) && !skip.has(n.id));
+    const cs = new Set(cands.map((n: any) => n.id));
+    for (const n of cands) if (!up(n).some(a => cs.has(a))) left.push({ id: n.id, name: n.name, board: board.id, board_name: board.name, size: [Math.round(n.box[2]), Math.round(n.box[3])] });
+  }
+  return left;
 }
 
 // the plan as it stands, built again first when an input changed since (or when there is none)
@@ -141,7 +204,7 @@ export const gapLine = (g: { unread: any[]; incomplete: any[] }) => [
   ...g.incomplete.map(b => `board ${b.id} 「${b.name}」 read incompletely (${b.missing.slice(0, 3).join(', ')})`)].join('; ');
 
 // what a rebuild keeps from the plan before it
-export const kept = (old: any) => ({ skip: old?.skip, skipReason: old?.skip_reason ?? undefined, reasons: old?.skip_reasons, review: old?.scope_review, included: old?.scope_included });
+export const kept = (old: any) => ({ skip: old?.skip, skipReason: old?.skip_reason ?? undefined, reasons: old?.skip_reasons, review: old?.scope_review, included: old?.scope_included, asScreens: old?.as_screens });
 
 export const summary = (plan: any) => {
   const fits = ['high', 'mid', 'low'].map(f => `${plan.screens.filter((e: any) => e.route?.fit === f).length} ${f}`).join(' / ');
@@ -149,7 +212,7 @@ export const summary = (plan: any) => {
     `${plan.counts.figma_paths ?? 0} by Design arrows only${plan.casebook ? ` (${plan.counts.gaps} gaps in the table)` : ' (no casebook table)'}, ${plan.counts.no_route} no route, ${plan.counts.excluded} excluded`;
 };
 
-type PlanOpt = { set?: string; skip?: string[]; skipReason?: string; reasons?: Record<string, string>; review?: any; included?: string[] };
+type PlanOpt = { set?: string; skip?: string[]; skipReason?: string; reasons?: Record<string, string>; review?: any; included?: string[]; asScreens?: string[] };
 export function buildPlan(feature: string, platform: string, opt: PlanOpt = {}): any {
   const specs = join(featureDir(feature), 'specs'), table = tableDir(feature, platform);
   const set = opt.set ?? designSet(feature);
@@ -189,7 +252,7 @@ export function buildPlan(feature: string, platform: string, opt: PlanOpt = {}):
   }
 
   // figma-source screens, matched to inventory screens by id, else by the largest overlap on the canvas
-  const screens: any[] = read(join(out, 'screens.json'));
+  const screens: any[] = [...read(join(out, 'screens.json')), ...promoted(out, read(join(out, 'screens.json')), opt.asScreens ?? [])];
   const boards = new Map<string, any>();
   for (const s of screens) if (!boards.has(s.board)) {
     const f = join(out, `${s.board.replace(/[:;]/g, '-')}.json`);
@@ -223,13 +286,31 @@ export function buildPlan(feature: string, platform: string, opt: PlanOpt = {}):
   const groupScreens = new Map<string, Set<string>>();
   for (const c of inv.controls) for (const sc of c.screens ?? []) { if (!groupScreens.has(c.group)) groupScreens.set(c.group, new Set()); groupScreens.get(c.group)!.add(sc); }
   const fitOf = (n: number) => n <= 3 ? 2 : n <= 10 ? 1 : 0;
+  // each screen's own text lines (drawn on no other screen), and each row's quoted 「…」 texts, for `quoted` ways
+  const linesOf = new Map<string, Set<string>>();
+  for (const b of new Set(screens.map((x: any) => x.board))) {
+    const f = join(out, `${String(b).replace(/[:;]/g, '-')}.json`); if (!existsSync(f)) continue;
+    const nodes: any[] = read(f).nodes ?? [];
+    for (const sc of screens.filter((x: any) => x.board === b)) {
+      const [x, y, w, h] = sc.abs, set = new Set<string>();
+      for (const n of nodes) if (n.type === 'TEXT' && !n.hidden && n.text?.characters && n.abs && n.abs[0] >= x && n.abs[1] >= y && n.abs[0] + n.abs[2] <= x + w + 1 && n.abs[1] + n.abs[3] <= y + h + 1)
+        for (const l of String(n.text.characters).split('\n')) { const k = normLabel(l.trim()); if (k.length >= 12) set.add(k); }
+      linesOf.set(sc.id, set);
+    }
+  }
+  const ownLines = new Map<string, string[]>([...linesOf].map(([id, set]) => [id, [...set].filter(l => ![...linesOf].some(([o, os]) => o !== id && os.has(l)))]));
+  const quoteMemo = new Map<string, Set<string>>();
+  const quotes = (r: any) => { let q = quoteMemo.get(r.ID);
+    if (!q) { q = new Set([...`${r.Action} ${r['Expected Result']}`.matchAll(/「([^」]+)」/g)].map(m => normLabel(m[1].trim()))); quoteMemo.set(r.ID, q); }
+    return q; };
   const score = (tc: string) => ({ Pass: 3, Fail: 2, Inconclusive: 1 } as Record<string, number>)[latest.get(tc)?.result ?? ''] ?? 0;
   const active = new Set(rows.filter(r => r.Change !== 'removed').map(r => r.ID));
   const entries = screens.map(s => {
     const board = boards.get(s.board), ivs = invScreen(s), sid = ivs?.id ?? s.id;
     const png = Object.entries(shots).find(([, v]: any) => v.board === s.board)?.[0];
     const base = { id: s.id, name: s.name, board: s.board, board_name: board?.name ?? s.board, abs: s.abs, board_box: board?.box ?? null,
-      board_png: png ? `specs/${set}/extracted/figma/${png}` : null, inventory_screen: ivs?.id ?? null };
+      board_png: png ? `specs/${set}/extracted/figma/${png}` : null, inventory_screen: ivs?.id ?? null,
+      ...(s.partial ? { partial: true } : {}), ...(s.phone_w ? { phone_w: s.phone_w } : {}), ...(s.dialog ? { dialog: true } : {}), ...(s.promoted ? { promoted: true } : {}) };
     if (skip.has(s.board) || skip.has(s.id)) return { ...base, status: 'excluded', why: reasons[s.id] ?? reasons[s.board] ?? skipReason };
     const ways: { tc: string; how: string; via: string; edge?: string; fit: number }[] = [];
     for (const c of inv.controls.filter((c: any) => c.screens?.includes(sid)))
@@ -242,6 +323,8 @@ export function buildPlan(feature: string, platform: string, opt: PlanOpt = {}):
     // for a frame the inventory does not list (drawn after it was read, or nested in a long page)
     for (const r of rows) if (active.has(r.ID) && new RegExp(`(^|[^\\d:])${s.id}(?![\\d])`).test(`${r.Notes} ${r['Spec Ref']}`))
       ways.push({ tc: r.ID, how: 'cited', via: s.id, fit: 2 });
+    if (!ways.some(w => w.fit === 2)) for (const line of ownLines.get(s.id) ?? [])
+      for (const r of rows) if (active.has(r.ID) && quotes(r).has(line)) ways.push({ tc: r.ID, how: 'quoted', via: s.id, edge: line, fit: 2 });
     if (!ways.length) {
       const near = path.has(s.id) ? null : variantOf(s);
       const steps = path.get(s.id) ?? (near && [...path.get(near.id)!, { screen: near.name, control: `(bring about 「${s.name}」 here)`, variant_of: near.id }]);
@@ -260,14 +343,15 @@ export function buildPlan(feature: string, platform: string, opt: PlanOpt = {}):
       alternatives: ranked.slice(1, 5).map(x => x.tc) };
   }).sort((a: any, b: any) => (order.get(a.route?.case)?.i ?? 1e9) - (order.get(b.route?.case)?.i ?? 1e9) || a.board_name.localeCompare(b.board_name) || a.abs[0] - b.abs[0] || a.abs[1] - b.abs[1]);
 
-  for (const e of entries as any[]) e.flags = [e.route?.fit === 'low' && 'area', e.route?.fit === 'variant' && 'variant', e.abs[2] < 360 && 'drawing', e.gap && 'gap'].filter(Boolean);
+  for (const e of entries as any[]) e.flags = [e.route?.fit === 'low' && 'area', e.route?.fit === 'variant' && 'variant', e.abs[2] < 360 && !e.partial && 'drawing', e.partial && 'partial', e.gap && 'gap'].filter(Boolean);
   const byCase: Record<string, string[]> = {};
   for (const e of entries as any[]) if (e.route?.case) (byCase[e.route.case] ??= []).push(e.id);
   const count = (st: string) => entries.filter((e: any) => e.status === st).length;
   const plan = { built_at: new Date().toISOString(), spec_set: set, file: frames.files?.design ?? null, phases: phasesFile?.slice(table.length + 1) ?? null,
     skip: [...skip], skip_reason: opt.skipReason ?? null, skip_reasons: Object.fromEntries(Object.entries(reasons).filter(([k]) => skip.has(k))),
     scope_review: opt.review ?? null, scope_included: (opt.included ?? []).filter(id => !skip.has(id) && entries.some((e: any) => e.id === id)),
-    source_gaps: sourceGaps(feature, set, skip),
+    source_gaps: sourceGaps(feature, set, skip), not_screens: notScreens(out, screens, skip),
+    as_screens: (opt.asScreens ?? []).filter(id => screens.some((s: any) => s.id === id && s.promoted)),
     casebook: hasTable, counts: { screens: entries.length, routed: count('routed'), figma_paths: entries.filter((e: any) => e.route?.how === 'figma').length,
       gaps: entries.filter((e: any) => e.gap).length, no_route: count('no-route'), excluded: count('excluded') }, by_case: byCase, screens: entries };
   writeJson(planPath(feature, platform), plan);

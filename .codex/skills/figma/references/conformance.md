@@ -52,6 +52,9 @@ every rebuild). For each Design screen of the source read, the route that reache
   (「Design 5366:70814」). The analysis writes it for a frame the casebook inventory does not list (drawn after the
   inventory read, or a page the inventory knows only by a card inside it); a screen holding a smaller inventory
   screen inside it takes that screen's controls.
+- **A row quoting the screen's own text** (`how: quoted`, fit `high`), only for a screen no other way reaches at
+  high fit: a row whose Action or Expected Result quotes 「…」 a line (12+ characters) that this screen alone draws.
+  A state drawn open over shared controls (a tooltip on a close-up of the panel) is reached this way (REQ-030).
 - **The Design's own arrows** (no table, or no row reaches it): the shortest path along the flow arrows from the first
   screen of the flow (`how: figma`, `steps`: each screen and the control pressed on it; `fit: entry` for a first
   screen). A screen no arrow reaches takes the path of the nearest reached screen on its board (`fit: variant`: a
@@ -60,6 +63,34 @@ every rebuild). For each Design screen of the source read, the route that reache
   Design draws. Report it; the analysis fixes it in the reading step or pass that missed it (AGENTS.md *What the repo
   is for*), never the design check.
 - A screen with none of these is `no-route`: ask the user how it is reached.
+
+**What counts as a screen (video-enhance REQ-030, 2026-11-19).** A phone frame (300–450 pt wide, 600 pt or taller),
+and a **partial screen**: a close-up of part of a phone (the settings panel with a tooltip open, 375 × 494), as wide
+as a phone on its board and 300 pt or taller, flagged `partial`. The check places a partial screen where the capture
+shows its texts (else at the window's bottom) and measures only that part. Every other frame of 150 × 150 pt or more
+on a read board, neither a screen nor inside one, is listed in `plan.json` `not_screens` and by `status`
+(`CHECK … frame(s) not taken as screens`) until it becomes a screen or is skipped with a reason
+(`plan --also-skip <ids> --skip-reason "<why>"`; `--skip` replaces the whole list). A state of the feature in that
+list is a missed screen, never skipped: `plan --as-screen <ids>`, and when a whole kind of frame is missed, fix
+`findScreens` (figma-source.ts). Both rules took only full-height frames until 2026-11-19, so the two Video Enhance tooltip states
+(3479:106886, 3494:106998) were in both reads but never planned; the Figma Agent checked them. When `figma-source.ts`
+changes, every feature's `screens.json` is found again from its board files on the next command (no Figma call), and
+screens left without an image get theirs cut from the board images already on disk.
+**Dialogs, groups and lone boards (2026-11-19).** A dialog drawn beside the phones (named like the inventory's panels,
+100 pt or taller, with text; AI Mini Drama's 270 pt iOS alerts) is a partial screen flagged `dialog` with `phone_w`
+(the board's phone width, else 375 pt): the check scales the capture by the phone and places the dialog across and
+down where its texts are (else centred). Toasts and snackbars under 100 pt stay out: too brief to capture reliably.
+`not_screens` also lists GROUPs and boards that are one frame on their own (an icon sheet, a close-up drawn as its own
+board). One that is a screen after all becomes one with `plan --as-screen <ids>` (kept in `plan.json` `as_screens`,
+planned as a partial screen); no code change and no Figma call. None of this changes the inventory (`inventory.js`
+runs inside Figma: changing it would mean reading boards again).
+On Android a tooltip or other popup that has focus hides the app's main window from UiAutomator2's source (even with
+`enableMultiWindows`): such a screen is captured by hand (the watch cannot match it), and the check takes the texts
+the source lacks from the capture's view data when the source holds under half of them. The watch takes a screen
+whose short texts another screen also holds only when a line it alone draws is on the phone too (the plain panel was
+saved as both tooltip screens before; 2026-11-19), and never takes the screen it covers (the plain panel) while that
+line is on the phone. Capture at font scale 1.0 and the default display size, and
+relaunch the app after changing them: a running app keeps its old scale in the view data.
 
 ## 1b. Scope review (user, 2026-11-03)
 
@@ -197,21 +228,21 @@ text size against the platform's own rendering of Figma's font (Android draws SF
 reports `font_width` once and flags a text 12 % off it); a date's digit counts (`copy`, number format). Shapes holding
 an image are not colour-checked, and a shape's colour is the most common colour inside it.
 
-**What the check holds the app to (user, 2026-11-06).** Not a text's words, and not where a text sits on the screen
-(a small offset of its own place is never an item). It does hold: (1) the padding and border of a text's box (button,
-chip, card, tag) the same as Figma's, (2) font size and the text's centring in its box, (3) the gaps between buttons.
-A text is paired by its words when they match, else by its place (the app text on the same line where Figma draws one),
-so other wording is neither `missing` nor `extra` and its box is still measured.
+**What the check holds the app to (full check, the default; user, 2026-11-19).** (1) The padding and border of a
+text's box (button, chip, card, tag) the same as Figma's, (2) font size and the text's centring in its box, (3) the
+gaps between buttons, and (4) a text's words (`copy`: a text paired with other words, one holding the other, or a
+number in another format; a text cut short stays `truncated` only) and (5) its place (`position`: an exactly matched
+text more than 4 pt from Figma's place after the projection, in a half with a fit). The run keeps its rule set
+(`rules: "full"` or `"standard"` in compare.json and on each screen; the Design tab names it on each screen).
 
-**Full check, on request (user, 2026-11-09).** The standard check above is the default: it tolerates a text's words and
-small absolute shifts. Only when the user asks for the old, unrestricted check ("full check", "old format", "check the
-words and positions too"), add `--full` to `check`: everything above, plus `copy` (a text paired with other words,
-one holding the other, or a number in another format; a text cut short stays `truncated` only) and `position` (an
-exactly matched text more than 4 pt from Figma's place after the projection, in a half with a fit). The run keeps the
-rule set (`rules: "full"` in compare.json and on each screen; the Design tab says 「Full check」 on the screen), so a
-later `check` of the same run stays full until `--standard`. Never switch a run to `--full` on your own judgment.
+**Standard check, on request (user, 2026-11-06; optional since 2026-11-19).** Only when the user asks for it ("standard
+check", "don't check the words", "ignore positions"), add `--standard` to `check`: no `copy` and no `position` items,
+and a text is paired by its words when they match, else by its place (the app text on the same line where Figma draws
+one), so other wording is neither `missing` nor `extra` and its box is still measured. A later `check` of the same
+run stays standard until `--full`. A run checked before 2026-11-19 has no `rules` in its compare.json: it was checked
+standard and stays so until `--full`. Never switch a run's rule set on your own judgment.
 
-`node scripts/design.ts … check <run dir> [--screen <ids>] [--recheck <earlier run>] [--full | --standard]` measures every new capture
+`node scripts/design.ts … check <run dir> [--screen <ids>] [--recheck <earlier run>] [--standard | --full]` measures every new capture
 against the Figma screen and draws its review sheet (`screenshots/design/<id>-sheet.png`: Figma and app side by side
 at one width, every candidate numbered on both). The script header has the rules; in short, Figma's width maps to the
 window width, each half of the screen is aligned on its matched texts (that fit only places shapes and icons), and
@@ -233,8 +264,8 @@ what is left is a candidate:
 | `control` | an icon control of the inventory (no label) with no tappable app element where Figma draws it | major |
 | `unspecced` | Android: a tappable app control (clickable and enabled in the page source, not under a later layer, under 30 % of the window) where Figma draws no node of about its size (overlapping half of the smaller, 1/25 to 4 times its area): not in the Design, or drawn elsewhere; the outer one of nested controls. Only on a capture in the frame's state, outside other features' areas (ported from rdqe-spec-contract-agent COVER-02, 2026-11-11: two misplaced Replace buttons passed every Figma-first item) | minor |
 | `extra` | short app text Figma does not draw, on no line where Figma draws a text | info |
-| `copy` | `--full` only: other words than Figma's (minor when one holds the other or only a number's format differs) | major |
-| `position` | `--full` only: an exactly matched text more than 4 pt from where Figma puts it | minor |
+| `copy` | full check (default; not with `--standard`): other words than Figma's (minor when one holds the other or only a number's format differs) | major |
+| `position` | full check (default; not with `--standard`): an exactly matched text more than 4 pt from where Figma puts it | minor |
 
 Letters, not OCR boxes (user, 2026-11-06): OCR boxes run about 2 pt wide on each side, which put the language chips
 3–5 pt short of padding in all where their letters sit 12–13 pt in from each edge, as in Figma; both review passes

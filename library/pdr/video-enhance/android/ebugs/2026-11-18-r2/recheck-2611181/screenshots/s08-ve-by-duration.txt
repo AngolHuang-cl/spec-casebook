@@ -1,0 +1,13 @@
+Sort by
+[RadioButton] Name
+[RadioButton] [AID]Filter_Name
+[RadioButton] Date
+[RadioButton] [AID]Filter_Date
+[RadioButton] Duration
+[RadioButton] [AID]Filter_Duration
+[RadioButton] Resolution
+[RadioButton] [AID]Filter_Resolution
+[RadioButton] File size
+[RadioButton] [AID]Filter_File_Size
+[RadioButton] Ascending
+[RadioButton] Descending

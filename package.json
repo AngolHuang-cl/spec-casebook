@@ -19,6 +19,7 @@
     "render-tiles": "node scripts/render-tiles.ts",
     "render-region": "node scripts/render-region.ts",
     "ebug-defaults": "node scripts/ebug-defaults.ts",
+    "ebug-review": "node scripts/ebug-review.ts",
     "coverage": "node scripts/coverage-page.ts",
     "sync-skills": "node scripts/sync-skills.ts",
     "pr-check": "node scripts/pr-check.ts",

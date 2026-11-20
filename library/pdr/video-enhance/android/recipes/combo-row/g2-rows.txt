@@ -1,0 +1,17 @@
+TC-219 natural 30 1080p professional
+TC-239 natural 30 4k professional
+TC-240 natural 60 720p professional
+TC-241 natural 60 1080p professional
+TC-242 natural 60 4k professional
+TC-243 natural 120 720p professional
+TC-244 natural 120 1080p professional
+TC-245 natural 120 4k professional
+TC-246 sharp 30 720p professional
+TC-247 sharp 30 1080p professional
+TC-248 sharp 30 4k professional
+TC-249 sharp 60 720p professional
+TC-250 sharp 60 1080p professional
+TC-251 sharp 60 4k professional
+TC-252 sharp 120 720p professional
+TC-253 sharp 120 1080p professional
+TC-254 sharp 120 4k professional

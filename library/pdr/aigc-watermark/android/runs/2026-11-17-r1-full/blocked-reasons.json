@@ -1,0 +1,78 @@
+{
+ "TC-002": {
+  "label": "Pro account needed (phone signed in Free; no other account used)",
+  "note": "Paid Menu / paid ⓘ rows"
+ },
+ "TC-004": {
+  "label": "Pro account needed (phone signed in Free; no other account used)",
+  "note": "Paid Menu / paid ⓘ rows"
+ },
+ "TC-091": {
+  "label": "Pro account needed (phone signed in Free; no other account used)",
+  "note": "Seedance 2.0 / 2.5 are Pro-only"
+ },
+ "TC-100": {
+  "label": "Pro account needed (phone signed in Free; no other account used)",
+  "note": "Seedance 2.0 / 2.5 are Pro-only"
+ },
+ "TC-092": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Flux, Image to Video"
+ },
+ "TC-095": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Hailuo, Image to Video"
+ },
+ "TC-101": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Flux, Text to Video"
+ },
+ "TC-103": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Vidu, Text to Video"
+ },
+ "TC-104": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Hailuo, Text to Video"
+ },
+ "TC-105": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Pixverse, Text to Video"
+ },
+ "TC-029": {
+  "label": "Feature not on Android 2611161 (Video Object Removal)",
+  "note": "not in AI Magic, the Launcher or the editor's AI Magic sheet"
+ },
+ "TC-030": {
+  "label": "Feature not on Android 2611161 (Video Object Removal)",
+  "note": "not in AI Magic, the Launcher or the editor's AI Magic sheet"
+ },
+ "TC-031": {
+  "label": "Feature not on Android 2611161 (Video Object Removal)",
+  "note": "not in AI Magic, the Launcher or the editor's AI Magic sheet"
+ },
+ "TC-109": {
+  "label": "Feature not on Android 2611161 (Video Object Removal)",
+  "note": "not in AI Magic, the Launcher or the editor's AI Magic sheet"
+ },
+ "TC-120": {
+  "label": "No song-from-lyrics path in this build",
+  "note": "AI Music Generator V2 has Genre / Mood / Theme only"
+ },
+ "TC-112": {
+  "label": "No way to pick the Kling path in Cinematic Reel Creator (Q-12)",
+  "note": "the server picks the vendor per style; RD to name a Kling style"
+ },
+ "TC-055": {
+  "group": "upstream",
+  "note": "Upstream TC-054 (no music dialog); pending the signed-in recheck — Stage rejects the phone after pm clear (bindMember 403, O-28/O-29)"
+ },
+ "TC-056": {
+  "group": "upstream",
+  "note": "Upstream TC-054 (no music dialog); pending the signed-in recheck — Stage rejects the phone after pm clear (bindMember 403, O-28/O-29)"
+ },
+ "TC-128": {
+  "group": "upstream",
+  "note": "Upstream TC-054 (no music dialog); pending the signed-in recheck — Stage rejects the phone after pm clear (bindMember 403, O-28/O-29)"
+ }
+}

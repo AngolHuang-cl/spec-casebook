@@ -1,0 +1,209 @@
+{
+ "screens": {
+  "3479:106886": {
+   "missing:3479:106922": {
+    "verdict": "ok",
+    "note": "The blue time bubble 「00:00」 above the trim bar is drawn on the phone in the Design's place (the screenshot shows it); it was not in the page source only because the open tooltip hid the panel's window from it, and the time follows the playhead, which is sample content.",
+    "note_zh": "修剪列上方的藍色時間泡泡「00:00」在手機上有畫出，位置與 Design 相同（截圖可見）；頁面資料中沒有它，只是因為開啟的提示框讓面板視窗未被讀取，且時間跟隨播放頭，屬於範例內容。"
+   },
+   "weight:3479:106891": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Selected Length」 is drawn Bold; the Design sets it in Semibold, which is Medium on Android. Every heading in the AI Video Enhance panel is Bold the same way, also with a tooltip open, so the settings sheet reads heavier than the Design.",
+    "note_zh": "面板標題「Selected Length」在 App 上是 Bold；Design 設定為 Semibold，Android 對應為 Medium。AI Video Enhance 面板的所有標題都一樣偏粗（開啟提示框時亦同），整個設定面板看起來比 Design 重。"
+   },
+   "weight:3479:106927": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Mode」 is drawn Bold; the Design sets it in Semibold, which is Medium on Android. Every heading in the AI Video Enhance panel is Bold the same way, also with a tooltip open, so the settings sheet reads heavier than the Design.",
+    "note_zh": "面板標題「Mode」在 App 上是 Bold；Design 設定為 Semibold，Android 對應為 Medium。AI Video Enhance 面板的所有標題都一樣偏粗（開啟提示框時亦同），整個設定面板看起來比 Design 重。"
+   },
+   "weight:3479:106934": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Enhancement style」 is drawn Bold; the Design sets it in Semibold, which is Medium on Android. Every heading in the AI Video Enhance panel is Bold the same way, also with a tooltip open, so the settings sheet reads heavier than the Design.",
+    "note_zh": "面板標題「Enhancement style」在 App 上是 Bold；Design 設定為 Semibold，Android 對應為 Medium。AI Video Enhance 面板的所有標題都一樣偏粗（開啟提示框時亦同），整個設定面板看起來比 Design 重。"
+   },
+   "weight:3479:106941": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「fps」 is drawn Bold; the Design sets it in Semibold, which is Medium on Android. Every heading in the AI Video Enhance panel is Bold the same way, also with a tooltip open, so the settings sheet reads heavier than the Design.",
+    "note_zh": "面板標題「fps」在 App 上是 Bold；Design 設定為 Semibold，Android 對應為 Medium。AI Video Enhance 面板的所有標題都一樣偏粗（開啟提示框時亦同），整個設定面板看起來比 Design 重。"
+   },
+   "weight:3479:106948": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Resolution」 is drawn Bold; the Design sets it in Semibold, which is Medium on Android. Every heading in the AI Video Enhance panel is Bold the same way, also with a tooltip open, so the settings sheet reads heavier than the Design.",
+    "note_zh": "面板標題「Resolution」在 App 上是 Bold；Design 設定為 Semibold，Android 對應為 Medium。AI Video Enhance 面板的所有標題都一樣偏粗（開啟提示框時亦同），整個設定面板看起來比 Design 重。"
+   },
+   "control:3479:106928": {
+    "verdict": "ok",
+    "note": "The ⓘ icon after 「Mode」 is drawn on the phone right after its heading (only further left because Roboto sets the heading narrower than SF Pro). It is tappable: this capture's tooltip was opened by tapping an ⓘ; the page source missed it only because the open tooltip hid the panel's window.",
+    "note_zh": "「Mode」後方的 ⓘ 圖示在手機上有畫出，緊接在標題後（只因 Roboto 比 SF Pro 窄而略偏左）。它可以點按：這張截圖的提示框就是點 ⓘ 打開的；頁面資料沒有它，只因開啟的提示框讓面板視窗未被讀取。"
+   },
+   "control:3479:106935": {
+    "verdict": "ok",
+    "note": "The ⓘ icon after 「Enhancement style」 is drawn on the phone right after its heading (only further left because Roboto sets the heading narrower than SF Pro). It is tappable: this capture's tooltip was opened by tapping an ⓘ; the page source missed it only because the open tooltip hid the panel's window.",
+    "note_zh": "「Enhancement style」後方的 ⓘ 圖示在手機上有畫出，緊接在標題後（只因 Roboto 比 SF Pro 窄而略偏左）。它可以點按：這張截圖的提示框就是點 ⓘ 打開的；頁面資料沒有它，只因開啟的提示框讓面板視窗未被讀取。"
+   },
+   "visual:1": {
+    "kind": "visual",
+    "verdict": "bug",
+    "figma": {
+     "box": [
+      16,
+      68,
+      300,
+      52
+     ]
+    },
+    "note": "The Mode tooltip is narrower than the Design and its text sits closer to the left edge: the Design's bubble is a fixed 300 pt wide with the bullets about 20 pt in from its left edge; on the phone the bubble shrinks to its text, about 236 pt wide, and the bullets start about 12 pt in. Top and bottom insets match (about 12–13 pt to the letters).",
+    "note_zh": "Mode 提示框比 Design 窄，文字也較貼近左緣：Design 的提示框固定 300 pt 寬，項目符號距左緣約 20 pt；手機上提示框隨文字縮到約 236 pt 寬，項目符號距左緣約 12 pt。上下內距一致（到字約 12–13 pt）。",
+    "severity": "minor"
+   },
+   "visual:2": {
+    "kind": "visual",
+    "verdict": "bug",
+    "figma": {
+     "box": [
+      16,
+      68,
+      300,
+      52
+     ]
+    },
+    "note": "The tooltip's corners are rounder than the Design's: about 9 pt on the phone against Figma's 6 pt radius. The fill is the Design's bubble blue (#2B65D8 on the phone against #0067E0, no visible difference). Same on both ⓘ tooltips.",
+    "note_zh": "提示框的圓角比 Design 圓：手機上約 9 pt，Figma 為 6 pt。底色與 Design 的提示框藍相同（手機 #2B65D8、Figma #0067E0，肉眼無差異）。兩個 ⓘ 提示框皆如此。",
+    "severity": "minor"
+   },
+   "visual:3": {
+    "kind": "visual",
+    "verdict": "ok",
+    "figma": {
+     "box": [
+      74,
+      120,
+      10,
+      6
+     ]
+    },
+    "note": "The pointer under the bubble matches: a small blue triangle (about 12 × 7 pt against Figma's 10 × 6 pt) pointing at the centre of the Mode ⓘ icon, as in the Design.",
+    "note_zh": "提示框下方的指向三角一致：小藍色三角形（約 12 × 7 pt，Figma 為 10 × 6 pt），對準 Mode ⓘ 圖示中心，與 Design 相同。"
+   },
+   "visual:4": {
+    "kind": "visual",
+    "verdict": "ok",
+    "figma": {
+     "box": [
+      16,
+      68,
+      300,
+      58
+     ]
+    },
+    "note": "The bubble with its pointer sits above the Mode heading and over the trim bar, as in the Design. Its pointer ends about 7 pt above the ⓘ icon where this frame leaves about 19 pt; the Design's own two tooltip frames disagree on this gap (the Enhancement style frame overlaps its icon), so it is not a set value, and the phone keeps the same gap on both.",
+    "note_zh": "提示框連同指向三角位於 Mode 標題上方、蓋在修剪列上，與 Design 相同。三角尖端距 ⓘ 圖示約 7 pt，此畫面約 19 pt；但 Design 兩張提示框畫面在這個間距上彼此不一致（Enhancement style 那張的三角壓到圖示），並非固定規格，而手機在兩處保持相同間距。"
+   }
+  },
+  "3494:106998": {
+   "missing:3494:107034": {
+    "verdict": "ok",
+    "note": "The blue time bubble 「00:00」 above the trim bar is drawn on the phone in the Design's place (the screenshot shows it); it was not in the page source only because the open tooltip hid the panel's window from it, and the time follows the playhead, which is sample content.",
+    "note_zh": "修剪列上方的藍色時間泡泡「00:00」在手機上有畫出，位置與 Design 相同（截圖可見）；頁面資料中沒有它，只是因為開啟的提示框讓面板視窗未被讀取，且時間跟隨播放頭，屬於範例內容。"
+   },
+   "weight:3494:107003": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Selected Length」 is drawn Bold; the Design sets it in Semibold, which is Medium on Android. Every heading in the AI Video Enhance panel is Bold the same way, also with a tooltip open, so the settings sheet reads heavier than the Design.",
+    "note_zh": "面板標題「Selected Length」在 App 上是 Bold；Design 設定為 Semibold，Android 對應為 Medium。AI Video Enhance 面板的所有標題都一樣偏粗（開啟提示框時亦同），整個設定面板看起來比 Design 重。"
+   },
+   "weight:3494:107039": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Mode」 is drawn Bold; the Design sets it in Semibold, which is Medium on Android. Every heading in the AI Video Enhance panel is Bold the same way, also with a tooltip open, so the settings sheet reads heavier than the Design.",
+    "note_zh": "面板標題「Mode」在 App 上是 Bold；Design 設定為 Semibold，Android 對應為 Medium。AI Video Enhance 面板的所有標題都一樣偏粗（開啟提示框時亦同），整個設定面板看起來比 Design 重。"
+   },
+   "weight:3494:107046": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Enhancement style」 is drawn Bold; the Design sets it in Semibold, which is Medium on Android. Every heading in the AI Video Enhance panel is Bold the same way, also with a tooltip open, so the settings sheet reads heavier than the Design.",
+    "note_zh": "面板標題「Enhancement style」在 App 上是 Bold；Design 設定為 Semibold，Android 對應為 Medium。AI Video Enhance 面板的所有標題都一樣偏粗（開啟提示框時亦同），整個設定面板看起來比 Design 重。"
+   },
+   "weight:3494:107053": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「fps」 is drawn Bold; the Design sets it in Semibold, which is Medium on Android. Every heading in the AI Video Enhance panel is Bold the same way, also with a tooltip open, so the settings sheet reads heavier than the Design.",
+    "note_zh": "面板標題「fps」在 App 上是 Bold；Design 設定為 Semibold，Android 對應為 Medium。AI Video Enhance 面板的所有標題都一樣偏粗（開啟提示框時亦同），整個設定面板看起來比 Design 重。"
+   },
+   "weight:3494:107060": {
+    "verdict": "bug",
+    "severity": "minor",
+    "note": "The panel heading 「Resolution」 is drawn Bold; the Design sets it in Semibold, which is Medium on Android. Every heading in the AI Video Enhance panel is Bold the same way, also with a tooltip open, so the settings sheet reads heavier than the Design.",
+    "note_zh": "面板標題「Resolution」在 App 上是 Bold；Design 設定為 Semibold，Android 對應為 Medium。AI Video Enhance 面板的所有標題都一樣偏粗（開啟提示框時亦同），整個設定面板看起來比 Design 重。"
+   },
+   "colour:3494:107043": {
+    "verdict": "ok",
+    "note": "The 「Professional」 chip is covered by the open tooltip in both the Design and the app, so the colour read there is the tooltip's blue, not the chip; the chip itself has the Design's dark grey #303B49, and the two bubble blues look the same.",
+    "note_zh": "「Professional」選項在 Design 與 App 中都被開啟的提示框蓋住，量到的是提示框的藍色而非選項本身；選項本身為 Design 的深灰 #303B49，兩邊提示框的藍色看起來相同。"
+   },
+   "visual:1": {
+    "kind": "visual",
+    "verdict": "bug",
+    "figma": {
+     "box": [
+      38,
+      150,
+      300,
+      84
+     ]
+    },
+    "note": "The Enhancement style tooltip is wider than the Design and wraps differently: the Design's bubble is a fixed 300 pt, centred on the screen, with its text on four lines and the bullets about 20 pt in from the left edge; on the phone the bubble runs about 331 pt from the panel's left margin, the text fits on three lines, and the bullets start about 12 pt in. Top and bottom insets match.",
+    "note_zh": "Enhancement style 提示框比 Design 寬、換行也不同：Design 的提示框固定 300 pt 寬、置中於畫面，文字四行，項目符號距左緣約 20 pt；手機上提示框從面板左邊界起約 331 pt 寬，文字排成三行，項目符號距左緣約 12 pt。上下內距一致。",
+    "severity": "minor"
+   },
+   "visual:2": {
+    "kind": "visual",
+    "verdict": "bug",
+    "figma": {
+     "box": [
+      38,
+      150,
+      300,
+      84
+     ]
+    },
+    "note": "The tooltip's corners are rounder than the Design's: about 9 pt on the phone against Figma's 6 pt radius. The fill is the Design's bubble blue (#2B65D8 on the phone against #0067E0, no visible difference). Same on both ⓘ tooltips.",
+    "note_zh": "提示框的圓角比 Design 圓：手機上約 9 pt，Figma 為 6 pt。底色與 Design 的提示框藍相同（手機 #2B65D8、Figma #0067E0，肉眼無差異）。兩個 ⓘ 提示框皆如此。",
+    "severity": "minor"
+   },
+   "visual:3": {
+    "kind": "visual",
+    "verdict": "ok",
+    "figma": {
+     "box": [
+      174,
+      234,
+      10,
+      6
+     ]
+    },
+    "note": "The pointer under the bubble matches: a small blue triangle (about 12 × 7 pt against Figma's 10 × 6 pt) pointing at the centre of the Enhancement style ⓘ icon, as in the Design.",
+    "note_zh": "提示框下方的指向三角一致：小藍色三角形（約 12 × 7 pt，Figma 為 10 × 6 pt），對準 Enhancement style ⓘ 圖示中心，與 Design 相同。"
+   },
+   "visual:4": {
+    "kind": "visual",
+    "verdict": "ok",
+    "figma": {
+     "box": [
+      38,
+      150,
+      300,
+      90
+     ]
+    },
+    "note": "The bubble with its pointer sits above the Enhancement style heading, covering the Mode row, as in the Design. In this frame the pointer overlaps the top of the ⓘ icon, while the Mode frame leaves about 19 pt; the phone leaves about 6 pt on both, which keeps the icon visible and is not a departure from a set value.",
+    "note_zh": "提示框連同指向三角位於 Enhancement style 標題上方、蓋住 Mode 一列，與 Design 相同。此畫面中三角壓到 ⓘ 圖示上緣，而 Mode 那張留約 19 pt；手機兩處都留約 6 pt，圖示保持可見，並未偏離固定規格。"
+   }
+  }
+ }
+}

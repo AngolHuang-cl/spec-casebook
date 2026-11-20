@@ -53,4 +53,6 @@ skill's body. Rule numbers are cited elsewhere (AGENTS.md: "rule 5 of the eBug o
    matches an existing ticket on the same OS's TRs is **not listed** — no card on the review page, no Rechecks
    section, no on-hold entry; it is kept only in the batch's `dedupe.txt` (finding, case IDs, matching BugCode) for
    traceability. Exception: a same-OS ticket that is **closed** while the bug is back does not hide the finding; it
-   stays a new card that names the closed ticket as related.
+   stays a new card that names the closed ticket as related. The search covers the whole pool and every open
+   ticket on the build's version is read against every entry (2026-11-19: Video Enhance Android R2 missed
+   DRA262611P0113 / P0115 on a 90-of-182 search; `references/dedupe.md` › *Whole pool*).

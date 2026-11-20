@@ -51,3 +51,64 @@ neither the controls nor ‹ come back. Recheck on the phone before filing.
 CineStory F17 says inform users 「when the task is done」 without saying server-done or downloaded. The banner button
 is 「View」 in CineStory F02 and 「View Result」 in Video Object Removal F116 (the build says View). The F15 error
 states 「Retry」 and 「View Details」 were never reached.
+
+## KP-079 Some tools save their result to the gallery by themselves
+- kind: fact · platform: android · use: analysis, run · tags: save, gallery, results
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-13, O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+
+Video Edit by Chat, Talking Avatar and AI Anime Video write the result to the gallery when the task finishes, with no
+「Save」 tap. Character Motion Swap, Cinematic Reel Creator and Text to Video do not. Whether this is intended is not in
+any spec.
+
+## KP-080 What a second Save does
+- kind: fact · platform: android · use: analysis, run · tags: save, gallery, files
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-6, O-10, O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+
+A Text to Image result saved once is never written again: a second 「Save」 says 「Saved to Gallery」 and leaves the
+first file as it was. AI Art, Image to Video and Text to Video write a new file on every Save. In Image to Video file
+names the number after the date counts saves, not tasks.
+
+## KP-081 Several Image to Video tasks can run at once
+- kind: fact · platform: android · use: run · tags: image-to-video, tasks
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-7 · verified: 16.9.0 build 2611161 (2026-11-17)
+
+「Create another one」 is available while a task is 「Processing…」, so generations can overlap to save time. A failed
+task's list item reads 「An Error Has Occurred / Credits have been refunded…」.
+
+## KP-082 Models and tools offered on Android (Free)
+- kind: fact · platform: android · use: analysis, run · tags: models, tier, image-to-video, text-to-video
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-9, O-17, O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+
+Image to Video: Veo 3.1, Vidu Q2, Kling O3, Kling 4.0, Pixverse V6, Wan 2.7, Gemini Omni Flash 1.1, Happy Horse 1.1;
+Seedance 2.0 and 2.5 are Pro (「Subscribe Pro to Unlock」); no Flux or Hailuo. Text to Video: Kling 4.0, Wan 3.0,
+Seedance 2.5 / 2.0 (Pro), Gemini Omni Flash, Happy Horse 1.1, Wan 2.7, Veo 3.1, Kling O3; no Vidu, Pixverse, Hailuo
+or Flux. Text to Image defaults to 「GPT-Image-2.6 Sunburst」. Video Object Removal is not offered on Android.
+
+## KP-083 Model pickers reset
+- kind: quirk · platform: android · use: run · tags: models, image-to-video, text-to-video, video-edit-by-chat
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-7, O-17, O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+
+Image to Video and Text to Video open on 「Kling 4.0」 each time (also after 「Create another one」); Video Edit by
+Chat resets to 「Seedance 2.5」 after a source video is picked. Pick the model last, right before Generate.
+
+## KP-084 Portrait Text to Video files are stored landscape
+- kind: fact · platform: android · use: run · tags: text-to-video, files, orientation
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+
+A portrait result is stored 1920 × 1080 with a -90° display matrix (Kling O3 1080p, Wan 2.7 720p); players show it
+upright. Read sizes and positions in the displayed orientation.
+
+## KP-085 AI Storytelling results live in its own history
+- kind: fact · platform: android · use: analysis, run · tags: ai-storytelling, my-artwork, tier
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-16, O-17 · verified: 16.9.0 build 2611161 (2026-11-17)
+
+AI Storytelling results are not in My Artwork: they are under AI Storytelling › history 「Generated Story」 and are
+exported, not saved. A Free account gets one free story; more need Pro.
+
+## KP-090 AI Art's result page has no 「Full Editor」
+- kind: fact · platform: both · use: analysis, run, ebug · tags: ai-art, results, full-editor
+- source: user, 2026-11-18 (eBug review of AIGC Watermark Android R1, F-2) · verified: 16.9.0 build 2611161 (2026-11-17, TC-046)
+
+AI Art results cannot be opened in the editor: the result page has no 「Full Editor」 (Android shows feedback, share,
+download and 「Turn the image into a video」). A spec rule for every image result that names 「Full Editor」 (AIGC
+Watermark R-024) applies to AI Art without that step; Text to Image does have it.

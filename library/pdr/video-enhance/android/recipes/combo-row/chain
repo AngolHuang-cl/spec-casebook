@@ -1,0 +1,12 @@
+#!/bin/bash
+# R2-g2: rows file g2-rows.txt (ID style fps res mode); professional mode uses combo-price-pro.steps, and rec adds the R-204 timing (Fail defect only where the row states 4.8 – 8 s) and Sobel detail vs the Standard twin. mk.py/upl are midnight-safe; Credit Details read after local midnight shows no current month (O-25): match charges from logcat getCreditHistory then.
+S=$(dirname $0)
+NAT="window frames, wall and HUD edges crisper, no halos, natural look = lighter, realistic enhancement"; SH="edges and HUD text sharper and clearer than Original, natural colours = moderate, sharp, clear enhancement"; NET=17F_QA_Wifi_5G
+PNAT="foliage, ground and wall texture visibly re-detailed beyond the Standard twin, HUD text crisper, colours natural, no halos = more detail with a light, realistic enhancement"; PSH="edges, HUD text and textures sharper and more detailed than both Original and the Standard twin, colours natural = more detail with a moderate, sharp, clear enhancement"
+while read -r id st fp rs md <&3; do
+  [ -n "$rs" ] || continue
+  L=$NAT; [ "$st" = sharp ] && L=$SH; if [ "$md" = professional ]; then L=$PNAT; [ "$st" = sharp ] && L=$PSH; fi; [ "$rs" = 4k ] && L="$L (4K compared at 720p)"
+  $S/row $id chip_style_$st chip_fps_$fp chip_resolution_$rs ${md:-standard} > $S/$id.out 2>&1 < /dev/null || { echo "$id FAILED"; tail -5 $S/$id.out; exit 1; }
+  $S/rec $id $NET "$L" "" ${md:-standard} < /dev/null
+done 3< "$1"
+echo CHAIN-END

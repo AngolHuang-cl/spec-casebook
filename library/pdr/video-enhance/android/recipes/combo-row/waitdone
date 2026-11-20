@@ -1,0 +1,8 @@
+#!/bin/bash
+# wait until no "Processing" text on Recent task; max $1 seconds
+S=$(dirname $0); t0=$(date +%s); max=${1:-900}
+while :; do
+  if ! $S/d texts 2>/dev/null | grep -q "Processing"; then echo "done after $(( $(date +%s)-t0 )) s at $(date +%T)"; exit 0; fi
+  [ $(( $(date +%s)-t0 )) -gt $max ] && { echo "timeout $(date +%T)"; exit 1; }
+  sleep 15
+done

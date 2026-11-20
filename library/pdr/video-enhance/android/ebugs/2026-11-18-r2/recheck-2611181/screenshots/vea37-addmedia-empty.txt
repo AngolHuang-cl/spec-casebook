@@ -1,0 +1,4 @@
+Add Media
+Video
+All
+To select photos and videos, add more media from the gallery or allow access to all media.

@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-11-12T02:46:36.793Z",
+  "built_at": "2026-11-19T08:23:56.018Z",
   "spec_set": "2026-11-03",
   "file": {
     "fileKey": "HceGLJVaxnKsv7gXSXzKWh",
@@ -7,10 +7,20 @@
     "url": "https://www.figma.com/design/HceGLJVaxnKsv7gXSXzKWh/Video-Enhance?node-id=3293-13053&t=5DNNFMGr4vKsnxrV-1",
     "account": "qa-dm@cyberlink.com (figma-design); refused earlier on 2026-11-03, opened later the same day"
   },
-  "phases": "drafts/20261110-160000/phases.json",
-  "skip": [],
+  "phases": "drafts/20261117-105552/phases.json",
+  "skip": [
+    "3497:12",
+    "3486:3113",
+    "3601:24155",
+    "3601:24176"
+  ],
   "skip_reason": null,
-  "skip_reasons": {},
+  "skip_reasons": {
+    "3497:12": "spec note on the board (defaults rules, chip states, fps / resolution lookup tables), not a screen",
+    "3486:3113": "spec note on the board (defaults rules, chip states, fps / resolution lookup tables), not a screen",
+    "3601:24155": "spec note on the board (defaults rules, chip states, fps / resolution lookup tables), not a screen",
+    "3601:24176": "spec note on the board (defaults rules, chip states, fps / resolution lookup tables), not a screen"
+  },
   "scope_review": {
     "at": "2026-11-10",
     "by": "user",
@@ -57,10 +67,23 @@
     "listed": [],
     "page_listed": true
   },
+  "not_screens": [
+    {
+      "id": "3293:14560",
+      "name": "Routing Logic",
+      "board": "3293:14560",
+      "board_name": "Routing Logic",
+      "size": [
+        824,
+        1172
+      ]
+    }
+  ],
+  "as_screens": [],
   "casebook": true,
   "counts": {
-    "screens": 33,
-    "routed": 33,
+    "screens": 35,
+    "routed": 35,
     "figma_paths": 0,
     "gaps": 0,
     "no_route": 0,
@@ -82,22 +105,40 @@
     "TC-003": [
       "3293:14941"
     ],
+    "TC-090": [
+      "3310:38462",
+      "3300:32521",
+      "3300:32182",
+      "3305:34438",
+      "3293:13415"
+    ],
+    "TC-093": [
+      "3293:13491",
+      "3293:13571"
+    ],
+    "TC-095": [
+      "3294:31104"
+    ],
     "TC-031": [
       "3328:45377"
+    ],
+    "TC-035": [
+      "3479:106886"
+    ],
+    "TC-036": [
+      "3494:106998"
     ],
     "TC-038": [
       "3313:39430"
     ],
-    "TC-042": [
-      "3310:38462",
-      "3300:32521"
+    "TC-071": [
+      "3669:20463"
     ],
-    "TC-096": [
+    "TC-097": [
       "3293:15145"
     ],
     "TC-110": [
       "3669:20362",
-      "3669:20463",
       "3669:20564"
     ],
     "TC-111": [
@@ -114,31 +155,19 @@
     "TC-117": [
       "3300:31478"
     ],
+    "TC-131": [
+      "3300:31547",
+      "3293:13664"
+    ],
     "TC-134": [
       "3293:14884"
     ],
     "TC-143": [
-      "3293:13664",
       "3293:13684"
-    ],
-    "TC-150": [
-      "3300:31547"
     ],
     "TC-171": [
       "3293:15910",
       "3393:18196"
-    ],
-    "TC-090": [
-      "3300:32182",
-      "3305:34438",
-      "3293:13415"
-    ],
-    "TC-093": [
-      "3293:13491",
-      "3293:13571"
-    ],
-    "TC-095": [
-      "3294:31104"
     ]
   },
   "screens": [
@@ -168,18 +197,18 @@
         "via": "K-aeb618",
         "fit": "high",
         "edge": "round/ic_video enhancer",
-        "segment": "R1-a",
+        "segment": "R2-a",
         "section": "Entry points",
-        "precondition": "1. Signed in with a Pro+ account (no tier switch on Android)\n2. The Demo page was never dismissed with 「Don’t show again」 on this install\n3. Launcher open",
+        "precondition": "1. Signed in with a Pro account (no tier switch on Android)\n2. The Demo page was never dismissed with 「Don’t show again」 on this install\n3. Launcher open",
         "action": "Tap the big shortcut 「AI Video Enhance」 on the Launcher",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
+        "TC-131",
         "TC-132",
         "TC-142",
-        "TC-143",
-        "TC-131"
+        "TC-143"
       ],
       "flags": []
     },
@@ -209,12 +238,12 @@
         "via": "K-aeb618",
         "fit": "high",
         "edge": "round/ic_video enhancer",
-        "segment": "R1-a",
+        "segment": "R2-a",
         "section": "Entry points",
-        "precondition": "1. Signed in with a Pro+ account (no tier switch on Android)\n2. The Demo page was never dismissed with 「Don’t show again」 on this install\n3. Launcher open",
+        "precondition": "1. Signed in with a Pro account (no tier switch on Android)\n2. The Demo page was never dismissed with 「Don’t show again」 on this install\n3. Launcher open",
         "action": "Tap the big shortcut 「AI Video Enhance」 on the Launcher",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
         "TC-134",
@@ -248,12 +277,12 @@
         "via": "K-aeb618",
         "fit": "high",
         "edge": "round/ic_video enhancer",
-        "segment": "R1-a",
+        "segment": "R2-a",
         "section": "Entry points",
-        "precondition": "1. Signed in with a Pro+ account (no tier switch on Android)\n2. The Demo page was never dismissed with 「Don’t show again」 on this install\n3. Launcher open",
+        "precondition": "1. Signed in with a Pro account (no tier switch on Android)\n2. The Demo page was never dismissed with 「Don’t show again」 on this install\n3. Launcher open",
         "action": "Tap the big shortcut 「AI Video Enhance」 on the Launcher",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
         "TC-134",
@@ -287,12 +316,12 @@
         "via": "3294-24049",
         "fit": "high",
         "edge": "Main Flow（Free user → IAP）: Launcher_2026_08 「AI Video Enhance」 shortcut → Demo page_Straight video",
-        "segment": "R1-a",
+        "segment": "R2-a",
         "section": "Entry points",
-        "precondition": "1. Signed in with a Pro+ account (no tier switch on Android)\n2. The Demo page was never dismissed with 「Don’t show again」 on this install\n3. Launcher open",
+        "precondition": "1. Signed in with a Pro account (no tier switch on Android)\n2. The Demo page was never dismissed with 「Don’t show again」 on this install\n3. Launcher open",
         "action": "Tap the big shortcut 「AI Video Enhance」 on the Launcher",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
         "TC-010",
@@ -327,12 +356,12 @@
         "via": "K-c0e83a",
         "fit": "high",
         "edge": "round/ic_video",
-        "segment": "R1-a",
+        "segment": "R2-a",
         "section": "Demo page",
         "precondition": "1. Demo page open from the Launcher (TC-001)\n2. 「Don’t show again」 not ticked",
         "action": "Tap 「Try It Now」",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
         "TC-020",
@@ -368,18 +397,18 @@
         "via": "3293-13715",
         "fit": "high",
         "edge": "Main Flow（Free user → IAP）: Add Media video thumbnail → VE · 01 預設（未訂閱）",
-        "segment": "R1-a",
+        "segment": "R2-a",
         "section": "Add Media",
-        "precondition": "1. Signed in with a Pro+ account (no tier switch on Android)\n2. Add Media open from the feature\n3. A 12:30 1080p 60 fps video in the album",
+        "precondition": "1. Signed in with a Pro account (no tier switch on Android)\n2. Add Media open from the feature\n3. A 12:30 1080p 60 fps video in the album",
         "action": "Tap that video's thumbnail",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
-        "TC-042",
-        "TC-214",
-        "TC-044",
-        "TC-216"
+        "TC-090",
+        "TC-073",
+        "TC-074",
+        "TC-218"
       ],
       "flags": []
     },
@@ -409,98 +438,16 @@
         "via": "C-da44ac",
         "fit": "high",
         "edge": "Opacity",
-        "segment": "R1-a",
+        "segment": "R2-a",
         "section": "Entry points",
-        "precondition": "1. Signed in with a Pro+ account (no tier switch on Android)\n2. A project open in the editor with one video clip of 2:30 or less on the timeline",
-        "action": "1. Tap the clip on the timeline\n2. Tap 「AI Video Enhance」 in the clip toolbar",
+        "precondition": "1. Signed in with a Pro account (no tier switch on Android)\n2. A project open in the editor with one video clip of 2:30 or less on the timeline\n3. 「Don't show again」 on the Demo page not saved yet (run before TC-014)",
+        "action": "1. Tap the clip on the timeline\n2. Tap 「AI Video Enhance」 in the clip toolbar (inside its 「Enhance」 group when the toolbar groups the tools)",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
-        "TC-037",
-        "TC-150"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3328:45377",
-      "name": "VE · 02 預設（已訂閱）",
-      "board": "3293:15052",
-      "board_name": "Alternative & Exception",
-      "abs": [
-        20862,
-        6375,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        5985,
-        6100,
-        1552
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/alternative-exception.png",
-      "inventory_screen": "3328:45377",
-      "status": "routed",
-      "route": {
-        "case": "TC-031",
-        "how": "on",
-        "via": "K-19855b",
-        "fit": "high",
-        "edge": "round/ic_info",
-        "segment": "R1-b",
-        "section": "Panel layout and first-run bubble",
-        "precondition": "1. Panel open\n2. The first-run bubble already seen",
-        "action": "1. Tap ⓘ next to 「Selected Length」\n2. Tap anywhere on the screen within 3 s",
-        "result": "Pass",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-042",
-        "TC-214",
-        "TC-044",
-        "TC-216"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3313:39430",
-      "name": "VE · 01 預設（整段）",
-      "board": "3300:32003",
-      "board_name": "AI Video Enhance",
-      "abs": [
-        22775,
-        3460,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        3054,
-        4148,
-        2590
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/ai-video-enhance.png",
-      "inventory_screen": "3313:39430",
-      "status": "routed",
-      "route": {
-        "case": "TC-038",
-        "how": "on",
-        "via": "K-26a1f3",
-        "fit": "high",
-        "edge": "Back",
-        "segment": "R1-b",
-        "section": "Panel layout and first-run bubble",
-        "precondition": "Panel open from Add Media, nothing running",
-        "action": "Tap ‹ in the panel's top bar",
-        "result": "Pass",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-090",
-        "TC-031",
-        "TC-035",
-        "TC-036"
+        "TC-150",
+        "TC-037"
       ],
       "flags": []
     },
@@ -525,23 +472,23 @@
       "inventory_screen": "3310:38462",
       "status": "routed",
       "route": {
-        "case": "TC-042",
+        "case": "TC-090",
         "how": "on",
-        "via": "K-8a6c94",
+        "via": "K-00521c",
         "fit": "mid",
-        "edge": "Right trim handle",
-        "segment": "R1-b",
-        "section": "Trim and selected length",
-        "precondition": "Panel open with the 12:30 video, selection 00:00–08:00",
-        "action": "Drag the right handle left to about 06:00",
+        "edge": "Unlock Pro+ to Enhance",
+        "segment": "R2-i",
+        "section": "Eligibility and purchase",
+        "precondition": "1. Signed in with a Free account (Android has no tier switch: the tier comes from the account)\n2. Panel open with a video",
+        "action": "1. Look at the CTA\n2. Tap it",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
-        "TC-214",
-        "TC-044",
-        "TC-216",
-        "TC-073"
+        "TC-073",
+        "TC-074",
+        "TC-218",
+        "TC-075"
       ],
       "flags": []
     },
@@ -566,676 +513,23 @@
       "inventory_screen": "3300:32521",
       "status": "routed",
       "route": {
-        "case": "TC-042",
+        "case": "TC-090",
         "how": "on",
-        "via": "K-8a6c94",
+        "via": "K-00521c",
         "fit": "mid",
-        "edge": "Right trim handle",
-        "segment": "R1-b",
-        "section": "Trim and selected length",
-        "precondition": "Panel open with the 12:30 video, selection 00:00–08:00",
-        "action": "Drag the right handle left to about 06:00",
-        "result": "Pass",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-214",
-        "TC-044",
-        "TC-216",
-        "TC-073"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3293:15145",
-      "name": "Credit page_paid",
-      "board": "3293:15052",
-      "board_name": "Alternative & Exception",
-      "abs": [
-        21337,
-        6375,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        5985,
-        6100,
-        1552
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/alternative-exception.png",
-      "inventory_screen": "3293:15145",
-      "status": "routed",
-      "route": {
-        "case": "TC-096",
-        "how": "arrow",
-        "via": "3293-15662",
-        "fit": "high",
-        "edge": "Alternative & Exception: VE · 02 預設（已訂閱） · 「Enhance」 (balance too low) → Credit page_paid",
-        "segment": "R1-d",
+        "edge": "Unlock Pro+ to Enhance",
+        "segment": "R2-i",
         "section": "Eligibility and purchase",
-        "precondition": "1. Signed in with a Pro+ account (no tier switch on Android)\n2. Credit balance below the CTA price (e.g. 0)\n3. Panel open\n4. Note the balance",
-        "action": "Tap 「Enhance」",
-        "result": "Blocked",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-098",
-        "TC-097",
-        "TC-031",
-        "TC-035"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3669:20362",
-      "name": "VE · Mode 01 Standard 05:00",
-      "board": "3300:32003",
-      "board_name": "AI Video Enhance",
-      "abs": [
-        20842,
-        4609,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        3054,
-        4148,
-        2590
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/ai-video-enhance.png",
-      "inventory_screen": "3669:20362",
-      "status": "routed",
-      "route": {
-        "case": "TC-110",
-        "how": "on",
-        "via": "K-68e6ce",
-        "fit": "mid",
-        "edge": "Enhance",
-        "segment": "R1-e",
-        "section": "Generating and cancel",
-        "precondition": "1. Signed in with a Pro+ account (no tier switch on Android) with enough credits\n2. Panel open with a 01:30 1080p 30 fps video and the defaults kept (Standard, Natural, 30fps, 1080p)\n3. Note the balance",
-        "action": "Tap 「Enhance ◆ <credits>」",
-        "result": "Fail",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-031",
-        "TC-035",
-        "TC-036",
-        "TC-037"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3669:20463",
-      "name": "VE · Mode 02 點 Professional → Toast",
-      "board": "3300:32003",
-      "board_name": "AI Video Enhance",
-      "abs": [
-        21317,
-        4609,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        3054,
-        4148,
-        2590
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/ai-video-enhance.png",
-      "inventory_screen": "3669:20463",
-      "status": "routed",
-      "route": {
-        "case": "TC-110",
-        "how": "on",
-        "via": "K-68e6ce",
-        "fit": "mid",
-        "edge": "Enhance",
-        "segment": "R1-e",
-        "section": "Generating and cancel",
-        "precondition": "1. Signed in with a Pro+ account (no tier switch on Android) with enough credits\n2. Panel open with a 01:30 1080p 30 fps video and the defaults kept (Standard, Natural, 30fps, 1080p)\n3. Note the balance",
-        "action": "Tap 「Enhance ◆ <credits>」",
-        "result": "Fail",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-031",
-        "TC-035",
-        "TC-036",
-        "TC-037"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3669:20564",
-      "name": "VE · Mode 03 縮短後可切換",
-      "board": "3300:32003",
-      "board_name": "AI Video Enhance",
-      "abs": [
-        21792,
-        4609,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        3054,
-        4148,
-        2590
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/ai-video-enhance.png",
-      "inventory_screen": "3669:20564",
-      "status": "routed",
-      "route": {
-        "case": "TC-110",
-        "how": "on",
-        "via": "K-68e6ce",
-        "fit": "mid",
-        "edge": "Enhance",
-        "segment": "R1-e",
-        "section": "Generating and cancel",
-        "precondition": "1. Signed in with a Pro+ account (no tier switch on Android) with enough credits\n2. Panel open with a 01:30 1080p 30 fps video and the defaults kept (Standard, Natural, 30fps, 1080p)\n3. Note the balance",
-        "action": "Tap 「Enhance ◆ <credits>」",
-        "result": "Fail",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-031",
-        "TC-035",
-        "TC-036",
-        "TC-037"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3388:17754",
-      "name": "VE · 03 Generating",
-      "board": "3396:20438",
-      "board_name": "Cancel",
-      "abs": [
-        25621,
-        3395,
-        375,
-        812
-      ],
-      "board_box": [
-        24897,
-        3054,
-        1815,
-        1562
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/cancel.png",
-      "inventory_screen": "3388:17754",
-      "status": "routed",
-      "route": {
-        "case": "TC-111",
-        "how": "on",
-        "via": "K-df90b7",
-        "fit": "high",
-        "edge": "Cancel",
-        "segment": "R1-e",
-        "section": "Generating and cancel",
-        "precondition": "Processing dialog showing (TC-110)",
-        "action": "Tap 「Cancel」",
+        "precondition": "1. Signed in with a Free account (Android has no tier switch: the tier comes from the account)\n2. Panel open with a video",
+        "action": "1. Look at the CTA\n2. Tap it",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
-        "TC-110",
-        "TC-031",
-        "TC-035",
-        "TC-036"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3393:18282",
-      "name": "VE · 03 Generating",
-      "board": "3396:20438",
-      "board_name": "Cancel",
-      "abs": [
-        26096,
-        3395,
-        375,
-        812
-      ],
-      "board_box": [
-        24897,
-        3054,
-        1815,
-        1562
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/cancel.png",
-      "inventory_screen": "3393:18282",
-      "status": "routed",
-      "route": {
-        "case": "TC-111",
-        "how": "arrow",
-        "via": "3393-18476",
-        "fit": "high",
-        "edge": "Cancel: VE · 03 Generating · 「Cancel」 → VE · 03 Generating 「Sure You Want to Leave?」",
-        "segment": "R1-e",
-        "section": "Generating and cancel",
-        "precondition": "Processing dialog showing (TC-110)",
-        "action": "Tap 「Cancel」",
-        "result": "Pass",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-112",
-        "TC-113",
-        "TC-110",
-        "TC-031"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3310:38112",
-      "name": "VE · 03 Generating",
-      "board": "3293:13054",
-      "board_name": "Main Flow（Free user → IAP）",
-      "abs": [
-        24644,
-        1638,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        1269,
-        6100,
-        1585
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/main-flow-free-user-iap.png",
-      "inventory_screen": "3310:38112",
-      "status": "routed",
-      "route": {
-        "case": "TC-111",
-        "how": "on",
-        "via": "K-df90b7",
-        "fit": "high",
-        "edge": "Cancel",
-        "segment": "R1-e",
-        "section": "Generating and cancel",
-        "precondition": "Processing dialog showing (TC-110)",
-        "action": "Tap 「Cancel」",
-        "result": "Pass",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-110",
-        "TC-031",
-        "TC-035",
-        "TC-036"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3388:17664",
-      "name": "VE · 02 預設（已訂閱）",
-      "board": "3396:20438",
-      "board_name": "Cancel",
-      "abs": [
-        25146,
-        3395,
-        375,
-        812
-      ],
-      "board_box": [
-        24897,
-        3054,
-        1815,
-        1562
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/cancel.png",
-      "inventory_screen": "3388:17664",
-      "status": "routed",
-      "route": {
-        "case": "TC-113",
-        "how": "arrow",
-        "via": "3393-18607",
-        "fit": "high",
-        "edge": "Cancel: leave dialog · 「Leave」 → VE · 02 預設（已訂閱）",
-        "segment": "R1-e",
-        "section": "Generating and cancel",
-        "precondition": "1. A new task: the leave dialog showing after 「Cancel」 on the processing dialog\n2. Balance before 「Enhance」 noted",
-        "action": "Tap 「Leave」",
-        "result": "Pass",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-042",
-        "TC-214",
-        "TC-044",
-        "TC-216"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3293:13651",
-      "name": "Recent · processing",
-      "board": "3293:13054",
-      "board_name": "Main Flow（Free user → IAP）",
-      "abs": [
-        25118.5,
-        1638,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        1269,
-        6100,
-        1585
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/main-flow-free-user-iap.png",
-      "inventory_screen": "3293:13651",
-      "status": "routed",
-      "route": {
-        "case": "TC-114",
-        "how": "arrow",
-        "via": "3293-13681",
-        "fit": "high",
-        "edge": "Main Flow（Free user → IAP）: VE · 03 Generating (upload done) → Recent · processing",
-        "segment": "R1-e",
-        "section": "Generating and cancel",
-        "precondition": "1. Processing dialog showing (TC-110)\n2. Balance before 「Enhance」 noted",
-        "action": "Wait until the upload finishes",
-        "result": "Pass",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-117",
-        "TC-142",
-        "TC-094",
-        "TC-021"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3300:31478",
-      "name": "Recent",
-      "board": "3293:15052",
-      "board_name": "Alternative & Exception",
-      "abs": [
-        21988,
-        6375,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        5985,
-        6100,
-        1552
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/alternative-exception.png",
-      "inventory_screen": "3300:31478",
-      "status": "routed",
-      "route": {
-        "case": "TC-117",
-        "how": "on",
-        "via": "K-c21584",
-        "fit": "high",
-        "edge": "processing...",
-        "segment": "R1-e",
-        "section": "Generating and cancel",
-        "precondition": "A task processing in Recent task",
-        "action": "Long-press and swipe the processing card",
-        "result": "Pass",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-142",
-        "TC-094",
-        "TC-021",
-        "TC-141"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3293:14884",
-      "name": "Launcher_AI Magic",
-      "board": "3293:14642",
-      "board_name": "Entry Points",
-      "abs": [
-        22316,
-        103,
-        375,
-        812
-      ],
-      "board_box": [
-        21660,
-        -103,
-        1745,
-        1172
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/entry-points.png",
-      "inventory_screen": "3293:14884",
-      "status": "routed",
-      "route": {
-        "case": "TC-134",
-        "how": "on",
-        "via": "K-ab95a4",
-        "fit": "high",
-        "edge": "My Artwork",
-        "segment": "R1-e",
-        "section": "Background task and notifications",
-        "precondition": "At least one completed Video Enhance task",
-        "action": "1. Open 「AI Magic」 › 「My Artwork」\n2. Open 「Template」 › 「My Artwork」",
-        "result": "Pass",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-002"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3293:13664",
-      "name": "Recent · 完成",
-      "board": "3293:13054",
-      "board_name": "Main Flow（Free user → IAP）",
-      "abs": [
-        25593.5,
-        1638,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        1269,
-        6100,
-        1585
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/main-flow-free-user-iap.png",
-      "inventory_screen": "3293:13664",
-      "status": "routed",
-      "route": {
-        "case": "TC-143",
-        "how": "on",
-        "via": "K-31465e",
-        "fit": "high",
-        "edge": "2026/10/21",
-        "segment": "R1-f",
-        "section": "Recent task",
-        "precondition": "Recent task open with a processing card",
-        "action": "1. Wait on Recent task until the task completes\n2. Tap 「View」 on its card\n3. Tap ‹ on the Result\n4. Tap the completed card's thumbnail",
-        "result": "Pass",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-131",
-        "TC-142",
-        "TC-094",
-        "TC-021"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3293:13684",
-      "name": "result",
-      "board": "3293:13054",
-      "board_name": "Main Flow（Free user → IAP）",
-      "abs": [
-        26068.5,
-        1640,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        1269,
-        6100,
-        1585
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/main-flow-free-user-iap.png",
-      "inventory_screen": "3293:13684",
-      "status": "routed",
-      "route": {
-        "case": "TC-143",
-        "how": "arrow",
-        "via": "3293-13683",
-        "fit": "high",
-        "edge": "Main Flow（Free user → IAP）: Recent · 完成 · 「View」 → result",
-        "segment": "R1-f",
-        "section": "Recent task",
-        "precondition": "Recent task open with a processing card",
-        "action": "1. Wait on Recent task until the task completes\n2. Tap 「View」 on its card\n3. Tap ‹ on the Result\n4. Tap the completed card's thumbnail",
-        "result": "Pass",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-150",
-        "TC-151",
-        "TC-153",
-        "TC-154"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3300:31547",
-      "name": "result",
-      "board": "3293:15052",
-      "board_name": "Alternative & Exception",
-      "abs": [
-        22938,
-        6375,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        5985,
-        6100,
-        1552
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/alternative-exception.png",
-      "inventory_screen": "3300:31547",
-      "status": "routed",
-      "route": {
-        "case": "TC-150",
-        "how": "on",
-        "via": "K-e1c8f3",
-        "fit": "high",
-        "edge": "Slider/Preview",
-        "segment": "R1-f",
-        "section": "Result",
-        "precondition": "A completed task's Result open (TC-143)",
-        "action": "1. Tap play\n2. Tap the same button again (pause)\n3. Wait 3 s\n4. Drag the progress slider",
-        "result": "Pass",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-151",
-        "TC-153",
-        "TC-154",
-        "TC-155"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3293:15910",
-      "name": "Recent",
-      "board": "3293:15052",
-      "board_name": "Alternative & Exception",
-      "abs": [
-        23568,
-        6372,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        5985,
-        6100,
-        1552
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/alternative-exception.png",
-      "inventory_screen": "3293:15910",
-      "status": "routed",
-      "route": {
-        "case": "TC-171",
-        "how": "on",
-        "via": "K-1534be",
-        "fit": "high",
-        "edge": "Error",
-        "segment": "R1-f",
-        "section": "Failure and refund",
-        "precondition": "A failed card in Recent task (TC-170)",
-        "action": "1. Tap 「View Details」\n2. Tap 「OK」",
-        "result": "Blocked",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-142",
-        "TC-094",
-        "TC-021",
-        "TC-141"
-      ],
-      "flags": []
-    },
-    {
-      "id": "3393:18196",
-      "name": "Recent",
-      "board": "3293:15052",
-      "board_name": "Alternative & Exception",
-      "abs": [
-        24043,
-        6372,
-        375,
-        812
-      ],
-      "board_box": [
-        20612,
-        5985,
-        6100,
-        1552
-      ],
-      "board_png": "specs/2026-11-03/extracted/figma/alternative-exception.png",
-      "inventory_screen": "3393:18196",
-      "status": "routed",
-      "route": {
-        "case": "TC-171",
-        "how": "on",
-        "via": "K-1534be",
-        "fit": "high",
-        "edge": "Error",
-        "segment": "R1-f",
-        "section": "Failure and refund",
-        "precondition": "A failed card in Recent task (TC-170)",
-        "action": "1. Tap 「View Details」\n2. Tap 「OK」",
-        "result": "Blocked",
-        "run": "2026-11-10-r1-full"
-      },
-      "alternatives": [
-        "TC-142",
-        "TC-094",
-        "TC-021",
-        "TC-141"
+        "TC-073",
+        "TC-074",
+        "TC-218",
+        "TC-075"
       ],
       "flags": []
     },
@@ -1265,18 +559,18 @@
         "via": "K-00521c",
         "fit": "mid",
         "edge": "Unlock Pro+ to Enhance",
-        "segment": "R1-i",
+        "segment": "R2-i",
         "section": "Eligibility and purchase",
         "precondition": "1. Signed in with a Free account (Android has no tier switch: the tier comes from the account)\n2. Panel open with a video",
         "action": "1. Look at the CTA\n2. Tap it",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
         "TC-031",
         "TC-035",
         "TC-036",
-        "TC-037"
+        "TC-038"
       ],
       "flags": []
     },
@@ -1306,18 +600,18 @@
         "via": "K-00521c",
         "fit": "mid",
         "edge": "Unlock Pro+ to Enhance",
-        "segment": "R1-i",
+        "segment": "R2-i",
         "section": "Eligibility and purchase",
         "precondition": "1. Signed in with a Free account (Android has no tier switch: the tier comes from the account)\n2. Panel open with a video",
         "action": "1. Look at the CTA\n2. Tap it",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
         "TC-031",
         "TC-035",
         "TC-036",
-        "TC-037"
+        "TC-038"
       ],
       "flags": []
     },
@@ -1347,12 +641,12 @@
         "via": "3293-13717",
         "fit": "high",
         "edge": "Main Flow（Free user → IAP）: VE · 01 預設（未訂閱） · 「Unlock Pro+ to Enhance」 → IAP_US",
-        "segment": "R1-i",
+        "segment": "R2-i",
         "section": "Eligibility and purchase",
         "precondition": "1. Signed in with a Free account (Android has no tier switch: the tier comes from the account)\n2. Panel open with a video",
         "action": "1. Look at the CTA\n2. Tap it",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
         "TC-093",
@@ -1388,12 +682,12 @@
         "via": "C-75d545",
         "fit": "high",
         "edge": "Yearly",
-        "segment": "R1-i",
+        "segment": "R2-i",
         "section": "Eligibility and purchase",
         "precondition": "IAP page open from the panel (TC-090)",
         "action": "1. Tap 「Monthly」\n2. Tap 「Yearly」",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
         "TC-095",
@@ -1429,12 +723,12 @@
         "via": "C-75d545",
         "fit": "high",
         "edge": "Yearly",
-        "segment": "R1-i",
+        "segment": "R2-i",
         "section": "Eligibility and purchase",
         "precondition": "IAP page open from the panel (TC-090)",
         "action": "1. Tap 「Monthly」\n2. Tap 「Yearly」",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
         "TC-095",
@@ -1470,18 +764,841 @@
         "via": "3293-13679",
         "fit": "high",
         "edge": "Main Flow（Free user → IAP）: purchase success 「OK」 → VE · 02 預設（已訂閱）",
-        "segment": "R1-i",
+        "segment": "R2-i",
         "section": "Eligibility and purchase",
-        "precondition": "1. Signed in with a Free account (Android has no tier switch: the tier comes from the account) on an account that may buy Pro\n2. Panel open with selection 00:30–05:30 and 「Sharp」\n3. IAP page open on the 「Pro」 tab",
-        "action": "1. Tap 「Continue」\n2. Complete the Google Play purchase sheet",
+        "precondition": "1. Signed in with a Free account (Android has no tier switch: the tier comes from the account) on an account that may buy Pro\n2. Panel open with selection 00:30–05:30 and 「Sharp」\n3. IAP page open on the 「Pro」 tab\n4. The signed-in Google account is a license tester of PowerDirector on Google Play (「Test card, always approves」, no charge)",
+        "action": "1. Tap 「Yearly」\n2. Tap 「Continue」\n3. Pay with 「Test card, always approves」 and tap 「Subscribe」 on the Google Play sheet\n4. If a Google Play offer shows, tap 「Not now」",
         "result": "Pass",
-        "run": "2026-11-10-r1-full"
+        "run": "2026-11-18-r2-full"
       },
       "alternatives": [
         "TC-141",
-        "TC-042",
-        "TC-214",
-        "TC-044"
+        "TC-073",
+        "TC-074",
+        "TC-218"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3328:45377",
+      "name": "VE · 02 預設（已訂閱）",
+      "board": "3293:15052",
+      "board_name": "Alternative & Exception",
+      "abs": [
+        20862,
+        6375,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        5985,
+        6100,
+        1552
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/alternative-exception.png",
+      "inventory_screen": "3328:45377",
+      "status": "routed",
+      "route": {
+        "case": "TC-031",
+        "how": "on",
+        "via": "K-19855b",
+        "fit": "high",
+        "edge": "round/ic_info",
+        "segment": "R2-b",
+        "section": "Panel layout and first-run bubble",
+        "precondition": "1. Panel open\n2. The first-run bubble already seen",
+        "action": "1. Tap ⓘ next to 「Selected Length」\n2. Tap anywhere on the screen within 3 s",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-073",
+        "TC-074",
+        "TC-218",
+        "TC-075"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3479:106886",
+      "name": "panel",
+      "board": "3300:32003",
+      "board_name": "AI Video Enhance",
+      "abs": [
+        23489,
+        3368,
+        375,
+        494
+      ],
+      "board_box": [
+        20612,
+        3054,
+        4148,
+        2590
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/ai-video-enhance.png",
+      "inventory_screen": "3479:106886",
+      "partial": true,
+      "status": "routed",
+      "route": {
+        "case": "TC-035",
+        "how": "quoted",
+        "via": "3479:106886",
+        "fit": "high",
+        "edge": "standard: great quality · up to # min",
+        "segment": "R2-b",
+        "section": "Panel layout and first-run bubble",
+        "precondition": "Panel open",
+        "action": "Tap ⓘ next to 「Mode」",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-031",
+        "TC-036",
+        "TC-061",
+        "TC-062"
+      ],
+      "flags": [
+        "partial"
+      ]
+    },
+    {
+      "id": "3494:106998",
+      "name": "panel",
+      "board": "3300:32003",
+      "board_name": "AI Video Enhance",
+      "abs": [
+        23489,
+        3954,
+        375,
+        494
+      ],
+      "board_box": [
+        20612,
+        3054,
+        4148,
+        2590
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/ai-video-enhance.png",
+      "inventory_screen": "3494:106998",
+      "partial": true,
+      "status": "routed",
+      "route": {
+        "case": "TC-036",
+        "how": "quoted",
+        "via": "3494:106998",
+        "fit": "high",
+        "edge": "natural: lighter enhancement with fewer artifacts, for a more realistic look",
+        "segment": "R2-b",
+        "section": "Panel layout and first-run bubble",
+        "precondition": "Panel open",
+        "action": "Tap ⓘ next to 「Enhancement style」",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-031",
+        "TC-035",
+        "TC-061",
+        "TC-062"
+      ],
+      "flags": [
+        "partial"
+      ]
+    },
+    {
+      "id": "3313:39430",
+      "name": "VE · 01 預設（整段）",
+      "board": "3300:32003",
+      "board_name": "AI Video Enhance",
+      "abs": [
+        22775,
+        3460,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        3054,
+        4148,
+        2590
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/ai-video-enhance.png",
+      "inventory_screen": "3313:39430",
+      "status": "routed",
+      "route": {
+        "case": "TC-038",
+        "how": "on",
+        "via": "K-26a1f3",
+        "fit": "high",
+        "edge": "Back",
+        "segment": "R2-b",
+        "section": "Panel layout and first-run bubble",
+        "precondition": "Panel open from Add Media, nothing running",
+        "action": "Tap ‹ in the panel's top bar",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-090",
+        "TC-031",
+        "TC-035",
+        "TC-036"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3669:20463",
+      "name": "VE · Mode 02 點 Professional → Toast",
+      "board": "3300:32003",
+      "board_name": "AI Video Enhance",
+      "abs": [
+        21317,
+        4609,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        3054,
+        4148,
+        2590
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/ai-video-enhance.png",
+      "inventory_screen": "3669:20463",
+      "status": "routed",
+      "route": {
+        "case": "TC-071",
+        "how": "quoted",
+        "via": "3669:20463",
+        "fit": "high",
+        "edge": "professional supports clips up to #:#. shorten your selection to switch.",
+        "segment": "R2-c",
+        "section": "Mode length limit",
+        "precondition": "Panel open with the 12:30 video in Standard, selection 00:30–05:30 (「05:00」)",
+        "action": "Tap 「Professional」",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-076",
+        "TC-275",
+        "TC-262",
+        "TC-160"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3293:15145",
+      "name": "Credit page_paid",
+      "board": "3293:15052",
+      "board_name": "Alternative & Exception",
+      "abs": [
+        21337,
+        6375,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        5985,
+        6100,
+        1552
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/alternative-exception.png",
+      "inventory_screen": "3293:15145",
+      "status": "routed",
+      "route": {
+        "case": "TC-097",
+        "how": "on",
+        "via": "K-03b211",
+        "fit": "high",
+        "edge": "Buy More",
+        "segment": "R2-d",
+        "section": "Eligibility and purchase",
+        "precondition": "1. TC-096 setup: Credit page open from the panel, the balance noted\n2. The signed-in Google account is a license tester of PowerDirector on Google Play, so the purchase sheet offers 「Test card, always approves」 (no charge)\n3. The user's go-ahead for this purchase",
+        "action": "1. Tap 「Buy More」\n2. Pick 「Get 500 Credits」 (NT$1190)\n3. Pay with 「Test card, always approves」 on the Google Play sheet\n4. If 「Want to get 100 credits, too?」 shows, tap 「Not now」\n5. Open My Credits",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-096",
+        "TC-098",
+        "TC-031",
+        "TC-035"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3669:20362",
+      "name": "VE · Mode 01 Standard 05:00",
+      "board": "3300:32003",
+      "board_name": "AI Video Enhance",
+      "abs": [
+        20842,
+        4609,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        3054,
+        4148,
+        2590
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/ai-video-enhance.png",
+      "inventory_screen": "3669:20362",
+      "status": "routed",
+      "route": {
+        "case": "TC-110",
+        "how": "on",
+        "via": "K-68e6ce",
+        "fit": "mid",
+        "edge": "Enhance",
+        "segment": "R2-e",
+        "section": "Generating and cancel",
+        "precondition": "1. Signed in with a Pro account (no tier switch on Android) with enough credits\n2. Panel open with a 01:30 1080p 30 fps video and the defaults kept (Standard, Natural, 30fps, 1080p)\n3. Note the balance",
+        "action": "Tap 「Enhance ◆ <credits>」",
+        "result": "Fail",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-031",
+        "TC-035",
+        "TC-036",
+        "TC-038"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3669:20564",
+      "name": "VE · Mode 03 縮短後可切換",
+      "board": "3300:32003",
+      "board_name": "AI Video Enhance",
+      "abs": [
+        21792,
+        4609,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        3054,
+        4148,
+        2590
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/ai-video-enhance.png",
+      "inventory_screen": "3669:20564",
+      "status": "routed",
+      "route": {
+        "case": "TC-110",
+        "how": "on",
+        "via": "K-68e6ce",
+        "fit": "mid",
+        "edge": "Enhance",
+        "segment": "R2-e",
+        "section": "Generating and cancel",
+        "precondition": "1. Signed in with a Pro account (no tier switch on Android) with enough credits\n2. Panel open with a 01:30 1080p 30 fps video and the defaults kept (Standard, Natural, 30fps, 1080p)\n3. Note the balance",
+        "action": "Tap 「Enhance ◆ <credits>」",
+        "result": "Fail",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-031",
+        "TC-035",
+        "TC-036",
+        "TC-038"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3388:17754",
+      "name": "VE · 03 Generating",
+      "board": "3396:20438",
+      "board_name": "Cancel",
+      "abs": [
+        25621,
+        3395,
+        375,
+        812
+      ],
+      "board_box": [
+        24897,
+        3054,
+        1815,
+        1562
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/cancel.png",
+      "inventory_screen": "3388:17754",
+      "status": "routed",
+      "route": {
+        "case": "TC-111",
+        "how": "on",
+        "via": "K-df90b7",
+        "fit": "high",
+        "edge": "Cancel",
+        "segment": "R2-e",
+        "section": "Generating and cancel",
+        "precondition": "Processing dialog showing (TC-110)",
+        "action": "Tap 「Cancel」",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-110",
+        "TC-031",
+        "TC-035",
+        "TC-036"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3393:18282",
+      "name": "VE · 03 Generating",
+      "board": "3396:20438",
+      "board_name": "Cancel",
+      "abs": [
+        26096,
+        3395,
+        375,
+        812
+      ],
+      "board_box": [
+        24897,
+        3054,
+        1815,
+        1562
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/cancel.png",
+      "inventory_screen": "3393:18282",
+      "status": "routed",
+      "route": {
+        "case": "TC-111",
+        "how": "arrow",
+        "via": "3393-18476",
+        "fit": "high",
+        "edge": "Cancel: VE · 03 Generating · 「Cancel」 → VE · 03 Generating 「Sure You Want to Leave?」",
+        "segment": "R2-e",
+        "section": "Generating and cancel",
+        "precondition": "Processing dialog showing (TC-110)",
+        "action": "Tap 「Cancel」",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-113",
+        "TC-112",
+        "TC-110",
+        "TC-031"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3310:38112",
+      "name": "VE · 03 Generating",
+      "board": "3293:13054",
+      "board_name": "Main Flow（Free user → IAP）",
+      "abs": [
+        24644,
+        1638,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        1269,
+        6100,
+        1585
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/main-flow-free-user-iap.png",
+      "inventory_screen": "3310:38112",
+      "status": "routed",
+      "route": {
+        "case": "TC-111",
+        "how": "on",
+        "via": "K-df90b7",
+        "fit": "high",
+        "edge": "Cancel",
+        "segment": "R2-e",
+        "section": "Generating and cancel",
+        "precondition": "Processing dialog showing (TC-110)",
+        "action": "Tap 「Cancel」",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-110",
+        "TC-031",
+        "TC-035",
+        "TC-036"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3388:17664",
+      "name": "VE · 02 預設（已訂閱）",
+      "board": "3396:20438",
+      "board_name": "Cancel",
+      "abs": [
+        25146,
+        3395,
+        375,
+        812
+      ],
+      "board_box": [
+        24897,
+        3054,
+        1815,
+        1562
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/cancel.png",
+      "inventory_screen": "3388:17664",
+      "status": "routed",
+      "route": {
+        "case": "TC-113",
+        "how": "arrow",
+        "via": "3393-18607",
+        "fit": "high",
+        "edge": "Cancel: leave dialog · 「Leave」 → VE · 02 預設（已訂閱）",
+        "segment": "R2-e",
+        "section": "Generating and cancel",
+        "precondition": "1. A new task: the leave dialog showing after 「Cancel」 on the processing dialog\n2. Balance before 「Enhance」 noted",
+        "action": "1. Tap 「Leave」\n2. Open the credit history (「Details」 on the Credit page)",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-073",
+        "TC-074",
+        "TC-218",
+        "TC-075"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3293:13651",
+      "name": "Recent · processing",
+      "board": "3293:13054",
+      "board_name": "Main Flow（Free user → IAP）",
+      "abs": [
+        25118.5,
+        1638,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        1269,
+        6100,
+        1585
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/main-flow-free-user-iap.png",
+      "inventory_screen": "3293:13651",
+      "status": "routed",
+      "route": {
+        "case": "TC-114",
+        "how": "arrow",
+        "via": "3293-13681",
+        "fit": "high",
+        "edge": "Main Flow（Free user → IAP）: VE · 03 Generating (upload done) → Recent · processing",
+        "segment": "R2-e",
+        "section": "Generating and cancel",
+        "precondition": "1. Processing dialog showing (TC-110)\n2. Balance before 「Enhance」 noted",
+        "action": "Wait until the upload finishes",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-117",
+        "TC-094",
+        "TC-142",
+        "TC-021"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3300:31478",
+      "name": "Recent",
+      "board": "3293:15052",
+      "board_name": "Alternative & Exception",
+      "abs": [
+        21988,
+        6375,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        5985,
+        6100,
+        1552
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/alternative-exception.png",
+      "inventory_screen": "3300:31478",
+      "status": "routed",
+      "route": {
+        "case": "TC-117",
+        "how": "on",
+        "via": "K-c21584",
+        "fit": "high",
+        "edge": "processing...",
+        "segment": "R2-e",
+        "section": "Generating and cancel",
+        "precondition": "A task processing in Recent task",
+        "action": "Long-press and swipe the processing card",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-094",
+        "TC-142",
+        "TC-021",
+        "TC-141"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3300:31547",
+      "name": "result",
+      "board": "3293:15052",
+      "board_name": "Alternative & Exception",
+      "abs": [
+        22938,
+        6375,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        5985,
+        6100,
+        1552
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/alternative-exception.png",
+      "inventory_screen": "3300:31547",
+      "status": "routed",
+      "route": {
+        "case": "TC-131",
+        "how": "arrow",
+        "via": "3293-15875",
+        "fit": "high",
+        "edge": "Alternative & Exception: Launcher_2026_08 banner 「View」 → result",
+        "segment": "R2-e",
+        "section": "Background task and notifications",
+        "precondition": "The completion banner showing (TC-130)",
+        "action": "Tap 「View」 on the banner at once",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-150",
+        "TC-151",
+        "TC-153",
+        "TC-154"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3293:13664",
+      "name": "Recent · 完成",
+      "board": "3293:13054",
+      "board_name": "Main Flow（Free user → IAP）",
+      "abs": [
+        25593.5,
+        1638,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        1269,
+        6100,
+        1585
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/main-flow-free-user-iap.png",
+      "inventory_screen": "3293:13664",
+      "status": "routed",
+      "route": {
+        "case": "TC-131",
+        "how": "on",
+        "via": "K-b20a38",
+        "fit": "high",
+        "edge": "View",
+        "segment": "R2-e",
+        "section": "Background task and notifications",
+        "precondition": "The completion banner showing (TC-130)",
+        "action": "Tap 「View」 on the banner at once",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-143",
+        "TC-094",
+        "TC-142",
+        "TC-021"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3293:14884",
+      "name": "Launcher_AI Magic",
+      "board": "3293:14642",
+      "board_name": "Entry Points",
+      "abs": [
+        22316,
+        103,
+        375,
+        812
+      ],
+      "board_box": [
+        21660,
+        -103,
+        1745,
+        1172
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/entry-points.png",
+      "inventory_screen": "3293:14884",
+      "status": "routed",
+      "route": {
+        "case": "TC-134",
+        "how": "on",
+        "via": "K-ab95a4",
+        "fit": "high",
+        "edge": "My Artwork",
+        "segment": "R2-e",
+        "section": "Background task and notifications",
+        "precondition": "At least one completed Video Enhance task",
+        "action": "1. Open 「AI Magic」 › 「My Artwork」\n2. Open 「Template」 › 「My Artwork」",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-002"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3293:13684",
+      "name": "result",
+      "board": "3293:13054",
+      "board_name": "Main Flow（Free user → IAP）",
+      "abs": [
+        26068.5,
+        1640,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        1269,
+        6100,
+        1585
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/main-flow-free-user-iap.png",
+      "inventory_screen": "3293:13684",
+      "status": "routed",
+      "route": {
+        "case": "TC-143",
+        "how": "arrow",
+        "via": "3293-13683",
+        "fit": "high",
+        "edge": "Main Flow（Free user → IAP）: Recent · 完成 · 「View」 → result",
+        "segment": "R2-f",
+        "section": "Recent task",
+        "precondition": "Recent task open with a processing card",
+        "action": "1. Wait on Recent task until the task completes\n2. Tap 「View」 on its card\n3. Tap ‹ on the Result\n4. Tap the completed card's thumbnail",
+        "result": "Pass",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-150",
+        "TC-151",
+        "TC-153",
+        "TC-154"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3293:15910",
+      "name": "Recent",
+      "board": "3293:15052",
+      "board_name": "Alternative & Exception",
+      "abs": [
+        23568,
+        6372,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        5985,
+        6100,
+        1552
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/alternative-exception.png",
+      "inventory_screen": "3293:15910",
+      "status": "routed",
+      "route": {
+        "case": "TC-171",
+        "how": "on",
+        "via": "K-1534be",
+        "fit": "high",
+        "edge": "Error",
+        "segment": "R2-f",
+        "section": "Failure and refund",
+        "precondition": "A failed card in Recent task (TC-170)",
+        "action": "1. Tap 「View Details」\n2. Tap 「OK」",
+        "result": "Fail",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-094",
+        "TC-142",
+        "TC-021",
+        "TC-141"
+      ],
+      "flags": []
+    },
+    {
+      "id": "3393:18196",
+      "name": "Recent",
+      "board": "3293:15052",
+      "board_name": "Alternative & Exception",
+      "abs": [
+        24043,
+        6372,
+        375,
+        812
+      ],
+      "board_box": [
+        20612,
+        5985,
+        6100,
+        1552
+      ],
+      "board_png": "specs/2026-11-03/extracted/figma/alternative-exception.png",
+      "inventory_screen": "3393:18196",
+      "status": "routed",
+      "route": {
+        "case": "TC-171",
+        "how": "on",
+        "via": "K-1534be",
+        "fit": "high",
+        "edge": "Error",
+        "segment": "R2-f",
+        "section": "Failure and refund",
+        "precondition": "A failed card in Recent task (TC-170)",
+        "action": "1. Tap 「View Details」\n2. Tap 「OK」",
+        "result": "Fail",
+        "run": "2026-11-18-r2-full"
+      },
+      "alternatives": [
+        "TC-094",
+        "TC-142",
+        "TC-021",
+        "TC-141"
       ],
       "flags": []
     }

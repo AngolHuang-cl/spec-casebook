@@ -257,7 +257,7 @@ test('scope: the Plan view block excludes with a reason, includes again and mark
 
 // ---- check -----------------------------------------------------------------------------------------------------------
 test('check: every planted difference is found, and nothing else', () => {
-  const r = design('check', 'r1');
+  const r = design('check', 'r1', '--standard');
   assert.equal(r.status, 0, r.out);
   const c = cands('r1', '1:10');
   assert.deepEqual(ids(c.filter((x: any) => x.severity !== 'info')), [
@@ -307,7 +307,7 @@ test("check: the app's own view data (Android) gives size, weight, colour, lines
   png(join(RUNS, 'a-views', 'screenshots', 'design', '1-10.png'), 1080, 2338, [[[346, 1699, 749, 1826], '#3366ff']]);
   put(join(RUNS, 'a-views', 'screenshots', 'design', '1-10.views.json'), views);
   capture('a-views', '1:10', '1-10', xml, { w: 1080, h: 2338 }, { views: 'screenshots/design/1-10.views.json' });
-  const r = design('check', 'a-views');
+  const r = design('check', 'a-views', '--standard');
   assert.equal(r.status, 0, r.out);
   const c = cands('a-views', '1:10'), by = (id: string) => c.find((x: any) => x.id === id);
   assert.equal(by('size:1:11')?.src, 'app', '18 sp against 16 pt');
@@ -345,16 +345,16 @@ test('check: a half with too few anchors has no fit, and a text\'s own place is 
   put(join(RUNS, 'r0', 'design', '.keep'), '');
   homeShot(join(RUNS, 'r0', 'screenshots', 'design', '1-10.png'));
   capture('r0', '1:10', '1-10', `<A>${st('Create Your Drama', 60, 160, 180, 24)}${st('Start', 165, 602, 45, 20)}${st('Templates', 20, 700, 100, 20)}</A>`, { w: 375, h: 812 });
-  assert.equal(design('check', 'r0').status, 0);
+  assert.equal(design('check', 'r0', '--standard').status, 0);
   const s = read(join(RUNS, 'r0', 'design', 'compare.json')).screens[0];
   assert.equal(s.fit.top.ok, false);
   assert.ok(!s.candidates.some((x: any) => x.kind === 'position'));
 });
 
-test('check --full: the words and a text\'s own place are items again, and the run keeps the rule set', () => {
+test('check: the full check is the default, --standard is asked for, and the run keeps its rule set', () => {
   cpSync(join(RUNS, 'r1'), join(RUNS, 'r1-full'), { recursive: true }); rmSync(join(RUNS, 'r1-full', 'design', 'compare.json'), { force: true });
-  const r = design('check', 'r1-full', '--full');
-  assert.equal(r.status, 0, r.out); assert.match(r.out, /full check/);
+  const r = design('check', 'r1-full');
+  assert.equal(r.status, 0, r.out); assert.match(r.out, /full check/); assert.doesNotMatch(r.out, /kept from/);
   const c = cands('r1-full', '1:10');
   const by = (id: string) => c.find((x: any) => x.id === id);
   assert.equal(by('copy:1:1a')?.app.text, 'Choose the template', 'other words are a copy item');
@@ -363,12 +363,17 @@ test('check --full: the words and a text\'s own place are items again, and the r
   assert.equal(read(join(RUNS, 'r1-full', 'design', 'compare.json')).rules, 'full');
   // everything the standard check finds is still found
   for (const id of ['align:1:14', 'padding:1:1i', 'missing:1:1e', 'truncated:1:1b']) assert.ok(c.some((x: any) => x.id === id), id);
-  // a later check without the flag keeps the full rules; --standard goes back
-  assert.match(design('check', 'r1-full').out, /kept from this run's last check/);
-  assert.ok(cands('r1-full', '1:10').some((x: any) => x.kind === 'copy'));
+  // --standard leaves words and places out, and a later check without a flag keeps it; --full goes back
   assert.equal(design('check', 'r1-full', '--standard').status, 0);
   assert.ok(!cands('r1-full', '1:10').some((x: any) => ['copy', 'position'].includes(x.kind)));
-  assert.equal(read(join(RUNS, 'r1-full', 'design', 'compare.json')).rules, undefined);
+  assert.equal(read(join(RUNS, 'r1-full', 'design', 'compare.json')).rules, 'standard');
+  assert.match(design('check', 'r1-full').out, /standard check.*kept from this run's last check/);
+  assert.ok(!cands('r1-full', '1:10').some((x: any) => x.kind === 'copy'));
+  assert.equal(design('check', 'r1-full', '--full').status, 0);
+  assert.ok(cands('r1-full', '1:10').some((x: any) => x.kind === 'copy'));
+  // a run checked before 2026-11-19 has no `rules` in its compare.json: it was standard and stays standard
+  const f = join(RUNS, 'r1-full', 'design', 'compare.json'), cmp = read(f); delete cmp.rules; put(f, cmp);
+  assert.match(design('check', 'r1-full').out, /standard check.*kept from this run's last check/);
   rmSync(join(RUNS, 'r1-full'), { recursive: true });
 });
 
@@ -451,7 +456,7 @@ test('check --recheck: earlier bugs fixed, still there, or to look at again', ()
   put(join(RUNS, 'r2', 'design', '.keep'), '');
   homeShot(join(RUNS, 'r2', 'screenshots', 'design', '1-10.png'));
   capture('r2', '1:10', '1-10', iosHome('Recently created dramas'), { w: 375, h: 812 });
-  const r = design('check', 'r2', '--recheck', 'r1', '--build', '15.3.0 (190100)');
+  const r = design('check', 'r2', '--recheck', 'r1', '--build', '15.3.0 (190100)', '--standard');
   assert.equal(r.status, 0, r.out);
   const s = read(join(RUNS, 'r2', 'design', 'compare.json')).screens[0];
   const now = Object.fromEntries(s.recheck.items.map((i: any) => [i.id, i.now]));
@@ -465,7 +470,7 @@ test('shared captures: another computer checks and shows the run from the commit
   const before = read(join(RUNS, 'r2', 'design', 'compare.json')).screens[0].candidates.map((c: any) => c.id).sort();
   // the phone's files are gone (a computer that pulled the repo)
   rmSync(join(RUNS, 'r2', 'screenshots'), { recursive: true, force: true });
-  const r = design('check', 'r2', '--recheck', 'r1');
+  const r = design('check', 'r2', '--recheck', 'r1', '--standard');
   assert.equal(r.status, 0, r.out);
   const after = read(join(RUNS, 'r2', 'design', 'compare.json')).screens[0].candidates.map((c: any) => c.id).sort();
   assert.deepEqual(after, before, 'the same differences from the 750 px copy');
@@ -510,6 +515,22 @@ test('page: statuses, the newest capture per screen, and the app image', () => {
 });
 
 // ---- automatic captures during a casebook run (lib/design-watch.ts) -------------------------------------------------
+// the plain panel (the row's screen) holds every short text of the tooltip frame: with the tooltip's own line on the
+// phone the panel is not taken from it (2026-11-19), the tooltip is; without it, the panel is
+test('watch: a screen covered by another is not taken while that one\'s own line shows', async () => {
+  const { watchSource } = await import('../lib/design-watch.ts');
+  const dir = join(RUNS, 'r7'); mkdirSync(join(dir, 'design'), { recursive: true });
+  writeFileSync(join(dir, '.case'), 'TC-001');
+  const texts = ['mode', 'standard', 'professional', 'enhancement style', 'apply'], tip = 'sharper detail for faces and text';
+  writeFileSync(join(dir, '.design-watch.json'), JSON.stringify({ case: 'TC-001', row: ['9:1'], screens: {
+    '9:1': { name: 'panel', texts, not: [tip] }, '9:2': { name: 'panel tooltip', texts, own: [tip] } } }));
+  const shot = async () => Buffer.from('png'), win = async () => ({ width: 375, height: 812 });
+  const page = (extra = '') => `<A>${['Mode', 'Standard', 'Professional', 'Enhancement style', 'Apply'].map((t, i) => st(t, 20, 400 + 40 * i, 200, 20)).join('')}${extra}</A>`;
+  assert.match(await watchSource(dir, page(st('Sharper detail for faces and text', 20, 300, 300, 20)), shot, win) ?? '', /captured 9:2 panel tooltip/);
+  assert.match(await watchSource(dir, page(), shot, win) ?? '', /captured 9:1 panel automatically/);
+  rmSync(dir, { recursive: true });
+});
+
 test('watch: `case` arms the row\'s screens, a matching page source is captured, leftovers are named', async () => {
   const { armWatch, watchSource } = await import('../lib/design-watch.ts');
   const dir = join(RUNS, 'r9'); mkdirSync(dir, { recursive: true });
@@ -818,4 +839,100 @@ test("appElements: Android layers by drawing order, icon names, other windows", 
   assert.equal(keyboardInSource(kb), true);
   assert.ok(!appElements(kb).some(e => e.text === 'Q'), "the keyboard's keys are left out");
   assert.equal(keyboardInSource(page('')), null, 'one window: not known');
+});
+
+// ---- partial screens (video-enhance REQ-030) ---------------------------------------------------------------------------
+// a state drawn as a close-up of part of a phone (375 × 400 here, the panel with a tooltip open) is a screen; a narrower
+// lookup table is not, and the plan lists it until someone skips it; the check measures only the part drawn
+test('partial screens: found, flagged, the rest listed, and only the drawn part is checked', () => {
+  const S6 = [{ id: '1:60', parent: '1:1', type: 'FRAME', name: 'panel', abs: [0, 1800, 375, 400], depth: 1 },
+    text('1:61', '1:60', 'Mode', [20, 1830, 100, 20]), text('1:62', '1:60', 'Standard', [20, 1870, 100, 20]),
+    text('1:63', '1:60', 'Professional', [150, 1870, 120, 20]), text('1:64', '1:60', 'Enhancement style', [20, 1920, 200, 20])];
+  const TABLE = [{ id: '1:70', parent: '1:1', type: 'FRAME', name: 'fps table', abs: [500, 1800, 302, 180], depth: 1 }];
+  const nodes = [{ id: '1:1', parent: null, type: 'FRAME', name: 'Board', abs: [0, 0, 1200, 2300], depth: 0 },
+    ...[...S1, ...S2, ...S3, ...S4].map(n => ({ ...n, depth: n.parent === '1:1' ? 1 : 2 })), ...S6.map((n, i) => ({ ...n, depth: i ? 2 : 1 })), ...TABLE]
+    .map(n => ({ ...n, box: n.abs }));
+  put(join(OUT, '1-1.json'), { board: { id: '1:1', name: 'Board', box: [0, 0, 1200, 2300] }, nodes });
+  put(join(OUT, '2-1.json'), { board: { id: '2:1', name: 'Other', box: [3000, 0, 375, 812] }, nodes: S5.map(n => ({ ...n, box: n.abs, depth: 0 })) });
+  const r = run('figma-source.ts', [F, '2026-01-01', 'screens', 'design']);
+  assert.equal(r.status, 0, r.out); assert.match(r.out, /\(1 partial\)/);
+  const sc = read(join(OUT, 'screens.json'));
+  assert.ok(sc.find((s: any) => s.id === '1:60')?.partial, 'the 375 × 400 panel is a partial screen');
+  assert.ok(!sc.some((s: any) => s.id === '1:70'), 'the 302 pt table is not a screen');
+  // a row quoting a line only the panel draws reaches it (`quoted`): it shares no control or arrow with anything
+  const csv = readFileSync(join(T, 'cases.csv'), 'utf8');
+  writeFileSync(join(T, 'cases.csv'), csv + 'TC-003,Panel,Panel open,Tap ⓘ next to 「Mode」,A bubble lists 「Enhancement style」,P3,R-002,\n');
+  assert.equal(design('plan').status, 0);
+  const plan = read(join(T, 'design', 'plan.json'));
+  assert.ok(plan.screens.find((s: any) => s.id === '1:60').flags.includes('partial'));
+  assert.deepEqual([plan.screens.find((s: any) => s.id === '1:60').route?.case, plan.screens.find((s: any) => s.id === '1:60').route?.how], ['TC-003', 'quoted']);
+  writeFileSync(join(T, 'cases.csv'), csv);
+  assert.deepEqual(plan.not_screens.map((f: any) => f.id), ['1:70']);
+  assert.match(design('status').out, /CHECK 1 frame\(s\) not taken as screens: 1:70/);
+  assert.equal(design('plan', '--also-skip', '1:70', '--skip-reason', 'a lookup table, not a screen').status, 0);
+  assert.deepEqual(read(join(T, 'design', 'plan.json')).not_screens, []);
+  // the capture: the panel at the bottom of the phone (412 pt down), a preview title above it that the frame does not draw
+  put(join(RUNS, 'r9', 'design', '.keep'), '');
+  png(join(RUNS, 'r9', 'screenshots', 'design', '1-60.png'), 1125, 2436, [[20, 100, 200, 20], [20, 1242, 100, 20], [20, 1282, 100, 20], [150, 1282, 120, 20], [20, 1332, 200, 20]].map(b => [s3(b), '#ffffff'] as [number[], string]));
+  capture('r9', '1:60', '1-60', `<A>${st('Preview title', 20, 100, 200, 20)}${st('Mode', 20, 442, 100, 20)}${st('Standard', 20, 482, 100, 20)}${st('Professional', 150, 482, 120, 20)}${st('Enhancement style', 20, 532, 200, 20)}</A>`, { w: 375, h: 812 });
+  const c = design('check', 'r9', '--standard');
+  assert.equal(c.status, 0, c.out);
+  const s = read(join(RUNS, 'r9', 'design', 'compare.json')).screens.find((x: any) => x.id === '1:60');
+  assert.equal(s.partial.offset, 412);
+  assert.ok(!s.candidates.some((x: any) => x.kind === 'missing'), 'every panel text is found');
+  assert.ok(!s.candidates.some((x: any) => x.id === 'extra:preview title'), 'a text above the panel is not this frame\'s');
+  assert.deepEqual(s.texts.figma.find((t: any) => t.text === 'Mode').box.slice(0, 2), [20, 30], 'Figma boxes go out in the frame\'s own coordinates');
+  // back to the shared fixture
+  rmSync(join(RUNS, 'r9'), { recursive: true });
+  writeOut(); assert.equal(design('plan', '--skip', '').status, 0);
+});
+
+// ---- dialogs, groups and boards on their own (2026-11-19) ---------------------------------------------------------------
+// a 270 pt iOS alert drawn beside the phones is a partial screen measured inside a 375 pt phone, placed by its texts;
+// a GROUP and a board that is one close-up on its own are listed for a decision, and `--as-screen` makes one a screen
+test('dialogs beside the phones are screens; groups and lone boards are listed; --as-screen promotes one', () => {
+  const DLG = [{ id: '1:80', parent: '1:1', type: 'INSTANCE', name: 'Dialog_leave_chat', abs: [600, 1800, 270, 194], depth: 1 },
+    text('1:81', '1:80', 'Leave this chat?', [620, 1820, 230, 22]), text('1:82', '1:80', 'Your drama is saved', [620, 1850, 230, 20]),
+    text('1:83', '1:80', 'Cancel', [630, 1940, 90, 20]), text('1:84', '1:80', 'Leave', [760, 1940, 90, 20])].map((n, i) => ({ ...n, depth: i ? 2 : 1 }));
+  const GRP = [{ id: '1:90', parent: '1:1', type: 'GROUP', name: 'info', abs: [900, 1800, 238, 333], depth: 1 },
+    { ...text('1:91', '1:90', 'Note for RD', [910, 1810, 200, 20]), depth: 2 }];
+  const nodes = [{ id: '1:1', parent: null, type: 'FRAME', name: 'Board', abs: [0, 0, 1200, 2300], depth: 0 },
+    ...[...S1, ...S2, ...S3, ...S4].map(n => ({ ...n, depth: n.parent === '1:1' ? 1 : 2 })), ...DLG, ...GRP].map(n => ({ ...n, box: n.abs }));
+  put(join(OUT, '1-1.json'), { board: { id: '1:1', name: 'Board', box: [0, 0, 1200, 2300] }, nodes });
+  put(join(OUT, '2-1.json'), { board: { id: '2:1', name: 'Other', box: [3000, 0, 375, 812] }, nodes: S5.map(n => ({ ...n, box: n.abs, depth: 0 })) });
+  put(join(OUT, '3-1.json'), { board: { id: '3:1', name: 'cut', box: [5000, 0, 375, 470] }, nodes: [{ id: '3:1', parent: null, type: 'FRAME', name: 'cut', abs: [5000, 0, 375, 470], depth: 0 },
+    { ...text('3:2', '3:1', 'Try Swipe Collage!', [5020, 40, 200, 24]), depth: 1 }].map(n => ({ ...n, box: n.abs })) });
+  const r = run('figma-source.ts', [F, '2026-01-01', 'screens', 'design']);
+  assert.equal(r.status, 0, r.out);
+  const sc = read(join(OUT, 'screens.json')), d = sc.find((s: any) => s.id === '1:80');
+  assert.deepEqual([d?.partial, d?.dialog, d?.phone_w], [true, true, 375], 'the dialog is a partial screen inside a 375 pt phone');
+  assert.ok(!sc.some((s: any) => s.id === '1:90' || s.id === '3:1'), 'the group and the lone board are not screens by themselves');
+  assert.equal(design('plan').status, 0);
+  let plan = read(join(T, 'design', 'plan.json'));
+  assert.deepEqual(plan.not_screens.map((f: any) => f.id).sort(), ['1:90', '3:1'], 'both are listed for a decision');
+  assert.ok(!plan.screens.find((s: any) => s.id === '1:80').flags.includes('drawing'), 'a dialog is partial, not a drawing');
+  assert.equal(design('plan', '--as-screen', '3:1').status, 0);
+  plan = read(join(T, 'design', 'plan.json'));
+  const p = plan.screens.find((s: any) => s.id === '3:1');
+  assert.deepEqual([p?.partial, p?.promoted, plan.as_screens], [true, true, ['3:1']]);
+  assert.deepEqual(plan.not_screens.map((f: any) => f.id), ['1:90']);
+  assert.equal(design('plan').status, 0);
+  assert.deepEqual(read(join(T, 'design', 'plan.json')).as_screens, ['3:1'], 'kept when the plan is built again');
+  // the capture: the dialog centred across (52 pt in) and 300 pt down, the chat behind it
+  put(join(RUNS, 'r8', 'design', '.keep'), '');
+  const at = [[72, 320, 230, 22], [72, 350, 230, 20], [82, 440, 90, 20], [212, 440, 90, 20]];
+  png(join(RUNS, 'r8', 'screenshots', 'design', '1-80.png'), 1125, 2436, [[20, 100, 200, 20], ...at].map(b => [s3(b), '#ffffff'] as [number[], string]));
+  capture('r8', '1:80', '1-80', `<A>${st('Chat title', 20, 100, 200, 20)}${st('Leave this chat?', ...at[0] as [number, number, number, number])}${st('Your drama is saved', ...at[1] as [number, number, number, number])}` +
+    `${st('Cancel', ...at[2] as [number, number, number, number])}${st('Leave', ...at[3] as [number, number, number, number])}</A>`, { w: 375, h: 812 });
+  const c = design('check', 'r8', '--standard');
+  assert.equal(c.status, 0, c.out);
+  const s = read(join(RUNS, 'r8', 'design', 'compare.json')).screens.find((x: any) => x.id === '1:80');
+  assert.deepEqual([s.partial.offset_x, s.partial.offset, s.partial.phone_w], [52, 300, 375]);
+  assert.ok(!s.candidates.some((x: any) => x.kind === 'missing'), 'every dialog text is found');
+  assert.ok(!s.candidates.some((x: any) => x.id === 'extra:chat title'), 'the chat behind the dialog is not this frame\'s');
+  assert.deepEqual(s.texts.figma.find((t: any) => t.text === 'Cancel').box.slice(0, 2), [30, 140], 'Figma boxes in the dialog\'s own coordinates');
+  // back to the shared fixture
+  rmSync(join(RUNS, 'r8'), { recursive: true }); rmSync(join(OUT, '3-1.json'));
+  writeOut(); assert.equal(design('plan', '--skip', '').status, 0);
+  assert.deepEqual(read(join(T, 'design', 'plan.json')).as_screens, [], 'a promoted frame no longer read drops out');
 });

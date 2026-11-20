@@ -267,6 +267,8 @@ boardNodes.forEach((b, bi) => {
 });
 // panels: dialogs, sheets, popups and menus drawn beside the phones (not inside one). A frame of dialog size counts
 // (frame, instance or group) when its name says so or an arrow starts or ends within 40 pt of it; the outermost wins. Kept as screens with 'panel' set.
+// A close-up of part of a phone (video-enhance REQ-030: the settings panel with a tooltip open, 375 × 494, named only
+// 「panel」) counts too: as wide as a phone on its board (else 360–430 pt) and 300 pt or taller, whatever its name.
 late('screens');
 const PANEL = /dialog|popup|pop-up|sheet|toast|alert|modal|tooltip|menu|snackbar|leave|confirm/i;
 const phones = new Set(screenNodes.map(n => n.id));
@@ -275,12 +277,15 @@ const phoneMemo = new Map();
 const underPhone = q => { if (!q || q.type === 'PAGE') return false; let v = phoneMemo.get(q.id);
   if (v === undefined) { v = phones.has(q.id) || underPhone(q.parent); phoneMemo.set(q.id, v); } return v; };
 const inPhone = n => underPhone(n.parent);
+const underBoard = (n, b) => { for (let q = n.parent; q && q.type !== 'PAGE'; q = q.parent) if (q.id === b.id) return true; return false; };
 const ends = vectors.flatMap(({ pts }) => [pts[0], pts[pts.length - 1]]);
 const panelIds = new Set();
 boardNodes.forEach((b, bi) => {
+  const widths = screenNodes.filter(s => phones.has(s.id) && underBoard(s, b)).map(s => s.width);
+  const phoneWide = n => n.height >= 300 && (widths.length ? widths.some(w => Math.abs(n.width - w) <= 0.02 * w) : n.width >= 360 && n.width <= 430);
   const cands = b.findAll(n => (n.type === 'FRAME' || n.type === 'INSTANCE' || n.type === 'COMPONENT' || n.type === 'GROUP') && !phones.has(n.id)
     && n.width >= 160 && n.width <= 460 && n.height >= 50 && n.height <= 700 && n.absoluteBoundingBox && !inPhone(n)
-    && (PANEL.test(n.name) || ends.some(([x, y]) => inside(n.absoluteBoundingBox, x, y, 40)))
+    && (PANEL.test(n.name) || phoneWide(n) || ends.some(([x, y]) => inside(n.absoluteBoundingBox, x, y, 40)))
     && !!n.findOne(t => t.type === 'TEXT' && t.visible !== false));
   for (const n of cands) {
     let nested = false; for (let q = n.parent; q && q !== b; q = q.parent) if (cands.includes(q)) nested = true;
