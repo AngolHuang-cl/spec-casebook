@@ -403,8 +403,7 @@
     "K-83bfcb"
    ],
    "app": [],
-   "press": "TC-001, TC-093, TC-004, TC-005, TC-008, TC-009",
-   "how": "label"
+   "press": "n/a: other feature: Edit Room tool row; AI Hair Color is entered through Portrait › Hair (REQ-009, TC-015)"
   },
   {
    "group": "K-ddd3e0",
@@ -426,8 +425,7 @@
     "K-83e156"
    ],
    "app": [],
-   "press": "TC-015",
-   "how": "label"
+   "press": "n/a: other feature: Edit Room Quick Action tab (no Hair Color there, ruling REQ-009)"
   },
   {
    "group": "K-f35385",

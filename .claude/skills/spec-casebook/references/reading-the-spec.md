@@ -222,6 +222,11 @@ and look at the tile images where layout, arrows or states matter.**
 When the user sends a Figma link and no PDF, the Figma page is the spec: read it directly and never ask for a PDF
 export (first used for `phd/i2v-reuse`, PM page 6336:3478).
 
+- **Which link is which (user, 2026-11-19).** A Kanban item gives its links as `SPEC:` and `Guideline:`. `SPEC:` is
+  the **PM spec** (read on `figma-pm`, `figma-frames.json` `files.pm`); `Guideline:` is the **Design spec** (read on
+  `figma-design`, `files.design`). Never ask which is which and never swap the servers (shown on `phd/i2v-reuse`
+  REQ-009: SPEC = PM page 6336:3478, Guideline = Design page 4701:15518).
+
 - **Read.** `whoami` on the right server, `get_metadata` on the page (to choose the boards: its sections, or regions
   `{ name, parent, box }` in absolute canvas points), then step 10's inventory read, which also returns every text.
   Save it as `extracted/figma-inventory-<group>.json` with `file` (the file key) and `page` added at the top, so

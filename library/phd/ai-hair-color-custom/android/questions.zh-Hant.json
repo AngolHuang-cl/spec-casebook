@@ -15,7 +15,6 @@
   "Q-14": "Android 在 Custom panel、臉部警告視窗和生成中按系統返回鍵的行為沒有定義。假設：由案例記錄實際行為。",
   "Q-15": "Design 頁 616:9324（2026-11-17 讀取）畫了房間、Custom panel 的 (1)–(3) 狀態、toast 和調色盤；其他部分（Intro Demo、臉部檢查、生成中、結果、deeplink、點數）仍是 PM-only，等 Design 畫出來再更新。",
   "Q-17": "Custom panel 要怎麼收合（套用）？PM 畫的是標題「Custom」加右上角 ⌄；Design 只畫上方拉把，沒有標題（已送的 PHA262026P0111 要求 ⌄）。假設：以 Design 為準，往下拖拉把就收合並套用，不一定要有 ⌄。",
-  "Q-18": "選「Solid」時，「Highlight Color」那一列是整列消失（PM D6-04），還是留在畫面上變灰（Design case 2-1）？假設：以 Design 為準（變灰），實機確認。",
-  "Q-20": "Design 的選圖指引「Avoid」只列「Face Coverings」和「Face too small」；10/E 規則 D2-02 另外加了「避免戴帽子」。需要帽子這一項嗎？假設：以 Design 的清單為準。",
-  "Q-21": "推薦色：PM（11/17 修改）給了 8 個色碼，從 #5A3E2B 開始；Design 畫的是白色和米色到咖啡色的中性色。假設：以 PM 的清單為準（較新）。"
+  "Q-21": "推薦色：PM（11/17 修改）給了 8 個色碼，從 #5A3E2B 開始；Design 畫的是白色和米色到咖啡色的中性色。假設：以 PM 的清單為準（較新）。",
+  "Q-22": "在結果頁按 ✕ 或系統返回鍵，app 會先問「Discard changes?」/「All your existing changes will be lost.」（Keep / Discard），之後才回到 Edit Room；PM 10/E 寫不需要確認（D1-20b），而 REQ-009 的裁示只講到回到 Edit Room。假設：記錄這個確認視窗，案例只檢查最後回到 Edit Room。"
 }

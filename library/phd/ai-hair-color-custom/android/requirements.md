@@ -12,7 +12,7 @@ stand until the user re-decides them.
 
 ## Overview and Intro Demo
 - R-090 [DS:ds-hair-a 1-launcher 617:9493] The Launcher's 「AI Magic」 section has a 「Hair Color」 card; tapping it opens AI Hair Color.
-- R-088 [DS:ds-hair-a 2-before_importing_photo 617:10539] Before the photo picker, a guide shows 「For the best results, we recommend photos with the following:」, under 「Recommend」 「Photo of One Female」, 「Full Upper Body」 and 「Clear Face」, under 「Avoid」 「Face Coverings」 and 「Face too small」, a 「Continue」 button and 「Don't show again.」 (10/E D2-02 also asks to avoid hats: Q-20).
+- R-088 [DS:ds-hair-a 2-before_importing_photo 617:10539; Req: REQ-009] Before the photo picker, a guide shows 「For the best results, we recommend photos with the following:」, a recommend list and an avoid list with sample photos, a 「Continue」 button and 「Don't show again」. The headings are the app-wide ones (「Recommendation」 as in other features, ruling REQ-009, 2026-11-18, over the Design's 「Recommend」), and the items follow the feature (Design: 「Photo of One Female」, 「Full Upper Body」, 「Clear Face」; 「Face Coverings」, 「Face too small」; the app may add 「Accessories」, answers Q-20). The picker tab behind it shows the album name (not a fixed 「Photo」).
 - R-001 [PM:pm-header] Custom lets the user choose the style (11 kinds) and give 1–2 colours themselves; it does not use a CMS colour swatch (D6-00).
 - R-002 [PM:pm-flow Intro Demo] The Intro Demo page shows 「AI Hair Color」, 「Go beyond traditional hair colors! Explore everything from subtle highlights to vibrant, bold shades.」, 「Try Now」, 「Don't show again」 and a ‹ back key at the top left.
 - R-003 [PM:pm-flow Intro Demo] 「Try Now」 closes the Intro Demo and continues into AI Hair Color.
@@ -24,12 +24,12 @@ stand until the user re-decides them.
 - R-007 [PM:pm-face-check] A face with yaw or roll above 15° shows the warning 「Please choose another photo」 / 「The face in this photo is too slanted, which may result in poorly generated results.」 with 「OK」 and 「Continue Anyway」 (D2-01d, thresholds and strings as Hair Volume / AI Hairstyle).
 - R-008 [PM:pm-face-check] A face narrower than 128 px on the 1024 px thumbnail shows the face-too-small warning with 「OK」 and 「Continue Anyway」 (D2-01d; string as AI Hairstyle, Q-9).
 - R-009 [PM:pm-face-check] The slanted and too-small checks warn and do not block: 「Continue Anyway」 enters the room with the photo; 「OK」 does not enter and lets the user choose another photo.
-- R-010 [PM:pm-face-check] A photo with no face is blocked with 「No face detected. Face is required for this feature.」 (D2-01d).
+- R-010 [PM:pm-face-check; Req: REQ-009] A photo with no face is blocked with a no-face message (PM: 「No face detected. Face is required for this feature.」; the app's 「No face detected. A face is required for this feature.」 is accepted, ruling REQ-009) (D2-01d).
 - R-011 [PM:pm-face-check] A photo whose face is too big is blocked with 「The face in this photo is too big.」 (D2-01d).
 - R-012 [PM:pm-face-check; PM:10/E entry_blocked_ratio] A photo whose long side / short side is above 16/9 (≈1.78) shows a two-button dialog: 「Cancel」 gives up entering, 「Crop」 opens the existing Crop room; there is no Continue Anyway (D2-01b).
 - R-013 [PM:pm-face-check; PM:10/E crop_room] After cropping (✓ in Crop) the face checks run on the cropped image, the one sent to the API (D2-01c, D2-01e).
 - R-014 [PM:pm-face-check] Entering from Edit Room or a deeplink (photo already chosen), the four checks run in order at once (D2-01e, D1-10).
-- R-089 [DS:ds-hair-a 1_edit_room 788:1354] In Edit Room the 「Quick Action」 tool row holds 「Hair Color」 (after 「Hairstyle」); tapping it opens AI Hair Color with the photo being edited.
+- R-089 [DS:ds-hair-a 1_edit_room 788:1354; Req: REQ-009] Edit Room's 「Quick Action」 row holds no 「Hair Color」 tool; the Design frame that draws one is not followed (ruling REQ-009, 2026-11-18) — NOT TESTABLE: an absence the entry rows already pass by (TC-015 enters through Portrait › Hair).
 - R-015 [PM:pm-face-check] The 16:9 / 9:16 ratio check applies on both platforms; Android AI Hairstyle's old 5:1 limit does not apply to AI Hair Color (D2-01b).
 
 ## Custom cell in the swatch row
@@ -49,10 +49,10 @@ stand until the user re-decides them.
 - R-024 [PM:pm-cms; DS:ds-hair-a 4-hair_color_case1_no_style 894:1474] The Style area lists the Custom styles from CMS (type PhDM_AIHairColor_CustomStyle): each with its thumbnail and ui_name, in CMS order, only published ones; the legal styles are solid_color, ombre, colored_roots, dip_dye, balayage, highlights, face_framing, colored_bangs, earloop_highlights, split_dye_vertical and split_dye_horizontal (D6-10, D6-13). The Design draws the names 「Face」, 「Bangs」, 「Highlight」, 「Balayage」, 「Ombre」, 「Solid」 (ui_name from CMS decides).
 - R-025 [PM:pm-ui UI source note] The split_dye_vertical and split_dye_horizontal thumbnails are still plain colour; the other 9 are photos (D6-17).
 - R-026 [PM:pm-ui UI source note] The selected style shows the selected frame (#ffbe98, 4 pt inner frame).
-- R-027 [DS:ds-hair-a 4-hair_color_case2-1_toast 929:1901; PM:pm-ui panel_solid_color] solid_color takes one colour: the 「Highlight Color」 row stays on screen but disabled (greyed out) while 「Base Color」 is enabled (Design; the PM says the Highlight row does not appear, D6-04: Q-18).
+- R-027 [PM:pm-ui panel_solid_color; Req: REQ-009] solid_color takes one colour: only the 「Base Color」 row shows; the 「Highlight Color」 row is hidden (D6-04; ruling REQ-009, 2026-11-18, 「隱藏就好」, over the Design's greyed row, answers Q-18).
 - R-028 [PM:pm-ui panel_solid_color; DS:ds-hair-a 4-hair_color_case2-1_toast 929:1901] With solid_color, choosing a Base Color enables Generate (D6-04; the Design draws the orange Generate with ⬤ 6).
-- R-029 [PM:pm-ui panel_two_tone; Req: REQ-003] Every other style needs a Base Color; the Highlight Color is optional (REQ-003, user ruling 2026-11-13, overrides D6-04 「both required」): Base alone enables Generate and 「Both Base Color and Highlight Color are required.」 does not show; Highlight alone keeps Generate disabled. The Design draws the opposite for Base alone (Generate grey, the toast of R-085); the user confirmed the ruling over the Design on 2026-11-17 (Q-19 answered, REQ-007).
-- R-085 [DS:ds-hair-a 4-hair_color_case2-1_toast 892:1796] With a two-colour style and a required colour missing, Generate looks disabled (grey) and tapping it shows the toast 「Select both a base and highlight color.」 over the photo, with no generation and no charge. Under REQ-003 this is the Highlight-only case (answers Q-16); the Design also draws it for Base only, which the user overruled (REQ-007).
+- R-029 [PM:pm-ui panel_two_tone; Req: REQ-009] Every other style needs both colours: with only a Base Color or only a Highlight Color, Generate stays disabled (D6-04; ruling REQ-009, 2026-11-18, 「都要選才能生成」, replaces REQ-003 / REQ-007).
+- R-085 [Req: REQ-009] No toast or message is required when a colour is missing: the disabled Generate is enough (ruling REQ-009, 2026-11-18, over the Design's toast 「Select both a base and highlight color.」); tapping the disabled Generate starts nothing and charges nothing.
 - R-030 [PM:pm-ui panel_two_tone; DS:ds-hair-a 4-hair_color_case3_custom_color 894:2637] The chosen colour in each row has a ring (PM: 2 pt #FFBE98; the Design draws an orange ring) (D6-21).
 - R-031 [PM:pm-ui panel_solid_color] solid_color sends only main_color_r/g/b to the API, no accent colour.
 - R-032 [PM:pm-cms; PM:10/E D2-04] Each style generates its own colour pattern in the chosen colours (Multicolor: highlights follow the hair flow, the ombré starts below the ears).
@@ -106,7 +106,7 @@ stand until the user re-decides them.
 - R-067 [PM:pm-flow; KB: KP-020] The top-bar credit chip shows the current balance; tapping it opens Buy Credit.
 
 ## Leaving the room
-- R-068 [PM:10/E D1-20b] ✕ in the bottom row gives up this edit and returns to the screen before entry with no confirmation.
+- R-068 [PM:10/E D1-20b; Req: REQ-009] ✕ in the bottom row gives up this edit and lands in the Edit Room with the photo (ruling REQ-009, 2026-11-18: 「回到edit room是正常的」); whether a 「Discard changes?」 confirmation comes first is Q-22.
 
 ## Deeplink
 - R-069 [PM:pm-deeplink] A deeplink with a Custom style guid opens AI Hair Color with the Custom panel open and that style selected, waiting for the user's colours (D6-14).
@@ -118,7 +118,7 @@ stand until the user re-decides them.
 - R-073 [Rule pass 8: system Back] System Back on the slanted / too-small face warning: the spec is silent (Q-14); the row records what happens.
 - R-074 [Rule pass 8: system Back] System Back with the Custom panel open: the spec is silent (Q-14); the row records whether it collapses (applies) or leaves.
 - R-075 [Rule pass 8: system Back] System Back in the colour palette does what 「Cancel」 does (the existing palette's own close).
-- R-076 [Rule pass 8: system Back] System Back in the room with the panel closed does what ✕ does (D1-20b).
+- R-076 [Rule pass 8: system Back] System Back in the room with the panel closed does what ✕ does (D1-20b, R-068).
 - R-077 [Rule pass 8: system Back] System Back while a Custom generation is running: the spec is silent (no Cancel, D1-03; Q-14); the row records what happens.
 
 ## CMS and design tokens
@@ -142,8 +142,7 @@ stand until the user re-decides them.
 - Q-14 Android system Back on the Custom panel, the face warning and during generation is not specified. Assumption: rows record it. R-073, R-074, R-077.
 - Q-15 The Design page 616:9324 (read 2026-11-17) draws the room, the Custom panel states (1)–(3), the toast and the palette; everything else (Intro Demo, face checks, generating, result, deeplink, credits) is still PM-only and changes when the Design draws it.
 - Q-17 How is the Custom panel collapsed (applied)? The PM draws a 「Custom」 title with a ⌄ key at the top right; the Design draws only a grab handle and no title (filed PHA262026P0111 asked for ⌄). Assumption: the Design: dragging the handle down collapses and applies; a ⌄ is not required. R-019, R-042, TC-019, TC-038.
-- Q-18 With 「Solid」, does the 「Highlight Color」 row disappear (PM D6-04) or stay greyed out (Design case 2-1)? Assumption: the Design (greyed out), check on device. R-027, TC-024, TC-029.
-- Q-20 The photo guide (Design) lists 「Face Coverings」 and 「Face too small」 under 「Avoid」; the 10/E rule D2-02 adds avoiding hats. Is a hat item expected? Assumption: the Design's list. R-088, TC-092.
+- Q-22 After ✕ or system Back on a result, the app asks 「Discard changes?」 / 「All your existing changes will be lost.」 (Keep / Discard) before landing in the Edit Room; the PM 10/E says no confirmation (D1-20b) and the ruling REQ-009 covered only the landing. Assumption: record the dialog, the row checks the landing. R-068, R-076, TC-079, TC-088.
 - Q-21 The recommended colours: the PM (edited 2026-11-17) gives 8 HEX values starting #5A3E2B; the Design draws white and neutral beige-to-brown swatches. Assumption: the PM's list (newer). R-022, TC-030.
 
 ## Added 2026-11-12 — coverage passes and standing inputs
@@ -203,8 +202,9 @@ stand until the user re-decides them.
 | R-032 | style=split_dye_horizontal | TC-068 |
 | R-029 | only Base Color filled | TC-026 |
 | R-029 | only Highlight Color filled | TC-027 |
-| R-085 | only Highlight Color, Generate tapped (toast) | TC-027 |
-| R-027 | style=solid_color, Highlight row greyed | TC-024 |
+| R-085 | only Highlight Color, disabled Generate tapped | TC-027 |
+| R-029 | only Base Color filled, both required | TC-026 |
+| R-027 | style=solid_color, Highlight row hidden | TC-024 |
 | R-034 | Base Color wheel | TC-032 |
 | R-034 | Highlight Color wheel | TC-033 |
 | R-042 | collapse (handle drag / ⌄) | TC-038 |
@@ -269,13 +269,16 @@ stand until the user re-decides them.
 |---|---|
 | REQ-001 | analysis entry (this draft); no table requirement |
 | REQ-002 | Android table only: every requirement above is for Android; no iOS draft |
-| REQ-003 | R-029 (Base required, Highlight optional) → TC-026, TC-027 |
 | REQ-004 | R-042 (tapping the photo keeps the panel open) → TC-039 |
 | REQ-005 | run entry (filing decisions); no table requirement |
-| REQ-006 | R-016, R-017, R-019, R-020, R-022, R-023, R-024, R-027, R-028, R-030, R-033, R-038, R-042, R-085–R-090 (Design read, PM re-read); filed eBugs PHA262026P0110–P0119 named in the rows that recheck them (Rule 3) |
+| REQ-009 | R-010, R-027, R-029, R-068, R-085, R-088 (R-089 removed) → TC-009, TC-015, TC-024, TC-026, TC-027, TC-029, TC-079, TC-088, TC-092 |
+| REQ-010 | run entry (filing decisions); no table requirement |
+| REQ-006 | R-016, R-017, R-019, R-020, R-022, R-023, R-024, R-027, R-028, R-030, R-033, R-038, R-042, R-085–R-088, R-090 (Design read, PM re-read); filed eBugs PHA262026P0110–P0119 named in the rows that recheck them (Rule 3) |
 
 ### Answered questions
-- Q-19 (answered 2026-11-17, REQ-007): with a two-colour style and only a Base Color, Generate works, as REQ-003 rules; the Design's grey Generate and toast for Base only do not apply. R-029, R-085, TC-026 unchanged.
+- Q-18 (answered 2026-11-18, REQ-009): Solid hides the Highlight Color row. R-027, TC-024, TC-029.
+- Q-20 (answered 2026-11-18, REQ-009): the guide's items follow the feature; an 「Accessories」 (hat) item is fine. R-088, TC-092.
+- Q-19 superseded 2026-11-18 by REQ-009: both colours are required.
 
 ### eBug rechecks (Rule 3, REQ-006)
 Filed from run 2026-11-13-r1 (TR261111-0042); each is rechecked by the row that found it, named in its Notes.

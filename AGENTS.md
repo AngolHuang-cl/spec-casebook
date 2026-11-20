@@ -237,6 +237,8 @@ lines; put the full rule in the skill or reference file that applies it and poin
   one platform (`SKILL.md` step 0).
 - **A Figma link is the spec (user, 2026-11-04).** When the user sends a Figma link and no PDF, read the spec from
   Figma directly; do not ask for a PDF export (`reading-the-spec.md`, *Figma-only spec*).
+- **Kanban links (user, 2026-11-19).** In a Kanban item, `SPEC:` is the PM spec (`figma-pm`) and `Guideline:` the
+  Design spec (`figma-design`) (`reading-the-spec.md`, *Figma-only spec*).
 - **Build downloads (user, 2026-11-05).** The build under test from a TR's OneDrive folder is always downloaded
   without asking; say the file name and size in chat, then check the MD5 (`run-android.md`, `fixtures.md`).
 - **Phone fixtures (2026-10-27).** What a run needs on the phone or account is in

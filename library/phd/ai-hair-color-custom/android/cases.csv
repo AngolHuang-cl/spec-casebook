@@ -5,8 +5,9 @@ TC-002,Intro Demo,Intro Demo page shown (TC-001),Tap 「Try Now」,"The Intro De
 TC-092,Photo guide,"1. Fresh install (or app data cleared)
 2. The photo guide never dismissed
 3. Entering AI Hair Color from the Launcher card","1. Look at the screen shown before the photo picker
-2. Tap 「Continue」","1. The guide shows 「For the best results, we recommend photos with the following:」, under 「Recommend」 「Photo of One Female」, 「Full Upper Body」 and 「Clear Face」 with sample photos, under 「Avoid」 「Face Coverings」 and 「Face too small」 with sample photos, a 「Continue」 button and 「Don't show again.」
-2. The guide closes and the photo picker (「Photo」 / 「Stock」 tabs) shows",P2,R-088,Design 2-before_importing_photo 617:10539. 10/E D2-02 also asks to avoid hats: Q-20.
+2. Tap 「Continue」","1. The guide shows 「For the best results, we recommend photos with the following:」, a recommend list and an avoid list with sample photos (headings as in other features, e.g. 「Recommendation」), a 「Continue」 button and 「Don't show again」
+1. Record the items (Design: 「Photo of One Female」, 「Full Upper Body」, 「Clear Face」; 「Face Coverings」, 「Face too small」)
+2. The guide closes and the photo picker shows (its first tab is the album name)",P2,R-088,"Design 2-before_importing_photo 617:10539. REQ-009: the heading is app-wide, the items follow the feature, the tab is the album name; an 「Accessories」 item is fine (Q-20 answered)."
 TC-093,Photo guide,The photo guide shown (TC-092),"1. Tick 「Don't show again.」
 2. Tap 「Continue」
 3. Leave AI Hair Color
@@ -25,7 +26,8 @@ TC-007,Entry checks,The slanted-face dialog is shown (TC-005),Tap 「Continue An
 TC-008,Entry checks,"A photo whose face is small (narrower than about 1/8 of the image width), normal ratio","1. Open AI Hair Color from Launcher and pick the photo
 2. Tap 「Continue Anyway」","1. A face-too-small warning shows with 「OK」 and 「Continue Anyway」 (record its text)
 2. The room opens with the photo",P2,"R-008, R-009","128 px on the 1024 px thumbnail = 1/8 of the long side. String not drawn: AI Hairstyle's (Q-9). PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
-TC-009,Entry checks,"A photo with no face (landscape, object)",Open AI Hair Color from Launcher and pick the photo,「No face detected. Face is required for this feature.」 shows and the room does not open,P2,R-010,"PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
+TC-009,Entry checks,"A photo with no face (landscape, object)",Open AI Hair Color from Launcher and pick the photo,"A no-face message shows (「No face detected. A face is required for this feature.」 or the PM's 「No face detected. Face is required for this feature.」)
+The room does not open",P2,R-010,"REQ-009: the wording difference is accepted. PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
 TC-010,Entry checks,A close-up photo whose face fills most of the frame,Open AI Hair Color from Launcher and pick the photo,「The face in this photo is too big.」 shows and the room does not open; there is no Continue Anyway,P2,R-011,"PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
 TC-011,Entry checks,A 21:9 panorama with a slanted face,Open AI Hair Color from Launcher and pick the photo,"The ratio dialog with 「Cancel」 and 「Crop」 shows first, with no Continue Anyway; no face warning shows before it",P2,"R-012, R-006","Ratio dialog drawn on the 10/E page (entry_blocked_ratio). PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
 TC-012,Entry checks,The ratio dialog is shown for the 21:9 slanted-face photo (TC-011),"1. Tap 「Crop」
@@ -33,7 +35,7 @@ TC-012,Entry checks,The ratio dialog is shown for the 21:9 slanted-face photo (T
 2. Back in AI Hair Color the slanted-face warning shows, checked on the cropped image",P2,R-013,"PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
 TC-013,Entry checks,A 21:9 photo with no face,Open AI Hair Color from Launcher and pick the photo,「No face detected. Face is required for this feature.」 shows; the ratio dialog does not show (no face is checked first),P3,R-006,"PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
 TC-014,Entry checks,A close-up photo whose face is too big and tilted more than 15°,Open AI Hair Color from Launcher and pick the photo,「The face in this photo is too big.」 shows (blocked); the slanted warning does not show,P3,R-006,"PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
-TC-015,Entry checks,A slanted-face photo open in Edit Room,"In Edit Room, tap 「Hair Color」 in the 「Quick Action」 tool row","The slanted-face warning shows right away, with no photo picker",P2,"R-014, R-089",Design 1_edit_room 788:1354 draws 「Hair Color」 in the Quick Action row.
+TC-015,Entry checks,A slanted-face photo open in Edit Room,Open Portrait › Hair › AI Hair Color from Edit Room,"The slanted-face warning shows right away, with no photo picker",P2,R-014,REQ-009: Quick Action gets no 「Hair Color」 (the Design's Edit Room frame is not followed). Recheck PHA262026P0110.
 TC-016,Entry checks,"A 16:9 photo, a 2:1 photo and a 4:1 photo, each with one front-facing face","1. Open AI Hair Color with the 16:9 photo
 2. Leave the room
 3. Open AI Hair Color with the 2:1 photo
@@ -67,27 +69,27 @@ TC-023,Style,"1. In the AI Hair Color room with a portrait photo with one clear,
 2. The Custom panel is open
 3. No style chosen yet",Tap 「Ombré」,「Ombré」 shows the selected frame (orange) and both colour rows become enabled,P1,R-026,Design case (2) 894:2060 draws an orange frame on the chosen style; PM token #ffbe98.
 TC-024,Style,"1. In the AI Hair Color room with a portrait photo with one clear, front-facing face (passes every entry check)
-2. The Custom panel is open",Tap 「Solid」,"The 「Base Color」 row is enabled and the 「Highlight Color」 row stays on screen greyed out (disabled)
-Tapping a Highlight colour does nothing",P1,R-027,"Design case (2-1) 929:1901. The PM says the Highlight row does not appear (D6-04): Q-18, check on device."
+2. The Custom panel is open",Tap 「Solid」,"Only the 「Base Color」 row shows
+No 「Highlight Color」 row",P1,R-027,REQ-009 「隱藏就好」 over the Design's greyed row (case 2-1 929:1901).
 TC-025,Style,"In the AI Hair Color room with a portrait photo with one clear, front-facing face (passes every entry check); the Custom panel is open; 「Solid」 selected",Tap a recommended colour in 「Base Color」,"The colour shows its ring and Generate is enabled, showing 「Generate」 with ⬤ 6 (no minus sign)",P1,"R-028, R-038","PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
 TC-026,Style,"1. In the AI Hair Color room with a portrait photo with one clear, front-facing face (passes every entry check)
 2. The Custom panel is open
 3. 「Ombré」 selected
-4. No colours chosen",Tap a recommended colour in 「Base Color」 only,Generate becomes enabled and 「Both Base Color and Highlight Color are required.」 does not show: Base Color alone is enough for a two-colour style,P1,R-029,"Ruling REQ-003 (user, 2026-11-13) overrides the PM page D6-04 「both required」. ISS-HCC-05 held. The Design draws Base-only as Generate grey with the toast 「Select both a base and highlight color.」 (cases 2, 2-1): Q-19; the ruling stands until the user re-decides."
+4. No colours chosen",Tap a recommended colour in 「Base Color」 only,"Generate stays disabled (grey): a two-colour style needs both colours
+Record any hint under the rows (the PM page draws 「Both Base Color and Highlight Color are required.」)",P1,R-029,REQ-009 「都要選才能生成」 replaces REQ-003 / REQ-007; agrees with PM D6-04 and Design case 2.
 TC-027,Style,"1. In the AI Hair Color room with a portrait photo with one clear, front-facing face (passes every entry check)
 2. The Custom panel is open
 3. 「Balayage」 selected
 4. No colours chosen","1. Tap a recommended colour in 「Highlight Color」 only
 2. Tap Generate","1. Generate stays disabled (grey) while no Base Color is chosen
-2. The toast 「Select both a base and highlight color.」 shows over the photo
-2. No generation starts and no credits are taken",P2,"R-029, R-085","Ruling REQ-003 (user, 2026-11-13). Which message (if any) shows is Q-16; the result records it. Design case (2-1) 892:1796 draws the toast (answers Q-16)."
+2. No generation starts and no credits are taken (no toast is required)",P2,"R-029, R-085",REQ-009: no toast; the Design's 「Select both a base and highlight color.」 toast (case 2-1 892:1796) is not required.
 TC-028,Style,"In the AI Hair Color room with a portrait photo with one clear, front-facing face (passes every entry check); the Custom panel is open; 「Ombré」 selected","1. Tap a colour in 「Base Color」
 2. Tap a colour in 「Highlight Color」",Each chosen colour has a 2 pt #FFBE98 ring and Generate is enabled with ⬤ 6,P1,"R-030, R-038","PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
 TC-029,Style,"1. In the AI Hair Color room with a portrait photo with one clear, front-facing face (passes every entry check)
 2. The Custom panel is open
 3. 「Ombré」 with both colours chosen","1. Tap 「Solid」
-2. Tap 「Ombré」 again","1. The 「Highlight Color」 row turns grey (disabled) (record whether Base stays chosen and Generate stays enabled)
-2. The 「Highlight Color」 row is enabled again (record whether its colour is kept)",P2,"R-027, R-029",Q-3. Design case (2-1) 929:1901 (Q-18). Q-3.
+2. Tap 「Ombré」 again","1. The 「Highlight Color」 row disappears (record whether Base stays chosen and Generate stays enabled)
+2. The 「Highlight Color」 row comes back (record whether its colour is kept)",P2,"R-027, R-029",Q-3. REQ-009 (Solid hides the Highlight row).
 TC-031,Colour palette,"1. In the AI Hair Color room with a portrait photo with one clear, front-facing face (passes every entry check)
 2. The Custom panel is open
 3. 「Ombré」 selected",Tap the colour-wheel key of 「Base Color」,"The app's colour palette opens in the sheet: 「Cancel」 at the left and 「Done」 at the right on one line, a saturation-brightness square, a rainbow hue slider with a round handle and an eyedropper key right of the slider
@@ -220,7 +222,8 @@ TC-050,Credits and failures,One Custom generation done (TC-045),"1. Tap the cred
 TC-077,Credits and failures,"In the AI Hair Color room with a portrait photo with one clear, front-facing face (passes every entry check)","1. Compare the credit chip with the balance in Mine
 2. Tap the credit chip","1. The chip shows the same balance
 2. Buy Credit opens",P2,R-067,"PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
-TC-079,Leaving the room,"A Custom result shown, panel closed; opened from Launcher",Tap ✕ at the bottom left,The room closes with no confirmation and the screen before entry shows; the result is still in My AI Artwork,P1,R-068,"PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
+TC-079,Leaving the room,"A Custom result shown, panel closed; opened from Launcher",Tap ✕ at the bottom left,"Record whether 「Discard changes?」 asks first (Q-22); after 「Discard」 the Edit Room shows with the original photo
+The result is still in My AI Artwork",P1,R-068,REQ-009 「回到edit room是正常的」. PM 10/E D1-20b says no confirmation: Q-22.
 TC-081,Deeplink,"A Custom deeplink for the ombre style guid from RD; a portrait photo with one clear, front-facing face (passes every entry check) ready","1. Open the deeplink
 2. Pick the photo if asked",AI Hair Color opens with the Custom panel open and 「Ombré」 selected; no colours are chosen and Generate is disabled,P2,"R-069, R-070","Park until RD gives the link format (Q-11; fallback mode=custom&style_guid=<guid>). PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
 TC-082,Deeplink,A Custom deeplink with an unknown or unpublished style guid,Open the deeplink,The Custom panel opens with no style selected and no error is shown,P2,R-071,"Park until RD gives the link format (Q-11). PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
@@ -229,5 +232,5 @@ TC-090,Android system Back,Intro Demo page shown,Press system Back,Same as ‹: 
 TC-087,Android system Back,The slanted-face warning is shown,Press system Back,Record what happens (expected like 「OK」: the room does not open),P3,R-073,"Q-14. PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
 TC-085,Android system Back,"In the AI Hair Color room with a portrait photo with one clear, front-facing face (passes every entry check); the Custom panel is open; 「Ombré」 with both colours chosen",Press system Back,"Record what happens (expected like ⌄: the panel closes and the settings are applied, the room stays)",P2,R-074,"Q-14. PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
 TC-086,Android system Back,The palette is open from 「Base Color」 with another colour picked,Press system Back,Same as 「Cancel」: the palette closes and 「Base Color」 is unchanged,P2,R-075,"PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it) Recheck PHA262026P0114 (filed from run 2026-11-13-r1, TR261111-0042)."
-TC-088,Android system Back,"A Custom result shown, panel closed; opened from Launcher",Press system Back,Same as ✕: the room closes with no confirmation,P2,R-076,"PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"
+TC-088,Android system Back,"A Custom result shown, panel closed; opened from Launcher",Press system Back,Same as ✕: record whether 「Discard changes?」 asks first (Q-22); after 「Discard」 the Edit Room shows with the original photo,P2,R-076,REQ-009 「回到edit room是正常的」; Q-22.
 TC-089,Android system Back,A Custom generation running,Press system Back,"Record what happens (the screen, whether the generation continues and the credits)",P3,R-077,"Q-14. PM-only: no Design frame yet (Design 616:9324, read 2026-11-17, does not draw it)"

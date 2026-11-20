@@ -29,7 +29,7 @@ iPhone it replaces reinstalling.
 
 ## KP-131 Switching Free / Premium on Android with 「Set to subscriber」
 - kind: howto · platform: android · use: run · tags: setup, debug, tier, subscription
-- source: user 2026-11-09 (chat; inbox I-002); batch-editing run 2026-11-13-r3 R3-a, R3-g (S23); creative-reel run 2026-11-17-r1 O-1, O-3, O-13 (Pixel 8a, S23) · verified: 20.19.0 (90201901) (2026-11-18)
+- source: user 2026-11-09 (chat; inbox I-002); batch-editing run 2026-11-13-r3 R3-a, R3-g (S23); creative-reel run 2026-11-17-r1 O-1, O-3, O-13 (Pixel 8a, S23); i2v-reuse run 2026-11-19-r1 R1-setup (Pixel 8a); ai-hair-color-custom run 2026-11-20-r3 R3-e, R3-f (Pixel 8a, on and off) · verified: 20.19.0 (90201901) (2026-11-20)
 
 No sign-in needed. Launcher gear (top right, `topToolBarSettingBtn`) › About: tap repeatedly just below the ‹ button
 until the debug dialog opens; turn 「Set to subscriber」 on (Premium) or off (Free), tap OK, then relaunch the app.
@@ -54,7 +54,7 @@ UUID, not an account (not confirmed). Plan credits again after any reinstall.
 
 ## KP-136 Each server keeps its own credit UUID, and `pm clear` does not reset it
 - kind: quirk · platform: android · use: run · tags: setup, credits, install, uuid, server, pm-clear
-- source: creative-reel run 2026-11-17-r1 O-1 (Pixel 8a), O-3 and O-13 (S23, two `pm clear`s); corrects KP-133 · verified: 20.19.0 (90201901) (2026-11-18)
+- source: creative-reel run 2026-11-17-r1 O-1 (Pixel 8a), O-3 and O-13 (S23, two `pm clear`s); corrects KP-133; ai-hair-color-custom run 2026-11-20-r3 R3-a (Pixel 8a Test Server 0 again) · verified: 20.19.0 (90201901) (2026-11-20)
 
 The credit balance belongs to a creditSystemUUID per server, not to the install. Turning 「Test server」 on or off
 switches to that server's UUID and balance (Pixel 8a: Production 1875 → Test Server 0). On Test Server the UUID is
