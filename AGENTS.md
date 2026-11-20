@@ -257,8 +257,20 @@ lines; put the full rule in the skill or reference file that applies it and poin
 - **Full images where things are compared (user, 2026-11-06).** Coverage boards and Design comparisons stay full quality and
   load in the background behind a small copy; only Design's screen cards use the small copy itself.
 - **Run folders on disk (user, 2026-11-06).** `scripts/runs-storage.ts` measures them and clears what changes no
-  evidence: unzipped log copies (restorable with `unpack`) and identical files (APFS clones). Screenshots are never
-  removed or converted without the user's decision, and the agent leaves `--apply` to the user.
+  evidence: unzipped log copies (restorable with `unpack`) and identical files (APFS clones). Apart from the
+  newest-run rule below, screenshots are never removed or converted without the user's decision, and the agent leaves
+  `--apply` to the user.
+- **Local run media: newest run only (user, 2026-11-20).** Keep screenshots, recordings and other media on this
+  computer only for the newest run in each `library/<product>/<feature>/<platform>/runs/`. That is the newest full
+  run plus any recheck, verify or design runs made after it; an aborted run with no media doesn't count. When a run
+  finishes, trim each older run in the same `runs/`: move images, video, audio, archives, app builds and any file
+  over 1 MiB to the Trash under `run-media-prune-<YYYYMMDD>/pdr-spec-casebook/`, keeping the folder layout. Keep
+  small text (notes, JSON/YAML, ledgers, page-source XML, HTML, logs up to 1 MiB) for reference. Never trim
+  Git-tracked files, a run still being written, `_`-prefixed setup/debug folders, `ebugs/`, `specs/` or Figma
+  sources. Report what moved and its size; the user empties the Trash. Pages already say when a run's images are not
+  on this computer.
+- **APK cache (user, 2026-11-20).** In `~/.casebook/android/apks/`, keep the two newest builds and move older ones to
+  the Trash once a newer build is installed for a run.
 - **Page servers after Save (user, 2026-11-06).** Once the user says they saved a table's page, stop the review or
   page servers started for it, without asking; other features' servers stay, and so does a pages server the user
   started or one serving other tables: its idle pages stop by themselves (`SKILL.md` step 4).
