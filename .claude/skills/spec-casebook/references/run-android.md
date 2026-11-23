@@ -81,7 +81,7 @@ adb serial HQ61563393, Android 12, 1080 × 2520; setup in README › Android pho
   temporary token, never commit or paste it). Check the size against `size`, then the APK's MD5.
 - **PhotoDirector Free / Premium without a sign-in (user, 2026-11-09 / 11-12, KP-131, phd/swipe-collage REQ-010).**
   A PHD Android run never stops for the user to sign in Premium, and a run plan never lists that as a user step. The
-  agent switches the tier itself: Launcher gear (top right, `topToolBarSettingBtn`) › About › tap repeatedly just
+  agent switches the tier itself: Launcher gear (top right, `topToolBarSettingBtn`; `btnSetting` on the SM-A5560, KP-131) › About › tap repeatedly just
   below 「‹」 until the debug dialog opens › 「Set to subscriber」 ON (Premium, paid user) or OFF (Free) › OK ›
   relaunch. Check Mine: 「Hello VIP!」 = Premium, 「Upgrade to Premium!」 = Free (credits unchanged); screenshot it
   and record the tier in the checkpoint. Free rows turn it OFF instead of signing out. Change no other option in that

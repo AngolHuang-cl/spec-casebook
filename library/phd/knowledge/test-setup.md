@@ -2,7 +2,7 @@
 
 ## KP-104 A round starts as a free user with 0 credits
 - kind: howto · platform: both · use: run · tags: setup, account, credits
-- source: PHD domain test-setup.md (user, 2026-10-16; the source labels it K36) · aka: K36
+- source: PHD domain test-setup.md (user, 2026-10-16; the source labels it K36); xmas-ny-sale run 2026-11-20-r1 R1-a (SM-A5560) · aka: K36 · verified: 20.19.0 (90201901) (2026-11-20)
 
 Check once per round, before its first case and separately for each platform's round: free user and balance 0. Do
 not redo it per case, nor when the round's plan later switches the subscription or buys test credits.
@@ -29,12 +29,12 @@ iPhone it replaces reinstalling.
 
 ## KP-131 Switching Free / Premium on Android with 「Set to subscriber」
 - kind: howto · platform: android · use: run · tags: setup, debug, tier, subscription
-- source: user 2026-11-09 (chat; inbox I-002); batch-editing run 2026-11-13-r3 R3-a, R3-g (S23); creative-reel run 2026-11-17-r1 O-1, O-3, O-13 (Pixel 8a, S23); i2v-reuse run 2026-11-19-r1 R1-setup (Pixel 8a); ai-hair-color-custom run 2026-11-20-r3 R3-e, R3-f (Pixel 8a, on and off) · verified: 20.19.0 (90201901) (2026-11-20)
+- source: user 2026-11-09 (chat; inbox I-002); batch-editing run 2026-11-13-r3 R3-a, R3-g (S23); creative-reel run 2026-11-17-r1 O-1, O-3, O-13 (Pixel 8a, S23); i2v-reuse run 2026-11-19-r1 R1-setup (Pixel 8a); ai-hair-color-custom run 2026-11-20-r3 R3-e, R3-f (Pixel 8a, on and off); xmas-ny-sale run 2026-11-20-r1 R1-c (SM-A5560: gear id corrected) · verified: 20.19.0 (90201901) (2026-11-20)
 
-No sign-in needed. Launcher gear (top right, `topToolBarSettingBtn`) › About: tap repeatedly just below the ‹ button
+No sign-in needed. Launcher gear (top right; id `btnSetting` on the SM-A5560, earlier notes said `topToolBarSettingBtn`) › About: tap repeatedly just below the ‹ button
 until the debug dialog opens; turn 「Set to subscriber」 on (Premium) or off (Free), tap OK, then relaunch the app.
 Mine shows 「Hello VIP!」 for Premium, 「Upgrade to Premium!」 for Free; the credit balance is unchanged. Change no
-other debug option (KP-106).
+other debug option (KP-106). A live Play subscription overrides the switch until it lapses (KP-146).
 
 ## KP-132 TR builds cannot update a Play Store install
 - kind: quirk · platform: android · use: run · tags: setup, install
@@ -88,3 +88,55 @@ Activity is re-created before judging a row (KP-011); turn it off again after.
 
 `adb` screenshots of the Edit Room come out black on the S23 (secure surface); the screens around it capture
 normally. Record the Edit Room state from the page source or the log, or by what the next screen shows.
+
+## KP-142 Free-trial eligibility with Google's Play Billing Lab
+- kind: howto · platform: android · use: run · tags: setup, trial, subscription, iap, billing-lab
+- source: user, xmas-ny-sale run setup 2026-11-20 (inbox I-009); xmas-ny-sale run 2026-11-20-r1 R1-a – R1-d (SM-A5560) · verified: 20.19.0 (90201901) (2026-11-20)
+
+No second Google account needed. Play Billing Lab › Configuration settings › Add: country Taiwan, Introductory offer
+(Free trial) Yes for a trial user, No for a non-trial user, Apply, then relaunch PhotoDirector: IAP offers or drops the
+free trial. Google's own test app with no side effects: the agent may use it without asking. On the SM-A5560 Apply
+sits under the navigation bar (tap about (300,2200)). The card shows 「Active until <date>」 by the real date, so a
+long run checks it is still active.
+
+## KP-143 Setting the Android clock by adb, without root
+- kind: howto · platform: android · use: run · tags: setup, clock, date, adb, sale
+- source: orchestrator, xmas-ny-sale probe 2026-11-20 (inbox I-010); xmas-ny-sale run 2026-11-20-r1 R1-a – R1-d (SM-A5560) · verified: 20.19.0 (90201901) (2026-11-20)
+
+`adb shell settings put global auto_time 0`, then `adb shell cmd alarm set-time <epoch ms>`; relaunch the app so it
+reads the new date (date-driven UI changes on the next launch). Restore with `settings put global auto_time 1` and
+check `adb shell date`. The phone's log timestamps follow the moved clock, so slicing logs by host-time case windows
+finds nothing: quote causes from the live log or slice by phone time. Side effect: KP-144.
+
+## KP-144 A moved clock breaks HTTPS, so server-fed content may not load
+- kind: quirk · platform: android · use: run, ebug · tags: clock, server, network, tls, sale
+- source: xmas-ny-sale run 2026-11-20-r1 O-3 (SM-A5560, clock moved to 2026-12-15) · verified: 20.19.0 (90201901) (2026-11-20)
+
+With the clock moved weeks ahead, certificate checks fail: every launch logs 「CertPathValidatorException: Response is
+unreliable: its validity interval is out-of-date」 (OCSP), and some calls fail outright (Body Reshape: 「Network
+Error」 「Server is not available now. Please try again later.」, log 「SSLHandshakeException: Chain validation
+failed」). Content the server sends (sale interstitials, IAP thumbnails, AI models) may then not appear: record such
+rows Blocked as observability, never as a defect, unless it is seen at the real date.
+
+## KP-145 Purchases on a Play license-tester account cost nothing
+- kind: fact · platform: android · use: run · tags: iap, purchase, subscription, license-tester, credits
+- source: xmas-ny-sale run 2026-11-20-r1 O-2, O-4 (SM-A5560's Google account) · verified: 20.19.0 (90201901) (2026-11-20)
+
+On a license-tester Google account the Play checkout sheet shows 「Test card, always approves」 and 「This is a test
+subscription … You will not be charged.」 Credit packs and subscriptions really complete (credits are added) without
+a charge; test subscriptions renew every 5 minutes. Which phone's account is a tester belongs in `fixtures.md`.
+
+## KP-146 A test subscription keeps the app paid until it lapses
+- kind: quirk · platform: android · use: run · tags: subscription, tier, license-tester, debug
+- source: xmas-ny-sale run 2026-11-20-r1 O-4 and the user's update 17:32 (SM-A5560) · verified: 20.19.0 (90201901) (2026-11-20)
+
+After a license-tester subscription is bought and cancelled in Google Play, the app reads as a subscriber until Play's
+end time (minutes later) whatever 「Set to subscriber」 says (KP-131); once it lapses the app is Free again. Credits
+bought or granted meanwhile stay, so the next round's 0-credit check (KP-104) needs them spent first (KP-136).
+
+## KP-147 Appium 「type」 fails without UnicodeIME: use `adb shell input text`
+- kind: quirk · platform: android · use: run · tags: appium, input, tools
+- source: xmas-ny-sale run 2026-11-20-r1 R1-a (SM-A5560) · verified: 20.19.0 (90201901) (2026-11-20)
+
+When Appium's UnicodeIME is not installed on the phone, typing through Appium fails; enter text with
+`adb shell input text "<text>"` (spaces as `%s`) in the focused field instead.
