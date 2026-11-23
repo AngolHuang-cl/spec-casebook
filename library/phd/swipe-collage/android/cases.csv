@@ -71,7 +71,8 @@ TC-052,Frame focus,"On the Canvas of a Year End template (opened from Template P
 TC-053,Frame focus,"On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; a frame in frame focus","Tap the floating Duplicate icon, then 「Duplicate」 on the toolbar",Each tap adds a copy of the frame (same style and photo) on the canvas,P2,R-045,
 TC-054,Frame focus,"On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; a frame in frame focus","Tap 「Flip H」, then 「Flip V」","The frame flips horizontally at once, then vertically at once",P2,R-046,
 TC-055,Frame focus,"On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; a frame in frame focus","Tap 「Opacity」, move its control; tap 「Shadow」, move its control",Opacity and shadow of the frame change on the canvas (expected per TBD-1: the Collage room's Opacity / Shadow sliders),P2,R-047,TBD-1 pending with PM (Q-2).
-TC-056,Image focus,"On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; a photo in image focus",Look at the bottom bar and scroll it horizontally,One horizontally scrolling bar: 「Replace」 「Flip H」 「Flip V」 「Adjust」 「Filter」 「Removal」 「Enhance」 「Lock」 「Delete」; Removal and Enhance carry a 「PRO」 tag,P1,"R-049, R-054",The Design draws no PRO tag on Removal / Enhance (Q-20) and spells 「Fliter」 (Q-30): record what the app shows.
+TC-056,Image focus,"On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; a photo in image focus",Look at the bottom bar and scroll it horizontally,"One horizontally scrolling bar: 「Replace」 「Horizontal Flip」 「Vertical Flip」 「Adjustments」 「Filter」 「Removal」 「AI Enhance」 「Lock」 「Delete」
+Removal and AI Enhance carry a 「PRO」 tag",P1,"R-049, R-054","The Design draws no PRO tag on Removal / Enhance (Q-20) and spells 「Fliter」 (Q-30): record what the app shows. Ruling REQ-013 (2026-11-23, PHA262026P0081 OK) 「P0081是對的」: the build's labels Horizontal Flip / Vertical Flip / Adjustments / AI Enhance are accepted (R-049)."
 TC-057,Image focus,"On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; a photo in image focus","Tap 「Replace」, pick another photo",The picker opens; the chosen photo replaces the image in that frame,P1,R-050,
 TC-058,Image focus,"On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; a photo in image focus","Tap 「Flip H」, then 「Flip V」","The photo flips horizontally at once, then vertically at once, inside its frame",P2,R-051,
 TC-059,Image focus,"On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; a photo in image focus","Tap 「Adjust」, change a value, apply; tap 「Filter」, pick a filter, apply",Adjust and Filter open the same panels as the Collage room and the change shows on that photo only,P2,R-052,
@@ -87,10 +88,11 @@ TC-064,Image focus,"Signed in with a PhotoDirector Premium account; On the Canva
 TC-065,Image focus,"Signed in with a PhotoDirector Premium account; On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; a photo in image focus","Tap 「Enhance」, run an enhance, tap ✓",No IAP page; returns to the Canvas and the enhanced photo replaces that frame's photo,P1,R-057,
 TC-172,Image focus,"Signed in with a PhotoDirector Premium account; On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; a photo in image focus; note the credit balance","1. Tap 「Enhance」
 2. Tap 「Advanced」
-3. Read the 「Enhance」 button and the credit button
+3. Read the 「Enhance」 button and the top bar
 4. Tap 「Enhance」
-5. Tap ✓
-6. Tap the credit button",The credit button shows the account's balance with 「+」; 「Enhance」 shows a price of 5 credits under 「Advanced」 (「Maximize detail and clarity with advanced AI.」); the balance after ✓ is recorded; the credit button opens Buy Credit,P2,R-211,D4-01 says the feature charges no credits; the Design draws 5 credits (Q-27). Record the charge; do not file before Q-27 is answered.
+5. Tap ✓","Step 3: The top bar has no credit button
+Step 3: 「Enhance」 shows a price of 5 credits under 「Advanced」 (「Maximize detail and clarity with advanced AI.」)
+Step 5: The balance after ✓ is recorded",P2,R-211,"D4-01 says the feature charges no credits; the Design draws 5 credits (Q-27). Record the charge; do not file before Q-27 is answered. Ruling REQ-018 (2026-11-23, PHA262026P0086 OK) 「UI已經改動了 算過」: the credit button was removed from this room (R-211)."
 TC-066,Image focus,Signed in with a PhotoDirector Premium account; a Removal result just applied on the Canvas,"Tap ↶, then ↷",↶ brings back the original photo; ↷ brings back the Removal result,P2,R-058,
 TC-067,Image focus,Signed in with a PhotoDirector Premium account; note the newest item in the Gallery 「PhotoDirector」 album,"Apply a Removal and an Enhance result on the Canvas, then open the Gallery",No new image was saved to the album by Removal or Enhance,P2,R-059,
 TC-068,Image focus,"Signed in with a PhotoDirector Premium account; On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; a photo in image focus","Tap 「Removal」, make a change, tap ✕; repeat with 「Enhance」",Returns to the Canvas each time with the photo unchanged,P2,R-060,
@@ -148,14 +150,17 @@ TC-102,Add Layer,"Text editor opened from Add Layer, text typed",Tap ✕ in the 
 TC-103,Add Layer,Add Layer sheet open,"1. Tap 「Sticker」
 2. Tap another category tab
 3. Tap a sticker
-4. Tap ✓","The Edit Room Sticker panel opens (store button, category tabs such as 「Favorites」 「AI Sticker」 「Flower」 「Holiday」, a 「More」 tile, ✕ / ✓); the sticker is added to the Canvas and stays after ✓",P1,"R-090, R-093","Category names come from content. The PM mock draws 「Search by keywords」: if the panel has it, search one keyword and close the keyboard."
+4. Tap ✓","The Sticker panel opens with category tabs such as 「Favorites」 and 「Trending」 and ✕ / ✓
+The panel has no store button, 「AI Sticker」 tab or 「More」 tile
+The sticker is added to the Canvas and stays after ✓",P1,"R-090, R-093","Category names come from content. The PM mock draws 「Search by keywords」: if the panel has it, search one keyword and close the keyboard. Ruling REQ-014 (2026-11-23, PHA262026P0090 OK) 「sticker已經把這些按鈕取消了 不需要出現」: store, AI Sticker and More were removed on purpose (R-090)."
 TC-104,Add Layer,Add Layer sheet open,"1. Tap 「Frame」
 2. Tap a thumbnail
 3. Tap ✓","The new Frame panel with square thumbnails (「1 photo」, 「3 photos」 …) and ✕ / ✓ opens; the tapped frame is added to the Canvas with empty 「+」 cells",P1,"R-091, R-093",The Design's 4_frame board draws texture tiles (Q-24): record what the panel shows.
 TC-105,Add Layer,Signed in with a Free (non-Premium) account; Frame panel open from Add Layer,Look for NEW and PRO tags; add a PRO frame,NEW and PRO tags show on the thumbnails the CMS marks; the PRO frame is added without an IAP page,P2,R-094,
 TC-106,Add Layer,Add Layer sheet open,"1. Tap 「Text Bubble」
 2. Tap a bubble style
-3. Tap ✓","The Edit Room Text Bubble panel opens (「∅」 first, bubble styles, ✕ / ✓); the bubble is added to the Canvas",P1,"R-092, R-093",
+3. Tap ✓","The Text Bubble panel opens with bubble styles and ✕ / ✓ (no 「∅」 item)
+The bubble is added to the Canvas",P1,"R-092, R-093","Ruling REQ-015 (2026-11-23, PHA262026P0091 OK) 「第一個那個不需要」: no 「∅」 item is needed (R-092)."
 TC-107,Add Layer,Add Layer card open,Close the card: tap the round 「+」 again (or outside the card),The card closes; nothing is added,P3,R-086,"The Design draws no ✕ on the card (Q-23); the PM does: if the app shows ✕, tap it."
 TC-108,Layers,"On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos with a text and a sticker",Tap 「Layers」,"The Layers list opens with a collapse ⌄ and ✕ / ✓; each layer shows its thumbnail on a transparency grid, ⋯ on the left and ≡ on the right",P2,R-095,
 TC-109,Layers,Layers list open,Tap ⋯ on a layer,"A menu with 「Delete」 「Duplicate」 「Lock」, each with an icon",P2,R-096,
@@ -166,7 +171,9 @@ TC-113,Layers,Layers list open after a change,"1. Tap ✕
 2. Open 「Layers」 and make the change again
 3. Tap ✓","✕ closes the list and, per TBD-4, the change stays (record if it is undone, Q-5); ✓ closes it with the change kept",P3,"R-086, R-206",TBD-4 (Q-5).
 TC-114,Ratio,On the Canvas of a Year End template (opened from Template Preview › 「Use Template」),Tap 「Ratio」,"The Ratio bar opens with ✕ / ✓ and 「Custom」 「Original」 「Square」 「2:3」 「3:2」 「3:4」 and the rest of the bar (scroll it to the end), each with a crop-style icon; no AI Expand promotion",P1,"R-099, R-102",PM: 1:1 / 4:5 / 5:4 / 3:4 / 4:3 / 9:16 / 16:9 (Q-25); the Design writes 「Squre」 (Q-30). List every ratio the app offers.
-TC-115,Ratio,"On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; Ratio sheet open","Tap each ratio the bar offers in turn (「Custom」, 「Original」, 「Square」, 「2:3」, 「3:2」, 「3:4」 and any further)","Each fixed ratio gives every page that ratio: the page width (short side) stays, only the long side changes; elements keep their place and the canvas grows downward or shrinks upward. 「Original」 and 「Custom」: record what they do (Q-25)",P1,"R-100, R-101",
+TC-115,Ratio,"On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; Ratio sheet open","Tap each ratio the bar offers in turn (「Custom」, 「Original」, 「Square」, 「2:3」, 「3:2」, 「3:4」 and any further)","Each fixed ratio gives every page that ratio: the page width (short side) stays, only the long side changes
+No frame is squashed or stretched (the canvas may resize from its centre and elements may move)
+「Original」 and 「Custom」: record what they do (Q-25)",P1,"R-100, R-101","Ruling REQ-016 (2026-11-23, PHA262026P0093 OK) 「看起來不會被壓扁就好」: only no squashed frames is required (R-101)."
 TC-116,Ratio,Ratio 3:4 applied and the canvas exported and saved,Check the exported image's width and height,Width : height is 3 : 4 (short side as in R-100 / Q-8),P2,R-100,
 TC-117,Ratio,"Ratio sheet open, a ratio applied",Tap ✕,The sheet closes and the ratio stays (TBD-4 proposal); record if ✕ undoes it (Q-5),P3,R-086,TBD-4 (Q-5).
 TC-176,Ratio,"On the Canvas of a Year End template (opened from Template Preview › 「Use Template」), every frame filled with photos; Ratio bar open, 「3:2」 tapped",Tap ✓,The bar closes and every page keeps 3:2,P2,R-206,

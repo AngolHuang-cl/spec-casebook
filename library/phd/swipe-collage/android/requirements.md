@@ -76,7 +76,7 @@ Mockups are iPhone frames; Android differences are stated where the spec names t
 - R-048 [PM:states-canvas; F3] A frame can be scaled.
 
 ## Image focus
-- R-049 [PM:states-canvas; F8, D1-35] [DS:canvas_img_focus 28:1621] Image focus (「Image selected」) has one horizontally scrolling bar: 「Replace」 「Flip H」 「Flip V」 「Adjust」 「Filter」 「Removal」 「Enhance」 「Lock」 「Delete」 (the Design writes 「Fliter」, Q-30).
+- R-049 [PM:states-canvas; F8, D1-35] [DS:canvas_img_focus 28:1621] Image focus (「Image selected」) has one horizontally scrolling bar: 「Replace」 「Flip H」 「Flip V」 「Adjust」 「Filter」 「Removal」 「Enhance」 「Lock」 「Delete」 (the Design writes 「Fliter」, Q-30). **Ruling 2026-11-23 (REQ-013, PHA262026P0081 OK on TR261123-0041):** the build's labels 「Horizontal Flip」 「Vertical Flip」 「Adjustments」 「AI Enhance」 are accepted; rows expect them.
 - R-050 [PM:flow-table; F8] Replace opens the photo picker and replaces the photo.
 - R-051 [PM:flow-table; F8] Flip H / Flip V flip the photo immediately.
 - R-052 [PM:flow-table, states-canvas; F8] Adjust / Filter work as in the Collage room.
@@ -84,7 +84,7 @@ Mockups are iPhone frames; Android differences are stated where the spec names t
 - R-054 [PM:states-canvas, monetization-notes, removal-flow, enhance-flow; D3-01] Removal and Enhance carry a premium (PRO) tag on the toolbar. The Design draws no tag on either (Enhance's icon has a sparkle), Q-20.
 - R-055 [PM:removal-flow; D3-01, D1-43] [DS:GAI_removal 61:4517] Removal opens the Object Removal room (「Smart Select」 / 「Manual」 / 「One-Tap」, PRO toggle, 「Box」 / 「Circle」 / 「Swipe」, 「Remove」, ✕ / ✓); for a free user, applying shows the IAP page.
 - R-056 [PM:enhance-flow; D3-01, D1-43] [DS:Enhance_2 67:6424] Enhance opens the AI Enhance room (「Standard」 / 「Advanced」, 「General」 「Portrait」 「Anime」 「Product」 「Scenery」 「Pets」 「Concert」, 「Enhance」, ✕ / ✓); for a free user, applying shows the IAP page.
-- R-211 [DS:Enhance_2 67:6424; KB: KP-020] The AI Enhance room shows the credit balance button (「100」 with 「+」, opening Buy Credit) and, on 「Advanced」, 「Enhance」 priced 5 credits (「Maximize detail and clarity with advanced AI.」). D4-01 says the feature charges no credits (Q-27).
+- R-211 [DS:Enhance_2 67:6424; KB: KP-020] The AI Enhance room shows the credit balance button (「100」 with 「+」, opening Buy Credit) and, on 「Advanced」, 「Enhance」 priced 5 credits (「Maximize detail and clarity with advanced AI.」). D4-01 says the feature charges no credits (Q-27). **Ruling 2026-11-23 (REQ-018, PHA262026P0086 OK):** the credit button was removed from the AI Enhance room opened from Swipe Collage (UI changed); rows expect no credit button. The 5-credit price stays under Q-27.
 - R-057 [PM:removal-flow, enhance-flow; D1-11] For a paying user, ✓ puts the result in place of that frame's photo and returns to the Canvas.
 - R-058 [PM:states-canvas; D1-11] The Removal / Enhance result can be undone on the Canvas.
 - R-059 [PM:states-canvas; D1-11] The Removal / Enhance result is not saved to the album separately.
@@ -131,9 +131,9 @@ Mockups are iPhone frames; Android differences are stated where the spec names t
 - R-089 [DS:2_add_text 54:1487; PM:add-layer-flow; D1-14, D1-42] Text opens the text editor: a bar with ✕, 「B」, 「I」, align left / centre / right and ✓ above a text field with a clear ⓧ and the keyboard (PM: Collage text input, 「Cancel」 / 「Done」).
 - R-215 [DS:2_add_text 54:1487] Bold, italic and the three alignments apply to the text; the field's ⓧ clears it.
 - R-216 [DS:2_add_text 54:1487, 5_Text_bubble 54:2359] A text or text bubble on the canvas shows a floating edit / duplicate / delete bar and a rotate handle when selected.
-- R-090 [DS:3_Add_Sticker 54:1835; PM:add-layer-flow; D1-14, D1-42] Sticker opens the Edit Room Sticker panel (store button, category tabs such as 「Favorites」 「AI Sticker」 「Flower」 「Holiday」, a 「More」 tile, ✕ / ✓; the PM mock draws 「Search by keywords」).
+- R-090 [DS:3_Add_Sticker 54:1835; PM:add-layer-flow; D1-14, D1-42] Sticker opens the Edit Room Sticker panel (store button, category tabs such as 「Favorites」 「AI Sticker」 「Flower」 「Holiday」, a 「More」 tile, ✕ / ✓; the PM mock draws 「Search by keywords」). **Ruling 2026-11-23 (REQ-014, PHA262026P0090 OK):** the store button, 「AI Sticker」 tab and 「More」 tile were removed from this panel on purpose; the panel keeps category tabs (「Favorites」 …) and ✕ / ✓.
 - R-091 [PM:add-layer-flow, states-layers; D1-42, F2] Frame opens the new Frame panel with square thumbnails; tapping one adds that frame. (The Design's 4_frame board draws texture tiles with NEW / crown and ✕ / ✓, Q-24.)
-- R-092 [DS:5_Text_bubble 54:2359; PM:add-layer-flow; D1-14, D1-42] Text Bubble opens the Edit Room Text Bubble panel (「∅」 none first, bubble styles, ✕ / ✓).
+- R-092 [DS:5_Text_bubble 54:2359; PM:add-layer-flow; D1-14, D1-42] Text Bubble opens the Edit Room Text Bubble panel (「∅」 none first, bubble styles, ✕ / ✓). **Ruling 2026-11-23 (REQ-015, PHA262026P0091 OK):** no 「∅」 item is needed; the panel keeps bubble styles and ✕ / ✓.
 - R-093 [PM:add-layer-flow; D1-42] After finishing, the Canvas shows the new element.
 - R-094 [PM:states-layers; D2-07, D3-02, F17] Frame panel thumbnails carry CMS NEW / PRO tags; a PRO frame is usable, IAP at export.
 
@@ -146,7 +146,7 @@ Mockups are iPhone frames; Android differences are stated where the spec names t
 ## Ratio
 - R-099 [DS:Ratio 74:2830; PM:states-ratio; D2-02, F12, D1-37] The Ratio bar offers 「Custom」 「Original」 「Square」 「2:3」 「3:2」 「3:4」 … (the bar scrolls past the screen edge; the Design writes 「Squre」, Q-30), each with its crop-style icon, and ✕ / ✓. PM: 1:1 / 4:5 / 5:4 / 3:4 / 4:3 / 9:16 / 16:9 (Q-25).
 - R-100 [PM:states-ratio, flow-table; D1-36] The canvas default short side is 1080 px; a ratio change only changes the long side.
-- R-101 [PM:states-ratio; F12] On a ratio change elements stay put; the canvas grows downward / shrinks upward.
+- R-101 [PM:states-ratio; F12] On a ratio change elements stay put; the canvas grows downward / shrinks upward. **Ruling 2026-11-23 (REQ-016, PHA262026P0093 OK):** only required that no frame is squashed or stretched; the canvas resizing from its centre and elements moving are accepted.
 - R-102 [PM:states-ratio; D1-06] No AI Expand promotion.
 
 ## Pages

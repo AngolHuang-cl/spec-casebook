@@ -2,9 +2,9 @@
   "feature": "phd/ai-hair-color-custom",
   "platform": "android",
   "title": "AI Hair Color Custom",
-  "version": 4,
-  "approved_at": "2026-11-19T02:51:30.120Z",
-  "draft": "20261118-120459",
+  "version": 5,
+  "approved_at": "2026-11-23T08:58:04.520Z",
+  "draft": "edit-20261123-165738",
   "spec_folder": "specs/2026-11-17",
   "spec_files": [
     {
@@ -53,6 +53,15 @@
       "approved_at": "2026-11-19T02:51:30.120Z",
       "spec_set_sha256": "52880ca035adc7c9ec2cb2f747c12be75d22f43a46f9b532470f1156741d78f2",
       "draft": "20261118-120459",
+      "cases": 87,
+      "csv": "history/v4.csv",
+      "requirements": "history/v4-requirements.md"
+    },
+    {
+      "version": 5,
+      "approved_at": "2026-11-23T08:58:04.520Z",
+      "spec_set_sha256": "52880ca035adc7c9ec2cb2f747c12be75d22f43a46f9b532470f1156741d78f2",
+      "draft": "edit-20261123-165738",
       "cases": 87,
       "csv": "cases.csv",
       "requirements": "requirements.md"

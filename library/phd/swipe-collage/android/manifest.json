@@ -2,9 +2,9 @@
   "feature": "phd/swipe-collage",
   "platform": "android",
   "title": "Swipe Collage",
-  "version": 4,
-  "approved_at": "2026-11-12T02:14:03.528Z",
-  "draft": "20261112-094820",
+  "version": 5,
+  "approved_at": "2026-11-23T08:57:57.971Z",
+  "draft": "edit-20261123-165738",
   "spec_folder": "specs/2026-11-05",
   "spec_files": [
     {
@@ -48,6 +48,15 @@
       "approved_at": "2026-11-12T02:14:03.528Z",
       "spec_set_sha256": "39ec8cd506d551c19b6602fab628954fc02ace53cbbaf456fa5b7acd7a91cea2",
       "draft": "20261112-094820",
+      "cases": 187,
+      "csv": "history/v4.csv",
+      "requirements": "history/v4-requirements.md"
+    },
+    {
+      "version": 5,
+      "approved_at": "2026-11-23T08:57:57.971Z",
+      "spec_set_sha256": "39ec8cd506d551c19b6602fab628954fc02ace53cbbaf456fa5b7acd7a91cea2",
+      "draft": "edit-20261123-165738",
       "cases": 187,
       "csv": "cases.csv",
       "requirements": "requirements.md"

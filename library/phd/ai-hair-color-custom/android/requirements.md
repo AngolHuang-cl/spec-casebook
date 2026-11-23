@@ -93,7 +93,7 @@ stand until the user re-decides them.
 - R-056 [PM:10/E D1-14, D1-12] Dragging the Intensity bar is free; releasing it is one undo step.
 - R-057 [PM:pm-ui result_custom; PM:10/E D1-15, D1-05] The result is saved to My AI Artwork at 100% the moment it succeeds; the top-bar Artwork key opens My AI Artwork on the AI Hair tab, Color sub-tab, where it is listed.
 - R-058 [PM:pm-ui result_custom; PM:10/E D1-13, D1-07] ✓ takes the result at its current Intensity into Edit Room; on Android Edit Room opens anew with it (the image is first saved silently).
-- R-059 [PM:10/E D1-15] When the first result appears, a one-time dialog says My AI Artwork keeps only the 100% version; 「Don't show again」 stops it.
+- R-059 [PM:10/E D1-15] When the first result appears, a one-time dialog says My AI Artwork keeps only the 100% version; 「Don't show again」 stops it. **Ruling 2026-11-23 (REQ-013, PHA262026P0118 OK on TR261123-0041):** the one-time tip bubble on the Artwork button (「All your results are saved here at full intensity.」) replaces the dialog; rows expect the tip.
 - R-060 [PM:10/E D2-04] The result keeps the hairstyle outline, hair length, face, background and clothes; only the hair colour changes.
 
 ## Credits, premium and failures
