@@ -335,6 +335,10 @@ lines; put the full rule in the skill or reference file that applies it and poin
   renumbered (README › *Before you push or open a PR*).
 - **Commit and push (user, 2026-10-27).** "Commit and push" (or "push") means push to `origin` right after the
   commit, with no second confirmation; a plain "commit" stays local.
+- **Stall watchdog, no polling (user, 2026-11-23).** Every segment runs beside a background
+  `scripts/run-watchdog.ts <run dir>` that exits on a new checkpoint (DONE) or 20 min without run-folder activity
+  (STALL); the orchestrator never polls a segment, and a stall is checked against usage before the segment is stopped
+  and resumed fresh (`run.md`, *Stall watchdog*).
 - **Parallel phones: investigate only.** Running segments on several phones at once is an open idea in
   `INVESTIGATE.md`; do not build multi-device support without asking.
 - **Seat size in Settings (user, 2026-11-17).** The account's seat size (Pro 1, Team 1.25 / 6.25) is set per computer on

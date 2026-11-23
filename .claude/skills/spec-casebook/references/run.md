@@ -88,6 +88,17 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
   subagent that hits one stops and says so. Without subagents: one worker session the orchestrator clears
   (`clear_session`) and re-briefs after each segment. With neither, stop after the checkpoint and ask the user to open
   a new chat, giving the brief to paste.
+- **Stall watchdog, no polling (user, 2026-11-23).** With each segment brief the orchestrator also starts
+  `node scripts/run-watchdog.ts <run dir>` as a background command (Claude Code: Bash `run_in_background`; add
+  `--also <transcript>` when the segment's transcript path is known). It only reads file times, so waiting costs no
+  tokens, and the orchestrator never checks on a segment by polling, sleeping or `ScheduleWakeup` loops. When the
+  watchdog exits: `DONE` (exit 0, new checkpoint): nothing to do, the segment's own reply drives the next brief.
+  `STALL` (exit 3, nothing in the run folder changed for 20 min, longer when the last command is a `waitfor` with a
+  longer `--timeout`): read the usage card first; a usage-limit wait is not a stall, so restart the watchdog and wait.
+  Otherwise stop the segment (TaskStop the subagent, or `stop_session` the worker), record in the plan's Log that it
+  stalled after the last command the watchdog names, and brief a fresh segment, which resumes from `run-log.ts next`
+  as usual. `TIMEOUT` (exit 4, 8 h with activity but no checkpoint): treat like a stall. A segment reply that arrives
+  first ends the watchdog's purpose: stop it (TaskStop) before starting the next pair.
 - **Resuming** (after a reset, a usage-limit stop or a crash) starts with `device.ts <run dir> status` and
   `run-log.ts <run dir> next`, then a screenshot to confirm the phone matches the last checkpoint. Never redo recorded
   cases; Inconclusive ones are re-run from the recovery queue at the end of their segment.
