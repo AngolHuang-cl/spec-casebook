@@ -26,3 +26,13 @@ RD (Q-12); do not assert a vendor from the model name.
 In the CyberLink manifest the Off save (label burned in) says `trainedAlgorithmicMedia` while the On save (no label,
 unedited) says `compositeWithTrainedAlgorithmicMedia` (Image to Video). No row checks the value; a question for RD
 and a spec-addition candidate.
+
+## KF-007 CLC2PA signs CyberLink only and replaces the provider's manifest
+- kind: rule · authority: team · platform: both · use: analysis, run, ebug · tags: c2pa, clc2pa, provider, switch
+- source: RD Sean Kao on DRA262611P0220 / P0221 (NAB, 2026-11-19/20); Pike via Remus Chiang on Jira PDRA-649 · verified: 16.9.0 build 2611161 (2026-11-17)
+
+Since CLC2PA 1.0.1012 the app signs every saved AI result with CyberLink's manifest alone: one `c2pa.created` action
+with `digitalSourceType`, no ingredient and no provenance chain; a manifest the provider's file already carries
+(Google, Kling, BytePlus…) is replaced. This holds for effects the sheet marks 無簽章 too, and 「Remove AIGC
+Watermark」 does not change it (the switch is UI only). A save that keeps a provider's manifest (Text to Image On,
+KF-001) is the exception to flag. Supersedes the reading in KF-001 that the sheet decides whether a save is signed.

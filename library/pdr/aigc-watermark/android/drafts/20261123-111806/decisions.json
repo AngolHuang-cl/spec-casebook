@@ -1,0 +1,18 @@
+{
+  "saved_at": "2026-11-23T03:22:17.853Z",
+  "version": 2,
+  "decisions": [
+    {
+      "type": "delete",
+      "id": "TC-015",
+      "was_change": "removed"
+    },
+    {
+      "type": "delete",
+      "id": "TC-016",
+      "was_change": "removed"
+    }
+  ],
+  "summary": "Review: pdr/aigc-watermark / android · draft 20261123-111806\nFinal table: 127 cases · kept 127 · edited 0 · added 0 · deleted 2\n\nDELETE TC-015\nDELETE TC-016",
+  "notes": []
+}

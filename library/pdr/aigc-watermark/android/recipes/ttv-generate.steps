@@ -1,0 +1,15 @@
+# Start one Text to Video task with a given model (AIGC Watermark C2PA rows).
+# Starts: the Text to Video page (after 「Try It Now」 or 「Create another one」), model row showing Kling 4.0 (KP-083).
+# Ends: the task list with the new task 「Processing…」. Charges the model's default price.
+# Args: $1 = model name exactly as listed. Written 2026-11-23 on 16.9.0 (2611193), SM-A5360.
+waitfor Generate --timeout 60
+lbl "Kling 4.0"
+wait 2
+scrollto "$1"
+lbl "$1"
+wait 2
+setval etv_input "A red kite flying over a green hill on a sunny day, gentle wind"
+hidekb
+expect "$1"
+texts
+lbl Generate

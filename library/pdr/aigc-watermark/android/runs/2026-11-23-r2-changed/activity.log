@@ -1,0 +1,1340 @@
+2026-11-23T03:30:09.425Z status 
+2026-11-23T03:30:34.544Z restart R5CTB22S05Y
+2026-11-23T03:30:52.118Z build 
+2026-11-23T03:30:52.396Z logcat start
+2026-11-23T03:30:52.744Z shot setup-start
+2026-11-23T03:31:04.263Z back 
+2026-11-23T03:31:07.000Z texts 
+2026-11-23T03:31:07.280Z shot launcher
+2026-11-23T03:31:10.572Z back 
+2026-11-23T03:31:13.485Z texts 
+2026-11-23T03:31:14.449Z shot launcher
+2026-11-23T03:31:21.053Z lbl Mine
+2026-11-23T03:30:52.522Z file logs/.live
+2026-11-23T03:30:53.275Z file screenshots/setup-start.png
+2026-11-23T03:31:15.183Z file screenshots/launcher.png
+2026-11-23T03:31:25.157Z texts 
+2026-11-23T03:31:25.524Z shot mine
+2026-11-23T03:31:26.050Z file screenshots/mine.png
+2026-11-23T03:31:29.369Z lbl Home
+2026-11-23T03:31:31.808Z tap 89 200
+2026-11-23T03:31:34.084Z texts 
+2026-11-23T03:31:37.742Z els remove_aigc
+2026-11-23T03:31:38.132Z shot menu-switch
+2026-11-23T03:32:06.227Z back 
+2026-11-23T03:32:07.909Z case TC-121
+2026-11-23T03:32:08.036Z lbl AI Magic
+2026-11-23T03:32:11.121Z texts 
+2026-11-23T03:32:14.449Z scrollto Text to Image
+2026-11-23T03:32:16.755Z lbl Text to Image
+2026-11-23T03:32:20.465Z texts 
+2026-11-23T03:32:20.714Z shot t2i-open
+2026-11-23T03:32:23.875Z els EditText
+2026-11-23T03:32:27.558Z setval et_prompt A red bicycle leaning on a white brick wall, photoreal
+2026-11-23T03:32:28.951Z hidekb 
+2026-11-23T03:32:29.793Z lbl Generate image
+2026-11-23T03:32:30.697Z waitfor Save|Download|Full Editor|Error|failed --timeout 300
+2026-11-23T03:37:33.791Z texts 
+2026-11-23T03:37:34.071Z shot TC-121-result
+2026-11-23T03:37:43.375Z tap 107 1960
+2026-11-23T03:37:46.667Z texts 
+2026-11-23T03:31:38.723Z file screenshots/menu-switch.png
+2026-11-23T03:32:21.171Z file screenshots/t2i-open.png
+2026-11-23T03:37:33.651Z file screenshots/waitfor-timeout-20261123-113732.png
+2026-11-23T03:37:35.248Z file screenshots/TC-121-result.png
+2026-11-23T03:40:03.191Z run-log set TC-121 Fail
+2026-11-23T03:40:06.878Z case TC-122
+2026-11-23T03:40:07.011Z back 
+2026-11-23T03:40:08.283Z back 
+2026-11-23T03:40:10.028Z texts 
+2026-11-23T03:40:12.709Z lbl Image to Video
+2026-11-23T03:40:17.654Z texts 
+2026-11-23T03:40:17.887Z shot itv-open
+2026-11-23T03:40:18.891Z file screenshots/itv-open.png
+2026-11-23T03:40:21.672Z lbl Try It Now
+2026-11-23T03:40:25.042Z texts 
+2026-11-23T03:40:25.311Z shot itv-page
+2026-11-23T03:40:25.780Z file screenshots/itv-page.png
+2026-11-23T03:40:30.433Z tap 203 970
+2026-11-23T03:40:33.726Z tapif Allow
+2026-11-23T03:40:33.951Z texts 
+2026-11-23T03:40:34.168Z shot itv-picker
+2026-11-23T03:40:37.404Z lbl Continue
+2026-11-23T03:40:34.969Z file screenshots/itv-picker.png
+2026-11-23T03:40:40.783Z texts 
+2026-11-23T03:40:41.064Z shot itv-picker
+2026-11-23T03:40:58.873Z tap 225 500
+2026-11-23T03:41:01.168Z texts 
+2026-11-23T03:41:04.573Z lbl 00PDRa_Testing_Material
+2026-11-23T03:41:06.956Z els photo_9_16
+2026-11-23T03:41:07.381Z shot itv-album
+2026-11-23T03:41:13.931Z tap 539 1783
+2026-11-23T03:41:17.206Z texts 
+2026-11-23T03:41:17.541Z shot itv-after-pick
+2026-11-23T03:41:20.920Z els EditText
+2026-11-23T03:41:23.978Z setval etPrompt The woman smiles and slowly turns her head toward the camera
+2026-11-23T03:41:25.323Z hidekb 
+2026-11-23T03:41:25.726Z lbl Kling 4.0
+2026-11-23T03:41:28.278Z texts 
+2026-11-23T03:41:28.625Z shot itv-models
+2026-11-23T03:41:32.120Z scrollto Wan 2.7
+2026-11-23T03:41:34.136Z texts 
+2026-11-23T03:41:34.476Z shot itv-models-2
+2026-11-23T03:41:38.714Z lbl Veo 3.1
+2026-11-23T03:41:41.175Z texts 
+2026-11-23T03:41:41.612Z shot TC-122-setup
+2026-11-23T03:41:46.465Z lbl Generate
+2026-11-23T03:41:50.921Z texts 
+2026-11-23T03:41:58.950Z shot TC-122-started
+2026-11-23T03:42:10.386Z texts 
+2026-11-23T03:42:10.607Z shot TC-122-processing
+2026-11-23T03:42:14.244Z waitfor Processing|Create another one|Save|Error --timeout 120
+2026-11-23T03:42:41.489Z texts 
+2026-11-23T03:42:47.324Z waitfor An Error Has Occurred --timeout 1
+2026-11-23T03:42:50.067Z texts 
+2026-11-23T03:43:00.591Z texts 
+2026-11-23T03:43:10.870Z texts 
+2026-11-23T03:43:21.152Z texts 
+2026-11-23T03:43:31.529Z texts 
+2026-11-23T03:43:31.767Z texts 
+2026-11-23T03:43:31.987Z shot TC-122-done
+2026-11-23T03:43:35.196Z lbl View
+2026-11-23T03:43:39.587Z texts 
+2026-11-23T03:43:39.811Z shot TC-122-result
+2026-11-23T03:43:44.453Z lbl Save
+2026-11-23T03:43:44.780Z waitfor Saved to Gallery|Saved --timeout 60
+2026-11-23T03:44:30.131Z run-log set TC-122 Pass
+2026-11-23T03:44:35.806Z back 
+2026-11-23T03:44:37.525Z back 
+2026-11-23T03:44:39.307Z back 
+2026-11-23T03:44:40.595Z texts 
+2026-11-23T03:44:40.833Z lbl Home
+2026-11-23T03:44:43.161Z tap 89 200
+2026-11-23T03:44:45.446Z id remove_aigc_watermark_switch
+2026-11-23T03:44:47.675Z texts 
+2026-11-23T03:44:47.865Z els remove_aigc_watermark_switch
+2026-11-23T03:44:48.069Z shot switch-off
+2026-11-23T03:44:52.061Z lbl Close
+2026-11-23T03:44:54.472Z texts 
+2026-11-23T03:44:57.835Z lbl Home
+2026-11-23T03:45:00.407Z tap 89 200
+2026-11-23T03:45:02.718Z id remove_aigc_watermark_switch
+2026-11-23T03:45:05.353Z texts 
+2026-11-23T03:45:05.781Z els remove_aigc_watermark_switch
+2026-11-23T03:45:06.199Z shot switch-off
+2026-11-23T03:45:10.455Z back 
+2026-11-23T03:45:12.107Z lbl AI Magic
+2026-11-23T03:45:15.220Z lbl Image to Video
+2026-11-23T03:45:18.668Z texts 
+2026-11-23T03:45:21.532Z lbl Try It Now
+2026-11-23T03:45:26.263Z texts 
+2026-11-23T03:45:26.688Z shot itv-2
+2026-11-23T03:45:37.830Z tap 203 970
+2026-11-23T03:45:40.136Z tapif Continue
+2026-11-23T03:45:42.631Z texts 
+2026-11-23T03:45:43.038Z shot picker2
+2026-11-23T03:45:48.756Z back 
+2026-11-23T03:45:51.502Z texts 
+2026-11-23T03:45:51.930Z case TC-090
+2026-11-23T03:45:52.060Z do library/pdr/aigc-watermark/android/recipes/itv-generate.steps Veo 3.1 539 1783
+2026-11-23T03:45:52.062Z tap 203 970
+2026-11-23T03:45:52.164Z wait 2
+2026-11-23T03:45:54.189Z tapif Continue
+2026-11-23T03:45:54.421Z wait 2
+2026-11-23T03:45:56.441Z tap 539 1783
+2026-11-23T03:45:56.524Z wait 3
+2026-11-23T03:45:59.545Z setval etPrompt The woman smiles and slowly turns her head toward the camera
+2026-11-23T03:46:00.992Z hidekb 
+2026-11-23T03:46:01.161Z lbl Kling 4.0
+2026-11-23T03:46:01.633Z wait 2
+2026-11-23T03:46:03.662Z scrollto Veo 3.1
+2026-11-23T03:46:05.338Z lbl Veo 3.1
+2026-11-23T03:46:05.453Z wait 2
+2026-11-23T03:46:07.470Z expect Veo 3.1
+2026-11-23T03:46:07.697Z lbl Generate
+2026-11-23T03:46:13.271Z texts 
+2026-11-23T03:46:24.417Z waitfor Create another one --timeout 120
+2026-11-23T03:47:02.834Z shot TC-090-started
+2026-11-23T03:47:03.521Z lbl Create another one
+2026-11-23T03:47:06.891Z case TC-093
+2026-11-23T03:47:07.016Z do library/pdr/aigc-watermark/android/recipes/itv-generate.steps Kling O3 539 1783
+2026-11-23T03:47:07.018Z tap 203 970
+2026-11-23T03:47:07.125Z wait 2
+2026-11-23T03:47:09.153Z tapif Continue
+2026-11-23T03:47:09.422Z wait 2
+2026-11-23T03:47:11.436Z tap 539 1783
+2026-11-23T03:47:11.508Z wait 3
+2026-11-23T03:47:14.537Z setval etPrompt The woman smiles and slowly turns her head toward the camera
+2026-11-23T03:47:15.725Z hidekb 
+2026-11-23T03:47:16.177Z lbl Kling 4.0
+2026-11-23T03:47:16.364Z wait 2
+2026-11-23T03:47:18.389Z scrollto Kling O3
+2026-11-23T03:47:18.635Z lbl Kling O3
+2026-11-23T03:47:18.841Z wait 2
+2026-11-23T03:47:20.858Z expect Kling O3
+2026-11-23T03:47:21.225Z lbl Generate
+2026-11-23T03:47:22.652Z waitfor Create another one --timeout 120
+2026-11-23T03:48:17.930Z shot TC-093-started
+2026-11-23T03:48:22.401Z lbl Create another one
+2026-11-23T03:48:25.796Z case TC-094
+2026-11-23T03:48:25.927Z do library/pdr/aigc-watermark/android/recipes/itv-generate.steps Vidu Q2 539 1783
+2026-11-23T03:48:25.929Z tap 203 970
+2026-11-23T03:48:26.032Z wait 2
+2026-11-23T03:48:28.053Z tapif Continue
+2026-11-23T03:48:28.275Z wait 2
+2026-11-23T03:48:30.295Z tap 539 1783
+2026-11-23T03:48:30.381Z wait 3
+2026-11-23T03:48:33.399Z setval etPrompt The woman smiles and slowly turns her head toward the camera
+2026-11-23T03:48:34.660Z hidekb 
+2026-11-23T03:48:34.825Z lbl Kling 4.0
+2026-11-23T03:48:35.295Z wait 2
+2026-11-23T03:48:37.322Z scrollto Vidu Q2
+2026-11-23T03:48:39.176Z lbl Vidu Q2
+2026-11-23T03:48:40.414Z wait 2
+2026-11-23T03:48:42.441Z expect Vidu Q2
+2026-11-23T03:48:42.672Z lbl Generate
+2026-11-23T03:48:43.128Z waitfor Create another one --timeout 150
+2026-11-23T03:41:08.809Z file screenshots/itv-album.png
+2026-11-23T03:41:18.139Z file screenshots/itv-after-pick.png
+2026-11-23T03:41:29.234Z file screenshots/itv-models.png
+2026-11-23T03:41:34.949Z file screenshots/itv-models-2.png
+2026-11-23T03:41:42.230Z file screenshots/TC-122-setup.png
+2026-11-23T03:41:59.522Z file screenshots/TC-122-started.png
+2026-11-23T03:42:11.167Z file screenshots/TC-122-processing.png
+2026-11-23T03:42:49.913Z file screenshots/waitfor-timeout-20261123-114249.png
+2026-11-23T03:43:32.497Z file screenshots/TC-122-done.png
+2026-11-23T03:43:40.860Z file screenshots/TC-122-result.png
+2026-11-23T03:45:06.814Z file screenshots/switch-off.png
+2026-11-23T03:45:27.237Z file screenshots/itv-2.png
+2026-11-23T03:45:44.495Z file screenshots/picker2.png
+2026-11-23T03:47:03.383Z file screenshots/TC-090-started.png
+2026-11-23T03:48:18.514Z file screenshots/TC-093-started.png
+2026-11-23T03:49:39.865Z shot TC-094-started
+2026-11-23T03:49:40.659Z lbl Create another one
+2026-11-23T03:49:45.425Z case TC-096
+2026-11-23T03:49:45.552Z do library/pdr/aigc-watermark/android/recipes/itv-generate.steps Pixverse V6 539 17
+2026-11-23T03:49:45.554Z tap 203 970
+2026-11-23T03:49:45.675Z wait 2
+2026-11-23T03:49:47.709Z tapif Continue
+2026-11-23T03:49:47.948Z wait 2
+2026-11-23T03:49:49.967Z tap 539 1783
+2026-11-23T03:49:50.057Z wait 3
+2026-11-23T03:49:53.075Z setval etPrompt The woman smiles and slowly turns her head toward the camera
+2026-11-23T03:49:54.260Z hidekb 
+2026-11-23T03:49:54.463Z lbl Kling 4.0
+2026-11-23T03:49:54.912Z wait 2
+2026-11-23T03:49:56.943Z scrollto Pixverse V6
+2026-11-23T03:49:57.178Z lbl Pixverse V6
+2026-11-23T03:49:58.300Z wait 2
+2026-11-23T03:50:00.331Z expect Pixverse V6
+2026-11-23T03:50:00.561Z lbl Generate
+2026-11-23T03:50:02.072Z waitfor Create another one --timeout 150
+2026-11-23T03:49:40.501Z file screenshots/TC-094-started.png
+2026-11-23T03:50:56.858Z shot TC-096-started
+2026-11-23T03:50:57.636Z lbl Create another one
+2026-11-23T03:50:57.497Z file screenshots/TC-096-started.png
+2026-11-23T03:51:01.075Z case TC-097
+2026-11-23T03:51:01.205Z do library/pdr/aigc-watermark/android/recipes/itv-generate.steps Wan 2.7 539 1783
+2026-11-23T03:51:01.207Z tap 203 970
+2026-11-23T03:51:01.314Z wait 2
+2026-11-23T03:51:03.348Z tapif Continue
+2026-11-23T03:51:03.605Z wait 2
+2026-11-23T03:51:05.621Z tap 539 1783
+2026-11-23T03:51:05.698Z wait 3
+2026-11-23T03:51:08.714Z setval etPrompt The woman smiles and slowly turns her head toward the camera
+2026-11-23T03:51:09.907Z hidekb 
+2026-11-23T03:51:10.097Z lbl Kling 4.0
+2026-11-23T03:51:10.552Z wait 2
+2026-11-23T03:51:12.580Z scrollto Wan 2.7
+2026-11-23T03:51:14.417Z lbl Wan 2.7
+2026-11-23T03:51:14.578Z wait 2
+2026-11-23T03:51:16.594Z expect Wan 2.7
+2026-11-23T03:51:16.735Z lbl Generate
+2026-11-23T03:51:18.024Z waitfor Create another one --timeout 150
+2026-11-23T03:52:12.366Z shot TC-097-started
+2026-11-23T03:52:13.146Z texts 
+2026-11-23T03:52:13.008Z file screenshots/TC-097-started.png
+2026-11-23T03:52:23.072Z case TC-091
+2026-11-23T03:52:23.199Z lbl Create another one
+2026-11-23T03:52:26.647Z tap 203 970
+2026-11-23T03:52:28.935Z tapif Continue
+2026-11-23T03:52:31.385Z tap 539 1783
+2026-11-23T03:52:34.665Z lbl Kling 4.0
+2026-11-23T03:52:37.148Z scrollto Seedance 2.0
+2026-11-23T03:52:37.624Z lbl Seedance 2.0
+2026-11-23T03:52:41.183Z texts 
+2026-11-23T03:52:41.661Z shot TC-091-seedance
+2026-11-23T03:52:42.248Z file screenshots/TC-091-seedance.png
+2026-11-23T03:52:52.947Z run-log set TC-091 Blocked
+2026-11-23T03:52:53.061Z run-log set TC-092 Blocked
+2026-11-23T03:52:53.173Z run-log set TC-095 Blocked
+2026-11-23T03:52:53.299Z back 
+2026-11-23T03:52:55.560Z texts 
+2026-11-23T03:52:59.249Z lbl Close
+2026-11-23T03:53:01.657Z texts 
+2026-11-23T03:53:02.131Z shot itv-list
+2026-11-23T03:53:03.210Z file screenshots/itv-list.png
+2026-11-23T03:53:07.633Z case TC-118
+2026-11-23T03:53:07.762Z scrollto Text to Image
+2026-11-23T03:53:09.944Z lbl Text to Image
+2026-11-23T03:53:13.544Z texts 
+2026-11-23T03:53:13.779Z setval et_prompt A red bicycle leaning on a white brick wall, photoreal
+2026-11-23T03:53:15.130Z hidekb 
+2026-11-23T03:53:15.453Z shot TC-118-setup
+2026-11-23T03:53:16.089Z lbl Generate image
+2026-11-23T03:53:16.988Z waitfor Image to Video|Error|failed --timeout 170
+2026-11-23T03:53:15.937Z file screenshots/TC-118-setup.png
+2026-11-23T03:53:20.775Z texts 
+2026-11-23T03:53:21.120Z shot t2i-state
+2026-11-23T03:53:21.618Z file screenshots/t2i-state.png
+2026-11-23T03:53:28.240Z els Generate
+2026-11-23T03:53:28.520Z els Image to Video
+2026-11-23T03:53:32.312Z els btn_generate
+2026-11-23T03:53:42.676Z els btn_generate
+2026-11-23T03:53:42.976Z els btn_generate
+2026-11-23T03:53:43.266Z shot TC-118-result
+2026-11-23T03:53:44.409Z file screenshots/TC-118-result.png
+2026-11-23T03:53:53.246Z tap 107 1960
+2026-11-23T03:54:04.294Z run-log set TC-118 Pass
+2026-11-23T03:54:07.940Z case TC-117
+2026-11-23T03:54:08.067Z back 
+2026-11-23T03:54:10.363Z texts 
+2026-11-23T03:54:10.587Z scrollto AI Art
+2026-11-23T03:54:13.838Z lbl AI Art
+2026-11-23T03:54:17.175Z texts 
+2026-11-23T03:54:17.398Z shot aiart-open
+2026-11-23T03:54:17.856Z file screenshots/aiart-open.png
+2026-11-23T03:54:21.034Z back 
+2026-11-23T03:54:23.787Z texts 
+2026-11-23T03:54:24.267Z scrollto AI Art
+2026-11-23T03:54:26.579Z lbl AI Art
+2026-11-23T03:54:30.064Z texts 
+2026-11-23T03:54:30.277Z shot aiart-open
+2026-11-23T03:54:34.130Z lbl Try It Now
+2026-11-23T03:54:38.755Z texts 
+2026-11-23T03:54:39.018Z shot aiart-page
+2026-11-23T03:54:39.873Z file screenshots/aiart-page.png
+2026-11-23T03:54:45.189Z lbl Try with example
+2026-11-23T03:54:49.360Z shot TC-117-setup
+2026-11-23T03:54:50.332Z lbl Generate for
+2026-11-23T03:54:50.206Z file screenshots/TC-117-setup.png
+2026-11-23T03:54:55.741Z texts 
+2026-11-23T03:54:58.754Z shot aiart-gen
+2026-11-23T03:54:59.361Z els 
+2026-11-23T03:54:59.208Z file screenshots/aiart-gen.png
+2026-11-23T03:55:04.404Z els tv_generate_more
+2026-11-23T03:55:14.723Z els tv_generate_more
+2026-11-23T03:55:25.062Z els tv_generate_more
+2026-11-23T03:55:25.341Z els tv_generate_more
+2026-11-23T03:55:25.604Z shot TC-117-result
+2026-11-23T03:55:26.224Z file screenshots/TC-117-result.png
+2026-11-23T03:55:32.459Z tap 289 868
+2026-11-23T03:55:35.737Z els 
+2026-11-23T03:55:36.059Z shot TC-117-open
+2026-11-23T03:55:37.316Z file screenshots/TC-117-open.png
+2026-11-23T03:55:42.822Z id download_button
+2026-11-23T03:55:53.303Z run-log set TC-117 Pass
+2026-11-23T03:55:56.980Z case TC-046
+2026-11-23T03:55:57.121Z id iv_home
+2026-11-23T03:56:00.495Z lbl AI Magic
+2026-11-23T03:56:03.272Z lbl My Artwork
+2026-11-23T03:56:07.620Z texts 
+2026-11-23T03:56:08.012Z shot TC-046-myartwork
+2026-11-23T03:56:15.870Z tap 292 1042
+2026-11-23T03:56:19.168Z shot TC-046-grid
+2026-11-23T03:56:19.919Z texts 
+2026-11-23T03:56:23.705Z tap 289 750
+2026-11-23T03:56:26.987Z els aigc
+2026-11-23T03:56:27.228Z shot TC-046-result
+2026-11-23T03:56:32.751Z run-log set TC-046 Pass
+2026-11-23T03:56:37.869Z case TC-090
+2026-11-23T03:56:37.998Z id iv_home
+2026-11-23T03:56:41.328Z lbl AI Magic
+2026-11-23T03:56:44.088Z lbl Image to Video
+2026-11-23T03:56:47.521Z tapif Try It Now
+2026-11-23T03:56:50.910Z tap 1000 196
+2026-11-23T03:56:54.207Z texts 
+2026-11-23T03:56:54.526Z shot itv-tasks
+2026-11-23T03:57:05.137Z case TC-097
+2026-11-23T03:57:05.264Z tap 916 731
+2026-11-23T03:57:09.552Z texts 
+2026-11-23T03:57:09.809Z shot TC-097-result
+2026-11-23T03:57:11.060Z lbl Save
+2026-11-23T03:57:11.398Z waitfor Saved to Gallery --timeout 60
+2026-11-23T03:57:16.778Z back 
+2026-11-23T03:57:20.052Z case TC-096
+2026-11-23T03:57:20.181Z tap 916 1103
+2026-11-23T03:57:24.465Z texts 
+2026-11-23T03:57:24.757Z shot TC-096-result
+2026-11-23T03:57:25.978Z lbl Save
+2026-11-23T03:57:26.360Z waitfor Saved to Gallery --timeout 60
+2026-11-23T03:57:31.452Z back 
+2026-11-23T03:57:35.178Z case TC-094
+2026-11-23T03:57:35.310Z tap 916 1475
+2026-11-23T03:57:39.576Z texts 
+2026-11-23T03:57:39.859Z shot TC-094-result
+2026-11-23T03:57:40.955Z lbl Save
+2026-11-23T03:57:41.323Z waitfor Saved to Gallery --timeout 60
+2026-11-23T03:57:46.383Z back 
+2026-11-23T03:57:50.115Z case TC-093
+2026-11-23T03:57:50.242Z tap 916 1847
+2026-11-23T03:57:54.541Z texts 
+2026-11-23T03:57:54.852Z shot TC-093-result
+2026-11-23T03:57:56.117Z lbl Save
+2026-11-23T03:57:56.498Z waitfor Saved to Gallery --timeout 60
+2026-11-23T03:58:01.552Z back 
+2026-11-23T03:58:05.276Z case TC-090
+2026-11-23T03:58:05.405Z tap 916 2219
+2026-11-23T03:58:09.700Z texts 
+2026-11-23T03:58:10.006Z shot TC-090-result
+2026-11-23T03:58:11.280Z lbl Save
+2026-11-23T03:58:11.665Z waitfor Saved to Gallery --timeout 60
+2026-11-23T03:58:16.668Z back 
+2026-11-23T03:58:19.952Z texts 
+2026-11-23T03:58:45.831Z run-log set TC-090 Pass
+2026-11-23T03:58:45.947Z run-log set TC-093 Pass
+2026-11-23T03:58:46.061Z run-log set TC-094 Pass
+2026-11-23T03:58:46.175Z run-log set TC-096 Pass
+2026-11-23T03:58:46.291Z run-log set TC-097 Pass
+2026-11-23T03:58:50.561Z pull-logs R2-a
+2026-11-23T04:00:35.458Z restart 
+2026-11-23T04:00:41.305Z logcat start
+2026-11-23T04:00:41.434Z status 
+2026-11-23T04:00:52.336Z build 
+2026-11-23T04:00:52.624Z shot R2b-start
+2026-11-23T04:00:53.493Z texts 
+2026-11-23T04:01:08.682Z back 
+2026-11-23T04:01:09.395Z back 
+2026-11-23T04:01:10.145Z texts 
+2026-11-23T04:01:14.287Z lbl Home
+2026-11-23T04:01:16.800Z tap 89 200
+2026-11-23T04:01:19.105Z els remove_aigc
+2026-11-23T04:01:19.654Z shot R2b-switch-start
+2026-11-23T04:01:25.371Z back 
+2026-11-23T04:01:27.058Z lbl AI Magic
+2026-11-23T04:01:30.235Z texts 
+2026-11-23T04:01:30.647Z fingerdrag 540 1900 540 700 5
+2026-11-23T04:01:32.431Z texts 
+2026-11-23T04:01:32.959Z fingerdrag 540 1900 540 700 5
+2026-11-23T04:01:34.740Z texts 
+2026-11-23T04:01:40.433Z fingerdrag 540 1900 540 700 5
+2026-11-23T04:01:42.173Z texts 
+2026-11-23T04:01:42.803Z fingerdrag 540 1900 540 700 5
+2026-11-23T04:01:44.612Z texts 
+2026-11-23T04:01:45.123Z fingerdrag 540 1900 540 700 5
+2026-11-23T04:01:46.947Z texts 
+2026-11-23T04:01:47.269Z fingerdrag 540 1900 540 700 5
+2026-11-23T04:01:49.068Z texts 
+2026-11-23T04:01:53.648Z case TC-115
+2026-11-23T04:01:53.779Z lbl AI Anime Video
+2026-11-23T04:01:57.223Z texts 
+2026-11-23T04:01:57.565Z shot TC-115-open
+2026-11-23T04:02:01.932Z scrollto AI Anime Video
+2026-11-23T04:02:05.427Z lbl AI Anime Video
+2026-11-23T04:02:11.021Z texts 
+2026-11-23T04:02:11.577Z shot TC-115-open
+2026-11-23T04:02:15.615Z lbl Try It Now
+2026-11-23T04:02:19.338Z tapif Allow
+2026-11-23T04:02:19.714Z texts 
+2026-11-23T04:02:20.054Z shot TC-115-picker
+2026-11-23T04:02:27.265Z lbl Generate for
+2026-11-23T04:02:31.251Z texts 
+2026-11-23T04:02:31.585Z shot TC-115-next
+2026-11-23T04:02:36.531Z lbl Continue
+2026-11-23T04:02:40.021Z tapif Allow
+2026-11-23T04:02:40.371Z texts 
+2026-11-23T04:02:40.725Z shot TC-115-picker2
+2026-11-23T04:02:47.127Z tap 220 502
+2026-11-23T04:02:49.421Z texts 
+2026-11-23T04:02:53.295Z lbl 00PDRa_Testing_Material
+2026-11-23T04:02:56.821Z shot TC-115-album
+2026-11-23T04:02:58.051Z els Duration\|:
+2026-11-23T04:03:04.842Z tap 198 1440
+2026-11-23T04:03:09.137Z texts 
+2026-11-23T04:03:10.269Z shot TC-115-trim
+2026-11-23T04:03:14.800Z lbl Next
+2026-11-23T04:03:20.200Z texts 
+2026-11-23T04:03:20.404Z shot TC-115-started
+2026-11-23T04:03:24.409Z lbl Continue
+2026-11-23T04:03:30.782Z texts 
+2026-11-23T04:03:35.458Z shot TC-115-started
+2026-11-23T04:03:39.456Z waitfor minutes left|Processing|left|Background|Error --timeout 120
+2026-11-23T04:05:40.762Z texts 
+2026-11-23T04:05:40.958Z shot TC-115-processing
+2026-11-23T04:05:51.062Z texts 
+2026-11-23T04:05:51.257Z shot TC-115-processing
+2026-11-23T04:06:00.516Z waitfor minute|Processing|Generating|Save|Error|failed|Retry|retry|Network --timeout 500
+2026-11-23T04:08:42.072Z texts 
+2026-11-23T04:08:42.288Z shot TC-115-wait2
+2026-11-23T04:08:48.440Z case TC-099
+2026-11-23T04:08:48.571Z back 
+2026-11-23T04:08:50.859Z texts 
+2026-11-23T04:08:51.236Z scrollto Text To Video
+2026-11-23T04:08:53.413Z lbl Text To Video
+2026-11-23T04:08:58.132Z texts 
+2026-11-23T04:08:58.379Z shot ttv-open
+2026-11-23T04:09:02.363Z lbl Try It Now
+2026-11-23T04:09:07.055Z texts 
+2026-11-23T04:09:07.277Z els EditText
+2026-11-23T04:09:07.456Z shot ttv-page
+2026-11-23T04:09:16.224Z els EditText
+2026-11-23T04:09:16.422Z lbl Kling 4.0
+2026-11-23T04:09:18.732Z texts 
+2026-11-23T04:09:18.929Z shot ttv-models
+2026-11-23T04:09:19.529Z fingerdrag 540 1900 540 900 5
+2026-11-23T04:09:21.336Z texts 
+2026-11-23T04:09:21.527Z shot ttv-models2
+2026-11-23T04:09:27.665Z waitfor Generate --timeout 60
+2026-11-23T04:09:34.069Z texts 
+2026-11-23T04:09:34.281Z shot ttv-page2
+2026-11-23T04:09:38.074Z els EditText
+2026-11-23T04:09:38.299Z lbl Kling 4.0
+2026-11-23T04:09:40.687Z texts 
+2026-11-23T04:09:40.950Z shot ttv-models
+2026-11-23T04:09:44.428Z fingerdrag 540 2000 540 800 5
+2026-11-23T04:09:46.217Z texts 
+2026-11-23T04:09:46.477Z shot ttv-models2
+2026-11-23T04:09:55.395Z case TC-100
+2026-11-23T04:09:55.524Z lbl Seedance 2.0
+2026-11-23T04:09:58.922Z texts 
+2026-11-23T04:09:59.230Z shot TC-100-seedance-pro
+2026-11-23T04:10:07.977Z run-log set TC-100 Blocked
+2026-11-23T04:10:08.096Z run-log set TC-101 Blocked
+2026-11-23T04:10:08.211Z run-log set TC-103 Blocked
+2026-11-23T04:10:08.329Z run-log set TC-104 Blocked
+2026-11-23T04:10:08.444Z run-log set TC-105 Blocked
+2026-11-23T04:10:14.792Z case TC-099
+2026-11-23T04:10:14.925Z lbl Seedance 2.0
+2026-11-23T04:10:17.321Z scrollto Veo 3.1
+2026-11-23T04:10:17.656Z lbl Veo 3.1
+2026-11-23T04:10:20.047Z setval etv_input A red kite flying over a green hill on a sunny day, gentle wind
+2026-11-23T04:10:22.265Z hidekb 
+2026-11-23T04:10:23.624Z texts 
+2026-11-23T04:10:23.941Z shot TC-099-ready
+2026-11-23T04:10:27.975Z lbl Generate
+2026-11-23T04:10:33.337Z texts 
+2026-11-23T04:10:33.568Z shot TC-099-started
+2026-11-23T04:10:42.155Z case TC-102
+2026-11-23T04:10:42.290Z lbl Create another one
+2026-11-23T04:10:46.037Z do library/pdr/aigc-watermark/android/recipes/ttv-generate.steps Kling O3
+2026-11-23T04:10:46.038Z waitfor Generate --timeout 60
+2026-11-23T04:10:46.125Z lbl Kling 4.0
+2026-11-23T04:10:46.238Z wait 2
+2026-11-23T04:10:48.260Z scrollto Kling O3
+2026-11-23T04:10:49.880Z lbl Kling O3
+2026-11-23T04:10:50.025Z wait 2
+2026-11-23T04:10:52.042Z setval etv_input A red kite flying over a green hill on a sunny day, gentle wind
+2026-11-23T04:10:53.920Z hidekb 
+2026-11-23T04:10:54.083Z expect Kling O3
+2026-11-23T04:10:54.832Z texts 
+2026-11-23T04:10:54.888Z lbl Generate
+2026-11-23T04:10:58.187Z texts 
+2026-11-23T04:10:58.671Z shot TC-102-started
+2026-11-23T04:11:03.550Z case TC-106
+2026-11-23T04:11:03.682Z lbl Create another one
+2026-11-23T04:11:08.476Z do library/pdr/aigc-watermark/android/recipes/ttv-generate.steps Wan 2.7
+2026-11-23T04:11:08.478Z waitfor Generate --timeout 60
+2026-11-23T04:11:08.585Z lbl Kling 4.0
+2026-11-23T04:11:08.691Z wait 2
+2026-11-23T04:11:10.715Z scrollto Wan 2.7
+2026-11-23T04:11:10.830Z lbl Wan 2.7
+2026-11-23T04:11:10.951Z wait 2
+2026-11-23T04:11:12.974Z setval etv_input A red kite flying over a green hill on a sunny day, gentle wind
+2026-11-23T04:11:14.857Z hidekb 
+2026-11-23T04:11:15.010Z expect Wan 2.7
+2026-11-23T04:11:15.791Z texts 
+2026-11-23T04:11:15.847Z lbl Generate
+2026-11-23T04:11:19.163Z texts 
+2026-11-23T04:11:20.161Z shot TC-106-started
+2026-11-23T04:11:25.049Z case TC-107
+2026-11-23T04:11:25.180Z back 
+2026-11-23T04:11:27.472Z texts 
+2026-11-23T04:11:27.875Z scrollto Character Motion Swap
+2026-11-23T04:11:28.388Z lbl Character Motion Swap
+2026-11-23T04:11:31.846Z texts 
+2026-11-23T04:11:32.059Z shot TC-107-open
+2026-11-23T04:11:36.282Z lbl Try It Now
+2026-11-23T04:11:40.501Z waitfor Generate --timeout 30
+2026-11-23T04:11:40.733Z texts 
+2026-11-23T04:11:40.953Z shot TC-107-page
+2026-11-23T04:11:46.549Z case TC-108
+2026-11-23T04:11:46.679Z lbl Try with example
+2026-11-23T04:11:51.353Z texts 
+2026-11-23T04:11:51.578Z shot TC-108-example
+2026-11-23T04:11:58.083Z waitfor Generate --timeout 60
+2026-11-23T04:11:58.304Z els example\|Generate
+2026-11-23T04:11:58.522Z shot TC-108-photo
+2026-11-23T04:12:05.454Z tap 540 1675
+2026-11-23T04:12:13.751Z texts 
+2026-11-23T04:12:13.992Z shot TC-108-video
+2026-11-23T04:12:18.540Z lbl Generate Video
+2026-11-23T04:12:25.868Z texts 
+2026-11-23T04:12:26.083Z shot TC-108-started
+2026-11-23T04:12:31.260Z waitfor Processing|left|Create another|Error --timeout 120
+2026-11-23T04:14:32.862Z texts 
+2026-11-23T04:14:33.062Z shot TC-108-started
+2026-11-23T04:14:54.508Z waitfor Processing|left|Create another|Error|failed --timeout 480
+2026-11-23T04:22:07.671Z texts 
+2026-11-23T04:22:07.882Z shot TC-108-started
+2026-11-23T04:22:21.122Z case TC-107
+2026-11-23T04:22:21.251Z lbl Create another one
+2026-11-23T04:22:26.330Z waitfor Generate --timeout 30
+2026-11-23T04:22:26.565Z lbl Wan 2.2 Animate
+2026-11-23T04:22:29.878Z texts 
+2026-11-23T04:22:30.098Z shot TC-107-models
+2026-11-23T04:22:34.297Z lbl Kling Motion Control
+2026-11-23T04:22:37.670Z lbl Try with example
+2026-11-23T04:22:44.719Z waitfor Generate --timeout 60
+2026-11-23T04:22:44.965Z shot TC-107-photo
+2026-11-23T04:22:45.698Z texts 
+2026-11-23T04:22:49.606Z lbl Try with example
+2026-11-23T04:22:58.771Z texts 
+2026-11-23T04:22:59.016Z shot TC-107-ready
+2026-11-23T04:23:03.068Z lbl Generate Video
+2026-11-23T04:23:09.431Z texts 
+2026-11-23T04:23:09.629Z shot TC-107-started
+2026-11-23T04:23:13.693Z waitfor Processing|left|Create another|Error|failed --timeout 540
+2026-11-23T04:31:18.825Z texts 
+2026-11-23T04:31:19.054Z shot TC-107-started
+2026-11-23T04:31:31.267Z back 
+2026-11-23T04:31:33.545Z texts 
+2026-11-23T04:31:33.766Z scrollto Text To Video
+2026-11-23T04:31:36.898Z lbl Text To Video
+2026-11-23T04:31:40.238Z tapif Try It Now
+2026-11-23T04:31:40.424Z waitfor Generate --timeout 30
+2026-11-23T04:32:12.634Z tap 996 156
+2026-11-23T04:32:15.917Z texts 
+2026-11-23T04:32:16.108Z shot ttv-list
+2026-11-23T04:32:21.103Z case TC-108
+2026-11-23T04:32:21.237Z lbl View
+2026-11-23T04:32:26.136Z texts 
+2026-11-23T04:32:26.355Z shot TC-108-list
+2026-11-23T04:32:33.053Z tap 916 444
+2026-11-23T04:32:37.348Z texts 
+2026-11-23T04:32:37.622Z shot TC-108-list
+2026-11-23T04:32:44.050Z shot TC-108-result
+2026-11-23T04:32:45.188Z lbl Save
+2026-11-23T04:32:45.554Z waitfor Saved|saved --timeout 90
+2026-11-23T04:33:18.184Z run-log set TC-108 Pass
+2026-11-23T04:33:18.300Z run-log set TC-115 Pass
+2026-11-23T04:33:23.382Z case TC-113
+2026-11-23T04:33:23.513Z back 
+2026-11-23T04:33:26.463Z texts 
+2026-11-23T04:33:26.680Z scrollto Video Edit by Chat
+2026-11-23T04:33:29.835Z lbl Video Edit by Chat
+2026-11-23T04:33:34.079Z tapif Try It Now
+2026-11-23T04:33:37.368Z texts 
+2026-11-23T04:33:37.587Z shot TC-113-open
+2026-11-23T04:33:41.807Z back 
+2026-11-23T04:33:44.819Z back 
+2026-11-23T04:33:47.151Z texts 
+2026-11-23T04:33:47.379Z scrollto Video Edit by Chat
+2026-11-23T04:33:52.271Z lbl Video Edit by Chat
+2026-11-23T04:33:55.671Z tapif Try It Now
+2026-11-23T04:33:58.939Z texts 
+2026-11-23T04:33:59.152Z shot TC-113-open
+2026-11-23T04:34:03.744Z lbl Close
+2026-11-23T04:34:06.705Z texts 
+2026-11-23T04:34:07.782Z scrollto Video Edit by Chat
+2026-11-23T04:34:08.742Z lbl Video Edit by Chat
+2026-11-23T04:34:12.245Z tapif Try It Now
+2026-11-23T04:34:15.684Z texts 
+2026-11-23T04:34:16.369Z shot TC-113-open
+2026-11-23T04:34:22.282Z lbl Import a Video
+2026-11-23T04:34:25.755Z tapif Allow
+2026-11-23T04:34:26.322Z shot TC-113-picker
+2026-11-23T04:34:27.553Z texts 
+2026-11-23T04:34:32.049Z tap 880 2050
+2026-11-23T04:34:37.323Z texts 
+2026-11-23T04:34:37.745Z shot TC-113-src
+2026-11-23T04:34:42.019Z lbl Next
+2026-11-23T04:34:47.506Z tapif Continue
+2026-11-23T04:34:50.941Z texts 
+2026-11-23T04:34:51.395Z shot TC-113-srcset
+2026-11-23T04:34:55.676Z lbl Seedance 2.5
+2026-11-23T04:34:59.002Z texts 
+2026-11-23T04:34:59.307Z shot TC-113-models
+2026-11-23T04:35:04.046Z lbl Gemini Omni Flash 1.1
+2026-11-23T04:35:06.465Z setval et_prompt Make the background a sunny beach
+2026-11-23T04:35:07.187Z els EditText
+2026-11-23T04:35:07.591Z hidekb 
+2026-11-23T04:35:08.982Z texts 
+2026-11-23T04:35:09.375Z shot TC-113-ready
+2026-11-23T04:35:14.097Z setval etv_input Make the background a sunny beach
+2026-11-23T04:35:15.762Z hidekb 
+2026-11-23T04:35:17.125Z expect Gemini Omni Flash 1.1
+2026-11-23T04:35:17.550Z texts 
+2026-11-23T04:35:17.951Z lbl Generate Video
+2026-11-23T04:35:23.515Z texts 
+2026-11-23T04:35:32.134Z shot TC-113-started
+2026-11-23T04:35:36.555Z waitfor Processing|left|Create another|Error|failed --timeout 560
+2026-11-23T04:37:06.838Z texts 
+2026-11-23T04:37:07.043Z shot TC-113-started
+2026-11-23T04:37:19.395Z case TC-114
+2026-11-23T04:37:19.522Z lbl Create another one
+2026-11-23T04:37:23.916Z lbl Import a Video
+2026-11-23T04:37:27.271Z tap 880 2050
+2026-11-23T04:37:32.563Z lbl Next
+2026-11-23T04:37:37.051Z tapif Continue
+2026-11-23T04:37:39.389Z lbl Seedance 2.5
+2026-11-23T04:37:42.677Z lbl Kling O3
+2026-11-23T04:37:45.101Z setval etv_input Make the background a sunny beach
+2026-11-23T04:37:46.713Z hidekb 
+2026-11-23T04:37:48.090Z expect Kling O3
+2026-11-23T04:37:48.384Z texts 
+2026-11-23T04:37:48.729Z shot TC-114-ready
+2026-11-23T04:37:52.855Z texts 
+2026-11-23T04:37:53.095Z lbl Import a Video
+2026-11-23T04:37:57.700Z texts 
+2026-11-23T04:38:01.464Z tap 880 2050
+2026-11-23T04:38:06.748Z lbl Next
+2026-11-23T04:38:11.143Z tapif Continue
+2026-11-23T04:38:13.491Z texts 
+2026-11-23T04:38:13.837Z shot TC-114-ready
+2026-11-23T04:38:18.721Z lbl Generate Video
+2026-11-23T04:38:19.120Z waitfor Processing|left|Create another|Error|failed --timeout 540
+2026-11-23T04:40:05.401Z texts 
+2026-11-23T04:40:05.609Z shot TC-114-started
+2026-11-23T04:40:24.688Z shot TC-113-list
+2026-11-23T04:40:31.176Z run-log set TC-113 Pass
+2026-11-23T04:40:34.982Z case TC-111
+2026-11-23T04:40:35.108Z back 
+2026-11-23T04:40:38.001Z back 
+2026-11-23T04:40:40.312Z tapif Close
+2026-11-23T04:40:41.130Z texts 
+2026-11-23T04:40:41.937Z scrollto Cinematic Reel Creator
+2026-11-23T04:40:42.807Z lbl Cinematic Reel Creator
+2026-11-23T04:40:46.261Z tapif Try It Now
+2026-11-23T04:40:50.525Z texts 
+2026-11-23T04:40:50.720Z shot TC-111-open
+2026-11-23T04:40:57.419Z tap 78 750
+2026-11-23T04:41:00.719Z texts 
+2026-11-23T04:41:01.015Z shot TC-111-page
+2026-11-23T04:41:10.182Z lbl Import a photo
+2026-11-23T04:41:13.558Z tapif Allow
+2026-11-23T04:41:13.972Z texts 
+2026-11-23T04:41:14.360Z shot TC-111-picker
+2026-11-23T04:41:19.965Z tap 539 1783
+2026-11-23T04:41:25.260Z texts 
+2026-11-23T04:41:25.475Z shot TC-111-photo
+2026-11-23T04:41:33.071Z lbl Generate
+2026-11-23T04:41:41.456Z texts 
+2026-11-23T04:41:41.745Z shot TC-111-started
+2026-11-23T04:42:04.534Z case TC-112
+2026-11-23T04:42:04.663Z lbl Create another one
+2026-11-23T04:42:09.000Z texts 
+2026-11-23T04:42:09.201Z fingerdrag 900 1200 200 1200 5
+2026-11-23T04:42:11.948Z texts 
+2026-11-23T04:42:15.607Z shot TC-111-retry
+2026-11-23T04:42:16.211Z texts 
+2026-11-23T04:42:34.382Z waitfor Processing|left|Error|failed|refunded --timeout 240
+2026-11-23T04:42:34.590Z texts 
+2026-11-23T04:42:39.133Z back 
+2026-11-23T04:42:42.878Z texts 
+2026-11-23T04:42:43.220Z shot TC-112-back
+2026-11-23T04:42:49.094Z fingerdrag 900 1500 150 1500 4
+2026-11-23T04:42:51.837Z texts 
+2026-11-23T04:42:52.081Z fingerdrag 900 1500 150 1500 4
+2026-11-23T04:42:54.796Z texts 
+2026-11-23T04:42:55.091Z fingerdrag 900 1500 150 1500 4
+2026-11-23T04:42:57.862Z texts 
+2026-11-23T04:42:58.119Z fingerdrag 900 1500 150 1500 4
+2026-11-23T04:43:00.872Z texts 
+2026-11-23T04:43:01.128Z fingerdrag 900 1500 150 1500 4
+2026-11-23T04:43:03.899Z texts 
+2026-11-23T04:43:09.536Z lbl Import a photo
+2026-11-23T04:43:12.952Z tap 539 1783
+2026-11-23T04:43:18.244Z texts 
+2026-11-23T04:43:23.224Z shot TC-112-ready
+2026-11-23T04:43:24.741Z lbl Generate
+2026-11-23T04:43:32.038Z texts 
+2026-11-23T04:43:32.309Z waitfor Processing|left|Error|failed --timeout 400
+2026-11-23T04:43:38.852Z texts 
+2026-11-23T04:43:39.059Z shot TC-112-started
+2026-11-23T04:43:44.887Z case TC-099
+2026-11-23T04:43:45.013Z back 
+2026-11-23T04:43:47.299Z back 
+2026-11-23T04:43:50.222Z tapif Close
+2026-11-23T04:43:50.626Z texts 
+2026-11-23T04:43:51.628Z lbl AI Magic
+2026-11-23T04:43:54.626Z scrollto Text To Video
+2026-11-23T04:43:57.863Z lbl Text To Video
+2026-11-23T04:44:01.230Z tapif Try It Now
+2026-11-23T04:44:01.441Z waitfor Generate --timeout 30
+2026-11-23T04:44:33.527Z tap 996 156
+2026-11-23T04:44:36.823Z texts 
+2026-11-23T04:44:37.306Z shot ttv-list
+2026-11-23T04:44:42.496Z scrollto Text To Video
+2026-11-23T04:44:44.972Z lbl Text To Video
+2026-11-23T04:44:48.374Z tapif Try It Now
+2026-11-23T04:44:48.742Z waitfor Generate --timeout 30
+2026-11-23T04:44:50.885Z tap 996 156
+2026-11-23T04:44:54.172Z texts 
+2026-11-23T04:44:54.412Z shot ttv-list
+2026-11-23T04:44:59.346Z els View\|Custom
+2026-11-23T04:45:06.625Z case TC-099
+2026-11-23T04:45:06.757Z tap 916 1475
+2026-11-23T04:45:11.045Z texts 
+2026-11-23T04:45:11.304Z shot TC-099-result
+2026-11-23T04:45:12.134Z lbl Save
+2026-11-23T04:45:12.485Z waitfor Saved to Gallery --timeout 60
+2026-11-23T04:45:15.782Z back 
+2026-11-23T04:45:19.497Z case TC-102
+2026-11-23T04:45:19.626Z tap 916 1103
+2026-11-23T04:45:23.930Z texts 
+2026-11-23T04:45:24.210Z shot TC-102-result
+2026-11-23T04:45:25.070Z lbl Save
+2026-11-23T04:45:25.403Z waitfor Saved to Gallery --timeout 60
+2026-11-23T04:45:28.624Z back 
+2026-11-23T04:45:32.336Z case TC-106
+2026-11-23T04:45:32.461Z tap 916 731
+2026-11-23T04:45:36.763Z texts 
+2026-11-23T04:45:37.038Z shot TC-106-result
+2026-11-23T04:45:37.892Z lbl Save
+2026-11-23T04:45:38.237Z waitfor Saved to Gallery --timeout 60
+2026-11-23T04:45:41.691Z back 
+2026-11-23T04:46:01.081Z run-log set TC-099 Pass
+2026-11-23T04:46:01.198Z run-log set TC-102 Pass
+2026-11-23T04:46:01.314Z run-log set TC-106 Pass
+2026-11-23T04:46:06.234Z case TC-107
+2026-11-23T04:46:06.361Z back 
+2026-11-23T04:46:08.651Z back 
+2026-11-23T04:46:11.455Z tapif Close
+2026-11-23T04:46:11.916Z texts 
+2026-11-23T04:46:12.380Z scrollto Character Motion Swap
+2026-11-23T04:46:12.860Z lbl Character Motion Swap
+2026-11-23T04:46:16.487Z tapif Try It Now
+2026-11-23T04:46:16.839Z waitfor Generate --timeout 30
+2026-11-23T04:46:17.717Z tap 996 156
+2026-11-23T04:46:21.018Z texts 
+2026-11-23T04:46:21.276Z shot TC-107-list
+2026-11-23T04:46:26.142Z tap 916 731
+2026-11-23T04:46:30.438Z shot TC-107-result
+2026-11-23T04:46:31.628Z lbl Save
+2026-11-23T04:46:31.960Z waitfor Saved to Gallery --timeout 60
+2026-11-23T04:46:53.617Z run-log set TC-107 Pass
+2026-11-23T04:46:53.737Z run-log set TC-114 Pass
+2026-11-23T04:46:59.191Z case TC-111
+2026-11-23T04:46:59.318Z back 
+2026-11-23T04:47:02.048Z back 
+2026-11-23T04:47:04.838Z back 
+2026-11-23T04:47:07.634Z tapif Close
+2026-11-23T04:47:07.984Z texts 
+2026-11-23T04:47:08.629Z scrollto Cinematic Reel Creator
+2026-11-23T04:47:09.198Z lbl Cinematic Reel Creator
+2026-11-23T04:47:13.605Z tap 996 156
+2026-11-23T04:47:16.907Z texts 
+2026-11-23T04:47:17.355Z shot TC-111-list
+2026-11-23T04:47:25.919Z case TC-110
+2026-11-23T04:47:26.049Z back 
+2026-11-23T04:47:28.772Z back 
+2026-11-23T04:47:31.572Z tapif Close
+2026-11-23T04:47:32.053Z scrollto AI Storytelling
+2026-11-23T04:47:34.316Z lbl AI Storytelling
+2026-11-23T04:47:38.709Z tapif Try It Now
+2026-11-23T04:47:42.072Z texts 
+2026-11-23T04:47:42.359Z shot TC-110-open
+2026-11-23T04:47:50.238Z tap 797 1730
+2026-11-23T04:47:54.534Z texts 
+2026-11-23T04:47:54.936Z shot TC-110-try
+2026-11-23T04:48:05.246Z tap 198 756
+2026-11-23T04:48:07.538Z tap 880 1098
+2026-11-23T04:48:09.841Z texts 
+2026-11-23T04:48:10.250Z shot TC-110-picked
+2026-11-23T04:48:16.882Z tap 198 1782
+2026-11-23T04:48:19.171Z texts 
+2026-11-23T04:48:19.648Z lbl Next
+2026-11-23T04:48:25.076Z texts 
+2026-11-23T04:48:25.516Z shot TC-110-next
+2026-11-23T04:48:33.635Z tap 880 1440
+2026-11-23T04:48:35.925Z tap 198 1200
+2026-11-23T04:48:38.227Z texts 
+2026-11-23T04:48:39.040Z shot TC-110-picked2
+2026-11-23T04:48:45.243Z lbl Next
+2026-11-23T04:48:51.585Z texts 
+2026-11-23T04:48:51.895Z shot TC-110-next
+2026-11-23T04:48:59.238Z scrollto Subscribe Pro to Unlock
+2026-11-23T04:49:02.657Z shot TC-110-pro
+2026-11-23T04:49:03.341Z run-log set TC-110 Blocked
+2026-11-23T04:49:11.827Z back 
+2026-11-23T04:49:15.114Z tapif Leave
+2026-11-23T04:49:15.422Z tapif Discard
+2026-11-23T04:49:15.749Z texts 
+2026-11-23T04:49:17.274Z tap 988 190
+2026-11-23T04:49:20.566Z texts 
+2026-11-23T04:49:21.412Z shot TC-110-history
+2026-11-23T04:49:25.973Z back 
+2026-11-23T04:49:29.053Z back 
+2026-11-23T04:49:32.907Z activate 
+2026-11-23T04:49:35.328Z texts 
+2026-11-23T04:49:35.727Z shot nav
+2026-11-23T04:49:40.731Z tap 988 190
+2026-11-23T04:49:44.016Z texts 
+2026-11-23T04:49:44.212Z shot TC-110-history
+2026-11-23T04:49:50.090Z run-log set TC-110 Blocked
+2026-11-23T04:49:54.818Z case TC-116
+2026-11-23T04:49:54.945Z back 
+2026-11-23T04:49:57.248Z back 
+2026-11-23T04:49:59.567Z tapif Close
+2026-11-23T04:50:00.114Z lbl Home
+2026-11-23T04:50:02.598Z lbl New Project
+2026-11-23T04:50:07.133Z texts 
+2026-11-23T04:50:07.550Z shot TC-116-newproj
+2026-11-23T04:50:13.289Z tap 880 2050
+2026-11-23T04:50:16.590Z texts 
+2026-11-23T04:50:17.020Z shot TC-116-add
+2026-11-23T04:50:22.079Z lbl Next
+2026-11-23T04:50:28.477Z tapif Don't show again
+2026-11-23T04:50:28.914Z texts 
+2026-11-23T04:50:29.347Z shot TC-116-editor
+2026-11-23T04:50:35.188Z shot TC-116-editor
+2026-11-23T04:50:36.356Z fingerdrag 950 2200 150 2200 5
+2026-11-23T04:50:38.166Z texts 
+2026-11-23T04:50:42.009Z lbl AI Magic
+2026-11-23T04:50:46.417Z texts 
+2026-11-23T04:50:46.648Z shot TC-116-aimagic
+2026-11-23T04:50:51.493Z fingerdrag 950 2200 150 2200 5
+2026-11-23T04:50:53.222Z texts 
+2026-11-23T04:50:53.651Z lbl Talking Avatar
+2026-11-23T04:50:58.251Z texts 
+2026-11-23T04:50:58.661Z shot TC-116-open
+2026-11-23T04:51:04.547Z lbl AI Magic
+2026-11-23T04:51:08.083Z lbl Talking Avatar
+2026-11-23T04:51:12.480Z tapif Try It Now
+2026-11-23T04:51:15.751Z texts 
+2026-11-23T04:51:15.965Z shot TC-116-open
+2026-11-23T04:51:20.459Z lbl Continue
+2026-11-23T04:51:26.525Z texts 
+2026-11-23T04:51:26.833Z shot TC-116-step2
+2026-11-23T04:51:30.780Z els EditText
+2026-11-23T04:51:35.152Z setval etv_input Hello and welcome. Today we are testing a short talking avatar clip.
+2026-11-23T04:51:36.518Z hidekb 
+2026-11-23T04:51:38.872Z texts 
+2026-11-23T04:51:39.153Z lbl Generate for
+2026-11-23T04:51:45.605Z texts 
+2026-11-23T04:51:45.872Z shot TC-116-started
+2026-11-23T04:51:54.367Z setval etv_input Hello and welcome to our channel. Today we are testing a short talking
+2026-11-23T04:51:55.885Z tap 540 700
+2026-11-23T04:51:57.187Z type .
+2026-11-23T04:51:58.862Z hidekb 
+2026-11-23T04:52:01.622Z texts 
+2026-11-23T04:52:01.918Z shot TC-116-ready
+2026-11-23T04:52:10.629Z lbl Generate Voice
+2026-11-23T04:52:11.001Z waitfor Regenerate|Play|0:0|Error|failed --timeout 60
+2026-11-23T04:53:13.620Z texts 
+2026-11-23T04:53:13.949Z shot TC-116-voice
+2026-11-23T04:53:18.241Z lbl Generate for
+2026-11-23T04:53:25.587Z texts 
+2026-11-23T04:53:33.096Z shot TC-116-started
+2026-11-23T04:53:38.185Z case TC-109
+2026-11-23T04:53:38.312Z back 
+2026-11-23T04:53:41.076Z texts 
+2026-11-23T04:53:41.558Z back 
+2026-11-23T04:53:43.877Z texts 
+2026-11-23T04:53:48.155Z back 
+2026-11-23T04:53:50.890Z texts 
+2026-11-23T04:53:51.270Z lbl TimeLineVideo_source
+2026-11-23T04:53:53.898Z texts 
+2026-11-23T04:53:54.314Z shot TC-109-edit
+2026-11-23T04:53:58.627Z lbl [AID]TimeLine_Undo
+2026-11-23T04:54:01.163Z texts 
+2026-11-23T04:54:05.671Z lbl Tap to insert media
+2026-11-23T04:54:09.091Z tap 880 2050
+2026-11-23T04:54:11.384Z lbl Next
+2026-11-23T04:54:13.155Z lbl Add
+2026-11-23T04:54:17.694Z texts 
+2026-11-23T04:54:18.092Z shot TC-109-edit
+2026-11-23T04:54:25.889Z back 
+2026-11-23T04:54:28.654Z shot TC-109-editor
+2026-11-23T04:54:29.264Z texts 
+2026-11-23T04:54:36.510Z tap 540 820
+2026-11-23T04:54:39.803Z texts 
+2026-11-23T04:54:40.237Z tap 880 2050
+2026-11-23T04:54:42.530Z texts 
+2026-11-23T04:54:46.855Z lbl Next
+2026-11-23T04:54:51.304Z tap 600 1650
+2026-11-23T04:54:53.596Z lbl Edit
+2026-11-23T04:54:56.293Z texts 
+2026-11-23T04:54:56.735Z shot TC-109-edittools
+2026-11-23T04:55:02.086Z lbl TimeLineVideo_source
+2026-11-23T04:55:04.646Z texts 
+2026-11-23T04:55:05.139Z shot TC-109-clip
+2026-11-23T04:55:09.959Z fingerdrag 1000 2250 100 2250 5
+2026-11-23T04:55:11.750Z texts 
+2026-11-23T04:55:12.269Z fingerdrag 1000 2250 100 2250 5
+2026-11-23T04:55:14.005Z texts 
+2026-11-23T04:55:14.494Z fingerdrag 1000 2250 100 2250 5
+2026-11-23T04:55:16.310Z texts 
+2026-11-23T04:55:16.796Z fingerdrag 1000 2250 100 2250 5
+2026-11-23T04:55:18.626Z texts 
+2026-11-23T04:55:19.120Z shot TC-109-tools
+2026-11-23T04:55:25.168Z lbl Tools
+2026-11-23T04:55:27.770Z texts 
+2026-11-23T04:55:27.977Z fingerdrag 1000 2250 100 2250 5
+2026-11-23T04:55:29.716Z texts 
+2026-11-23T04:55:30.227Z shot TC-109-toolsmenu
+2026-11-23T04:55:38.283Z tap 166 2256
+2026-11-23T04:55:40.584Z texts 
+2026-11-23T04:55:40.785Z shot TC-109-toolsmenu
+2026-11-23T04:55:45.818Z texts 
+2026-11-23T04:55:46.019Z fingerdrag 1000 2250 100 2250 5
+2026-11-23T04:55:47.755Z texts 
+2026-11-23T04:55:48.271Z fingerdrag 1000 2250 100 2250 5
+2026-11-23T04:55:50.062Z texts 
+2026-11-23T04:55:58.828Z run-log set TC-109 Blocked
+2026-11-23T04:59:11.170Z case TC-111
+2026-11-23T04:59:11.297Z lbl [AID]TimeLine_Home
+2026-11-23T04:59:14.631Z texts 
+2026-11-23T04:59:14.821Z tapif Close
+2026-11-23T04:59:15.138Z lbl AI Magic
+2026-11-23T04:59:18.477Z scrollto Cinematic Reel Creator
+2026-11-23T04:59:24.716Z lbl Cinematic Reel Creator
+2026-11-23T04:59:29.409Z tap 996 156
+2026-11-23T04:59:32.691Z texts 
+2026-11-23T04:59:32.911Z shot TC-111-list2
+2026-11-23T04:59:38.024Z lbl [AID]Produce_Back
+2026-11-23T04:59:40.409Z texts 
+2026-11-23T04:59:47.863Z case TC-116
+2026-11-23T04:59:53.317Z fingerdrag 950 2200 150 2200 5
+2026-11-23T04:59:55.110Z lbl AI Magic
+2026-11-23T04:59:58.800Z lbl Talking Avatar
+2026-11-23T05:00:03.482Z texts 
+2026-11-23T05:00:03.964Z tap 990 190
+2026-11-23T05:00:07.260Z texts 
+2026-11-23T05:00:07.497Z shot TC-116-list
+2026-11-23T05:00:12.511Z lbl [AID]Produce_Back
+2026-11-23T05:00:14.893Z tap 540 2050
+2026-11-23T05:00:16.167Z texts 
+2026-11-23T05:00:16.615Z shot ed
+2026-11-23T05:00:21.008Z fingerdrag 950 2250 150 2250 5
+2026-11-23T05:00:22.847Z texts 
+2026-11-23T05:00:23.300Z lbl AI Magic
+2026-11-23T05:00:26.781Z lbl Talking Avatar
+2026-11-23T05:00:31.148Z texts 
+2026-11-23T05:00:31.398Z tap 990 190
+2026-11-23T05:00:34.697Z texts 
+2026-11-23T05:00:34.910Z shot TC-116-list
+2026-11-23T05:00:39.919Z lbl View
+2026-11-23T05:00:45.311Z texts 
+2026-11-23T05:00:45.576Z shot TC-116-result
+2026-11-23T05:01:02.412Z run-log set TC-116 Pass
+2026-11-23T05:01:07.096Z case TC-111
+2026-11-23T05:01:07.224Z back 
+2026-11-23T05:01:09.930Z back 
+2026-11-23T05:01:12.668Z back 
+2026-11-23T05:01:15.422Z texts 
+2026-11-23T05:01:15.874Z lbl [AID]TimeLine_Home
+2026-11-23T05:01:20.424Z tapif Close
+2026-11-23T05:01:21.256Z texts 
+2026-11-23T05:01:25.935Z lbl AI Magic
+2026-11-23T05:01:28.780Z scrollto Cinematic Reel Creator
+2026-11-23T05:01:29.297Z lbl Cinematic Reel Creator
+2026-11-23T05:01:35.311Z tap 996 156
+2026-11-23T05:01:38.620Z texts 
+2026-11-23T05:01:38.856Z shot TC-111-list2
+2026-11-23T05:01:54.914Z lbl View
+2026-11-23T05:02:00.295Z texts 
+2026-11-23T05:02:00.514Z shot TC-111-result
+2026-11-23T05:02:01.586Z lbl Save
+2026-11-23T05:02:02.462Z waitfor Saved to Gallery --timeout 90
+2026-11-23T05:03:48.236Z case TC-112
+2026-11-23T05:03:48.367Z back 
+2026-11-23T05:03:52.067Z texts 
+2026-11-23T05:03:52.284Z shot TC-112-list
+2026-11-23T05:03:56.919Z lbl Retry
+2026-11-23T05:04:02.819Z texts 
+2026-11-23T05:04:03.050Z shot TC-112-retry
+2026-11-23T05:04:11.593Z waitfor Processing|left --timeout 300
+2026-11-23T05:09:31.436Z shot TC-112-error-list
+2026-11-23T05:09:32.076Z back 
+2026-11-23T05:09:35.811Z texts 
+2026-11-23T05:09:36.092Z fingerdrag 900 1500 150 1500 4
+2026-11-23T05:09:38.871Z texts 
+2026-11-23T05:09:39.174Z lbl Import a photo
+2026-11-23T05:09:42.629Z tap 539 1783
+2026-11-23T05:09:47.937Z texts 
+2026-11-23T05:09:48.187Z back 
+2026-11-23T05:09:51.579Z fingerdrag 900 1500 150 1500 4
+2026-11-23T05:09:54.366Z texts 
+2026-11-23T05:09:54.636Z lbl Import a photo
+2026-11-23T05:09:58.001Z tap 539 1783
+2026-11-23T05:10:03.307Z texts 
+2026-11-23T05:10:03.553Z back 
+2026-11-23T05:10:06.956Z fingerdrag 900 1500 150 1500 4
+2026-11-23T05:10:09.737Z texts 
+2026-11-23T05:10:10.050Z lbl Import a photo
+2026-11-23T05:10:13.465Z tap 539 1783
+2026-11-23T05:10:18.765Z texts 
+2026-11-23T05:10:19.009Z back 
+2026-11-23T05:10:22.399Z fingerdrag 900 1500 150 1500 4
+2026-11-23T05:10:25.148Z texts 
+2026-11-23T05:10:25.435Z lbl Import a photo
+2026-11-23T05:10:28.844Z tap 539 1783
+2026-11-23T05:10:34.147Z texts 
+2026-11-23T05:10:34.385Z back 
+2026-11-23T05:10:44.419Z texts 
+2026-11-23T05:10:44.653Z texts 
+2026-11-23T05:10:44.920Z fingerdrag 150 1500 900 1500 4
+2026-11-23T05:10:47.649Z texts 
+2026-11-23T05:10:47.915Z fingerdrag 150 1500 900 1500 4
+2026-11-23T05:10:50.674Z texts 
+2026-11-23T05:10:50.938Z fingerdrag 150 1500 900 1500 4
+2026-11-23T05:10:53.681Z texts 
+2026-11-23T05:10:53.961Z texts 
+2026-11-23T05:10:54.228Z lbl Import a photo
+2026-11-23T05:10:57.689Z tap 539 1783
+2026-11-23T05:11:02.982Z texts 
+2026-11-23T05:11:03.229Z shot TC-112-ready2
+2026-11-23T05:11:08.942Z lbl Generate
+2026-11-23T05:11:09.273Z waitfor Processing|left|Error --timeout 300
+2026-11-23T05:12:06.819Z texts 
+2026-11-23T05:12:07.037Z shot TC-112-started2
+2026-11-23T05:12:12.373Z lbl View Details
+2026-11-23T05:12:15.803Z texts 
+2026-11-23T05:12:15.995Z shot TC-112-handheld-error
+2026-11-23T05:12:16.669Z back 
+2026-11-23T05:12:22.829Z texts 
+2026-11-23T05:12:23.077Z back 
+2026-11-23T05:12:25.805Z back 
+2026-11-23T05:12:28.103Z tapif Close
+2026-11-23T05:12:28.505Z lbl Mine
+2026-11-23T05:12:32.086Z texts 
+2026-11-23T05:12:36.460Z lbl Credits
+2026-11-23T05:12:39.884Z texts 
+2026-11-23T05:12:40.189Z tapif Details
+2026-11-23T05:12:44.519Z texts 
+2026-11-23T05:12:44.819Z shot ledger
+2026-11-23T05:12:49.052Z lbl 31221
+2026-11-23T05:12:53.475Z texts 
+2026-11-23T05:12:53.697Z tapif Details
+2026-11-23T05:12:59.084Z texts 
+2026-11-23T05:12:59.357Z shot ledger
+2026-11-23T05:13:14.201Z run-log set TC-111 Pass
+2026-11-23T05:13:38.870Z case TC-112
+2026-11-23T05:13:39.000Z back 
+2026-11-23T05:13:41.705Z back 
+2026-11-23T05:13:44.421Z tapif Close
+2026-11-23T05:13:44.738Z lbl AI Magic
+2026-11-23T05:13:47.156Z scrollto Cinematic Reel Creator
+2026-11-23T05:13:47.715Z lbl Cinematic Reel Creator
+2026-11-23T05:13:52.122Z tap 996 156
+2026-11-23T05:13:55.431Z texts 
+2026-11-23T03:56:08.943Z file screenshots/TC-046-myartwork.png
+2026-11-23T03:56:19.775Z file screenshots/TC-046-grid.png
+2026-11-23T03:56:28.394Z file screenshots/TC-046-result.png
+2026-11-23T03:56:55.219Z file screenshots/itv-tasks.png
+2026-11-23T03:57:10.889Z file screenshots/TC-097-result.png
+2026-11-23T03:57:25.815Z file screenshots/TC-096-result.png
+2026-11-23T03:57:40.819Z file screenshots/TC-094-result.png
+2026-11-23T03:57:55.945Z file screenshots/TC-093-result.png
+2026-11-23T03:58:11.107Z file screenshots/TC-090-result.png
+2026-11-23T03:58:54.181Z file logs/R2-a-20261123-115850
+2026-11-23T04:00:53.354Z file screenshots/R2b-start.png
+2026-11-23T04:01:20.242Z file screenshots/R2b-switch-start.png
+2026-11-23T04:02:12.540Z file screenshots/TC-115-open.png
+2026-11-23T04:02:20.970Z file screenshots/TC-115-picker.png
+2026-11-23T04:02:32.380Z file screenshots/TC-115-next.png
+2026-11-23T04:02:41.172Z file screenshots/TC-115-picker2.png
+2026-11-23T04:02:57.881Z file screenshots/TC-115-album.png
+2026-11-23T04:03:11.169Z file screenshots/TC-115-trim.png
+2026-11-23T04:03:36.130Z file screenshots/TC-115-started.png
+2026-11-23T04:05:40.627Z file screenshots/waitfor-timeout-20261123-120539.png
+2026-11-23T04:05:51.933Z file screenshots/TC-115-processing.png
+2026-11-23T04:08:42.758Z file screenshots/TC-115-wait2.png
+2026-11-23T04:08:59.208Z file screenshots/ttv-open.png
+2026-11-23T04:09:07.905Z file screenshots/ttv-page.png
+2026-11-23T04:09:34.743Z file screenshots/ttv-page2.png
+2026-11-23T04:09:41.459Z file screenshots/ttv-models.png
+2026-11-23T04:09:46.974Z file screenshots/ttv-models2.png
+2026-11-23T04:09:59.919Z file screenshots/TC-100-seedance-pro.png
+2026-11-23T04:10:24.639Z file screenshots/TC-099-ready.png
+2026-11-23T04:10:34.012Z file screenshots/TC-099-started.png
+2026-11-23T04:10:59.119Z file screenshots/TC-102-started.png
+2026-11-23T04:11:20.625Z file screenshots/TC-106-started.png
+2026-11-23T04:11:32.802Z file screenshots/TC-107-open.png
+2026-11-23T04:11:41.415Z file screenshots/TC-107-page.png
+2026-11-23T04:11:52.054Z file screenshots/TC-108-example.png
+2026-11-23T04:11:59.111Z file screenshots/TC-108-photo.png
+2026-11-23T04:12:14.765Z file screenshots/TC-108-video.png
+2026-11-23T04:14:32.704Z file screenshots/waitfor-timeout-20261123-121432.png
+2026-11-23T04:22:08.369Z file screenshots/TC-108-started.png
+2026-11-23T04:22:30.571Z file screenshots/TC-107-models.png
+2026-11-23T04:22:45.558Z file screenshots/TC-107-photo.png
+2026-11-23T04:22:59.799Z file screenshots/TC-107-ready.png
+2026-11-23T04:31:19.595Z file screenshots/TC-107-started.png
+2026-11-23T04:32:12.489Z file screenshots/waitfor-timeout-20261123-123211.png
+2026-11-23T04:32:38.604Z file screenshots/TC-108-list.png
+2026-11-23T04:32:45.014Z file screenshots/TC-108-result.png
+2026-11-23T04:34:16.849Z file screenshots/TC-113-open.png
+2026-11-23T04:34:27.390Z file screenshots/TC-113-picker.png
+2026-11-23T04:34:38.695Z file screenshots/TC-113-src.png
+2026-11-23T04:34:52.154Z file screenshots/TC-113-srcset.png
+2026-11-23T04:34:59.798Z file screenshots/TC-113-models.png
+2026-11-23T04:35:10.150Z file screenshots/TC-113-ready.png
+2026-11-23T04:37:07.496Z file screenshots/TC-113-started.png
+2026-11-23T04:38:14.602Z file screenshots/TC-114-ready.png
+2026-11-23T04:40:06.059Z file screenshots/TC-114-started.png
+2026-11-23T04:40:25.193Z file screenshots/TC-113-list.png
+2026-11-23T04:40:51.929Z file screenshots/TC-111-open.png
+2026-11-23T04:41:02.288Z file screenshots/TC-111-page.png
+2026-11-23T04:41:15.935Z file screenshots/TC-111-picker.png
+2026-11-23T04:41:26.645Z file screenshots/TC-111-photo.png
+2026-11-23T04:41:42.207Z file screenshots/TC-111-started.png
+2026-11-23T04:42:16.058Z file screenshots/TC-111-retry.png
+2026-11-23T04:42:44.283Z file screenshots/TC-112-back.png
+2026-11-23T04:43:24.566Z file screenshots/TC-112-ready.png
+2026-11-23T04:43:39.585Z file screenshots/TC-112-started.png
+2026-11-23T04:44:33.385Z file screenshots/waitfor-timeout-20261123-124432.png
+2026-11-23T04:44:54.976Z file screenshots/ttv-list.png
+2026-11-23T04:45:11.986Z file screenshots/TC-099-result.png
+2026-11-23T04:45:24.930Z file screenshots/TC-102-result.png
+2026-11-23T04:45:37.754Z file screenshots/TC-106-result.png
+2026-11-23T04:46:21.829Z file screenshots/TC-107-list.png
+2026-11-23T04:46:31.456Z file screenshots/TC-107-result.png
+2026-11-23T04:47:17.855Z file screenshots/TC-111-list.png
+2026-11-23T04:47:43.291Z file screenshots/TC-110-open.png
+2026-11-23T04:47:56.359Z file screenshots/TC-110-try.png
+2026-11-23T04:48:11.404Z file screenshots/TC-110-picked.png
+2026-11-23T04:48:40.283Z file screenshots/TC-110-picked2.png
+2026-11-23T04:48:52.437Z file screenshots/TC-110-next.png
+2026-11-23T04:49:03.194Z file screenshots/TC-110-pro.png
+2026-11-23T04:49:36.666Z file screenshots/nav.png
+2026-11-23T04:49:44.656Z file screenshots/TC-110-history.png
+2026-11-23T04:50:08.679Z file screenshots/TC-116-newproj.png
+2026-11-23T04:50:18.020Z file screenshots/TC-116-add.png
+2026-11-23T04:50:36.186Z file screenshots/TC-116-editor.png
+2026-11-23T04:50:47.685Z file screenshots/TC-116-aimagic.png
+2026-11-23T04:51:16.847Z file screenshots/TC-116-open.png
+2026-11-23T04:51:27.302Z file screenshots/TC-116-step2.png
+2026-11-23T04:52:02.395Z file screenshots/TC-116-ready.png
+2026-11-23T04:53:11.420Z file screenshots/waitfor-timeout-20261123-125311.png
+2026-11-23T04:53:14.418Z file screenshots/TC-116-voice.png
+2026-11-23T04:53:33.572Z file screenshots/TC-116-started.png
+2026-11-23T04:54:18.898Z file screenshots/TC-109-edit.png
+2026-11-23T04:54:29.110Z file screenshots/TC-109-editor.png
+2026-11-23T04:54:57.721Z file screenshots/TC-109-edittools.png
+2026-11-23T04:55:06.142Z file screenshots/TC-109-clip.png
+2026-11-23T04:55:20.121Z file screenshots/TC-109-tools.png
+2026-11-23T04:55:41.777Z file screenshots/TC-109-toolsmenu.png
+2026-11-23T05:00:17.084Z file screenshots/ed.png
+2026-11-23T05:00:35.364Z file screenshots/TC-116-list.png
+2026-11-23T05:00:46.357Z file screenshots/TC-116-result.png
+2026-11-23T05:01:39.357Z file screenshots/TC-111-list2.png
+2026-11-23T05:02:01.453Z file screenshots/TC-111-result.png
+2026-11-23T05:03:34.251Z file screenshots/waitfor-timeout-20261123-130333.png
+2026-11-23T05:03:52.880Z file screenshots/TC-112-list.png
+2026-11-23T05:04:03.543Z file screenshots/TC-112-retry.png
+2026-11-23T05:09:12.888Z file screenshots/waitfor-timeout-20261123-130912.png
+2026-11-23T05:09:31.924Z file screenshots/TC-112-error-list.png
+2026-11-23T05:11:04.467Z file screenshots/TC-112-ready2.png
+2026-11-23T05:12:07.577Z file screenshots/TC-112-started2.png
+2026-11-23T05:12:16.519Z file screenshots/TC-112-handheld-error.png
+2026-11-23T05:12:59.831Z file screenshots/ledger.png
+2026-11-23T06:19:12.475Z restart 
+2026-11-23T06:19:22.011Z shot resume1
+2026-11-23T06:19:22.693Z texts 
+2026-11-23T06:19:47.132Z tap 916 730
+2026-11-23T06:19:50.425Z shot TC-112-result
+2026-11-23T06:19:51.508Z texts 
+2026-11-23T06:19:55.161Z lbl Save
+2026-11-23T06:20:02.100Z shot TC-112-saved
+2026-11-23T06:20:18.002Z back 
+2026-11-23T06:20:19.286Z back 
+2026-11-23T06:20:21.037Z shot nav2
+2026-11-23T06:20:22.571Z els 
+2026-11-23T06:20:25.515Z back 
+2026-11-23T06:20:27.805Z back 
+2026-11-23T06:20:30.086Z shot nav3
+2026-11-23T06:20:30.901Z texts 
+2026-11-23T06:20:37.076Z tap 972 2222
+2026-11-23T06:20:40.358Z shot mine-before
+2026-11-23T06:20:41.044Z texts 
+2026-11-23T06:20:46.851Z lbl Claim offer
+2026-11-23T06:20:51.231Z shot iap1
+2026-11-23T06:20:52.454Z texts 
+2026-11-23T06:21:05.880Z lbl Continue
+2026-11-23T06:19:22.563Z file screenshots/resume1.png
+2026-11-23T06:19:51.336Z file screenshots/TC-112-result.png
+2026-11-23T06:20:03.043Z file screenshots/TC-112-saved.png
+2026-11-23T06:20:22.405Z file screenshots/nav2.png
+2026-11-23T06:20:30.757Z file screenshots/nav3.png
+2026-11-23T06:20:40.895Z file screenshots/mine-before.png
+2026-11-23T06:20:52.283Z file screenshots/iap1.png
+2026-11-23T06:21:54.646Z shot iap-sheet
+2026-11-23T06:21:55.562Z texts 
+2026-11-23T06:21:55.379Z file screenshots/iap-sheet.png
+2026-11-23T06:22:00.765Z tap 540 2174
+2026-11-23T06:22:11.083Z shot iap-done
+2026-11-23T06:22:11.859Z texts 
+2026-11-23T06:22:14.627Z tap 972 2222
+2026-11-23T06:22:17.915Z shot TC-pro-mine
+2026-11-23T06:22:18.649Z texts 
+2026-11-23T06:22:22.944Z tap 108 2222
+2026-11-23T06:22:25.226Z tap 88 200
+2026-11-23T06:22:27.504Z lbl Settings
+2026-11-23T06:22:29.891Z scrollto Remove AIGC Watermark
+2026-11-23T06:22:30.605Z shot switch-check
+2026-11-23T06:22:38.054Z run-log set TC-112 Pass
+2026-11-23T06:22:46.400Z back 
+2026-11-23T06:22:48.053Z back 
+2026-11-23T06:22:50.358Z texts 
+2026-11-23T06:22:51.136Z lbl Image to Video
+2026-11-23T06:22:55.541Z shot itv-open
+2026-11-23T06:22:56.815Z texts 
+2026-11-23T06:22:59.535Z lbl Try It Now
+2026-11-23T06:23:06.091Z shot itv-page
+2026-11-23T06:23:06.846Z texts 
+2026-11-23T06:23:10.020Z do library/pdr/aigc-watermark/android/recipes/itv-generate.steps Seedance 2.0 539 1
+2026-11-23T06:23:10.021Z tap 203 970
+2026-11-23T06:23:10.145Z wait 2
+2026-11-23T06:23:12.171Z tapif Continue
+2026-11-23T06:23:12.424Z wait 2
+2026-11-23T06:23:14.444Z tap 539 1783
+2026-11-23T06:23:14.527Z wait 3
+2026-11-23T06:23:17.549Z setval etPrompt The woman smiles and slowly turns her head toward the camera
+2026-11-23T06:23:18.711Z hidekb 
+2026-11-23T06:23:18.922Z lbl Kling 4.0
+2026-11-23T06:23:19.323Z wait 2
+2026-11-23T06:23:21.342Z scrollto Seedance 2.0
+2026-11-23T06:23:21.630Z lbl Seedance 2.0
+2026-11-23T06:23:21.768Z wait 2
+2026-11-23T06:23:23.789Z expect Seedance 2.0
+2026-11-23T06:23:24.071Z lbl Generate
+2026-11-23T06:23:25.431Z shot TC-091-started2
+2026-11-23T06:23:37.834Z waitfor Processing|Create another one|Uploading|Retry --timeout 120
+2026-11-23T06:23:38.061Z shot TC-091-list
+2026-11-23T06:23:38.803Z texts 
+2026-11-23T06:23:42.130Z waitfor Processing|Create another one|Retry|Error --timeout 480
+2026-11-23T06:24:26.369Z shot TC-091-list2
+2026-11-23T06:24:27.166Z texts 
+2026-11-23T06:24:31.976Z back 
+2026-11-23T06:24:34.721Z texts 
+2026-11-23T06:24:35.152Z back 
+2026-11-23T06:24:37.432Z texts 
+2026-11-23T06:24:38.245Z lbl Text To Video
+2026-11-23T06:24:41.773Z tapif Try It Now
+2026-11-23T06:24:45.172Z shot ttv-page
+2026-11-23T06:24:45.786Z texts 
+2026-11-23T06:24:48.691Z do library/pdr/aigc-watermark/android/recipes/ttv-generate.steps Seedance 2.0
+2026-11-23T06:24:48.692Z waitfor Generate --timeout 60
+2026-11-23T06:24:48.782Z lbl Kling 4.0
+2026-11-23T06:24:48.869Z wait 2
+2026-11-23T06:24:50.898Z scrollto Seedance 2.0
+2026-11-23T06:24:51.019Z lbl Seedance 2.0
+2026-11-23T06:24:51.121Z wait 2
+2026-11-23T06:24:53.146Z setval etv_input A red kite flying over a green hill on a sunny day, gentle wind
+2026-11-23T06:24:55.071Z hidekb 
+2026-11-23T06:24:55.257Z expect Seedance 2.0
+2026-11-23T06:24:55.996Z texts 
+2026-11-23T06:24:56.051Z lbl Generate
+2026-11-23T06:24:56.341Z shot TC-100-started2
+2026-11-23T06:25:04.669Z texts 
+2026-11-23T06:25:09.015Z back 
+2026-11-23T06:25:11.883Z back 
+2026-11-23T06:25:14.205Z texts 
+2026-11-23T06:25:14.795Z lbl AI Storytelling
+2026-11-23T06:25:19.325Z shot TC-110-open2
+2026-11-23T06:25:20.397Z texts 
+2026-11-23T06:25:24.230Z lbl Try Now
+2026-11-23T06:25:28.638Z shot TC-110-try2
+2026-11-23T06:25:30.129Z texts 

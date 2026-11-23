@@ -1,0 +1,21 @@
+# Start one Image to Video task with a given model (AIGC Watermark C2PA rows).
+# Starts: the Image to Video Custom page with no photo (first open, or after 「Create another one」).
+# Ends: the task list with the new task 「Processing…」. Charges the model's price.
+# Picks the first photo at grid position $2 (pixels, e.g. 539 1783 = photo_9_16.jpg in 00PDRa_Testing_Material when
+# that album is the picker's current one). Args: $1 = model name exactly as listed, $2 $3 = photo tap x y.
+# The model is picked last (KP-083: the picker resets to Kling 4.0). Written 2026-11-23 on 16.9.0 (2611193), SM-A5360.
+tap 203 970
+wait 2
+?tapif Continue
+wait 2
+tap $2 $3
+wait 3
+setval etPrompt "The woman smiles and slowly turns her head toward the camera"
+hidekb
+lbl "Kling 4.0"
+wait 2
+scrollto "$1"
+lbl "$1"
+wait 2
+expect "$1"
+lbl Generate

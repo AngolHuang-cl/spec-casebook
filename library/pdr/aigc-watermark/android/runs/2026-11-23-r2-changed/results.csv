@@ -1,0 +1,216 @@
+﻿ID,Phase,Segment,Needs,Section,Action,Expected Result,Result,Disposition,Actual,Evidence,Recorded At
+TC-046,R1,R2-a,credits,My Artwork — image results,"1. Open AI Magic › 「My Artwork」
+2. Look at the AI Art thumbnail
+3. Open the result","Step 2: the thumbnail shows no AI label
+Step 3: the result shows no AI label",Pass,,"Switch Off. AI Magic › 「My Artwork」: the 「AI Art」 group thumbnail (Nov 23, the TC-117 Baby Face result) and the Recent thumbnail show no AI label. Opening it (group › image) shows the result page with no AI label and no aigc badge view in the page source; its controls are feedback, share, download and Image to Video (no 「Full Editor」, REQ-003 / KP-090).",screenshots/TC-046-myartwork.png screenshots/TC-046-grid.png screenshots/TC-046-result.png,2026-11-23T03:56:32.749Z
+TC-117,R1,R2-a,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off. AI Art, default style 「Baby Face」 (selected on open, Female tab), 「Try with example」 photo, 6 credits (31657 → 31651), result in ~30 s. Download icon on the result page wrote Pictures/cyberlink/PowerDirector/Image to Image/2_1795406142937.jpg (643,447 bytes, JPEG 768 × 1376) → files/TC-117-aiart-off.jpg. C2PA (files/TC-117-aiart-off.c2pa.json via files/c2pa_inspect.py; c2patool not installed here): exactly one manifest, COSE signature 「Verified OK」, data hash match, assertion hashes match; signer CN/O 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0, action c2pa.created digitalSourceType trainedAlgorithmicMedia (AI-generated), no ingredient, no provider (Google) manifest. Which backend effect ran (Flux ItiFlux, Q-12) is not visible in the app. Not checked: certificate trust.",screenshots/TC-117-result.png screenshots/TC-117-open.png,2026-11-23T03:55:53.301Z
+TC-118,R1,R2-a,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off (set 11:47, read back unchecked). Text to Image, default model 「GPT-Image-2.6 Sunburst」 (the build's default; the sheet line names Apt3 / Flux TextToImage, Q-12), same prompt as TC-121, 3 credits (31660 → 31657). Download icon wrote Pictures/cyberlink/PowerDirector/Text to Image/1_1795406010895.jpg (930,582 bytes, JPEG 1024 × 1024) → files/TC-118-t2i-off.jpg. C2PA (files/TC-118-t2i-off.c2pa.json via files/c2pa_inspect.py; c2patool not installed here): exactly one manifest, COSE signature 「Verified OK」, data hash match, assertion hashes match; signer CN/O 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0, action c2pa.created digitalSourceType trainedAlgorithmicMedia (AI-generated), no ingredient, no Google manifest. Not checked: certificate trust.",screenshots/TC-118-result.png,2026-11-23T03:54:04.292Z
+TC-121,R1,R2-a,credits c2pa-tool,C2PA metadata,"1. Tap 「Save」
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","The image has no AI label
+The C2PA manifest is still present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Fail,defect,"Switch On (Menu › Settings, read 11:33). Text to Image, default model 「GPT-Image-2.6 Sunburst」, 1:1 default, prompt 「A red bicycle leaning on a white brick wall, photoreal」, 3 credits (31827 → 31824), result ~5 min. Result page shows no AI label (correct). Download icon wrote /sdcard/Pictures/cyberlink/PowerDirector/Text to Image/1_1795404764471.jpg (2,157,262 bytes; actually a PNG 1024 × 1024 under a .jpg name) → files/TC-121-t2i-on.jpg. C2PA (files/TC-121-t2i-on.c2pa.json; c2patool is not installed on this computer, read with files/c2pa_inspect.py: JUMBF/CBOR parse, COSE signature verified with openssl, assertion and data hashes checked): exactly one manifest, signature 「Verified OK」, data hash match, but signed by 「Google Media Processing Services」 (issuer Google C2PA Media Services 1P ICA G3), claim generator 「Google C2PA Core Generator Library」, actions c2pa.created 「Created by Google Generative AI.」 + c2pa.edited 「Applied imperceptible SynthID watermark.」, no ingredient, no CyberLink manifest. Expected one CyberLink-signed manifest (provider manifest replaced, REQ-007/008); the On save keeps Google's raw file, as in R1 (TC-121 Fail on 2611161).",screenshots/TC-121-result.png,2026-11-23T03:40:03.185Z
+TC-090,R1,R2-a,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off (set 11:47). Image to Video, portrait photo 00PDRa_Testing_Material/photo_9_16.jpg, prompt 「The woman smiles and slowly turns her head toward the camera」, model 「Veo 3.1」 (Google; Standard, 4 s, 32 credits, task 「Custom 2」 started 11:48; log totalRemain 31792 → 31760). 「Save」 → 「Saved to Gallery」; ImageToVideo - Nov 23 - 2 - 1795406292307.mp4 → files/TC-090-itv-veo-off.mp4 (1280 × 720 stored, 4.02 s). C2PA (files/TC-090-itv-veo-off.c2pa.json): c2patool is not installed on this computer; read with files/c2pa_inspect.py: exactly one manifest, COSE signature 「Verified OK」, c2pa.hash.bmff.v3 match, assertion hashes match; signer CN/O 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0, action c2pa.created digitalSourceType trainedAlgorithmicMedia (AI-generated), no ingredient, no provider manifest. Not checked: certificate trust. No Google manifest (sheet: Ext ItvGoogle 有簽章 (Google); the save is re-signed by CyberLink as v2 expects).",screenshots/TC-090-started.png screenshots/TC-090-result.png,2026-11-23T03:58:45.829Z
+TC-091,R1,R2-a,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Blocked,test-data,"BytePlus model offered as 「Seedance 2.0」 (the only Seedance in this build's Image to Video list: Kling 4.0, Kling O3, Pixverse V6, Wan 3.0, Gemini Omni Flash 1.1, Happy Horse 1.1, Seedance 2.0, Veo 3.1, Vidu Q2, Wan 2.7; read 11:44, screenshots itv-models / itv-models-2). On the signed-in Free account (cltqauiap2@gmail.com) picking it turns Generate into 「Subscribe Pro to Unlock」, so no Seedance result can be made. Needs a Pro account; no purchase made in this segment (left to the orchestrator/user: a Play test subscription would turn the shared account Pro for the next segments too).",screenshots/TC-091-seedance.png,2026-11-23T03:52:52.945Z
+TC-092,R1,R2-a,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Blocked,test-data,"n/a: the build offers no Flux model for Image to Video (16.9.0 2611193, Stage, Free; list read 11:44: Kling 4.0, Kling O3, Pixverse V6, Wan 3.0, Gemini Omni Flash 1.1, Happy Horse 1.1, Seedance 2.0, Veo 3.1, Vidu Q2, Wan 2.7).",screenshots/itv-models.png screenshots/itv-models-2.png,2026-11-23T03:52:53.060Z
+TC-093,R1,R2-a,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off (set 11:47). Image to Video, portrait photo 00PDRa_Testing_Material/photo_9_16.jpg, prompt 「The woman smiles and slowly turns her head toward the camera」, model 「Kling O3」 (Kling; Standard, 5 s, 25 credits, task 「Custom 3」; totalRemain 31760 → 31735). 「Save」 → 「Saved to Gallery」; ImageToVideo - Nov 23 - 3 - 1795406277241.mp4 → files/TC-093-itv-klingO3-off.mp4 (1280 × 720 stored, 5.04 s). C2PA (files/TC-093-itv-klingO3-off.c2pa.json): c2patool is not installed on this computer; read with files/c2pa_inspect.py: exactly one manifest, COSE signature 「Verified OK」, c2pa.hash.bmff.v3 match, assertion hashes match; signer CN/O 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0, action c2pa.created digitalSourceType trainedAlgorithmicMedia (AI-generated), no ingredient, no provider manifest. Not checked: certificate trust. No Kling AI manifest.",screenshots/TC-093-started.png screenshots/TC-093-result.png,2026-11-23T03:58:45.944Z
+TC-094,R1,R2-a,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off (set 11:47). Image to Video, portrait photo 00PDRa_Testing_Material/photo_9_16.jpg, prompt 「The woman smiles and slowly turns her head toward the camera」, model 「Vidu Q2」 (Vidu; 5 s, 15 credits, task 「Custom 4」; totalRemain 31735 → 31720). 「Save」 → 「Saved to Gallery」; ImageToVideo - Nov 23 - 4 - 1795406262147.mp4 → files/TC-094-itv-vidu-off.mp4 (1280 × 720 stored, 5.08 s). C2PA (files/TC-094-itv-vidu-off.c2pa.json): c2patool is not installed on this computer; read with files/c2pa_inspect.py: exactly one manifest, COSE signature 「Verified OK」, c2pa.hash.bmff.v3 match, assertion hashes match; signer CN/O 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0, action c2pa.created digitalSourceType trainedAlgorithmicMedia (AI-generated), no ingredient, no provider manifest. Not checked: certificate trust.",screenshots/TC-094-started.png screenshots/TC-094-result.png,2026-11-23T03:58:46.059Z
+TC-095,R1,R2-a,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Blocked,test-data,"n/a: the build offers no Hailuo model for Image to Video (16.9.0 2611193, Stage, Free; list read 11:44: Kling 4.0, Kling O3, Pixverse V6, Wan 3.0, Gemini Omni Flash 1.1, Happy Horse 1.1, Seedance 2.0, Veo 3.1, Vidu Q2, Wan 2.7).",screenshots/itv-models.png screenshots/itv-models-2.png,2026-11-23T03:52:53.172Z
+TC-096,R1,R2-a,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off (set 11:47). Image to Video, portrait photo 00PDRa_Testing_Material/photo_9_16.jpg, prompt 「The woman smiles and slowly turns her head toward the camera」, model 「Pixverse V6」 (5 s, 20 credits, task 「Custom 5」; totalRemain 31720 → 31700). 「Save」 → 「Saved to Gallery」; ImageToVideo - Nov 23 - 5 - 1795406248009.mp4 → files/TC-096-itv-pixverse-off.mp4 (1920 × 1072 stored, 5.04 s). C2PA (files/TC-096-itv-pixverse-off.c2pa.json): c2patool is not installed on this computer; read with files/c2pa_inspect.py: exactly one manifest, COSE signature 「Verified OK」, c2pa.hash.bmff.v3 match, assertion hashes match; signer CN/O 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0, action c2pa.created digitalSourceType trainedAlgorithmicMedia (AI-generated), no ingredient, no provider manifest. Not checked: certificate trust.",screenshots/TC-096-started.png screenshots/TC-096-result.png,2026-11-23T03:58:46.174Z
+TC-097,R1,R2-a,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off (set 11:47). Image to Video, portrait photo 00PDRa_Testing_Material/photo_9_16.jpg, prompt 「The woman smiles and slowly turns her head toward the camera」, model 「Wan 2.7」 (Alibaba; 5 s, 40 credits, task 「Custom 6」; totalRemain 31700 → 31660; 「Wan 3.0」 also offered). 「Save」 → 「Saved to Gallery」; ImageToVideo - Nov 23 - 6 - 1795406233483.mp4 → files/TC-097-itv-wan27-off.mp4 (1920 × 1080 stored, 5.04 s). C2PA (files/TC-097-itv-wan27-off.c2pa.json): c2patool is not installed on this computer; read with files/c2pa_inspect.py: exactly one manifest, COSE signature 「Verified OK」, c2pa.hash.bmff.v3 match, assertion hashes match; signer CN/O 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0, action c2pa.created digitalSourceType trainedAlgorithmicMedia (AI-generated), no ingredient, no provider manifest. Not checked: certificate trust.",screenshots/TC-097-started.png screenshots/TC-097-result.png,2026-11-23T03:58:46.290Z
+TC-122,R1,R2-a,credits c2pa-tool,C2PA metadata,"1. Tap 「Save」
+2. Copy the file to the computer
+3. Read its Content Credentials","The video has no AI label
+The C2PA manifest is still present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch On. Image to Video, model 「Veo 3.1」 (Video Quality Standard, 4 s, 32 credits), portrait photo 00PDRa_Testing_Material/photo_9_16.jpg, prompt 「The woman smiles and slowly turns her head toward the camera」, task 「Custom 1」 started ~11:40, done in ~2.5 min. 「Save」 → 「Saved to Gallery」; file Movies/cyberlink/PowerDirector/Image to Video/ImageToVideo - Nov 23 - 1 - 1795405424637.mp4 → files/TC-122-itv-veo-on.mp4 (720 × 1280, 4.01 s). Frames at 0.0 / 1.9 / 2.1 s (files/TC-122-frames.png): no AI label. C2PA (files/TC-122-itv-veo-on.c2pa.json, read with files/c2pa_inspect.py as c2patool is not installed here): exactly one manifest, COSE signature 「Verified OK」, bmff.v3 hash match, assertion hashes match; signer CN/O 「CyberLink」 (self-issued), claim generator 「PowerDirector Mobile for Android」 16.9.0 (c2pa_rs 0.90.20, com.cyberlink.clc2pa 1.0), action c2pa.created digitalSourceType compositeWithTrainedAlgorithmicMedia (AI), no ingredient, no Google manifest. Matches v2 (REQ-007/008). Not checked: certificate trust (c2patool would report signingCredential.untrusted, as in R1).",screenshots/TC-122-result.png,2026-11-23T03:44:30.129Z
+TC-099,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off. Text to Video, model 「Veo 3.1」 (9:16, 4s, Fast, music On, ◆ 28), prompt 「A red kite flying over a green hill on a sunny day, gentle wind」, started 12:10 (task 「Custom 1」, ~2 min). Result page 「Save」 → 「Saved to Gallery」 wrote Movies/cyberlink/PowerDirector/Text to Video/TextToVideo - Nov 23 - 1 - 1795409113936.mp4 (4,009,262 bytes) → files/TC-099-ttv-veo-off.mp4. c2patool 0.29.0 (files/TC-099-ttv-veo-off.c2pa.json): exactly one manifest, validation_state Valid (only signingCredential.untrusted, c2patool's default trust list); issuer/CN 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0 (clc2pa 1.0), action c2pa.created digitalSourceType trainedAlgorithmicMedia (AI-generated), no ingredient, no Google manifest.",screenshots/TC-099-ready.png screenshots/TC-099-started.png screenshots/TC-099-result.png,2026-11-23T04:46:01.080Z
+TC-100,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Blocked,test-data,"Switch Off. Text to Video on 2611193 (Free, Stage) offers Seedance 2.0 only behind Pro: picking it shows 「Subscribe Pro to Unlock」 in place of Generate. Seedance 2.5 is no longer listed (models: Kling 4.0, Wan 3.0, Seedance 2.0 Pro, Gemini Omni Flash, Happy Horse 1.1, Wan 2.7, Veo 3.1, Kling O3). No BytePlus model a Free account can run; nothing bought.",screenshots/TC-100-seedance-pro.png screenshots/ttv-models.png screenshots/ttv-models2.png,2026-11-23T04:10:07.975Z
+TC-101,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Blocked,test-data,"Switch Off. Text to Video on 2611193 (Free, Stage) does not offer a Flux model: its picker lists Kling 4.0, Wan 3.0, Seedance 2.0 (Pro), Gemini Omni Flash, Happy Horse 1.1, Wan 2.7, Veo 3.1, Kling O3 (n/a when the build does not offer the model).",screenshots/ttv-models.png screenshots/ttv-models2.png,2026-11-23T04:10:08.094Z
+TC-102,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off. Text to Video, model 「Kling O3」 (9:16, 5s, 1080p, ◆ 30), same prompt, started 12:11 (task 「Custom 2」). Result page 「Save」 wrote Movies/cyberlink/PowerDirector/Text to Video/TextToVideo - Nov 23 - 3 - 1795409127041.mp4 (4,830,655 bytes) → files/TC-102-ttv-klingO3-off.mp4. c2patool 0.29.0 (files/TC-102-ttv-klingO3-off.c2pa.json): exactly one manifest, validation_state Valid (only signingCredential.untrusted, c2patool's default trust list); issuer/CN 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0 (clc2pa 1.0), action c2pa.created digitalSourceType trainedAlgorithmicMedia (AI-generated), no ingredient, no Kling AI manifest.",screenshots/TC-102-started.png screenshots/TC-102-result.png,2026-11-23T04:46:01.196Z
+TC-103,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Blocked,test-data,"Switch Off. Text to Video on 2611193 (Free, Stage) does not offer a Vidu model: its picker lists Kling 4.0, Wan 3.0, Seedance 2.0 (Pro), Gemini Omni Flash, Happy Horse 1.1, Wan 2.7, Veo 3.1, Kling O3 (n/a when the build does not offer the model).",screenshots/ttv-models.png screenshots/ttv-models2.png,2026-11-23T04:10:08.209Z
+TC-104,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Blocked,test-data,"Switch Off. Text to Video on 2611193 (Free, Stage) does not offer a Hailuo model: its picker lists Kling 4.0, Wan 3.0, Seedance 2.0 (Pro), Gemini Omni Flash, Happy Horse 1.1, Wan 2.7, Veo 3.1, Kling O3 (n/a when the build does not offer the model).",screenshots/ttv-models.png screenshots/ttv-models2.png,2026-11-23T04:10:08.326Z
+TC-105,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Blocked,test-data,"Switch Off. Text to Video on 2611193 (Free, Stage) does not offer a Pixverse model: its picker lists Kling 4.0, Wan 3.0, Seedance 2.0 (Pro), Gemini Omni Flash, Happy Horse 1.1, Wan 2.7, Veo 3.1, Kling O3 (n/a when the build does not offer the model).",screenshots/ttv-models.png screenshots/ttv-models2.png,2026-11-23T04:10:08.442Z
+TC-106,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off. Text to Video, model 「Wan 2.7」 (9:16, 5s, 1080p, ◆ 40; KP-091's 25 was 720p), same prompt, started 12:11 (task 「Custom 3」). Result page 「Save」 wrote Movies/cyberlink/PowerDirector/Text to Video/TextToVideo - Nov 23 - 2 - 1795409140317.mp4 (5,917,802 bytes) → files/TC-106-ttv-wan27-off.mp4. c2patool 0.29.0 (files/TC-106-ttv-wan27-off.c2pa.json): exactly one manifest, validation_state Valid (only signingCredential.untrusted, c2patool's default trust list); issuer/CN 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0 (clc2pa 1.0), action c2pa.created digitalSourceType trainedAlgorithmicMedia (AI-generated), no ingredient, no provider manifest. (Wan 3.0 also offered; one Alibaba model run.)",screenshots/TC-106-started.png screenshots/TC-106-result.png,2026-11-23T04:46:01.312Z
+TC-107,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off. Character Motion Swap, model 「Kling Motion Control」 (NEW), 「Try with example」 photo + example reference video (00:10), 「Output video keeps the photo background」, 「Generate Video ◆ 60」 at 12:23 (upload ~8 min, task 「Character Motion Swap - 2」). Result page 「Save」 wrote Movies/cyberlink/PowerDirector/Motion Swap/ImageToVideo - Nov 23 - 2 - 1795409196511.mp4 (11,266,612 bytes) → files/TC-107-motionswap-kling-off.mp4. c2patool 0.29.0 (files/TC-107-motionswap-kling-off.c2pa.json): exactly one manifest, validation_state Valid (only signingCredential.untrusted, c2patool's default trust list); issuer/CN 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0 (clc2pa 1.0), action c2pa.created digitalSourceType trainedAlgorithmicMedia (AI-generated), no ingredient, no Kling AI manifest (KF-001: the raw Kling file carries one).",screenshots/TC-107-ready.png screenshots/TC-107-started.png screenshots/TC-107-result.png,2026-11-23T04:46:53.615Z
+TC-108,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off (read unchecked at segment start). Character Motion Swap, model 「Wan 2.2 Animate」 (default), 「Try with example」 photo + example reference video (00:13), mode 「Keep the video background」, 「Generate Video ◆ 39」 (12:12; upload ~7 min, then 「14 minutes left…」). Result page 「Save」 → 「Saved to Gallery」 wrote Movies/cyberlink/PowerDirector/Motion Swap/ImageToVideo - Nov 23 - 1 - 1795408366765.mp4 (3,548,242 bytes) → files/TC-108-motionswap-wan-off.mp4. c2patool 0.29.0 (files/TC-108-motionswap-wan-off.c2pa.json): exactly one manifest, validation_state Valid (only signingCredential.untrusted, c2patool's default trust list); issuer/CN 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0 (clc2pa 1.0), action c2pa.created digitalSourceType trainedAlgorithmicMedia (AI-generated), no ingredient, no provider manifest.",screenshots/TC-108-video.png screenshots/TC-108-result.png,2026-11-23T04:33:18.182Z
+TC-109,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Blocked,test-data,"Switch Off. 2611193 does not offer Video Object Removal (KP-082): not in the Launcher's AI Magic list (AI Creation, Video Enhance, AI Video Upscaler, Photo Enhance, AI Tools, AI Anime Video/AI Anime/AI Cartoon/AI Sketch, AI Audio Tools), not in the editor's AI Magic panel (Image to Video, Text to Video, AI Art, Text to Image, Text to Speech, AI Music Generator, Talking Avatar, Cinematic Reel Creator, Video Edit by Chat), and not among a selected clip's tools (Split, Video Edit by Chat, Volume, Audio Tools, Adjust Speed, Transform, Adjust, Background, Enhance, Tools › Replace/Reverse/Freeze Frame/Auto Captions/Cutout, Duplicate, Mask, Portrait, Templates).",screenshots/TC-116-aimagic.png screenshots/TC-109-clip.png screenshots/TC-109-tools.png,2026-11-23T04:55:58.826Z
+TC-110,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Blocked,test-data,"Switch Off. AI Storytelling › 「Hobby & Life」 › Try Now, 4 clips (19 s), default topic, voice-over English 「Neutral - Sophie」, Duration 15s: the create button reads 「Subscribe Pro to Unlock」 on this Free account (KP-085: one free story for Free, already used on cltqauiap2). Its history 「Generated Story」 is empty (「No videos yet.」), so no existing story to export either. Nothing bought.",screenshots/TC-110-pro.png screenshots/TC-110-history.png,2026-11-23T04:49:50.089Z
+TC-111,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off. Cinematic Reel Creator shows no model picker: the template decides. Template 「Horror Movie」, photo_9_16.jpg (00PDRa_Testing_Material), 「Generate ◆ 70」 at 12:41; the ledger's log entry names it BytePlus: AICinematicShorts actionId genvideo_1_sec_bytedance_seedance2.0std_enable_720p, −70, 10 units. Done 12:50 (「Horror Movie 01」, 0:10). Result page Quick actions 「Save」 wrote Movies/cyberlink/PowerDirector/Video Enhance/ImageToVideo - Nov 23 - 1 - 1795410123538.mp4 (4,474,831 bytes, 1280 × 720, 10.08 s; saved under 「Video Enhance」, O-6) → files/TC-111-cinereel-horror-off.mp4. c2patool 0.29.0 (files/TC-111-cinereel-horror-off.c2pa.json): exactly one manifest, validation_state Valid (only signingCredential.untrusted, c2patool's default trust list); issuer/CN 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0, action c2pa.created trainedAlgorithmicMedia (AI-generated), no ingredient, no BytePlus manifest. The page drew no 「Saved to Gallery」 toast that waitfor caught (file written 13:02:03).",screenshots/TC-111-photo.png screenshots/TC-111-started.png screenshots/TC-111-result.png screenshots/waitfor-timeout-20261123-130333.png,2026-11-23T05:13:14.199Z
+TC-112,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off (read back unchecked 14:22). Cinematic Reel Creator, Kling template 「Micro Cinema」 (the first Kling template, 「Handheld Camera」, ended in an error and was refunded, O-7), photo_9_16.jpg, ◆ 48 at 13:11; the ledger's log entry names it Kling: AICinematicShorts actionId genvideo_1_sec_kling_o3pro_enable_1080p, −48, 8 units. Done by 13:20 (applyEffect Done; 「Micro Cinema 01」, 0:08). Opened with View at 14:19; result page Quick actions 「Save」 wrote Movies/cyberlink/PowerDirector/Video Enhance/ImageToVideo - Nov 23 - 2 - 1795414798044.mp4 (7,484,201 bytes, 1920 × 1080, 8.04 s; 「Video Enhance」 folder as in O-6) → files/TC-112-cinereel-kling-off.mp4. c2patool 0.29.0 (files/TC-112-cinereel-kling-off.c2pa.json): exactly one manifest, validation_state Valid (only signingCredential.untrusted, c2patool's default trust list); issuer/CN 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0 (clc2pa 1.0), action c2pa.created trainedAlgorithmicMedia (AI-generated), no ingredient, no Kling manifest.",screenshots/TC-112-started2.png screenshots/TC-112-result.png screenshots/TC-112-saved.png screenshots/switch-check.png,2026-11-23T06:22:38.052Z
+TC-113,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off. Video Edit by Chat, source 00PDRa_Testing_Material 00:05 clip, model 「Gemini Omni Flash 1.1」 1080p (picked after the source; default is Seedance 2.5), prompt 「Make the background a sunny beach」, 「Generate Video ◆ 40」 (8 credits a second) at 12:35, upload 90 s, done ~12:40. The app wrote the result to the gallery by itself (KP-079): Movies/cyberlink/PowerDirector/Edit by Chat/EditByChat - Nov 23 - 1 - 1795408812423.mp4 (4,826,722 bytes) → files/TC-113-vec-gemini-off.mp4. c2patool 0.29.0 (files/TC-113-vec-gemini-off.c2pa.json): exactly one manifest, validation_state Valid (only signingCredential.untrusted, c2patool's default trust list); issuer/CN 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0, action c2pa.created trainedAlgorithmicMedia (AI-generated), no ingredient, no Google manifest.",screenshots/TC-113-ready.png screenshots/TC-113-started.png screenshots/TC-113-list.png,2026-11-23T04:40:31.173Z
+TC-114,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off. Video Edit by Chat, same 00:05 source, model 「Kling O3」 1080p (stayed selected after the source was picked, ◆ 25, 5 credits a second), prompt 「Make the background a sunny beach」, started 12:38 (upload ~100 s, task 「Video Edit by Chat - 2」). The app wrote the result to the gallery by itself at finish (KP-079): Movies/cyberlink/PowerDirector/Edit by Chat/EditByChat - Nov 23 - 2 - 1795409197392.mp4 (4,955,465 bytes) → files/TC-114-vec-klingO3-off.mp4. c2patool 0.29.0 (files/TC-114-vec-klingO3-off.c2pa.json): exactly one manifest, validation_state Valid (only signingCredential.untrusted, c2patool's default trust list); issuer/CN 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0 (clc2pa 1.0), action c2pa.created digitalSourceType trainedAlgorithmicMedia (AI-generated), no ingredient, no Kling AI manifest.",screenshots/TC-114-ready.png screenshots/TC-114-started.png,2026-11-23T04:46:53.734Z
+TC-115,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off throughout (read unchecked at 11:59, untouched until the task finished). AI Anime Video from AI Magic, style 「Vivid」, 10 Sec ◆ 40, source 00PDRa_Testing_Material 00:14 clip trimmed to 10 s, started 12:03 (S3 upload ~4 min, then 「17 minutes left…」); finished ~12:31 with 「Good news! Your AI Anime Video task has been completed.」. The app wrote the result to the gallery by itself (KP-079): Movies/cyberlink/PowerDirector/AI Video Anime/Vivid - Nov 23 - 1 - 1795408288542.mp4 (8,725,037 bytes) → files/TC-115-anime-off.mp4. c2patool 0.29.0 (files/TC-115-anime-off.c2pa.json): exactly one manifest, validation_state Valid (only signingCredential.untrusted, c2patool's default trust list); issuer/CN 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0, action c2pa.created trainedAlgorithmicMedia (AI-generated), no ingredient, no provider manifest.",screenshots/TC-115-picker.png screenshots/TC-115-wait2.png,2026-11-23T04:33:18.298Z
+TC-116,R1,R2-b,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Pass,,"Switch Off. Talking Avatar from the editor's AI Magic panel (new project 「Project 11-23」 with the 00:05 clip), default avatar, By Text script (151 chars, 「Generate Voice」 first, estimated 11 s), voice English (US) 「Sara」 Neutral, 「Generate for ◆ 10」 at 12:53, completed ~12:56 (banner 「Good news! Your Talking Avatar task has been completed.」). The file was written to the gallery when the result was opened from the task list (View, 13:00:36), with no 「Save」 tap: Movies/cyberlink/PowerDirector/Talking Avatar/TalkingAvatar - Nov 23 - 1 - 1795410036601.mp4 (1,905,020 bytes) → files/TC-116-avatar-off.mp4. c2patool 0.29.0 (files/TC-116-avatar-off.c2pa.json): exactly one manifest, validation_state Valid (only signingCredential.untrusted, c2patool's default trust list); issuer/CN 「CyberLink」, claim generator 「PowerDirector Mobile for Android」 16.9.0, action c2pa.created trainedAlgorithmicMedia (AI-generated), no ingredient, no provider manifest.",screenshots/TC-116-ready.png screenshots/TC-116-started.png screenshots/TC-116-result.png,2026-11-23T05:01:02.410Z
+TC-014,R1,R2-c,credits app-language,Watermark artwork and placement,"1. Generate a song in AI Music Generator (answer the AIGC dialog with 「Generate」)
+2. Play it in My AI Music from the start","The song starts straight with the music
+No spoken clip 「This audio was generated by AI.」 in any language",Not run,,,,
+TC-058,R1,R2-c,credits,Music Generator (pure audio),Play it from the start in My AI Music,"It starts straight with the music, with no spoken clip 「This audio was generated by AI.」",Not run,,,,
+TC-059,R1,R2-c,credits,Music Generator (pure audio),"1. Download it
+2. Play the downloaded file in the phone's Files / music app","The file starts straight with the music, with no spoken clip",Not run,,,,
+TC-060,R1,R2-c,credits,Music Generator (pure audio),"1. Add it to the timeline of a new project
+2. Play the project from 0:00",The song plays without the spoken clip,Not run,,,,
+TC-063,R1,R2-c,credits,Music Generator (pure audio),"1. Tap 「Generate for ◆ 6」
+2. When the song is ready, play it from the start in My AI Music","Step 1: no AIGC dialog, the generation starts at once
+Step 2: the song has no spoken clip",Not run,,,,
+TC-098,R1,R2-c,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Not run,,,,
+TC-119,R1,R2-c,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Not run,,,,
+TC-120,R1,R2-c,credits c2pa-tool,C2PA metadata,"1. Save (or download) the result
+2. Copy the file to the computer
+3. Read its Content Credentials (c2patool <file>)","A C2PA manifest is present and valid
+Its signer is CyberLink
+It is the only manifest: no provider manifest and no ingredient
+It marks the content as AI-generated",Not run,,,,

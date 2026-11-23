@@ -1,0 +1,34 @@
+{
+ "file": "TC-117-aiart-off.jpg",
+ "bytes": 643447,
+ "stores": 1,
+ "manifests": [
+  {
+   "label": "urn:c2pa:801da211-f398-4be2-a590-6ebbf7cd0aa4",
+   "assertions": [
+    "c2pa.actions.v2",
+    "c2pa.hash.data"
+   ],
+   "actions": [
+    {
+     "action": "c2pa.created",
+     "digitalSourceType": "trainedAlgorithmicMedia",
+     "description": null,
+     "softwareAgent": null
+    }
+   ],
+   "ingredients": 0,
+   "data_hash": "match",
+   "claim_label": "c2pa.claim.v2",
+   "claim_generator": "{\"name\": \"PowerDirector Mobile for Android\", \"version\": \"16.9.0\", \"com.cyberlink.clc2pa\": \"1.0\", \"org.contentauth.c2pa_rs\": \"0.90.20\"}",
+   "title": "2_1795406121899.jpg",
+   "alg": "sha256",
+   "assertion_refs": 2,
+   "assertion_hash_problems": [],
+   "signer": "subject=O=CyberLink, CN=CyberLink\nissuer=O=CyberLink, CN=CyberLink\nnotAfter=Dec 31 23:59:59 9999 GMT",
+   "signature_check": "Verified OK"
+  }
+ ],
+ "store_label": "c2pa",
+ "active_manifest": "urn:c2pa:801da211-f398-4be2-a590-6ebbf7cd0aa4"
+}
