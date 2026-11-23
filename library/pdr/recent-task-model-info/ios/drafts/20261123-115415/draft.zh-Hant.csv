@@ -1,0 +1,207 @@
+﻿﻿編號,區塊,前置條件,操作步驟,預期結果,優先度,規格對應,備註,變更,變更原因
+TC-001,My Artwork 入口,以測試帳號登入（fixtures.md）,"1. 開啟 AI Magic › 「My Artwork」
+2. 點「Image to Video」卡片列","步驟 1：My Artwork 為每項功能列出一列卡片，包含「Image to Video」與「Text to Video」
+步驟 2：開啟 Image to Video 的 Recent 頁，標題為「Image to Video」，每個任務各有一張 Recent 任務卡（由新到舊）",P1,"R-001, R-060",,新增,新建表格（規格版本 2026-11-23）
+TC-002,My Artwork 入口,以測試帳號登入（fixtures.md）,"1. 開啟 AI Magic › 「My Artwork」
+2. 點「Text to Video」卡片列",開啟 Text to Video 的 Recent 頁，標題為「Text to Video」，每個任務各有一張 Recent 任務卡,P1,R-001,,新增,新建表格（規格版本 2026-11-23）
+TC-003,Image to Video：模型標籤,"1. 以測試帳號登入（fixtures.md）
+2. 圖庫裡有一張相片","1. 開啟 AI Magic › 「Image to Video」（不是範本）
+2. 加入相片，最後選擇模型「Kling 4.0」（KP-083）
+3. 點 Generate
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Image to Video」","步驟 5：新任務的卡片處於處理中狀態：縮圖上顯示「processing...」、剩餘時間與進度條，沒有按鈕
+步驟 5：任務名稱下方顯示灰底標籤，文字為「Kling 4.0」",P1,"R-010, R-030",保留這個任務：TC-004、TC-005 與各狀態列都會用到。,新增,新建表格（規格版本 2026-11-23）
+TC-004,Image to Video：模型標籤,TC-003 的 Image to Video 任務已完成,"1. 開啟 AI Magic › 「My Artwork」
+2. 點「Image to Video」","任務卡在縮圖旁由上到下依序顯示：日期與長度（「YYYY/MM/DD · m:ss」）、任務名稱，以及一個灰底標籤「Kling 4.0」
+標籤為單行、高 20 pt，且不會碰到右下角的「View」按鈕
+卡片高度與沒有標籤的卡片相同（120 pt）",P1,"R-010, R-012, R-015, R-016, R-030",,新增,新建表格（規格版本 2026-11-23）
+TC-005,Image to Video：模型標籤,Image to Video 的 Recent 頁顯示 TC-003 已完成的任務,"1. 點該卡片上的「View」
+2. 點 ‹","步驟 1：開啟該任務的 Image to Video 結果頁（影片會播放）
+步驟 2：回到 Image to Video 的 Recent 頁，該卡片仍顯示「Kling 4.0」",P1,"R-002, R-061",,新增,新建表格（規格版本 2026-11-23）
+TC-006,Image to Video：模型標籤,"1. 以測試帳號登入（fixtures.md）
+2. 圖庫裡有一張相片","1. 開啟 AI Magic › 「Image to Video」（不是範本）
+2. 加入相片，最後選擇模型「Veo 3.1」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Image to Video」",新任務的卡片在名稱下方顯示標籤「Veo 3.1」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-007,Image to Video：模型標籤,"1. 以測試帳號登入（fixtures.md）
+2. 圖庫裡有一張相片","1. 開啟 AI Magic › 「Image to Video」（不是範本）
+2. 加入相片，最後選擇模型「Vidu Q2」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Image to Video」",新任務的卡片在名稱下方顯示標籤「Vidu Q2」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-008,Image to Video：模型標籤,"1. 以測試帳號登入（fixtures.md）
+2. 圖庫裡有一張相片","1. 開啟 AI Magic › 「Image to Video」（不是範本）
+2. 加入相片，最後選擇模型「Kling O3」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Image to Video」",新任務的卡片在名稱下方顯示標籤「Kling O3」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-009,Image to Video：模型標籤,"1. 以測試帳號登入（fixtures.md）
+2. 圖庫裡有一張相片","1. 開啟 AI Magic › 「Image to Video」（不是範本）
+2. 加入相片，最後選擇模型「Pixverse V6」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Image to Video」",新任務的卡片在名稱下方顯示標籤「Pixverse V6」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-010,Image to Video：模型標籤,"1. 以測試帳號登入（fixtures.md）
+2. 圖庫裡有一張相片","1. 開啟 AI Magic › 「Image to Video」（不是範本）
+2. 加入相片，最後選擇模型「Wan 2.7」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Image to Video」",新任務的卡片在名稱下方顯示標籤「Wan 2.7」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-011,Image to Video：模型標籤,"1. 以測試帳號登入（fixtures.md）
+2. 圖庫裡有一張相片","1. 開啟 AI Magic › 「Image to Video」（不是範本）
+2. 加入相片，最後選擇模型「Gemini Omni Flash 1.1」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Image to Video」",新任務的卡片在名稱下方顯示標籤「Gemini Omni Flash 1.1」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-012,Image to Video：模型標籤,"1. 以測試帳號登入（fixtures.md）
+2. 圖庫裡有一張相片","1. 開啟 AI Magic › 「Image to Video」（不是範本）
+2. 加入相片，最後選擇模型「Happy Horse 1.1」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Image to Video」",新任務的卡片在名稱下方顯示標籤「Happy Horse 1.1」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-013,Image to Video：模型標籤,"1. 以 Pro 測試帳號登入（fixtures.md）
+2. 圖庫裡有一張相片","1. 開啟 AI Magic › 「Image to Video」（不是範本）
+2. 加入相片，最後選擇模型「Seedance 2.0」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Image to Video」",新任務的卡片在名稱下方顯示標籤「Seedance 2.0」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,Pro 專屬模型（KP-082）。模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-014,Image to Video：模型標籤,"1. 以 Pro 測試帳號登入（fixtures.md）
+2. 圖庫裡有一張相片","1. 開啟 AI Magic › 「Image to Video」（不是範本）
+2. 加入相片，最後選擇模型「Seedance 2.5」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Image to Video」",新任務的卡片在名稱下方顯示標籤「Seedance 2.5」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,Pro 專屬模型（KP-082）。模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-015,Image to Video：模型標籤,Image to Video 的 Recent 頁有使用兩種以上不同模型產生的任務（TC-003、TC-006 …）,"1. 開啟 AI Magic › 「Image to Video」，選一個上述任務都沒用過的模型，但不要產生
+2. 返回
+3. 開啟 AI Magic › 「My Artwork」
+4. 點「Image to Video」","每張卡片仍顯示該任務自己產生時用的模型
+沒有任何卡片顯示步驟 1 選的模型",P2,R-013,,新增,新建表格（規格版本 2026-11-23）
+TC-016,Text to Video：模型標籤,以測試帳號登入（fixtures.md）,"1. 開啟 AI Magic › 「Text to Video」（不是範本）
+2. 輸入一段簡短提示詞，最後選擇模型「Kling 4.0」
+3. 點 Generate
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Text to Video」","步驟 5：新任務的卡片顯示「processing...」、剩餘時間與進度條，沒有按鈕
+步驟 5：任務名稱下方顯示灰底標籤，文字為「Kling 4.0」",P1,"R-011, R-030",選模型前先收起鍵盤（點 Done 或點空白處）。,新增,新建表格（規格版本 2026-11-23）
+TC-017,Text to Video：模型標籤,TC-016 的 Text to Video 任務已完成,"1. 開啟 AI Magic › 「My Artwork」
+2. 點「Text to Video」","卡片依序顯示日期與長度、任務名稱，以及一個灰底標籤「Kling 4.0」
+標籤為單行，且不會碰到「View」
+卡片高度與沒有標籤的卡片相同（120 pt）",P1,"R-011, R-012, R-015, R-016, R-030",,新增,新建表格（規格版本 2026-11-23）
+TC-018,Text to Video：模型標籤,Text to Video 的 Recent 頁顯示 TC-016 已完成的任務,"1. 點該卡片上的「View」
+2. 點 ‹","步驟 1：開啟該任務的 Text to Video 結果頁
+步驟 2：回到 Text to Video 的 Recent 頁，該卡片仍顯示「Kling 4.0」",P1,R-002,,新增,新建表格（規格版本 2026-11-23）
+TC-019,Text to Video：模型標籤,以測試帳號登入（fixtures.md）,"1. 開啟 AI Magic › 「Text to Video」（不是範本）
+2. 輸入一段簡短提示詞，最後選擇模型「Wan 3.0」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Text to Video」",新任務的卡片在名稱下方顯示標籤「Wan 3.0」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-020,Text to Video：模型標籤,以 Pro 測試帳號登入（fixtures.md）,"1. 開啟 AI Magic › 「Text to Video」（不是範本）
+2. 輸入一段簡短提示詞，最後選擇模型「Seedance 2.5」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Text to Video」",新任務的卡片在名稱下方顯示標籤「Seedance 2.5」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,Pro 專屬模型（KP-082）。模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-021,Text to Video：模型標籤,以 Pro 測試帳號登入（fixtures.md）,"1. 開啟 AI Magic › 「Text to Video」（不是範本）
+2. 輸入一段簡短提示詞，最後選擇模型「Seedance 2.0」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Text to Video」",新任務的卡片在名稱下方顯示標籤「Seedance 2.0」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,Pro 專屬模型（KP-082）。模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-022,Text to Video：模型標籤,以測試帳號登入（fixtures.md）,"1. 開啟 AI Magic › 「Text to Video」（不是範本）
+2. 輸入一段簡短提示詞，最後選擇模型「Gemini Omni Flash」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Text to Video」",新任務的卡片在名稱下方顯示標籤「Gemini Omni Flash」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-023,Text to Video：模型標籤,以測試帳號登入（fixtures.md）,"1. 開啟 AI Magic › 「Text to Video」（不是範本）
+2. 輸入一段簡短提示詞，最後選擇模型「Happy Horse 1.1」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Text to Video」",新任務的卡片在名稱下方顯示標籤「Happy Horse 1.1」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-024,Text to Video：模型標籤,以測試帳號登入（fixtures.md）,"1. 開啟 AI Magic › 「Text to Video」（不是範本）
+2. 輸入一段簡短提示詞，最後選擇模型「Wan 2.7」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Text to Video」",新任務的卡片在名稱下方顯示標籤「Wan 2.7」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-025,Text to Video：模型標籤,以測試帳號登入（fixtures.md）,"1. 開啟 AI Magic › 「Text to Video」（不是範本）
+2. 輸入一段簡短提示詞，最後選擇模型「Veo 3.1」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Text to Video」",新任務的卡片在名稱下方顯示標籤「Veo 3.1」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-026,Text to Video：模型標籤,以測試帳號登入（fixtures.md）,"1. 開啟 AI Magic › 「Text to Video」（不是範本）
+2. 輸入一段簡短提示詞，最後選擇模型「Kling O3」
+3. 點 Generate，等到產生完成
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Text to Video」",新任務的卡片在名稱下方顯示標籤「Kling O3」，文字與模型選單上的名稱一致（只有放不下時才以「…」截斷）,P2,R-012,模型名稱取自 Android 的模型選單（KP-082；iOS 尚無清單）：如果這個版本的名稱不同，以選單上的名稱為準。,新增,新建表格（規格版本 2026-11-23）
+TC-027,較長的模型名稱,Image to Video 的 Recent 頁有一個用「Gemini Omni Flash 1.1」（TC-011，最長的模型名稱）產生的任務,"1. 開啟 AI Magic › 「My Artwork」
+2. 點「Image to Video」
+3. 查看該任務的卡片","標籤在同一行顯示完整名稱；放不下時，顯示名稱開頭並以「…」結尾
+標籤不會換到第二行，也不會蓋到「View」",P2,R-014,Q-4：規格沒有訂標籤的最大寬度；此列假設標籤可使用名稱下方到卡片右側內距之間的寬度。,新增,新建表格（規格版本 2026-11-23）
+TC-028,較長的模型名稱,同 TC-027,"1. 把手機的字型大小（與顯示大小）調到最大
+2. 開啟 AI Magic › 「My Artwork」
+3. 點「Image to Video」
+4. 查看「Gemini Omni Flash 1.1」的卡片
+5. 把字型與顯示大小調回原本的設定","步驟 4：標籤單行並以「…」截斷，不會蓋到「View」，也不會超出卡片
+步驟 4：該卡片高度與周圍的卡片一致",P3,"R-014, R-016",手機設定由執行時更改並於結束後還原（AGENTS.md › Phone settings for fixtures）。,新增,新建表格（規格版本 2026-11-23）
+TC-029,沒有模型的卡片,"1. 以測試帳號登入（fixtures.md）
+2. 圖庫裡有一張相片","1. 用這張相片開始一個 Image to Video 範本（Launcher 的「What's Trending」或 Template 分頁）
+2. 產生並等到完成
+3. 開啟 AI Magic › 「My Artwork」
+4. 點「Image to Video」","範本任務的卡片顯示日期、長度與名稱，沒有模型標籤
+標籤原本的位置不會留下空行或空隙
+卡片高度與有標籤的卡片相同（120 pt）",P1,"R-020, R-016",Q-3：若範本讓使用者選模型，請記錄卡片是否顯示該模型。,新增,新建表格（規格版本 2026-11-23）
+TC-030,沒有模型的卡片,以測試帳號登入（fixtures.md）,"1. 開始一個 Text to Video 範本（Launcher 或 Template 分頁）
+2. 產生並等到完成
+3. 開啟 AI Magic › 「My Artwork」
+4. 點「Text to Video」","範本任務的卡片沒有模型標籤，也沒有空行
+卡片高度與有標籤的卡片相同（120 pt）",P2,"R-020, R-016",Q-3 同 TC-029。若此版本沒有 Text to Video 範本，記錄為 Blocked（test-data）。,新增,新建表格（規格版本 2026-11-23）
+TC-031,沒有模型的卡片,帳號至少有一個已完成的 Cinematic Reel Creator 任務,"1. 開啟 AI Magic › 「My Artwork」
+2. 點「Cinematic Reel Creator」","Cinematic Reel Creator 的 Recent 頁上，沒有任何卡片顯示模型標籤
+沒有任何卡片為標籤留空行
+每張卡片高度皆為 120 pt",P1,"R-021, R-016",請用現有任務；新做一個 Cinematic Reel 要花 70 點數（KP-091）。,新增,新建表格（規格版本 2026-11-23）
+TC-032,沒有模型的卡片,以測試帳號登入（fixtures.md）,"1. 開啟 AI Magic › 「My Artwork」
+2. 逐一開啟 My Artwork 列出的其他功能的 Recent 頁（不含 Image to Video、Text to Video、Text to Image 與 Cinematic Reel Creator）",這些頁面上的卡片都沒有模型標籤，也沒有為標籤留的空行,P2,R-021,請記錄 My Artwork 列出了哪些功能；若除了這四項之外沒有其他功能，記錄此情況並視為 TC-031 通過。,新增,新建表格（規格版本 2026-11-23）
+TC-033,沒有模型的卡片,帳號至少有一個已完成的 Text to Image 任務（預設模型為「GPT-Image-2.6 Sunburst」，KP-082）,"1. 開啟 AI Magic › 「My Artwork」
+2. 點「Text to Image」",Text to Image 的 Recent 頁上，項目沒有顯示模型標籤（Design 1006 只提到 I2V 與 T2V）,P2,R-022,Q-1：Jira 標題也提到 TTI。若此版本在這裡顯示了模型，請記錄下來：這是 PM 要決定的事，不算 Fail。,新增,新建表格（規格版本 2026-11-23）
+TC-034,卡片狀態,"1. 以測試帳號登入（fixtures.md）
+2. 圖庫裡有一張相片","1. 用這張相片開始一個 Image to Video 範本並點 Generate
+2. 開啟 AI Magic › 「My Artwork」
+3. 在任務處理中時點「Image to Video」","處理中的卡片（「processing...」、剩餘時間、進度條）沒有模型標籤
+卡片高度與其他卡片相同",P2,"R-030, R-020",可以直接用 TC-029 的產生任務，在它執行時查看。,新增,新建表格（規格版本 2026-11-23）
+TC-035,卡片狀態,Image to Video 的 Recent 頁有帶標籤的卡片（TC-003）和範本卡片（TC-029）,"1. 開啟 AI Magic › 「My Artwork」
+2. 點「Image to Video」
+3. 點「Manage」","步驟 3：每張卡片右上角都出現一個空的核取方塊
+步驟 3：帶標籤的卡片仍顯示模型標籤，範本卡片仍沒有標籤
+步驟 3：頁面顯示「Select All」與「Cancel」，以及「Delete」列
+步驟 3：每張卡片高度不變",P2,R-030,Design 寫的是「點擊 Select 進入編輯狀態」；畫面上的入口則是「Manage」。千萬不要點「Delete」。,新增,新建表格（規格版本 2026-11-23）
+TC-036,卡片狀態,同 TC-035，處於編輯模式,點有模型標籤的卡片的核取方塊,"該卡片的核取方塊被勾選
+它的模型標籤仍然顯示，沒有改變
+其他卡片維持未勾選",P2,R-030,,新增,新建表格（規格版本 2026-11-23）
+TC-037,卡片狀態,同 TC-035，處於編輯模式,"1. 點「Select All」
+2. 點「Deselect All」
+3. 點「Cancel」","步驟 1：所有核取方塊都被勾選，按鈕文字變成「Deselect All」
+步驟 1–2：帶標籤的卡片都保留標籤，範本卡片沒有標籤
+步驟 2：所有核取方塊都是空的
+步驟 3：頁面離開編輯模式，每張卡片再次顯示「View」，標籤與先前相同",P2,R-030,千萬不要點「Delete」。,新增,新建表格（規格版本 2026-11-23）
+TC-038,卡片狀態,一個指定了模型的 Image to Video 任務已失敗（需要失敗的測試資料）,"1. 開啟 AI Magic › 「My Artwork」
+2. 點「Image to Video」","失敗的卡片在縮圖上顯示「Error」與警示圖示，並有「Retry」
+卡片仍顯示所選模型的標籤
+卡片高度為 120 pt",P2,R-030,暫緩：需要讓任務失敗的方法（如果版本有 Pink 的 fault switch 就用它）；任務自己失敗時再執行。,新增,新建表格（規格版本 2026-11-23）
+TC-039,卡片狀態,一個指定了模型的 Image to Video 或 Text to Video 任務被判定為不當內容（需要 NSFW 的測試資料）,"1. 開啟 AI Magic › 「My Artwork」
+2. 開啟該功能的 Recent 頁","卡片在縮圖上顯示隱藏圖示與「View Details」
+卡片仍顯示模型標籤
+卡片高度為 120 pt",P3,R-030,暫緩：需要伺服器會判定為不當的輸入內容。,新增,新建表格（規格版本 2026-11-23）
+TC-040,資料保留,Image to Video 的 Recent 頁有帶標籤的卡片（TC-003 …）,"1. 點 ‹ 回到 My Artwork
+2. 再點一次「Image to Video」
+3. 完全關閉 App 後重新開啟
+4. 開啟 AI Magic › 「My Artwork」
+5. 點「Image to Video」","步驟 1：再次顯示 My Artwork
+步驟 2、5：每張卡片顯示的模型標籤都與之前相同",P2,R-040,,新增,新建表格（規格版本 2026-11-23）
+TC-041,資料保留,帳號有在安裝此版本之前、指定了模型所產生的 Image to Video 或 Text to Video 任務,"1. 開啟 AI Magic › 「My Artwork」
+2. 開啟 Image to Video 與 Text to Video 的 Recent 頁
+3. 查看較舊的卡片","每張較舊的卡片，不是顯示它的模型標籤，就是完全沒有標籤那一行
+沒有任何卡片顯示空標籤
+每張卡片高度皆為 120 pt",P3,R-041,Q-2：規格沒有說舊任務是否也會有標籤；請記錄實際狀況。,新增,新建表格（規格版本 2026-11-23）
+TC-042,外觀,"1. App 顯示深色外觀（手機設為深色主題）
+2. 已有帶標籤的卡片（TC-003 …）","1. 開啟 AI Magic › 「My Artwork」
+2. 點「Image to Video」",模型標籤為灰底標籤，在深色卡片上文字清楚可讀，與 Dark 板一致,P3,R-050,手機設定由執行時更改並於結束後還原。,新增,新建表格（規格版本 2026-11-23）
+TC-043,外觀,"1. App 顯示淺色外觀（手機設為淺色主題）
+2. 已有帶標籤的卡片（TC-003 …）","1. 開啟 AI Magic › 「My Artwork」
+2. 點「Image to Video」",模型標籤為灰底標籤，在淺色卡片上文字清楚可讀，與 Light 板一致,P3,R-050,手機設定由執行時更改並於結束後還原。,新增,新建表格（規格版本 2026-11-23）

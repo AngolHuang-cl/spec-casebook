@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-11-23",
+  "how": "Figma-only spec set (user, 2026-11-23, REQ-001). Design file 「AI-Magic」 frame 1794:3210 「1006 · Add model information (I2V/T2V)」 on page 1023:2648 「2026」, section 1734:5587 「2026_10_My Artwork」 (figma-design, qa-dm): the frame the Jira links, group d-model with the section's Video (1794:3214) and Video · 編輯模式 (1794:3217) boards, where the Recent task cards are drawn. Its 「開啟 Guideline · Cards ↗」 link opens the Design Guideline file qSdtJ1wbHddNm6ebWvF4ia frame 142:4496 「Cards」 (read by text: the Card/RecentTask state table and component descriptions, links.json). The section's 「PM Spec Link」 opens PM file dleW0lph8Dadkn1OtTxKyv page 2440:6903 「My Artwork support recent」 (figma-pm, qa1): searched by text, no rule about the model tag, so no PM board is part of this spec. The Draft page holds an undated 「Add model information in recent task (I2V/T2V/TTI)」 sketch (1765:6653): a draft, superseded by the 1006 frame.",
+  "pm_checked_at": "2026-11-23",
+  "files": {
+    "design": {
+      "fileKey": "1LZzcJyrhE2DjB8a8b92rt",
+      "page": "1023:2648",
+      "url": "https://www.figma.com/design/1LZzcJyrhE2DjB8a8b92rt/AI-Magic?node-id=1794-3210",
+      "account": "qa-dm@cyberlink.com (Dev seat, CyberLink DC)"
+    }
+  },
+  "frames": [
+    { "label": "1006 · Add model information (I2V/T2V)", "node": "1794:3210", "in_pdf": false, "read": "d-model-info" }
+  ]
+}

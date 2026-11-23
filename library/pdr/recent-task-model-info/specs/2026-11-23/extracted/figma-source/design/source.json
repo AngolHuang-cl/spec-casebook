@@ -1,0 +1,17 @@
+{
+  "route": "rest",
+  "read_at": "2026-11-23T04:03:30.983Z",
+  "file_version": "2414849588997034788",
+  "file_last_modified": "2026-10-27T02:18:05Z",
+  "boards": 3,
+  "changed": [
+    "1794:3210",
+    "1794:3214",
+    "1794:3217"
+  ],
+  "calls": {
+    "rest": 1,
+    "use_figma": 1
+  },
+  "extras": true
+}

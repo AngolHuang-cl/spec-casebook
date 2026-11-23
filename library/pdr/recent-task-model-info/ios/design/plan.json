@@ -1,0 +1,571 @@
+{
+  "built_at": "2026-11-23T04:05:28.383Z",
+  "spec_set": "2026-11-23",
+  "file": {
+    "fileKey": "1LZzcJyrhE2DjB8a8b92rt",
+    "page": "1023:2648",
+    "url": "https://www.figma.com/design/1LZzcJyrhE2DjB8a8b92rt/AI-Magic?node-id=1794-3210",
+    "account": "qa-dm@cyberlink.com (Dev seat, CyberLink DC)"
+  },
+  "phases": null,
+  "skip": [
+    "1789:1723",
+    "1789:3721",
+    "1804:11"
+  ],
+  "skip_reason": null,
+  "skip_reasons": {
+    "1789:1723": "spec notes (rules text and Guideline link), not app UI",
+    "1789:3721": "spec notes (rules text and Guideline link), not app UI",
+    "1804:11": "spec notes (rules text and Guideline link), not app UI"
+  },
+  "scope_review": null,
+  "scope_included": [],
+  "source_gaps": {
+    "unread": [],
+    "incomplete": [],
+    "listed": [],
+    "page_listed": true
+  },
+  "not_screens": [],
+  "as_screens": [
+    "1786:18192",
+    "1786:18208",
+    "1789:3717",
+    "1789:3720"
+  ],
+  "casebook": false,
+  "counts": {
+    "screens": 16,
+    "routed": 6,
+    "figma_paths": 6,
+    "gaps": 0,
+    "no_route": 10,
+    "excluded": 0
+  },
+  "by_case": {},
+  "screens": [
+    {
+      "id": "1786:18192",
+      "name": "Card/RecentTask",
+      "board": "1794:3210",
+      "board_name": "1006 · Add model information (I2V/T2V)",
+      "abs": [
+        -4246,
+        -7803,
+        343,
+        120
+      ],
+      "board_box": [
+        -4520,
+        -8039,
+        4790,
+        622
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/model-info.png",
+      "inventory_screen": null,
+      "partial": true,
+      "phone_w": 375,
+      "promoted": true,
+      "status": "no-route",
+      "why": "no Design flow arrow leads to it",
+      "flags": [
+        "partial"
+      ]
+    },
+    {
+      "id": "1786:18208",
+      "name": "Card/RecentTask",
+      "board": "1794:3210",
+      "board_name": "1006 · Add model information (I2V/T2V)",
+      "abs": [
+        -4246,
+        -7651,
+        343,
+        120
+      ],
+      "board_box": [
+        -4520,
+        -8039,
+        4790,
+        622
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/model-info.png",
+      "inventory_screen": null,
+      "partial": true,
+      "phone_w": 375,
+      "promoted": true,
+      "status": "no-route",
+      "why": "no Design flow arrow leads to it",
+      "flags": [
+        "partial"
+      ]
+    },
+    {
+      "id": "1789:3717",
+      "name": "Card/RecentTask",
+      "board": "1794:3210",
+      "board_name": "1006 · Add model information (I2V/T2V)",
+      "abs": [
+        -2678,
+        -7803,
+        343,
+        120
+      ],
+      "board_box": [
+        -4520,
+        -8039,
+        4790,
+        622
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/model-info.png",
+      "inventory_screen": null,
+      "partial": true,
+      "phone_w": 375,
+      "promoted": true,
+      "status": "no-route",
+      "why": "no Design flow arrow leads to it",
+      "flags": [
+        "partial"
+      ]
+    },
+    {
+      "id": "1789:3720",
+      "name": "Card/RecentTask",
+      "board": "1794:3210",
+      "board_name": "1006 · Add model information (I2V/T2V)",
+      "abs": [
+        -2678,
+        -7651,
+        343,
+        120
+      ],
+      "board_box": [
+        -4520,
+        -8039,
+        4790,
+        622
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/model-info.png",
+      "inventory_screen": null,
+      "partial": true,
+      "phone_w": 375,
+      "promoted": true,
+      "status": "no-route",
+      "why": "no Design flow arrow leads to it",
+      "flags": [
+        "partial"
+      ]
+    },
+    {
+      "id": "1036:2960",
+      "name": "My Artwork",
+      "board": "1794:3214",
+      "board_name": "Video",
+      "abs": [
+        -3386,
+        -6874,
+        375,
+        812
+      ],
+      "board_box": [
+        -3466,
+        -7258,
+        1714,
+        2340
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/recent-video.png",
+      "inventory_screen": "1036:2960",
+      "status": "routed",
+      "route": {
+        "case": "",
+        "how": "figma",
+        "fit": "entry",
+        "steps": [],
+        "edge": "",
+        "segment": "",
+        "section": "",
+        "precondition": "",
+        "action": "the first screen of its flow",
+        "result": "",
+        "run": ""
+      },
+      "alternatives": [],
+      "flags": []
+    },
+    {
+      "id": "1285:13428",
+      "name": "My Artwork",
+      "board": "1794:3214",
+      "board_name": "Video",
+      "abs": [
+        -3386,
+        -5830,
+        375,
+        812
+      ],
+      "board_box": [
+        -3466,
+        -7258,
+        1714,
+        2340
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/recent-video.png",
+      "inventory_screen": "1285:13428",
+      "status": "routed",
+      "route": {
+        "case": "",
+        "how": "figma",
+        "fit": "variant",
+        "steps": [
+          {
+            "screen": "My Artwork",
+            "control": "(bring about 「My Artwork」 here)",
+            "variant_of": "1036:2960"
+          }
+        ],
+        "edge": "(bring about 「My Artwork」 here)",
+        "segment": "",
+        "section": "",
+        "precondition": "",
+        "action": "My Artwork › (bring about 「My Artwork」 here)",
+        "result": "",
+        "run": ""
+      },
+      "alternatives": [],
+      "flags": [
+        "variant"
+      ]
+    },
+    {
+      "id": "1036:3088",
+      "name": "Recent",
+      "board": "1794:3214",
+      "board_name": "Video",
+      "abs": [
+        -2911,
+        -6874,
+        375,
+        812
+      ],
+      "board_box": [
+        -3466,
+        -7258,
+        1714,
+        2340
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/recent-video.png",
+      "inventory_screen": "1036:3088",
+      "status": "routed",
+      "route": {
+        "case": "",
+        "how": "figma",
+        "fit": "path",
+        "steps": [
+          {
+            "screen": "My Artwork",
+            "control": "img",
+            "arrow": "1036:3983"
+          }
+        ],
+        "edge": "img",
+        "segment": "",
+        "section": "",
+        "precondition": "",
+        "action": "My Artwork › img",
+        "result": "",
+        "run": ""
+      },
+      "alternatives": [],
+      "flags": []
+    },
+    {
+      "id": "1285:13513",
+      "name": "Recent",
+      "board": "1794:3214",
+      "board_name": "Video",
+      "abs": [
+        -2911,
+        -5830,
+        375,
+        812
+      ],
+      "board_box": [
+        -3466,
+        -7258,
+        1714,
+        2340
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/recent-video.png",
+      "inventory_screen": "1285:13513",
+      "status": "routed",
+      "route": {
+        "case": "",
+        "how": "figma",
+        "fit": "variant",
+        "steps": [
+          {
+            "screen": "My Artwork",
+            "control": "img",
+            "arrow": "1036:3983"
+          },
+          {
+            "screen": "Recent",
+            "control": "(bring about 「Recent」 here)",
+            "variant_of": "1036:3088"
+          }
+        ],
+        "edge": "(bring about 「Recent」 here)",
+        "segment": "",
+        "section": "",
+        "precondition": "",
+        "action": "My Artwork › img › Recent › (bring about 「Recent」 here)",
+        "result": "",
+        "run": ""
+      },
+      "alternatives": [],
+      "flags": [
+        "variant"
+      ]
+    },
+    {
+      "id": "1036:3224",
+      "name": "CineStory_Preview",
+      "board": "1794:3214",
+      "board_name": "Video",
+      "abs": [
+        -2436,
+        -6874,
+        375,
+        812
+      ],
+      "board_box": [
+        -3466,
+        -7258,
+        1714,
+        2340
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/recent-video.png",
+      "inventory_screen": "1036:3224",
+      "status": "routed",
+      "route": {
+        "case": "",
+        "how": "figma",
+        "fit": "path",
+        "steps": [
+          {
+            "screen": "My Artwork",
+            "control": "img",
+            "arrow": "1036:3983"
+          },
+          {
+            "screen": "Recent",
+            "control": "Button/Pill",
+            "arrow": "1036:3984"
+          }
+        ],
+        "edge": "Button/Pill",
+        "segment": "",
+        "section": "",
+        "precondition": "",
+        "action": "My Artwork › img › Recent › Button/Pill",
+        "result": "",
+        "run": ""
+      },
+      "alternatives": [],
+      "flags": []
+    },
+    {
+      "id": "1285:13586",
+      "name": "CineStory_Preview",
+      "board": "1794:3214",
+      "board_name": "Video",
+      "abs": [
+        -2436,
+        -5830,
+        375,
+        812
+      ],
+      "board_box": [
+        -3466,
+        -7258,
+        1714,
+        2340
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/recent-video.png",
+      "inventory_screen": "1285:13586",
+      "status": "routed",
+      "route": {
+        "case": "",
+        "how": "figma",
+        "fit": "variant",
+        "steps": [
+          {
+            "screen": "My Artwork",
+            "control": "img",
+            "arrow": "1036:3983"
+          },
+          {
+            "screen": "Recent",
+            "control": "Button/Pill",
+            "arrow": "1036:3984"
+          },
+          {
+            "screen": "CineStory_Preview",
+            "control": "(bring about 「CineStory_Preview」 here)",
+            "variant_of": "1036:3224"
+          }
+        ],
+        "edge": "(bring about 「CineStory_Preview」 here)",
+        "segment": "",
+        "section": "",
+        "precondition": "",
+        "action": "My Artwork › img › Recent › Button/Pill › CineStory_Preview › (bring about 「CineStory_Preview」 here)",
+        "result": "",
+        "run": ""
+      },
+      "alternatives": [],
+      "flags": [
+        "variant"
+      ]
+    },
+    {
+      "id": "1036:3106",
+      "name": "Recent",
+      "board": "1794:3217",
+      "board_name": "Video · 編輯模式",
+      "abs": [
+        -1575,
+        -6874,
+        375,
+        812
+      ],
+      "board_box": [
+        -1655,
+        -7258,
+        1925,
+        2340
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/recent-edit-mode.png",
+      "inventory_screen": "1036:3106",
+      "status": "no-route",
+      "why": "no Design flow arrow leads to it",
+      "flags": []
+    },
+    {
+      "id": "1285:13531",
+      "name": "Recent",
+      "board": "1794:3217",
+      "board_name": "Video · 編輯模式",
+      "abs": [
+        -1575,
+        -5830,
+        375,
+        812
+      ],
+      "board_box": [
+        -1655,
+        -7258,
+        1925,
+        2340
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/recent-edit-mode.png",
+      "inventory_screen": "1285:13531",
+      "status": "no-route",
+      "why": "no Design flow arrow leads to it",
+      "flags": []
+    },
+    {
+      "id": "1036:3124",
+      "name": "Recent",
+      "board": "1794:3217",
+      "board_name": "Video · 編輯模式",
+      "abs": [
+        -1100,
+        -6874,
+        375,
+        812
+      ],
+      "board_box": [
+        -1655,
+        -7258,
+        1925,
+        2340
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/recent-edit-mode.png",
+      "inventory_screen": "1036:3124",
+      "status": "no-route",
+      "why": "no Design flow arrow leads to it",
+      "flags": []
+    },
+    {
+      "id": "1285:13549",
+      "name": "Recent",
+      "board": "1794:3217",
+      "board_name": "Video · 編輯模式",
+      "abs": [
+        -1100,
+        -5830,
+        375,
+        812
+      ],
+      "board_box": [
+        -1655,
+        -7258,
+        1925,
+        2340
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/recent-edit-mode.png",
+      "inventory_screen": "1285:13549",
+      "status": "no-route",
+      "why": "no Design flow arrow leads to it",
+      "flags": []
+    },
+    {
+      "id": "1036:3142",
+      "name": "Recent",
+      "board": "1794:3217",
+      "board_name": "Video · 編輯模式",
+      "abs": [
+        -625,
+        -6874,
+        375,
+        812
+      ],
+      "board_box": [
+        -1655,
+        -7258,
+        1925,
+        2340
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/recent-edit-mode.png",
+      "inventory_screen": "1036:3142",
+      "status": "no-route",
+      "why": "no Design flow arrow leads to it",
+      "flags": []
+    },
+    {
+      "id": "1285:13567",
+      "name": "Recent",
+      "board": "1794:3217",
+      "board_name": "Video · 編輯模式",
+      "abs": [
+        -625,
+        -5830,
+        375,
+        812
+      ],
+      "board_box": [
+        -1655,
+        -7258,
+        1925,
+        2340
+      ],
+      "board_png": "specs/2026-11-23/extracted/figma/recent-edit-mode.png",
+      "inventory_screen": "1285:13567",
+      "status": "no-route",
+      "why": "no Design flow arrow leads to it",
+      "flags": []
+    }
+  ]
+}
