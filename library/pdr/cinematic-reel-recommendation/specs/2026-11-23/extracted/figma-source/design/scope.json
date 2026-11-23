@@ -1,0 +1,30 @@
+{
+  "file": "w2cTi3WTU9vGDE3laY1H1t",
+  "page": [
+    "161:3691",
+    "Cinematic Reel Creator_2026_07_v2"
+  ],
+  "listed": [
+    [
+      "107:2283",
+      "26.07_v2",
+      "FRAME"
+    ],
+    [
+      "112:33773",
+      "UI detail",
+      "FRAME"
+    ]
+  ],
+  "read": [
+    {
+      "id": "107:2283",
+      "name": "26.07_v2",
+      "read_at": "2026-11-23T03:56:48.325Z",
+      "hash": "6c2dfd90",
+      "plan": "rest"
+    }
+  ],
+  "missing": [],
+  "written_at": "2026-11-23T03:58:23.942Z"
+}

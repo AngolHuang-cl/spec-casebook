@@ -1,0 +1,103 @@
+{
+  "arrows": [
+    {
+      "arrow": "108-15190",
+      "node": "108-15190",
+      "edge": "CineStory 26.07_v2: CineStory · 「Import a Photo」 → Add Media",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "110-15623",
+      "node": "110-15623",
+      "edge": "CineStory 26.07_v2: CineStory · 「Generate」 → CineStory",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "108-15191",
+      "node": "108-15191",
+      "edge": "CineStory 26.07_v2: Add Media · thumb_media → CineStory",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "111-16517",
+      "node": "111-16517",
+      "edge": "CineStory 26.07_v2: ? → CineStory",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "111-23987",
+      "node": "111-23987",
+      "edge": "CineStory 26.07_v2: CineStory (automatic) → CineStory",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "111-24458",
+      "node": "111-24458",
+      "edge": "CineStory 26.07_v2: CineStory (automatic) → CineStory",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "111-17798",
+      "node": "111-17798",
+      "edge": "CineStory 26.07_v2: CineStory · 「View later」 → CineStory",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "111-21605",
+      "node": "111-21605",
+      "edge": "CineStory 26.07_v2: CineStory · 「Create another one」 → CineStory",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "111-23476",
+      "node": "111-23476",
+      "edge": "CineStory 26.07_v2: CineStory (automatic) → CineStory",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "111-26343",
+      "node": "111-26343",
+      "edge": "CineStory 26.07_v2: CineStory (automatic) → Title_template",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "111-28894",
+      "node": "111-28894",
+      "edge": "CineStory 26.07_v2: CineStory (automatic) → Music library",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "230-4451",
+      "node": "230-4451",
+      "edge": "CineStory 26.07_v2: CineStory (automatic) → CineStory",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "230-3698",
+      "node": "230-3698",
+      "edge": "CineStory 26.07_v2: CineStory · ic_history_n → CineStory",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1106-5840",
+      "node": "1106-5840",
+      "edge": "CineStory 26.07_v2: CineStory (automatic) → CineStory",
+      "expected": "",
+      "source": "figma-inventory"
+    }
+  ],
+  "count": 14
+}

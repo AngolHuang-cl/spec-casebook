@@ -1,0 +1,170 @@
+﻿﻿編號,區塊,前置條件,操作步驟,預期結果,優先度,規格對應,備註,變更,變更原因
+TC-001,View photo tips 標籤,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁","1. 滑動 template 卡片到「Horror Movie」卡片
+2. 點該卡片上的「View photo tips」","步驟 1：卡片左上角有帶燈泡圖示的「View photo tips」標籤
+步驟 2：拍照建議面板從下方升起，後方 template 頁變暗
+步驟 2：面板顯示「For best results with the Horror Movie template, follow this advice:」，其中「Horror Movie」為粗體
+步驟 2：「Recommendation」（藍色標示）列出「People in Frame」、「Layered Depth」，每項都是一張右下角有 ✓ 標記的圖片，下方附說明文字
+步驟 2：「Avoid」（粉紅色標示）列出「Flat Composition」、「Visible Text or Logos」、「Extreme Close-up」，每項都是一張有 ⊗ 標記的圖片，下方附說明文字（第三項要往左滑才看得到）
+步驟 2：最下方是滿版的「Got it」按鈕",P2,"R-001, R-002, R-003, R-006, R-007, R-008, R-012",對應 CMS › Recommendation 的 Horror Movie 列。請依名稱找卡片：CMS Order 各區順序不同（Global、JP/TW/KOR/CHS、MyEdit/PDR/PHD）。,新增,
+TC-002,View photo tips 標籤,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁","1. 滑動 template 卡片到「Micro Cinema」卡片
+2. 點該卡片上的「View photo tips」","步驟 1：卡片左上角有帶燈泡圖示的「View photo tips」標籤
+步驟 2：拍照建議面板從下方升起，後方 template 頁變暗
+步驟 2：變暗的背景仍看得到 template 頁的頁首（‹、點數、?、歷史紀錄）
+步驟 2：面板顯示「For best results with the Micro Cinema template, follow this advice:」，其中「Micro Cinema」為粗體
+步驟 2：「Recommendation」（藍色標示）列出「Mid-Distance Framing」、「Rich Visual Details」，每項都是一張右下角有 ✓ 標記的圖片，下方附說明文字
+步驟 2：「Avoid」（粉紅色標示）列出「Flat Composition」、「Visible Text or Logos」、「Extreme Close-up」，每項都是一張有 ⊗ 標記的圖片，下方附說明文字（第三項要往左滑才看得到）
+步驟 2：最下方是滿版的「Got it」按鈕",P1,"R-001, R-002, R-003, R-006, R-007, R-008, R-012, R-011, R-015",對應 CMS › Recommendation 的 Micro_Cinema 列。請依名稱找卡片：CMS Order 各區順序不同（Global、JP/TW/KOR/CHS、MyEdit/PDR/PHD）。Design 0820 add photo tips 畫的就是這個 template。,新增,
+TC-003,View photo tips 標籤,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁","1. 滑動 template 卡片到「One-Take Shot」卡片
+2. 點該卡片上的「View photo tips」","步驟 1：卡片左上角有帶燈泡圖示的「View photo tips」標籤
+步驟 2：拍照建議面板從下方升起，後方 template 頁變暗
+步驟 2：面板顯示「For best results with the One-Take Shot template, follow this advice:」，其中「One-Take Shot」為粗體
+步驟 2：「Recommendation」（藍色標示）列出「Mid-Distance Framing」、「Layered Depth」，每項都是一張右下角有 ✓ 標記的圖片，下方附說明文字
+步驟 2：「Avoid」（粉紅色標示）列出「Flat Composition」、「Visible Text or Logos」、「Extreme Close-up」，每項都是一張有 ⊗ 標記的圖片，下方附說明文字（第三項要往左滑才看得到）
+步驟 2：最下方是滿版的「Got it」按鈕",P2,"R-001, R-002, R-003, R-006, R-007, R-008, R-012",對應 CMS › Recommendation 的 One_Take_Shot 列。請依名稱找卡片：CMS Order 各區順序不同（Global、JP/TW/KOR/CHS、MyEdit/PDR/PHD）。,新增,
+TC-004,View photo tips 標籤,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁","1. 滑動 template 卡片到「Time Lapse」卡片
+2. 點該卡片上的「View photo tips」","步驟 1：卡片左上角有帶燈泡圖示的「View photo tips」標籤
+步驟 2：拍照建議面板從下方升起，後方 template 頁變暗
+步驟 2：面板顯示「For best results with the Time Lapse template, follow this advice:」，其中「Time Lapse」為粗體
+步驟 2：「Recommendation」（藍色標示）列出「Visible Sky」、「Cityscape or Landscape」，每項都是一張右下角有 ✓ 標記的圖片，下方附說明文字
+步驟 2：「Avoid」（粉紅色標示）列出「Portrait as Subject」、「Indoor Close-up」、「Extreme Close-up」，每項都是一張有 ⊗ 標記的圖片，下方附說明文字（第三項要往左滑才看得到）
+步驟 2：最下方是滿版的「Got it」按鈕",P2,"R-001, R-002, R-003, R-006, R-007, R-008, R-012",對應 CMS › Recommendation 的 Time_Lapse 列。請依名稱找卡片：CMS Order 各區順序不同（Global、JP/TW/KOR/CHS、MyEdit/PDR/PHD）。,新增,
+TC-005,View photo tips 標籤,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁","1. 滑動 template 卡片到「Handheld Camera」卡片
+2. 點該卡片上的「View photo tips」","步驟 1：卡片左上角有帶燈泡圖示的「View photo tips」標籤
+步驟 2：拍照建議面板從下方升起，後方 template 頁變暗
+步驟 2：面板顯示「For best results with the Handheld Camera template, follow this advice:」，其中「Handheld Camera」為粗體
+步驟 2：「Recommendation」（藍色標示）列出「Layered Depth」、「Rich Visual Details」，每項都是一張右下角有 ✓ 標記的圖片，下方附說明文字
+步驟 2：「Avoid」（粉紅色標示）列出「Flat Composition」、「Visible Text or Logos」、「Extreme Close-up」，每項都是一張有 ⊗ 標記的圖片，下方附說明文字（第三項要往左滑才看得到）
+步驟 2：最下方是滿版的「Got it」按鈕",P2,"R-001, R-002, R-003, R-006, R-007, R-008, R-012",對應 CMS › Recommendation 的 Handheld_Camera 列。請依名稱找卡片：CMS Order 各區順序不同（Global、JP/TW/KOR/CHS、MyEdit/PDR/PHD）。,新增,
+TC-006,View photo tips 標籤,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁","1. 滑動 template 卡片到「Fast Cut」卡片
+2. 點該卡片上的「View photo tips」","步驟 1：卡片左上角有帶燈泡圖示的「View photo tips」標籤
+步驟 2：拍照建議面板從下方升起，後方 template 頁變暗
+步驟 2：面板顯示「For best results with the Fast Cut template, follow this advice:」，其中「Fast Cut」為粗體
+步驟 2：「Recommendation」（藍色標示）列出「Sense of Motion」、「Rich Visual Details」，每項都是一張右下角有 ✓ 標記的圖片，下方附說明文字
+步驟 2：「Avoid」（粉紅色標示）列出「Static Composition」、「Visible Text or Logos」、「Extreme Close-up」，每項都是一張有 ⊗ 標記的圖片，下方附說明文字（第三項要往左滑才看得到）
+步驟 2：最下方是滿版的「Got it」按鈕",P2,"R-001, R-002, R-003, R-006, R-007, R-008, R-012",對應 CMS › Recommendation 的 Fast_Cut 列。請依名稱找卡片：CMS Order 各區順序不同（Global、JP/TW/KOR/CHS、MyEdit/PDR/PHD）。,新增,
+TC-007,拍照建議面板,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁
+5. 畫面上是「Micro Cinema」卡片","1. 點「Micro Cinema」卡片上的「View photo tips」
+2. 點「Got it」
+3. 再點一次同一張卡片上的「View photo tips」","步驟 2：面板關閉，背景不再變暗
+步驟 2：template 頁仍停在「Micro Cinema」卡片，和步驟 1 之前一樣
+步驟 3：再次打開同一個 Micro Cinema 拍照建議面板",P1,"R-010, R-003",Design 只畫了「Got it」這個關閉方式（Q-3）。,新增,
+TC-008,拍照建議面板,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁
+5. 已從「View photo tips」標籤打開 Micro Cinema 的拍照建議面板","1. 把「Avoid」那一列往左滑
+2. 再往右滑回來","步驟 1 之前：Avoid 的第三項超出面板右緣
+步驟 1：「Extreme Close-up」完整出現，含 ⊗ 標記與說明文字
+步驟 1：「Recommendation」那一列不會跟著動
+步驟 2：「Flat Composition」回到最左邊",P2,R-009,Design 把 Avoid 第三項畫成被右緣切掉，但沒寫這一列能不能滑動（Q-5）。,新增,
+TC-009,拍照建議面板,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁","1. 點「Handheld Camera」卡片上的「View photo tips」
+2. 點「Got it」
+3. 點「Fast Cut」卡片上的「View photo tips」","步驟 1：「Rich Visual Details」顯示一般版的 Rich Visual Details 圖片
+步驟 3：「Rich Visual Details」換成另一張 Fast Cut 專用的圖片",P3,R-013,CMS 圖片清單中「Rich Visual Details (畫面細節豐富) for Fast Cut」是獨立的一張圖，請比對兩張截圖。,新增,
+TC-010,Media room「?」,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁","1. 滑動 template 卡片到「Horror Movie」卡片
+2. 點「Import a Photo」
+3. 點 Add Media 頁首的「?」","步驟 2：進入 Add Media，頁首有「?」
+步驟 3：打開拍照建議面板，顯示「For best results with the Horror Movie template, follow this advice:」
+步驟 3：「Recommendation」列出「People in Frame」、「Layered Depth」
+步驟 3：「Avoid」列出「Flat Composition」、「Visible Text or Logos」、「Extreme Close-up」",P2,"R-004, R-005, R-012","PM-only：Design 尚未畫出（Design 26.07_v2 的 Add Media 沒有「?」，ⓘ 圖層是隱藏的）。依據 Jira PDRA-661 的「media room ""?""」。見 Q-1。",新增,
+TC-011,Media room「?」,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁","1. 滑動 template 卡片到「Micro Cinema」卡片
+2. 點「Import a Photo」
+3. 點 Add Media 頁首的「?」","步驟 2：進入 Add Media，頁首有「?」
+步驟 3：打開拍照建議面板，顯示「For best results with the Micro Cinema template, follow this advice:」
+步驟 3：「Recommendation」列出「Mid-Distance Framing」、「Rich Visual Details」
+步驟 3：「Avoid」列出「Flat Composition」、「Visible Text or Logos」、「Extreme Close-up」",P1,"R-004, R-005, R-012","PM-only：Design 尚未畫出（Design 26.07_v2 的 Add Media 沒有「?」，ⓘ 圖層是隱藏的）。依據 Jira PDRA-661 的「media room ""?""」。見 Q-1。",新增,
+TC-012,Media room「?」,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁","1. 滑動 template 卡片到「One-Take Shot」卡片
+2. 點「Import a Photo」
+3. 點 Add Media 頁首的「?」","步驟 2：進入 Add Media，頁首有「?」
+步驟 3：打開拍照建議面板，顯示「For best results with the One-Take Shot template, follow this advice:」
+步驟 3：「Recommendation」列出「Mid-Distance Framing」、「Layered Depth」
+步驟 3：「Avoid」列出「Flat Composition」、「Visible Text or Logos」、「Extreme Close-up」",P2,"R-004, R-005, R-012","PM-only：Design 尚未畫出（Design 26.07_v2 的 Add Media 沒有「?」，ⓘ 圖層是隱藏的）。依據 Jira PDRA-661 的「media room ""?""」。見 Q-1。",新增,
+TC-013,Media room「?」,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁","1. 滑動 template 卡片到「Time Lapse」卡片
+2. 點「Import a Photo」
+3. 點 Add Media 頁首的「?」","步驟 2：進入 Add Media，頁首有「?」
+步驟 3：打開拍照建議面板，顯示「For best results with the Time Lapse template, follow this advice:」
+步驟 3：「Recommendation」列出「Visible Sky」、「Cityscape or Landscape」
+步驟 3：「Avoid」列出「Portrait as Subject」、「Indoor Close-up」、「Extreme Close-up」",P2,"R-004, R-005, R-012","PM-only：Design 尚未畫出（Design 26.07_v2 的 Add Media 沒有「?」，ⓘ 圖層是隱藏的）。依據 Jira PDRA-661 的「media room ""?""」。見 Q-1。",新增,
+TC-014,Media room「?」,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁","1. 滑動 template 卡片到「Handheld Camera」卡片
+2. 點「Import a Photo」
+3. 點 Add Media 頁首的「?」","步驟 2：進入 Add Media，頁首有「?」
+步驟 3：打開拍照建議面板，顯示「For best results with the Handheld Camera template, follow this advice:」
+步驟 3：「Recommendation」列出「Layered Depth」、「Rich Visual Details」
+步驟 3：「Avoid」列出「Flat Composition」、「Visible Text or Logos」、「Extreme Close-up」",P2,"R-004, R-005, R-012","PM-only：Design 尚未畫出（Design 26.07_v2 的 Add Media 沒有「?」，ⓘ 圖層是隱藏的）。依據 Jira PDRA-661 的「media room ""?""」。見 Q-1。",新增,
+TC-015,Media room「?」,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁","1. 滑動 template 卡片到「Fast Cut」卡片
+2. 點「Import a Photo」
+3. 點 Add Media 頁首的「?」","步驟 2：進入 Add Media，頁首有「?」
+步驟 3：打開拍照建議面板，顯示「For best results with the Fast Cut template, follow this advice:」
+步驟 3：「Recommendation」列出「Sense of Motion」、「Rich Visual Details」
+步驟 3：「Avoid」列出「Static Composition」、「Visible Text or Logos」、「Extreme Close-up」",P2,"R-004, R-005, R-012","PM-only：Design 尚未畫出（Design 26.07_v2 的 Add Media 沒有「?」，ⓘ 圖層是隱藏的）。依據 Jira PDRA-661 的「media room ""?""」。見 Q-1。",新增,
+TC-016,Media room「?」,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁
+5. 已從「Micro Cinema」卡片點「Import a Photo」進入 Add Media，尚未選照片","1. 點 Add Media 頁首的「?」
+2. 點「Got it」","步驟 2：面板關閉，回到 Add Media
+步驟 2：Add Media 仍在原分頁（Recents），沒有選到任何照片",P2,"R-004, R-010",PM-only：Design 尚未畫出（Q-1）。,新增,
+TC-017,語言,"1. PowerDirector 已用測試帳號登入
+2. App 語言設為繁體中文（iOS 設定 › PowerDirector › 語言）
+3. Cinematic Reel Creator 停在 template 頁","1. 滑到 Micro Cinema 卡片
+2. 點卡片上的拍照建議標籤","步驟 2：面板第一句的 template 名稱顯示為「微電影畫境」
+步驟 2：那句話、兩個標題和每個說明文字都完整顯示，沒有被截斷或亂碼
+步驟 2：「Got it」按鈕以 App 語言顯示",P3,R-015,依 CMS Template Name Localization：微電影畫境。說明文字是否翻譯尚未確定（Q-2）：記錄顯示的語言即可，不判 Fail。做完這列把語言改回英文。,新增,
+TC-018,語言,"1. PowerDirector 已用測試帳號登入
+2. App 語言設為日本語（iOS 設定 › PowerDirector › 語言）
+3. Cinematic Reel Creator 停在 template 頁","1. 滑到 Micro Cinema 卡片
+2. 點卡片上的拍照建議標籤","步驟 2：面板第一句的 template 名稱顯示為「マイクロシネマ」
+步驟 2：那句話、兩個標題和每個說明文字都完整顯示，沒有被截斷或亂碼
+步驟 2：「Got it」按鈕以 App 語言顯示",P3,R-015,依 CMS Template Name Localization：マイクロシネマ。說明文字是否翻譯尚未確定（Q-2）：記錄顯示的語言即可，不判 Fail。做完這列把語言改回英文。,新增,
+TC-019,資料來源,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁
+5. 進入功能前先清除 App log","1. 點「Micro Cinema」卡片上的「View photo tips」
+2. 點「Got it」
+3. 點「Time Lapse」卡片上的「View photo tips」
+4. 點「Got it」
+5. 拉取 App log","步驟 5：log 裡有從 CMS 取得的 template 資料，每個 template 都帶 recommend_samples
+步驟 5：每個面板顯示的項目和該 template 的 recommend_samples 一致",P3,R-014,隱藏條款（pass 9）。如果 log 看不到 CMS template 資料，這列先擱置（needs: cms-log）。,新增,

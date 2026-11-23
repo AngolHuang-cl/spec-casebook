@@ -1,0 +1,68 @@
+{
+  "links": [
+    {
+      "board": "d-cinestory",
+      "at": [
+        607,
+        1373
+      ],
+      "node": "1112:6314",
+      "text": "CMS Link",
+      "target": "https://docs.google.com/spreadsheets/d/1XoLgFmZ4YGRPIcfG6xRTtx_3HJ63-Xo5O3uKFWJaRGI/edit?gid=1744053327#gid=1744053327",
+      "label": "Cinestory CMS › Recommendation",
+      "read": "2026-11-23",
+      "items": [
+        {
+          "label": "Micro Cinema (Micro_Cinema)",
+          "text": "Recommendation: Mid-Distance Framing, Rich Visual Details. Avoid: Flat Composition, Visible Text or Logos, Extreme Close-up."
+        },
+        {
+          "label": "One-Take Shot (One_Take_Shot)",
+          "text": "Recommendation: Mid-Distance Framing, Layered Depth. Avoid: Flat Composition, Visible Text or Logos, Extreme Close-up."
+        },
+        {
+          "label": "Time Lapse (Time_Lapse)",
+          "text": "Recommendation: Visible Sky, Cityscape or Landscape. Avoid: Portrait as Subject, Indoor Close-up, Extreme Close-up."
+        },
+        {
+          "label": "Handheld Camera (Handheld_Camera)",
+          "text": "Recommendation: Layered Depth, Rich Visual Details. Avoid: Flat Composition, Visible Text or Logos, Extreme Close-up."
+        },
+        {
+          "label": "Fast Cut (Fast_Cut)",
+          "text": "Recommendation: Sense of Motion, Rich Visual Details (its own 「for Fast Cut」 picture). Avoid: Static Composition, Visible Text or Logos, Extreme Close-up."
+        },
+        {
+          "label": "Horror Movie",
+          "text": "Recommendation: People in Frame, Layered Depth. Avoid: Flat Composition, Visible Text or Logos, Extreme Close-up."
+        },
+        {
+          "label": "Pictures and translations",
+          "text": "Each item has one picture (Recommendation 8, Avoid 6; Rich Visual Details has a separate picture for Fast Cut); the JP and EN columns beside the picture list are empty, so localized item names are not given."
+        },
+        {
+          "label": "recommend_samples field",
+          "text": "CMS columns row 20: recommendSamples / recommend_samples, 每個template對應的 recommendation/avoid (link) from recommendation page on CMS; Mobile UI Shown blank."
+        }
+      ]
+    },
+    {
+      "board": "d-cinestory",
+      "at": [
+        132,
+        134
+      ],
+      "node": "108:15176",
+      "text": "PM Spec Link",
+      "target": "https://www.figma.com/design/ITGFcSoXzw6dAXYBY3GMGR/CineStory?node-id=0-1",
+      "label": "PM Figma 「CineStory」",
+      "read": "2026-11-23",
+      "items": [
+        {
+          "label": "No photo tips content",
+          "text": "Searched every page by text (figma-pm): no frame or note mentions photo tips, recommendation or avoid; the CineStory PM spec predates the 0820 tips."
+        }
+      ]
+    }
+  ]
+}
