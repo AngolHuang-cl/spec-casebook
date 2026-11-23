@@ -19,6 +19,7 @@
 // committed: a mark that is right although it looks wrong) are left out. Images under 0.9 px per point (PM main flow,
 // error handling, top mockups) are too small to read reliably: only their arrows are checked. Exit 0 none, 10 warnings.
 import { spawnSync } from 'node:child_process';
+import { PYTHON } from './lib/python.ts';
 import { existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -67,7 +68,7 @@ const ocrOf = (png: string, box: number[]): Line[] => {
     const [w] = pngSize(src), scale = w / box[2];
     // Vision shrinks a large image before reading it and loses small text: cut it into overlapping 1600 px tiles
     // (ocr-tiles.swift reads tiles by name inside its folder), then drop the lines two tiles both read
-    const cut = spawnSync('python3', ['-c', `import json, sys
+    const cut = spawnSync(PYTHON, ['-c', `import json, sys
 from PIL import Image
 Image.MAX_IMAGE_PIXELS = None
 src, out, T, O = sys.argv[1], sys.argv[2], 1600, 160

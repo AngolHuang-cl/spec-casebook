@@ -18,6 +18,7 @@
 //     "why": { "ISS-…": "one line on the card" }, "related": { "ISS-…": "context line" } }
 // Without it, the TR and build come from the drafts (the **Recheck…** line, else the H1 and **Source:** line).
 import { execFileSync, spawnSync } from 'node:child_process';
+import { PYTHON } from './lib/python.ts';
 import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { basename, join, relative, resolve } from 'node:path';
@@ -40,7 +41,7 @@ const md = readFileSync(DRAFTS, 'utf8');
 const SKILLS = join(ROOT, '.claude', 'skills');
 
 // 1–2. bodies.json and the format gate
-const py = (script: string, a: string[]) => spawnSync('python3', [script, ...a], { cwd: DIR, encoding: 'utf8' });
+const py = (script: string, a: string[]) => spawnSync(PYTHON, [script, ...a], { cwd: DIR, encoding: 'utf8' });
 const b2 = py(join(SKILLS, 'ebug-draft-generator/scripts/drafts_to_bodies.py'), [DRAFTS, '--out', 'upload/bodies.json', '--stage', 'upload/',
   ...(existsSync(join(DIR, 'decisions.md')) ? ['--decisions', 'decisions.md'] : [])]);
 if (b2.status !== 0) { console.error(b2.stdout + b2.stderr); process.exit(1); }

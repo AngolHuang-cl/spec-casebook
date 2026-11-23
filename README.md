@@ -158,7 +158,9 @@ npm install
 ```
 
 The eBug scripts use Python's standard library, except the evidence sheets (`make_filing_sheets.py`), which need
-Pillow. Install it in a local venv (git-ignored):
+Pillow, as do the Figma and design-check scripts and `npm test`. Install it in a local venv (git-ignored); the Node
+scripts run Python from `.venv` when it exists, else `python3` on PATH (`CASEBOOK_PYTHON` overrides;
+`scripts/lib/python.ts`):
 
 ```bash
 python3 -m venv .venv

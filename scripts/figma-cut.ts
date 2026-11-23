@@ -8,6 +8,7 @@
 //   scale  screenshot pixels per canvas point (returned width / original_width)
 // Needs Python 3 with Pillow (as figma-check.ts --shot).
 import { spawnSync } from 'node:child_process';
+import { PYTHON } from './lib/python.ts';
 import { existsSync } from 'node:fs';
 import { arg } from './lib/library.ts';
 
@@ -36,5 +37,5 @@ for im, (f, ox, oy, s) in zip(ims, srcs):
   img.paste(piece, (round((cl - l) * k), round((ct - t) * k)))
 img.save(out)
 print(f'{out}: {img.width} x {img.height} px, {scale:.3f} px per point')`;
-const r = spawnSync('python3', ['-I', '-c', py, out, JSON.stringify(box), JSON.stringify(srcs)], { stdio: 'inherit' });
+const r = spawnSync(PYTHON, ['-I', '-c', py, out, JSON.stringify(box), JSON.stringify(srcs)], { stdio: 'inherit' });
 process.exit(r.status ?? 1);
