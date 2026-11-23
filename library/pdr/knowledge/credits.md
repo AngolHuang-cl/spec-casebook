@@ -2,7 +2,7 @@
 
 ## KP-007 A failed generation refunds its credits
 - kind: rule · platform: both · use: analysis, run, ebug · tags: credits, refund · authority: team
-- source: run.md step 8 (user, 2026-10-19); AIGC Watermark Android run 2026-11-17-r1-full O-7 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: run.md step 8 (user, 2026-10-19); AIGC Watermark Android run 2026-11-17-r1-full O-7; AIGC Watermark Android run 2026-11-23-r2-changed O-7 · verified: 16.9.0 build 2611193 (2026-11-23)
 
 A failed item costs nothing net; a partial failure costs only the items that succeeded. A missing or wrong refund is
 a defect with its own eBug, even when the failure itself is already filed.
@@ -55,17 +55,29 @@ Neither is in a feature spec; close both before the next step.
 
 ## KP-091 Credit prices seen on Android (Free, Stage)
 - kind: fact · platform: android · use: analysis, run · tags: credits, price
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-2..O-25 (charges matched pill and log) · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-2..O-25 (charges matched pill and log); AIGC Watermark Android run 2026-11-23-r2-changed O-9, O-14 · verified: 16.9.0 build 2611193 (2026-11-23)
 
 Text to Image 3, AI Art 6, Text to Speech 2, Talking Avatar 10, AI Music Generator 5 a song; Image to Video Veo 3.1
 4 s 32, Vidu Q2 15, Kling O3 25, Pixverse V6 20, Wan 2.7 40; Text to Video Kling O3 30, Veo 3.1 4 s Fast 28, Wan 2.7
 720p 25; AI Anime Video Vivid 10 s 40; Video Edit by Chat Gemini Omni Flash 1.1 72, Kling O3 45; Character Motion Swap
 Wan 2.2 Animate 39, Kling Motion Control 60; Cinematic Reel 70. AI Cartoon and AI Sketch charged nothing although the
-feature list prices them at 1. Prices are server-set: recheck on each build.
+feature list prices them at 1. On 2611193: Text to Video Veo 3.1 4 s Fast 28, Kling O3 5 s 1080p 30, Wan 2.7 5 s 1080p 40;
+Video Edit by Chat Gemini Omni Flash 1.1 8 a second (40 for 5 s), Kling O3 5 a second (25); Motion Swap Wan 2.2
+Animate 3 a second (39), Kling Motion Control 6 a second (60); Cinematic Reel Horror Movie 70, Micro Cinema / Handheld
+Camera / One-Take Shot / Time Lapse 48, Fast Cut 72; Pro Seedance 2.0 5 s 40 (I2V Standard, T2V Fast 720p); I2V Gemini
+Omni Flash 1.1 5 s 25. Prices are server-set: recheck on each build.
 
 ## KP-092 Reading the balance from the Android log
 - kind: howto · platform: android · use: run · tags: credits, logs
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-1, O-7, O-18, O-25 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-1, O-7, O-18, O-25; AIGC Watermark Android run 2026-11-23-r2-changed · verified: 16.9.0 build 2611193 (2026-11-23)
 
 CreditSystemManager logs `totalRemain=<n>` after each launch and each charge; it matched the credit pill every time,
 so a charge can be checked by clock time in logcat without opening Mine › Credits.
+
+## KP-095 The credit-history log line names each charge's model
+- kind: howto · platform: android · use: run, ebug · tags: credits, logs, models, cinematic-reel
+- source: AIGC Watermark Android run 2026-11-23-r2-changed O-7, O-9, O-14 · verified: 16.9.0 build 2611193 (2026-11-23)
+
+The ledger's log line (`getCreditHistory … actionId=…`) names each charge's provider and model (e.g.
+AICinematicShorts genvideo_1_sec_kling_o3pro_enable_1080p, bytedance seedance2.0fast). It is the only place Cinematic
+Reel's model shows.

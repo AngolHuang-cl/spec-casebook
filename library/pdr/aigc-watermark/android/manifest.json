@@ -2,9 +2,9 @@
   "feature": "pdr/aigc-watermark",
   "platform": "android",
   "title": "AIGC Watermark",
-  "version": 2,
-  "approved_at": "2026-11-23T03:22:17.853Z",
-  "draft": "20261123-111806",
+  "version": 3,
+  "approved_at": "2026-11-23T07:34:31.504Z",
+  "draft": "20261123-152127",
   "spec_folder": "specs/2026-11-17",
   "spec_files": [
     {
@@ -45,6 +45,15 @@
       "approved_at": "2026-11-23T03:22:17.853Z",
       "spec_set_sha256": "bd9387c6c31d0a15926029ff2078edca6879602699881f932abd012c38f20baf",
       "draft": "20261123-111806",
+      "cases": 127,
+      "csv": "history/v2.csv",
+      "requirements": "history/v2-requirements.md"
+    },
+    {
+      "version": 3,
+      "approved_at": "2026-11-23T07:34:31.504Z",
+      "spec_set_sha256": "bd9387c6c31d0a15926029ff2078edca6879602699881f932abd012c38f20baf",
+      "draft": "20261123-152127",
       "cases": 127,
       "csv": "cases.csv",
       "requirements": "requirements.md"

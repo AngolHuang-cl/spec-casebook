@@ -163,6 +163,10 @@ TypeScript (`build-draft.ts`, as in `pdr/ai-mini-drama/ios/drafts/20261021-15085
    belong. When a new rule is checked on the same screen with the same setup as an old row, modify that row
    (`modified`, reason) instead of adding one. Both are fine between rows that already ran; a changed row is re-run
    in the next round. After every analysis, check whether the order of rows and of the run should change.
+   **Removed or reversed rules (2026-11-23, pdr/aigc-watermark REQ-010).** When a requirement is removed or its
+   meaning reversed, search every row's Precondition, Action and Expected Result for its wording (the on-screen
+   string, its key phrase), not only the rows whose Spec Ref cites it: v2 removed the spoken clip (R-017, R-032 –
+   R-036) and fixed the rows citing those IDs, but TC-128 (iOS TC-126) cited only R-030 and still expected the clip.
 5. Show the user the plan summary in chat (counts, the notable changes and open questions) and ask them to
    go ahead with the review. Then `check.ts` and step 4.
 

@@ -1,0 +1,34 @@
+{
+ "TC-092": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Flux, Image to Video; list re-read on Pro 2026-11-23"
+ },
+ "TC-095": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Hailuo, Image to Video; list re-read on Pro 2026-11-23"
+ },
+ "TC-101": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Flux, Text to Video; list re-read on Pro 2026-11-23"
+ },
+ "TC-103": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Vidu, Text to Video; list re-read on Pro 2026-11-23"
+ },
+ "TC-104": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Hailuo, Text to Video; list re-read on Pro 2026-11-23"
+ },
+ "TC-105": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Pixverse, Text to Video; list re-read on Pro 2026-11-23"
+ },
+ "TC-109": {
+  "label": "Tool not offered by this build (n/a)",
+  "note": "Video Object Removal not on Android 2611193"
+ },
+ "TC-120": {
+  "label": "Tool not offered by this build (n/a)",
+  "note": "No song-from-lyrics path in AI Music Generator (Android)"
+ }
+}

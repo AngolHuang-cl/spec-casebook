@@ -1,0 +1,22 @@
+# ISS-AWA-17 Content Credentials of AI Music Generator songs
+# c2patool 0.29.0 on the files pulled from the phone (Samsung SM-A5360 / Android 15, PowerDirector 16.9.0 (2611193), Stage, 2026-11-23).
+
+## off-song1-results.m4a (90.000000 s, AAC 96 kHz)
+  c2patool: Error: No claim found
+
+## off-song2-results.m4a (93.300000 s, AAC 96 kHz)
+  c2patool: Error: No claim found
+
+## on-song1-results.m4a (89.500000 s, AAC 96 kHz)
+  c2patool: Error: No claim found
+
+## on-song2-results.m4a (90.400000 s, AAC 96 kHz)
+  c2patool: Error: No claim found
+
+Switch Off: off-song1/2 = 01./02. Cinematic, Dreamy, Acoustic (14:49). Switch On: on-song1/2 = 01./02. Comedy, Epic, Ambient (15:12).
+Same app copy and Music-folder copy (same MD5) in each case.
+
+## Reference: Image to Video result saved in the same session (TC-098-itv-gemini-sound-off.mp4)
+  manifests: 1  signer: CN=CyberLink / issuer=CyberLink
+  claim generator: PowerDirector Mobile for Android 16.9.0 (com.cyberlink.clc2pa 1.0)
+  actions: c2pa.created [trainedAlgorithmicMedia]   ingredients: 0   validation: Valid (signingCredential.untrusted)

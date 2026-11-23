@@ -27,7 +27,7 @@ are server-configured: Free 10, Pro 100.
 
 ## KP-068 A Play test subscription ends within hours
 - kind: quirk · platform: android · use: run · tags: tier, billing, subscription
-- source: Video Enhance Android run 2026-11-10-r1-full O-30; Video Enhance Android run 2026-11-18-r2-full O-17, O-23, O-26, O-28 · verified: 16.9.0 build 2611091 (2026-11-19)
+- source: Video Enhance Android run 2026-11-10-r1-full O-30; Video Enhance Android run 2026-11-18-r2-full O-17, O-23, O-26, O-28; AIGC Watermark Android run 2026-11-23-r2-changed (Pro from 14:22, still Pro at 15:14) · verified: 16.9.0 build 2611193 (2026-11-23)
 
 A Play test subscription renews every 30 minutes (the test sheet reads 「NT$1,190.00/30 min」 and 「This is a test
 subscription. It will recur according to this schedule.」) and ends after a few renewals: on the shared test account

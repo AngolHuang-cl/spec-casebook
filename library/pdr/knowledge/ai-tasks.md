@@ -54,11 +54,11 @@ states 「Retry」 and 「View Details」 were never reached.
 
 ## KP-079 Some tools save their result to the gallery by themselves
 - kind: fact · platform: android · use: analysis, run · tags: save, gallery, results
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-13, O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-13, O-18; corrected by AIGC Watermark Android run 2026-11-23-r2-changed O-5 · verified: 16.9.0 build 2611193 (2026-11-23)
 
-Video Edit by Chat, Talking Avatar and AI Anime Video write the result to the gallery when the task finishes, with no
-「Save」 tap. Character Motion Swap, Cinematic Reel Creator and Text to Video do not. Whether this is intended is not in
-any spec.
+Video Edit by Chat and AI Anime Video write the result to the gallery when the task finishes, with no 「Save」 tap.
+Talking Avatar (2611193) writes it only when the result is first opened (task list › View), still with no Save tap.
+Character Motion Swap, Cinematic Reel Creator and Text to Video do not. Whether this is intended is not in any spec.
 
 ## KP-080 What a second Save does
 - kind: fact · platform: android · use: analysis, run · tags: save, gallery, files
@@ -75,21 +75,23 @@ names the number after the date counts saves, not tasks.
 「Create another one」 is available while a task is 「Processing…」, so generations can overlap to save time. A failed
 task's list item reads 「An Error Has Occurred / Credits have been refunded…」.
 
-## KP-082 Models and tools offered on Android (Free)
-- kind: fact · platform: android · use: analysis, run · tags: models, tier, image-to-video, text-to-video
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-9, O-17, O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+## KP-082 Models and tools offered on Android
+- kind: fact · platform: android · use: analysis, run · tags: models, tier, image-to-video, text-to-video, video-edit-by-chat
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-9, O-17, O-18; corrected by AIGC Watermark Android run 2026-11-23-r2-changed O-3, O-9, O-14 · verified: 16.9.0 build 2611193 (2026-11-23)
 
-Image to Video: Veo 3.1, Vidu Q2, Kling O3, Kling 4.0, Pixverse V6, Wan 2.7, Gemini Omni Flash 1.1, Happy Horse 1.1;
-Seedance 2.0 and 2.5 are Pro (「Subscribe Pro to Unlock」); no Flux or Hailuo. Text to Video: Kling 4.0, Wan 3.0,
-Seedance 2.5 / 2.0 (Pro), Gemini Omni Flash, Happy Horse 1.1, Wan 2.7, Veo 3.1, Kling O3; no Vidu, Pixverse, Hailuo
-or Flux. Text to Image defaults to 「GPT-Image-2.6 Sunburst」. Video Object Removal is not offered on Android.
+On 2611193 (Free and Pro list the same): Image to Video offers Kling 4.0, Kling O3, Pixverse V6, Wan 3.0, Gemini Omni
+Flash 1.1, Happy Horse 1.1, Seedance 2.0 (Pro), Veo 3.1, Vidu Q2, Wan 2.7; Text to Video Kling 4.0, Wan 3.0, Seedance
+2.0 (Pro), Gemini Omni Flash, Happy Horse 1.1, Wan 2.7, Veo 3.1, Kling O3; Video Edit by Chat Seedance 2.5 (default),
+Seedance 2.0, Gemini Omni Flash 1.1, Happy Horse, Kling O3, PixVerse V6. No Flux, Hailuo, or Seedance 2.5 in I2V / T2V
+(2611161 had 2.5 and no Wan 3.0 in I2V). Video Object Removal is not offered. Lists are server-set: reread each build.
 
 ## KP-083 Model pickers reset
 - kind: quirk · platform: android · use: run · tags: models, image-to-video, text-to-video, video-edit-by-chat
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-7, O-17, O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-7, O-17, O-18; corrected by AIGC Watermark Android run 2026-11-23-r2-changed O-9 · verified: 16.9.0 build 2611161 (2026-11-17); Video Edit by Chat part 2611193 (2026-11-23)
 
-Image to Video and Text to Video open on 「Kling 4.0」 each time (also after 「Create another one」); Video Edit by
-Chat resets to 「Seedance 2.5」 after a source video is picked. Pick the model last, right before Generate.
+Image to Video and Text to Video open on 「Kling 4.0」 each time (also after 「Create another one」). On 2611161 Video
+Edit by Chat reset to 「Seedance 2.5」 after a source video was picked; on 2611193 a model picked before the source
+stays selected. Still read the model back right before Generate.
 
 ## KP-084 Portrait Text to Video files are stored landscape
 - kind: fact · platform: android · use: run · tags: text-to-video, files, orientation
@@ -100,7 +102,7 @@ upright. Read sizes and positions in the displayed orientation.
 
 ## KP-085 AI Storytelling results live in its own history
 - kind: fact · platform: android · use: analysis, run · tags: ai-storytelling, my-artwork, tier
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-16, O-17 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-16, O-17; AIGC Watermark Android run 2026-11-23-r2-changed O-11 · verified: 16.9.0 build 2611193 (2026-11-23)
 
 AI Storytelling results are not in My Artwork: they are under AI Storytelling › history 「Generated Story」 and are
 exported, not saved. A Free account gets one free story; more need Pro.
@@ -112,3 +114,27 @@ exported, not saved. A Free account gets one free story; more need Pro.
 AI Art results cannot be opened in the editor: the result page has no 「Full Editor」 (Android shows feedback, share,
 download and 「Turn the image into a video」). A spec rule for every image result that names 「Full Editor」 (AIGC
 Watermark R-024) applies to AI Art without that step; Text to Image does have it.
+
+## KP-098 Gemini Omni Flash 1.1 in Image to Video always generates sound
+- kind: fact · platform: android · use: analysis, run · tags: image-to-video, models, sound
+- source: AIGC Watermark Android run 2026-11-23-r2-changed TC-098 · verified: 16.9.0 build 2611193 (2026-11-23)
+
+With 「Gemini Omni Flash 1.1」 picked in Image to Video, 「Generate Sound by AI」 is On and its Off is greyed out; the
+result has an audio track (5 s, 25 credits).
+
+## KP-099 Cinematic Reel Creator saves into the Video Enhance folder
+- kind: quirk · platform: android · use: run, ebug · tags: cinematic-reel, save, files
+- source: AIGC Watermark Android run 2026-11-23-r2-changed O-6 · verified: 16.9.0 build 2611193 (2026-11-23)
+
+Cinematic Reel Creator's Quick actions 「Save」 writes to Movies/cyberlink/PowerDirector/Video Enhance/ with an
+「ImageToVideo - <date> - N - <ms>.mp4」 name, not a Cinematic Reel folder, and no 「Saved to Gallery」 toast was caught.
+Find the file there by time.
+
+## KP-100 Source video uploads take minutes
+- kind: quirk · platform: android · use: run · tags: upload, ai-task, timing
+- source: AIGC Watermark Android run 2026-11-23-r2-changed O-7, O-10 · verified: 16.9.0 build 2611193 (2026-11-23)
+
+Tools that upload a source video (AI Anime Video, Character Motion Swap, Video Edit by Chat, Cinematic Reel) show
+「100% Uploading / Please keep the app open」 for 4–8 min with a 10–13 s clip and about 1.5 min with a 5 s clip on the
+SM-A5360's Wi-Fi. A Cinematic Reel task can then sit on 「Retry」 in the task list; Retry re-uploads and may fail with a
+refund (KP-007). Plan waits and keep the app in front.

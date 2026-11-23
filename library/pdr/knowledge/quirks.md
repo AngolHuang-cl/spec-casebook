@@ -22,3 +22,11 @@ player, while 4K 30 plays. A 4K 60/120 result that will not play on it is a phon
 
 An Appium screen recording of the in-app full-screen result player stops after about 1.5 s with few frames. To judge
 what the player draws in its first seconds, take rapid `adb exec-out screencap` captures instead.
+
+## KP-101 A hung Appium `hold` leaves taps dead until restart
+- kind: quirk · platform: android · use: run · tags: appium, tools, gestures
+- source: AIGC Watermark Android run 2026-11-23-r2-changed O-18 · verified: 16.9.0 build 2611193 (2026-11-23)
+
+A `device-android.ts hold` that never returns (seen on a My AI Music row) leaves later Appium taps dropped or partly
+taken and the page blank with Back doing nothing, until `device-android.ts restart`; after it the same controls work.
+After any hung command, restart (or use `adb shell input`) before judging the app.

@@ -1,0 +1,7 @@
+# ISS-AWA-17 logcat excerpt (PowerDirector uid, 2026-11-23). No C2PA call around either song batch;
+# libclc2pa is first loaded after the 15:01 relaunch by a project export at 15:08:22, not when the 15:12 songs were written.
+2026-11-23 15:08:22.818  4123  6068 D nativeloader: Load /data/app/~~ewkTMZuCVIk6gGGfeooEag==/com.cyberlink.powerdirector.DRA140225_01-lUFpbhKgrmYNBbxdhrtJ0A==/base.apk!/lib/arm64-v8a/libclc2pa.so usi
+2026-11-23 15:08:22.822  4123  6068 D nativeloader: Load /data/app/~~ewkTMZuCVIk6gGGfeooEag==/com.cyberlink.powerdirector.DRA140225_01-lUFpbhKgrmYNBbxdhrtJ0A==/base.apk!/lib/arm64-v8a/libclc2pa_jni.so
+2026-11-23 15:11:31.841  4123  4451 D CreditSystemManager: getMemberCreditRemain, gGetMemberRemainResponse: GGetMemberRemainResponse(totalRemain=31181, data=[BonusItem(remainCredit=4, category=give_aw
+2026-11-23 15:11:32.290  4123  4451 D CreditSystemManager: getMemberCreditRemain, gGetMemberRemainResponse: GGetMemberRemainResponse(totalRemain=31181, data=[BonusItem(remainCredit=100, category=give_
+2026-11-23 15:11:34.807  4123  4451 D CreditSystemManager: getMemberCreditRemain, gGetMemberRemainResponse: GGetMemberRemainResponse(totalRemain=31181, data=[BonusItem(remainCredit=100, category=give_

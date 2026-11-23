@@ -229,3 +229,4 @@ Credentials with c2patool (fixtures.md).
 | REQ-007 | R-050, R-052 |
 | REQ-008 | R-056 |
 | REQ-009 | R-055, R-031 |
+| REQ-010 | R-055 (row fix: TC-128 Android / TC-126 iOS, Step 3 no spoken clip) |
