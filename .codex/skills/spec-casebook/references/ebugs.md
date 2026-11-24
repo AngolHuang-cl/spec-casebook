@@ -37,12 +37,17 @@ controls, and the `decision` entries (Won't Fix, NAB, PM rulings) that make a fi
    - the expectation is the spec's own words, not our paraphrase (`arrows.json` `expected`, requirement wording) and
      not sample AI text; a team rule (wait thresholds, R-1xx user rules) or an 「待 RD 確認」 item is named as such;
    - the Spec Link points at the board that states the rule, not one that matches the app;
+   - **MUI findings (user, 2026-11-24)** follow `references/mui.md` §4: `[AIAgent][MUI]` when a translation is
+     missing in every implemented language, else `[AIAgent][<LANG>]…` with one bug for the missing translations of
+     the same languages and one truncation bug per language; a `MUI:` Note line; the translation sheet as Spec Link;
+     tags only from `mui.json` (ask the user for a missing one before filing);
    - Repro steps say what the run did (a `setval` is not 「Paste」), with the platform condition (Android version,
      permission state), and every attachment shows the defect.
 2. `drafts_to_bodies.py … --out upload/bodies.json --stage upload/`, then `check_ebug_format.py` (0 errors) and
    `verify_ebug_drafts.py`. Avoid `{n}`-style placeholders in body text; they are read as attachments. The format
    check fails a `>` / `›` inside a Repro step, a missing or empty `Spec Link:`, an entry with no image, a video
-   attachment without `--videos-requested`, and `[AIAgent][UX]`.
+   attachment without `--videos-requested`, and `[AIAgent][UX]`; with `--mui <feature>/mui.json` (passed by
+   `ebug-review.ts` when the file exists) it holds MUI entries to `references/mui.md` §4.
 3. Dedupe with `ecl_query.py dedupe upload/bodies.json --product "<ecl_product>"` (the tested platform's `ecl_product` in
    `library/<product>/product.json`, e.g. "PowerDirector Mobile for iOS") (the
    tested OS only) and read each candidate with `ecl_query.py bug <code>`. **Per OS (user, 2026-10-28):** a match on

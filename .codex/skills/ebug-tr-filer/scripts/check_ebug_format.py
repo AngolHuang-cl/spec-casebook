@@ -33,11 +33,18 @@ it rests on another product's behaviour or on nothing, and PM decides. So a [UX]
 'Basis: External — …' or 'Basis: None — …' Note line; a finding referenced to another feature of
 the same app ('Basis: In-product — <feature> (<document>)') is Functional or [UI], never [UX]; and
 an [AIAgent] (spec-driven) entry never carries [UX]. --allow-agent-ux lifts only that last rule.
+
+MUI entries (user, 2026-11-24; spec-casebook references/mui.md): pass --mui <library/<product>/<feature>/mui.json>.
+An entry with a 'MUI: <translation|truncation> — <tags|all>' Note line is tagged [AIAgent][MUI] when the translation
+is missing in every implemented language, else [AIAgent][<LANG>][<LANG>]… with the tags mui.json gives (read from
+the translation sheet or asked of the user, never invented); a truncation bug names exactly one language.
 """
 import argparse, json, os, re, sys
 
 SOURCE_TAGS = {"EDF", "AIFound", "AIAgent", "MXFound", "AMD", "OEM"}
-TYPE_TAGS = {"UI", "UX", "MX"}
+TYPE_TAGS = {"UI", "UX", "MX", "MUI"}
+TAG = r"[A-Za-z0-9_\-]+"
+MUI_LANGS = []      # language tags in mui.json order (--mui); base language excluded
 BELONGS_WEB = {"RD", "Setup Kit", "PC-Art", "PC-Doc", "PM", "Marketing", "RD-ECL"}
 # Old "API spellings": the server stores them as sent, matching no web-form option.
 BELONGS_OLD = {"RDSK": "Setup Kit", "PCArt": "PC-Art", "PCDoc": "PC-Doc"}
@@ -47,11 +54,11 @@ MAX_FIRST_LINE = 120   # the one English sentence of Result / Expect Result
 MAX_PROSE_LINES = 1    # TR260915-0007 style: one line each
 MAX_FIELD = 140        # all English prose in the field (excl. 摘要 / {screenshots} / Spec string)
 MAX_SUMMARY = 60       # the 摘要 zh-TW one-liner
-MAX_NOTE_LINES = 6     # Device / Spec Link (≤2) / Basis / Related / <Claude Reviewed>
+MAX_NOTE_LINES = 7     # Device / MUI / Spec Link (≤2) / Basis / Related / <Claude Reviewed>
 SUMMARY_RE = re.compile(r"^摘要\s*[:：]\s*")
 SECTIONS = ["Repro Steps:", "Result:", "Expect Result:", "Note:"]
 URL_LINE = re.compile(r"^\s*https?://\S+\s*$")
-NOTE_LINE = re.compile(r"\s*(https?://\S+\s*$|Device:|Spec Link:|Basis:|Related:|Design:|Jira:|<Claude Reviewed>|<GPT Reviewed>)")
+NOTE_LINE = re.compile(r"\s*(https?://\S+\s*$|Device:|MUI:|Spec Link:|Basis:|Related:|Design:|Jira:|<Claude Reviewed>|<GPT Reviewed>)")
 BASIS_RE = re.compile(r"^\s*Basis:\s*(In-product|External|None)\b\s*[—–-]?\s*(.*)$", re.I | re.M)
 IMAGE_EXT = re.compile(r"\.(jpe?g|png|gif|heic|webp)$", re.I)
 LOG_EXT = re.compile(r"_log\.(txt|log|zip)$", re.I)
@@ -64,7 +71,7 @@ PLACEHOLDERS = re.compile(r"\b(TBD|TODO|XXX|FIXME|\?\?\?|<[a-z ]+>)\b", re.I)
 # tags, then a feature name, then a colon
 SHORT_RE = re.compile(
     r"^(?P<product>[A-Z][A-Za-z\-]*)\s+(?P<version>\d+(?:\.\d+)+)\s+-\s+"
-    r"(?P<tags>(?:\[[A-Za-z\-]+\])+)\s+"
+    r"(?P<tags>(?:\[[A-Za-z0-9_\-]+\])+)\s+"
     r"(?P<feature>[^:]{2,60}?):\s+(?P<symptom>\S.*)$"
 )
 # a feature segment that is really the start of a sentence
@@ -107,7 +114,7 @@ def check_short(key, short, product, version, rep, features):
         if not re.match(r"^[A-Z][A-Za-z\-]*\s+\d+(\.\d+)+\s+-\s+", short):
             rep.err(key, "Short Description is missing the '<PRODUCT> <VERSION> - ' prefix",
                     f"prepend '{product} {version} - '")
-        if not re.search(r"\[[A-Za-z\-]+\]", short):
+        if not re.search(r"\[[A-Za-z0-9_\-]+\]", short):
             rep.err(key, "Short Description carries no [source] tag",
                     "add [EDF] / [AIFound] / [MXFound]")
         if ":" not in short.split("]")[-1]:
@@ -124,13 +131,16 @@ def check_short(key, short, product, version, rep, features):
     if m.group("version") != version:
         rep.err(key, f"version is {m.group('version')!r}, expected {version!r}")
 
-    tags = re.findall(r"\[([A-Za-z\-]+)\]", m.group("tags"))
+    tags = re.findall(r"\[([A-Za-z0-9_\-]+)\]", m.group("tags"))
     if tags[0] not in SOURCE_TAGS:
         rep.warn(key, f"first tag [{tags[0]}] is not a known source tag {sorted(SOURCE_TAGS)}")
-    for t in tags[1:]:
-        if t not in TYPE_TAGS:
-            rep.err(key, f"[{t}] is not a valid type tag; use {sorted(TYPE_TAGS)}")
-    if len(tags) > 2:
+    langs = [t for t in tags[1:] if t not in TYPE_TAGS]
+    for t in langs:
+        if t not in MUI_LANGS:
+            rep.err(key, f"[{t}] is not a valid type tag ({sorted(TYPE_TAGS)}) nor a language tag of mui.json "
+                         f"({MUI_LANGS or 'no --mui given'})",
+                    "MUI language tags come from the translation sheet or the user: ask, add it to mui.json, pass --mui")
+    if len(tags) > 2 and not (langs and len(langs) == len(tags) - 1):
         rep.warn(key, f"{len(tags)} tags; the convention is [source] plus at most one [type]")
 
     feature = m.group("feature").strip()
@@ -205,6 +215,51 @@ def check_basis(key, tags, note, belong, rep, allow_agent_ux):
     elif kinds & {"External", "None"} and tags[:1] != ["AIAgent"]:
         rep.err(key, "entry rests on another product or on nothing but is not tagged [UX]",
                  "an expectation with no spec / in-product basis is a UX call for PM: tag [UX], owner PM")
+
+
+def check_mui(key, tags, note, rep):
+    """MUI entries (user, 2026-11-24): [MUI] for every language, else one tag per language; truncation per language."""
+    tags = tags or []
+    langs = [t for t in tags[1:] if t not in TYPE_TAGS]
+    has_mui = "MUI" in tags[1:]
+    lines = re.findall(r"^\s*MUI:\s*(.*)$", note, re.M)
+    if not lines:
+        if has_mui or langs:
+            rep.err(key, "MUI-tagged entry has no 'MUI:' Note line",
+                    "add 'MUI: translation — JPN, DEU' / 'MUI: translation — all' / 'MUI: truncation — DEU' after Device:")
+        return
+    if len(lines) > 1:
+        rep.err(key, "more than one 'MUI:' Note line; one kind per bug")
+    m = re.match(r"(translation|truncation)\s*[—–-]\s*(.+)$", lines[0].strip(), re.I)
+    if not m:
+        rep.err(key, f"MUI line must read 'MUI: translation|truncation — <tags or all>': {lines[0].strip()[:60]!r}")
+        return
+    kind = m.group(1).lower()
+    listed = [x for x in re.split(r"[,\s]+", m.group(2).strip()) if x]
+    other = [t for t in tags[1:] if t in TYPE_TAGS and t != "MUI"]
+    if other:
+        rep.err(key, f"MUI entry carries {['[' + t + ']' for t in other]}; MUI bugs take [MUI] or language tags only")
+    if not has_mui and not langs:
+        rep.err(key, "entry has a 'MUI:' line but its Short Description has neither [MUI] nor language tags")
+    if has_mui and langs:
+        rep.err(key, "Short Description has both [MUI] and language tags; [MUI] means every language")
+    if [x.lower() for x in listed] == ["all"]:
+        if kind == "truncation":
+            rep.err(key, "a truncation bug names one language (one bug per language), not 'all'")
+        elif not has_mui:
+            rep.err(key, "translation missing in every language is tagged [MUI]")
+        return
+    if has_mui:
+        rep.err(key, "[MUI] is only for a translation missing in every implemented language",
+                "tag the languages it misses instead: [AIAgent][JPN][DEU]")
+    if set(listed) != set(langs):
+        rep.err(key, f"MUI line names {listed} but the Short Description tags {langs}")
+    if kind == "truncation" and len(listed) != 1:
+        rep.err(key, f"truncation bug names {len(listed)} languages; file one bug per language")
+    if kind == "translation" and MUI_LANGS and set(listed) >= set(MUI_LANGS):
+        rep.err(key, "translation missing in every implemented language: tag it [MUI] and write 'MUI: translation — all'")
+    if MUI_LANGS and [t for t in MUI_LANGS if t in langs] != [t for t in langs if t in MUI_LANGS]:
+        rep.warn(key, f"language tags not in mui.json order {MUI_LANGS}")
 
 
 def check_desc(key, desc, version, rep, files, upload_dir, tags=None, belong=None,
@@ -328,11 +383,12 @@ def check_desc(key, desc, version, rep, files, upload_dir, tags=None, belong=Non
             if not no_link_ok:
                 rep.err(key, f"Spec Link is empty or 'none': {l.strip()[:60]!r}",
                         "link the sheet for the screen concerned; ask the reviewer for one if none exists")
-        elif not re.search(r"https?://|\.pdf\b", l, re.I):
-            rep.err(key, f"Spec Link has neither a URL nor a PDF name: {l.strip()[:60]!r}")
+        elif not re.search(r"https?://|\.(pdf|xlsx|xls|csv)\b", l, re.I):
+            rep.err(key, f"Spec Link has neither a URL nor a PDF (or translation sheet) name: {l.strip()[:60]!r}")
         elif "figma.com" in l and "node-id=" not in l:
             rep.warn(key, "Figma Spec Link has no node-id")
     check_basis(key, tags, note, belong, rep, allow_agent_ux)
+    check_mui(key, tags, note, rep)
     if "<Claude Reviewed>" not in note and "<GPT Reviewed>" not in note:
         rep.err(key, "Note has no reviewer marker (<Claude Reviewed>)")
     for banned in ("not re-tested", "could not verify", "confidence:"):
@@ -412,10 +468,16 @@ def main():
                     help="the user explicitly asked for video attachments on this batch")
     ap.add_argument("--allow-agent-ux", action="store_true",
                     help="permit [AIAgent][UX] (revert switch for the 2026-10-21 RD rule)")
+    ap.add_argument("--mui", default=None,
+                    help="the feature's mui.json: language tags MUI entries may carry (spec-casebook references/mui.md)")
     ap.add_argument("--no-link-ok", default="", type=lambda v: {k for k in v.split(",") if k},
                     help="comma-separated keys the reviewer approved without a Spec Link (record it in decisions.md)")
     a = ap.parse_args()
 
+    if a.mui:
+        cfg = json.load(open(a.mui, encoding="utf-8"))
+        base = cfg.get("base", "en")
+        MUI_LANGS[:] = [l["tag"] for l in cfg.get("languages", []) if l.get("tag") and l.get("code") != base]
     data = json.load(open(a.bodies, encoding="utf-8"))
     if isinstance(data, list):
         data = {str(i + 1): e for i, e in enumerate(data)}

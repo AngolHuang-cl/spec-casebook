@@ -115,6 +115,11 @@ that showed it). No comparison runs during an analysis or before a proposal.
   missed or contradicted); `check.ts` warns when the two tables' spec sets differ this way.
 - Spec files: every file the user supplied for this feature (PDF, images, exported Figma pages, text).
   Ask for missing ones only if the user said there are more.
+- **MUI test (user, 2026-11-24).** When the feature has no `library/<product>/<feature>/mui.json`, ask with the
+  questions above which languages are implemented, whether there is a translation sheet (ask for it), and take each
+  language's eBug tag from the sheet, else ask before the run. The table then ends with an `MUI` section (Translation
+  and Truncation rows per screen × language), run one language at a time, and MUI bugs carry `[MUI]` or language
+  tags (`references/mui.md`). "English only" records an empty list and is not asked again.
 
 ### 1. Fingerprint the spec
 
@@ -258,6 +263,7 @@ CSV rather than asking the user to open the page. Never edit an approved `cases.
 | `references/run.md` | Any on-device run segment, phase wrap-up or run plan (iPhone and shared run rules) |
 | `references/run-android.md` | Android runs, together with `run.md` |
 | `references/ebugs.md` | Turning run failures into eBug drafts, the review page and filing |
+| `references/mui.md` | The MUI test: languages, translation sheet and tags, MUI rows, running them, MUI eBug tags |
 | `references/page-checks.md` | The formatting check every HTML page or artifact gets before hand-over |
 
 Paths are relative to this skill's folder (`.claude/skills/spec-casebook/`, Codex: `.codex/skills/spec-casebook/`).

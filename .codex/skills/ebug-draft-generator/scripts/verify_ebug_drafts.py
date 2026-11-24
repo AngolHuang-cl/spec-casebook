@@ -82,9 +82,11 @@ for md,steps in SPEC.items():
         desc=re.search(r'\*\*Description:\*\*\s*\n\s*```\n(.+?)\n```',body,re.S).group(1)
         sd=re.search(r'\*\*Short Description:\*\*\s*\n\s*```\n(.+?)\n```',body,re.S).group(1).strip(); maxsd=max(maxsd,len(sd))
         chk(len(sd)<=140,f"{md} e{n}: {len(sd)}>140")
-        tags=re.findall(r'\[([A-Za-z]+)\]',sd.split(' - ',1)[-1].split(':')[0])
+        tags=re.findall(r'\[([A-Za-z0-9_\-]+)\]',sd.split(' - ',1)[-1].split(':')[0])
         chk(tags and tags[0] in ('AIFound','AIAgent','EDF','MXFound'),f"{md} e{n}: no source tag")
-        chk((len(tags)==1) if cls=='Functional' else (cls in tags[1:]),f"{md} e{n}: tag vs Class {cls}")
+        # MUI entries (user, 2026-11-24): Class UI, tagged [MUI] or language tags; check_ebug_format.py --mui has the detail
+        if re.search(r'^MUI:',desc,re.M): chk(cls=='UI' and len(tags)>1,f"{md} e{n}: MUI entry needs Class UI and [MUI] or language tags")
+        else: chk((len(tags)==1) if cls=='Functional' else (cls in tags[1:]),f"{md} e{n}: tag vs Class {cls}")
         chk(desc.count('Device:')==1 and desc.count('<Claude Reviewed>')==1,f"{md} e{n}: note lines")
         prose=desc[:desc.rindex('Note:')]
         links=[m.group(0) for m in re.finditer(r'^Spec Link:.*(?:\nhttps?://\S+)?',desc,re.M)]; nspec+=len(links)
@@ -109,7 +111,7 @@ for md,steps in SPEC.items():
             if hit: rep.append(f"e{n} {iid}: \"{q}\" verified present in {', '.join(hit)}")
         note=[x for x in desc[desc.rindex('Note:'):].split('\n')[1:] if x.strip()]
         chk(note[0].startswith('Device:') and note[-1]=='<Claude Reviewed>',f"{md} e{n}: Note bookends")
-        chk(all(x.startswith(('Spec Link:','Basis:','Related:','https://','http://')) for x in note[1:-1]),f"{md} e{n}: stray text in Note")
+        chk(all(x.startswith(('MUI:','Spec Link:','Basis:','Related:','https://','http://')) for x in note[1:-1]),f"{md} e{n}: stray text in Note")
         if mdname[:8].isdigit() and mdname[:8]>='20261021':
             # reviewer rules (2026-10-21): every entry links its spec; one action per Repro step;
             # [UX] only on a Basis: External / None entry (RD) — check_ebug_format.py has the detail

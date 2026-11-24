@@ -51,7 +51,10 @@ const bodies: Record<string, Body> = JSON.parse(readFileSync(join(DIR, 'upload/b
 const first = Object.values(bodies)[0];
 const pv = first?.short.match(/^(\S+) (\d+\.\d+\.\d+) -/);
 if (!args.includes('--no-check') && pv) {
-  const ck = py(join(SKILLS, 'ebug-tr-filer/scripts/check_ebug_format.py'), ['--product', pv[1], '--version', pv[2], '--upload-dir', 'upload', 'upload/bodies.json']);
+  // MUI entries (user, 2026-11-24): the feature's mui.json holds the language tags they may carry
+  const mui = join(ROOT, 'library', product, feature, 'mui.json');
+  const ck = py(join(SKILLS, 'ebug-tr-filer/scripts/check_ebug_format.py'), ['--product', pv[1], '--version', pv[2], '--upload-dir', 'upload',
+    ...(existsSync(mui) ? ['--mui', mui] : []), 'upload/bodies.json']);
   const tail = (ck.stdout + ck.stderr).trim().split('\n').slice(-3).join('\n');
   writeFileSync(join(DIR, 'check.txt'), tail + '\n');
   if (ck.status !== 0) { console.error(ck.stdout + ck.stderr + '\nFormat check failed: no page built (fix the drafts, or --no-check).'); process.exit(1); }

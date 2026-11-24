@@ -170,6 +170,11 @@ lines; put the full rule in the skill or reference file that applies it and poin
   (`cases.zh-Hant.csv`) that the 中文 switch shows on Cases, Results, Progress and Coverage; it is natural Taiwan
   Chinese, never word by word, kept current row by row with `scripts/zh-copy.ts` after drafts and Saves; run results
   stay as recorded (`references/zh-copy.md`, `SKILL.md` step 4).
+- **MUI test (user, 2026-11-24).** Tables can end with an `MUI` section (translation and truncation per screen ×
+  language). At step 0 ask which languages are implemented and for the translation sheet; eBug language tags come
+  from the sheet, else ask the user before the run (`mui.json`). MUI bugs: `[AIAgent][MUI]` when every language lacks
+  the translation, else `[AIAgent][JPN][DEU]…`, one bug for missing translations, one per language for truncation
+  (`spec-casebook/references/mui.md`, overlay rule 8).
 - **One step per line (user, 2026-11-03).** When a table cell holds two or more steps, each goes on its own
   numbered line, whether they were numbered (`1. … 2. …`) or plain sentences (`Open X, then tap Y`); `check.ts`
   warns (`formats.md`, writing rules).
