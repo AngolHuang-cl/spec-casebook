@@ -33,6 +33,7 @@ import { networkInterfaces } from 'node:os';
 import { join, relative, sep } from 'node:path';
 import { createGzip, gzipSync } from 'node:zlib';
 import { hasDraft, listBoards, newestPlan, openDrafts } from './lib/boards.ts';
+import { trPending } from './lib/tr-info.ts';
 import { housekeeping } from './lib/housekeeping.ts';
 import { LIBRARY, PLATFORMS, arg, assertIds, readManifest, tableDir } from './lib/library.ts';
 import { isLocal } from './lib/local.ts';
@@ -320,7 +321,7 @@ const check = (c: Child, data: boolean, fresh: boolean) => {
 };
 const notAvailable = (c: Child, r: Ref) => `<!doctype html><meta charset="utf-8"><title>${esc(c.def.label)}</title><body style="margin:0;font:15px system-ui;background:#f4f5f7">${tabBar(r, c.def.id, '', true)}<p style="padding:24px;max-width:80ch">${esc(c.error ?? 'Not available.')}</p></body>`;
 // The navigation page. Its data is a few small files per table, read when it is asked for.
-const boardsData = () => ({ products: listBoards(), live: live().length, idleMinutes: IDLE_MS / 60_000 });
+const boardsData = () => { const products = listBoards(); return { products, trPending: trPending(), live: live().length, idleMinutes: IDLE_MS / 60_000 }; };
 const loginPage = (next: string, error = '') => withShared(readFileSync(script('login-page.tpl'), 'utf8')).replace('__NEXT__', () => esc(next)).replace('__HIDE__', error ? '' : ' hidden').replace('__ERROR__', () => esc(error));
 const boardsPage = () => withShared(readFileSync(script('boards-page.tpl'), 'utf8')).replace('/*__BAR_CSS__*/', () => barCss.replace(/<\/?style>/g, ''))
   .replace('__NOTE__', () => shareNote()).replace('__DATA__', () => JSON.stringify(boardsData()).replace(/</g, '\\u003c'));

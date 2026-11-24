@@ -52,6 +52,11 @@ precondition is Pro, not Pro+ (121 rows). R-070 drops 「Pro+ user」, R-071 ope
 names the paid (Pro) user and records the Credit page card instead of asserting 「PowerDirector Pro+」 (TC-090, TC-091,
 TC-096). Coverage unchanged.
 
+Draft 20261124-150000 [Req: REQ-041]: the MUI section (spec-casebook references/mui.md). Every PowerDirector feature is
+tested in the 26 languages of `library/pdr/product.json` › `mui` besides English; there is no translation sheet, so
+each translation is judged by the run and doubtful ones go to the eBug review. Android reads every translation from the build's APK (one row, no phone); the phone walks one row per language for truncation only.
+The MUI rows are their own phase (phases.json `MUI`), never part of a full run. New: R-208, R-209; 27 rows, TC-321 – TC-347.
+
 ## Entry points
 - R-001 [DS:ds-main-flow Launcher_2026_08; DS:ds-routing 「Launcher / AI Magic → Demo page」] The Launcher big shortcut 「AI Video Enhance」 opens the Demo page (until 「Don’t show again」 was confirmed, R-009).
 - R-002 [DS:ds-entry-points Launcher_AI Magic; DS:ds-routing] The AI Magic tab's 「AI Enhance」 section has an 「AI Video Enhance」 card that opens the Demo page (same rule as R-001).
@@ -215,6 +220,10 @@ silent, so a difference is a PM question) (TC-315 – TC-317); R-046 is walked t
 
 ## System back (Android)
 - R-190 [Rule: Android system Back, analysis pass 8 (user, 2026-10-28)] On every page, sheet, dialog and full-screen view of the feature, system Back does what the screen's own ‹ / Cancel / close does; where the screen has no exit of its own it must not leave silently (Q-20).
+
+## MUI
+- R-208 [Req: REQ-041] Every user-facing string of the feature (Launcher shortcut, Demo page, Add Media, panel and its bubbles, Mode toast, offline toast, processing and leave dialogs, Recent task cards, completion banner, Result and its save toast, system notification, error dialog, clip toolbar entry) shows in each language of the product list (CHT, CHS, JPN, ESP, KOR, DEU, FRA, ITA, RUS, PTB, NLD, IND, THA, MAY, HIN, ESM, ARA, VIT, PLK, TRK, FAR, HEB, SVE, DAN, NOR, UKR), in that language's own words with the English meaning, with no English, key or placeholder left. No translation sheet: the run judges each string; doubtful ones are listed for the eBug review, not failed. Android reads them from the build (`mui-strings.ts`).
+- R-209 [Req: REQ-041] In each of those languages no string of the feature is truncated, clipped or overlapping, and every control keeps its size and place; the right-to-left languages (ARA, FAR, HEB) run from the right.
 
 ## Open questions
 - Q-1 Demo page description: the Design draws AI Reframe's text 「AI reframe your video for any aspect ratio, then fine-tune the crop in real time.」; PM A1 [衝突] proposes 「Make blurry, noisy or dark videos look sharp and clear.」. Assumption: the description must not be AI Reframe's; the PM proposal is the expected text until the Design changes. R-007 (TC-011).
@@ -381,6 +390,58 @@ One line per requirement × variant (pass 10).
 | R-204 | 1 s, card completion | TC-265 |
 | R-204 | 3.2 s, completion banner | TC-266 |
 | R-204 | 30 s, whichever comes first | TC-267 |
+| R-208 | CHT (Traditional Chinese) | TC-321 |
+| R-209 | CHT (Traditional Chinese) | TC-322 |
+| R-208 | CHS (Simplified Chinese) | TC-321 |
+| R-209 | CHS (Simplified Chinese) | TC-323 |
+| R-208 | JPN (Japanese) | TC-321 |
+| R-209 | JPN (Japanese) | TC-324 |
+| R-208 | ESP (Spanish) | TC-321 |
+| R-209 | ESP (Spanish) | TC-325 |
+| R-208 | KOR (Korean) | TC-321 |
+| R-209 | KOR (Korean) | TC-326 |
+| R-208 | DEU (German) | TC-321 |
+| R-209 | DEU (German) | TC-327 |
+| R-208 | FRA (French) | TC-321 |
+| R-209 | FRA (French) | TC-328 |
+| R-208 | ITA (Italian) | TC-321 |
+| R-209 | ITA (Italian) | TC-329 |
+| R-208 | RUS (Russian) | TC-321 |
+| R-209 | RUS (Russian) | TC-330 |
+| R-208 | PTB (Portuguese (Brazil)) | TC-321 |
+| R-209 | PTB (Portuguese (Brazil)) | TC-331 |
+| R-208 | NLD (Dutch) | TC-321 |
+| R-209 | NLD (Dutch) | TC-332 |
+| R-208 | IND (Indonesian) | TC-321 |
+| R-209 | IND (Indonesian) | TC-333 |
+| R-208 | THA (Thai) | TC-321 |
+| R-209 | THA (Thai) | TC-334 |
+| R-208 | MAY (Malay) | TC-321 |
+| R-209 | MAY (Malay) | TC-335 |
+| R-208 | HIN (Hindi) | TC-321 |
+| R-209 | HIN (Hindi) | TC-336 |
+| R-208 | ESM (Spanish (Mexico)) | TC-321 |
+| R-209 | ESM (Spanish (Mexico)) | TC-337 |
+| R-208 | ARA (Arabic) | TC-321 |
+| R-209 | ARA (Arabic) | TC-338 |
+| R-208 | VIT (Vietnamese) | TC-321 |
+| R-209 | VIT (Vietnamese) | TC-339 |
+| R-208 | PLK (Polish) | TC-321 |
+| R-209 | PLK (Polish) | TC-340 |
+| R-208 | TRK (Turkish) | TC-321 |
+| R-209 | TRK (Turkish) | TC-341 |
+| R-208 | FAR (Persian) | TC-321 |
+| R-209 | FAR (Persian) | TC-342 |
+| R-208 | HEB (Hebrew) | TC-321 |
+| R-209 | HEB (Hebrew) | TC-343 |
+| R-208 | SVE (Swedish) | TC-321 |
+| R-209 | SVE (Swedish) | TC-344 |
+| R-208 | DAN (Danish) | TC-321 |
+| R-209 | DAN (Danish) | TC-345 |
+| R-208 | NOR (Norwegian Bokmål) | TC-321 |
+| R-209 | NOR (Norwegian Bokmål) | TC-346 |
+| R-208 | UKR (Ukrainian) | TC-321 |
+| R-209 | UKR (Ukrainian) | TC-347 |
 
 ### Combinations
 Every combination of the four settings the panel lets the user choose together (analysis pass 10, user 2026-11-10,
@@ -491,3 +552,4 @@ None: no Testing Request build is named for this feature yet.
 | REQ-015 (table, Android: the 4 groups R1 missed — 1 fps default, purchase return, 2 Preview lags) | R-043 (1 fps, TC-052), R-077 (free route, TC-097), R-031, R-193 (recording; TC-042, TC-214, TC-216, TC-215), Q-27 |
 | REQ-016 (table: scenario-level coverage of the spec agent's cases at 8b411402) | R-030, R-031, R-032, R-033, R-043, R-044, R-052, R-053, R-054, R-055, R-060, R-063, R-065, R-077, R-086, R-088, R-114, R-115, R-121, R-123, R-126, R-204 (rows only, no requirement changed) |
 | REQ-017 (table: Android has no Pro+, the paid account is Pro) | R-070, R-071, R-076 (121 preconditions, TC-090, TC-091, TC-096) |
+| REQ-041 (table: MUI test in the 26 languages of the product list, no translation sheet) | R-208, R-209 (TC-321 – TC-347) |

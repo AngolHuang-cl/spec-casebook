@@ -91,6 +91,17 @@ table{border-collapse:collapse;width:100%;font-size:14px}
 th,td{text-align:left;border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}
 th{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .tbl{overflow-x:auto}
+#tdtbl td{overflow-wrap:break-word}
+#tdtbl td:first-child,#tdtbl td:nth-child(2){white-space:nowrap}
+#tdtbl td:last-child{min-width:10em}
+#tdtbl td:nth-child(4),#tdtbl td:nth-child(5),#tdtbl td:nth-child(7){min-width:8em}
+@media (max-width:640px){
+  #tdtbl thead{display:none}
+  #tdtbl tr{display:block;border-top:1px solid var(--line);padding:8px 0}
+  #tdtbl td{display:grid;grid-template-columns:7.5em 1fr;gap:8px;border:0;padding:2px 0;white-space:normal}
+  #tdtbl td::before{content:attr(data-l);font-weight:600;color:var(--muted)}
+  #tdtbl td:last-child,#tdtbl td:nth-child(4),#tdtbl td:nth-child(5),#tdtbl td:nth-child(7){min-width:0}
+}
 .mono{font-family:var(--mono);font-size:13px}
 #out{font:12px/1.45 var(--mono);min-height:180px;white-space:pre}
 .lb{position:fixed;inset:0;background:rgba(5,10,14,.86);display:grid;grid-template-rows:1fr auto;gap:10px;padding:calc(16px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));z-index:9}
@@ -159,6 +170,12 @@ table{max-width:100%}
 
   <main id="cards" style="display:grid;gap:16px"></main>
 
+  <section class="panel" aria-labelledby="td" id="tdpanel" hidden>
+    <h2 id="td">Translation doubts: your call</h2>
+    <p class="cal" style="margin:0">MUI strings with no translation sheet to check against: the run judged these translations odd. Choose File (becomes an MUI translation bug) or Fine as is (not raised again).</p>
+    <div class="tbl"><table id="tdtbl"><thead><tr><th>ID</th><th>Language</th><th>Screen</th><th>English</th><th>App shows</th><th>Why it seems off</th><th>Better wording</th><th>Decision</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
   <section class="panel" aria-labelledby="nf">
     <h2 id="nf">Held, already filed, cited and not raised</h2>
     <p class="cal" style="margin:0">Team rule (2026-10-21): no comments, no reopen, no reject on existing tickets.</p>
@@ -195,9 +212,9 @@ const proposal = () => Object.fromEntries(DATA.entries.map(e => [e.iss, {action:
 const DEF = (DATA.defaults && DATA.defaults.found) ? DATA.defaults : null;
 const FILED = DATA.filed || null;
 const seed = FILED ? FILED.meta : DEF;
-let st = {d: proposal(), acct: seed ? seed.creator : "", tag: seed ? (seed.tag || "AIAgent") : "AIAgent", tr: seed ? seed.tr : "", method: seed ? seed.method : "API"};
+let st = {td: {}, d: proposal(), acct: seed ? seed.creator : "", tag: seed ? (seed.tag || "AIAgent") : "AIAgent", tr: seed ? seed.tr : "", method: seed ? seed.method : "API"};
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null");
-  if (s && s.d) st = {...st, ...Object.fromEntries(Object.entries(s).filter(([k, v]) => k !== "d" && v !== "" && v != null)), d:{...st.d, ...s.d}}; } catch(e) {}
+  if (s && s.d) st = {...st, ...Object.fromEntries(Object.entries(s).filter(([k, v]) => k !== "d" && k !== "td" && v !== "" && v != null)), d:{...st.d, ...s.d}, td:{...(s.td || {})}}; } catch(e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch(e) {} };
 
 function tally(){
@@ -266,6 +283,11 @@ function decisions(){
     const short = e.short.replace("[AIAgent]", `[${tag || "AIAgent"}]`).replace(/\]\[(Functional)\]/, "]");
     L.push(`| F-${e.n} | ${e.iss} | ${s.sev} | ${s.belong} | ${s.type} | ${s.action}${e.dup && s.action === "hold" ? " (dup " + e.dup.code + ")" : ""} | ${cell(short)} | ${cell(s.note)} |`);
   });
+  const TD = DATA.doubts || [];
+  if (TD.length) {
+    L.push("", "TRANSLATION DOUBTS", "| ID | Language | English | App shows | Decision | Note |", "|---|---|---|---|---|---|");
+    TD.forEach(d => { const s = st.td[d.id] || {}; L.push(`| ${d.id} | ${cell(d.lang)} | ${cell(d.en)} | ${cell(d.app)} | ${s.dec || "(needed)"} | ${cell(s.note)} |`); });
+  }
   return L.join("\n");
 }
 function upd(){ tally(); document.getElementById("out").value = decisions(); save(); }
@@ -313,6 +335,24 @@ document.getElementById("copy").addEventListener("click", () => {
 
 const ftb = document.querySelector("#fxtbl tbody");
 DATA.fixes.forEach(([c, w]) => ftb.insertAdjacentHTML("beforeend", `<tr><td class="mono">${esc(c)}</td><td>${esc(w)}</td></tr>`));
+(function(){
+  const TD = DATA.doubts || []; if (!TD.length) return;
+  document.getElementById("tdpanel").hidden = false;
+  const tb = document.querySelector("#tdtbl tbody");
+  TD.forEach(d => {
+    const s = st.td[d.id] = st.td[d.id] || {dec: "", note: ""};
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td class="mono" data-l="ID">${esc(d.id)}</td><td data-l="Language">${esc(d.lang)}</td><td data-l="Screen">${esc(d.screen)}</td><td data-l="English">${esc(d.en)}</td><td data-l="App shows">${esc(d.app)}</td><td data-l="Why it seems off">${esc(d.why)}</td><td data-l="Better wording">${esc(d.better)}</td>` +
+      `<td data-l="Decision"><div><select aria-label="Decision for ${esc(d.id)}"><option value="">Choose</option><option>File</option><option>Fine as is</option></select>` +
+      `<input type="text" placeholder="Note" aria-label="Note for ${esc(d.id)}" style="margin-top:4px;width:100%"></div></td>`;
+    const [sel, inp] = [tr.querySelector("select"), tr.querySelector("input")];
+    sel.value = s.dec; inp.value = s.note;
+    sel.addEventListener("change", () => { s.dec = sel.value; upd(); });
+    inp.addEventListener("input", () => { s.note = inp.value; upd(); });
+    tb.appendChild(tr);
+  });
+  upd();
+})();
 const btb = document.querySelector("#blk tbody");
 DATA.blocked.forEach(([k, why]) => btb.insertAdjacentHTML("beforeend", `<tr><td class="mono">${esc(k)}</td><td>${esc(why)}</td></tr>`));
 

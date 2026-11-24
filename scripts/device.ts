@@ -422,7 +422,9 @@ switch (cmd) {
       await mobile('launchApp', { bundleId: BUNDLE });
       console.log('launched (device language)'); break;
     }
-    const lang = rest[li + 1]; const locale = ({ en: 'en_US', 'zh-Hant': 'zh_TW', ja: 'ja_JP' } as Record<string, string>)[lang] ?? lang.replace('-', '_');
+    // a full code (zh-Hant-TW, pt-BR, es-MX: the MUI list in product.json) gives its language and region (user, 2026-11-24)
+    const lang = rest[li + 1]; const parts = lang.split('-'); const region = parts.slice(1).find(p => /^[A-Z]{2}$/.test(p));
+    const locale = ({ en: 'en_US', 'zh-Hant': 'zh_TW', 'zh-Hans': 'zh_CN', ja: 'ja_JP' } as Record<string, string>)[lang] ?? (region ? `${parts[0]}_${region}` : lang.replace('-', '_'));
     await mobile('terminateApp', { bundleId: BUNDLE }).catch(() => {});
     await mobile('launchApp', { bundleId: BUNDLE, arguments: ['-AppleLanguages', `(${lang})`, '-AppleLocale', locale] });
     console.log(`launched in ${lang} (${locale})`); break;

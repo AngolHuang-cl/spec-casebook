@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import { readRecords } from './csv.ts';
 import { LIBRARY, PLATFORMS, draftsDir, listFeatures, readManifest, tableDir } from './library.ts';
 import { parseQuestions, readAnswers } from './questions.ts';
+import { tableTr, trInfo } from './tr-info.ts';
 
 const NAMES: Record<string, string> = { pdr: 'PowerDirector', phd: 'PhotoDirector' };
 const names = (dir: string) => existsSync(dir) ? readdirSync(dir).sort() : [];
@@ -74,7 +75,7 @@ export function listBoards() {
     const platforms = PLATFORMS.filter(p => existsSync(tableDir(id, p))).flatMap(platform => { try {
       const m = readManifest(id, platform), drafts = openDrafts(id, platform), plan = newestPlan(id, platform);
       title ||= m?.title ?? json(join(draftsDir(id, platform), drafts.at(-1) ?? '', 'spec.json'))?.title ?? '';
-      return [{ platform, version: m?.version ?? null, cases: m?.cases ?? null, approved_at: m?.approved_at ?? null, drafts, plan: !!(plan.md && plan.draft), runs: runCount(id, platform), last: lastRun(id, platform), waiting: waiting(id, platform, m ? undefined : drafts.at(-1)) }];
+      return [{ platform, version: m?.version ?? null, cases: m?.cases ?? null, approved_at: m?.approved_at ?? null, drafts, plan: !!(plan.md && plan.draft), runs: runCount(id, platform), last: lastRun(id, platform), waiting: waiting(id, platform, m ? undefined : drafts.at(-1)), tr: trInfo(tableTr(id, platform)) }];
     } catch { return []; } }).filter(p => p.version || p.drafts.length);
     if (platforms.length) products.get(product)!.features.push({ id, title: title || id.split('/')[1], platforms });
   }

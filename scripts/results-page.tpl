@@ -138,7 +138,7 @@ const T = {
     compact: 'Compact list', attention: 'Needs attention', noBugF: 'Fail with no eBug', gone: n => `Screenshots for ${n} cases stay on the computer that ran the test, so they are not shown here.`, notHere: 'not on this computer',
     shown: (n, m) => `${n} of ${m}`, pre: 'Precondition', action: 'Action', expected: 'Expected result', actual: 'What happened', why: 'Blocked because',
     files: 'Other evidence', none: 'No case matches these filters.', noRuns: 'No run has recorded results yet (runs/*/results.csv).',
-    review: 'cases', plan: 'progress', spec: 'coverage', report: 'report.md in the run folder', at: 'recorded', prio: 'priority', needs: 'needs', shot: 'screenshots',
+    review: 'cases', plan: 'progress', runPlan: 'Progress of this run', spec: 'coverage', report: 'report.md in the run folder', at: 'recorded', prio: 'priority', needs: 'needs', shot: 'screenshots',
     ebug: 'eBug', kind: { filed: 'filed from this run', known: 'existing ticket', mentioned: 'named in the result' }, noBug: 'No eBug linked', held: 'PM question · not filed', withBug: 'With an eBug',
     kindT: { filed: 'Filed from this run: the eBug draft names this case as a report step.', known: 'An existing ticket this failure repeats (the batch\'s dedupe list), so no new eBug was filed.', mentioned: 'An eBug code named in the recorded result.' },
     noBugT: 'No filed batch names this case and its result names no eBug code.' },
@@ -147,7 +147,7 @@ const T = {
     compact: '精簡清單', attention: '需要處理', noBugF: '失敗但沒有 eBug', gone: n => `${n} 個案例的截圖留在執行測試的電腦上，這裡不會顯示。`, notHere: '不在這台電腦上',
     shown: (n, m) => `${n} / ${m}`, pre: '前置條件', action: '操作', expected: '預期結果', actual: '實際情況', why: '受阻原因',
     files: '其他證據', none: '沒有符合篩選條件的案例。', noRuns: '還沒有任何執行記錄結果（runs/*/results.csv）。',
-    review: '案例', plan: '進度', spec: '覆蓋率', report: '執行資料夾內的 report.md', at: '記錄於', prio: '優先度', needs: '需要', shot: '張截圖',
+    review: '案例', plan: '進度', runPlan: '這次執行的進度', spec: '覆蓋率', report: '執行資料夾內的 report.md', at: '記錄於', prio: '優先度', needs: '需要', shot: '張截圖',
     ebug: 'eBug', kind: { filed: '本次執行開立', known: '既有單', mentioned: '結果中提及' }, noBug: '未連結 eBug', held: 'PM 問題 · 未開單', withBug: '有 eBug 的',
     kindT: { filed: '本次執行開立：eBug 草稿把此案例列為報告步驟。', known: '此失敗重複的既有單（該批的去重清單），因此沒有另開新單。', mentioned: '記錄的結果中提到的 eBug 編號。' },
     noBugT: '沒有任何已開立的批次列出此案例，結果中也沒有 eBug 編號。' },
@@ -182,6 +182,8 @@ const flip = new Set(), isOpen = id => compact ? flip.has(id) : !flip.has(id);
 // another run's cases are fetched when it is opened, and kept (a static results.html has them all)
 const loaded = {};
 async function ensure(r) { if (!r || r.cases) return; if (!loaded[r.id]) { const x = await fetch(`run.json?id=${encodeURIComponent(r.id)}`, { cache: 'no-store' }); loaded[r.id] = await x.json(); } r.cases = loaded[r.id]; }
+// Progress shows a run that has a phase (its run-state names one: P1, R2, MUI); design passes and rechecks have none
+const planOf = r => PAGES.plan && r.phase ? `${PAGES.plan}?run=${encodeURIComponent(r.phase)}` : '';
 const runName = r => r.phase || r.id.replace(/^\d{4}-\d{2}-\d{2}-/, '').toUpperCase();
 
 function header() {
@@ -193,7 +195,8 @@ function header() {
   $('runs').querySelectorAll('button').forEach(b => b.onclick = async () => { const r = D.runs[+b.dataset.i]; await ensure(r); run = r; seg = disp = ''; flip.clear(); render(); });
   if (!run) { $('meta').textContent = ''; $('bar').innerHTML = ''; return; }
   $('meta').innerHTML = [`<span>${t('run')} <b>${esc(run.id)}</b></span>`, run.build && `<span>${t('build')} <b>${esc(run.build)}</b></span>`,
-    `<span>${t('recorded')} <b>${esc(cbSpan(run.first, run.last, L))}</b></span>`, run.report && `<span>${t('report')}</span>`].filter(Boolean).join('');
+    `<span>${t('recorded')} <b>${esc(cbSpan(run.first, run.last, L))}</b></span>`, run.report && `<span>${t('report')}</span>`,
+    planOf(run) && `<span><a href="${esc(planOf(run))}">${t('runPlan')} →</a></span>`].filter(Boolean).join('');
   const gone = run.cases.filter(c => !c.shots.length && c.files.some(f => IMG.test(f))).length;
   $('note').hidden = !gone; $('note').textContent = gone ? t('gone')(gone) : '';
   const n = run.cases.length || 1, c = tally(run.cases);
@@ -218,7 +221,7 @@ const match = c => (res === 'all' || (res === 'attention' ? ATTN.includes(c.resu
   && (!q || [c.id, c.section, c.action, c.expected, ...Object.values(c.zh ?? {}), c.actual, c.why, c.disp, ...c.ebugs.flatMap(b => [b.code, b.title])].join(' ').toLowerCase().includes(q));
 function cardBody(c) {
   const links = [PAGES.review && `<a href="${esc(PAGES.review)}#${encodeURIComponent(c.id)}">${t('review')} →</a>`,
-    PAGES.plan && `<a href="${esc(PAGES.plan)}#case=${encodeURIComponent(c.id)}">${t('plan')} →</a>`,
+    PAGES.plan && `<a href="${esc(planOf(run) || PAGES.plan)}#case=${encodeURIComponent(c.id)}">${t('plan')} →</a>`,
     PAGES.coverage && `<a href="${esc(PAGES.coverage)}#case=${encodeURIComponent(c.id)}">${t('spec')} →</a>`].filter(Boolean).join('');
   return `${ebugBand(c)}
   <div class="grid">
@@ -292,7 +295,9 @@ $('list').addEventListener('click', e => { const b = e.target.closest('.shots bu
 async function showCase() {
   const m = location.hash.match(/^#case=(.+)$/); if (!m) return;
   focus = decodeURIComponent(m[1]);
-  const r = D.runs.find(r => r.ids.includes(focus)); if (!r) return;
+  // the run the link names (?run=), when it recorded the case; else the newest run that did
+  const want = D.runs.find(r => r.id === new URLSearchParams(location.search).get('run'));
+  const r = want?.ids.includes(focus) ? want : D.runs.find(r => r.ids.includes(focus)); if (!r) return;
   await ensure(r); if (compact) flip.add(focus); else flip.delete(focus);
   run = r; res = 'all'; seg = disp = q = ''; only = onlyBug = noBug = false; $('q').value = ''; $('only').checked = $('onlybug').checked = $('nobug').checked = false;
   render(); document.getElementById(`c-${focus}`)?.scrollIntoView({ block: 'start' });

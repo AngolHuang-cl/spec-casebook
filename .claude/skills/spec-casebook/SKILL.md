@@ -115,10 +115,11 @@ that showed it). No comparison runs during an analysis or before a proposal.
   missed or contradicted); `check.ts` warns when the two tables' spec sets differ this way.
 - Spec files: every file the user supplied for this feature (PDF, images, exported Figma pages, text).
   Ask for missing ones only if the user said there are more.
-- **MUI test (user, 2026-11-24).** When the feature has no `library/<product>/<feature>/mui.json`, ask with the
-  questions above which languages are implemented, whether there is a translation sheet (ask for it), and take each
-  language's eBug tag from the sheet, else ask before the run. The table then ends with an `MUI` section (Translation
-  and Truncation rows per screen × language), run one language at a time, and MUI bugs carry `[MUI]` or language
+- **MUI test (user, 2026-11-24).** When the feature has no `library/<product>/<feature>/mui.json`, it takes the
+  product's language list (`product.json` › `mui`; PowerDirector: 26 languages besides ENU, no translation sheet).
+  With no product list, ask with the questions above which languages are implemented, whether there is a translation
+  sheet (ask for it), and take each language's eBug tag from the sheet, else ask before the run. The table then ends with an `MUI` section, its own run phase
+  (Android: translations read from the APK, then a truncation walk per language; iOS: one walk per language), and MUI bugs carry `[MUI]` or language
   tags (`references/mui.md`). "English only" records an empty list and is not asked again.
 
 ### 1. Fingerprint the spec

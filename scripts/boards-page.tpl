@@ -12,7 +12,14 @@ body { padding-bottom: 40px }
 h1 { font: 700 1.6rem/1.2 var(--display); margin: 0; letter-spacing: -0.01em }
 .head p { margin: 2px 0 0; color: var(--muted) }
 #q { font: inherit; color: inherit; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 7px 10px; width: min(280px, 100%) }
-#q:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px }
+.find { display: flex; gap: 8px; align-items: center; max-width: 100% }
+.find #q { flex: 1 1 180px; min-width: 0; width: auto; max-width: 280px }
+.tr { margin-top: 6px; font-size: 0.82rem; color: var(--muted); overflow-wrap: anywhere }
+.tr a { color: inherit; text-decoration: none }
+.tr a:hover { color: var(--accent) }
+.tr b { font-weight: 600 }
+#sort { font: inherit; color: inherit; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 7px 8px }
+#q:focus-visible, #sort:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px }
 h2 { font: 700 1.05rem var(--display); margin: 26px 0 8px }
 .rows { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden }
 .row { display: grid; grid-template-columns: minmax(180px, 1fr) minmax(0, 1.35fr) minmax(0, 1.35fr); gap: 0 20px; padding: 12px 16px; border-top: 1px solid var(--line) }
@@ -46,7 +53,7 @@ footer { color: var(--muted); font-size: 0.86rem; margin-top: 18px }
 </head>
 <body>
 <nav class="cb-tabs" aria-label="Casebook"><b>Casebook</b><span class="cb-note">__NOTE__</span><a class="cb-set" href="/settings/" data-en="Settings" data-zh="設定">Settings</a><span class="cb-lang" role="group" aria-label="Language"><button type="button" data-l="en">English</button><button type="button" data-l="zh">中文</button></span></nav>
-<div class="head"><div><h1 id="t"></h1><p id="s"></p></div><input id="q" type="search" autocomplete="off"></div>
+<div class="head"><div><h1 id="t"></h1><p id="s"></p></div><div class="find"><select id="sort"></select><input id="q" type="search" autocomplete="off"></div></div>
 <div id="recent" hidden></div>
 <main id="list"></main>
 <p id="none" hidden></p>
@@ -75,6 +82,11 @@ function recent(s) {
   $('recent').hidden = !list.length;
   $('recent').innerHTML = list.length ? `<span>${tx('Recent', '最近')}</span>${list.map(x => `<a href="${cbEsc(`${x.root}/${x.path}/`)}">${cbEsc(names.get(x.m[1]))} · ${platName(x.m[2])}${x.m[3] ? ` · ${tx('draft', '草稿')}` : ''} <span>${tx(...(label[x.path] ?? [x.path, x.path]))}</span></a>`).join('')}` : '';
 }
+// the TR the table was last tested on, with its line as eCL shows it (looked up by the pages server, cached locally)
+const TR_URL = c => `https://ecl.cyberlink.com/IF3/tr/BPM/Start/OldDataView/ViewPage?TRCode=${encodeURIComponent(c)}`;
+// short form: the version and edition, and the round, without the language list (the full line is the hover text)
+const trBrief = t => { const v = (t.short ?? '').match(/^(.*?)\s+for\s+.*?(?:\((R\d+)\))?\s*$/); return v ? [v[1], v[2]].filter(Boolean).join(' · ') : t.short ?? ''; };
+const trLine = t => t ? `<div class="tr"><a href="${TR_URL(t.code)}" target="_blank" rel="noopener" title="${cbEsc([t.short || t.code, t.build, t.status].filter(Boolean).join('\n'))}"><b>${cbEsc(t.code)}</b>${trBrief(t) ? ` · ${cbEsc(trBrief(t))}` : ''}</a></div>` : '';
 function cell(f, p, s) {
   if (!p) return `<div class="plat none">${tx('No table', '尚無表格')}</div>`;
   const root = `/${f.id}/${p.platform}`, older = p.drafts.length - 2;
@@ -82,8 +94,22 @@ function cell(f, p, s) {
   const pages = PAGES.filter(([id]) => (id !== 'progress' || p.plan) && (id !== 'results' || p.runs)).map(([id, en, zh]) => `<a href="${root}/${id}/">${tx(en, zh)}</a>`);
   const drafts = p.drafts.slice(-2).reverse().map(d => `<a class="draft" href="${root}/draft/${d}/cases/">${tx('Draft', '草稿')} ${d}</a>`);
   return `<div class="plat"><a class="open" href="${root}/${lastTab(root, s)}/">${platName(p.platform)}</a><span class="meta">${meta}</span>
-    <div class="pages">${p.version ? pages.join('') : ''}${drafts.join('')}${older > 0 ? `<span>${tx(`+${older} older`, `另有 ${older} 份較舊`)}</span>` : ''}</div>${status(p, root)}</div>`;
+    <div class="pages">${p.version ? pages.join('') : ''}${drafts.join('')}${older > 0 ? `<span>${tx(`+${older} older`, `另有 ${older} 份較舊`)}</span>` : ''}</div>${trLine(p.tr)}${status(p, root)}</div>`;
 }
+// Sort (user, 2026-11-24), remembered per browser: recent activity (a run's last result, an approval or a draft,
+// whichever is newest on either platform), what waits on a person (open questions, answers and notes, then failed
+// cases of the last run), or name.
+const SORTS = [['recent', 'Recent activity', '最近活動'], ['attention', 'Needs attention', '待處理'], ['tr', 'Latest TR / version', '最新 TR / 版本'], ['name', 'Name', '名稱']];
+let SORT = 'recent'; try { SORT = SORTS.some(x => x[0] === localStorage.getItem('casebook-sort')) ? localStorage.getItem('casebook-sort') : 'recent'; } catch (e) {}
+const draftAt = d => (d.match(/^(\d{4})(\d\d)(\d\d)-(\d\d)(\d\d)(\d\d)/) ?? []).slice(1).reduce((a, x, i) => a + ['', '-', '-', 'T', ':', ':'][i] + x, '');
+const activity = f => f.platforms.flatMap(p => [p.last?.at, p.approved_at, ...p.drafts.map(draftAt)]).filter(Boolean).map(t => t.slice(0, 19)).sort().at(-1) ?? '';
+const attention = f => f.platforms.reduce((n, p) => n + (p.waiting?.questions ?? 0) + (p.waiting?.answers ?? 0) + (p.waiting?.notes ?? 0), 0);
+const fails = f => f.platforms.reduce((n, p) => n + (p.last?.fail ?? 0), 0);
+// Latest TR: newest version on either platform (16.9.0.2611231 > 16.9.0.2611091), then newest TR code; none last
+const verKey = t => (t?.version ?? '').split('.').map(n => n.padStart(8, '0')).join('.');
+const trKey = f => f.platforms.map(p => p.tr).filter(Boolean).map(t => `${verKey(t)}|${t.code}`).sort().at(-1) ?? '';
+const byName = (a, b) => a.title.localeCompare(b.title, 'en', { sensitivity: 'base' });
+const order = (a, b) => SORT === 'name' ? byName(a, b) : SORT === 'tr' ? trKey(b).localeCompare(trKey(a)) || byName(a, b) : SORT === 'attention' ? attention(b) - attention(a) || fails(b) - fails(a) || byName(a, b) : activity(b).localeCompare(activity(a)) || byName(a, b);
 function render() {
   document.documentElement.lang = L === 'zh' ? 'zh-Hant' : 'en';
   document.querySelectorAll('.cb-tabs [data-zh]').forEach(e => e.textContent = e.dataset[L]);
@@ -92,10 +118,12 @@ function render() {
   $('t').textContent = tx('Choose a feature', '選擇功能');
   $('s').textContent = tx(`${features.length} features · ${tables} tables`, `${features.length} 個功能 · ${tables} 份表格`);
   $('q').placeholder = tx('Filter features', '篩選功能');
+  $('sort').setAttribute('aria-label', tx('Sort features', '功能排序'));
+  $('sort').innerHTML = SORTS.map(([id, en, zh]) => `<option value="${id}"${id === SORT ? ' selected' : ''}>${tx('Sort', '排序')}: ${tx(en, zh)}</option>`).join('');
   const s = seen(); recent(s);
   const q = $('q').value.trim().toLowerCase();
   const hit = f => !q || `${f.title} ${f.id}`.toLowerCase().includes(q);
-  const shown = D.products.map(p => ({ ...p, features: p.features.filter(hit) })).filter(p => p.features.length);
+  const shown = D.products.map(p => ({ ...p, features: p.features.filter(hit).sort(order) })).filter(p => p.features.length);
   $('list').innerHTML = shown.map(p => `<h2>${cbEsc(p.name)}</h2><div class="rows">${p.features.map(f => `<div class="row"><div class="name"><strong>${cbEsc(f.title)}</strong><span>${cbEsc(f.id)}</span></div>
     ${['ios', 'android'].map(x => cell(f, f.platforms.find(y => y.platform === x), s)).join('')}</div>`).join('')}</div>`).join('');
   $('none').hidden = !!shown.length; $('none').textContent = tx('No feature matches.', '沒有符合的功能。');
@@ -103,12 +131,15 @@ function render() {
     `頁面開啟時才啟動，閒置 ${D.idleMinutes} 分鐘後停止。目前執行中：${D.live}。時間皆為台北時間。`);
 }
 $('q').oninput = render;
+$('sort').onchange = () => { SORT = $('sort').value; try { localStorage.setItem('casebook-sort', SORT); } catch (e) {} render(); };
 document.querySelectorAll('.cb-lang button').forEach(b => b.onclick = () => { L = b.dataset.l; try { localStorage.setItem('casebook-lang', L); } catch (e) {} render(); });
 // back on this page: the list may have moved on
 addEventListener('pageshow', e => { if (e.persisted) refresh(); });
 addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
-async function refresh() { try { const r = await fetch('/boards.json', { cache: 'no-store' }); if (r.ok) { D = await r.json(); render(); } } catch (e) {} }
-render();
+// TR lines still being looked up: fetch the list once more when they are in
+let trWait = 0; const trAgain = () => { if (D.trPending && trWait++ < 5) setTimeout(refresh, 3000); };
+async function refresh() { try { const r = await fetch('/boards.json', { cache: 'no-store' }); if (r.ok) { D = await r.json(); render(); trAgain(); } } catch (e) {} }
+render(); trAgain();
 </script>
 </body>
 </html>

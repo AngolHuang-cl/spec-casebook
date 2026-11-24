@@ -13,6 +13,9 @@
 //     earlier filed batch (ebug-defaults.ts --before <batch>), and filed_bugcodes.json once the batch is filed.
 //  4. Written next to the drafts as `<same name with _eBug_review_>.html`.
 //
+// A `## Translation doubts` table in the drafts (MUI, no translation sheet) becomes a panel where each doubt is Filed
+// or judged Fine as is; the choices go into Copy decisions (spec-casebook references/mui.md §4).
+//
 // Optional `review.json` in the batch folder holds what the drafts do not say (all keys optional):
 //   { "run": false (no run tally / Blocked rows), "tr": "TR261118-0074", "build": "2611181", "trNote": "…", "lede": "extra sentence(s)",
 //     "why": { "ISS-…": "one line on the card" }, "related": { "ISS-…": "context line" } }
@@ -85,6 +88,10 @@ for (const [re, label] of [[/Held/, 'HELD, NOT RE-VERIFIED'], [/Already filed/, 
   for (const r of rows(section(re))) if (r.length >= 2) fixes.push([`${r[0]} — ${r[1]}`, `${label} — ${r.slice(2).filter(Boolean).join(' · ')}`]);
 }
 const held = rows(section(/Held/)).map(r => r[0]);
+// MUI with no translation sheet (user, 2026-11-24): translations the run judged odd, for the reviewer to decide
+// | ID | Language | Screen | English | App shows | Why it seems off | Better wording |
+const doubts = rows(section(/Translation doubts/)).filter(r => r.length >= 6)
+  .map(([id, lang, screen, en, app, why, better]) => ({ id, lang, screen, en, app, why, better: better || '' }));
 
 // the run's results: tally and Blocked rows
 const runRel = (source.match(/`(library\/[^`]+\/runs\/[^`]+?)\/?`/) || [])[1];
@@ -154,7 +161,7 @@ const facts = [fact('Version', version), fact('Build No', build), device ? fact(
   fact('Account', 'needed', 'f-acct', true), fact('TRCode', `${tr}? confirm`, 'f-tr', true)].join('');
 const data = {
   meta: { key: `${product}-${feature}-${platform}-${batch}`, cases: nCases, round, trNote },
-  entries: entries.map(({ kind, ...e }) => e), blocked, counts, rechecks: [], fixes,
+  entries: entries.map(({ kind, ...e }) => e), blocked, counts, rechecks: [], fixes, doubts,
   defaults: DEF.found ? { ...DEF, from: `the ${feature} ${platform} batch ${DEF.from} (filed ${DEF.filed_on})`, tr, tr_prev: DEF.tr, version, build } : { found: false },
   filed,
 };

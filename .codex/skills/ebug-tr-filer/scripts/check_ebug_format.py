@@ -476,6 +476,9 @@ def main():
 
     if a.mui:
         cfg = json.load(open(a.mui, encoding="utf-8"))
+        if cfg.get("languages") == "product":   # the product's list (library/<product>/product.json › mui)
+            prod = json.load(open(os.path.join(os.path.dirname(os.path.abspath(a.mui)), "..", "product.json"), encoding="utf-8"))
+            cfg = {**prod.get("mui", {}), **{k: v for k, v in cfg.items() if k != "languages"}, "languages": prod.get("mui", {}).get("languages", [])}
         base = cfg.get("base", "en")
         MUI_LANGS[:] = [l["tag"] for l in cfg.get("languages", []) if l.get("tag") and l.get("code") != base]
     data = json.load(open(a.bodies, encoding="utf-8"))

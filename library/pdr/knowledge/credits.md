@@ -28,7 +28,7 @@ offer (16.9.0 build 2611091); its amount there is unchecked.
 
 ## KP-067 Credits can read 「--」 or 0 right after a launch
 - kind: quirk · platform: android · use: run · tags: credits, billing, logs, launch
-- source: Video Enhance Android run 2026-11-10-r1-full O-1; AIGC Watermark Android run 2026-11-17-r1-full O-1, O-20 (seen without a purchase: corrected) · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: Video Enhance Android run 2026-11-10-r1-full O-1; AIGC Watermark Android run 2026-11-17-r1-full O-1, O-20 (seen without a purchase: corrected) · verified: 16.9.0 build 2611193 (2026-11-23)
 
 At some launches (right after a Google Play purchase, but also after a plain relaunch or a `locale reset`),
 CreditSystemManager logs `getCreditRemain error, creditSystemUUID is null`, `refreshMemberToken error` and

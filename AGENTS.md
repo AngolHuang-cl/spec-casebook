@@ -174,7 +174,12 @@ lines; put the full rule in the skill or reference file that applies it and poin
   language). At step 0 ask which languages are implemented and for the translation sheet; eBug language tags come
   from the sheet, else ask the user before the run (`mui.json`). MUI bugs: `[AIAgent][MUI]` when every language lacks
   the translation, else `[AIAgent][JPN][DEU]…`, one bug for missing translations, one per language for truncation
-  (`spec-casebook/references/mui.md`, overlay rule 8).
+  (`spec-casebook/references/mui.md`, overlay rule 8). **PowerDirector** (user, 2026-11-24): every feature is tested
+  in the 26 languages of `library/pdr/product.json` › `mui` (tags ENU…UKR); there is no translation sheet, so the run
+  judges each translation and lists doubtful ones on the eBug review page for the user to file or accept. **MUI is its
+  own phase (user, 2026-11-24)**, run on request and never in a full run; Android translations are read from the
+  build's APK (`scripts/mui-strings.ts`, no phone), the phone walks each language for truncation (iOS: translation
+  too) and starts no new task.
 - **One step per line (user, 2026-11-03).** When a table cell holds two or more steps, each goes on its own
   numbered line, whether they were numbered (`1. … 2. …`) or plain sentences (`Open X, then tap Y`); `check.ts`
   warns (`formats.md`, writing rules).
@@ -267,7 +272,10 @@ lines; put the full rule in the skill or reference file that applies it and poin
   `--apply` to the user.
 - **Local run media: newest run only (user, 2026-11-20).** Keep screenshots, recordings and other media on this
   computer only for the newest run in each `library/<product>/<feature>/<platform>/runs/`. That is the newest full
-  run plus any recheck, verify or design runs made after it; an aborted run with no media doesn't count. When a run
+  run plus any recheck, verify or design runs made after it; an aborted run with no media doesn't count. **At least
+  one complete full run is always kept (user, 2026-11-24):** when the newest full run is partial (stopped, aborted
+  or still running while a row is still 「Not run」), the newest full run in which every row is Pass, Fail or
+  Blocked keeps its media too. MUI rows are not part of a full run (their own phase), so they never make one incomplete. When a run
   finishes, trim each older run in the same `runs/`: move images, video, audio, archives, app builds and any file
   over 1 MiB to the Trash under `run-media-prune-<YYYYMMDD>/pdr-spec-casebook/`, keeping the folder layout. Keep
   small text (notes, JSON/YAML, ledgers, page-source XML, HTML, logs up to 1 MiB) for reference. Never trim

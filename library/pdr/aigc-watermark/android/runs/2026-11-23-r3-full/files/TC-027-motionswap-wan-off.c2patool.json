@@ -1,0 +1,130 @@
+{
+  "active_manifest": "urn:c2pa:a9d5b470-86a9-4126-b426-622859e3d409",
+  "manifests": {
+    "urn:c2pa:a9d5b470-86a9-4126-b426-622859e3d409": {
+      "assertions": [
+        {
+          "created": true,
+          "data": {
+            "actions": [
+              {
+                "action": "c2pa.created",
+                "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"
+              }
+            ]
+          },
+          "label": "c2pa.actions.v2"
+        },
+        {
+          "created": true,
+          "data": {
+            "alg": "sha256",
+            "exclusions": [
+              {
+                "data": [
+                  {
+                    "offset": 8,
+                    "value": "b64'2P7D1hsOSDySl1goh37EgQ=='"
+                  }
+                ],
+                "xpath": "/uuid"
+              },
+              {
+                "xpath": "/ftyp"
+              },
+              {
+                "xpath": "/mfra"
+              },
+              {
+                "xpath": "/free"
+              },
+              {
+                "xpath": "/skip"
+              }
+            ],
+            "hash": "b64'qt16vBh+aiY6LvZwOC71A3+9/eSi4tNKoHQXQ6FAVRw='",
+            "name": "jumbf manifest"
+          },
+          "label": "c2pa.hash.bmff.v3"
+        }
+      ],
+      "claim_generator_info": [
+        {
+          "com.cyberlink.clc2pa": "1.0",
+          "name": "PowerDirector Mobile for Android",
+          "org.contentauth.c2pa_rs": "0.90.20",
+          "version": "16.9.0"
+        }
+      ],
+      "claim_version": 2,
+      "instance_id": "xmp:iid:9e02c616-4814-47e3-9e46-4c283edf7fea",
+      "label": "urn:c2pa:a9d5b470-86a9-4126-b426-622859e3d409",
+      "signature_info": {
+        "alg": "Es256",
+        "cert_serial_number": "105514268443139915713970581489622615074",
+        "common_name": "CyberLink",
+        "issuer": "CyberLink"
+      },
+      "title": "ImageToVideo - Nov 23 - 1 - 1795423927956.mp4"
+    }
+  },
+  "validation_results": {
+    "activeManifest": {
+      "failure": [
+        {
+          "code": "signingCredential.untrusted",
+          "explanation": "signing certificate untrusted",
+          "url": "self#jumbf=/c2pa/urn:c2pa:a9d5b470-86a9-4126-b426-622859e3d409/c2pa.signature"
+        }
+      ],
+      "informational": [
+        {
+          "code": "signingCredential.ocsp.skipped",
+          "explanation": "OCSP fetching skipped",
+          "url": "self#jumbf=/c2pa/urn:c2pa:a9d5b470-86a9-4126-b426-622859e3d409/c2pa.signature"
+        },
+        {
+          "code": "assertion.bmffHash.additionalExclusionsPresent",
+          "explanation": "extra BMFF hash exclusion(s) found",
+          "url": "self#jumbf=/c2pa/urn:c2pa:a9d5b470-86a9-4126-b426-622859e3d409/c2pa.assertions/c2pa.hash.bmff.v3"
+        }
+      ],
+      "success": [
+        {
+          "code": "claimSignature.insideValidity",
+          "explanation": "claim signature valid",
+          "url": "self#jumbf=/c2pa/urn:c2pa:a9d5b470-86a9-4126-b426-622859e3d409/c2pa.signature"
+        },
+        {
+          "code": "claimSignature.validated",
+          "explanation": "claim signature valid",
+          "url": "self#jumbf=/c2pa/urn:c2pa:a9d5b470-86a9-4126-b426-622859e3d409/c2pa.signature"
+        },
+        {
+          "code": "assertion.hashedURI.match",
+          "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/c2pa.actions.v2",
+          "url": "self#jumbf=/c2pa/urn:c2pa:a9d5b470-86a9-4126-b426-622859e3d409/c2pa.assertions/c2pa.actions.v2"
+        },
+        {
+          "code": "assertion.hashedURI.match",
+          "explanation": "hashed uri matched: self#jumbf=c2pa.assertions/c2pa.hash.bmff.v3",
+          "url": "self#jumbf=/c2pa/urn:c2pa:a9d5b470-86a9-4126-b426-622859e3d409/c2pa.assertions/c2pa.hash.bmff.v3"
+        },
+        {
+          "code": "assertion.bmffHash.match",
+          "explanation": "BMFF hash valid",
+          "url": "self#jumbf=/c2pa/urn:c2pa:a9d5b470-86a9-4126-b426-622859e3d409/c2pa.assertions/c2pa.hash.bmff.v3"
+        }
+      ]
+    },
+    "specVersion": "2.4.0"
+  },
+  "validation_state": "Valid",
+  "validation_status": [
+    {
+      "code": "signingCredential.untrusted",
+      "explanation": "signing certificate untrusted",
+      "url": "self#jumbf=/c2pa/urn:c2pa:a9d5b470-86a9-4126-b426-622859e3d409/c2pa.signature"
+    }
+  ]
+}

@@ -27,7 +27,7 @@ are server-configured: Free 10, Pro 100.
 
 ## KP-068 A Play test subscription ends within hours
 - kind: quirk · platform: android · use: run · tags: tier, billing, subscription
-- source: Video Enhance Android run 2026-11-10-r1-full O-30; Video Enhance Android run 2026-11-18-r2-full O-17, O-23, O-26, O-28; AIGC Watermark Android run 2026-11-23-r2-changed (Pro from 14:22, still Pro at 15:14) · verified: 16.9.0 build 2611193 (2026-11-23)
+- source: Video Enhance Android run 2026-11-10-r1-full O-30; Video Enhance Android run 2026-11-18-r2-full O-17, O-23, O-26, O-28; AIGC Watermark Android run 2026-11-23-r2-changed (Pro from 14:22, still Pro at 15:14); AIGC Watermark Android run 2026-11-23-r3-full O-7 (bought 14:22, lapsed 17:58; no bonus clawback in the credits by 18:12) · verified: 16.9.0 build 2611193 (2026-11-23)
 
 A Play test subscription renews every 30 minutes (the test sheet reads 「NT$1,190.00/30 min」 and 「This is a test
 subscription. It will recur according to this schedule.」) and ends after a few renewals: on the shared test account
@@ -36,14 +36,14 @@ monthly bonus (「Monthly Credit Bonus (for Pro Subscribers) −N」) and logcat
 Mine and the panel keep acting Pro until the next launch shows 「Free」 「Claim offer」. Run Pro rows early, check the
 tier at each segment start, and re-buy on the Play test sheet (「Test card, always approves」, no password); a sheet left
 open for hours fails (billing responseCode 6, 「Error / Server error」), so open a fresh one.
-AIGC Watermark's run saw the same: a subscription bought at 17:08 had ended by 22:37.
+AIGC Watermark's runs saw the same: 17:08 → ended by 22:37 (R1), 14:22 → 17:58 (R3, no clawback seen by 18:12).
 
-## KP-093 After `pm clear` on Stage the account cannot sign in again
+## KP-093 Sign-in after `pm clear` on Stage
 - kind: quirk · platform: android · use: run, ebug · tags: server, sign-in, credits, reset
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-27, O-29 · verified: 16.9.0 build 2611161 (2026-11-18)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-27, O-29; corrected by AIGC Watermark Android run 2026-11-23-r3-full O-11 · verified: 16.9.0 build 2611193 (2026-11-23)
 
-After `adb shell pm clear` on Stage (testserver.config kept), Google sign-in succeeds on Google's side but the app
-shows 「Account Not Found」 「Looks like you signed in with a different account…」 (only 「Switch Account」) and stays
-signed out; the log says `CreditSystemManager: bindMember … 403 {"detail":"invalid device identity"}` after the Play
-Integrity call, so the device identity, not the account, is rejected. Signed out, the pill reads 0 and a paid tool
-opens the paywall. Run every signed-in row before a `pm clear`; how to recover is open (RD).
+On 2611161 (R1), after `adb shell pm clear` on Stage (testserver.config kept), the app showed 「Account Not Found」
+(only 「Switch Account」) and stayed signed out; logcat: `bindMember … 403 {"detail":"invalid device identity"}`.
+On 2611193 (SM-A5360, R3) the same reset signed in: Google via Chrome (no password) › 「Account Sign In」 › 「Got it」,
+`bindMemberSuccess: 0`, +30 loyalty bonus (KP-072). Still run signed-in rows before a `pm clear` and check the log.
+

@@ -1,0 +1,10 @@
+# ISS-AWA-18 logcat excerpt (PowerDirector uid, 2026-11-23, SM-A5360, 16.9.0 build 2611193). Each 「Produce」 of a project with an AI Voice Changer voice fails with MEDIA_NOT_FOUND for the voice's cache m4a.
+2026-11-23 19:02:53.544 11475 26504 W ErrorHandler: MediaNotFoundException
+2026-11-23 19:02:53.544 11475 26504 W ErrorHandler: e0c: /storage/emulated/0/Android/data/com.cyberlink.powerdirector.DRA140225_01/files/VoiceChanger/Cache/AAC 6ch 44.1 KHz_1795431137709.m4a not found
+2026-11-23 19:02:53.544 11475 26504 E ErrorHandler: MEDIA_NOT_FOUND
+2026-11-23 19:13:39.352 11475 27650 W ErrorHandler: MediaNotFoundException
+2026-11-23 19:13:39.352 11475 27650 W ErrorHandler: e0c: /storage/emulated/0/Android/data/com.cyberlink.powerdirector.DRA140225_01/files/VoiceChanger/Cache/AAC 6ch 44.1 KHz_1795432196645.m4a not found
+2026-11-23 19:13:39.352 11475 27650 E ErrorHandler: MEDIA_NOT_FOUND
+2026-11-23 19:18:03.779 11475 28679 W ErrorHandler: MediaNotFoundException
+2026-11-23 19:18:03.779 11475 28679 W ErrorHandler: e0c: /storage/emulated/0/Android/data/com.cyberlink.powerdirector.DRA140225_01/files/VoiceChanger/Cache/speech_noise_1_1795432638882.m4a not found
+2026-11-23 19:18:03.779 11475 28679 E ErrorHandler: MEDIA_NOT_FOUND

@@ -1,0 +1,11 @@
+Dedupe — Video Enhance Android MUI batch (2026-11-24), PowerDirector Mobile for Android only (overlay rule 7)
+ecl_query.py dedupe upload/bodies.json: 198 candidates (「AI Video Enhance」 + 「Video Enhance」), 49 open on 16.9.0; full output dedupe-query.txt.
+
+Same-OS duplicates: none. No Android ticket covers any language's translation or truncation of these strings.
+
+Candidates read and set aside:
+- DRA262611P0073 (open): 「0fps」 badge, fps chips disabled for stock/Timeline sources. Not the RUS/THA localized chips (entries 2, 5).
+- DRA262611P0241 (open, 2611171): panel headings/title/buttons Bold, not Design Medium. A font weight, not a translated title's length; related to entries 1, 3, 4, 5, 6 (a Medium title is narrower, unchecked whether it would fit).
+- DRA262611P0093 (open): 「Up to 8 minutes」 bubble covers the Preview time and play. Another bubble and place than entry 9.
+- DRA262611P0088 (closed): 「Don't show again」 tick saved on ‹. Behaviour, not the label text (entry 7).
+- DRA252503-0298 (closed, 15.1.0): back from Recent task returns to the Demo page after the tick. Not the label text (entry 7).

@@ -53,7 +53,7 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
   phase: the next round's phase lists them in the stage segments where they belong. A round phase carries
   `"round": true` and `origin` (each row's earlier phase; `P9`-style ID for rows new in that draft); `plan-page.ts`
   then shows only that phase's own results, time and tokens. Phases that never ran get `merged_into` the round. A
-  **full run** lists every row by journey stage (templates after everything but the fresh-install cases), in
+  **full run** lists every row but the MUI phase's (`mui.md`, user 2026-11-24) by journey stage (templates after everything but the fresh-install cases), in
   segments of at most 40, with usage snapshots and the time and token summary at every segment.
 - **Needs, policy blocks and the gate (user, 2026-10-20).** `phases.json` tags cases with `needs` (`video`,
   `purchase`, `low-balance`, `new-account`, `chat-count`, `voice`, `system-setting`, `app-language`) and lists the
@@ -61,8 +61,8 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
   (test-data) at once; a reason that starts with a disposition (`"observability: no fault switch makes STT fail"`)
   records that disposition instead. Delete a line from `unavailable` when the user provides the fixture. Phone and
   app settings (`system-setting`, `app-language`, gallery contents such as `no-videos`) are never `unavailable`: the
-  run sets them itself (step 4, *Phone settings for fixtures*, user 2026-11-18). MUI rows (Section `MUI`) run last,
-  one language per segment, and need a tag for every language in `mui.json` first: ask the user before the run when
+  run sets them itself (step 4, *Phone settings for fixtures*, user 2026-11-18). MUI rows (Section `MUI`) are their own
+  phase, run on request and never in a full run, one language per segment, and need a tag for every language in `mui.json` first: ask the user before the run when
   one is missing (`mui.md` §1, §3, user 2026-11-24). When a phase has `video` cases, its **first** step after setup is the preflight: one template drama
   straight to a Seedance 2.0 preview (`waitfor` with the success and failure texts), then
   `run-log.ts <run dir> gate video pass|fail "<time, duration, log cause>"`. A fail records every video case Blocked

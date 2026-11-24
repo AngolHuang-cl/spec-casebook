@@ -54,15 +54,17 @@ states 「Retry」 and 「View Details」 were never reached.
 
 ## KP-079 Some tools save their result to the gallery by themselves
 - kind: fact · platform: android · use: analysis, run · tags: save, gallery, results
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-13, O-18; corrected by AIGC Watermark Android run 2026-11-23-r2-changed O-5 · verified: 16.9.0 build 2611193 (2026-11-23)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-13, O-18; corrected by AIGC Watermark Android run 2026-11-23-r2-changed O-5; corrected by AIGC Watermark Android run 2026-11-23-r3-full O-1, O-4 · verified: 16.9.0 build 2611193 (2026-11-23)
 
-Video Edit by Chat and AI Anime Video write the result to the gallery when the task finishes, with no 「Save」 tap.
-Talking Avatar (2611193) writes it only when the result is first opened (task list › View), still with no Save tap.
-Character Motion Swap, Cinematic Reel Creator and Text to Video do not. Whether this is intended is not in any spec.
+Video Edit by Chat, AI Anime Video and Talking Avatar write the result to the gallery when the task finishes, with no
+「Save」 tap and before the result is opened (2611193; R2 read Talking Avatar as writing at first open, R3 O-4 saw it
+write at finish with the result unopened). Text to Image's 「Add to Timeline」 also writes a gallery copy, which a later
+「Save」 reuses (KP-080). Character Motion Swap, Cinematic Reel Creator and Text to Video do not. Whether this is
+intended is not in any spec.
 
 ## KP-080 What a second Save does
 - kind: fact · platform: android · use: analysis, run · tags: save, gallery, files
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-6, O-10, O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-6, O-10, O-18 · verified: 16.9.0 build 2611193 (2026-11-23)
 
 A Text to Image result saved once is never written again: a second 「Save」 says 「Saved to Gallery」 and leaves the
 first file as it was. AI Art, Image to Video and Text to Video write a new file on every Save. In Image to Video file
@@ -93,12 +95,14 @@ Image to Video and Text to Video open on 「Kling 4.0」 each time (also after �
 Edit by Chat reset to 「Seedance 2.5」 after a source video was picked; on 2611193 a model picked before the source
 stays selected. Still read the model back right before Generate.
 
-## KP-084 Portrait Text to Video files are stored landscape
+## KP-084 Portrait video results can be stored landscape
 - kind: fact · platform: android · use: run · tags: text-to-video, files, orientation
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-18; AIGC Watermark Android run 2026-11-23-r3-full O-3, TC-012 · verified: 16.9.0 build 2611193 (2026-11-23)
 
-A portrait result is stored 1920 × 1080 with a -90° display matrix (Kling O3 1080p, Wan 2.7 720p); players show it
-upright. Read sizes and positions in the displayed orientation.
+A portrait Text to Video result is stored 1920 × 1080 with a -90° display matrix (Kling O3 1080p, Wan 2.7 720p).
+A portrait Image to Video result (Veo 3.1) saved with the switch Off is stored 1280 × 720 with a -90° matrix; saved On
+it keeps the provider's 720 × 1280 upright file. Players show all upright: read sizes and positions in the displayed
+orientation.
 
 ## KP-085 AI Storytelling results live in its own history
 - kind: fact · platform: android · use: analysis, run · tags: ai-storytelling, my-artwork, tier
@@ -109,7 +113,7 @@ exported, not saved. A Free account gets one free story; more need Pro.
 
 ## KP-090 AI Art's result page has no 「Full Editor」
 - kind: fact · platform: both · use: analysis, run, ebug · tags: ai-art, results, full-editor
-- source: user, 2026-11-18 (eBug review of AIGC Watermark Android R1, F-2) · verified: 16.9.0 build 2611161 (2026-11-17, TC-046)
+- source: user, 2026-11-18 (eBug review of AIGC Watermark Android R1, F-2) · verified: 16.9.0 build 2611193 (2026-11-23)
 
 AI Art results cannot be opened in the editor: the result page has no 「Full Editor」 (Android shows feedback, share,
 download and 「Turn the image into a video」). A spec rule for every image result that names 「Full Editor」 (AIGC
@@ -132,9 +136,27 @@ Find the file there by time.
 
 ## KP-100 Source video uploads take minutes
 - kind: quirk · platform: android · use: run · tags: upload, ai-task, timing
-- source: AIGC Watermark Android run 2026-11-23-r2-changed O-7, O-10 · verified: 16.9.0 build 2611193 (2026-11-23)
+- source: AIGC Watermark Android run 2026-11-23-r2-changed O-7, O-10; AIGC Watermark Android run 2026-11-23-r3-full O-6 · verified: 16.9.0 build 2611193 (2026-11-23)
 
 Tools that upload a source video (AI Anime Video, Character Motion Swap, Video Edit by Chat, Cinematic Reel) show
 「100% Uploading / Please keep the app open」 for 4–8 min with a 10–13 s clip and about 1.5 min with a 5 s clip on the
 SM-A5360's Wi-Fi. A Cinematic Reel task can then sit on 「Retry」 in the task list; Retry re-uploads and may fail with a
 refund (KP-007). Plan waits and keep the app in front.
+AI Storytelling's upload may log `SocketTimeoutException` while showing 「Media Uploading... 8%」 and then go on by
+itself: not an error unless the screen shows one.
+
+## KP-102 AI Art 「Try with example」 can fail with 「Session timeout」
+- kind: quirk · platform: android · use: run · tags: ai-art, failure, refund, server
+- source: AIGC Watermark Android run 2026-11-23-r3-full O-2 · verified: 16.9.0 build 2611193 (2026-11-23)
+
+On Stage, AI Art 「Baby Face」 with 「Try with example」 failed twice (the second the banner's retry) with a grey tile and
+「Session timeout. Try again to proceed.」, though upload, apply and polling returned 200. The 6 credits came back about
+20 s later (KP-007). Reuse an earlier AI Art result from My Artwork rather than retrying.
+
+## KP-103 My Artwork tiles can stay 「Processing...」 after the task finished
+- kind: quirk · platform: android · use: run, ebug · tags: my-artwork, task-list, results
+- source: AIGC Watermark Android run 2026-11-23-r3-full O-5 · verified: 16.9.0 build 2611193 (2026-11-23)
+
+Cinematic Reel Creator and Talking Avatar tiles in My Artwork kept reading 「Processing...」 well after their task lists
+showed 「View」. Each updated only after its tool's task list was opened once and My Artwork reopened.
+

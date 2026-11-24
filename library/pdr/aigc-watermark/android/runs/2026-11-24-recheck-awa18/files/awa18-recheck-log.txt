@@ -1,0 +1,24 @@
+2026-11-24 09:36:34.528 12446 13767 E Transcode: start
+2026-11-24 09:36:35.773 12446 13767 E Transcode: finish
+2026-11-24 09:36:36.532 12446 13767 E Upload to S3: start
+2026-11-24 09:36:41.838 12446 13767 E Upload to S3: finish
+2026-11-24 09:37:28.247 12446 12446 D UMAAgentHelper: page_View page=produce
+2026-11-24 09:37:28.247 12446 12446 D UMAAgentHelper: page_View page=produce
+2026-11-24 09:37:32.695 12446 12446 D UMAAgentHelper: page_View page=produceSuccess
+2026-11-24 09:39:49.895 12446 15506 E Transcode: start
+2026-11-24 09:39:50.980 12446 15506 E Transcode: finish
+2026-11-24 09:39:51.674 12446 15506 E Upload to S3: start
+2026-11-24 09:39:56.908 12446 15506 E Upload to S3: finish
+2026-11-24 09:40:34.967 12446 12446 D UMAAgentHelper: page_View page=produce
+2026-11-24 09:40:34.967 12446 12446 D UMAAgentHelper: page_View page=produce
+2026-11-24 09:40:39.399 12446 12446 D UMAAgentHelper: page_View page=produceSuccess
+2026-11-24 09:43:31.911 12446 12446 D UMAAgentHelper: page_View page=produce
+2026-11-24 09:43:31.911 12446 12446 D UMAAgentHelper: page_View page=produce
+2026-11-24 09:43:36.361 12446 12446 D UMAAgentHelper: page_View page=produceSuccess
+2026-11-24 09:44:23.433 12446 15505 E Transcode: start
+2026-11-24 09:44:24.631 12446 15505 E Transcode: finish
+2026-11-24 09:44:25.191 12446 16329 E Upload to S3: start
+2026-11-24 09:44:31.361 12446 15505 E Upload to S3: finish
+2026-11-24 09:47:38.034 17417 17417 D UMAAgentHelper: page_View page=produce
+2026-11-24 09:47:38.034 17417 17417 D UMAAgentHelper: page_View page=produce
+2026-11-24 09:47:42.589 17417 17417 D UMAAgentHelper: page_View page=produceSuccess

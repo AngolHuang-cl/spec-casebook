@@ -107,12 +107,12 @@ function buildData(link: (abs: string) => string) {
     if (!latest.size) continue;
     const list = [...latest.values()].sort((a, b) => a.seg.localeCompare(b.seg, 'en', { numeric: true }) || a.id.localeCompare(b.id, 'en', { numeric: true }));
     const times = list.map(c => c.t).filter(Boolean);
-    runs.push({ id: d, phase: state.match(/^# Run state — (P\d+)/m)?.[1] ?? '', build: state.match(/\b[A-Z][A-Za-z]+(?: iOS)? (\d+\.\d+\.\d+ \(\d+\))/)?.[1] ?? '',
+    runs.push({ id: d, phase: state.match(/^# Run state — ([A-Z][A-Za-z]*\d*)\b/m)?.[1] ?? '', build: state.match(/\b[A-Z][A-Za-z]+(?: iOS)? (\d+\.\d+\.\d+ \(\d+\))/)?.[1] ?? state.match(/\b(\d+\.\d+\.\d+ \(\d{7}\))/)?.[1] ?? '',
       report: existsSync(join(dir, 'report.md')), first: times.length ? new Date(Math.min(...times)).toISOString() : '', last: times.length ? new Date(Math.max(...times)).toISOString() : '',
       n: list.length, tally: Object.fromEntries([...new Set(list.map(c => c.result))].map(r => [r, list.filter(c => c.result === r).length])),
       ids: list.map(c => c.id), cases: list.map(({ t, ...c }) => c) });
   }
-  return { feature, title, platform, built_at: new Date().toISOString(), runs: runs.reverse() };
+  return { feature, title, platform, built_at: new Date().toISOString(), runs: runs.sort((a, b) => (b.first || b.id).localeCompare(a.first || a.id)) };
 }
 
 // served, the page carries the newest run's cases and fetches another run's when it is opened (run.json): all of them

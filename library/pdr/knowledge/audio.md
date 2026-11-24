@@ -38,3 +38,11 @@ them in Samsung's player; whether other common players fail is unchecked.
 
 Add Music › AI Music Generator › My AI Music › + opens 「Select Range」 (default 00:00–00:10, 「Import Full Song」
 unticked); ✓ puts that range on the audio track. Tick 「Import Full Song」 for the whole song.
+
+## KP-104 A Pro AI Voice Changer voice makes the project fail to produce
+- kind: quirk · platform: android · use: run, ebug · tags: voice-changer, produce, export
+- source: AIGC Watermark Android run 2026-11-23-r3-full O-9 (drafted ISS-AWA-18) · verified: 16.9.0 build 2611193 (2026-11-23)
+
+Any Professional AI voice (Jill, Kathleen, Lila, Margaret…) applied from a clip's 「Audio Tools」 shows 「Applied」, but
+「Produce」 fails: 「PowerDirector Mobile cannot produce the video. …/VoiceChanger/Cache/<clip>_<n>.m4a is missing.」 The
+cache m4a exists after Apply and is gone after the panel's ✓. Effect voices (「Radio 1」) produce normally.

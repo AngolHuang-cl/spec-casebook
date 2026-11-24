@@ -41,12 +41,12 @@ TC-315,Add Media,"1. 等級為 Pro+（Launcher › Pink › ☰ › [0] IAP › 
 4. 正在錄影（匯入可能不到一秒就結束）","1. 點那支影片的縮圖
 2. 一直看著畫面，直到面板開啟","面板開啟前，會出現匯入畫面，以百分比顯示進度（不檢查實際數字）
 匯入畫面上有「Cancel」
-接著面板開啟，Preview 顯示這支影片",P3,R-205,這是 spec agent 的使用者在 2026-10-12 認可的實機觀察畫面（spec agent TC-VE2-331，VE-1012-S001-B001 / B002，在 iOS 上看到）；Design 和 PM 都沒有畫匯入這一步 [Req: REQ-020]。只檢查有沒有「Cancel」，按下去會怎樣規格沒寫。如有不同，屬於 PM 問題：這條規則在 Design 和 PM 都沒有依據（依 AGENTS.md 2026-11-11 開給 PM）。,新增,REQ-020：本機匯入的進度與 Cancel（spec agent TC-VE2-331）
+接著面板開啟，Preview 顯示這支影片",P3,R-205,這是 spec agent 的使用者在 2026-10-12 認可的實機觀察畫面（spec agent TC-VE2-331，VE-1012-S001-B001 / B002，在 iOS 上看到）；Design 和 PM 都沒有畫匯入這一步 [Req: REQ-020]。只檢查有沒有「Cancel」，按下去會怎樣規格沒寫。如有不同，屬於 PM 問題：這條規則在 Design 和 PM 都沒有依據（依 AGENTS.md 2026-11-11 開給 PM）。,未變更,REQ-020：本機匯入的進度與 Cancel（spec agent TC-VE2-331）
 TC-316,Add Media,"1. 等級為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認）
 2. 已從本功能開啟 Add Media","1. 點排序按鈕
 2. 不選任何項目，直接關掉排序面板","步驟 1：排序面板有「Default」、「Date」、「Duration」和「Modified Date」
 步驟 1：兩種順序「Ascending」和「Descending」都有
-步驟 2：面板關閉，影片的排列順序不變",P3,R-206,這是 spec agent 的使用者在 2026-10-12 認可的實機觀察畫面（spec agent TC-VE2-332，VE-1012-S001-B003，在 iOS 上看到）；Design 畫的 Add Media 沒有排序按鈕 [Req: REQ-020]。如有不同，屬於 PM 問題：這條規則在 Design 和 PM 都沒有依據（依 AGENTS.md 2026-11-11 開給 PM）。,新增,REQ-020：媒體排序選項（spec agent TC-VE2-332）
+步驟 2：面板關閉，影片的排列順序不變",P3,R-206,這是 spec agent 的使用者在 2026-10-12 認可的實機觀察畫面（spec agent TC-VE2-332，VE-1012-S001-B003，在 iOS 上看到）；Design 畫的 Add Media 沒有排序按鈕 [Req: REQ-020]。如有不同，屬於 PM 問題：這條規則在 Design 和 PM 都沒有依據（依 AGENTS.md 2026-11-11 開給 PM）。,未變更,REQ-020：媒體排序選項（spec agent TC-VE2-332）
 TC-255,Add Media,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 正在顯示 Demo 頁
 3. Recents 和至少一個命名的相簿或資料夾裡都有影片
@@ -147,7 +147,7 @@ TC-270,裁切與選取長度,"1. 等級為 Pro+（Launcher › Pink › ☰ › 
 步驟 9–10：選取整支影片：右側把手所在的畫面是影片最後一格（燒入時間 07:59.99）
 步驟 9–10：「Selected Length」照 App 的進位方式顯示 479.99 s（記錄下來）
 步驟 11–12：選取範圍是 00:00–08:00，不是整支影片：右側把手所在的畫面是 08:00.00，不是最後一格
-步驟 11–12：「Selected Length」顯示「08:00」",P2,"R-030, R-050, R-060",整數和小數長度下的 8:00 預設選取（spec agent TC-VE2-099 – TC-VE2-102、TC-VE2-251、TC-VE2-252）[Req: REQ-016]。價格是 Standard / Natural / 30fps 加上來源的預設解析度（1 s 的影片是 720p，每秒 1 點；其他是 1080p，每秒 2 點）。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。需要這六支測試素材。步驟 9–12：在 100 fps 下比 8:00 少／多百分之一秒（spec agent TC-VE2-435、TC-VE2-437）[Req: REQ-020]；不檢查價格（100 fps 的來源預設是「120fps」）。,修改,REQ-020：比 8:00 少／多百分之一秒（100 fps 的 07:59.99、08:00.01；spec agent TC-VE2-435、TC-VE2-437）
+步驟 11–12：「Selected Length」顯示「08:00」",P2,"R-030, R-050, R-060",整數和小數長度下的 8:00 預設選取（spec agent TC-VE2-099 – TC-VE2-102、TC-VE2-251、TC-VE2-252）[Req: REQ-016]。價格是 Standard / Natural / 30fps 加上來源的預設解析度（1 s 的影片是 720p，每秒 1 點；其他是 1080p，每秒 2 點）。iOS 的數字還在等 iOS ECL 費率（Q-26）：畫面上的數字若不同，要先對照 iOS ECL 表，確認後才能送單。需要這六支測試素材。步驟 9–12：在 100 fps 下比 8:00 少／多百分之一秒（spec agent TC-VE2-435、TC-VE2-437）[Req: REQ-020]；不檢查價格（100 fps 的來源預設是「120fps」）。,未變更,REQ-020：比 8:00 少／多百分之一秒（100 fps 的 07:59.99、08:00.01；spec agent TC-VE2-435、TC-VE2-437）
 TC-042,裁切與選取長度,已用 12:30 的影片開啟面板，選取範圍是 00:00–08:00,把右側把手向左拖到約 06:00,"拖曳時預覽區會顯示右側把手所在位置的畫面
 「Selected Length」跟著變（約「06:00」），CTA 的價格也立刻降低",P1,"R-031, R-061",,未變更,
 TC-214,裁切與選取長度,"1. 已用 12:30 的影片開啟面板，選取範圍是 00:00–08:00
@@ -330,7 +330,7 @@ TC-063,設定選項,"1. 已用 00:30 的 1080p 影片（ve-0030-1080p30）開啟
 5. 點「4K」","步驟 1：點的那個選項被選取，「1080p」取消選取
 步驟 1：CTA 的價格和「Charge X credits per second」變成該解析度的費率
 步驟 3–5：點的那個 Resolution 選項被選取，另外兩個沒有（同時只會選一個）
-步驟 3–5：「Charge X credits per second」變成該解析度在 Professional、30fps 的費率（同 TC-296 – TC-298）",P2,"R-046, R-065",Professional 下逐一點每個 Resolution（spec agent TC-VE2-334）[Req: REQ-020]。,修改,REQ-020：Professional 下逐一點每個解析度，每次只選一個（spec agent TC-VE2-334）
+步驟 3–5：「Charge X credits per second」變成該解析度在 Professional、30fps 的費率（同 TC-296 – TC-298）",P2,"R-046, R-065",Professional 下逐一點每個 Resolution（spec agent TC-VE2-334）[Req: REQ-020]。,未變更,REQ-020：Professional 下逐一點每個解析度，每次只選一個（spec agent TC-VE2-334）
 TC-064,設定選項,已開啟面板，且目前的 Mode 下有 fps 或 Resolution 選項是停用（灰色）的,點被停用的選項,沒有任何變化：選取狀態維持原樣，也不會跳出提示訊息,P3,R-047,Q-6：哪些組合要停用還在等結果（BytePlus）；PM B5 寫的是點下去會跳出提示。如果這個版本沒有任何選項被停用，就不跑這一列（並記錄下來）。,未變更,
 TC-070,Mode 長度上限,"1. 已用 12:30 的影片開啟面板，Standard 下選取範圍約 02:00
 2. 先記下 CTA 的價格","1. 點「Professional」
@@ -924,7 +924,7 @@ TC-096,使用資格與購買,"1. 帳號等級 Pro+（Launcher › Pink › ☰ �
 TC-320,使用資格與購買,"1. 已從面板開啟 Credit 頁（TC-096），還沒購買也還沒領取
 2. 已記下面板上的選取範圍和各項設定",點 Credit 頁上的 ‹,"回到面板，影片、選取範圍和設定都沒變
 餘額沒有變
-沒有開始上傳，Recent task 也沒有多出卡片",P2,R-073,與 TC-096 一起暫緩（需要餘額不足的帳號）。PM C2 [建議]（spec agent TC-VE2-285）[Req: REQ-021]。TC-098 是領取之後才關閉這一頁。,新增,REQ-021：沒購買也沒領取就關閉 Credit 頁（spec agent TC-VE2-285）
+沒有開始上傳，Recent task 也沒有多出卡片",P2,R-073,與 TC-096 一起暫緩（需要餘額不足的帳號）。PM C2 [建議]（spec agent TC-VE2-285）[Req: REQ-021]。TC-098 是領取之後才關閉這一頁。,未變更,REQ-021：沒購買也沒領取就關閉 Credit 頁（spec agent TC-VE2-285）
 TC-097,使用資格與購買,同 TC-096 的設定：已從面板開啟點數頁，並記下餘額,"1. 點「Buy More」
 2. 在 App Store 購買視窗購買一個點數包（記下它的點數）
 3. 開啟 My Credits","步驟 2 之後 App 回到面板，影片、起點、終點、「Selected Length」、Mode、風格、fps 和解析度都和原本一樣
@@ -998,7 +998,7 @@ TC-141,Recent task,從面板開啟 Recent task，裡面有一個處理中的任�
 TC-317,Recent task,"1. 登入一個從沒用過 AI Video Enhance 的帳號（例如從沒付費過的 Free 帳號）：用 Pink 切換等級不會清掉帳號的任務
 2. 不可以為了清空清單去刪任務
 3. 已用任一影片開啟面板",點面板上方列的 Recent task 圖示,"開啟 Recent task，沒有任何任務卡片
-畫面顯示「No results found」",P3,"R-207, R-113",這是 spec agent 的使用者在 2026-10-12 認可的實機觀察畫面（spec agent TC-VE2-333，VE-1012-S001-B004，在 iOS 上看到）；Design 沒有畫 Recent task 的空白狀態 [Req: REQ-020]。需要一個沒有 Video Enhance 任務的帳號（見 fixtures）。如有不同，屬於 PM 問題：這條規則在 Design 和 PM 都沒有依據（依 AGENTS.md 2026-11-11 開給 PM）。,新增,REQ-020：Recent task 的空白狀態（spec agent TC-VE2-333）
+畫面顯示「No results found」",P3,"R-207, R-113",這是 spec agent 的使用者在 2026-10-12 認可的實機觀察畫面（spec agent TC-VE2-333，VE-1012-S001-B004，在 iOS 上看到）；Design 沒有畫 Recent task 的空白狀態 [Req: REQ-020]。需要一個沒有 Video Enhance 任務的帳號（見 fixtures）。如有不同，屬於 PM 問題：這條規則在 Design 和 PM 都沒有依據（依 AGENTS.md 2026-11-11 開給 PM）。,未變更,REQ-020：Recent task 的空白狀態（spec agent TC-VE2-333）
 TC-142,Recent task,已開啟 Recent task，裡面有一個還在處理中的任務,"1. 點 Recent task 上的 ⌂
 2. 再次開啟 AI Video Enhance 和它的 Recent task","步驟 1：開啟 Launcher
 步驟 2：任務仍在處理中或已完成（沒有被取消）",P2,R-115,在有任務處理中時操作（spec agent TC-VE2-067）[Req: REQ-016]。,未變更,
@@ -1971,18 +1971,18 @@ TC-162,時間軸入口,"1. Tier Pro+（Launcher › Pink › ☰ › [0] IAP ›
 2. 留在編輯器，等到任務完成","上傳對話框和 Recent task 的流程與主流程相同
 任務完成後，時間軸上的片段會在原位置換成處理後的結果，並顯示「Applied Video Enhance」
 片段前後兩端的轉場都還在
-片段的聲音和音樂軌的播放都和原來一樣",P2,"R-131, R-130",PM-only：還沒有 Design frame（pm-timeline 397:1888；通知的形式未定，D4 提議用 3 秒的 toast「Video Enhance applied」）。Q-11：Design 的備註寫結果永遠不會取代原片段。轉場和音訊要保留：PM D4 [建議]「位置、轉場、音訊保留」（spec agent TC-VE2-298）[Req: REQ-021]。,修改,REQ-021：貼回後轉場和音訊都保留（spec agent TC-VE2-298）
+片段的聲音和音樂軌的播放都和原來一樣",P2,"R-131, R-130",PM-only：還沒有 Design frame（pm-timeline 397:1888；通知的形式未定，D4 提議用 3 秒的 toast「Video Enhance applied」）。Q-11：Design 的備註寫結果永遠不會取代原片段。轉場和音訊要保留：PM D4 [建議]「位置、轉場、音訊保留」（spec agent TC-VE2-298）[Req: REQ-021]。,未變更,REQ-021：貼回後轉場和音訊都保留（spec agent TC-VE2-298）
 TC-163,時間軸入口,從片段工具列開啟面板，目前沒有任務在跑,點面板頂端列的 ‹,回到編輯器，專案和片段都沒有改變,P2,R-133,,未變更,
 TC-164,時間軸入口,時間軸上有一個任務正在處理（TC-162 的設定）,"1. 從時間軸刪除該片段
 2. 等到任務完成","不會有任何內容貼進專案
 結果會出現在 Recent task",P3,R-132,PM D4 [建議]（Gap 10）。,未變更,
 TC-318,時間軸入口,時間軸上有一個任務正在處理（TC-162 的設定）,"1. 把時間軸上那段片段的結尾剪掉 5 秒
 2. 等到任務完成","專案裡沒有貼入任何東西：剪過的片段維持原樣
-結果在 Recent task 裡",P3,R-132,TC-164 的對照案例，改成修改片段（spec agent TC-VE2-300）[Req: REQ-021]。PM D4 [建議]（提議）：有差異就向 PM 提問。PM-only：還沒有 Design frame（Q-11）。會用掉一次 00:30 的任務。,新增,REQ-021：片段被修改後不貼回（spec agent TC-VE2-300）
+結果在 Recent task 裡",P3,R-132,TC-164 的對照案例，改成修改片段（spec agent TC-VE2-300）[Req: REQ-021]。PM D4 [建議]（提議）：有差異就向 PM 提問。PM-only：還沒有 Design frame（Q-11）。會用掉一次 00:30 的任務。,未變更,REQ-021：片段被修改後不貼回（spec agent TC-VE2-300）
 TC-319,時間軸入口,時間軸上有一個任務正在處理（TC-162 的設定）,"1. 離開編輯器回到 Launcher（專案會關閉）
 2. 等到任務完成
 3. 再打開這個專案","步驟 3：專案裡沒有貼入任何東西：原本的片段還在
-結果在 Recent task 裡",P3,R-132,TC-164 的對照案例，改成關閉專案（spec agent TC-VE2-301）[Req: REQ-021]。PM D4 [建議]（提議）：有差異就向 PM 提問。PM-only：還沒有 Design frame（Q-11）。會用掉一次 00:30 的任務。,新增,REQ-021：專案關閉後不貼回（spec agent TC-VE2-301）
+結果在 Recent task 裡",P3,R-132,TC-164 的對照案例，改成關閉專案（spec agent TC-VE2-301）[Req: REQ-021]。PM D4 [建議]（提議）：有差異就向 PM 提問。PM-only：還沒有 Design frame（Q-11）。會用掉一次 00:30 的任務。,未變更,REQ-021：專案關閉後不貼回（spec agent TC-VE2-301）
 TC-165,時間軸入口,已開啟一個從時間軸啟動的任務結果,點「Add to Timeline」,開啟原本的專案（不會建立新專案）,P3,R-134,PM D4 [建議]；與 Design 的「Add to Timeline → 開新 timeline」不一致（Q-11）。,未變更,
 TC-170,失敗與退款,有一個在伺服器端失敗的 Video Enhance 任務,開啟 Recent task,失敗任務的卡片顯示「Error」縮圖和「View Details」（沒有 Retry）,P1,R-140,暫緩：需要先有可重現失敗的條件（目前不知道 Video Enhance 有沒有故障開關，要問 RD）。spec agent 的做法之一（TC-VE2-173，[Req: REQ-008]）：拿一支會被內容審核擋下的影片（NSFW 測試相簿）只試一次。,未變更,
 TC-171,失敗與退款,Recent task 裡有一張失敗的卡片（TC-170）,"1. 點「View Details」
@@ -1994,3 +1994,1384 @@ TC-173,失敗與退款,在任務失敗前（TC-170）已記下餘額,失敗後�
 TC-174,失敗與退款,"1. 已允許通知
 2. 有一個會失敗的任務正在處理
 3. App 在背景執行",等待通知出現,收到通知「Video Enhance didn't finish. Your credits have been refunded.」,P3,R-143,PM D1 [建議]（Gap 8、Q-16）。與 TC-170 一併暫緩。,未變更,
+TC-321,MUI 多國語系,"1. App 語言設為繁體中文（`launch --lang zh-Hant-TW`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以繁體中文（繁體字、台灣用語）顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI CHT（zh-Hant-TW）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-322,MUI 多國語系,"1. App 語言設為簡體中文（`launch --lang zh-Hans-CN`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以簡體中文（簡體字）顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI CHS（zh-Hans-CN）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-323,MUI 多國語系,"1. App 語言設為日文（`launch --lang ja-JP`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以日文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI JPN（ja-JP）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-324,MUI 多國語系,"1. App 語言設為西班牙文（`launch --lang es-ES`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以西班牙文（西班牙本地用法）顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI ESP（es-ES）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-325,MUI 多國語系,"1. App 語言設為韓文（`launch --lang ko-KR`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以韓文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI KOR（ko-KR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-326,MUI 多國語系,"1. App 語言設為德文（`launch --lang de-DE`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以德文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI DEU（de-DE）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-327,MUI 多國語系,"1. App 語言設為法文（`launch --lang fr-FR`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以法文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI FRA（fr-FR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-328,MUI 多國語系,"1. App 語言設為義大利文（`launch --lang it-IT`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以義大利文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI ITA（it-IT）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-329,MUI 多國語系,"1. App 語言設為俄文（`launch --lang ru-RU`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以俄文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI RUS（ru-RU）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-330,MUI 多國語系,"1. App 語言設為巴西葡萄牙文（`launch --lang pt-BR`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以巴西葡萄牙文（巴西用法）顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI PTB（pt-BR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-331,MUI 多國語系,"1. App 語言設為荷蘭文（`launch --lang nl-NL`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以荷蘭文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI NLD（nl-NL）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-332,MUI 多國語系,"1. App 語言設為印尼文（`launch --lang id-ID`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以印尼文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI IND（id-ID）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-333,MUI 多國語系,"1. App 語言設為泰文（`launch --lang th-TH`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以泰文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI THA（th-TH）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-334,MUI 多國語系,"1. App 語言設為馬來文（`launch --lang ms-MY`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以馬來文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI MAY（ms-MY）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-335,MUI 多國語系,"1. App 語言設為印地文（`launch --lang hi-IN`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以印地文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI HIN（hi-IN）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-336,MUI 多國語系,"1. App 語言設為墨西哥西班牙文（`launch --lang es-MX`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以墨西哥西班牙文（墨西哥用法）顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI ESM（es-MX）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-337,MUI 多國語系,"1. App 語言設為阿拉伯文（`launch --lang ar-SA`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以阿拉伯文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+阿拉伯文是由右至左的語言：文字從右邊開始排，沒有字串在左邊緣被切掉
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI ARA（ar-SA）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-338,MUI 多國語系,"1. App 語言設為越南文（`launch --lang vi-VN`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以越南文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI VIT（vi-VN）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-339,MUI 多國語系,"1. App 語言設為波蘭文（`launch --lang pl-PL`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以波蘭文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI PLK（pl-PL）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-340,MUI 多國語系,"1. App 語言設為土耳其文（`launch --lang tr-TR`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以土耳其文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI TRK（tr-TR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-341,MUI 多國語系,"1. App 語言設為波斯文（`launch --lang fa-IR`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以波斯文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+波斯文是由右至左的語言：文字從右邊開始排，沒有字串在左邊緣被切掉
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI FAR（fa-IR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-342,MUI 多國語系,"1. App 語言設為希伯來文（`launch --lang he-IL`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以希伯來文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+希伯來文是由右至左的語言：文字從右邊開始排，沒有字串在左邊緣被切掉
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI HEB（he-IL）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-343,MUI 多國語系,"1. App 語言設為瑞典文（`launch --lang sv-SE`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以瑞典文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI SVE（sv-SE）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-344,MUI 多國語系,"1. App 語言設為丹麥文（`launch --lang da-DK`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以丹麥文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI DAN（da-DK）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-345,MUI 多國語系,"1. App 語言設為挪威文（Bokmål）（`launch --lang nb-NO`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以挪威文（Bokmål）（Bokmål 書面挪威文）顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI NOR（nb-NO）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+TC-346,MUI 多國語系,"1. App 語言設為烏克蘭文（`launch --lang uk-UA`）
+2. 這列做完後，用不帶參數的 `launch`把語言還原
+3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
+4. 相簿裡有 12:30、1080p、60 fps 的測試影片
+5. Recent task 裡已有一個完成、一個失敗的 Video Enhance 任務（TC-143、TC-170；沒有失敗的任務就看不到錯誤視窗）
+6. 有一個專案，時間軸上有一段 2:30 以內的影片（TC-003）
+7. Demo 頁還沒被永久關掉（這次安裝還沒跑 TC-014）","1. 在 Launcher 看大捷徑（TC-001）
+2. 點捷徑，看 Demo 頁（TC-010）
+3. 點「Try It Now」，看 Add Media（TC-020）
+4. 選 12:30 的影片，看面板（TC-033）
+5. 點「Selected Length」旁的 ⓘ，看泡泡（TC-031）
+6. 點「Mode」旁的 ⓘ，看泡泡（TC-035）
+7. 點「Enhancement style」旁的 ⓘ，看泡泡（TC-036）
+8. 用 Pink 把 tier 切成 Free，看 CTA（TC-090）
+9. 用 Pink 把 tier 切回 Pro+
+10. 把選取範圍裁成 00:30–05:30，點「Professional」（TC-071）
+11. 關掉 Wi-Fi，點「Enhance」（TC-100）
+12. 打開 Wi-Fi
+13. 把選取範圍裁成 00:30–00:40（10 秒的任務：離開時會扣它少量的點數，TC-113）
+14. 點「Enhance」，看處理中視窗（TC-110）
+15. 馬上點「Cancel」，看離開確認視窗（TC-111）
+16. 點「Leave」
+17. 打開 Recent task，看完成和失敗的卡片（TC-143、TC-170）
+18. 點完成卡片的「View」，看 Result（TC-143）
+19. 點「Save Result」（TC-152）
+20. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
+21. 打開專案，點那段影片，看影片工具列（TC-003）","每個字串都以烏克蘭文顯示，意思和英文一致
+沒有任何字串還是英文
+沒有任何字串顯示 key、佔位符（%@、{0}、<n>）或別的語言
+數字、時間和點數都有帶入
+功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個畫面都譯得一致
+沒有翻譯表（REQ-041）：只是看起來怪的翻譯記成 run 的 mui-doubts.md 裡的翻譯疑點，不算 Fail
+走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+Launcher 捷徑：「AI Video Enhance」
+Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+Add Media：標題和「Video」分頁
+面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
+Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+離線提示：「Upload failed. Check your connection and try again.」
+處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+Recent task 卡片：「View」、「Error」、「View Details」
+Result：標題和「Save Result」
+儲存提示：「Saved to your device」
+錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI UKR（uk-UA）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）

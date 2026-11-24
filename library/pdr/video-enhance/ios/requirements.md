@@ -42,6 +42,11 @@ each way and the fractional boundaries (TC-274, TC-275, TC-075, TC-276); R-043 /
 360p, 718p, 722p and the Preview label (TC-052 – TC-058); R-060 / R-063 / R-065 at 30 s, 90 s and the Mode limit
 for every combination (TC-278 – TC-313, Q-26 prices); R-204 timed on 19 combination rows. Requirement text unchanged.
 
+Draft 20261124-150000 [Req: REQ-041]: the MUI section (spec-casebook references/mui.md). Every PowerDirector feature is
+tested in the 26 languages of `library/pdr/product.json` › `mui` besides English; there is no translation sheet, so
+each translation is judged by the run and doubtful ones go to the eBug review. iOS reads translations on the phone (the app bundle cannot be read on the QA iPhone): one walk per language checks translation and truncation together.
+The MUI rows are their own phase (phases.json `MUI`), never part of a full run. New: R-208, R-209; 26 rows, TC-321 – TC-346.
+
 ## Entry points
 - R-001 [DS:ds-main-flow Launcher_2026_08; DS:ds-routing 「Launcher / AI Magic → Demo page」] The Launcher big shortcut 「AI Video Enhance」 opens the Demo page (until 「Don’t show again」 was confirmed, R-009).
 - R-002 [DS:ds-entry-points Launcher_AI Magic; DS:ds-routing] The AI Magic tab's 「AI Enhance」 section has an 「AI Video Enhance」 card that opens the Demo page (same rule as R-001).
@@ -203,6 +208,10 @@ silent, so a difference is a PM question) (TC-315 – TC-317); R-046 is walked t
 - R-142 [DS:ds-routing 「生成失敗系統自動退還 credit」; PM:pm-failure-refund §8.6; KB: KP-007] A failed generation refunds its credits automatically (the balance is back to what it was before the task); there is no Retry.
 - R-143 [PM:pm-draft-logic D1 [建議]] A failure in the background sends the notification 「Video Enhance didn't finish. Your credits have been refunded.」 (Q-16).
 
+## MUI
+- R-208 [Req: REQ-041] Every user-facing string of the feature (Launcher shortcut, Demo page, Add Media, panel and its bubbles, Free CTA, Mode toast, offline toast, processing and leave dialogs, Recent task cards, completion banner, Result and its save toast, system notification, error dialog, clip toolbar entry) shows in each language of the product list (CHT, CHS, JPN, ESP, KOR, DEU, FRA, ITA, RUS, PTB, NLD, IND, THA, MAY, HIN, ESM, ARA, VIT, PLK, TRK, FAR, HEB, SVE, DAN, NOR, UKR), in that language's own words with the English meaning, with no English, key or placeholder left. No translation sheet: the run judges each string; doubtful ones are listed for the eBug review, not failed.
+- R-209 [Req: REQ-041] In each of those languages no string of the feature is truncated, clipped or overlapping, and every control keeps its size and place; the right-to-left languages (ARA, FAR, HEB) run from the right.
+
 ## Open questions
 - Q-1 Demo page description: the Design draws AI Reframe's text 「AI reframe your video for any aspect ratio, then fine-tune the crop in real time.」; PM A1 [衝突] proposes 「Make blurry, noisy or dark videos look sharp and clear.」. Assumption: the description must not be AI Reframe's; the PM proposal is the expected text until the Design changes. R-007 (TC-011).
 - Q-2 Cancel during upload: Design 「Leaving this page will cancel the process, and the credits will not be restored.」 vs PM §8 (Cancel before the upload reaches the server charges nothing and creates no task) and PM C4 (Leave = keep running in the background). Assumption: the Design (newer, outranks): Leave cancels, back to the panel, credits not restored. R-088 (TC-113).
@@ -336,6 +345,58 @@ One line per requirement × variant (pass 10).
 | R-204 | 1 s, card completion | TC-265 |
 | R-204 | 3.2 s, completion banner | TC-266 |
 | R-204 | 30 s, whichever comes first | TC-267 |
+| R-208 | CHT (Traditional Chinese) | TC-321 |
+| R-209 | CHT (Traditional Chinese) | TC-321 |
+| R-208 | CHS (Simplified Chinese) | TC-322 |
+| R-209 | CHS (Simplified Chinese) | TC-322 |
+| R-208 | JPN (Japanese) | TC-323 |
+| R-209 | JPN (Japanese) | TC-323 |
+| R-208 | ESP (Spanish) | TC-324 |
+| R-209 | ESP (Spanish) | TC-324 |
+| R-208 | KOR (Korean) | TC-325 |
+| R-209 | KOR (Korean) | TC-325 |
+| R-208 | DEU (German) | TC-326 |
+| R-209 | DEU (German) | TC-326 |
+| R-208 | FRA (French) | TC-327 |
+| R-209 | FRA (French) | TC-327 |
+| R-208 | ITA (Italian) | TC-328 |
+| R-209 | ITA (Italian) | TC-328 |
+| R-208 | RUS (Russian) | TC-329 |
+| R-209 | RUS (Russian) | TC-329 |
+| R-208 | PTB (Portuguese (Brazil)) | TC-330 |
+| R-209 | PTB (Portuguese (Brazil)) | TC-330 |
+| R-208 | NLD (Dutch) | TC-331 |
+| R-209 | NLD (Dutch) | TC-331 |
+| R-208 | IND (Indonesian) | TC-332 |
+| R-209 | IND (Indonesian) | TC-332 |
+| R-208 | THA (Thai) | TC-333 |
+| R-209 | THA (Thai) | TC-333 |
+| R-208 | MAY (Malay) | TC-334 |
+| R-209 | MAY (Malay) | TC-334 |
+| R-208 | HIN (Hindi) | TC-335 |
+| R-209 | HIN (Hindi) | TC-335 |
+| R-208 | ESM (Spanish (Mexico)) | TC-336 |
+| R-209 | ESM (Spanish (Mexico)) | TC-336 |
+| R-208 | ARA (Arabic) | TC-337 |
+| R-209 | ARA (Arabic) | TC-337 |
+| R-208 | VIT (Vietnamese) | TC-338 |
+| R-209 | VIT (Vietnamese) | TC-338 |
+| R-208 | PLK (Polish) | TC-339 |
+| R-209 | PLK (Polish) | TC-339 |
+| R-208 | TRK (Turkish) | TC-340 |
+| R-209 | TRK (Turkish) | TC-340 |
+| R-208 | FAR (Persian) | TC-341 |
+| R-209 | FAR (Persian) | TC-341 |
+| R-208 | HEB (Hebrew) | TC-342 |
+| R-209 | HEB (Hebrew) | TC-342 |
+| R-208 | SVE (Swedish) | TC-343 |
+| R-209 | SVE (Swedish) | TC-343 |
+| R-208 | DAN (Danish) | TC-344 |
+| R-209 | DAN (Danish) | TC-344 |
+| R-208 | NOR (Norwegian Bokmål) | TC-345 |
+| R-209 | NOR (Norwegian Bokmål) | TC-345 |
+| R-208 | UKR (Ukrainian) | TC-346 |
+| R-209 | UKR (Ukrainian) | TC-346 |
 
 ### Combinations
 Every combination of the four settings the panel lets the user choose together (analysis pass 10, user 2026-11-10,
@@ -443,3 +504,4 @@ None: no Testing Request build is named for this feature yet.
 | REQ-008 (table: cover all 271 spec agent cases; every Mode × Enhancement style × fps × Resolution combination priced, generated and checked; iOS brought to the Android v4 coverage under the same IDs) | R-015, R-034, R-044, R-060, R-062, R-063, R-065, R-087, R-088, R-122, R-194 (changed); R-070 (source added: Pro+ stays on iOS); R-196 – R-204 (new); Q-3, Q-4 (answered); Q-23, Q-24, Q-26; `### Combinations` (36 rows); mapping `comparisons/20261110b_casebook-vs-spec-agent.mapping.json` |
 | REQ-011 (analysis: spec agent cases from the old 26.09_v2 export never override today's board; the 2K+ block dropped) | R-015, R-044, R-196, Q-13 |
 | REQ-016 (table: scenario-level coverage of the spec agent's cases at 8b411402) | R-030, R-031, R-032, R-033, R-043, R-044, R-052, R-053, R-054, R-055, R-060, R-063, R-065, R-077, R-086, R-088, R-114, R-115, R-121, R-123, R-126, R-204 (rows only, no requirement changed) |
+| REQ-041 (table: MUI test in the 26 languages of the product list, no translation sheet) | R-208, R-209 (TC-321 – TC-346) |
