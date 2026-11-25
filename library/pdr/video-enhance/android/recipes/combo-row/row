@@ -1,5 +1,5 @@
 #!/bin/bash
-# R2-g1/R2-g2 combination-row driver (bash, macOS). One row: row ID chip_style_<natural|sharp> chip_fps_<30|60|120> chip_resolution_<720p|1080p|4k>, from the
+# R2-g1/R2-g2/R3-g combination-row driver (bash, macOS); set RUN=<run dir> (default the R2 folder) for every script here. One row: row ID chip_style_<natural|sharp> chip_fps_<30|60|120> chip_resolution_<720p|1080p|4k>, from the
 # Launcher Home back to it (open panel on ve-real-000320-720p30, combo-price.steps, Enhance, wait, View, play, Original,
 # Result, Save Result, pull + ffprobe + PSNR + compare image (post), Credit Details). chain <rows file> runs rows and
 # records each with rec (Fail --as question with the copy strings; check the result text). post needs the source in
@@ -22,10 +22,13 @@ $D do /Users/ethanhsu/Desktop/pdr-spec-casebook/library/pdr/video-enhance/androi
 [ ${PIPESTATUS[0]} -eq 0 ] || { echo 'price recipe failed: NOT tapping Enhance'; exit 1; }
 [ -n "$4" ] || exit 1
 echo "enhance tap $(date +%T)"; $D id layout_enhance >/dev/null; sleep 1.5; $D texts | head -3 | tr '\n' ' '; echo; $D shot $ID-up >/dev/null
-$D waitfor "Processing|minutes left" --timeout 1800 || { echo "no Recent task"; $D shot $ID-stuck; exit 1; }
+$D waitfor "Processing|minutes left|Retry|View Details" --fail "Unlock Pro to Enhance|Upgrade to Pro|Not enough credits" --timeout 1800 || { echo "no Recent task"; $D shot $ID-stuck; exit 1; }
 echo "recent task $(date +%T)"; $D shot $ID-task >/dev/null
 $S/waitdone 3000 || exit 1
 $D els "" | grep -E "duration|btn_action" | head -2 | cut -d'|' -f2,3 | tr '\n' ' '; echo
+# R3 (S3 uploads flaky, O-6): stop when the newest card is not 「View」 (Retry / View Details), so the row is handled by hand
+FIRST=$($D els btn_action | grep 'TextView | btn_action |' | head -1 | cut -d'|' -f3 | tr -d ' ')
+[ "$FIRST" = View ] || { echo "TASK FAILED: newest card action 「$FIRST」 $(date +%T)"; $D shot $ID-failed >/dev/null; exit 1; }
 $D shot $ID-done >/dev/null
 $D tap 916 730 >/dev/null; sleep 4
 $D texts | grep -q "Save Result" || { sleep 3; $D tap 916 730 >/dev/null; sleep 4; }

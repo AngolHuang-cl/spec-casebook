@@ -1,4 +1,4 @@
 #!/bin/bash
-L=/Users/ethanhsu/Desktop/pdr-spec-casebook/library/pdr/video-enhance/android/runs/2026-11-18-r2-full/logs/.live
+R=${RUN:-/Users/ethanhsu/Desktop/pdr-spec-casebook/library/pdr/video-enhance/android/runs/2026-11-18-r2-full}; case $R in /*) ;; *) R=/Users/ethanhsu/Desktop/pdr-spec-casebook/$R;; esac; L=$R/logs/.live
 F=$(ls -t $L/logcat-*.txt | head -1)
 awk -v t="${3:-$(date +%F)} $1" '$0>=t' $F | grep -E "create session response|Upload to S3|upload response|applyEffect|Transcode: (start|finish)" | grep -v -i "token\|signature" | sed -E 's/^[0-9-]+ ([0-9:.]+) .* (E|D|W|I) /\1 /' | cut -c1-110 | head -${2:-10}

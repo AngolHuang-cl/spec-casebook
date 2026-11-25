@@ -42,7 +42,17 @@ unticked); ✓ puts that range on the audio track. Tick 「Import Full Song」 f
 ## KP-104 A Pro AI Voice Changer voice makes the project fail to produce
 - kind: quirk · platform: android · use: run, ebug · tags: voice-changer, produce, export
 - source: AIGC Watermark Android run 2026-11-23-r3-full O-9 (drafted ISS-AWA-18) · verified: 16.9.0 build 2611193 (2026-11-23)
+- status: superseded by KP-106
 
 Any Professional AI voice (Jill, Kathleen, Lila, Margaret…) applied from a clip's 「Audio Tools」 shows 「Applied」, but
 「Produce」 fails: 「PowerDirector Mobile cannot produce the video. …/VoiceChanger/Cache/<clip>_<n>.m4a is missing.」 The
 cache m4a exists after Apply and is gone after the panel's ✓. Effect voices (「Radio 1」) produce normally.
+
+## KP-106 Pro AI Voice Changer voices produce on a stable network
+- kind: quirk · platform: android · use: run, ebug · tags: voice-changer, produce, export, network
+- source: AIGC Watermark Android recheck 2026-11-24-recheck-awa18 notes.md (inbox I-002, ISS-AWA-18 withdrawn); AIGC Watermark Android run 2026-11-23-r3-full O-9, O-10 · verified: 16.9.0 build 2611193 (2026-11-24)
+
+On a stable Wi-Fi (0% loss) Jill, Kathleen and Margaret applied from a clip's 「Audio Tools」 produced normally, the AI
+voice in the output. Apply writes VoiceChanger/Cache/2_<n>.m4a and 3_<n>.m4a; the panel's ✓ removes 2_ and keeps 3_.
+The earlier 「…m4a is missing」 Produce failure (KP-104) happened during a Wi-Fi loss (KP-105), with the voice's S3
+upload timing out while the UI said 「Applied」: recheck such a failure on a stable network before filing.

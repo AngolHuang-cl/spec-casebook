@@ -9,7 +9,7 @@ a defect with its own eBug, even when the failure itself is already filed.
 
 ## KP-008 Reading the credits ledger
 - kind: howto · platform: both · use: run · tags: credits, refund, ledger
-- source: run.md step 8 (user, 2026-10-19); Video Enhance Android run 2026-11-10-r1-full O-16, O-17, O-25 · verified: 16.9.0 build 2611091 (2026-11-10)
+- source: run.md step 8 (user, 2026-10-19); Video Enhance Android run 2026-11-10-r1-full O-16, O-17, O-25 · verified: 16.9.0 build 2611231 (2026-11-24)
 
 Mine › Credits › Details lists charge rows by tool (Text to Image / Text to Speech / AI Video Generator / Video
 Enhancer) with the platform (「PowerDirector (Android)」) and a refund row 「Generation failed, credits returned +N」.
@@ -28,7 +28,7 @@ offer (16.9.0 build 2611091); its amount there is unchecked.
 
 ## KP-067 Credits can read 「--」 or 0 right after a launch
 - kind: quirk · platform: android · use: run · tags: credits, billing, logs, launch
-- source: Video Enhance Android run 2026-11-10-r1-full O-1; AIGC Watermark Android run 2026-11-17-r1-full O-1, O-20 (seen without a purchase: corrected) · verified: 16.9.0 build 2611193 (2026-11-23)
+- source: Video Enhance Android run 2026-11-10-r1-full O-1; AIGC Watermark Android run 2026-11-17-r1-full O-1, O-20 (seen without a purchase: corrected) · verified: 16.9.0 build 2611231 (2026-11-24)
 
 At some launches (right after a Google Play purchase, but also after a plain relaunch or a `locale reset`),
 CreditSystemManager logs `getCreditRemain error, creditSystemUUID is null`, `refreshMemberToken error` and
@@ -38,7 +38,7 @@ relaunch before reading prices or the pill.
 
 ## KP-070 Credit Details drops the current month after local midnight
 - kind: quirk · platform: android · use: run, ebug · tags: credits, ledger, date
-- source: Video Enhance Android run 2026-11-18-r2-full O-25, O-31 · verified: 16.9.0 build 2611091 (2026-11-19)
+- source: Video Enhance Android run 2026-11-18-r2-full O-25, O-31; Video Enhance Android run 2026-11-24-r3-full O-17 · verified: 16.9.0 build 2611231 (2026-11-25)
 
 Between local midnight (UTC+8) and the server's UTC date change, Mine › Credits › Details opened on the previous
 month's group with no current-month group, also after a relaunch, while logcat `getCreditHistory` listed the new
@@ -47,11 +47,13 @@ before filing.
 
 ## KP-071 Buying credits is followed by an offer and a backup dialog
 - kind: fact · platform: android · use: analysis, run · tags: credits, buy-more, dialog
-- source: Video Enhance Android run 2026-11-18-r2-full O-12 · verified: 16.9.0 build 2611091 (2026-11-18)
+- source: Video Enhance Android run 2026-11-18-r2-full O-12; Video Enhance Android run 2026-11-24-r3-full O-5 · verified: 16.9.0 build 2611231 (2026-11-24)
 
-After a 500-credit test purchase the app offered 「Want to get 50 Credits, too?」 (「NT$170.00」, 「Not now」); 「Not
-now」 then opened 「Check Backup Protection」 over My Credits (「Back up now」, 「Later」, 「Don't show again」 unticked).
-Neither is in a feature spec; close both before the next step.
+After a 500-credit test purchase the app offers another pack, which varies between purchases (「Want to get 50
+Credits, too?」 「NT$170.00」 on 2611091, 「Want to get 1000 Credits, too?」 「NT$2,010.00」 on 2611231), with 「Not now」;
+「Not now」 then opens 「Check Backup Protection」 over My Credits (「Back up now」, 「Later」, 「Don't show again」
+unticked). On 2611231 the pack page itself opens on a pre-selected 「Annual Auto Pass Discount」 card (「Continue with the
+best deal」): tap the wanted pack tile first. None of this is in a feature spec; close both dialogs before the next step.
 
 ## KP-091 Credit prices seen on Android (Free, Stage)
 - kind: fact · platform: android · use: analysis, run · tags: credits, price

@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "creator": "ETHAN_HSU",
+    "creators_read_back": [
+      "ETHAN_HSU"
+    ],
+    "token_owner": "",
+    "method": "api",
+    "tr": "TR261123-0070",
+    "server": "Stage",
+    "version": "16.9.0",
+    "build": "2611231",
+    "filed_on": "2026-11-25"
+  },
+  "bugs": [
+    {
+      "bugcode": "DRA262611P0292",
+      "short": "PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Failed task card shows the grey placeholder, not the 「Error」 thumbnail",
+      "status": "BugNeedReview",
+      "severity": 2,
+      "priority": 5,
+      "belong": "RD",
+      "creator": "ETHAN_HSU",
+      "created": "2026-11-25T11:34:43",
+      "build": "2611231",
+      "tr": "TR261123-0070",
+      "product": "PowerDirector Mobile for Android",
+      "template": "Generic v16.9",
+      "assignee": null,
+      "handler": "ALBERT_CHANG, BALLY_HSU, MIKE_LU, NICKLOUS_CHEN, SAM_CHANG, WILLY_WU",
+      "version": "16.9.0",
+      "bug_source": "QA",
+      "reproduce": "2/2",
+      "happened": "Unknown",
+      "desc": "Repro Steps:\n1. Launch the APP\n2. Tap 「Video Enhance」 on the Launcher\n3. Tap a 1:30 1080p video in Add Media\n4. Tap 「Enhance」\n5. Wait until the task fails on the server\n6. Look at the failed task's card in Recent task\n7. Check the result\n\nResult:\nThe failed task's card (「View Details」, no Retry) shows the grey placeholder thumbnail, not the 「Error」 thumbnail.\n摘要：伺服器端失敗的任務卡片顯示灰色預設縮圖，而非「Error」縮圖。\n{16.9.0_vea39_401_card_placeholder.jpg} {16.9.0_vea39_error_card_placeholder.jpg} {16.9.0_vea39_log.txt}\n\nExpect Result:\nThe failed task's card shows the 「Error」 thumbnail with 「View Details」 (R-140).\n摘要：失敗任務卡片應顯示「Error」縮圖與 View Details。\n\nNote:\nDevice: Samsung SM-A5360 (Galaxy A53 5G) / Android 15\nSpec Link: AI Video Enhance Design spec (Video Enhance, section AI Video Enhance_26.09_v2), Alternative & Exception board (Generation Failed: Recent card with the Error thumbnail) -\nhttps://www.figma.com/design/HceGLJVaxnKsv7gXSXzKWh/Video-Enhance?node-id=3293-15910\nSpec Link: AI Video Enhance Design spec (Video Enhance, section AI Video Enhance_26.09_v2), Routing Logic board (失敗卡片: Error 縮圖 + View Details) -\nhttps://www.figma.com/design/HceGLJVaxnKsv7gXSXzKWh/Video-Enhance?node-id=3293-14560\n<Claude Reviewed>",
+      "attachments": [
+        "16.9.0_vea39_401_card_placeholder.jpg",
+        "16.9.0_vea39_error_card_placeholder.jpg",
+        "16.9.0_vea39_log.txt"
+      ],
+      "key": "Video-Enhance-R3-01",
+      "iss": "ISS-VEA-39",
+      "feature": "Video-Enhance-R3",
+      "problem_type": "UI"
+    },
+    {
+      "bugcode": "DRA262611P0293",
+      "short": "PDR-A 16.9.0 - [AIAgent][UI] AI Video Enhance: Failed task's 「View Details」 opens 「Need Help?」, not the error dialog",
+      "status": "BugNeedReview",
+      "severity": 2,
+      "priority": 5,
+      "belong": "RD",
+      "creator": "ETHAN_HSU",
+      "created": "2026-11-25T11:34:46",
+      "build": "2611231",
+      "tr": "TR261123-0070",
+      "product": "PowerDirector Mobile for Android",
+      "template": "Generic v16.9",
+      "assignee": null,
+      "handler": "ALBERT_CHANG, BALLY_HSU, MIKE_LU, NICKLOUS_CHEN, SAM_CHANG, WILLY_WU",
+      "version": "16.9.0",
+      "bug_source": "QA",
+      "reproduce": "2/2",
+      "happened": "Unknown",
+      "desc": "Repro Steps:\n1. Launch the APP\n2. Tap 「Video Enhance」 on the Launcher\n3. Tap a 1:30 1080p video in Add Media\n4. Tap 「Enhance」\n5. Wait until the task fails on the server\n6. Tap 「View Details」 on the failed task's card in Recent task\n7. Check the result\n\nResult:\nA dialog 「Need Help?」 with 「Not now」 and 「Send Feedback」 opens; it says nothing about the error or the credits.\n摘要：點失敗卡片的 View Details 開啟「Need Help?」客服對話框，未說明錯誤與點數退還。\n{16.9.0_vea40_need_help_dialog.jpg} {16.9.0_vea40_need_help_dialog_401_card.jpg} {16.9.0_vea40_log.txt}\n\nExpect Result:\nThe dialog 「An Error Has Occurred」 / 「Credits have been refunded.」 with 「OK」 opens (R-141).\n摘要：應開啟「An Error Has Occurred」對話框，說明點數已退還，並有 OK 按鈕。\nSpec string: 「An Error Has Occurred」\nSpec string: 「Credits have been refunded.」\nSpec string: 「The server may be busy. Please try again later or use a different video.」\n\n[AI Recommendation]\nTitle: An Error Has Occurred\nBody: Credits have been refunded. The server may be busy. Please try again later or use a different video.\nButtons: OK\n\nNote:\nDevice: Samsung SM-A5360 (Galaxy A53 5G) / Android 15\nSpec Link: AI Video Enhance Design spec (Video Enhance, section AI Video Enhance_26.09_v2), Alternative & Exception board (flow arrow 3393-18071: View Details to 「An Error Has Occurred」) -\nhttps://www.figma.com/design/HceGLJVaxnKsv7gXSXzKWh/Video-Enhance?node-id=3393-18071\nSpec Link: AI Video Enhance PM spec, 失敗與退款 board (arrow 377-1127: failure dialog) -\nhttps://www.figma.com/design/mppB4GYkuVMVvHrdBeSAAU/AI-Video-Enhance?node-id=377-1127\n<Claude Reviewed>",
+      "attachments": [
+        "16.9.0_vea40_need_help_dialog.jpg",
+        "16.9.0_vea40_need_help_dialog_401_card.jpg",
+        "16.9.0_vea40_log.txt"
+      ],
+      "key": "Video-Enhance-R3-02",
+      "iss": "ISS-VEA-40",
+      "feature": "Video-Enhance-R3",
+      "problem_type": "UI"
+    },
+    {
+      "bugcode": "DRA262611P0294",
+      "short": "PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Credits of a failed task come back only 2–3.5 hours after the failure",
+      "status": "BugNeedReview",
+      "severity": 2,
+      "priority": 5,
+      "belong": "RD",
+      "creator": "ETHAN_HSU",
+      "created": "2026-11-25T11:34:49",
+      "build": "2611231",
+      "tr": "TR261123-0070",
+      "product": "PowerDirector Mobile for Android",
+      "template": "Generic v16.9",
+      "assignee": null,
+      "handler": "ALBERT_CHANG, BALLY_HSU, MIKE_LU, NICKLOUS_CHEN, SAM_CHANG, WILLY_WU",
+      "version": "16.9.0",
+      "bug_source": "QA",
+      "reproduce": "4/5",
+      "happened": "Unknown",
+      "desc": "Repro Steps:\n1. Launch the APP\n2. Tap 「Video Enhance」 on the Launcher\n3. Tap a 1:30 1080p video in Add Media\n4. Tap 「Enhance」\n5. Wait until the task fails on the server\n6. Tap ⌂ in Recent task\n7. Tap 「Video Enhance」 on the Launcher\n8. Tap a video in Add Media\n9. Tap the credit balance in the panel's top bar\n10. Tap 「Details」 on My Credits\n11. Check the result\n\nResult:\nAfter the failure Credit Details has only 「Video Enhancer -180」; the refund came 2 h 14 min later (others: about 3 h).\n摘要：任務失敗後點數未立即退還，退款紀錄 2–3.5 小時後才出現。\n{16.9.0_vea41_no_refund_after_401.jpg} {16.9.0_vea41_refund_3h_later.jpg} {16.9.0_vea41_log.txt}\n\nExpect Result:\nThe credits come back automatically when the task fails: balance restored, refund row in Credit Details (R-142).\n摘要：任務失敗時應立即自動退還點數，餘額回復並出現退款紀錄。\nSpec string: 「生成失敗系統自動退還 credit」\n\nNote:\nDevice: Samsung SM-A5360 (Galaxy A53 5G) / Android 15\nSpec Link: AI Video Enhance Design spec (Video Enhance, section AI Video Enhance_26.09_v2), Routing Logic board (「生成失敗系統自動退還 credit」) -\nhttps://www.figma.com/design/HceGLJVaxnKsv7gXSXzKWh/Video-Enhance?node-id=3293-14560\nSpec Link: AI Video Enhance PM spec, 失敗與退款 board (§8.6 automatic refund) -\nhttps://www.figma.com/design/mppB4GYkuVMVvHrdBeSAAU/AI-Video-Enhance?node-id=369-441\n<Claude Reviewed>",
+      "attachments": [
+        "16.9.0_vea41_no_refund_after_401.jpg",
+        "16.9.0_vea41_refund_3h_later.jpg",
+        "16.9.0_vea41_log.txt"
+      ],
+      "key": "Video-Enhance-R3-03",
+      "iss": "ISS-VEA-41",
+      "feature": "Video-Enhance-R3",
+      "problem_type": "Functional"
+    }
+  ],
+  "dispositions": {}
+}

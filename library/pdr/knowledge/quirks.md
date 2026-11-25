@@ -25,8 +25,18 @@ what the player draws in its first seconds, take rapid `adb exec-out screencap` 
 
 ## KP-101 A hung Appium `hold` leaves taps dead until restart
 - kind: quirk · platform: android · use: run · tags: appium, tools, gestures
-- source: AIGC Watermark Android run 2026-11-23-r2-changed O-18 · verified: 16.9.0 build 2611193 (2026-11-23)
+- source: AIGC Watermark Android run 2026-11-23-r2-changed O-18 · verified: 16.9.0 build 2611231 (2026-11-24)
 
 A `device-android.ts hold` that never returns (seen on a My AI Music row) leaves later Appium taps dropped or partly
 taken and the page blank with Back doing nothing, until `device-android.ts restart`; after it the same controls work.
 After any hung command, restart (or use `adb shell input`) before judging the app.
+
+## KP-105 17F_QA_Wifi_5G drops packets and breaks uploads
+- kind: quirk · platform: android · use: run, ebug · tags: network, wifi, upload
+- source: AIGC Watermark Android run 2026-11-23-r3-full O-10; Video Enhance Android run 2026-11-24-r3-full O-6, O-13 (also the MUI phase, 2026-11-24 15:16–15:36) · verified: 16.9.0 build 2611231 (2026-11-24)
+
+On the SM-A5360, 「17F_QA_Wifi_5G」 at times loses 50–80% of pings and breaks S3 uploads (`unexpected end of stream`,
+`Broken pipe`, `SocketTimeoutException`, CONNECT 502): 4 of 18 Video Enhance uploads in one evening, while later
+segments on it had none. 「17F-QAAPP-2.4G」 was stable (0% loss). Before filing an upload, produce or network failure,
+ping (`adb shell ping -c 10 8.8.8.8`) and recheck on 17F-QAAPP-2.4G (`device-android.ts wifi off` / `on` rejoined it).
+iOS My Cloud on the same network: KP-034.

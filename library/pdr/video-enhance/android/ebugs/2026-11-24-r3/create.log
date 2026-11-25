@@ -1,0 +1,25 @@
+Filing as Creator: ETHAN_HSU
+  Creator verified — last filed DRA262611P0290 on 2026-11-24
+Format check: PDR-A 16.9.0
+
+3 bug(s) checked — 0 error(s), 0 warning(s)
+Format OK — clear to file.
+
+[Video-Enhance-R3-01] created DRA262611P0292
+  DRA262611P0292  sev 2  RD  BugNeedReview  build 2611231  by ETHAN_HSU
+[Video-Enhance-R3-02] created DRA262611P0293
+[Video-Enhance-R3-03] created DRA262611P0294
+
+created 3 · skipped 0 · failed 0
+
+Read-back (Status: OK is not proof — Version has been seen not to persist):
+  DRA262611P0292  sev 2  RD  BugNeedReview  build 2611231  by ETHAN_HSU
+  DRA262611P0293  sev 2  RD  BugNeedReview  build 2611231  by ETHAN_HSU
+  DRA262611P0294  sev 2  RD  BugNeedReview  build 2611231  by ETHAN_HSU
+
+Required fields the API cannot set — fill them on each ticket's web edit form:
+  DRA262611P0292  OS Language (Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean)
+  DRA262611P0293  OS Language (Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean)
+  DRA262611P0294  OS Language (Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean)
+
+Attachments are NOT part of create — upload them with `ecl_if3.py upload <BugCode> <files…>` (SKILL.md → IF3 attachments over the API).

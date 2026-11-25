@@ -1,6 +1,6 @@
 #!/bin/bash
 # post <ID>: pull the newest Video Enhance file to exports/<ID>.mp4, ffprobe it, compare frame 45 with the source.
-ID=$1; R=/Users/ethanhsu/Desktop/pdr-spec-casebook/library/pdr/video-enhance/android/runs/2026-11-18-r2-full; S=$(dirname $0)
+ID=$1; R=${RUN:-/Users/ethanhsu/Desktop/pdr-spec-casebook/library/pdr/video-enhance/android/runs/2026-11-18-r2-full}; case $R in /*) ;; *) R=/Users/ethanhsu/Desktop/pdr-spec-casebook/$R;; esac; S=$(dirname $0)
 DIR="/sdcard/Movies/cyberlink/PowerDirector/Video Enhance"
 F=$(adb -s R5CTB22S05Y shell "ls -t \"$DIR\" | head -1" | tr -d '\r')
 adb -s R5CTB22S05Y shell "ls -l \"$DIR/$F\"" | tr -d '\r'

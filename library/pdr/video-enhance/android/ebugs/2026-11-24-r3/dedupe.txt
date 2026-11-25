@@ -1,0 +1,54 @@
+# Dedupe per OS (user, 2026-10-28): same-OS matches are left off the drafts and the review page.
+# R3 (2611231) failures and observations already covered by open Android tickets. Pool: ecl_query.py dedupe, 209 candidates
+# (「AI Video Enhance」 and 「Video Enhance」, PowerDirector Mobile for Android), 60 open on 16.9.0, each read against ISS-VEA-56 (dedupe-query.txt).
+# Status read 2026-11-25. No existing ticket was commented on.
+
+DRA262611P0071	Launcher / AI Magic name 「Video Enhance」	TC-002
+DRA262611P0074	No Preview time at rest	TC-033, TC-259, TC-215
+DRA262611P0075	Shown lengths truncated while price and limit round up: 「02:30」 refused by Professional; a hand-set 「00:30」 / 「01:30」 priced 31 / 91 s (the 36 price-grid rows; the ticket's O-5b already records 「one second over the shown length」)	TC-259, TC-263, TC-274, TC-278, TC-279, TC-280, TC-281, TC-282, TC-283, TC-284, TC-285, TC-286, TC-287, TC-288, TC-289, TC-290, TC-291, TC-292, TC-293, TC-294, TC-295, TC-296, TC-297, TC-298, TC-299, TC-300, TC-301, TC-302, TC-303, TC-304, TC-305, TC-306, TC-307, TC-308, TC-309, TC-310, TC-311, TC-312, TC-313
+DRA262611P0076	Exact-second files billed one extra second (padding, KF-001)	TC-270, TC-269, TC-267
+DRA262611P0077	Offline Enhance shows nothing	TC-100
+DRA262611P0078	Ring 0% then stalls	TC-110
+DRA262611P0081	Recent task has no ‹; Back to the Launcher	TC-141, TC-208, O-11
+DRA262611P0082	Recent task notice 「1 year」 / 「Select」	TC-140, TC-144
+DRA262611P0083	Failed / cancelled task card with a nonsense length (「25000:00:00」) and Retry, blank thumbnail	TC-112
+DRA262611P0084	Tasks far over 1.5–2.5× their length (R-204)	TC-265, TC-266, TC-267, TC-225, TC-224, TC-226, TC-221, TC-227, TC-228, TC-222, TC-229, TC-230, TC-220, TC-231, TC-232, TC-233, TC-234, TC-235, TC-236, TC-237, TC-238, TC-219
+DRA262611P0086	Demo page description is AI Reframe's text	TC-011
+DRA262611P0087	Handles meet, 「00:00」 under 1 s	TC-046, TC-217
+DRA262611P0089	Under-1 s and MKV sources not greyed (TC-022 steps 4–5, TC-269 0.9 s)	TC-022, TC-269
+DRA262611P0090	Strip not re-laid to 2:30 in Professional	TC-045, TC-264
+DRA262611P0091	Dragging the selection moves the range against the finger	TC-043
+DRA262611P0092	Full-screen preview: no close, restarts at 00:00 (steps 4–5)	TC-037
+DRA262611P0093	Limit bubble covers the Preview time	TC-044, TC-216, O-4
+DRA262611P0094	「Leave」 during upload: charged, refund ~3 h later; the S3 PUT also went on after Leave (O-7)	O-7
+DRA262611P0095	Notification copy is the banner's	TC-133
+DRA262611P0099	Timeline clip over 8:00 opens capped at 08:00	TC-161
+DRA262611P0100	Timeline result not pasted back; Add to Timeline makes a new project	TC-162, TC-165
+DRA262611P0101	8K converted to Full HD, 「0fps · 1080p」 (steps 1–3)	TC-022
+DRA262611P0113	Preview frame lags behind a dragged trim handle, Q-27 (was ISS-VEA-42; 「Clarification: allowed Preview delay while trimming」, Assigned, RD, filed 2026-11-12 on 2611091)	TC-042, TC-214, TC-044, TC-216, TC-272
+DRA262611P0115	1 fps source: no fps chip selected, all disabled (was ISS-VEA-36; 「A 1fps source has no selectable output frame rate」, Assigned, RD, filed 2026-11-12 on 2611091)	TC-052
+DRA262611P0116	Credit Details names the debit 「Video Enhancer」, R-203 (Assigned, RD, filed 2026-11-12; replaces the citation of iOS DRI261895P0021)	TC-223, TC-225, TC-224, TC-226, TC-221, TC-227, TC-228, TC-222, TC-229, TC-230, TC-220, TC-231, TC-232, TC-233, TC-234, TC-235, TC-236, TC-237, TC-238, TC-219, TC-239, TC-240, TC-241, TC-242, TC-243, TC-244, TC-245, TC-246, TC-247, TC-248, TC-249, TC-250, TC-251, TC-252, TC-253, TC-254
+DRA262611P0117	Source total 「02:30」 for a 150.03 s video, not rounded up to 「02:31」 (Assigned, RD, filed 2026-11-12)	TC-259
+DRA262611P0208	Preview lags behind the double-arrow seek handle (knob); Android, Assigned, RD, filed 2026-11-17 on 2611161 by another tester	TC-215
+DRA262611P0231	Empty gallery: partial-access prompt, not an empty state (R2 ISS-VEA-37)	TC-023
+DRA262611P0232	Notifications off: no 「Turn on notifications」 dialog (R2 ISS-VEA-38)	TC-118, TC-211, TC-119, TC-120
+DRA262611P0233	No import overlay / 「Cancel」 (PM, R2 ISS-VEA-43)	TC-315
+DRA262611P0234	Sort keys differ from iOS (PM, R2 ISS-VEA-44)	TC-316
+DRA262611P0235	Empty Recent task 「No Generated Videos」 (PM, R2 ISS-VEA-45)	TC-317
+
+# ISS-VEA-56 (S3 upload broke off on short clips): no duplicate. Related, not the same: DRA262611P0236 (65 s per MB upload, slow but finishing),
+# DRA262611P0083 (nonsense card length, open, the card part of the failure), DRA262611P0094 / P0079 (Leave / Home during upload),
+# DRA262608-0072 (16.6.0 static 「4 minutes left」, PM, NewCreated), DRA252503-0282 (closed, upload dialog late). Held R2 ISS-VEA-41 is the late refund.
+# DRA262611P0230 (play at the selection end): not reproduced on 2611231 (TC-037 step 1 passes, O-2); status NeedCodeReview. Information only.
+# Closed / cancelled PM tickets cited as rulings (as R2): DRA262611P0088 (Close) TC-013; DRA262611P0096 (Cancelled) TC-152, TC-223 – TC-254; DRA262611P0097 (Close) TC-144.
+
+# 2026-11-25: entries 1–3 (R2's held ISS-VEA-39 / 40 / 41, reproduced on 2611231) deduped against the whole Android pool
+# (209 candidates, same 60 open on 16.9.0 as above; ranked hits and every open ticket read; plus a pool text search for
+# refund / credit / error / fail / View Details / thumbnail). No same-OS duplicate, so all three are drafted.
+# ISS-VEA-39 (failed card, grey placeholder): related, not the same: DRA262611P0083 (open: cancelled card, nonsense length,
+#   Retry; the 888:53:20 length on the 21:04 card is its symptom, not repeated); DRA262604-0094 (closed, same failed task
+#   twice); DRA262611P0245 (open, 「View」 weight on a completed card).
+# ISS-VEA-40 (View Details opens 「Need Help?」): no open match; DRA242410-0021 (closed 14.5.0, no View details button),
+#   DRA262601-0044 (closed 16.0.0, Unfinished Task dialog after an error): other symptoms.
+# ISS-VEA-41 (refund 2–3.5 h after a failure): related, different trigger: DRA262611P0079 / P0094 (open: Home / Leave during
+#   the upload, refunded ~3 h later). No ticket on a task that fails by itself.

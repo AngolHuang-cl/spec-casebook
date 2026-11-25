@@ -1,0 +1,11 @@
+{
+ "TC-096": { "group": "need:low-balance", "label": "Low balance: account holds ~30,000 credits", "note": "no low-balance account (test-data)" },
+ "TC-320": { "group": "need:low-balance", "label": "Low balance: account holds ~30,000 credits", "note": "no low-balance account (test-data)" },
+ "TC-207": { "group": "need:low-balance", "label": "Low balance: account holds ~30,000 credits", "note": "no low-balance account (test-data)" },
+ "TC-098": { "group": "need:low-balance", "label": "Low balance: account holds ~30,000 credits", "note": "no low-balance account (test-data)" },
+ "TC-211": { "group": "upstream", "label": "Upstream TC-118: 「Turn on notifications」 dialog never appears", "note": "defect; recheck when TC-118 passes" },
+ "TC-119": { "group": "upstream", "label": "Upstream TC-118: 「Turn on notifications」 dialog never appears", "note": "defect; recheck when TC-118 passes" },
+ "TC-120": { "group": "upstream", "label": "Upstream TC-118: 「Turn on notifications」 dialog never appears", "note": "defect; step 2 seen: no prompt after later tasks" },
+ "TC-268": { "label": "No task finished ≥ 2 days ago on this install", "note": "fresh install / pm clear empties Recent task (KF-009); test-data" },
+ "TC-174": { "group": "need:server-failure", "label": "No fault switch makes a server-side task failure on Android", "note": "observability (KP-003)" }
+}

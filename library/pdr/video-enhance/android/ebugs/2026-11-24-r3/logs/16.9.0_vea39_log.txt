@@ -1,0 +1,39 @@
+# ISS-VEA-39 Two tasks that failed on the server: apply effect 401, applyEffect status Error
+# PowerDirector Mobile for Android 16.9.0 (2611231), Stage server, Samsung SM-A5360 / Android 15 (phone time, UTC+8)
+# Video Enhance task lines (create session = the charge, transcode, S3 upload, apply effect, errors, toasts) and the
+# balance when it changes; tokens dropped, URL queries cut at '?'.
+
+## 21:54 task: Enhance tap (charge 180) (2026-11-24 21:54:15–21:55:30; logs/R3-f-20261124-231751/logcat-live.txt)
+2026-11-24 21:54:21.999 CreditSystemManager: totalRemain=31054
+2026-11-24 21:54:22.939 Create session: start
+2026-11-24 21:54:23.648 AIVideoAnime:  create session response code->200
+2026-11-24 21:54:23.651 Create session: end
+2026-11-24 21:54:23.670 Transcode: start
+2026-11-24 21:55:27.873 Transcode: finish
+2026-11-24 21:55:28.240 Upload to S3: start
+
+## 21:54 task: upload ends 70 min later, apply effect 401 (2026-11-24 23:05:15–23:05:30; logs/R3-f-20261124-231751/logcat-live.txt)
+2026-11-24 23:05:23.529 AIVideoAnime:  upload response code->200
+2026-11-24 23:05:23.529 Apply Effect: start
+2026-11-24 23:05:23.529 Upload to S3: finish
+2026-11-24 23:05:23.799 AIVideoAnime:  apply effect response code->401
+2026-11-24 23:05:23.846 Toast   : show: caller = znm.emit:84
+2026-11-24 23:05:25.042 Apply Effect: finish
+
+## 21:04 task: Enhance tap (charge 4) (2026-11-24 21:04:05–21:04:20; logs/R3-e-20261124-211841/logcat-live.txt)
+2026-11-24 21:04:11.174 CreditSystemManager: totalRemain=31130
+2026-11-24 21:04:12.099 Create session: start
+2026-11-24 21:04:12.537 AIVideoAnime:  create session response code->200
+2026-11-24 21:04:12.539 Create session: end
+2026-11-24 21:04:12.552 Transcode: start
+2026-11-24 21:04:13.946 Transcode: finish
+2026-11-24 21:04:14.167 Upload to S3: start
+
+## 21:04 task: retried upload, applyEffect status Error (2026-11-24 21:06:50–21:08:05; logs/R3-e-20261124-211841/logcat-live.txt)
+2026-11-24 21:06:58.011 Upload to S3: start
+2026-11-24 21:08:02.990 AIVideoAnime:  upload response code->200
+2026-11-24 21:08:02.990 Upload to S3: finish
+2026-11-24 21:08:02.991 Apply Effect: start
+2026-11-24 21:08:03.353 AIVideoAnime:  apply effect response code->200
+2026-11-24 21:08:03.640 AIFeatureRepository: applyEffect status: Error null
+2026-11-24 21:08:03.847 Apply Effect: finish

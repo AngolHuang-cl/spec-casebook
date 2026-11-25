@@ -1,0 +1,16 @@
+{
+ "tr": "TR261123-0070",
+ "build": "2611231",
+ "trNote": "TR261123-0070, build 16.9.0.2611231, where R3 ran (TR header re-read 2026-11-24). The R2 batches went on TR261118-0074 (2611181), so \"Same TR\" does not apply — confirm.",
+ "lede": "Three cards: the R2 findings ISS-VEA-39 / 40 / 41, held in R2 because they could not be re-exercised on 2611181 and never filed, reproduced in R3 on 2611231 on real server failures; their evidence is from R3. Deduped again against the whole Android pool on 2026-11-25: no same-OS match. R3's one new finding, ISS-VEA-56 (S3 upload breaks), did not reproduce on recheck (0 of 24) and was dropped by the user as network loss (under Not raised). ISS-VEA-19 and ISS-VEA-26 stay held by the reviewers' rulings and are not here.",
+ "why": {
+  "ISS-VEA-39": "Defect (UI, RD): a task that failed on the server gets a card with 「View Details」 but the grey placeholder thumbnail, not the Design's 「Error」 thumbnail (R-140). Seen on both R3 failures (apply effect 401, applyEffect status Error).",
+  "ISS-VEA-40": "Defect (UI, RD): 「View Details」 on a failed card opens the customer-service dialog 「Need Help?」, not the Design and PM dialog 「An Error Has Occurred」 / 「Credits have been refunded.」 with 「OK」 (R-141, arrow 3393-18071).",
+  "ISS-VEA-41": "Defect (Functional, RD): credits of a task that fails by itself come back 2 h 14 min – 3 h 29 min after the failure (4 of 5 R3 failures), not when it fails (R-142, KP-007). Only the applyEffect-Error task was refunded at once."
+ },
+ "related": {
+  "ISS-VEA-39": "Related, not the same: DRA262611P0083 (open, RD) is the cancelled task's card (nonsense length, Retry); its Expect also names the Error thumbnail, so you may fold this into it instead. The 「888:53:20」 length on the 21:04 card is P0083's and is not repeated.",
+  "ISS-VEA-40": "Same failed cards as ISS-VEA-39. System Back closes the dialog like 「Not now」 (TC-210 Pass). 「Send Feedback」 was not tapped.",
+  "ISS-VEA-41": "Related, different trigger: DRA262611P0079 / P0094 (Home or 「Leave」 during the upload, refunded ~3 h later). The refunds have no app log line; the log shows the server's ledger records from getCreditHistory."
+ }
+}

@@ -1,0 +1,33 @@
+== Need Help
+
+0 bug(s)
+== refund
+DRA262611P0094    Assigned        2    RD         2611091    ETHAN_HSU       PDR-A 16.9.0 - [AIAgent] AI Video Enhance: 「Leave」 during upload charges 30 credits, then a refund comes 3 h later
+DRA262611P0079    Assigned        3    RD         2611091    ETHAN_HSU       PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Home during upload ends the task but charges 30 credits, refunded 3 h later
+DRA262611P0042    NeedMoreInfo    2    RD         2611041    BALLY_HSU       PDR-A 16.8.0 - [AIFound] AI Mini Drama: Failed character says credits were refunded, but 1 credit is kept
+
+3 bug(s)
+== Refund
+DRA262611P0094    Assigned        2    RD         2611091    ETHAN_HSU       PDR-A 16.9.0 - [AIAgent] AI Video Enhance: 「Leave」 during upload charges 30 credits, then a refund comes 3 h later
+DRA262611P0079    Assigned        3    RD         2611091    ETHAN_HSU       PDR-A 16.9.0 - [AIAgent] AI Video Enhance: Home during upload ends the task but charges 30 credits, refunded 3 h later
+DRA262611P0042    NeedMoreInfo    2    RD         2611041    BALLY_HSU       PDR-A 16.8.0 - [AIFound] AI Mini Drama: Failed character says credits were refunded, but 1 credit is kept
+
+3 bug(s)
+== placeholder
+DRA262611P0049    Close           3    PM         2611041    SHERRY_LEE      PDR-A 16.8.0 - [AIFound][UI] AI Magic: AI Mini Drama shows placeholder "AI Mini Drama (Andriod)" in SV/DA/NB/UK
+DRA262611P0024    Assigned        3    RD         2611041    ALLENCW_CHEN    PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Create my character Age placeholder is lighter than the Design grey
+DRA262611P0013    Close           3    RD         2611031    BALLY_HSU       PDR-A 16.8.0 - [UI] AI Mini Drama: History placeholder icon for a drama without images is blurry.
+
+3 bug(s)
+== thumbnail
+
+0 bug(s)
+== View Details
+
+0 bug(s)
+== An Error Has Occurred
+
+0 bug(s)
+== failed task
+
+0 bug(s)
