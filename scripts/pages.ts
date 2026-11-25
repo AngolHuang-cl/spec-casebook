@@ -32,11 +32,13 @@ import { createServer, request } from 'node:http';
 import { networkInterfaces } from 'node:os';
 import { join, relative, sep } from 'node:path';
 import { createGzip, gzipSync } from 'node:zlib';
-import { hasDraft, listBoards, newestPlan, openDrafts } from './lib/boards.ts';
+import { filedBugs, hasDraft, listBoards, newestPlan, openDrafts } from './lib/boards.ts';
 import { trPending } from './lib/tr-info.ts';
 import { housekeeping } from './lib/housekeeping.ts';
 import { LIBRARY, PLATFORMS, arg, assertIds, readManifest, tableDir } from './lib/library.ts';
 import { isLocal } from './lib/local.ts';
+import { setRegression } from './lib/regression.ts';
+import { refreshBugs } from './lib/ebug-status.ts';
 import { COOKIE, attempts, hasSession, makePasscode, passcodeMatches, safeNext, sessionOf } from './lib/passcode.ts';
 import { withShared } from './lib/page-shared.ts';
 import { SEAT_PRESETS, readSettings, seatAt, setSeat, settingsFile } from './lib/settings.ts';
@@ -321,10 +323,38 @@ const check = (c: Child, data: boolean, fresh: boolean) => {
 };
 const notAvailable = (c: Child, r: Ref) => `<!doctype html><meta charset="utf-8"><title>${esc(c.def.label)}</title><body style="margin:0;font:15px system-ui;background:#f4f5f7">${tabBar(r, c.def.id, '', true)}<p style="padding:24px;max-width:80ch">${esc(c.error ?? 'Not available.')}</p></body>`;
 // The navigation page. Its data is a few small files per table, read when it is asked for.
-const boardsData = () => { const products = listBoards(); return { products, trPending: trPending(), live: live().length, idleMinutes: IDLE_MS / 60_000 }; };
+// `local`: this computer may mark a table as in regression (AT) from the page (POST /regression)
+const boardsData = (local = false) => { const products = listBoards(); return { products, local, trPending: trPending(), live: live().length, idleMinutes: IDLE_MS / 60_000 }; };
 const loginPage = (next: string, error = '') => withShared(readFileSync(script('login-page.tpl'), 'utf8')).replace('__NEXT__', () => esc(next)).replace('__HIDE__', error ? '' : ' hidden').replace('__ERROR__', () => esc(error));
-const boardsPage = () => withShared(readFileSync(script('boards-page.tpl'), 'utf8')).replace('/*__BAR_CSS__*/', () => barCss.replace(/<\/?style>/g, ''))
-  .replace('__NOTE__', () => shareNote()).replace('__DATA__', () => JSON.stringify(boardsData()).replace(/</g, '\\u003c'));
+const boardsPage = (local: boolean) => withShared(readFileSync(script('boards-page.tpl'), 'utf8')).replace('/*__BAR_CSS__*/', () => barCss.replace(/<\/?style>/g, ''))
+  .replace('__NOTE__', () => shareNote()).replace('__DATA__', () => JSON.stringify(boardsData(local)).replace(/</g, '\\u003c'));
+// The Dashboard's AT button (user, 2026-11-25): mark a table as in the regression suite, or take the mark off
+// (lib/regression.ts). From this computer only, like Save.
+async function saveRegression(req: import('node:http').IncomingMessage, res: import('node:http').ServerResponse) {
+  const json = (status: number, body: unknown) => { res.writeHead(status, { 'content-type': 'application/json', 'cache-control': 'no-store' }); res.end(JSON.stringify(body)); };
+  if (!isLocal(req.socket.remoteAddress)) { json(403, { error: 'Only this computer can change a table\'s AT mark.' }); return; }
+  let raw = ''; for await (const c of req) { raw += c; if (raw.length > 4096) break; }
+  try {
+    const body = JSON.parse(raw);
+    setRegression(String(body.feature), String(body.platform), !!body.on, { note: String(body.note ?? '').slice(0, 200) });
+    json(200, boardsData(true));
+  } catch (e: any) { json(400, { error: e?.message ?? String(e) }); }
+}
+
+// The Dashboard's Refresh button (user, 2026-11-25): ask eCL for the current status of the eBugs filed from the tables
+// named (lib/ebug-status.ts; statuses only, kept on this computer), then answer with the list again. From this computer
+// only: the lookup uses its eCL token.
+async function refreshEbugs(req: import('node:http').IncomingMessage, res: import('node:http').ServerResponse) {
+  const json = (status: number, body: unknown) => { res.writeHead(status, { 'content-type': 'application/json', 'cache-control': 'no-store' }); res.end(JSON.stringify(body)); };
+  if (!isLocal(req.socket.remoteAddress)) { json(403, { error: 'Only this computer can refresh eBug statuses.' }); return; }
+  let raw = ''; for await (const c of req) { raw += c; if (raw.length > 20_000) break; }
+  try {
+    const tables: [string, string][] = (JSON.parse(raw).tables ?? []).slice(0, 60);
+    const codes = tables.flatMap(([f, p]) => { assertIds(f, p); return filedBugs(f, p).map(b => b.code); });
+    const done = await refreshBugs(codes);
+    json(done.error && !done.read ? 502 : 200, { ...boardsData(true), refreshed: done, ...(done.error && !done.read ? { error: done.error } : {}) });
+  } catch (e: any) { json(400, { error: e?.message ?? String(e) }); }
+}
 
 // The Settings page (user, 2026-11-17): this computer's settings (lib/settings.ts), linked only from the navigation
 // page's top bar so the table pages stay uncrowded. Other computers see it read-only; saving is local, like Save.
@@ -380,8 +410,10 @@ async function handle(req: import('node:http').IncomingMessage, res: import('nod
       return;
     }
   }
-  if (url === '/' || url.startsWith('/?')) { sendText(req, res, 200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }, boardsPage()); return; }
-  if (url === '/boards.json') { sendText(req, res, 200, { 'content-type': 'application/json', 'cache-control': 'no-store' }, JSON.stringify(boardsData())); return; }
+  if (url === '/' || url.startsWith('/?')) { sendText(req, res, 200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }, boardsPage(isLocal(req.socket.remoteAddress))); return; }
+  if (url === '/boards.json') { sendText(req, res, 200, { 'content-type': 'application/json', 'cache-control': 'no-store' }, JSON.stringify(boardsData(isLocal(req.socket.remoteAddress)))); return; }
+  if (url === '/regression' && req.method === 'POST') { await saveRegression(req, res); return; }
+  if (url === '/ebugs/refresh' && req.method === 'POST') { await refreshEbugs(req, res); return; }
   if (url === '/__stamp') { res.writeHead(200, { 'content-type': 'application/json', 'cache-control': 'no-store' }); res.end(stamps()); return; }
   if (url === '/__events') {
     res.writeHead(200, { 'content-type': 'text/event-stream', 'cache-control': 'no-store', connection: 'keep-alive' });

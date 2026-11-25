@@ -63,6 +63,11 @@ rows.forEach((r, i) => {
       .some(l => l.includes(';') || /[^.][.!?]\s+[A-Z「]/.test(l));
     if (joined) warnings.push(`${at}: ${f} joins several items on one line (";" or two sentences); put each on its own line (formats.md, one item per line)`);
   }
+  // MUI rows (user, 2026-11-25): their long Expected Result is numbered line by line, not only broken into lines (mui.md §2)
+  if (r.Section === 'MUI') {
+    const lines = (r['Expected Result'] ?? '').split('\n').map(l => l.trim()).filter(Boolean);
+    if (lines.length > 1 && lines.some(l => !/^\d+[.)]\s/.test(l))) warnings.push(`${at}: MUI Expected Result has unnumbered lines; number every line (mui.md, Numbered lines)`);
+  }
   if (!r['Spec Ref']) errors.push(`${at}: empty Spec Ref (every case must trace to a requirement)`);
   else if (reqIds) for (const id of r['Spec Ref'].match(/\bR-\d{3,}\b/g) ?? []) if (!reqIds.has(id)) errors.push(`${at}: Spec Ref ${id} is not in requirements.md`);
   if (draft && r.Change && !CHANGES.includes(r.Change)) errors.push(`${at}: Change must be one of ${CHANGES.join(', ')}`);

@@ -1,0 +1,68 @@
+{
+  "Q-5": {
+    "state": "determined",
+    "by": "R3 (2026-11-24-r3-full, 16.9.0)",
+    "at": "2026-11-25",
+    "note": "The app decides by the short side: a 1080×1920 portrait source opens with 「1080p」 selected and the badge 「30fps · 1080p」 (TC-059 Pass), as PM B3 proposes."
+  },
+  "Q-6": {
+    "state": "determined",
+    "by": "R3 (2026-11-24-r3-full, 16.9.0)",
+    "at": "2026-11-25",
+    "note": "A tap on a disabled chip changes nothing and shows no toast (TC-064 Pass: 「120fps」 disabled for a 24 fps source); the priced combinations are enabled where the source allows them (TC-254: none disabled)."
+  },
+  "Q-7": {
+    "state": "determined",
+    "by": "R3 (2026-11-24-r3-full, 16.9.0)",
+    "at": "2026-11-25",
+    "note": "The IAP page on this build offers no free trial: one 「PowerDirector Pro」 page with yearly and monthly prices and 「Continue」, no trial wording (TC-093 Pass), as PM §7 says."
+  },
+  "Q-9": {
+    "state": "determined",
+    "by": "R3 (2026-11-24-r3-full, 16.9.0)",
+    "at": "2026-11-25",
+    "note": "Existing Android ticket DRA242410-0142 (Close, fixed in 15.1.0) rules that Back on the media picker opened with 「Try It Now」 goes to the Launcher on purpose, which is what the app does (TC-021, TC-201). Back from the Result returns to Recent task (TC-155 Pass). The rows TC-021 and TC-201 still expect the Demo page and change at the next draft."
+  },
+  "Q-12": {
+    "state": "determined",
+    "by": "R3 (2026-11-24-r3-full, 16.9.0)",
+    "at": "2026-11-25",
+    "note": "A second task can start while one is processing: two processing cards at once, no limit message (TC-121 Pass). PM's proposed cap of 3 was not probed."
+  },
+  "Q-15": {
+    "state": "determined",
+    "by": "R3 (2026-11-24-r3-full, 16.9.0)",
+    "at": "2026-11-25",
+    "note": "Tapping the panel's credit pill opens 「My Credits」 (TC-097 Pass)."
+  },
+  "Q-19": {
+    "state": "determined",
+    "by": "R3 (2026-11-24-r3-full, 16.9.0)",
+    "at": "2026-11-25",
+    "note": "The app shows the Design's format: 「Selected Length」 as mm:ss (「08:00」, 「00:30」) with no 「/ max」 (TC-033 and the trim rows)."
+  },
+  "Q-22": {
+    "state": "determined",
+    "by": "R3 (2026-11-24-r3-full, 16.9.0)",
+    "at": "2026-11-25",
+    "note": "Tapping a completed card's thumbnail opens the same Result as 「View」 (TC-143 Pass)."
+  },
+  "Q-20": {
+    "state": "not-reached",
+    "by": "R3 (2026-11-24-r3-full, 16.9.0)",
+    "at": "2026-11-25",
+    "note": "System Back closes a bubble, asks on the processing dialog and keeps uploading on the leave dialog (TC-203, TC-204, TC-205 Pass). The notification prompt was not reached: the 「Turn on notifications」 dialog never appeared (TC-211 Blocked, TC-118 Fail)."
+  },
+  "Q-14": {
+    "state": "to-file",
+    "by": "R3 (2026-11-24-r3-full, 16.9.0)",
+    "at": "2026-11-25",
+    "note": "No row asserts the GenAI consent dialog and no run recorded one before the first upload, so the run cannot say whether the disclosure is shown. It needs a first-upload check on a fresh install, then a PM eBug (Legal question)."
+  },
+  "Q-21": {
+    "state": "determined",
+    "by": "ruling 2026-11-25 (user, REQ-044)",
+    "at": "2026-11-25",
+    "note": "Ruling: the playhead can be dragged only between the two white trim handles (‹ ›), and play starts from where the playhead is. R3 recorded the drag inside the selection (TC-215); dragging against a handle and play from the playhead are not yet run and become rows in the next draft. The drafted PM eBug ISS-VEA-57 is withdrawn."
+  }
+}

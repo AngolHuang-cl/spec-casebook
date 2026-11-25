@@ -180,6 +180,31 @@ lines; put the full rule in the skill or reference file that applies it and poin
   own phase (user, 2026-11-24)**, run on request and never in a full run; Android translations are read from the
   build's APK (`scripts/mui-strings.ts`, no phone), the phone walks each language for truncation (iOS: translation
   too) and starts no new task.
+- **Dashboard (user, 2026-11-25).** The pages server's first page is the Dashboard: two tabs, Agentic runs (tables
+  waiting for their conversion to AT) and Regression (AT) (converted), with the iOS / Android switch on the same line
+  (the two are never listed together), one toolbar (Product, Version, Sort, Search), then per product and app version
+  (16.9.0, never the build or the TR, and no build number anywhere on the page) one aligned line per feature: Cases,
+  Last run, Pass, Fail, Blocked (a column each), eBugs open / filed, Questions, MUI, Design, AT, and a total line.
+  Keep it a table: no sentences of figures in a cell (the first version was 「way too messy」), every column says what
+  its number is, and every figure opens the exact place behind it (Questions opens the Cases page's question panel,
+  a result count opens Results on that run and result). **MUI stays out of the counts:** cases, run tallies and eBugs
+  leave out MUI rows, runs and eBugs, which show only in the MUI column. **eBugs are open / filed** in three kinds
+  that never overlap: functional and UX (eBugs column), MUI (MUI column), [UI] (Design column); 「Refresh eBugs」 on a
+  version group reads their status from eCL (this computer only, statuses only, `lib/ebug-status.ts`; reading, never
+  commenting). A table is marked converted with 「Mark as AT」 on its line (this computer only) or
+  `node scripts/regression.ts <feature> <ios|android|both>` (`regression.json` in the feature folder, committed), only
+  when the user says it is converted (`scripts/boards-page.tpl`, `lib/boards.ts`, `lib/regression.ts`).
+- **No question left open by a completed run (user, 2026-11-25).** At every phase wrap-up each Open question is
+  determined (`<platform>/question-status.json`), filed as a PM eBug whose entry names the Q-id (also when no row
+  failed on it), or marked not reached with the reason; settled ones leave the Cases page's question list for its
+  closed 「Settled」 list and the Dashboard counts only what is open
+  (`spec-casebook/references/ebugs.md` step 1).
+- **Results say the problem (user, 2026-11-25).** A failed case opens with a highlighted Problem block across the card
+  (each eBug's title and ticket, else the first sentence recorded), and 「What happened」, the run's own record one line
+  per step, is highlighted too; a Fail's recorded text starts with the problem sentence (`run.md` step 2,
+  `scripts/results-page.ts`).
+- **MUI rows are numbered (user, 2026-11-25).** Every multi-line cell of an MUI row is numbered, the Expected Result
+  too, never plain line breaks; `check.ts` warns (`spec-casebook/references/mui.md` §2).
 - **One step per line (user, 2026-11-03).** When a table cell holds two or more steps, each goes on its own
   numbered line, whether they were numbered (`1. … 2. …`) or plain sentences (`Open X, then tap Y`); `check.ts`
   warns (`formats.md`, writing rules).
@@ -293,9 +318,12 @@ lines; put the full rule in the skill or reference file that applies it and poin
   runs are too frequent and the repo would bloat. Pages say when a run's images are not on this computer.
 - **Page layout (user, 2026-11-06).** Every tab has the same page width and side gutter (`--gutter` in
   `scripts/page-shared.css.tpl`); Results shows each case in full by default, with Compact list as the option.
-- **Formatting check on every page (user, 2026-11-19).** Any HTML page or artifact made or changed is looked at
-  rendered before hand-over (about 1100 px and 375 px, both languages, light and dark): no mark orphaned on its own
-  line, even columns, unambiguous legends, a better side on every compared row; fix and look again
+- **Formatting and design check on every page (user, 2026-11-19; design rules 2026-11-25).** Any HTML page or artifact
+  made or changed is looked at rendered before hand-over (about 1100 px and 375 px, both languages, light and dark): no
+  mark orphaned on its own line, even columns, unambiguous legends, a better side on every compared row. A page with
+  controls is also held to the general UI design rules: one control style per kind of choice, a toolbar on one line
+  with nothing stranded, visible hierarchy, filter options scoped to their parent, every number labelled, quiet by
+  default. Judge the screenshot as a designer would; fix and look again
   (`spec-casebook/references/page-checks.md`).
 - **One-off HTML pages (user, 2026-11-05).** A page asked for as HTML is a local file, not an artifact, and never goes
   on the Desktop: it goes in `library/<product>/<feature>/comparisons/` (git-ignored, local only), named

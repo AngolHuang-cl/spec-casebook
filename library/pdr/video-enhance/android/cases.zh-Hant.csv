@@ -110,10 +110,10 @@ TC-037,面板版面與首次提示泡泡,"1. 已用 12:30 的影片開啟面板
 2. 再點同一個按鈕（暫停）
 3. 等 3 秒
 4. 點全螢幕圖示
-5. 關閉全螢幕預覽","步驟 1 從選取範圍內（02:00 起）開始播放，時間往前走
+5. 關閉全螢幕預覽","步驟 1 從播放頭所在的位置開始播放，這個位置一定在選取範圍內（02:00 或更後面），時間從那裡往前走
 步驟 2 暫停，到步驟 3 結束為止時間和畫面都維持不動
 步驟 4 以全螢幕顯示
-步驟 5 回到面板，還是同一支影片，選取範圍 02:00–04:00（「02:00」）、「Professional」、「Sharp」、「60fps」、「4K」和先前記下的 CTA 價格都沒變",P3,"R-027, R-200",暫停：spec agent TC-VE2-163（通用播放器規則，Design 沒有畫）[Req: REQ-008]。這裡用的是裁切過、非預設設定的面板（spec agent TC-VE2-162、TC-VE2-170）[Req: REQ-016]。,未變更,
+步驟 5 回到面板，還是同一支影片，選取範圍 02:00–04:00（「02:00」）、「Professional」、「Sharp」、「60fps」、「4K」和先前記下的 CTA 價格都沒變",P3,"R-027, R-200",暫停：spec agent TC-VE2-163（通用播放器規則，Design 沒有畫）[Req: REQ-008]。這裡用的是裁切過、非預設設定的面板（spec agent TC-VE2-162、TC-VE2-170）[Req: REQ-016]。播放從播放頭的位置開始（REQ-044）；從指定位置開始播放的檢查在 TC-349。,修改,REQ-044：R-027 改為「從播放頭的位置開始播放」（Q-21 已有答案）
 TC-038,面板版面與首次提示泡泡,從 Add Media 進入面板，目前沒有任何處理中的工作,點面板頂端列的 ‹,回到 Add Media,P2,R-028,,未變更,
 TC-040,裁切與選取長度,"1. 以 Pro 帳號登入（Android 沒有等級切換）
 2. 相簿裡有一支 12:30、1080p、30 fps 的影片",在 Add Media 選這支影片,"選取範圍從 00:00 開始，「Selected Length」顯示「08:00」（mm:ss 格式）
@@ -193,7 +193,44 @@ TC-215,裁切與選取長度,"1. 已用 12:30 的影片開啟面板，選取範�
 步驟 4：往前移的反應相同（約「01:00」和「01:00/12:30」）
 步驟 5：每個取樣時間點，泡泡、預覽區時間和畫面都隨圓鈕左右移動
 步驟 6：停在約「02:00」
-步驟 3–6：兩側裁切把手、「Selected Length」的「08:00」和 CTA 的價格都維持不變",P2,"R-192, R-193",這個圓鈕（round/ic_btn_drag）是播放頭，不是裁切把手（分析第 11 輪，依看板圖片判斷其角色）。Q-21：播放頭可以拖到多遠，規格沒有寫。取證：錄下整段拖曳的螢幕畫面（run-android.md，*Judging a drag*）；測試影片的每一格都燒有時間碼。可接受的延遲見 Q-27（暫定：看不出延遲）。,未變更,
+步驟 3–6：兩側裁切把手、「Selected Length」的「08:00」和 CTA 的價格都維持不變",P2,"R-192, R-193",這個圓鈕（round/ic_btn_drag）是播放頭，不是裁切把手（分析第 11 輪，依看板圖片判斷其角色）。播放頭只能在兩個裁切把手之間移動（REQ-044，Q-21 的答案）：拖到把手會停住的檢查在 TC-348，從播放頭開始播放在 TC-349。取證：錄下整段拖曳的螢幕畫面（run-android.md，*Judging a drag*）；測試影片的每一格都燒有時間碼。可接受的延遲見 Q-27（暫定：看不出延遲）。,修改,REQ-044：Q-21 已有答案（播放頭只會停留在兩個裁切把手之間）；備註不再寫「可拖曳範圍未說明」，改為指向 TC-348 和 TC-349
+TC-348,裁切與選取長度,"1. 已用 12:30 的影片開啟面板（每一格都燒有時間碼）
+2. 選取範圍裁成 00:30–02:00（「01:30」），前後兩端都比影片短
+3. 先記下 CTA 的價格","1. 把 ◀▶ 圓鈕向右拖，拖過右側的 › 把手後再繼續往右推一秒
+2. 放開
+3. 把 ◀▶ 圓鈕向左拖，拖過左側的 ‹ 把手後再繼續往左推一秒
+4. 放開","步驟 1：播放頭停在右側把手，手指再怎麼往右拖都不會超過
+步驟 1：泡泡顯示「02:00」，預覽區顯示「02:00/12:30」
+步驟 1：預覽區顯示右側把手位置的畫面（燒入時間 02:00）
+步驟 2：播放頭留在右側把手，泡泡和預覽區時間不變
+步驟 3：播放頭停在左側把手，不會再往左
+步驟 3：泡泡顯示「00:30」，預覽區顯示「00:30/12:30」
+步驟 3：預覽區顯示左側把手位置的畫面（燒入時間 00:30）
+步驟 4：播放頭留在左側把手，泡泡和預覽區時間不變
+步驟 1–4：兩側裁切把手都留在 00:30 和 02:00
+步驟 1–4：「Selected Length」維持「01:30」
+步驟 1–4：CTA 的價格和先前記下的一樣",P2,R-193; REQ-044,裁示（user，2026-11-25，REQ-044；Q-21 的答案）：播放頭只能在兩個白色 ‹ › 裁切把手之間拖曳。選取範圍前後兩端都比影片短，才分得出播放頭是停在把手，還是停在影片的開頭或結尾。播放頭可能和把手差一格（TC-273）。,新增,REQ-044：播放頭拖到任一側裁切把手就停住，離不開選取範圍（R-193）
+TC-349,裁切與選取長度,"1. 已用 12:30 的影片開啟面板（每一格都燒有時間碼）
+2. 選取範圍裁成 00:30–02:00（「01:30」），前後兩端都比影片短
+3. 預覽區處於暫停狀態
+4. 先記下 CTA 的價格","1. 把 ◀▶ 圓鈕拖到約 01:00
+2. 放開，記下泡泡上的時間
+3. 點預覽區下方的播放
+4. 約 5 秒後再點同一個按鈕（暫停）
+5. 把 ◀▶ 圓鈕拖到約 01:30
+6. 放開，記下泡泡上的時間
+7. 點預覽區下方的播放
+8. 約 5 秒後再點同一個按鈕（暫停）","步驟 2：泡泡和預覽區時間一致（約「01:00」和「01:00/12:30」）
+步驟 3：從步驟 2 記下的時間開始播放，不是從選取範圍起點 00:30 開始
+步驟 3：播出的第一格就是記下時間的那一格（看燒入的時間）
+步驟 3：播放頭、泡泡和預覽區時間從記下的時間一起往前走
+步驟 4：在記下的時間之後約 5 秒暫停（約「01:05」）
+步驟 6：泡泡和預覽區時間一致（約「01:30」和「01:30/12:30」）
+步驟 7：從步驟 6 記下的時間開始播放，不是從 00:30，也不是從步驟 4 暫停的位置
+步驟 7：播放頭、泡泡和預覽區時間從那個時間一起往前走
+步驟 1–8：兩側裁切把手都留在 00:30 和 02:00
+步驟 1–8：「Selected Length」維持「01:30」
+步驟 1–8：CTA 的價格和先前記下的一樣",P2,"R-193, R-027; REQ-044",裁示（user，2026-11-25，REQ-044；Q-21 的答案）：播放從播放頭所在的位置開始。暫停是 R-200（TC-037）。兩次播放都在到達右側把手前暫停：播到選取範圍結尾時會怎樣，規格沒有寫（Q-28），所以這裡不檢查。,新增,REQ-044：播放從播放頭的位置開始，不是從選取範圍起點（R-193、R-027）
 TC-044,裁切與選取長度,已用 12:30 的影片以 Standard 開啟面板，選取範圍是 00:00–06:00,"1. 開始錄製螢幕
 2. 用 2–3 秒把右側把手向右拖到底
 3. 繼續往右推約一秒
@@ -2029,12 +2066,12 @@ TC-212,系統返回鍵,從面板開啟全螢幕預覽,按系統返回鍵,全螢�
 TC-213,系統返回鍵,從片段工具列開啟面板，目前沒有任務在跑,按系統返回鍵,回到編輯器，專案不變（與 ‹ 相同）,P2,"R-133, R-190",,未變更,
 TC-321,MUI 多國語系,"1. 受測 build 的 APK 在 `~/.casebook/android/apks/<build>/`（就是這次 run 安裝的那個）
 2. `mui.json` 列出這個功能的字串前綴（`android_prefixes`）","1. 執行 `node scripts/mui-strings.ts pdr/video-enhance --apk <build dir> --out <run dir>/mui`
-2. 逐一語言把 `mui-strings.json` 的每個字串和英文對照著看","26 個語言（CHT, CHS, JPN, ESP, KOR, DEU, FRA, ITA, RUS, PTB, NLD, IND, THA, MAY, HIN, ESM, ARA, VIT, PLK, TRK, FAR, HEB, SVE, DAN, NOR, UKR）的每個功能字串都有自己的翻譯：沒有顯示英文預設值或別的地區的文字
-除了名稱和單位（「fps」、「1080p」、產品名稱），沒有字串和英文一模一樣
-每個語言的佔位符和換行都和英文一致
-每個翻譯的意思都和英文一致，並用該語言的文字和地區用語（CHT 繁體、台灣用語，CHS 簡體，PTB 巴西用法，ESM 墨西哥用法）
-功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個字串裡譯法一致
-沒有翻譯表（REQ-041）：只是看起來怪的翻譯記在 mui-doubts.md 當翻譯疑點，不算 Fail",P2,R-208; REQ-041,MUI，所有語言從 APK 讀取（不用手機、不花點數）。下面的手機列只檢查截斷。,新增,REQ-041：從 build 讀取 MUI 翻譯
+2. 逐一語言把 `mui-strings.json` 的每個字串和英文對照著看","1. 26 個語言（CHT, CHS, JPN, ESP, KOR, DEU, FRA, ITA, RUS, PTB, NLD, IND, THA, MAY, HIN, ESM, ARA, VIT, PLK, TRK, FAR, HEB, SVE, DAN, NOR, UKR）的每個功能字串都有自己的翻譯：沒有顯示英文預設值或別的地區的文字
+2. 除了名稱和單位（「fps」、「1080p」、產品名稱），沒有字串和英文一模一樣
+3. 每個語言的佔位符和換行都和英文一致
+4. 每個翻譯的意思都和英文一致，並用該語言的文字和地區用語（CHT 繁體、台灣用語，CHS 簡體，PTB 巴西用法，ESM 墨西哥用法）
+5. 功能名稱和各個用語（Mode、Standard、Professional、Enhancement style、Natural、Sharp、Enhance）在每個字串裡譯法一致
+6. 沒有翻譯表（REQ-041）：只是看起來怪的翻譯記在 mui-doubts.md 當翻譯疑點，不算 Fail",P2,R-208; REQ-041,MUI，所有語言從 APK 讀取（不用手機、不花點數）。下面的手機列只檢查截斷。,未變更,REQ-041：從 build 讀取 MUI 翻譯
 TC-322,MUI 多國語系,"1. App 語言設為繁體中文（`launch --lang zh-Hant-TW`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2059,26 +2096,26 @@ TC-322,MUI 多國語系,"1. App 語言設為繁體中文（`launch --lang zh-Han
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI CHT（zh-Hant-TW）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI CHT（zh-Hant-TW）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-323,MUI 多國語系,"1. App 語言設為簡體中文（`launch --lang zh-Hans-CN`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2103,26 +2140,26 @@ TC-323,MUI 多國語系,"1. App 語言設為簡體中文（`launch --lang zh-Han
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI CHS（zh-Hans-CN）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI CHS（zh-Hans-CN）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-324,MUI 多國語系,"1. App 語言設為日文（`launch --lang ja-JP`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2147,26 +2184,26 @@ TC-324,MUI 多國語系,"1. App 語言設為日文（`launch --lang ja-JP`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI JPN（ja-JP）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI JPN（ja-JP）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-325,MUI 多國語系,"1. App 語言設為西班牙文（`launch --lang es-ES`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2191,26 +2228,26 @@ TC-325,MUI 多國語系,"1. App 語言設為西班牙文（`launch --lang es-ES`
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI ESP（es-ES）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI ESP（es-ES）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-326,MUI 多國語系,"1. App 語言設為韓文（`launch --lang ko-KR`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2235,26 +2272,26 @@ TC-326,MUI 多國語系,"1. App 語言設為韓文（`launch --lang ko-KR`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI KOR（ko-KR）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI KOR（ko-KR）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-327,MUI 多國語系,"1. App 語言設為德文（`launch --lang de-DE`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2279,26 +2316,26 @@ TC-327,MUI 多國語系,"1. App 語言設為德文（`launch --lang de-DE`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI DEU（de-DE）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI DEU（de-DE）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-328,MUI 多國語系,"1. App 語言設為法文（`launch --lang fr-FR`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2323,26 +2360,26 @@ TC-328,MUI 多國語系,"1. App 語言設為法文（`launch --lang fr-FR`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI FRA（fr-FR）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI FRA（fr-FR）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-329,MUI 多國語系,"1. App 語言設為義大利文（`launch --lang it-IT`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2367,26 +2404,26 @@ TC-329,MUI 多國語系,"1. App 語言設為義大利文（`launch --lang it-IT`
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI ITA（it-IT）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI ITA（it-IT）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-330,MUI 多國語系,"1. App 語言設為俄文（`launch --lang ru-RU`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2411,26 +2448,26 @@ TC-330,MUI 多國語系,"1. App 語言設為俄文（`launch --lang ru-RU`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI RUS（ru-RU）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI RUS（ru-RU）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-331,MUI 多國語系,"1. App 語言設為巴西葡萄牙文（`launch --lang pt-BR`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2455,26 +2492,26 @@ TC-331,MUI 多國語系,"1. App 語言設為巴西葡萄牙文（`launch --lang 
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI PTB（pt-BR）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI PTB（pt-BR）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-332,MUI 多國語系,"1. App 語言設為荷蘭文（`launch --lang nl-NL`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2499,26 +2536,26 @@ TC-332,MUI 多國語系,"1. App 語言設為荷蘭文（`launch --lang nl-NL`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI NLD（nl-NL）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI NLD（nl-NL）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-333,MUI 多國語系,"1. App 語言設為印尼文（`launch --lang id-ID`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2543,26 +2580,26 @@ TC-333,MUI 多國語系,"1. App 語言設為印尼文（`launch --lang id-ID`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI IND（id-ID）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI IND（id-ID）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-334,MUI 多國語系,"1. App 語言設為泰文（`launch --lang th-TH`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2587,26 +2624,26 @@ TC-334,MUI 多國語系,"1. App 語言設為泰文（`launch --lang th-TH`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI THA（th-TH）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI THA（th-TH）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-335,MUI 多國語系,"1. App 語言設為馬來文（`launch --lang ms-MY`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2631,26 +2668,26 @@ TC-335,MUI 多國語系,"1. App 語言設為馬來文（`launch --lang ms-MY`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI MAY（ms-MY）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI MAY（ms-MY）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-336,MUI 多國語系,"1. App 語言設為印地文（`launch --lang hi-IN`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2675,26 +2712,26 @@ TC-336,MUI 多國語系,"1. App 語言設為印地文（`launch --lang hi-IN`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI HIN（hi-IN）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI HIN（hi-IN）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-337,MUI 多國語系,"1. App 語言設為墨西哥西班牙文（`launch --lang es-MX`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2719,26 +2756,26 @@ TC-337,MUI 多國語系,"1. App 語言設為墨西哥西班牙文（`launch --la
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI ESM（es-MX）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI ESM（es-MX）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-338,MUI 多國語系,"1. App 語言設為阿拉伯文（`launch --lang ar-SA`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2763,27 +2800,27 @@ TC-338,MUI 多國語系,"1. App 語言設為阿拉伯文（`launch --lang ar-SA`
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-阿拉伯文是由右至左的語言：文字從右邊開始排，沒有字串在左邊緣被切掉
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI ARA（ar-SA）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. 阿拉伯文是由右至左的語言：文字從右邊開始排，沒有字串在左邊緣被切掉
+6. Launcher 捷徑：「AI Video Enhance」
+7. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+8. Add Media：標題和「Video」分頁
+9. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+10. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+11. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+12. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+13. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+14. 離線提示：「Upload failed. Check your connection and try again.」
+15. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+16. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+17. Recent task 卡片：「View」、「Error」、「View Details」
+18. Result：標題和「Save Result」
+19. 儲存提示：「Saved to your device」
+20. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+21. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI ARA（ar-SA）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-339,MUI 多國語系,"1. App 語言設為越南文（`launch --lang vi-VN`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2808,26 +2845,26 @@ TC-339,MUI 多國語系,"1. App 語言設為越南文（`launch --lang vi-VN`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI VIT（vi-VN）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI VIT（vi-VN）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-340,MUI 多國語系,"1. App 語言設為波蘭文（`launch --lang pl-PL`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2852,26 +2889,26 @@ TC-340,MUI 多國語系,"1. App 語言設為波蘭文（`launch --lang pl-PL`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI PLK（pl-PL）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI PLK（pl-PL）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-341,MUI 多國語系,"1. App 語言設為土耳其文（`launch --lang tr-TR`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2896,26 +2933,26 @@ TC-341,MUI 多國語系,"1. App 語言設為土耳其文（`launch --lang tr-TR`
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI TRK（tr-TR）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI TRK（tr-TR）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-342,MUI 多國語系,"1. App 語言設為波斯文（`launch --lang fa-IR`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2940,27 +2977,27 @@ TC-342,MUI 多國語系,"1. App 語言設為波斯文（`launch --lang fa-IR`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-波斯文是由右至左的語言：文字從右邊開始排，沒有字串在左邊緣被切掉
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI FAR（fa-IR）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. 波斯文是由右至左的語言：文字從右邊開始排，沒有字串在左邊緣被切掉
+6. Launcher 捷徑：「AI Video Enhance」
+7. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+8. Add Media：標題和「Video」分頁
+9. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+10. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+11. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+12. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+13. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+14. 離線提示：「Upload failed. Check your connection and try again.」
+15. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+16. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+17. Recent task 卡片：「View」、「Error」、「View Details」
+18. Result：標題和「Save Result」
+19. 儲存提示：「Saved to your device」
+20. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+21. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI FAR（fa-IR）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-343,MUI 多國語系,"1. App 語言設為希伯來文（`launch --lang he-IL`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -2985,27 +3022,27 @@ TC-343,MUI 多國語系,"1. App 語言設為希伯來文（`launch --lang he-IL`
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-希伯來文是由右至左的語言：文字從右邊開始排，沒有字串在左邊緣被切掉
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI HEB（he-IL）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. 希伯來文是由右至左的語言：文字從右邊開始排，沒有字串在左邊緣被切掉
+6. Launcher 捷徑：「AI Video Enhance」
+7. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+8. Add Media：標題和「Video」分頁
+9. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+10. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+11. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+12. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+13. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+14. 離線提示：「Upload failed. Check your connection and try again.」
+15. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+16. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+17. Recent task 卡片：「View」、「Error」、「View Details」
+18. Result：標題和「Save Result」
+19. 儲存提示：「Saved to your device」
+20. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+21. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI HEB（he-IL）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-344,MUI 多國語系,"1. App 語言設為瑞典文（`launch --lang sv-SE`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -3030,26 +3067,26 @@ TC-344,MUI 多國語系,"1. App 語言設為瑞典文（`launch --lang sv-SE`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI SVE（sv-SE）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI SVE（sv-SE）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-345,MUI 多國語系,"1. App 語言設為丹麥文（`launch --lang da-DK`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -3074,26 +3111,26 @@ TC-345,MUI 多國語系,"1. App 語言設為丹麥文（`launch --lang da-DK`）
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI DAN（da-DK）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI DAN（da-DK）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-346,MUI 多國語系,"1. App 語言設為挪威文（Bokmål）（`launch --lang nb-NO`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -3118,26 +3155,26 @@ TC-346,MUI 多國語系,"1. App 語言設為挪威文（Bokmål）（`launch --l
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI NOR（nb-NO）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI NOR（nb-NO）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查
 TC-347,MUI 多國語系,"1. App 語言設為烏克蘭文（`launch --lang uk-UA`）
 2. 這列做完後，用不帶參數的 `launch`（`locale reset`）把語言還原
 3. 以 Pro 帳號登入（Android 沒有 tier 切換），點數足夠
@@ -3162,23 +3199,23 @@ TC-347,MUI 多國語系,"1. App 語言設為烏克蘭文（`launch --lang uk-UA`
 16. 點完成卡片的「View」，看 Result（TC-143）
 17. 點「Save Result」（TC-152）
 18. 回到 Recent task，點失敗卡片的「View Details」（TC-171）
-19. 打開專案，點那段影片，看影片工具列（TC-003）","走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
-沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
-CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
-先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
-Launcher 捷徑：「AI Video Enhance」
-Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
-Add Media：標題和「Video」分頁
-面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
-Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
-Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
-Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
-離線提示：「Upload failed. Check your connection and try again.」
-處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
-離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
-Recent task 卡片：「View」、「Error」、「View Details」
-Result：標題和「Save Result」
-儲存提示：「Saved to your device」
-錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI UKR（uk-UA）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,新增,REQ-041：每個語言走一次 MUI 截斷檢查
+19. 打開專案，點那段影片，看影片工具列（TC-003）","1. 走過的每個畫面上，每個字串都完整顯示：沒有以「…」結尾、沒有被邊緣切掉，也沒有少一行
+2. 沒有字串壓到別的元件，或超出它的按鈕、chip、泡泡、提示或視窗
+3. CTA「Enhance ◆ <credits>」、各個 chip（Standard、Professional、Natural、Sharp、fps、Resolution）和視窗按鈕都維持原本的大小和位置
+4. 先看最長的字串：離開確認視窗內文、錯誤視窗內文、Professional 提示、三個泡泡、「Charge X credits per second」
+5. Launcher 捷徑：「AI Video Enhance」
+6. Demo 頁：「AI Video Enhance」、說明文字、「Don’t show again」、「Try It Now」
+7. Add Media：標題和「Video」分頁
+8. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
+9. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
+10. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+11. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. 離線提示：「Upload failed. Check your connection and try again.」
+14. 處理中視窗：「Video uploading...」、「Please keep the app open」、「Cancel」
+15. 離開確認視窗：「Sure You Want to Leave?」、「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」、「Leave」、「Keep Uploading」
+16. Recent task 卡片：「View」、「Error」、「View Details」
+17. Result：標題和「Save Result」
+18. 儲存提示：「Saved to your device」
+19. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
+20. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-209; REQ-041,MUI UKR（uk-UA）。只看截斷（翻譯由 APK 檢查，TC-321）；每個畫面讀一次 `texts` 並截圖；不開新任務。,未變更,REQ-041：每個語言走一次 MUI 截斷檢查

@@ -9,7 +9,7 @@
 // lib/thumbs.ts; the viewer opens the original); scripts/pages.ts serves it as /results/.
 // Without --serve: runs/results.html, with the screenshots linked relative to it (open it from the runs folder).
 // eBugs (user, 2026-11-04): each Fail case links the eBugs it belongs to, from the table's ebugs/<batch>/ folders: the
-// batch filed from a run (the run folder its drafts and notes name most) gives `filed` (a draft entry whose Report step
+// batch filed from a run (the run folders its drafts and notes name most) gives `filed` (a draft entry whose Report step
 // names the case → its ISS → filed_bugcodes.json) and `known` (dedupe.txt: the existing ticket a Fail row repeats);
 // any other eBug code in the row's Actual or Disposition is `mentioned`. Links use the eCL address the ebug-tr-filer
 // skill prescribes (HandleMainEbug.asp?BugCode=).
@@ -46,27 +46,35 @@ function ebugIndex() {
     const dir = join(root, b), texts = readdirSync(dir).filter(f => /\.(md|txt)$/.test(f)).map(f => readFileSync(join(dir, f), 'utf8'));
     const named = new Map<string, number>();
     for (const t of texts) for (const m of t.matchAll(/runs\/(20\d\d-\d\d-\d\d[\w-]*)/g)) named.set(m[1], (named.get(m[1]) ?? 0) + 1);
-    const run = [...named].sort((x, y) => y[1] - x[1])[0]?.[0];
+    // the runs the batch was filed from: every run folder its drafts and notes name (a full run and the recheck made
+    // beside it). Only a case that failed in that run and is named by the batch gets the link.
+    const runs = [...named.keys()];
     const filed = existsSync(join(dir, 'filed_bugcodes.json')) ? JSON.parse(readFileSync(join(dir, 'filed_bugcodes.json'), 'utf8')).bugs ?? [] : [];
     const iss = new Map<string, string>();
     for (const f of filed) { if (!f.bugcode) continue; info.set(f.bugcode, split(f.short)); if (f.iss) iss.set(f.iss, f.bugcode); if (f.key) iss.set(f.key, f.bugcode); }
-    if (!run) continue;
+    if (!runs.length) continue;
     // drafts: "## 3. ISS-AMDA-62 — …" then "**Report step:** TC-465, O-6"
     for (const f of readdirSync(dir).filter(f => /_eBug_drafts_.*\.md$/.test(f))) {
       const parts = readFileSync(join(dir, f), 'utf8').split(/^## /m);
       for (const p of parts) {
         const id = p.match(/^\d+\.\s+([\w-]+)/)?.[1], code = id && iss.get(id), steps = p.match(/\*\*Report step:\*\*([^\n]*)/)?.[1];
-        if (code && steps) for (const tc of steps.match(/TC-\d+/g) ?? []) add(run, tc, code, 'filed');
+        if (code && steps) for (const tc of steps.match(/TC-\d+/g) ?? []) for (const run of runs) add(run, tc, code, 'filed');
       }
     }
-    // dedupe.txt: "<code> [<status>] <title>[ / <code> [<status>] <title>]" then indented "    TC-412: …" lines
+    // dedupe.txt: "<code> [<status>] <title>[ / <code> [<status>] <title>]" then indented "    TC-412: …" lines, or one
+    // tab-separated line per ticket (below)
     if (existsSync(join(dir, 'dedupe.txt'))) {
       let codes: string[] = [];
       for (const l of readFileSync(join(dir, 'dedupe.txt'), 'utf8').split('\n')) {
         if (/^[A-Z]{3}\d{6}[P-]\d{4} \[/.test(l)) {
           codes = [];
           for (const m of l.matchAll(/([A-Z]{3}\d{6}[P-]\d{4}) \[[^\]]*\] (.*?)(?= \/ [A-Z]{3}\d{6}[P-]\d{4} \[|\s+⚑|$)/g)) { codes.push(m[1]); if (!info.has(m[1])) info.set(m[1], split(m[2].trim())); }
-        } else if (/^\s+(TC-\d+)/.test(l)) for (const c of codes) add(run, l.trim().match(/^TC-\d+/)![0], c, 'known');
+        } else if (/^[A-Z]{3}\d{6}[P-]\d{4}\t/.test(l)) {
+          // the one-line form: "<code>⇥<what the ticket covers>⇥TC-002, TC-033, O-4"
+          const [code, what = '', tcs = ''] = l.split('\t'); codes = [];
+          if (!info.has(code)) info.set(code, { title: what.trim(), tags: '' });
+          for (const tc of tcs.match(/TC-\d+/g) ?? []) for (const run of runs) add(run, tc, code, 'known');
+        } else if (/^\s+(TC-\d+)/.test(l)) for (const c of codes) for (const run of runs) add(run, l.trim().match(/^TC-\d+/)![0], c, 'known');
         else if (!/^\s/.test(l)) codes = [];
       }
     }

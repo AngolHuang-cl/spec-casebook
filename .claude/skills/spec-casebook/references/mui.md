@@ -87,6 +87,11 @@ notification) are left to the APK read, or listed under "Not added" on iOS.
 language, plus `MUI-apk` on Android), run on request (string freeze, new languages, before release). A full run never
 includes them, and *complete full run* in the run-media rule means every non-MUI row.
 
+**Numbered lines (user, 2026-11-25).** An MUI row's cells are long lists, so every cell of it with two or more lines
+is numbered, the Expected Result too (`1. Every string … shows in full` newline `2. No string overlaps …` newline
+`3. Launcher shortcut: 「AI Video Enhance」`), never plain line breaks: a result or an eBug can then name the line it
+failed (`Expected 14`). `check.ts` warns on an MUI row whose Expected Result has unnumbered lines.
+
 The screens are every one the feature's rows reach, its dialogs, toasts, tooltips, empty and error states included
 (reuse the Design screen list or `inventory.json` when the spec set has one); list them in the Action. Long strings
 worth stressing (the longest translation of a button, a toast with a number in it) are named in the Truncation row's

@@ -1465,7 +1465,7 @@
         "K-e94ee6"
       ],
       "app": [],
-      "press": "TC-215",
+      "press": "TC-215, TC-348, TC-349",
       "how": "trace",
       "carried_from": "20261103-174203"
     },
@@ -1897,7 +1897,7 @@
         "K-a14d77"
       ],
       "app": [],
-      "press": "TC-037, TC-150",
+      "press": "TC-037, TC-150, TC-349",
       "how": "trace",
       "carried_from": "20261103-174203"
     },

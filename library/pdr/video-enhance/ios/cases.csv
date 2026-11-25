@@ -2020,33 +2020,33 @@ TC-321,MUI,"1. App language set to Traditional Chinese (`launch --lang zh-Hant-T
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Traditional Chinese (traditional characters, Taiwan wording) and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI CHT (zh-Hant-TW). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Traditional Chinese (traditional characters, Taiwan wording) and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI CHT (zh-Hant-TW). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-322,MUI,"1. App language set to Simplified Chinese (`launch --lang zh-Hans-CN`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2073,33 +2073,33 @@ TC-322,MUI,"1. App language set to Simplified Chinese (`launch --lang zh-Hans-CN
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Simplified Chinese (simplified characters) and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI CHS (zh-Hans-CN). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Simplified Chinese (simplified characters) and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI CHS (zh-Hans-CN). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-323,MUI,"1. App language set to Japanese (`launch --lang ja-JP`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2126,33 +2126,33 @@ TC-323,MUI,"1. App language set to Japanese (`launch --lang ja-JP`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Japanese and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI JPN (ja-JP). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Japanese and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI JPN (ja-JP). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-324,MUI,"1. App language set to Spanish (`launch --lang es-ES`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2179,33 +2179,33 @@ TC-324,MUI,"1. App language set to Spanish (`launch --lang es-ES`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Spanish (Spanish of Spain) and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI ESP (es-ES). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Spanish (Spanish of Spain) and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI ESP (es-ES). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-325,MUI,"1. App language set to Korean (`launch --lang ko-KR`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2232,33 +2232,33 @@ TC-325,MUI,"1. App language set to Korean (`launch --lang ko-KR`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Korean and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI KOR (ko-KR). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Korean and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI KOR (ko-KR). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-326,MUI,"1. App language set to German (`launch --lang de-DE`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2285,33 +2285,33 @@ TC-326,MUI,"1. App language set to German (`launch --lang de-DE`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in German and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI DEU (de-DE). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in German and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI DEU (de-DE). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-327,MUI,"1. App language set to French (`launch --lang fr-FR`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2338,33 +2338,33 @@ TC-327,MUI,"1. App language set to French (`launch --lang fr-FR`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in French and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI FRA (fr-FR). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in French and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI FRA (fr-FR). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-328,MUI,"1. App language set to Italian (`launch --lang it-IT`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2391,33 +2391,33 @@ TC-328,MUI,"1. App language set to Italian (`launch --lang it-IT`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Italian and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI ITA (it-IT). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Italian and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI ITA (it-IT). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-329,MUI,"1. App language set to Russian (`launch --lang ru-RU`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2444,33 +2444,33 @@ TC-329,MUI,"1. App language set to Russian (`launch --lang ru-RU`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Russian and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI RUS (ru-RU). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Russian and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI RUS (ru-RU). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-330,MUI,"1. App language set to Portuguese (Brazil) (`launch --lang pt-BR`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2497,33 +2497,33 @@ TC-330,MUI,"1. App language set to Portuguese (Brazil) (`launch --lang pt-BR`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Portuguese (Brazil) (Brazilian Portuguese) and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI PTB (pt-BR). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Portuguese (Brazil) (Brazilian Portuguese) and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI PTB (pt-BR). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-331,MUI,"1. App language set to Dutch (`launch --lang nl-NL`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2550,33 +2550,33 @@ TC-331,MUI,"1. App language set to Dutch (`launch --lang nl-NL`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Dutch and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI NLD (nl-NL). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Dutch and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI NLD (nl-NL). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-332,MUI,"1. App language set to Indonesian (`launch --lang id-ID`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2603,33 +2603,33 @@ TC-332,MUI,"1. App language set to Indonesian (`launch --lang id-ID`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Indonesian and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI IND (id-ID). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Indonesian and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI IND (id-ID). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-333,MUI,"1. App language set to Thai (`launch --lang th-TH`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2656,33 +2656,33 @@ TC-333,MUI,"1. App language set to Thai (`launch --lang th-TH`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Thai and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI THA (th-TH). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Thai and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI THA (th-TH). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-334,MUI,"1. App language set to Malay (`launch --lang ms-MY`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2709,33 +2709,33 @@ TC-334,MUI,"1. App language set to Malay (`launch --lang ms-MY`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Malay and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI MAY (ms-MY). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Malay and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI MAY (ms-MY). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-335,MUI,"1. App language set to Hindi (`launch --lang hi-IN`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2762,33 +2762,33 @@ TC-335,MUI,"1. App language set to Hindi (`launch --lang hi-IN`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Hindi and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI HIN (hi-IN). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Hindi and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI HIN (hi-IN). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-336,MUI,"1. App language set to Spanish (Mexico) (`launch --lang es-MX`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2815,33 +2815,33 @@ TC-336,MUI,"1. App language set to Spanish (Mexico) (`launch --lang es-MX`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Spanish (Mexico) (Mexican Spanish) and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI ESM (es-MX). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Spanish (Mexico) (Mexican Spanish) and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI ESM (es-MX). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-337,MUI,"1. App language set to Arabic (`launch --lang ar-SA`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2868,34 +2868,34 @@ TC-337,MUI,"1. App language set to Arabic (`launch --lang ar-SA`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Arabic and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Arabic is right-to-left: text runs from the right and no string is clipped at the left edge
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI ARA (ar-SA). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Arabic and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Arabic is right-to-left: text runs from the right and no string is clipped at the left edge
+12. Launcher shortcut: 「AI Video Enhance」
+13. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+14. Add Media: its title and the 「Video」 tab
+15. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+16. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+17. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+18. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+19. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+20. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+21. Offline toast: 「Upload failed. Check your connection and try again.」
+22. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+23. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+24. Recent task cards: 「View」, 「Error」, 「View Details」
+25. Result: its title and 「Save Result」
+26. Save toast: 「Saved to your device」
+27. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+28. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI ARA (ar-SA). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-338,MUI,"1. App language set to Vietnamese (`launch --lang vi-VN`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2922,33 +2922,33 @@ TC-338,MUI,"1. App language set to Vietnamese (`launch --lang vi-VN`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Vietnamese and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI VIT (vi-VN). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Vietnamese and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI VIT (vi-VN). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-339,MUI,"1. App language set to Polish (`launch --lang pl-PL`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -2975,33 +2975,33 @@ TC-339,MUI,"1. App language set to Polish (`launch --lang pl-PL`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Polish and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI PLK (pl-PL). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Polish and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI PLK (pl-PL). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-340,MUI,"1. App language set to Turkish (`launch --lang tr-TR`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -3028,33 +3028,33 @@ TC-340,MUI,"1. App language set to Turkish (`launch --lang tr-TR`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Turkish and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI TRK (tr-TR). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Turkish and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI TRK (tr-TR). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-341,MUI,"1. App language set to Persian (`launch --lang fa-IR`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -3081,34 +3081,34 @@ TC-341,MUI,"1. App language set to Persian (`launch --lang fa-IR`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Persian and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Persian is right-to-left: text runs from the right and no string is clipped at the left edge
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI FAR (fa-IR). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Persian and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Persian is right-to-left: text runs from the right and no string is clipped at the left edge
+12. Launcher shortcut: 「AI Video Enhance」
+13. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+14. Add Media: its title and the 「Video」 tab
+15. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+16. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+17. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+18. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+19. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+20. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+21. Offline toast: 「Upload failed. Check your connection and try again.」
+22. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+23. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+24. Recent task cards: 「View」, 「Error」, 「View Details」
+25. Result: its title and 「Save Result」
+26. Save toast: 「Saved to your device」
+27. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+28. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI FAR (fa-IR). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-342,MUI,"1. App language set to Hebrew (`launch --lang he-IL`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -3135,34 +3135,34 @@ TC-342,MUI,"1. App language set to Hebrew (`launch --lang he-IL`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Hebrew and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Hebrew is right-to-left: text runs from the right and no string is clipped at the left edge
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI HEB (he-IL). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Hebrew and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Hebrew is right-to-left: text runs from the right and no string is clipped at the left edge
+12. Launcher shortcut: 「AI Video Enhance」
+13. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+14. Add Media: its title and the 「Video」 tab
+15. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+16. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+17. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+18. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+19. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+20. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+21. Offline toast: 「Upload failed. Check your connection and try again.」
+22. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+23. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+24. Recent task cards: 「View」, 「Error」, 「View Details」
+25. Result: its title and 「Save Result」
+26. Save toast: 「Saved to your device」
+27. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+28. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI HEB (he-IL). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-343,MUI,"1. App language set to Swedish (`launch --lang sv-SE`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -3189,33 +3189,33 @@ TC-343,MUI,"1. App language set to Swedish (`launch --lang sv-SE`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Swedish and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI SVE (sv-SE). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Swedish and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI SVE (sv-SE). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-344,MUI,"1. App language set to Danish (`launch --lang da-DK`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -3242,33 +3242,33 @@ TC-344,MUI,"1. App language set to Danish (`launch --lang da-DK`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Danish and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI DAN (da-DK). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Danish and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI DAN (da-DK). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-345,MUI,"1. App language set to Norwegian Bokmål (`launch --lang nb-NO`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -3295,33 +3295,33 @@ TC-345,MUI,"1. App language set to Norwegian Bokmål (`launch --lang nb-NO`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Norwegian Bokmål (Norwegian Bokmål) and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI NOR (nb-NO). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Norwegian Bokmål (Norwegian Bokmål) and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI NOR (nb-NO). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
 TC-346,MUI,"1. App language set to Ukrainian (`launch --lang uk-UA`)
 2. After the row a plain `launch` restores the language
 3. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
@@ -3348,30 +3348,30 @@ TC-346,MUI,"1. App language set to Ukrainian (`launch --lang uk-UA`)
 18. Tap 「View」 on the completed card and read the Result (TC-143)
 19. Tap 「Save Result」 (TC-152)
 20. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
-21. Open the project, tap the clip and read the clip toolbar (TC-003)","Every string shows in Ukrainian and says what the English says
-No string is left in English
-No string shows a key, a placeholder (%@, {0}, <n>) or another language
-Numbers, times and credits are filled in
-The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
-No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
-Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
-No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
-The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
-Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
-Launcher shortcut: 「AI Video Enhance」
-Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
-Add Media: its title and the 「Video」 tab
-Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
-Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
-Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
-Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
-Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
-Offline toast: 「Upload failed. Check your connection and try again.」
-Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
-Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
-Recent task cards: 「View」, 「Error」, 「View Details」
-Result: its title and 「Save Result」
-Save toast: 「Saved to your device」
-Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
-Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI UKR (uk-UA). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
+21. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string shows in Ukrainian and says what the English says
+2. No string is left in English
+3. No string shows a key, a placeholder (%@, {0}, <n>) or another language
+4. Numbers, times and credits are filled in
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) read the same on every screen
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in the run's mui-doubts.md, not a fail
+7. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+8. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+9. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+10. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+11. Launcher shortcut: 「AI Video Enhance」
+12. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+13. Add Media: its title and the 「Video」 tab
+14. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+15. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+16. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+17. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+18. Free CTA: 「Unlock Pro+ to Enhance」, 「Charge X credits per second」
+19. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+20. Offline toast: 「Upload failed. Check your connection and try again.」
+21. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+22. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+23. Recent task cards: 「View」, 「Error」, 「View Details」
+24. Result: its title and 「Save Result」
+25. Save toast: 「Saved to your device」
+26. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+27. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-208; R-209; REQ-041,MUI UKR (uk-UA). One `texts` read and screenshot per screen; no new task (the 10 s leave costs its small price).
