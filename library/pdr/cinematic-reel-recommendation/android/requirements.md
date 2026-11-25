@@ -3,6 +3,10 @@ Spec: PDRA-661 Jira description.md, Cinematic Reel Recommendation - Design Figma
 
 Scope: Jira PDRA-661 (PDRIOS-738), 「(UX) Add recommendation page for Cinemantic Reel Creeator」, the Design's 0820 frames 「add photo tips tag」 and 「add photo tips」, and the CMS tab Recommendation. The rest of the 26.07_v2 board is the existing Cinematic Reel Creator flow and is not this ticket's table.
 
+Draft 20261125-160000 [Req: REQ-002, REQ-007]: the MUI section (spec-casebook references/mui.md) for the 26 languages of
+`library/pdr/product.json` › `mui` besides English. Android: one row reads the app's own strings from the build's APK; the CMS text is already checked per language by the Language rows, which now also check the truncation of the chip and the sheet sentence (no second walk per language).
+The MUI rows are their own phase (phases.json `MUI`), never part of a full run. New: R-035, R-036; 1 rows, TC-076; 52 Language rows modified.
+
 ## View photo tips chip
 - R-001 [DS:d-cinestory 0820 add photo tips tag 1106:5843] Every template card on the Cinematic Reel Creator template page shows a 「View photo tips」 chip with a lightbulb icon at the card's top-left corner, over the preview video.
 - R-002 [DS: flow arrow 1106-5840 https://www.figma.com/design/w2cTi3WTU9vGDE3laY1H1t/Cinematic-Reel-Creator--CineStory-?node-id=1106-5840] Template card 「View photo tips」 → photo tips sheet: tapping the chip opens the photo tips sheet over the template page.
@@ -59,9 +63,13 @@ Scope: Jira PDRA-661 (PDRIOS-738), 「(UX) Add recommendation page for Cinemanti
 - Template previews, sample photos, model, aspect ratio, duration and action IDs (Cinestory CMS › CMS Data, Template Style id, action id, Thumbnail Size): generation settings, not tested here.
 - The I2V Recommendation tabs Temp_QA, Recommend/Avoid_Final (other than its CineStory block), Template, FAQ and samples: Image to Video templates, not Cinematic Reel Creator.
 
+## MUI
+- R-035 [Req: REQ-002] Every user-facing string of the feature shows in each language of the product list (CHT, CHS, JPN, ESP, KOR, DEU, FRA, ITA, RUS, PTB, NLD, IND, THA, MAY, HIN, ESM, ARA, VIT, PLK, TRK, FAR, HEB, SVE, DAN, NOR, UKR): the app's own strings (「View photo tips」, 「For best results with the <template> template, follow this advice:」, 「Recommendation」, 「Avoid」, 「Got it」) in that language's own words with the English meaning, with no English, key or placeholder left (read from the build, `mui-strings.ts`; the CMS text per language is R-030 – R-032). No translation sheet for the app strings: the run judges them; doubtful ones are listed for the eBug review, not failed.
+- R-036 [Req: REQ-002] In each of those languages no string of the feature is truncated, clipped or overlapping: the chip stays inside its pill, the sheet sentence wraps instead of being cut, every name, description and caption shows in full; the right-to-left languages (ARA, FAR, HEB) run from the right.
+
 ## Open questions
 - Q-1 Media room 「?」: the Jira says the Add Media room has a 「?」 that opens the recommendation page, but the Design 26.07_v2 draws Add Media without one (the round/ic_info layer is hidden), and the template page's own 「?」 is the tutorial. Where is the 「?」, what icon, and does it show the tips of the template the room was opened from? Assumption: a 「?」 in the Add Media header opens the tips of that template; 「Got it」 returns to Add Media. R-004, TC-010 – TC-016, TC-021.
-- Q-2 Language: the sheets translate the template names (Cinestory CMS › Template Name Localization) and every caption (I2V Recommendation › Localization, 28 languages), but no sheet gives the chip 「View photo tips」 or the sentence 「For best results with the <template> template, follow this advice:」 in other languages. Are they translated? Filed as DRA262611P0290 (PM). Assumption: names and captions are checked per language; the chip and sentence words are recorded and not failed. R-015, R-032, TC-017, TC-018 and the Language rows.
+- Q-2 Language: the sheets translate the template names (Cinestory CMS › Template Name Localization) and every caption (I2V Recommendation › Localization, 28 languages), but no sheet gives the chip 「View photo tips」 or the sentence 「For best results with the <template> template, follow this advice:」 in other languages. Are they translated? Filed as DRA262611P0290 (PM). Assumption: names and captions are checked per language; the chip and sentence words are recorded and not failed. R-015, R-032, TC-017, TC-018 and the Language rows. MUI (REQ-002): every PowerDirector feature is implemented in the 26 languages of the product list, so the APK row TC-076 expect the chip and sentence translated; a miss is DRA262611P0290, cited, not filed again.
 - Q-3 Closing: the Design draws only 「Got it」. Does tapping the dimmed area or swiping the sheet down close it, and does system Back? Assumption: only 「Got it」 is checked; system Back closes the sheet like it. R-010, R-016, TC-007, TC-020, TC-021.
 - Q-4 Missing data: what shows when a template has no recommend_samples in the CMS, or the CMS cannot be reached (offline)? Assumption: none written; no row until PM answers. R-001, R-012, R-014.
 - Q-5 Scrolling: the Design draws the third Avoid item past the sheet's edge. Does the Avoid row scroll sideways, and would the Recommendation row scroll if a template had more than two? Assumption: the Avoid row scrolls sideways. R-009, TC-008.
@@ -102,6 +110,58 @@ Scope: Jira PDRA-661 (PDRIOS-738), 「(UX) Add recommendation page for Cinemanti
 | R-015 | language=ENU | TC-002 |
 | R-015 | language=CHT | TC-017 |
 | R-015 | language=JPN | TC-018 |
+| R-035 | CHT (Traditional Chinese) | TC-076 |
+| R-036 | CHT (Traditional Chinese) | TC-024, TC-017 |
+| R-035 | CHS (Simplified Chinese) | TC-076 |
+| R-036 | CHS (Simplified Chinese) | TC-025, TC-026 |
+| R-035 | JPN (Japanese) | TC-076 |
+| R-036 | JPN (Japanese) | TC-027, TC-018 |
+| R-035 | ESP (Spanish) | TC-076 |
+| R-036 | ESP (Spanish) | TC-028, TC-029 |
+| R-035 | KOR (Korean) | TC-076 |
+| R-036 | KOR (Korean) | TC-030, TC-031 |
+| R-035 | DEU (German) | TC-076 |
+| R-036 | DEU (German) | TC-032, TC-033 |
+| R-035 | FRA (French) | TC-076 |
+| R-036 | FRA (French) | TC-034, TC-035 |
+| R-035 | ITA (Italian) | TC-076 |
+| R-036 | ITA (Italian) | TC-036, TC-037 |
+| R-035 | RUS (Russian) | TC-076 |
+| R-036 | RUS (Russian) | TC-038, TC-039 |
+| R-035 | PTB (Portuguese (Brazil)) | TC-076 |
+| R-036 | PTB (Portuguese (Brazil)) | TC-040, TC-041 |
+| R-035 | NLD (Dutch) | TC-076 |
+| R-036 | NLD (Dutch) | TC-042, TC-043 |
+| R-035 | IND (Indonesian) | TC-076 |
+| R-036 | IND (Indonesian) | TC-044, TC-045 |
+| R-035 | THA (Thai) | TC-076 |
+| R-036 | THA (Thai) | TC-046, TC-047 |
+| R-035 | MAY (Malay) | TC-076 |
+| R-036 | MAY (Malay) | TC-048, TC-049 |
+| R-035 | HIN (Hindi) | TC-076 |
+| R-036 | HIN (Hindi) | TC-050, TC-051 |
+| R-035 | ESM (Spanish (Mexico)) | TC-076 |
+| R-036 | ESM (Spanish (Mexico)) | TC-052, TC-053 |
+| R-035 | ARA (Arabic) | TC-076 |
+| R-036 | ARA (Arabic) | TC-054, TC-055 |
+| R-035 | VIT (Vietnamese) | TC-076 |
+| R-036 | VIT (Vietnamese) | TC-056, TC-057 |
+| R-035 | PLK (Polish) | TC-076 |
+| R-036 | PLK (Polish) | TC-058, TC-059 |
+| R-035 | TRK (Turkish) | TC-076 |
+| R-036 | TRK (Turkish) | TC-060, TC-061 |
+| R-035 | FAR (Persian) | TC-076 |
+| R-036 | FAR (Persian) | TC-064, TC-065 |
+| R-035 | HEB (Hebrew) | TC-076 |
+| R-036 | HEB (Hebrew) | TC-066, TC-067 |
+| R-035 | SVE (Swedish) | TC-076 |
+| R-036 | SVE (Swedish) | TC-068, TC-069 |
+| R-035 | DAN (Danish) | TC-076 |
+| R-036 | DAN (Danish) | TC-070, TC-071 |
+| R-035 | NOR (Norwegian Bokmål) | TC-076 |
+| R-036 | NOR (Norwegian Bokmål) | TC-072, TC-073 |
+| R-035 | UKR (Ukrainian) | TC-076 |
+| R-036 | UKR (Ukrainian) | TC-074, TC-075 |
 
 ### Combinations
 - Not combined: template, language (the language only changes the sheet's words; one template, Micro Cinema, is read in each language)
@@ -123,6 +183,8 @@ Scope: Jira PDRA-661 (PDRIOS-738), 「(UX) Add recommendation page for Cinemanti
 | Ledger entry | Requirements |
 |---|---|
 | REQ-001 (analysis, both) | R-001 – R-015 (the whole table) |
+| REQ-002 (table: MUI test in the 26 languages of the product list, no translation sheet) | R-035, R-036 (TC-076; truncation on the Language rows) |
+| REQ-007 (table: plan the MUI cases, 2026-11-25) | R-035, R-036 |
 
 ## Added 2026-11-25 — REQ-006 (TR261019-014, TR260923-022)
 

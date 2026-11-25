@@ -10,6 +10,11 @@ per-class rules (My Artwork, audio, timeline) and the paid Menu are PM-only (pas
 Design draws them. Saved files are checked on the computer: frames by ffmpeg, the label size in pixels, Content
 Credentials with c2patool (fixtures.md).
 
+Draft 20261125-160000 [Req: REQ-011, REQ-012]: the MUI section (spec-casebook references/mui.md). Every PowerDirector feature is
+tested in the 26 languages of `library/pdr/product.json` › `mui` besides English; there is no translation sheet, so
+each translation is judged by the run and doubtful ones go to the eBug review. iOS reads translations on the phone (the app bundle cannot be read on the QA iPhone): one walk per language checks translation and truncation together.
+The MUI rows are their own phase (phases.json `MUI`), never part of a full run. New: R-057, R-058; 26 rows, TC-128 – TC-153.
+
 ## Settings entry
 - R-001 [DS:d-aigc-settings] Menu › Settings has the row 「Remove AIGC Watermark」: the remove-AI icon, the text, an ⓘ right after the text and a switch at the right (no chevron).
 - R-002 [DS:d-aigc-settings; PM:pm-settings Essential User] For a free (Essential) user the row sits directly below 「Remove Watermark」 and above 「Preferences」.
@@ -76,6 +81,10 @@ Credentials with c2patool (fixtures.md).
 - R-052 [Jira 「UI setting 是控 visible watermark是否開or關」; 「meta data server side」; Req: REQ-007] 「Remove AIGC Watermark」 only changes the app\'s visible watermark; the C2PA signature is the same with the switch On or Off (DRA262611P0220 RD note).
 - R-053 [PM:pm-rules timeline AI content; Req: REQ-002] Timeline AI content made by a 有簽章 effect (AI Anime, AI Cartoon, AI Sketch, Voice Changer, AI Text to Speech) is signed as the sheet says — NOT TESTABLE on the phone: the generated asset stays inside the project and no file of it can be read (Q-13).
 - R-056 [Req: REQ-008; CLC2PA 1.0.1012+ (Jira PDRA-649 comment, RD note on DRA262611P0221)] The saved result\'s manifest is CyberLink\'s alone: one `c2pa.created` action with a `digitalSourceType`, no ingredient (no parentOf / componentOf), and a provider\'s manifest (Google, BytePlus, Kling…) is replaced, not kept.
+
+## MUI
+- R-057 [Req: REQ-011] Every user-facing string of the feature (the Settings row 「Remove AIGC Watermark」, the 「AIGC Watermark」 info sheet, the export dialog and the music dialog) shows in each language of the product list (CHT, CHS, JPN, ESP, KOR, DEU, FRA, ITA, RUS, PTB, NLD, IND, THA, MAY, HIN, ESM, ARA, VIT, PLK, TRK, FAR, HEB, SVE, DAN, NOR, UKR), in that language's own words with the English meaning, with no English (but 「AIGC」), key or placeholder left; 「Menu > Settings」 in the dialogs names the Menu and Settings as those screens do. No translation sheet: the run judges each string; doubtful ones are listed for the eBug review, not failed.
+- R-058 [Req: REQ-011] In each of those languages no string of the feature is truncated, clipped or overlapping, and the Settings row's ⓘ and switch and the dialogs' checkbox and buttons keep their size and place; the right-to-left languages (ARA, FAR, HEB) run from the right.
 
 ## Open questions
 - Q-1 What is the switch's value on a fresh install, and is it kept across restarts? Both mockups draw 「Remove AIGC Watermark」 On; the dialogs say results 「will include an AIGC watermark」. Assumption: Off on a fresh install (results carry the watermark), kept after a restart. R-009, R-010.
@@ -209,6 +218,58 @@ Credentials with c2patool (fixtures.md).
 | R-050 | Text to Image · its default model | TC-116 |
 | R-050 | Music Generator · a prompt-only song | TC-117 |
 | R-050 | Music Generator · a song from lyrics | TC-118 |
+| R-057 | CHT (Traditional Chinese) | TC-128 |
+| R-058 | CHT (Traditional Chinese) | TC-128 |
+| R-057 | CHS (Simplified Chinese) | TC-129 |
+| R-058 | CHS (Simplified Chinese) | TC-129 |
+| R-057 | JPN (Japanese) | TC-130 |
+| R-058 | JPN (Japanese) | TC-130 |
+| R-057 | ESP (Spanish) | TC-131 |
+| R-058 | ESP (Spanish) | TC-131 |
+| R-057 | KOR (Korean) | TC-132 |
+| R-058 | KOR (Korean) | TC-132 |
+| R-057 | DEU (German) | TC-133 |
+| R-058 | DEU (German) | TC-133 |
+| R-057 | FRA (French) | TC-134 |
+| R-058 | FRA (French) | TC-134 |
+| R-057 | ITA (Italian) | TC-135 |
+| R-058 | ITA (Italian) | TC-135 |
+| R-057 | RUS (Russian) | TC-136 |
+| R-058 | RUS (Russian) | TC-136 |
+| R-057 | PTB (Portuguese (Brazil)) | TC-137 |
+| R-058 | PTB (Portuguese (Brazil)) | TC-137 |
+| R-057 | NLD (Dutch) | TC-138 |
+| R-058 | NLD (Dutch) | TC-138 |
+| R-057 | IND (Indonesian) | TC-139 |
+| R-058 | IND (Indonesian) | TC-139 |
+| R-057 | THA (Thai) | TC-140 |
+| R-058 | THA (Thai) | TC-140 |
+| R-057 | MAY (Malay) | TC-141 |
+| R-058 | MAY (Malay) | TC-141 |
+| R-057 | HIN (Hindi) | TC-142 |
+| R-058 | HIN (Hindi) | TC-142 |
+| R-057 | ESM (Spanish (Mexico)) | TC-143 |
+| R-058 | ESM (Spanish (Mexico)) | TC-143 |
+| R-057 | ARA (Arabic) | TC-144 |
+| R-058 | ARA (Arabic) | TC-144 |
+| R-057 | VIT (Vietnamese) | TC-145 |
+| R-058 | VIT (Vietnamese) | TC-145 |
+| R-057 | PLK (Polish) | TC-146 |
+| R-058 | PLK (Polish) | TC-146 |
+| R-057 | TRK (Turkish) | TC-147 |
+| R-058 | TRK (Turkish) | TC-147 |
+| R-057 | FAR (Persian) | TC-148 |
+| R-058 | FAR (Persian) | TC-148 |
+| R-057 | HEB (Hebrew) | TC-149 |
+| R-058 | HEB (Hebrew) | TC-149 |
+| R-057 | SVE (Swedish) | TC-150 |
+| R-058 | SVE (Swedish) | TC-150 |
+| R-057 | DAN (Danish) | TC-151 |
+| R-058 | DAN (Danish) | TC-151 |
+| R-057 | NOR (Norwegian Bokmål) | TC-152 |
+| R-058 | NOR (Norwegian Bokmål) | TC-152 |
+| R-057 | UKR (Ukrainian) | TC-153 |
+| R-058 | UKR (Ukrainian) | TC-153 |
 
 ### Flow arrows walked by existing rows
 - R-005, R-006, R-022, R-023: walked by the rows named on each requirement. The other arrows are requirements with their own rows (3816-10913 R-004, 86-955 R-043, 86-956 R-044, 97-1818 R-027, 97-1819 R-029, 97-1820 R-028).
@@ -227,3 +288,5 @@ Credentials with c2patool (fixtures.md).
 | REQ-008 | R-056 |
 | REQ-009 | R-055, R-031 |
 | REQ-010 | R-055 (row fix: TC-128 Android / TC-126 iOS, Step 3 no spoken clip) |
+| REQ-011 (table: MUI test in the 26 languages of the product list, no translation sheet) | R-057, R-058 (TC-128 – TC-153) |
+| REQ-012 (table: plan the MUI cases, 2026-11-25) | R-057, R-058 |
