@@ -433,7 +433,14 @@
       "hash": "c42693b5",
       "overlay": "",
       "at": "2026-11-18T02:05:50.745Z",
-      "group": "d-entry"
+      "group": "d-entry",
+      "box": [
+        -405,
+        0,
+        375,
+        812
+      ],
+      "holder": "225:3699"
     }
   },
   "files": {
@@ -441,7 +448,7 @@
       "key": "qZXJfrM5gb5g4tFoCIS1YU",
       "page": "12:2321",
       "others": [],
-      "checked_at": "2026-11-18T02:03:18.680Z"
+      "checked_at": "2026-11-20T06:23:40.222Z"
     },
     "pm": {
       "key": "iWlQTjlmfykHfmlNvg9J4p",
@@ -452,7 +459,7 @@
         "295:2283",
         "295:2284"
       ],
-      "checked_at": "2026-11-18T02:04:14.831Z"
+      "checked_at": "2026-11-20T06:23:46.545Z"
     }
   }
 }

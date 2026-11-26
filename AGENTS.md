@@ -166,6 +166,10 @@ lines; put the full rule in the skill or reference file that applies it and poin
   created it, and write the QR exactly like the team template QR261102-0081 (TR's Short Description, Details = the
   Test Result line, `Verified OK with <build> build.` + one sentence + `Risk test: n/a`); `qa-report/SKILL.md` ›
   *PHD-A QR*, draft `"style": "phd-a"`.
+- **RD's resolve note on PHD-A bugs (user, 2026-11-25).** Before verifying a PhotoDirector Android bug, read RD's
+  newest resolve note (RootCause, Solution / Workaround, might-impact area, Changeset; `ecl_query.py resolve`), test
+  what its Solution says and check its impact area for side effects; a Solution that changes the expectation is what
+  the build is held to (P0074) (`qa-report/SKILL.md` › *RD's resolve note*).
 - **Bug verify against today's spec (user, 2026-11-05, REQ-091).** Before verifying a bug, check its Expect Result
   against the current spec in the repo (ticket comments, row, `requirements.md` changes and open questions, newer
   frames in `extracted/`), then judge the build's current behaviour against that. An open question means Hold

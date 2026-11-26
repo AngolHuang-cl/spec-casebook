@@ -58,6 +58,41 @@ skill (other products and platforms) keeps its own format below.
   ```
 - The build in a Reason is the build number alone (`202611111946`, no version, no device). The *Wording* section's
   Short Description, Test Result prefix, lettered Details and Account line do not apply to PHD-A.
+- **RD's resolve note drives the check** (*RD's resolve note*, below).
+
+## RD's resolve note (user, 2026-11-25; PHD-A bugs)
+
+When RD resolves a PHD-A bug they write four fields: **RootCause**, **Solution / Workaround**, **Function / Behavior /
+OS / HW might impact**, and the **Changeset** (SVN number, Trac or Git URL). Read the **newest** note on every bug
+before planning the verify; earlier notes are superseded by it.
+
+1. **Fetch** into the run folder, no MCP call needed:
+   `PYTHONIOENCODING=utf-8 python .claude/skills/ebug-tr-filer/scripts/ecl_query.py resolve <BugCode…> --json > rd-resolve.json`
+   (`newest` per bug; IF3 bugs keep the notes in `TSR.EbugLogAndData` › `ResolveComment`, old-ASP bugs in the status
+   log). A bug with no note is verified from its description alone; say so in `verify-plan.md`.
+2. **Test what the Solution says.** The Solution is the behaviour the build now has: copy each concrete rule into
+   `verify-plan.md` beside the bug's Expect Result and check every branch it names, not only the original repro. E.g.
+   P0074: the limit is the total of empty slots on all pages, and photos fill the tapped slot, then the same page, then
+   the other pages in order; P0138: no answer, a 5xx, a 401 or an unreadable answer each ends in the network error
+   (dialog offline, toast online).
+3. **Expected behaviour.** A Solution that changes the expectation ("ux modify", "after discussion, we decided …")
+   is what the build is held to: the build doing what the Solution says is OK, even where the bug's Expect Result
+   asked for more (user, 2026-11-25: P0074, no 20 cap). A newer spec item that contradicts the Solution, and a "no need
+   fix" note that leaves the filed symptom as it was, go to the user before the verdict (list them in the run's
+   result), not into Fail or OK on the agent's own reading.
+4. **Side effects from the impact field.** The *might impact* field names the area the change can break; check it
+   on the build as part of the same journey, plus everything the Solution says it changed beyond the bug itself:
+   - "only affect <room / feature>": walk that room's other actions that touch the changed code (P0162: Adjust and
+     Filter cleared after Removal, so they are not applied twice; P0080 / P0160: new text, stickers, photos and
+     frames go to the screen centre);
+   - a named sibling feature or OS / hardware condition: run the bug's path there too (P0138: AI Transition and
+     CineStory show the same dialog);
+   - "n/a", "low" or empty: still check the places the Solution names.
+   Where the Changeset is a Git or Trac link the agent can read (`gh`), its changed files may show other callers to
+   check; it is optional and never a substitute for the phone.
+5. **Record** per bug in the segment result: `RD note: <root cause> → <solution, one line>` and
+   `Side effects: none seen (places checked: …)` or the finding. Findings follow *Side effects of the fix*: they do not
+   fail the bug, go under Other observations on the review page, and are filed only when the user asks.
 
 ## Verify first (user, 2026-11-05, REQ-093)
 
@@ -65,7 +100,7 @@ skill (other products and platforms) keeps its own format below.
 first (run folder `runs/<date>-<tr>-verify/`, `bugs.md` with each bug's filed description), then report.
 
 **One journey, fewest steps.** Never start fresh for each bug. Before touching the phone, write `verify-plan.md`:
-1. List what each bug needs: the stage it starts from (new chat, a stage of an existing drama, a setting, a language)
+1. List what each bug needs (on PHD-A, from RD's newest resolve note too: *RD's resolve note*): the stage it starts from (new chat, a stage of an existing drama, a setting, a language)
    and what it costs (chat turns, credits, Wi-Fi off, waits).
 2. Order the checks along the feature's own flow so one drama (or one session) carries as many bugs as it passes
    through: e.g. a new chat checks the empty-chat and outline bugs, then the character stage, then storyboard, then

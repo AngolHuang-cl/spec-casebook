@@ -11,6 +11,7 @@ Token: `~/.ecl_token` (chmod 600), or $ECL_TOKEN. Never passed on argv.
     ./ecl_query.py bugs --product PowerDirector --build 189063
     ./ecl_query.py bugs --text "AI Music Generator" --open-only --limit 30
     ./ecl_query.py bug DRI261883-0063
+    ./ecl_query.py resolve PHA262026P0074 --json   # RD's newest resolve note
     ./ecl_query.py tr TR260915-0007
     ./ecl_query.py dedupe upload/bodies.json
     ./ecl_query.py calibrate --product "PowerDirector Mobile for iOS" --since 2026-06-01
@@ -226,6 +227,77 @@ def _json_field(row, key):
 
 def _clean(s):
     return str(s).replace("\r\n", "\n").replace("\r", "\n").strip()
+
+
+# ------------------------------------------------------------------ resolve
+
+RESOLVE_LABELS = (
+    ("RootCause", "Root cause"),
+    ("Solution", "Solution / Workaround"),
+    ("Function", "Function / Behavior / OS / HW might impact"),
+    ("Changeset", "Changeset (SVN number or Trac / Git URL)"),
+)
+
+
+def resolve_notes(code):
+    """Every RD resolve note on a bug, oldest first.
+
+    IF3 bugs keep them in TSR.EbugLogAndData DataJSON.ResolveComment (the
+    RootCause / Solution / Function / Changeset fields of RD's Resolve form,
+    appended per resolve); old-ASP bugs in StatusLog entries with RootCause or
+    Solution. The newest note is the last one.
+    """
+    notes = []
+    rows = query("TSR.EbugLogAndData",
+                 [{"field": "FormCode", "term": {"query": code}}])
+    builds = []
+    if rows:
+        d = rows[0].get("DataJSON")
+        d = json.loads(d) if isinstance(d, str) else (d or {})
+        builds = d.get("BuildResolveInfos") or []
+        for e in d.get("ResolveComment") or []:
+            notes.append({k: _clean(e.get(k) or "") for k, _ in RESOLVE_LABELS})
+    if not notes:
+        old = query("TSR.SP.GetOldEbugData",
+                    [{"field": "BugCode", "term": {"query": code}}])
+        for e in _json_field(old[0], "StatusLog") if old else []:
+            if e.get("RootCause") or e.get("Solution"):
+                notes.append({
+                    "RootCause": _clean(e.get("RootCause") or ""),
+                    "Solution": _clean(e.get("Solution") or ""),
+                    "Function": _clean(e.get("Function") or ""),
+                    "Changeset": _clean(e.get("TraceURL") or ""),
+                    "by": e.get("UserName"),
+                    "time": str(e.get("StatusTime"))[:19],
+                })
+    return {"bug": code, "resolvedIn": builds, "count": len(notes),
+            "newest": notes[-1] if notes else None, "all": notes}
+
+
+def cmd_resolve(a):
+    out = [resolve_notes(c) for c in a.bugcodes]
+    if a.json:
+        json.dump(out if len(out) > 1 else out[0], sys.stdout, indent=2,
+                  ensure_ascii=False)
+        print()
+        return 0
+    for r in out:
+        print("=" * 78)
+        print(f"{r['bug']}  —  {r['count']} resolve note(s)"
+              f"{'   resolved in ' + ', '.join(r['resolvedIn']) if r['resolvedIn'] else ''}")
+        n = r["newest"]
+        if not n:
+            print("  (no RD resolve note)")
+            continue
+        print("  newest:" + (f" by {n['by']} {n['time']}" if n.get("by") else ""))
+        for k, label in RESOLVE_LABELS:
+            print(f"  {label}:")
+            for line in (n.get(k) or "—").split("\n"):
+                print(f"    {line}")
+        if a.all and r["count"] > 1:
+            for i, o in enumerate(r["all"][:-1], 1):
+                print(f"  earlier #{i}: {o.get('RootCause')} / {o.get('Solution')}")
+    return 0
 
 
 # ----------------------------------------------------------------------- tr
@@ -553,6 +625,13 @@ def main():
     s.add_argument("--log", action="store_true", help="also print the status log")
     s.add_argument("--json", action="store_true")
     s.set_defaults(fn=cmd_bug)
+
+    s = sub.add_parser("resolve", help="RD's newest resolve note per bug "
+                       "(root cause, solution, impact, changeset)")
+    s.add_argument("bugcodes", nargs="+")
+    s.add_argument("--all", action="store_true", help="also list earlier notes")
+    s.add_argument("--json", action="store_true")
+    s.set_defaults(fn=cmd_resolve)
 
     s = sub.add_parser("tr", help="TR detail and its eBugs")
     s.add_argument("trcode")

@@ -2,9 +2,9 @@
   "feature": "phd/batch-editing",
   "platform": "android",
   "title": "Batch Editing",
-  "version": 9,
-  "approved_at": "2026-11-18T02:53:46.411Z",
-  "draft": "20261118-101500",
+  "version": 10,
+  "approved_at": "2026-11-20T09:09:09.810Z",
+  "draft": "edit-20261120-170909",
   "spec_folder": "specs/2026-11-09-figma",
   "spec_files": [
     {
@@ -95,6 +95,15 @@
       "approved_at": "2026-11-18T02:53:46.411Z",
       "spec_set_sha256": "51e224f33ef6da7f140daf45cc8e5431ced4395259607fd04f58dfd1da4fdc8b",
       "draft": "20261118-101500",
+      "cases": 177,
+      "csv": "history/v9.csv",
+      "requirements": "history/v9-requirements.md"
+    },
+    {
+      "version": 10,
+      "approved_at": "2026-11-20T09:09:09.810Z",
+      "spec_set_sha256": "51e224f33ef6da7f140daf45cc8e5431ced4395259607fd04f58dfd1da4fdc8b",
+      "draft": "edit-20261120-170909",
       "cases": 177,
       "csv": "cases.csv",
       "requirements": "requirements.md"
