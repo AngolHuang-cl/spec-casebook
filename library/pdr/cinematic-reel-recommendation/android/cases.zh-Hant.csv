@@ -1,4 +1,68 @@
 ﻿﻿編號,區塊,前置條件,操作步驟,預期結果,優先度,規格對應,備註,變更,變更原因
+TC-080,View photo tips 標籤,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. Launcher 停在 Home 分頁","1. 在 Launcher 點「Cinematic Reel Creator」
+2. 點 template 頁的 ‹
+3. 在 Launcher 點「Cinematic Reel Creator」
+4. 按系統返回鍵","步驟 1：Launcher 上有「Cinematic Reel Creator」
+步驟 1：直接進到 Cinematic Reel Creator 的 template 頁，沒有出現教學
+步驟 1：顯示 template 卡片，每張都有「View photo tips」chip 和「Import a Photo」
+步驟 1：頁首有 ‹、顯示帳號點數餘額的點數標籤、「?」和歷史紀錄
+步驟 2：回到Launcher（Home 分頁）
+步驟 3：再次進到 template 頁
+步驟 4：按系統返回鍵離開 template 頁，回到Launcher（Home 分頁）",P2,"R-037, R-001; REQ-010",入口 › Launcher，主要入口（pass 12）：檢查進入後的畫面和返回會到哪裡。規格沒有畫 template 頁的 ‹ 和系統返回鍵；離開再回來是團隊的 QA 規則。,新增,REQ-010（pass 12）：主要入口之前沒有案例檢查進入後的畫面和返回的去處
+TC-081,View photo tips 標籤,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁
+5. 帳號點數足夠產生兩次 Micro Cinema
+6. 相簿裡有一張不在專案中的相片，作為產生用相片（fixtures.md）","1. 看 template 頁上的點數標籤
+2. 滑動 template 卡片到「Micro Cinema」卡片
+3. 點「Import a Photo」
+4. 在 Add Media 點產生用相片（沒有開啟 Add Media 就跳過）
+5. 點預覽頁的「Generate」
+6. 如果跳出說明或扣點確認，點「I Agree」或「OK」
+7. 等 Analyzing & Generating 跑完並轉到任務列表
+8. 看點數標籤","步驟 1：記下點數餘額
+步驟 3：開啟 Add Media
+步驟 5 之前：預覽頁顯示產生用相片
+步驟 5 之前：「Generate」上顯示所需點數（記下來）
+步驟 6：記下每個對話框的標題和內容（規格裡都沒有）
+步驟 7：Analyzing & Generating 跑完各個階段後，任務列表出現一筆進行中的「Micro Cinema <MMDD>」任務
+步驟 8：點數剛好少了「Generate」上的價格，只扣一次",P1,R-037; REQ-010,依使用者 2026-11-26 裁示（REQ-010），每個入口都要實際產生影片。流程依 Design 箭頭：Add Media 選相片 → 預覽頁「Generate」→ Analyzing & Generating → 任務列表；「AI Processing Notice」和「Generate」上的價格來自探索筆記，不是規格。產生影片要好幾分鐘，光是上傳就可能要 8 分鐘（KP-100）：App 要保持在前景，需要的點數就照用（AGENTS.md › Credits）。任務讓它繼續跑：TC-083 會開啟這支影片。,新增,"REQ-010（pass 12，使用者 2026-11-26 裁示「Yes, generate per entry」）：從 Launcher › 「Cinematic Reel Creator」產生一支影片並扣點"
+TC-082,View photo tips 標籤,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁
+5. 帳號點數足夠產生兩次 Micro Cinema
+6. 相簿裡有一張不在專案中的相片，作為產生用相片（fixtures.md）
+7. 畫面上是「Micro Cinema」卡片","1. 點「Micro Cinema」卡片上的「Import a Photo」
+2. 在 Add Media 點產生用相片（沒有開啟 Add Media 就跳過）
+3. 點預覽頁的「Generate」
+4. 如果跳出說明或扣點確認，點「I Agree」或「OK」
+5. 在顯示「Uploading」或 Analyzing & Generating 時，按系統返回鍵
+6. 如果 App 還停在那一頁，點「View later」
+7. 從 template 頁的歷史紀錄圖示開啟 Cinematic Reel Creator 任務列表（如果 App 已離開，就從這個 Section 的入口回到 template 頁）","步驟 5：記下發生什麼事：頁面關閉回到 template 頁、回到Launcher（Home 分頁）、跳出離開或取消的對話框（照抄內容），或沒有反應
+步驟 5：Design 在那一頁只畫了「View later」和「Create another one」（Q-10），所以任何結果都記為 Fail（question）交給 PM
+步驟 7：記下任務有沒有在列表裡（進行中、完成或失敗）
+步驟 7：點數標籤顯示這次產生只扣一次點，或產生被取消時已退點（記下是哪一種）
+步驟 1–7：App 不會閃退或卡住",P2,R-037; REQ-010,依使用者 2026-11-26 裁示（REQ-010），每個入口都要實際產生影片。Q-10：產生影片途中離開。產生影片要好幾分鐘，光是上傳就可能要 8 分鐘（KP-100）：App 要保持在前景，需要的點數就照用（AGENTS.md › Credits）。,新增,"REQ-010（pass 12，使用者 2026-11-26 裁示「Yes, generate per entry」）：從 Launcher › 「Cinematic Reel Creator」產生影片途中離開"
+TC-083,View photo tips 標籤,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁
+5. TC-081 開始的 Micro Cinema 任務正在跑或已完成","1. 點 template 頁的歷史紀錄圖示
+2. 等 TC-081 開始的任務出現「View」
+3. 點「View」
+4. 在結果頁按系統返回鍵
+5. 一直點 ‹，直到離開 Cinematic Reel Creator
+6. 開啟 Launcher 的「Project」分頁
+7. 開啟「AI Magic」分頁 › 「My Artwork」","步驟 3：開啟結果頁，有影片封面、「Add Text」和「Edit Music」
+步驟 4：記下會回到哪裡（任務列表或 template 頁）：規格沒有畫（Q-10），所以記為 Fail（question）交給 PM
+步驟 5：回到Launcher（Home 分頁）
+步驟 6：記下有沒有多出新專案
+步驟 7：My Artwork 的「Cinematic Reel Creator」區塊有這支影片",P1,R-037; REQ-010,依使用者 2026-11-26 裁示（REQ-010），每個入口都要實際產生影片。Design 箭頭：任務「View」→ 結果頁。KP-103：如果 My Artwork 的縮圖還顯示「Processing...」，先開一次任務列表。KP-079：影片不會自動存到相簿。,新增,"REQ-010（pass 12，使用者 2026-11-26 裁示「Yes, generate per entry」）：從 Launcher › 「Cinematic Reel Creator」完成的影片、存放位置和離開方式"
 TC-001,View photo tips 標籤,"1. PowerDirector 已用測試帳號登入
 2. App 語言為英文
 3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
@@ -97,7 +161,7 @@ TC-077,拍照建議面板,"1. PowerDirector 已用測試帳號登入
 步驟 2：變暗區域後面的東西都不會有反應：template 頁仍停在「Micro Cinema」卡片，沒有開啟其他畫面
 步驟 5：記下面板是關閉、跟著手指移動後彈回，還是完全不動
 步驟 3 和 6：面板關閉後變暗效果消失，template 頁顯示「Micro Cinema」卡片，和步驟 1 之前一樣
-步驟 2 和 5：Design 只畫了「Got it」，沒有提到這兩種手勢（Q-3），所以兩種結果都不算 Pass：把各自的行為記為 Fail（question）交給 PM",P3,R-010; REQ-009,Q-3：「Got it」由 TC-007 檢查。系統返回鍵是 TC-020。從 Add Media 開啟的面板要做同樣兩種手勢，得等 Q-1 有結果（那裡目前還沒有「?」）。,新增,REQ-009：Q-3 — 之前沒有任何一列去點變暗區域或把面板往下滑（R-010）
+步驟 2 和 5：Design 只畫了「Got it」，沒有提到這兩種手勢（Q-3），所以兩種結果都不算 Pass：把各自的行為記為 Fail（question）交給 PM",P3,R-010; REQ-009,Q-3：「Got it」由 TC-007 檢查。系統返回鍵是 TC-020。從 Add Media 開啟的面板要做同樣兩種手勢，得等 Q-1 有結果（那裡目前還沒有「?」）。,未變更,REQ-009：Q-3 — 之前沒有任何一列去點變暗區域或把面板往下滑（R-010）
 TC-009,拍照建議面板,"1. PowerDirector 已用測試帳號登入
 2. App 語言為英文
 3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
@@ -1633,7 +1697,7 @@ TC-078,資料來源,"1. PowerDirector 已用測試帳號登入
 步驟 4：記下面板顯示的內容：開頭的句子、標題和說明文字，以及圖片是載入了還是空白
 步驟 1–5：App 不會閃退或卡住，每個畫面都離得開
 步驟 8：恢復連線後，Micro Cinema 的面板在「Recommendation」下顯示「Mid-Distance Framing」和「Rich Visual Details」，在「Avoid」下顯示「Flat Composition」、「Visible Text or Logos」和「Extreme Close-up」，每項都有圖片
-步驟 2–4：沒有任何規格寫到連不上 CMS 時這個功能要顯示什麼（Q-4），所以任何結果都不算 Pass：記為 Fail（question）交給 PM",P2,"R-014, R-001, R-012; REQ-009",Q-4 的離線部分：在沒有網路的情況下重新啟動 App。之前連線時留在手機上的資料可能還會顯示：如果頁面看起來很完整，要註明。這是真的斷網；不管發生什麼事，步驟 6 都要把 Wi-Fi 打開。Q-4 的另一半（範本沒有 recommend_samples）QA 做不出來（CMS 在伺服器端）。,新增,REQ-009：Q-4 — 之前沒有任何一列在離線時開啟這個功能（R-014、R-001）
+步驟 2–4：沒有任何規格寫到連不上 CMS 時這個功能要顯示什麼（Q-4），所以任何結果都不算 Pass：記為 Fail（question）交給 PM",P2,"R-014, R-001, R-012; REQ-009",Q-4 的離線部分：在沒有網路的情況下重新啟動 App。之前連線時留在手機上的資料可能還會顯示：如果頁面看起來很完整，要註明。這是真的斷網；不管發生什麼事，步驟 6 都要把 Wi-Fi 打開。Q-4 的另一半（範本沒有 recommend_samples）QA 做不出來（CMS 在伺服器端）。,未變更,REQ-009：Q-4 — 之前沒有任何一列在離線時開啟這個功能（R-014、R-001）
 TC-079,資料來源,"1. PowerDirector 已用測試帳號登入
 2. App 語言為英文
 3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
@@ -1652,7 +1716,570 @@ TC-079,資料來源,"1. PowerDirector 已用測試帳號登入
 步驟 3–7：記下卡片上的「View photo tips」chip 是否還在
 步驟 3–7：App 不會閃退或卡住，每個開啟的面板都能用「Got it」關閉
 步驟 9：恢復連線後，Time Lapse 的面板在「Recommendation」下顯示「Visible Sky」和「Cityscape or Landscape」，在「Avoid」下顯示「Portrait as Subject」、「Indoor Close-up」和「Extreme Close-up」，每項都有圖片
-步驟 4 和 6：沒有任何規格寫到連不上 CMS 時面板要顯示什麼（Q-4），所以任何結果都不算 Pass：記為 Fail（question）交給 PM",P2,"R-014, R-012; REQ-009",Q-4 的離線部分：先載入一個面板，之後才斷網。手機沒有行動網路（device-android.ts wifi off）。Time Lapse 的圖片如果在前面的列載入過，可能還會顯示：要註明。這是真的斷網；不管發生什麼事，步驟 8 都要把 Wi-Fi 打開。,新增,REQ-009：Q-4 — 之前沒有任何一列在斷網後重開已載入的面板，或開啟一個新的面板（R-014）
+步驟 4 和 6：沒有任何規格寫到連不上 CMS 時面板要顯示什麼（Q-4），所以任何結果都不算 Pass：記為 Fail（question）交給 PM",P2,"R-014, R-012; REQ-009",Q-4 的離線部分：先載入一個面板，之後才斷網。手機沒有行動網路（device-android.ts wifi off）。Time Lapse 的圖片如果在前面的列載入過，可能還會顯示：要註明。這是真的斷網；不管發生什麼事，步驟 8 都要把 Wi-Fi 打開。,未變更,REQ-009：Q-4 — 之前沒有任何一列在斷網後重開已載入的面板，或開啟一個新的面板（R-014）
+TC-084,入口 › AI Magic 分頁 › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. Launcher 停在 Home 分頁","1. 點下方的「AI Magic」分頁
+2. 在 AI Magic 清單中點「Cinematic Reel Creator」","步驟 1：AI Magic 清單裡有「Cinematic Reel Creator」（記下它的位置）
+步驟 1：如果沒有，記下找不到入口，留到階段收尾時當作 PM 問題提出，這個 Section 其餘的案例標為 Blocked
+步驟 2：直接進到 Cinematic Reel Creator 的 template 頁，沒有出現教學
+步驟 2：顯示 template 卡片，每張都有「View photo tips」chip 和「Import a Photo」
+步驟 2：頁首有 ‹、顯示帳號點數餘額的點數標籤、「?」和歷史紀錄
+步驟 2：卡片依該地區的 CMS 順序排列，和從 Launcher 進入時一樣（記下前三張的名稱）",P1,"R-038, R-001; REQ-010","入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。入口：Launcher › 「AI Magic」分頁 › 「Cinematic Reel Creator」，來源：KP-012、KP-013（AI Magic 分頁列出各個 AI 工具；Launcher 的 AI-Powered Creation「View more」也會開啟它），不在工具列表中。規格只畫了 Launcher 入口，所以這個 Section 以 Launcher 入口的行為為準。離開方式在 TC-087。",新增,REQ-010（pass 12，UI 檢查）：從 Launcher › 「AI Magic」分頁 › 「Cinematic Reel Creator」檢查入口是否存在、進入後的畫面和帶進來的東西
+TC-085,入口 › AI Magic 分頁 › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. Launcher 停在 Home 分頁
+5. 已從 Launcher › 「AI Magic」分頁 › 「Cinematic Reel Creator」進到 Cinematic Reel Creator 的 template 頁","1. 滑動 template 卡片到「Horror Movie」卡片
+2. 點該卡片上的「View photo tips」
+3. 點「Got it」
+4. 滑動 template 卡片到「Micro Cinema」卡片
+5. 點該卡片上的「View photo tips」
+6. 把「Avoid」那一排往左滑
+7. 把「Avoid」那一排滑回右邊
+8. 點面板上方變暗的頁面
+9. 如果面板還開著，從第一句文字開始往下滑
+10. 如果面板還開著，點「Got it」
+11. 再點一次同一張卡片上的「View photo tips」
+12. 按系統返回鍵
+13. 再點一次同一張卡片上的「View photo tips」
+14. 點「Got it」
+15. 滑動 template 卡片到「One-Take Shot」卡片
+16. 點該卡片上的「View photo tips」
+17. 點「Got it」
+18. 滑動 template 卡片到「Time Lapse」卡片
+19. 點該卡片上的「View photo tips」
+20. 點「Got it」
+21. 滑動 template 卡片到「Handheld Camera」卡片
+22. 點該卡片上的「View photo tips」
+23. 點「Got it」
+24. 滑動 template 卡片到「Fast Cut」卡片
+25. 點該卡片上的「View photo tips」
+26. 點「Got it」
+27. 點 template 頁頁首的「?」
+28. 點教學的 X 關閉
+29. 點頁首的歷史紀錄圖示
+30. 按系統返回鍵","步驟 2：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Horror Movie template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 3：面板關閉，變暗效果消失，畫面停在「Horror Movie」卡片
+步驟 5：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Micro Cinema template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 7：那一排會捲到「Extreme Close-up」再捲回來，「Recommendation」那一排不動
+步驟 8：記下面板會不會關閉（Q-3）
+步驟 8：變暗區域後面的東西都不會有反應
+步驟 9：記下往下滑會不會關閉面板（Q-3）
+步驟 11：Micro Cinema 的面板再次打開
+步驟 12：面板關閉，回到「Micro Cinema」卡片
+步驟 14：面板關閉，變暗效果消失，畫面停在「Micro Cinema」卡片
+步驟 16：拍照建議面板在變暗的頁面上打開，顯示「For best results with the One-Take Shot template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 17：面板關閉，變暗效果消失，畫面停在「One-Take Shot」卡片
+步驟 19：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Time Lapse template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 20：面板關閉，變暗效果消失，畫面停在「Time Lapse」卡片
+步驟 22：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Handheld Camera template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 23：面板關閉，變暗效果消失，畫面停在「Handheld Camera」卡片
+步驟 25：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Fast Cut template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 26：面板關閉，變暗效果消失，畫面停在「Fast Cut」卡片
+步驟 27：開啟 Cinematic Reel Creator 教學（記下標題）
+步驟 28：回到 template 頁
+步驟 29：開啟 Cinematic Reel Creator 任務列表（顯示任務，或「No videos yet. Choose a template to create!」）
+步驟 30：回到 template 頁
+步驟 1–30：每個控制項按一次都有反應，沒有錯誤訊息、閃退、卡住、空白圖片或錯誤的範本名稱",P2,"R-038, R-001, R-002, R-003, R-006, R-007, R-008, R-009, R-010, R-012, R-016; REQ-010","入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。檢查清單：主要入口案例 TC-001 – TC-009、TC-020、TC-077 的控制項（每張卡片的 chip、面板、Avoid 那一排的滑動、變暗區域和往下滑（Q-3）、「Got it」、系統返回鍵），加上頁首的「?」和歷史紀錄（control-trace.json）。Q-3 的結果這裡只記錄、不判 Fail：由 TC-077 處理。入口：Launcher › 「AI Magic」分頁 › 「Cinematic Reel Creator」。",新增,REQ-010（pass 12，UI 檢查）：從 Launcher › 「AI Magic」分頁 › 「Cinematic Reel Creator」檢查template 頁和拍照建議的每個控制項各按一次
+TC-086,入口 › AI Magic 分頁 › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. Launcher 停在 Home 分頁
+5. 已從 Launcher › 「AI Magic」分頁 › 「Cinematic Reel Creator」進到 Cinematic Reel Creator 的 template 頁
+6. 相簿裡有一張不在專案中的相片，作為產生用相片（fixtures.md）","1. 滑動 template 卡片到「Micro Cinema」卡片
+2. 點「Import a Photo」
+3. 點 Add Media 頁首的「?」（如果沒有開啟 Add Media，需要 Add Media 的步驟都跳過）
+4. 點「Got it」
+5. 點 Add Media 頁首的「?」
+6. 按系統返回鍵
+7. 每個 Add Media 來源分頁各點一次，最後停在「Recents」
+8. 點 Add Media 頁首的 ‹
+9. 點「Import a Photo」
+10. 按系統返回鍵
+11. 點「Import a Photo」
+12. 點產生用相片
+13. 點預覽頁的 ‹","步驟 2：開啟 Add Media
+步驟 3：Micro Cinema 的拍照建議面板在 Add Media 上打開（Q-1：沒有「?」是 DRA262611P0289，引用即可，不再重開）
+步驟 4：回到 Add Media，沒有選到任何相片
+步驟 6：面板關閉，回到 Add Media
+步驟 7：每個分頁顯示自己的相片，或它的登入或空白狀態，沒有錯誤
+步驟 8：回到 template 頁，停在「Micro Cinema」卡片
+步驟 10：Add Media 關閉，回到 template 頁
+步驟 12：開啟預覽頁，顯示範本「Micro Cinema」和標有所需點數的「Generate」（記下點數）
+步驟 12：預覽頁上的相片就是選的那張，完整、方向和比例都和原圖一樣，沒有被旋轉、拉伸、裁成別張或空白
+步驟 12：價格和從 Launcher 進入時 Micro Cinema 的價格相同（TC-081）
+步驟 13：記下會回到哪裡（Add Media 或 template 頁），也沒有留下沒選的相片",P1,"R-038, R-004, R-005, R-010, R-016; REQ-010","入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。檢查清單：主要入口案例 TC-010 – TC-016、TC-021 的控制項（「Import a Photo」、Add Media 的「?」、「Got it」、系統返回鍵），加上 Add Media 的分頁、‹ 和選相片。輸入是相片：預覽頁必須照原樣顯示它。入口：Launcher › 「AI Magic」分頁 › 「Cinematic Reel Creator」。",新增,REQ-010（pass 12，UI 檢查）：從 Launcher › 「AI Magic」分頁 › 「Cinematic Reel Creator」檢查Add Media 和頁面讀到的相片
+TC-087,入口 › AI Magic 分頁 › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. Launcher 停在 Home 分頁
+5. 已從 Launcher › 「AI Magic」分頁 › 「Cinematic Reel Creator」進到 Cinematic Reel Creator 的 template 頁
+6. 帳號點數足夠產生兩次 Micro Cinema
+7. 相簿裡有一張不在專案中的相片，作為產生用相片（fixtures.md）
+8. 畫面上是「Micro Cinema」卡片","1. 看 template 頁上的點數標籤
+2. 點「Micro Cinema」卡片上的「Import a Photo」
+3. 在 Add Media 點產生用相片（沒有開啟 Add Media 就跳過）
+4. 點預覽頁的「Generate」
+5. 如果跳出說明或扣點確認，點「I Agree」或「OK」
+6. 在顯示「Uploading」或 Analyzing & Generating 時，按系統返回鍵
+7. 如果 App 還停在那一頁，點「View later」
+8. 從 template 頁的歷史紀錄圖示開啟任務列表（如果 App 已離開，就從這個入口回到 template 頁）
+9. 如果任務被取消，從「Micro Cinema」卡片再產生一次，這次不要離開
+10. 等任務出現「View」
+11. 看點數標籤
+12. 點「View」
+13. 在結果頁按系統返回鍵
+14. 一直點 ‹，直到離開 Cinematic Reel Creator
+15. 點下方的「AI Magic」分頁
+16. 在 AI Magic 清單中點「Cinematic Reel Creator」
+17. 按系統返回鍵
+18. 開啟 Launcher 的「Project」分頁
+19. 開啟「AI Magic」分頁 › 「My Artwork」","步驟 1：記下點數餘額
+步驟 5：記下每個對話框的標題和內容（規格裡都沒有）
+步驟 6：記下發生什麼事：頁面關閉回到 template 頁、回到AI Magic 分頁、跳出離開或取消的對話框（照抄內容），或沒有反應
+步驟 6：Design 在那一頁只畫了「View later」和「Create another one」（Q-10），所以任何結果都記為 Fail（question）交給 PM
+步驟 8：記下任務有沒有在列表裡（進行中、完成或失敗）
+步驟 11：點數剛好少了「Generate」上的價格，完成的影片只扣一次（被取消的任務已退點）
+步驟 12：開啟結果頁，有影片封面、「Add Text」和「Edit Music」
+步驟 13：記下會回到哪裡（任務列表或 template 頁）：規格沒有畫（Q-10），所以記為 Fail（question）交給 PM
+步驟 14：回到AI Magic 分頁
+步驟 16：再次進到 template 頁
+步驟 17：按系統返回鍵離開 template 頁，回到AI Magic 分頁
+步驟 18：沒有多出新專案，和從 Launcher 進入時一樣
+步驟 19：My Artwork 的「Cinematic Reel Creator」區塊有這支影片",P1,R-038; REQ-010,"入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。只產生一次（使用者 2026-11-26 裁示「Yes, generate per entry」），產生途中離開的檢查也併在這列（Q-10）；只有離開導致任務取消時才再產生一次。檢查清單：主要入口案例 TC-080、TC-081、TC-082、TC-083 的離開方式。產生影片要好幾分鐘，光是上傳就可能要 8 分鐘（KP-100）：App 要保持在前景，需要的點數就照用（AGENTS.md › Credits）。KP-103：如果 My Artwork 的縮圖還顯示「Processing...」，先開一次任務列表。入口：Launcher › 「AI Magic」分頁 › 「Cinematic Reel Creator」。",新增,REQ-010（pass 12，UI 檢查）：從 Launcher › 「AI Magic」分頁 › 「Cinematic Reel Creator」檢查產生一次、影片存放位置和每個離開方式
+TC-088,入口 › 編輯器 › Global Toolbar › AI Magic › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 編輯器已開啟一個專案，主軌和子母畫面軌上各有一張相片（fixtures.md）
+5. 時間軸上沒有選取任何素材（顯示 Global Toolbar）","1. 點編輯器工具列上的「AI Magic」
+2. 點「Cinematic Reel Creator」","步驟 1：選單裡有「Cinematic Reel Creator」（記下它的位置）
+步驟 1：如果沒有，記下找不到入口，留到階段收尾時當作 PM 問題提出，這個 Section 其餘的案例標為 Blocked
+步驟 2：直接進到 Cinematic Reel Creator 的 template 頁，沒有出現教學
+步驟 2：顯示 template 卡片，每張都有「View photo tips」chip 和「Import a Photo」
+步驟 2：頁首有 ‹、顯示帳號點數餘額的點數標籤、「?」和歷史紀錄
+步驟 2：卡片依該地區的 CMS 順序排列，和從 Launcher 進入時一樣（記下前三張的名稱）
+步驟 2：頁面沒有從專案帶任何東西進來，和從 Launcher 進入時一樣",P1,"R-039, R-001; REQ-010","入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。入口：編輯器（未選取任何素材）› Global Toolbar › 「AI Magic」 › 「Cinematic Reel Creator」，來源：工具列表「2026/11 Auto Reframe」分頁的 Global Toolbar › AI Magic（7/E），KP-107。規格只畫了 Launcher 入口，所以這個 Section 以 Launcher 入口的行為為準。離開方式在 TC-091。",新增,REQ-010（pass 12，UI 檢查）：從 編輯器（未選取任何素材）› Global Toolbar › 「AI Magic」 › 「Cinematic Reel Creator」檢查入口是否存在、進入後的畫面和帶進來的東西
+TC-089,入口 › 編輯器 › Global Toolbar › AI Magic › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 編輯器已開啟一個專案，主軌和子母畫面軌上各有一張相片（fixtures.md）
+5. 時間軸上沒有選取任何素材（顯示 Global Toolbar）
+6. 已從 編輯器（未選取任何素材）› Global Toolbar › 「AI Magic」 › 「Cinematic Reel Creator」進到 Cinematic Reel Creator 的 template 頁","1. 滑動 template 卡片到「Horror Movie」卡片
+2. 點該卡片上的「View photo tips」
+3. 點「Got it」
+4. 滑動 template 卡片到「Micro Cinema」卡片
+5. 點該卡片上的「View photo tips」
+6. 把「Avoid」那一排往左滑
+7. 把「Avoid」那一排滑回右邊
+8. 點面板上方變暗的頁面
+9. 如果面板還開著，從第一句文字開始往下滑
+10. 如果面板還開著，點「Got it」
+11. 再點一次同一張卡片上的「View photo tips」
+12. 按系統返回鍵
+13. 再點一次同一張卡片上的「View photo tips」
+14. 點「Got it」
+15. 滑動 template 卡片到「One-Take Shot」卡片
+16. 點該卡片上的「View photo tips」
+17. 點「Got it」
+18. 滑動 template 卡片到「Time Lapse」卡片
+19. 點該卡片上的「View photo tips」
+20. 點「Got it」
+21. 滑動 template 卡片到「Handheld Camera」卡片
+22. 點該卡片上的「View photo tips」
+23. 點「Got it」
+24. 滑動 template 卡片到「Fast Cut」卡片
+25. 點該卡片上的「View photo tips」
+26. 點「Got it」
+27. 點 template 頁頁首的「?」
+28. 點教學的 X 關閉
+29. 點頁首的歷史紀錄圖示
+30. 按系統返回鍵","步驟 2：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Horror Movie template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 3：面板關閉，變暗效果消失，畫面停在「Horror Movie」卡片
+步驟 5：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Micro Cinema template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 7：那一排會捲到「Extreme Close-up」再捲回來，「Recommendation」那一排不動
+步驟 8：記下面板會不會關閉（Q-3）
+步驟 8：變暗區域後面的東西都不會有反應
+步驟 9：記下往下滑會不會關閉面板（Q-3）
+步驟 11：Micro Cinema 的面板再次打開
+步驟 12：面板關閉，回到「Micro Cinema」卡片
+步驟 14：面板關閉，變暗效果消失，畫面停在「Micro Cinema」卡片
+步驟 16：拍照建議面板在變暗的頁面上打開，顯示「For best results with the One-Take Shot template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 17：面板關閉，變暗效果消失，畫面停在「One-Take Shot」卡片
+步驟 19：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Time Lapse template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 20：面板關閉，變暗效果消失，畫面停在「Time Lapse」卡片
+步驟 22：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Handheld Camera template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 23：面板關閉，變暗效果消失，畫面停在「Handheld Camera」卡片
+步驟 25：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Fast Cut template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 26：面板關閉，變暗效果消失，畫面停在「Fast Cut」卡片
+步驟 27：開啟 Cinematic Reel Creator 教學（記下標題）
+步驟 28：回到 template 頁
+步驟 29：開啟 Cinematic Reel Creator 任務列表（顯示任務，或「No videos yet. Choose a template to create!」）
+步驟 30：回到 template 頁
+步驟 1–30：每個控制項按一次都有反應，沒有錯誤訊息、閃退、卡住、空白圖片或錯誤的範本名稱",P2,"R-039, R-001, R-002, R-003, R-006, R-007, R-008, R-009, R-010, R-012, R-016; REQ-010","入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。檢查清單：主要入口案例 TC-001 – TC-009、TC-020、TC-077 的控制項（每張卡片的 chip、面板、Avoid 那一排的滑動、變暗區域和往下滑（Q-3）、「Got it」、系統返回鍵），加上頁首的「?」和歷史紀錄（control-trace.json）。Q-3 的結果這裡只記錄、不判 Fail：由 TC-077 處理。入口：編輯器（未選取任何素材）› Global Toolbar › 「AI Magic」 › 「Cinematic Reel Creator」。",新增,REQ-010（pass 12，UI 檢查）：從 編輯器（未選取任何素材）› Global Toolbar › 「AI Magic」 › 「Cinematic Reel Creator」檢查template 頁和拍照建議的每個控制項各按一次
+TC-090,入口 › 編輯器 › Global Toolbar › AI Magic › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 編輯器已開啟一個專案，主軌和子母畫面軌上各有一張相片（fixtures.md）
+5. 時間軸上沒有選取任何素材（顯示 Global Toolbar）
+6. 已從 編輯器（未選取任何素材）› Global Toolbar › 「AI Magic」 › 「Cinematic Reel Creator」進到 Cinematic Reel Creator 的 template 頁
+7. 相簿裡有一張不在專案中的相片，作為產生用相片（fixtures.md）","1. 滑動 template 卡片到「Micro Cinema」卡片
+2. 點「Import a Photo」
+3. 點 Add Media 頁首的「?」（如果沒有開啟 Add Media，需要 Add Media 的步驟都跳過）
+4. 點「Got it」
+5. 點 Add Media 頁首的「?」
+6. 按系統返回鍵
+7. 每個 Add Media 來源分頁各點一次，最後停在「Recents」
+8. 點 Add Media 頁首的 ‹
+9. 點「Import a Photo」
+10. 按系統返回鍵
+11. 點「Import a Photo」
+12. 點產生用相片
+13. 點預覽頁的 ‹","步驟 2：開啟 Add Media
+步驟 3：Micro Cinema 的拍照建議面板在 Add Media 上打開（Q-1：沒有「?」是 DRA262611P0289，引用即可，不再重開）
+步驟 4：回到 Add Media，沒有選到任何相片
+步驟 6：面板關閉，回到 Add Media
+步驟 7：每個分頁顯示自己的相片，或它的登入或空白狀態，沒有錯誤
+步驟 8：回到 template 頁，停在「Micro Cinema」卡片
+步驟 10：Add Media 關閉，回到 template 頁
+步驟 12：開啟預覽頁，顯示範本「Micro Cinema」和標有所需點數的「Generate」（記下點數）
+步驟 12：預覽頁上的相片就是選的那張，完整、方向和比例都和原圖一樣，沒有被旋轉、拉伸、裁成別張或空白
+步驟 12：價格和從 Launcher 進入時 Micro Cinema 的價格相同（TC-081）
+步驟 13：記下會回到哪裡（Add Media 或 template 頁），也沒有留下沒選的相片",P1,"R-039, R-004, R-005, R-010, R-016; REQ-010","入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。檢查清單：主要入口案例 TC-010 – TC-016、TC-021 的控制項（「Import a Photo」、Add Media 的「?」、「Got it」、系統返回鍵），加上 Add Media 的分頁、‹ 和選相片。輸入是相片：預覽頁必須照原樣顯示它。入口：編輯器（未選取任何素材）› Global Toolbar › 「AI Magic」 › 「Cinematic Reel Creator」。",新增,REQ-010（pass 12，UI 檢查）：從 編輯器（未選取任何素材）› Global Toolbar › 「AI Magic」 › 「Cinematic Reel Creator」檢查Add Media 和頁面讀到的相片
+TC-091,入口 › 編輯器 › Global Toolbar › AI Magic › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 編輯器已開啟一個專案，主軌和子母畫面軌上各有一張相片（fixtures.md）
+5. 時間軸上沒有選取任何素材（顯示 Global Toolbar）
+6. 已從 編輯器（未選取任何素材）› Global Toolbar › 「AI Magic」 › 「Cinematic Reel Creator」進到 Cinematic Reel Creator 的 template 頁
+7. 帳號點數足夠產生兩次 Micro Cinema
+8. 相簿裡有一張不在專案中的相片，作為產生用相片（fixtures.md）
+9. 畫面上是「Micro Cinema」卡片","1. 看 template 頁上的點數標籤
+2. 點「Micro Cinema」卡片上的「Import a Photo」
+3. 在 Add Media 點產生用相片（沒有開啟 Add Media 就跳過）
+4. 點預覽頁的「Generate」
+5. 如果跳出說明或扣點確認，點「I Agree」或「OK」
+6. 在顯示「Uploading」或 Analyzing & Generating 時，按系統返回鍵
+7. 如果 App 還停在那一頁，點「View later」
+8. 從 template 頁的歷史紀錄圖示開啟任務列表（如果 App 已離開，就從這個入口回到 template 頁）
+9. 如果任務被取消，從「Micro Cinema」卡片再產生一次，這次不要離開
+10. 等任務出現「View」
+11. 看點數標籤
+12. 點「View」
+13. 在結果頁按系統返回鍵
+14. 一直點 ‹，直到離開 Cinematic Reel Creator
+15. 看專案的時間軸
+16. 如果有選取素材，點時間軸的空白處
+17. 點編輯器工具列上的「AI Magic」
+18. 點「Cinematic Reel Creator」
+19. 按系統返回鍵
+20. 點編輯器的 ⌂，再開啟 Launcher 的「Project」分頁
+21. 開啟「AI Magic」分頁 › 「My Artwork」","步驟 1：記下點數餘額
+步驟 5：記下每個對話框的標題和內容（規格裡都沒有）
+步驟 6：記下發生什麼事：頁面關閉回到 template 頁、回到編輯器、跳出離開或取消的對話框（照抄內容），或沒有反應
+步驟 6：Design 在那一頁只畫了「View later」和「Create another one」（Q-10），所以任何結果都記為 Fail（question）交給 PM
+步驟 8：記下任務有沒有在列表裡（進行中、完成或失敗）
+步驟 11：點數剛好少了「Generate」上的價格，完成的影片只扣一次（被取消的任務已退點）
+步驟 12：開啟結果頁，有影片封面、「Add Text」和「Edit Music」
+步驟 13：記下會回到哪裡（任務列表或 template 頁）：規格沒有畫（Q-10），所以記為 Fail（question）交給 PM
+步驟 14：回到編輯器
+步驟 15：影片沒有加進專案，和從 Launcher 進入時一樣
+步驟 15：兩張相片都在原位，時間軸上其他東西都沒變
+步驟 18：再次進到 template 頁
+步驟 19：按系統返回鍵離開 template 頁，回到編輯器，沒有選取任何素材，時間軸上仍是原本那兩張相片，沒有新增、取代或刪除
+步驟 20：沒有多出新專案，和從 Launcher 進入時一樣
+步驟 21：My Artwork 的「Cinematic Reel Creator」區塊有這支影片",P1,R-039; REQ-010,"入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。只產生一次（使用者 2026-11-26 裁示「Yes, generate per entry」），產生途中離開的檢查也併在這列（Q-10）；只有離開導致任務取消時才再產生一次。檢查清單：主要入口案例 TC-080、TC-081、TC-082、TC-083 的離開方式。產生影片要好幾分鐘，光是上傳就可能要 8 分鐘（KP-100）：App 要保持在前景，需要的點數就照用（AGENTS.md › Credits）。KP-103：如果 My Artwork 的縮圖還顯示「Processing...」，先開一次任務列表。入口：編輯器（未選取任何素材）› Global Toolbar › 「AI Magic」 › 「Cinematic Reel Creator」。",新增,REQ-010（pass 12，UI 檢查）：從 編輯器（未選取任何素材）› Global Toolbar › 「AI Magic」 › 「Cinematic Reel Creator」檢查產生一次、影片存放位置和每個離開方式
+TC-092,入口 › 編輯器 › Photo Toolbar › Effects › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 編輯器已開啟一個專案，主軌和子母畫面軌上各有一張相片（fixtures.md）
+5. 已選取主軌上的相片（顯示 Photo Toolbar）","1. 點 Photo Toolbar 上的「Effects」
+2. 點「Cinematic Reel Creator」","步驟 1：選單裡有「Cinematic Reel Creator」（記下它的位置）
+步驟 1：如果沒有，把找不到入口記為 Fail（question）交給 PM（Q-8），這個 Section 其餘的案例標為 Blocked
+步驟 2：直接進到 Cinematic Reel Creator 的 template 頁，沒有出現教學
+步驟 2：顯示 template 卡片，每張都有「View photo tips」chip 和「Import a Photo」
+步驟 2：頁首有 ‹、顯示帳號點數餘額的點數標籤、「?」和歷史紀錄
+步驟 2：卡片依該地區的 CMS 順序排列，和從 Launcher 進入時一樣（記下前三張的名稱）
+步驟 2：記下頁面有沒有帶進選取的主軌相片（顯示在卡片或預覽上、「Import a Photo」被取代或跳過）
+步驟 2：從 Launcher 進入時不會帶任何東西進來，這裡也這樣假設（Q-8）：有帶東西進來就記為 Fail（question）交給 PM",P1,"R-040, R-001; REQ-010","入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。入口：編輯器 › 選取主軌相片 › Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」，來源：工具列表「2026/11 Auto Reframe」分頁的 Photo Toolbar › Effects（7/E），KP-107。規格只畫了 Launcher 入口，所以這個 Section 以 Launcher 入口的行為為準（Q-8）。離開方式在 TC-095。",新增,REQ-010（pass 12，UI 檢查）：從 編輯器 › 選取主軌相片 › Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」檢查入口是否存在、進入後的畫面和帶進來的東西
+TC-093,入口 › 編輯器 › Photo Toolbar › Effects › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 編輯器已開啟一個專案，主軌和子母畫面軌上各有一張相片（fixtures.md）
+5. 已選取主軌上的相片（顯示 Photo Toolbar）
+6. 已從 編輯器 › 選取主軌相片 › Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」進到 Cinematic Reel Creator 的 template 頁","1. 滑動 template 卡片到「Horror Movie」卡片
+2. 點該卡片上的「View photo tips」
+3. 點「Got it」
+4. 滑動 template 卡片到「Micro Cinema」卡片
+5. 點該卡片上的「View photo tips」
+6. 把「Avoid」那一排往左滑
+7. 把「Avoid」那一排滑回右邊
+8. 點面板上方變暗的頁面
+9. 如果面板還開著，從第一句文字開始往下滑
+10. 如果面板還開著，點「Got it」
+11. 再點一次同一張卡片上的「View photo tips」
+12. 按系統返回鍵
+13. 再點一次同一張卡片上的「View photo tips」
+14. 點「Got it」
+15. 滑動 template 卡片到「One-Take Shot」卡片
+16. 點該卡片上的「View photo tips」
+17. 點「Got it」
+18. 滑動 template 卡片到「Time Lapse」卡片
+19. 點該卡片上的「View photo tips」
+20. 點「Got it」
+21. 滑動 template 卡片到「Handheld Camera」卡片
+22. 點該卡片上的「View photo tips」
+23. 點「Got it」
+24. 滑動 template 卡片到「Fast Cut」卡片
+25. 點該卡片上的「View photo tips」
+26. 點「Got it」
+27. 點 template 頁頁首的「?」
+28. 點教學的 X 關閉
+29. 點頁首的歷史紀錄圖示
+30. 按系統返回鍵","步驟 2：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Horror Movie template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 3：面板關閉，變暗效果消失，畫面停在「Horror Movie」卡片
+步驟 5：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Micro Cinema template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 7：那一排會捲到「Extreme Close-up」再捲回來，「Recommendation」那一排不動
+步驟 8：記下面板會不會關閉（Q-3）
+步驟 8：變暗區域後面的東西都不會有反應
+步驟 9：記下往下滑會不會關閉面板（Q-3）
+步驟 11：Micro Cinema 的面板再次打開
+步驟 12：面板關閉，回到「Micro Cinema」卡片
+步驟 14：面板關閉，變暗效果消失，畫面停在「Micro Cinema」卡片
+步驟 16：拍照建議面板在變暗的頁面上打開，顯示「For best results with the One-Take Shot template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 17：面板關閉，變暗效果消失，畫面停在「One-Take Shot」卡片
+步驟 19：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Time Lapse template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 20：面板關閉，變暗效果消失，畫面停在「Time Lapse」卡片
+步驟 22：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Handheld Camera template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 23：面板關閉，變暗效果消失，畫面停在「Handheld Camera」卡片
+步驟 25：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Fast Cut template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 26：面板關閉，變暗效果消失，畫面停在「Fast Cut」卡片
+步驟 27：開啟 Cinematic Reel Creator 教學（記下標題）
+步驟 28：回到 template 頁
+步驟 29：開啟 Cinematic Reel Creator 任務列表（顯示任務，或「No videos yet. Choose a template to create!」）
+步驟 30：回到 template 頁
+步驟 1–30：每個控制項按一次都有反應，沒有錯誤訊息、閃退、卡住、空白圖片或錯誤的範本名稱",P2,"R-040, R-001, R-002, R-003, R-006, R-007, R-008, R-009, R-010, R-012, R-016; REQ-010","入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。檢查清單：主要入口案例 TC-001 – TC-009、TC-020、TC-077 的控制項（每張卡片的 chip、面板、Avoid 那一排的滑動、變暗區域和往下滑（Q-3）、「Got it」、系統返回鍵），加上頁首的「?」和歷史紀錄（control-trace.json）。Q-3 的結果這裡只記錄、不判 Fail：由 TC-077 處理。入口：編輯器 › 選取主軌相片 › Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」（Q-8）。",新增,REQ-010（pass 12，UI 檢查）：從 編輯器 › 選取主軌相片 › Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」檢查template 頁和拍照建議的每個控制項各按一次
+TC-094,入口 › 編輯器 › Photo Toolbar › Effects › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 編輯器已開啟一個專案，主軌和子母畫面軌上各有一張相片（fixtures.md）
+5. 已選取主軌上的相片（顯示 Photo Toolbar）
+6. 已從 編輯器 › 選取主軌相片 › Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」進到 Cinematic Reel Creator 的 template 頁
+7. 相簿裡有一張不在專案中的相片，作為產生用相片（fixtures.md）","1. 滑動 template 卡片到「Micro Cinema」卡片
+2. 點「Import a Photo」
+3. 點 Add Media 頁首的「?」（如果沒有開啟 Add Media，需要 Add Media 的步驟都跳過）
+4. 點「Got it」
+5. 點 Add Media 頁首的「?」
+6. 按系統返回鍵
+7. 每個 Add Media 來源分頁各點一次，最後停在「Recents」
+8. 點 Add Media 頁首的 ‹
+9. 點「Import a Photo」
+10. 按系統返回鍵
+11. 點「Import a Photo」
+12. 點產生用相片
+13. 點預覽頁的 ‹","步驟 2：記下是開啟 Add Media，還是直接取用選取的主軌相片
+步驟 2：從 Launcher 進入時會開啟 Add Media，這裡也這樣假設（Q-8）：直接取用編輯器的相片就記為 Fail（question）交給 PM
+步驟 3：Micro Cinema 的拍照建議面板在 Add Media 上打開（Q-1：沒有「?」是 DRA262611P0289，引用即可，不再重開）
+步驟 4：回到 Add Media，沒有選到任何相片
+步驟 6：面板關閉，回到 Add Media
+步驟 7：每個分頁顯示自己的相片，或它的登入或空白狀態，沒有錯誤
+步驟 8：回到 template 頁，停在「Micro Cinema」卡片
+步驟 10：Add Media 關閉，回到 template 頁
+步驟 12：開啟預覽頁，顯示範本「Micro Cinema」和標有所需點數的「Generate」（記下點數）
+步驟 12：預覽頁上的相片就是選的那張（如果是選取的主軌相片要記下來），完整、方向和比例都和原圖一樣，沒有被旋轉、拉伸、裁成別張或空白
+步驟 12：價格和從 Launcher 進入時 Micro Cinema 的價格相同（TC-081）
+步驟 13：記下會回到哪裡（Add Media 或 template 頁），也沒有留下沒選的相片",P1,"R-040, R-004, R-005, R-010, R-016; REQ-010","入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。檢查清單：主要入口案例 TC-010 – TC-016、TC-021 的控制項（「Import a Photo」、Add Media 的「?」、「Got it」、系統返回鍵），加上 Add Media 的分頁、‹ 和選相片。輸入是相片：預覽頁必須照原樣顯示它。入口：編輯器 › 選取主軌相片 › Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」（Q-8）。",新增,REQ-010（pass 12，UI 檢查）：從 編輯器 › 選取主軌相片 › Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」檢查Add Media 和頁面讀到的相片
+TC-095,入口 › 編輯器 › Photo Toolbar › Effects › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 編輯器已開啟一個專案，主軌和子母畫面軌上各有一張相片（fixtures.md）
+5. 已選取主軌上的相片（顯示 Photo Toolbar）
+6. 已從 編輯器 › 選取主軌相片 › Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」進到 Cinematic Reel Creator 的 template 頁
+7. 帳號點數足夠產生兩次 Micro Cinema
+8. 相簿裡有一張不在專案中的相片，作為產生用相片（fixtures.md）
+9. 畫面上是「Micro Cinema」卡片","1. 看 template 頁上的點數標籤
+2. 點「Micro Cinema」卡片上的「Import a Photo」
+3. 在 Add Media 點產生用相片（沒有開啟 Add Media 就跳過）
+4. 點預覽頁的「Generate」
+5. 如果跳出說明或扣點確認，點「I Agree」或「OK」
+6. 在顯示「Uploading」或 Analyzing & Generating 時，按系統返回鍵
+7. 如果 App 還停在那一頁，點「View later」
+8. 從 template 頁的歷史紀錄圖示開啟任務列表（如果 App 已離開，就從這個入口回到 template 頁）
+9. 如果任務被取消，從「Micro Cinema」卡片再產生一次，這次不要離開
+10. 等任務出現「View」
+11. 看點數標籤
+12. 點「View」
+13. 在結果頁按系統返回鍵
+14. 一直點 ‹，直到離開 Cinematic Reel Creator
+15. 看專案的時間軸
+16. 如果主軌相片已不是選取狀態，點一下它
+17. 點 Photo Toolbar 上的「Effects」
+18. 點「Cinematic Reel Creator」
+19. 按系統返回鍵
+20. 點編輯器的 ⌂，再開啟 Launcher 的「Project」分頁
+21. 開啟「AI Magic」分頁 › 「My Artwork」","步驟 1：記下點數餘額
+步驟 5：記下每個對話框的標題和內容（規格裡都沒有）
+步驟 6：記下發生什麼事：頁面關閉回到 template 頁、回到編輯器、跳出離開或取消的對話框（照抄內容），或沒有反應
+步驟 6：Design 在那一頁只畫了「View later」和「Create another one」（Q-10），所以任何結果都記為 Fail（question）交給 PM
+步驟 8：記下任務有沒有在列表裡（進行中、完成或失敗）
+步驟 11：點數剛好少了「Generate」上的價格，完成的影片只扣一次（被取消的任務已退點）
+步驟 12：開啟結果頁，有影片封面、「Add Text」和「Edit Music」
+步驟 13：記下會回到哪裡（任務列表或 template 頁）：規格沒有畫（Q-10），所以記為 Fail（question）交給 PM
+步驟 14：回到編輯器
+步驟 14：沒有規格畫出從這個入口返回會到哪裡（Q-8）：假設回到編輯器
+步驟 15：記下影片在哪裡：取代主軌相片、加成一個新片段，或不在專案裡
+步驟 15：從 Launcher 產生時不會把影片加進任何專案，這裡也這樣假設（Q-8）：影片出現在專案裡就記為 Fail（question）交給 PM
+步驟 15：子母畫面相片仍在原位，時間軸上其他東西都沒變
+步驟 18：再次進到 template 頁
+步驟 19：按系統返回鍵離開 template 頁，回到編輯器，主軌相片仍是選取狀態且沒有變動，時間軸上仍是原本那兩張相片，沒有新增、取代或刪除
+步驟 20：記下有沒有多出新專案（從 Launcher 進入時不會產生新專案，這裡也這樣假設，Q-8）
+步驟 21：My Artwork 的「Cinematic Reel Creator」區塊有這支影片",P1,R-040; REQ-010,"入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。只產生一次（使用者 2026-11-26 裁示「Yes, generate per entry」），產生途中離開的檢查也併在這列（Q-10）；只有離開導致任務取消時才再產生一次。檢查清單：主要入口案例 TC-080、TC-081、TC-082、TC-083 的離開方式。產生影片要好幾分鐘，光是上傳就可能要 8 分鐘（KP-100）：App 要保持在前景，需要的點數就照用（AGENTS.md › Credits）。KP-103：如果 My Artwork 的縮圖還顯示「Processing...」，先開一次任務列表。入口：編輯器 › 選取主軌相片 › Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」（Q-8）。",新增,REQ-010（pass 12，UI 檢查）：從 編輯器 › 選取主軌相片 › Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」檢查產生一次、影片存放位置和每個離開方式
+TC-096,入口 › 編輯器 › PIP Photo Toolbar › Effects › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 編輯器已開啟一個專案，主軌和子母畫面軌上各有一張相片（fixtures.md）
+5. 已選取子母畫面軌上的相片（顯示 PIP Photo Toolbar）","1. 點 PIP Photo Toolbar 上的「Effects」
+2. 點「Cinematic Reel Creator」","步驟 1：選單裡有「Cinematic Reel Creator」（記下它的位置）
+步驟 1：如果沒有，把找不到入口記為 Fail（question）交給 PM（Q-9），這個 Section 其餘的案例標為 Blocked
+步驟 2：直接進到 Cinematic Reel Creator 的 template 頁，沒有出現教學
+步驟 2：顯示 template 卡片，每張都有「View photo tips」chip 和「Import a Photo」
+步驟 2：頁首有 ‹、顯示帳號點數餘額的點數標籤、「?」和歷史紀錄
+步驟 2：卡片依該地區的 CMS 順序排列，和從 Launcher 進入時一樣（記下前三張的名稱）
+步驟 2：記下頁面有沒有帶進選取的子母畫面相片（顯示在卡片或預覽上、「Import a Photo」被取代或跳過）
+步驟 2：從 Launcher 進入時不會帶任何東西進來，這裡也這樣假設（Q-9）：有帶東西進來就記為 Fail（question）交給 PM",P1,"R-041, R-001; REQ-010","入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。入口：編輯器 › 選取子母畫面軌相片 › PIP Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」，來源：工具列表「2026/11 Auto Reframe」分頁的 PIP Photo Toolbar › Effects（7/E），KP-107。規格只畫了 Launcher 入口，所以這個 Section 以 Launcher 入口的行為為準（Q-9）。離開方式在 TC-099。",新增,REQ-010（pass 12，UI 檢查）：從 編輯器 › 選取子母畫面軌相片 › PIP Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」檢查入口是否存在、進入後的畫面和帶進來的東西
+TC-097,入口 › 編輯器 › PIP Photo Toolbar › Effects › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 編輯器已開啟一個專案，主軌和子母畫面軌上各有一張相片（fixtures.md）
+5. 已選取子母畫面軌上的相片（顯示 PIP Photo Toolbar）
+6. 已從 編輯器 › 選取子母畫面軌相片 › PIP Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」進到 Cinematic Reel Creator 的 template 頁","1. 滑動 template 卡片到「Horror Movie」卡片
+2. 點該卡片上的「View photo tips」
+3. 點「Got it」
+4. 滑動 template 卡片到「Micro Cinema」卡片
+5. 點該卡片上的「View photo tips」
+6. 把「Avoid」那一排往左滑
+7. 把「Avoid」那一排滑回右邊
+8. 點面板上方變暗的頁面
+9. 如果面板還開著，從第一句文字開始往下滑
+10. 如果面板還開著，點「Got it」
+11. 再點一次同一張卡片上的「View photo tips」
+12. 按系統返回鍵
+13. 再點一次同一張卡片上的「View photo tips」
+14. 點「Got it」
+15. 滑動 template 卡片到「One-Take Shot」卡片
+16. 點該卡片上的「View photo tips」
+17. 點「Got it」
+18. 滑動 template 卡片到「Time Lapse」卡片
+19. 點該卡片上的「View photo tips」
+20. 點「Got it」
+21. 滑動 template 卡片到「Handheld Camera」卡片
+22. 點該卡片上的「View photo tips」
+23. 點「Got it」
+24. 滑動 template 卡片到「Fast Cut」卡片
+25. 點該卡片上的「View photo tips」
+26. 點「Got it」
+27. 點 template 頁頁首的「?」
+28. 點教學的 X 關閉
+29. 點頁首的歷史紀錄圖示
+30. 按系統返回鍵","步驟 2：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Horror Movie template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 3：面板關閉，變暗效果消失，畫面停在「Horror Movie」卡片
+步驟 5：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Micro Cinema template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 7：那一排會捲到「Extreme Close-up」再捲回來，「Recommendation」那一排不動
+步驟 8：記下面板會不會關閉（Q-3）
+步驟 8：變暗區域後面的東西都不會有反應
+步驟 9：記下往下滑會不會關閉面板（Q-3）
+步驟 11：Micro Cinema 的面板再次打開
+步驟 12：面板關閉，回到「Micro Cinema」卡片
+步驟 14：面板關閉，變暗效果消失，畫面停在「Micro Cinema」卡片
+步驟 16：拍照建議面板在變暗的頁面上打開，顯示「For best results with the One-Take Shot template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 17：面板關閉，變暗效果消失，畫面停在「One-Take Shot」卡片
+步驟 19：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Time Lapse template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 20：面板關閉，變暗效果消失，畫面停在「Time Lapse」卡片
+步驟 22：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Handheld Camera template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 23：面板關閉，變暗效果消失，畫面停在「Handheld Camera」卡片
+步驟 25：拍照建議面板在變暗的頁面上打開，顯示「For best results with the Fast Cut template, follow this advice:」，「Recommendation」有兩項、「Avoid」有三項，每張圖片都有載入
+步驟 26：面板關閉，變暗效果消失，畫面停在「Fast Cut」卡片
+步驟 27：開啟 Cinematic Reel Creator 教學（記下標題）
+步驟 28：回到 template 頁
+步驟 29：開啟 Cinematic Reel Creator 任務列表（顯示任務，或「No videos yet. Choose a template to create!」）
+步驟 30：回到 template 頁
+步驟 1–30：每個控制項按一次都有反應，沒有錯誤訊息、閃退、卡住、空白圖片或錯誤的範本名稱",P2,"R-041, R-001, R-002, R-003, R-006, R-007, R-008, R-009, R-010, R-012, R-016; REQ-010","入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。檢查清單：主要入口案例 TC-001 – TC-009、TC-020、TC-077 的控制項（每張卡片的 chip、面板、Avoid 那一排的滑動、變暗區域和往下滑（Q-3）、「Got it」、系統返回鍵），加上頁首的「?」和歷史紀錄（control-trace.json）。Q-3 的結果這裡只記錄、不判 Fail：由 TC-077 處理。入口：編輯器 › 選取子母畫面軌相片 › PIP Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」（Q-9）。",新增,REQ-010（pass 12，UI 檢查）：從 編輯器 › 選取子母畫面軌相片 › PIP Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」檢查template 頁和拍照建議的每個控制項各按一次
+TC-098,入口 › 編輯器 › PIP Photo Toolbar › Effects › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 編輯器已開啟一個專案，主軌和子母畫面軌上各有一張相片（fixtures.md）
+5. 已選取子母畫面軌上的相片（顯示 PIP Photo Toolbar）
+6. 已從 編輯器 › 選取子母畫面軌相片 › PIP Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」進到 Cinematic Reel Creator 的 template 頁
+7. 相簿裡有一張不在專案中的相片，作為產生用相片（fixtures.md）","1. 滑動 template 卡片到「Micro Cinema」卡片
+2. 點「Import a Photo」
+3. 點 Add Media 頁首的「?」（如果沒有開啟 Add Media，需要 Add Media 的步驟都跳過）
+4. 點「Got it」
+5. 點 Add Media 頁首的「?」
+6. 按系統返回鍵
+7. 每個 Add Media 來源分頁各點一次，最後停在「Recents」
+8. 點 Add Media 頁首的 ‹
+9. 點「Import a Photo」
+10. 按系統返回鍵
+11. 點「Import a Photo」
+12. 點產生用相片
+13. 點預覽頁的 ‹","步驟 2：記下是開啟 Add Media，還是直接取用選取的子母畫面相片
+步驟 2：從 Launcher 進入時會開啟 Add Media，這裡也這樣假設（Q-9）：直接取用編輯器的相片就記為 Fail（question）交給 PM
+步驟 3：Micro Cinema 的拍照建議面板在 Add Media 上打開（Q-1：沒有「?」是 DRA262611P0289，引用即可，不再重開）
+步驟 4：回到 Add Media，沒有選到任何相片
+步驟 6：面板關閉，回到 Add Media
+步驟 7：每個分頁顯示自己的相片，或它的登入或空白狀態，沒有錯誤
+步驟 8：回到 template 頁，停在「Micro Cinema」卡片
+步驟 10：Add Media 關閉，回到 template 頁
+步驟 12：開啟預覽頁，顯示範本「Micro Cinema」和標有所需點數的「Generate」（記下點數）
+步驟 12：預覽頁上的相片就是選的那張（如果是選取的子母畫面相片要記下來），完整、方向和比例都和原圖一樣，沒有被旋轉、拉伸、裁成別張或空白
+步驟 12：價格和從 Launcher 進入時 Micro Cinema 的價格相同（TC-081）
+步驟 13：記下會回到哪裡（Add Media 或 template 頁），也沒有留下沒選的相片",P1,"R-041, R-004, R-005, R-010, R-016; REQ-010","入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。檢查清單：主要入口案例 TC-010 – TC-016、TC-021 的控制項（「Import a Photo」、Add Media 的「?」、「Got it」、系統返回鍵），加上 Add Media 的分頁、‹ 和選相片。輸入是相片：預覽頁必須照原樣顯示它。入口：編輯器 › 選取子母畫面軌相片 › PIP Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」（Q-9）。",新增,REQ-010（pass 12，UI 檢查）：從 編輯器 › 選取子母畫面軌相片 › PIP Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」檢查Add Media 和頁面讀到的相片
+TC-099,入口 › 編輯器 › PIP Photo Toolbar › Effects › Cinematic Reel Creator,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 編輯器已開啟一個專案，主軌和子母畫面軌上各有一張相片（fixtures.md）
+5. 已選取子母畫面軌上的相片（顯示 PIP Photo Toolbar）
+6. 已從 編輯器 › 選取子母畫面軌相片 › PIP Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」進到 Cinematic Reel Creator 的 template 頁
+7. 帳號點數足夠產生兩次 Micro Cinema
+8. 相簿裡有一張不在專案中的相片，作為產生用相片（fixtures.md）
+9. 畫面上是「Micro Cinema」卡片","1. 看 template 頁上的點數標籤
+2. 點「Micro Cinema」卡片上的「Import a Photo」
+3. 在 Add Media 點產生用相片（沒有開啟 Add Media 就跳過）
+4. 點預覽頁的「Generate」
+5. 如果跳出說明或扣點確認，點「I Agree」或「OK」
+6. 在顯示「Uploading」或 Analyzing & Generating 時，按系統返回鍵
+7. 如果 App 還停在那一頁，點「View later」
+8. 從 template 頁的歷史紀錄圖示開啟任務列表（如果 App 已離開，就從這個入口回到 template 頁）
+9. 如果任務被取消，從「Micro Cinema」卡片再產生一次，這次不要離開
+10. 等任務出現「View」
+11. 看點數標籤
+12. 點「View」
+13. 在結果頁按系統返回鍵
+14. 一直點 ‹，直到離開 Cinematic Reel Creator
+15. 看專案的時間軸
+16. 如果子母畫面軌相片已不是選取狀態，點一下它
+17. 點 PIP Photo Toolbar 上的「Effects」
+18. 點「Cinematic Reel Creator」
+19. 按系統返回鍵
+20. 點編輯器的 ⌂，再開啟 Launcher 的「Project」分頁
+21. 開啟「AI Magic」分頁 › 「My Artwork」","步驟 1：記下點數餘額
+步驟 5：記下每個對話框的標題和內容（規格裡都沒有）
+步驟 6：記下發生什麼事：頁面關閉回到 template 頁、回到編輯器、跳出離開或取消的對話框（照抄內容），或沒有反應
+步驟 6：Design 在那一頁只畫了「View later」和「Create another one」（Q-10），所以任何結果都記為 Fail（question）交給 PM
+步驟 8：記下任務有沒有在列表裡（進行中、完成或失敗）
+步驟 11：點數剛好少了「Generate」上的價格，完成的影片只扣一次（被取消的任務已退點）
+步驟 12：開啟結果頁，有影片封面、「Add Text」和「Edit Music」
+步驟 13：記下會回到哪裡（任務列表或 template 頁）：規格沒有畫（Q-10），所以記為 Fail（question）交給 PM
+步驟 14：回到編輯器
+步驟 14：沒有規格畫出從這個入口返回會到哪裡（Q-9）：假設回到編輯器
+步驟 15：記下影片在哪裡：取代子母畫面軌上的相片、加成一個新片段，或不在專案裡
+步驟 15：從 Launcher 產生時不會把影片加進任何專案，這裡也這樣假設（Q-9）：影片出現在專案裡就記為 Fail（question）交給 PM
+步驟 15：主軌相片仍在原位，時間軸上其他東西都沒變
+步驟 18：再次進到 template 頁
+步驟 19：按系統返回鍵離開 template 頁，回到編輯器，子母畫面軌上的相片仍是選取狀態且沒有變動，時間軸上仍是原本那兩張相片，沒有新增、取代或刪除
+步驟 20：記下有沒有多出新專案（從 Launcher 進入時不會產生新專案，這裡也這樣假設，Q-9）
+步驟 21：My Artwork 的「Cinematic Reel Creator」區塊有這支影片",P1,R-041; REQ-010,"入口 UI 檢查（analysis.md pass 12；使用者 2026-11-26：「for each entry, it should only check the UI, so click everything once and make sure there's no errors for each button and options」）。只產生一次（使用者 2026-11-26 裁示「Yes, generate per entry」），產生途中離開的檢查也併在這列（Q-10）；只有離開導致任務取消時才再產生一次。檢查清單：主要入口案例 TC-080、TC-081、TC-082、TC-083 的離開方式。產生影片要好幾分鐘，光是上傳就可能要 8 分鐘（KP-100）：App 要保持在前景，需要的點數就照用（AGENTS.md › Credits）。KP-103：如果 My Artwork 的縮圖還顯示「Processing...」，先開一次任務列表。入口：編輯器 › 選取子母畫面軌相片 › PIP Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」（Q-9）。",新增,REQ-010（pass 12，UI 檢查）：從 編輯器 › 選取子母畫面軌相片 › PIP Photo Toolbar › 「Effects」 › 「Cinematic Reel Creator」檢查產生一次、影片存放位置和每個離開方式
 TC-076,MUI 多國語系,"1. 受測 build 的 APK 放在 `~/.casebook/android/apks/<build>/`（就是這次執行安裝的那個）
 2. `mui.json` 列出這個功能的字串資源（`android_prefixes`：cine_story_view_photo_tips, cine_story_photo_tips_description）","1. 執行 `node scripts/mui-strings.ts pdr/cinematic-reel-recommendation --apk <build dir> --out <run dir>/mui`
 2. 逐一語言把 `mui-strings.json` 裡的每個字串和它的英文對照著讀

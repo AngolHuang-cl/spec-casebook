@@ -141,13 +141,13 @@ TC-028,Long model names,As TC-027,"1. Set the phone's font size (and display siz
 5. Set the font and display size back","Step 4: the tag is cut with 「…」 on one line and does not overlap 「View」 or leave the card
 Step 4: the card keeps the height of the cards around it",P3,"R-014, R-016",Phone setting changed and restored by the run (AGENTS.md › Phone settings for fixtures).
 TC-029,Cards without a model,"1. Signed in with the test account (fixtures.md)
-2. A photo in the gallery","1. Start an Image to Video template (Launcher 「What's Trending」 or the Template tab) with the photo
+2. A photo in the gallery","1. Start an Image to Video template from the Template tab with the photo
 2. Generate and wait until it finishes
 3. Open AI Magic › 「My Artwork」
 4. Tap 「Image to Video」","The template task's card shows the date and length and the name, and no model tag
 No empty line or gap is left where the tag would be
 The card is as tall as a card with a tag (120 pt)",P1,"R-020, R-016","Q-3: if the template lets the user pick a model, record whether the card shows it."
-TC-030,Cards without a model,Signed in with the test account (fixtures.md),"1. Start a Text to Video template (Launcher or the Template tab)
+TC-030,Cards without a model,Signed in with the test account (fixtures.md),"1. Start a Text to Video template from the Template tab
 2. Generate and wait until it finishes
 3. Open AI Magic › 「My Artwork」
 4. Tap 「Text to Video」","The template task's card shows no model tag and no empty line
@@ -161,7 +161,7 @@ TC-032,Cards without a model,Signed in with the test account (fixtures.md),"1. O
 TC-033,Cards without a model,"The account has at least one finished Text to Image task (default model 「GPT-Image-2.6 Sunburst」, KP-082)","1. Open AI Magic › 「My Artwork」
 2. Tap 「Text to Image」",The Text to Image Recent page shows no model tag on its items (Design 1006 names only I2V and T2V),P2,R-022,"Q-1: the Jira title also names TTI. If the build shows a model here, record it: a PM decision, not a Fail."
 TC-034,Card states,"1. Signed in with the test account (fixtures.md)
-2. A photo in the gallery","1. Start an Image to Video template with the photo and tap Generate
+2. A photo in the gallery","1. Start an Image to Video template from the Template tab with the photo and tap Generate
 2. Open AI Magic › 「My Artwork」
 3. Tap 「Image to Video」 while it is processing","The processing card (「processing...」, time left, progress bar) shows no model tag
 It is as tall as the other cards",P2,"R-030, R-020","Can be the generation of TC-029, looked at while it runs."
@@ -209,6 +209,1029 @@ TC-044,System Back,The Image to Video Recent page is open,Press system Back,My A
 TC-045,System Back,The Image to Video Recent page is in edit mode with one card ticked,Press system Back,"Edit mode closes as with 「Cancel」
 No task is deleted and every card keeps its tag",P3,R-070,Q-5: the spec draws only 「Cancel」; the row assumes Back acts like it.
 TC-046,System Back,The result page of a tagged task is open (TC-005 step 1),Press system Back,The Image to Video Recent page shows again with the card's tag unchanged,P3,R-070,
+TC-074,Entry › Mine › My Artwork,Signed in with the test account (fixtures.md),"1. Tap 「Mine」 in the bottom bar (「Pro」 on a Pro account)
+2. Tap 「My Artwork」
+3. Tap the 「Image to Video」 card row
+4. Tap ‹
+5. Tap the 「Text to Video」 card row
+6. Tap ‹
+7. Tap the 「Text to Image」 card row
+8. Tap ‹
+9. Tap the 「Cinematic Reel Creator」 card row
+10. Tap ‹","Step 2: My Artwork opens with a card row per feature, including 「Cinematic Reel Creator」, 「Text to Video」, 「Image to Video」 and 「Text to Image」
+Step 3: the Image to Video Recent page opens, titled 「Image to Video」, its cards newest first
+Step 5: the Text to Video Recent page opens, titled 「Text to Video」, its cards newest first
+Step 7: the Text to Image Recent page opens with no model tag on its items (Q-1)
+Step 9: the Cinematic Reel Creator Recent page opens with no model tag and no empty line on any card (R-021)
+Steps 4, 6, 8, 10: My Artwork shows again",P1,"R-001, R-021, R-022, R-090","Entry Mine › 「My Artwork」. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-075,Entry › Mine › My Artwork,"1. The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist
+2. The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist","1. Tap 「Mine」 in the bottom bar (「Pro」 on a Pro account)
+2. Tap 「My Artwork」
+3. Tap the 「Image to Video」 card row
+4. Read the tag of every Image to Video card
+5. Tap ‹
+6. Tap the 「Text to Video」 card row
+7. Read the tag of every Text to Video card","Step 4: each card's tag reads the model its own task was generated with (as recorded in TC-003, TC-006 – TC-014), written as the model picker names it
+Step 4: the template card shows no tag and no empty line
+Step 4: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall
+Step 7: each card's tag reads the model its own task was generated with (as recorded in TC-016, TC-019 – TC-026), written as the model picker names it
+Step 7: the template card shows no tag and no empty line
+Step 7: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall",P1,"R-010, R-011, R-012, R-013, R-014, R-016, R-020, R-090",Entry Mine › 「My Artwork」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-076,Entry › Mine › My Artwork,"1. The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist
+2. The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist
+3. The account has a finished Text to Image task (TC-033)","1. Tap 「Mine」 in the bottom bar (「Pro」 on a Pro account)
+2. Tap 「My Artwork」
+3. Tap the 「Image to Video」 card row
+4. Tap the model tag of a card
+5. Tap 「View」 on a tagged card
+6. Tap ‹ on the result page
+7. Tap 「Manage」
+8. Tap the checkbox of a tagged card
+9. Tap 「Select All」
+10. Tap 「Deselect All」
+11. Tap 「Cancel」
+12. Tap ‹
+13. Tap the 「Text to Video」 card row
+14. Tap 「View」 on a tagged card
+15. Tap ‹ on the result page
+16. Tap ‹
+17. Tap the 「Text to Image」 card row
+18. Tap a Text to Image item
+19. Tap ‹ on its preview page","Step 4: nothing opens and the card stays as it was (the Design draws the tag as a label)
+Steps 5, 14, 18: the result (preview) page of that task opens with no error
+Steps 6, 15, 19: the Recent page shows again and every card keeps its tag (Text to Image: none)
+Step 7: edit mode opens: an empty checkbox on every card, 「Select All」, 「Cancel」 and the 「Delete」 bar, every tag unchanged
+Step 8: that checkbox is ticked and the tag still shows
+Step 9: every checkbox is ticked and the button reads 「Deselect All」
+Step 10: every checkbox is empty
+Step 11: edit mode closes and every card shows 「View」 with the same tags
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-022, R-030, R-090","Checklist: the controls of the primary rows TC-005 and TC-035 – TC-037 (control-trace.json: card, model tag, 「View」, 「Manage」, checkbox, 「Select All」, 「Deselect All」, 「Cancel」; 「Delete」 is never tapped). The Recent page draws no ⋯ menu, filter, tab or Share: if the build shows one, press it once and record what it does. Entry Mine › 「My Artwork」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-077,Entry › Mine › My Artwork,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Tap 「Mine」 in the bottom bar (「Pro」 on a Pro account)
+2. Tap 「My Artwork」
+3. Tap the 「Image to Video」 card row
+4. Tap 「View」 on a tagged card
+5. Press system Back
+6. Tap 「Manage」
+7. Tap the checkbox of a card
+8. Press system Back
+9. Press system Back
+10. Tap 「Mine」 in the bottom bar (「Pro」 on a Pro account)
+11. Tap 「My Artwork」
+12. Tap the 「Image to Video」 card row
+13. Tap ‹ on the Recent tasks","Step 5: the Recent tasks show again with the tags unchanged
+Step 8: edit mode closes as with 「Cancel」, no task is deleted and every card keeps its tag (Q-5)
+Step 9: My Artwork shows again
+Step 13: My Artwork shows again",P2,"R-002, R-070, R-090",Entry Mine › 「My Artwork」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-078,Entry › Home › ☰ › My Artwork,Signed in with the test account (fixtures.md),"1. Open Home
+2. Tap ☰ at the top left
+3. Tap 「My Artwork」
+4. Tap the 「Image to Video」 card row
+5. Tap ‹
+6. Tap the 「Text to Video」 card row
+7. Tap ‹
+8. Tap the 「Text to Image」 card row
+9. Tap ‹
+10. Tap the 「Cinematic Reel Creator」 card row
+11. Tap ‹","Step 3: My Artwork opens with a card row per feature, including 「Cinematic Reel Creator」, 「Text to Video」, 「Image to Video」 and 「Text to Image」
+Step 4: the Image to Video Recent page opens, titled 「Image to Video」, its cards newest first
+Step 6: the Text to Video Recent page opens, titled 「Text to Video」, its cards newest first
+Step 8: the Text to Image Recent page opens with no model tag on its items (Q-1)
+Step 10: the Cinematic Reel Creator Recent page opens with no model tag and no empty line on any card (R-021)
+Steps 5, 7, 9, 11: My Artwork shows again",P1,"R-001, R-021, R-022, R-091","Entry Home › ☰ › 「My Artwork」. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-079,Entry › Home › ☰ › My Artwork,"1. The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist
+2. The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist","1. Open Home
+2. Tap ☰ at the top left
+3. Tap 「My Artwork」
+4. Tap the 「Image to Video」 card row
+5. Read the tag of every Image to Video card
+6. Tap ‹
+7. Tap the 「Text to Video」 card row
+8. Read the tag of every Text to Video card","Step 5: each card's tag reads the model its own task was generated with (as recorded in TC-003, TC-006 – TC-014), written as the model picker names it
+Step 5: the template card shows no tag and no empty line
+Step 5: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall
+Step 8: each card's tag reads the model its own task was generated with (as recorded in TC-016, TC-019 – TC-026), written as the model picker names it
+Step 8: the template card shows no tag and no empty line
+Step 8: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall",P1,"R-010, R-011, R-012, R-013, R-014, R-016, R-020, R-091",Entry Home › ☰ › 「My Artwork」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-080,Entry › Home › ☰ › My Artwork,"1. The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist
+2. The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist
+3. The account has a finished Text to Image task (TC-033)","1. Open Home
+2. Tap ☰ at the top left
+3. Tap 「My Artwork」
+4. Tap the 「Image to Video」 card row
+5. Tap the model tag of a card
+6. Tap 「View」 on a tagged card
+7. Tap ‹ on the result page
+8. Tap 「Manage」
+9. Tap the checkbox of a tagged card
+10. Tap 「Select All」
+11. Tap 「Deselect All」
+12. Tap 「Cancel」
+13. Tap ‹
+14. Tap the 「Text to Video」 card row
+15. Tap 「View」 on a tagged card
+16. Tap ‹ on the result page
+17. Tap ‹
+18. Tap the 「Text to Image」 card row
+19. Tap a Text to Image item
+20. Tap ‹ on its preview page","Step 5: nothing opens and the card stays as it was (the Design draws the tag as a label)
+Steps 6, 15, 19: the result (preview) page of that task opens with no error
+Steps 7, 16, 20: the Recent page shows again and every card keeps its tag (Text to Image: none)
+Step 8: edit mode opens: an empty checkbox on every card, 「Select All」, 「Cancel」 and the 「Delete」 bar, every tag unchanged
+Step 9: that checkbox is ticked and the tag still shows
+Step 10: every checkbox is ticked and the button reads 「Deselect All」
+Step 11: every checkbox is empty
+Step 12: edit mode closes and every card shows 「View」 with the same tags
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-022, R-030, R-091","Checklist: the controls of the primary rows TC-005 and TC-035 – TC-037 (control-trace.json: card, model tag, 「View」, 「Manage」, checkbox, 「Select All」, 「Deselect All」, 「Cancel」; 「Delete」 is never tapped). The Recent page draws no ⋯ menu, filter, tab or Share: if the build shows one, press it once and record what it does. Entry Home › ☰ › 「My Artwork」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-081,Entry › Home › ☰ › My Artwork,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Open Home
+2. Tap ☰ at the top left
+3. Tap 「My Artwork」
+4. Tap the 「Image to Video」 card row
+5. Tap 「View」 on a tagged card
+6. Press system Back
+7. Tap 「Manage」
+8. Tap the checkbox of a card
+9. Press system Back
+10. Press system Back
+11. Press system Back
+12. Open Home
+13. Tap ☰ at the top left
+14. Tap 「My Artwork」
+15. Tap the 「Image to Video」 card row
+16. Tap ‹ on the Recent tasks
+17. Leave My Artwork with its ‹","Step 6: the Recent tasks show again with the tags unchanged
+Step 9: edit mode closes as with 「Cancel」, no task is deleted and every card keeps its tag (Q-5)
+Step 10: My Artwork shows again
+Step 11: the ☰ page shows again
+Step 16: My Artwork shows again
+Step 17: the ☰ page shows again",P2,"R-002, R-070, R-091",Entry Home › ☰ › 「My Artwork」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-082,Entry › AI Magic › Image to Video › Recent tasks,Signed in with the test account (fixtures.md),"1. Open AI Magic › 「Image to Video」
+2. Open the page's Recent tasks (its history or 「Recent」 control)","Step 1: the 「Image to Video」 page opens with no error
+Step 2: the Image to Video Recent tasks open, titled 「Image to Video」, newest first
+Step 2: they list every Image to Video task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-092","Entry AI Magic › 「Image to Video」 › Recent tasks. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-083,Entry › AI Magic › Image to Video › Recent tasks,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Open AI Magic › 「Image to Video」
+2. Open the page's Recent tasks (its history or 「Recent」 control)
+3. Read the tag of every Image to Video card","Step 3: each card's tag reads the model its own task was generated with (as recorded in TC-003, TC-006 – TC-014), written as the model picker names it
+Step 3: the template card shows no tag and no empty line
+Step 3: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall",P1,"R-010, R-011, R-012, R-013, R-014, R-016, R-020, R-092",Entry AI Magic › 「Image to Video」 › Recent tasks: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-084,Entry › AI Magic › Image to Video › Recent tasks,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Open AI Magic › 「Image to Video」
+2. Open the page's Recent tasks (its history or 「Recent」 control)
+3. Tap the model tag of a card
+4. Tap 「View」 on a tagged card
+5. Tap ‹ on the result page
+6. Tap 「Manage」
+7. Tap the checkbox of a tagged card
+8. Tap 「Select All」
+9. Tap 「Deselect All」
+10. Tap 「Cancel」","Step 3: nothing opens and the card stays as it was (the Design draws the tag as a label)
+Step 4: the result page of that task opens with no error
+Step 5: the Recent tasks show again and the card keeps its tag
+Step 6: edit mode opens: an empty checkbox on every card, 「Select All」, 「Cancel」 and the 「Delete」 bar, every tag unchanged
+Step 7: that checkbox is ticked and the tag still shows
+Step 8: every checkbox is ticked and the button reads 「Deselect All」
+Step 9: every checkbox is empty
+Step 10: edit mode closes and every card shows 「View」 with the same tags
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-030, R-092","Checklist: the controls of the primary rows TC-005 and TC-035 – TC-037 (control-trace.json: card, model tag, 「View」, 「Manage」, checkbox, 「Select All」, 「Deselect All」, 「Cancel」; 「Delete」 is never tapped). The Recent page draws no ⋯ menu, filter, tab or Share: if the build shows one, press it once and record what it does. Entry AI Magic › 「Image to Video」 › Recent tasks: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-085,Entry › AI Magic › Image to Video › Recent tasks,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Open AI Magic › 「Image to Video」
+2. Open the page's Recent tasks (its history or 「Recent」 control)
+3. Tap 「View」 on a tagged card
+4. Press system Back
+5. Tap 「Manage」
+6. Tap the checkbox of a card
+7. Press system Back
+8. Press system Back
+9. Press system Back
+10. Open AI Magic › 「Image to Video」
+11. Open the page's Recent tasks (its history or 「Recent」 control)
+12. Tap ‹ on the Recent tasks
+13. Tap ‹ on the 「Image to Video」 page","Step 4: the Recent tasks show again with the tags unchanged
+Step 7: edit mode closes as with 「Cancel」, no task is deleted and every card keeps its tag (Q-5)
+Step 8: the 「Image to Video」 page shows again
+Step 9: AI Magic shows again
+Step 12: the 「Image to Video」 page shows again
+Step 13: AI Magic shows again",P2,"R-002, R-070, R-092",Entry AI Magic › 「Image to Video」 › Recent tasks: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-086,Entry › AI Magic › Text to Video › Recent tasks,Signed in with the test account (fixtures.md),"1. Open AI Magic › 「Text to Video」
+2. Open the page's Recent tasks (its history or 「Recent」 control)","Step 1: the 「Text to Video」 page opens with no error
+Step 2: the Text to Video Recent tasks open, titled 「Text to Video」, newest first
+Step 2: they list every Text to Video task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-092","Entry AI Magic › 「Text to Video」 › Recent tasks. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-087,Entry › AI Magic › Text to Video › Recent tasks,The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist,"1. Open AI Magic › 「Text to Video」
+2. Open the page's Recent tasks (its history or 「Recent」 control)
+3. Read the tag of every Text to Video card","Step 3: each card's tag reads the model its own task was generated with (as recorded in TC-016, TC-019 – TC-026), written as the model picker names it
+Step 3: the template card shows no tag and no empty line
+Step 3: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall",P1,"R-010, R-011, R-012, R-013, R-014, R-016, R-020, R-092",Entry AI Magic › 「Text to Video」 › Recent tasks: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-088,Entry › AI Magic › Text to Video › Recent tasks,The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist,"1. Open AI Magic › 「Text to Video」
+2. Open the page's Recent tasks (its history or 「Recent」 control)
+3. Tap the model tag of a card
+4. Tap 「View」 on a tagged card
+5. Tap ‹ on the result page
+6. Tap 「Manage」
+7. Tap the checkbox of a tagged card
+8. Tap 「Select All」
+9. Tap 「Deselect All」
+10. Tap 「Cancel」","Step 3: nothing opens and the card stays as it was (the Design draws the tag as a label)
+Step 4: the result page of that task opens with no error
+Step 5: the Recent tasks show again and the card keeps its tag
+Step 6: edit mode opens: an empty checkbox on every card, 「Select All」, 「Cancel」 and the 「Delete」 bar, every tag unchanged
+Step 7: that checkbox is ticked and the tag still shows
+Step 8: every checkbox is ticked and the button reads 「Deselect All」
+Step 9: every checkbox is empty
+Step 10: edit mode closes and every card shows 「View」 with the same tags
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-030, R-092","Checklist: the controls of the primary rows TC-005 and TC-035 – TC-037 (control-trace.json: card, model tag, 「View」, 「Manage」, checkbox, 「Select All」, 「Deselect All」, 「Cancel」; 「Delete」 is never tapped). The Recent page draws no ⋯ menu, filter, tab or Share: if the build shows one, press it once and record what it does. Entry AI Magic › 「Text to Video」 › Recent tasks: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-089,Entry › AI Magic › Text to Video › Recent tasks,The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist,"1. Open AI Magic › 「Text to Video」
+2. Open the page's Recent tasks (its history or 「Recent」 control)
+3. Tap 「View」 on a tagged card
+4. Press system Back
+5. Tap 「Manage」
+6. Tap the checkbox of a card
+7. Press system Back
+8. Press system Back
+9. Press system Back
+10. Open AI Magic › 「Text to Video」
+11. Open the page's Recent tasks (its history or 「Recent」 control)
+12. Tap ‹ on the Recent tasks
+13. Tap ‹ on the 「Text to Video」 page","Step 4: the Recent tasks show again with the tags unchanged
+Step 7: edit mode closes as with 「Cancel」, no task is deleted and every card keeps its tag (Q-5)
+Step 8: the 「Text to Video」 page shows again
+Step 9: AI Magic shows again
+Step 12: the 「Text to Video」 page shows again
+Step 13: AI Magic shows again",P2,"R-002, R-070, R-092",Entry AI Magic › 「Text to Video」 › Recent tasks: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-090,Entry › AI Magic › Text to Image › Recent tasks,Signed in with the test account (fixtures.md),"1. Open AI Magic › 「Text to Image」
+2. Open the page's Recent tasks (its history or 「Recent」 control)","Step 1: the 「Text to Image」 page opens with no error
+Step 2: the Text to Image Recent tasks open, titled 「Text to Image」, newest first
+Step 2: they list every Text to Image task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-092","Entry AI Magic › 「Text to Image」 › Recent tasks. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-091,Entry › AI Magic › Text to Image › Recent tasks,The account has a finished Text to Image task (TC-033),"1. Open AI Magic › 「Text to Image」
+2. Open the page's Recent tasks (its history or 「Recent」 control)
+3. Tap a Text to Image item
+4. Tap ‹ on its preview page","Step 3: its preview (result) page opens with no error
+Step 4: the Text to Image Recent tasks show again, with no model tag on any item (Q-1)
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-022, R-092","Checklist: the primary row TC-033 and the Design's Text to Image path (My Artwork › Recent task › Preview page, 1794:3221). If the page shows other controls (⋯, Share, filters), press each once and record what it does. Entry AI Magic › 「Text to Image」 › Recent tasks: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-092,Entry › AI Magic › Text to Image › Recent tasks,The account has a finished Text to Image task (TC-033),"1. Open AI Magic › 「Text to Image」
+2. Open the page's Recent tasks (its history or 「Recent」 control)
+3. Tap a Text to Image item
+4. Press system Back
+5. Press system Back
+6. Press system Back
+7. Open AI Magic › 「Text to Image」
+8. Open the page's Recent tasks (its history or 「Recent」 control)
+9. Tap ‹ on the Recent tasks
+10. Tap ‹ on the 「Text to Image」 page","Step 4: the Recent tasks show again with the tags unchanged
+Step 5: the 「Text to Image」 page shows again
+Step 6: AI Magic shows again
+Step 9: the 「Text to Image」 page shows again
+Step 10: AI Magic shows again",P2,"R-002, R-070, R-092",Entry AI Magic › 「Text to Image」 › Recent tasks: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-093,Entry › Editor › Global › AI Magic › Image to Video,Signed in with the test account (fixtures.md),"1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Image to Video」
+4. Open the page's Recent tasks (its history or 「Recent」 control)","Step 3: the 「Image to Video」 page opens with no error
+Step 4: the Image to Video Recent tasks open, titled 「Image to Video」, newest first
+Step 4: they list every Image to Video task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-093","Entry Editor › Global toolbar › 「AI Magic」 › 「Image to Video」. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up (Q-9) and the other rows of this Section are Blocked."
+TC-094,Entry › Editor › Global › AI Magic › Image to Video,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Image to Video」
+4. Open the page's Recent tasks (its history or 「Recent」 control)
+5. Read the tag of every Image to Video card","Step 5: each card's tag reads the model its own task was generated with (as recorded in TC-003, TC-006 – TC-014), written as the model picker names it
+Step 5: the template card shows no tag and no empty line
+Step 5: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall",P1,"R-010, R-011, R-012, R-013, R-014, R-016, R-020, R-093",Entry Editor › Global toolbar › 「AI Magic」 › 「Image to Video」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-9).
+TC-095,Entry › Editor › Global › AI Magic › Image to Video,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Image to Video」
+4. Open the page's Recent tasks (its history or 「Recent」 control)
+5. Tap the model tag of a card
+6. Tap 「View」 on a tagged card
+7. Tap ‹ on the result page
+8. Tap 「Manage」
+9. Tap the checkbox of a tagged card
+10. Tap 「Select All」
+11. Tap 「Deselect All」
+12. Tap 「Cancel」","Step 5: nothing opens and the card stays as it was (the Design draws the tag as a label)
+Step 6: the result page of that task opens with no error
+Step 7: the Recent tasks show again and the card keeps its tag
+Step 8: edit mode opens: an empty checkbox on every card, 「Select All」, 「Cancel」 and the 「Delete」 bar, every tag unchanged
+Step 9: that checkbox is ticked and the tag still shows
+Step 10: every checkbox is ticked and the button reads 「Deselect All」
+Step 11: every checkbox is empty
+Step 12: edit mode closes and every card shows 「View」 with the same tags
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-030, R-093","Checklist: the controls of the primary rows TC-005 and TC-035 – TC-037 (control-trace.json: card, model tag, 「View」, 「Manage」, checkbox, 「Select All」, 「Deselect All」, 「Cancel」; 「Delete」 is never tapped). The Recent page draws no ⋯ menu, filter, tab or Share: if the build shows one, press it once and record what it does. Entry Editor › Global toolbar › 「AI Magic」 › 「Image to Video」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-9)."
+TC-096,Entry › Editor › Global › AI Magic › Image to Video,"1. Signed in with the test account (fixtures.md)
+2. A photo in the gallery","1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Image to Video」
+4. Add the photo
+5. Pick the model 「Vidu Q2」
+6. Tap Generate and wait until it finishes
+7. Back on the 「Image to Video」 page, open its Recent tasks (its history or 「Recent」 control)
+8. Tap 「View」 on the new task (Text to Image: tap the new item)
+9. Tap ‹ on the result page
+10. Tap ‹ on the Recent tasks
+11. Tap ‹ on the 「Image to Video」 page","Step 5: 「Vidu Q2」 is selected
+Step 7: the new task is listed first and its tag reads 「Vidu Q2」
+Step 8: the result page of the new task opens with no error
+Step 9: the Recent tasks show again
+Step 10: the 「Image to Video」 page shows again
+Step 11: the editor shows again with the project as it was (nothing added to or removed from the timeline)",P1,"R-002, R-010, R-012, R-093",Record whether the result page offers to add the result to this project. Entry Editor › Global toolbar › 「AI Magic」 › 「Image to Video」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-9).
+TC-097,Entry › Editor › Global › AI Magic › Image to Video,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Image to Video」
+4. Open the page's Recent tasks (its history or 「Recent」 control)
+5. Tap 「View」 on a tagged card
+6. Press system Back
+7. Tap 「Manage」
+8. Tap the checkbox of a card
+9. Press system Back
+10. Press system Back
+11. Press system Back
+12. Open a project in the editor with nothing selected
+13. Tap 「AI Magic」 on the toolbar
+14. Tap 「Image to Video」
+15. Open the page's Recent tasks (its history or 「Recent」 control)
+16. Tap ‹ on the Recent tasks
+17. Tap ‹ on the 「Image to Video」 page","Step 6: the Recent tasks show again with the tags unchanged
+Step 9: edit mode closes as with 「Cancel」, no task is deleted and every card keeps its tag (Q-5)
+Step 10: the 「Image to Video」 page shows again
+Step 11: the editor shows again with the project as it was (nothing added to or removed from the timeline)
+Step 16: the 「Image to Video」 page shows again
+Step 17: the editor shows again with the project as it was (nothing added to or removed from the timeline)",P2,"R-002, R-070, R-093",Entry Editor › Global toolbar › 「AI Magic」 › 「Image to Video」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-9).
+TC-098,Entry › Editor › Global › AI Magic › Text to Video,Signed in with the test account (fixtures.md),"1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Text to Video」
+4. Open the page's Recent tasks (its history or 「Recent」 control)","Step 3: the 「Text to Video」 page opens with no error
+Step 4: the Text to Video Recent tasks open, titled 「Text to Video」, newest first
+Step 4: they list every Text to Video task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-093","Entry Editor › Global toolbar › 「AI Magic」 › 「Text to Video」. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up (Q-9) and the other rows of this Section are Blocked."
+TC-099,Entry › Editor › Global › AI Magic › Text to Video,The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist,"1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Text to Video」
+4. Open the page's Recent tasks (its history or 「Recent」 control)
+5. Read the tag of every Text to Video card","Step 5: each card's tag reads the model its own task was generated with (as recorded in TC-016, TC-019 – TC-026), written as the model picker names it
+Step 5: the template card shows no tag and no empty line
+Step 5: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall",P1,"R-010, R-011, R-012, R-013, R-014, R-016, R-020, R-093",Entry Editor › Global toolbar › 「AI Magic」 › 「Text to Video」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-9).
+TC-100,Entry › Editor › Global › AI Magic › Text to Video,The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist,"1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Text to Video」
+4. Open the page's Recent tasks (its history or 「Recent」 control)
+5. Tap the model tag of a card
+6. Tap 「View」 on a tagged card
+7. Tap ‹ on the result page
+8. Tap 「Manage」
+9. Tap the checkbox of a tagged card
+10. Tap 「Select All」
+11. Tap 「Deselect All」
+12. Tap 「Cancel」","Step 5: nothing opens and the card stays as it was (the Design draws the tag as a label)
+Step 6: the result page of that task opens with no error
+Step 7: the Recent tasks show again and the card keeps its tag
+Step 8: edit mode opens: an empty checkbox on every card, 「Select All」, 「Cancel」 and the 「Delete」 bar, every tag unchanged
+Step 9: that checkbox is ticked and the tag still shows
+Step 10: every checkbox is ticked and the button reads 「Deselect All」
+Step 11: every checkbox is empty
+Step 12: edit mode closes and every card shows 「View」 with the same tags
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-030, R-093","Checklist: the controls of the primary rows TC-005 and TC-035 – TC-037 (control-trace.json: card, model tag, 「View」, 「Manage」, checkbox, 「Select All」, 「Deselect All」, 「Cancel」; 「Delete」 is never tapped). The Recent page draws no ⋯ menu, filter, tab or Share: if the build shows one, press it once and record what it does. Entry Editor › Global toolbar › 「AI Magic」 › 「Text to Video」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-9)."
+TC-101,Entry › Editor › Global › AI Magic › Text to Video,Signed in with the test account (fixtures.md),"1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Text to Video」
+4. Type a short prompt
+5. Pick the model 「Wan 2.7」
+6. Tap Generate and wait until it finishes
+7. Back on the 「Text to Video」 page, open its Recent tasks (its history or 「Recent」 control)
+8. Tap 「View」 on the new task (Text to Image: tap the new item)
+9. Tap ‹ on the result page
+10. Tap ‹ on the Recent tasks
+11. Tap ‹ on the 「Text to Video」 page","Step 5: 「Wan 2.7」 is selected
+Step 7: the new task is listed first and its tag reads 「Wan 2.7」
+Step 8: the result page of the new task opens with no error
+Step 9: the Recent tasks show again
+Step 10: the 「Text to Video」 page shows again
+Step 11: the editor shows again with the project as it was (nothing added to or removed from the timeline)",P1,"R-002, R-011, R-012, R-093",Record whether the result page offers to add the result to this project. Entry Editor › Global toolbar › 「AI Magic」 › 「Text to Video」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-9).
+TC-102,Entry › Editor › Global › AI Magic › Text to Video,The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist,"1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Text to Video」
+4. Open the page's Recent tasks (its history or 「Recent」 control)
+5. Tap 「View」 on a tagged card
+6. Press system Back
+7. Tap 「Manage」
+8. Tap the checkbox of a card
+9. Press system Back
+10. Press system Back
+11. Press system Back
+12. Open a project in the editor with nothing selected
+13. Tap 「AI Magic」 on the toolbar
+14. Tap 「Text to Video」
+15. Open the page's Recent tasks (its history or 「Recent」 control)
+16. Tap ‹ on the Recent tasks
+17. Tap ‹ on the 「Text to Video」 page","Step 6: the Recent tasks show again with the tags unchanged
+Step 9: edit mode closes as with 「Cancel」, no task is deleted and every card keeps its tag (Q-5)
+Step 10: the 「Text to Video」 page shows again
+Step 11: the editor shows again with the project as it was (nothing added to or removed from the timeline)
+Step 16: the 「Text to Video」 page shows again
+Step 17: the editor shows again with the project as it was (nothing added to or removed from the timeline)",P2,"R-002, R-070, R-093",Entry Editor › Global toolbar › 「AI Magic」 › 「Text to Video」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-9).
+TC-103,Entry › Editor › Global › AI Magic › Text to Image,Signed in with the test account (fixtures.md),"1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Text to Image」
+4. Open the page's Recent tasks (its history or 「Recent」 control)","Step 3: the 「Text to Image」 page opens with no error
+Step 4: the Text to Image Recent tasks open, titled 「Text to Image」, newest first
+Step 4: they list every Text to Image task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-093","Entry Editor › Global toolbar › 「AI Magic」 › 「Text to Image」. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up (Q-9) and the other rows of this Section are Blocked."
+TC-104,Entry › Editor › Global › AI Magic › Text to Image,The account has a finished Text to Image task (TC-033),"1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Text to Image」
+4. Open the page's Recent tasks (its history or 「Recent」 control)
+5. Tap a Text to Image item
+6. Tap ‹ on its preview page","Step 5: its preview (result) page opens with no error
+Step 6: the Text to Image Recent tasks show again, with no model tag on any item (Q-1)
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-022, R-093","Checklist: the primary row TC-033 and the Design's Text to Image path (My Artwork › Recent task › Preview page, 1794:3221). If the page shows other controls (⋯, Share, filters), press each once and record what it does. Entry Editor › Global toolbar › 「AI Magic」 › 「Text to Image」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-9)."
+TC-105,Entry › Editor › Global › AI Magic › Text to Image,Signed in with the test account (fixtures.md),"1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Text to Image」
+4. Type a short prompt
+5. Tap Generate and wait until it finishes
+6. Back on the 「Text to Image」 page, open its Recent tasks (its history or 「Recent」 control)
+7. Tap 「View」 on the new task (Text to Image: tap the new item)
+8. Tap ‹ on the result page
+9. Tap ‹ on the Recent tasks
+10. Tap ‹ on the 「Text to Image」 page","Step 6: the new task is listed first, with no model tag (Q-1)
+Step 7: the result page of the new task opens with no error
+Step 8: the Recent tasks show again
+Step 9: the 「Text to Image」 page shows again
+Step 10: the editor shows again with the project as it was (nothing added to or removed from the timeline)",P1,"R-002, R-022, R-093",Record whether the result page offers to add the result to this project. Entry Editor › Global toolbar › 「AI Magic」 › 「Text to Image」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-9).
+TC-106,Entry › Editor › Global › AI Magic › Text to Image,The account has a finished Text to Image task (TC-033),"1. Open a project in the editor with nothing selected
+2. Tap 「AI Magic」 on the toolbar
+3. Tap 「Text to Image」
+4. Open the page's Recent tasks (its history or 「Recent」 control)
+5. Tap a Text to Image item
+6. Press system Back
+7. Press system Back
+8. Press system Back
+9. Open a project in the editor with nothing selected
+10. Tap 「AI Magic」 on the toolbar
+11. Tap 「Text to Image」
+12. Open the page's Recent tasks (its history or 「Recent」 control)
+13. Tap ‹ on the Recent tasks
+14. Tap ‹ on the 「Text to Image」 page","Step 6: the Recent tasks show again with the tags unchanged
+Step 7: the 「Text to Image」 page shows again
+Step 8: the editor shows again with the project as it was (nothing added to or removed from the timeline)
+Step 13: the 「Text to Image」 page shows again
+Step 14: the editor shows again with the project as it was (nothing added to or removed from the timeline)",P2,"R-002, R-070, R-093",Entry Editor › Global toolbar › 「AI Magic」 › 「Text to Image」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-9).
+TC-107,Entry › Editor › Photo › Tools › Text to Image,Signed in with the test account (fixtures.md),"1. Open a project in the editor with a photo on the main track
+2. Tap the photo to select it
+3. Tap 「Tools」
+4. Tap 「Text to Image」
+5. Open the page's Recent tasks (its history or 「Recent」 control)","Step 3: 「Tools」 offers 「Text to Image」
+Step 4: the 「Text to Image」 page opens with no error
+Step 5: the Text to Image Recent tasks open, titled 「Text to Image」, newest first
+Step 5: they list every Text to Image task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-094","Entry Editor › Photo toolbar › 「Tools」 › 「Text to Image」. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up (Q-10) and the other rows of this Section are Blocked."
+TC-108,Entry › Editor › Photo › Tools › Text to Image,The account has a finished Text to Image task (TC-033),"1. Open a project in the editor with a photo on the main track
+2. Tap the photo to select it
+3. Tap 「Tools」
+4. Tap 「Text to Image」
+5. Open the page's Recent tasks (its history or 「Recent」 control)
+6. Tap a Text to Image item
+7. Tap ‹ on its preview page","Step 6: its preview (result) page opens with no error
+Step 7: the Text to Image Recent tasks show again, with no model tag on any item (Q-1)
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-022, R-094","Checklist: the primary row TC-033 and the Design's Text to Image path (My Artwork › Recent task › Preview page, 1794:3221). If the page shows other controls (⋯, Share, filters), press each once and record what it does. Entry Editor › Photo toolbar › 「Tools」 › 「Text to Image」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-10)."
+TC-109,Entry › Editor › Photo › Tools › Text to Image,Signed in with the test account (fixtures.md),"1. Open a project in the editor with a photo on the main track
+2. Tap the photo to select it
+3. Tap 「Tools」
+4. Tap 「Text to Image」
+5. Type a short prompt
+6. Tap Generate and wait until it finishes
+7. Back on the 「Text to Image」 page, open its Recent tasks (its history or 「Recent」 control)
+8. Tap 「View」 on the new task (Text to Image: tap the new item)
+9. Tap ‹ on the result page
+10. Tap ‹ on the Recent tasks
+11. Tap ‹ on the 「Text to Image」 page","Step 7: the new task is listed first, with no model tag (Q-1)
+Step 8: the result page of the new task opens with no error
+Step 9: the Recent tasks show again
+Step 10: the 「Text to Image」 page shows again
+Step 11: the editor shows again with the photo still selected
+Step 11: what happened to the selected photo (unchanged, replaced by the result, or a new clip added) is recorded as a Fail (question) for PM (Q-10), whatever it is",P1,"R-002, R-022, R-094",Record whether the result page offers to add the result to this project. Entry Editor › Photo toolbar › 「Tools」 › 「Text to Image」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-10).
+TC-110,Entry › Editor › Photo › Tools › Text to Image,The account has a finished Text to Image task (TC-033),"1. Open a project in the editor with a photo on the main track
+2. Tap the photo to select it
+3. Tap 「Tools」
+4. Tap 「Text to Image」
+5. Open the page's Recent tasks (its history or 「Recent」 control)
+6. Tap a Text to Image item
+7. Press system Back
+8. Press system Back
+9. Press system Back
+10. Open a project in the editor with a photo on the main track
+11. Tap the photo to select it
+12. Tap 「Tools」
+13. Tap 「Text to Image」
+14. Open the page's Recent tasks (its history or 「Recent」 control)
+15. Tap ‹ on the Recent tasks
+16. Tap ‹ on the 「Text to Image」 page","Step 7: the Recent tasks show again with the tags unchanged
+Step 8: the 「Text to Image」 page shows again
+Step 9: the editor shows again with the photo still selected
+Step 15: the 「Text to Image」 page shows again
+Step 16: the editor shows again with the photo still selected",P2,"R-002, R-070, R-094",Entry Editor › Photo toolbar › 「Tools」 › 「Text to Image」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-10).
+TC-111,Entry › Editor › PIP Photo › Tools › AI Text to Image,Signed in with the test account (fixtures.md),"1. Open a project in the editor with a photo on an overlay (PIP) track
+2. Tap the overlay photo to select it
+3. Tap 「Tools」
+4. Tap 「AI Text to Image」
+5. Open the page's Recent tasks (its history or 「Recent」 control)","Step 3: 「Tools」 offers 「AI Text to Image」
+Step 4: the 「AI Text to Image」 page opens with no error
+Step 5: the Text to Image Recent tasks open, titled 「Text to Image」, newest first
+Step 5: they list every Text to Image task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-095","Entry Editor › PIP Photo toolbar › 「Tools」 › 「AI Text to Image」. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up (Q-10) and the other rows of this Section are Blocked."
+TC-112,Entry › Editor › PIP Photo › Tools › AI Text to Image,The account has a finished Text to Image task (TC-033),"1. Open a project in the editor with a photo on an overlay (PIP) track
+2. Tap the overlay photo to select it
+3. Tap 「Tools」
+4. Tap 「AI Text to Image」
+5. Open the page's Recent tasks (its history or 「Recent」 control)
+6. Tap a Text to Image item
+7. Tap ‹ on its preview page","Step 6: its preview (result) page opens with no error
+Step 7: the Text to Image Recent tasks show again, with no model tag on any item (Q-1)
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-022, R-095","Checklist: the primary row TC-033 and the Design's Text to Image path (My Artwork › Recent task › Preview page, 1794:3221). If the page shows other controls (⋯, Share, filters), press each once and record what it does. Entry Editor › PIP Photo toolbar › 「Tools」 › 「AI Text to Image」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-10)."
+TC-113,Entry › Editor › PIP Photo › Tools › AI Text to Image,Signed in with the test account (fixtures.md),"1. Open a project in the editor with a photo on an overlay (PIP) track
+2. Tap the overlay photo to select it
+3. Tap 「Tools」
+4. Tap 「AI Text to Image」
+5. Type a short prompt
+6. Tap Generate and wait until it finishes
+7. Back on the 「AI Text to Image」 page, open its Recent tasks (its history or 「Recent」 control)
+8. Tap 「View」 on the new task (Text to Image: tap the new item)
+9. Tap ‹ on the result page
+10. Tap ‹ on the Recent tasks
+11. Tap ‹ on the 「AI Text to Image」 page","Step 7: the new task is listed first, with no model tag (Q-1)
+Step 8: the result page of the new task opens with no error
+Step 9: the Recent tasks show again
+Step 10: the 「AI Text to Image」 page shows again
+Step 11: the editor shows again with the overlay photo still selected
+Step 11: what happened to the selected photo (unchanged, replaced by the result, or a new clip added) is recorded as a Fail (question) for PM (Q-10), whatever it is",P1,"R-002, R-022, R-095",Record whether the result page offers to add the result to this project. Entry Editor › PIP Photo toolbar › 「Tools」 › 「AI Text to Image」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-10).
+TC-114,Entry › Editor › PIP Photo › Tools › AI Text to Image,The account has a finished Text to Image task (TC-033),"1. Open a project in the editor with a photo on an overlay (PIP) track
+2. Tap the overlay photo to select it
+3. Tap 「Tools」
+4. Tap 「AI Text to Image」
+5. Open the page's Recent tasks (its history or 「Recent」 control)
+6. Tap a Text to Image item
+7. Press system Back
+8. Press system Back
+9. Press system Back
+10. Open a project in the editor with a photo on an overlay (PIP) track
+11. Tap the overlay photo to select it
+12. Tap 「Tools」
+13. Tap 「AI Text to Image」
+14. Open the page's Recent tasks (its history or 「Recent」 control)
+15. Tap ‹ on the Recent tasks
+16. Tap ‹ on the 「AI Text to Image」 page","Step 7: the Recent tasks show again with the tags unchanged
+Step 8: the 「AI Text to Image」 page shows again
+Step 9: the editor shows again with the overlay photo still selected
+Step 15: the 「AI Text to Image」 page shows again
+Step 16: the editor shows again with the overlay photo still selected",P2,"R-002, R-070, R-095",Entry Editor › PIP Photo toolbar › 「Tools」 › 「AI Text to Image」: the spec draws only AI Magic › My Artwork; the row asserts the same behaviour (Q-10).
+TC-115,Entry › Home › shortcut › Image to Video,Signed in with the test account (fixtures.md),"1. Open Home
+2. Tap the 「Image to Video」 shortcut tile
+3. Open the page's Recent tasks (its history or 「Recent」 control)","Step 2: the 「Image to Video」 page opens with no error
+Step 3: the Image to Video Recent tasks open, titled 「Image to Video」, newest first
+Step 3: they list every Image to Video task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-096","Entry Home › 「Image to Video」 shortcut tile. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-116,Entry › Home › shortcut › Image to Video,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Open Home
+2. Tap the 「Image to Video」 shortcut tile
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Read the tag of every Image to Video card","Step 4: each card's tag reads the model its own task was generated with (as recorded in TC-003, TC-006 – TC-014), written as the model picker names it
+Step 4: the template card shows no tag and no empty line
+Step 4: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall",P1,"R-010, R-011, R-012, R-013, R-014, R-016, R-020, R-096",Entry Home › 「Image to Video」 shortcut tile: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-117,Entry › Home › shortcut › Image to Video,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Open Home
+2. Tap the 「Image to Video」 shortcut tile
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Tap the model tag of a card
+5. Tap 「View」 on a tagged card
+6. Tap ‹ on the result page
+7. Tap 「Manage」
+8. Tap the checkbox of a tagged card
+9. Tap 「Select All」
+10. Tap 「Deselect All」
+11. Tap 「Cancel」","Step 4: nothing opens and the card stays as it was (the Design draws the tag as a label)
+Step 5: the result page of that task opens with no error
+Step 6: the Recent tasks show again and the card keeps its tag
+Step 7: edit mode opens: an empty checkbox on every card, 「Select All」, 「Cancel」 and the 「Delete」 bar, every tag unchanged
+Step 8: that checkbox is ticked and the tag still shows
+Step 9: every checkbox is ticked and the button reads 「Deselect All」
+Step 10: every checkbox is empty
+Step 11: edit mode closes and every card shows 「View」 with the same tags
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-030, R-096","Checklist: the controls of the primary rows TC-005 and TC-035 – TC-037 (control-trace.json: card, model tag, 「View」, 「Manage」, checkbox, 「Select All」, 「Deselect All」, 「Cancel」; 「Delete」 is never tapped). The Recent page draws no ⋯ menu, filter, tab or Share: if the build shows one, press it once and record what it does. Entry Home › 「Image to Video」 shortcut tile: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-118,Entry › Home › shortcut › Image to Video,"1. Signed in with the test account (fixtures.md)
+2. A photo in the gallery","1. Open Home
+2. Tap the 「Image to Video」 shortcut tile
+3. Add the photo
+4. Pick the model 「Vidu Q2」
+5. Tap Generate and wait until it finishes
+6. Back on the 「Image to Video」 page, open its Recent tasks (its history or 「Recent」 control)
+7. Tap 「View」 on the new task (Text to Image: tap the new item)
+8. Tap ‹ on the result page
+9. Tap ‹ on the Recent tasks
+10. Tap ‹ on the 「Image to Video」 page","Step 4: 「Vidu Q2」 is selected
+Step 6: the new task is listed first and its tag reads 「Vidu Q2」
+Step 7: the result page of the new task opens with no error
+Step 8: the Recent tasks show again
+Step 9: the 「Image to Video」 page shows again
+Step 10: Home shows again",P1,"R-002, R-010, R-012, R-096",Entry Home › 「Image to Video」 shortcut tile: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-119,Entry › Home › shortcut › Image to Video,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Open Home
+2. Tap the 「Image to Video」 shortcut tile
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Tap 「View」 on a tagged card
+5. Press system Back
+6. Tap 「Manage」
+7. Tap the checkbox of a card
+8. Press system Back
+9. Press system Back
+10. Press system Back
+11. Open Home
+12. Tap the 「Image to Video」 shortcut tile
+13. Open the page's Recent tasks (its history or 「Recent」 control)
+14. Tap ‹ on the Recent tasks
+15. Tap ‹ on the 「Image to Video」 page","Step 5: the Recent tasks show again with the tags unchanged
+Step 8: edit mode closes as with 「Cancel」, no task is deleted and every card keeps its tag (Q-5)
+Step 9: the 「Image to Video」 page shows again
+Step 10: Home shows again
+Step 14: the 「Image to Video」 page shows again
+Step 15: Home shows again",P2,"R-002, R-070, R-096",Entry Home › 「Image to Video」 shortcut tile: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-120,Entry › Home › shortcut › Text to Video,Signed in with the test account (fixtures.md),"1. Open Home
+2. Tap the 「Text to Video」 shortcut tile
+3. Open the page's Recent tasks (its history or 「Recent」 control)","Step 2: the 「Text to Video」 page opens with no error
+Step 3: the Text to Video Recent tasks open, titled 「Text to Video」, newest first
+Step 3: they list every Text to Video task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-096","Entry Home › 「Text to Video」 shortcut tile. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-121,Entry › Home › shortcut › Text to Video,The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist,"1. Open Home
+2. Tap the 「Text to Video」 shortcut tile
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Read the tag of every Text to Video card","Step 4: each card's tag reads the model its own task was generated with (as recorded in TC-016, TC-019 – TC-026), written as the model picker names it
+Step 4: the template card shows no tag and no empty line
+Step 4: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall",P1,"R-010, R-011, R-012, R-013, R-014, R-016, R-020, R-096",Entry Home › 「Text to Video」 shortcut tile: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-122,Entry › Home › shortcut › Text to Video,The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist,"1. Open Home
+2. Tap the 「Text to Video」 shortcut tile
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Tap the model tag of a card
+5. Tap 「View」 on a tagged card
+6. Tap ‹ on the result page
+7. Tap 「Manage」
+8. Tap the checkbox of a tagged card
+9. Tap 「Select All」
+10. Tap 「Deselect All」
+11. Tap 「Cancel」","Step 4: nothing opens and the card stays as it was (the Design draws the tag as a label)
+Step 5: the result page of that task opens with no error
+Step 6: the Recent tasks show again and the card keeps its tag
+Step 7: edit mode opens: an empty checkbox on every card, 「Select All」, 「Cancel」 and the 「Delete」 bar, every tag unchanged
+Step 8: that checkbox is ticked and the tag still shows
+Step 9: every checkbox is ticked and the button reads 「Deselect All」
+Step 10: every checkbox is empty
+Step 11: edit mode closes and every card shows 「View」 with the same tags
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-030, R-096","Checklist: the controls of the primary rows TC-005 and TC-035 – TC-037 (control-trace.json: card, model tag, 「View」, 「Manage」, checkbox, 「Select All」, 「Deselect All」, 「Cancel」; 「Delete」 is never tapped). The Recent page draws no ⋯ menu, filter, tab or Share: if the build shows one, press it once and record what it does. Entry Home › 「Text to Video」 shortcut tile: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-123,Entry › Home › shortcut › Text to Video,Signed in with the test account (fixtures.md),"1. Open Home
+2. Tap the 「Text to Video」 shortcut tile
+3. Type a short prompt
+4. Pick the model 「Wan 2.7」
+5. Tap Generate and wait until it finishes
+6. Back on the 「Text to Video」 page, open its Recent tasks (its history or 「Recent」 control)
+7. Tap 「View」 on the new task (Text to Image: tap the new item)
+8. Tap ‹ on the result page
+9. Tap ‹ on the Recent tasks
+10. Tap ‹ on the 「Text to Video」 page","Step 4: 「Wan 2.7」 is selected
+Step 6: the new task is listed first and its tag reads 「Wan 2.7」
+Step 7: the result page of the new task opens with no error
+Step 8: the Recent tasks show again
+Step 9: the 「Text to Video」 page shows again
+Step 10: Home shows again",P1,"R-002, R-011, R-012, R-096",Entry Home › 「Text to Video」 shortcut tile: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-124,Entry › Home › shortcut › Text to Video,The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist,"1. Open Home
+2. Tap the 「Text to Video」 shortcut tile
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Tap 「View」 on a tagged card
+5. Press system Back
+6. Tap 「Manage」
+7. Tap the checkbox of a card
+8. Press system Back
+9. Press system Back
+10. Press system Back
+11. Open Home
+12. Tap the 「Text to Video」 shortcut tile
+13. Open the page's Recent tasks (its history or 「Recent」 control)
+14. Tap ‹ on the Recent tasks
+15. Tap ‹ on the 「Text to Video」 page","Step 5: the Recent tasks show again with the tags unchanged
+Step 8: edit mode closes as with 「Cancel」, no task is deleted and every card keeps its tag (Q-5)
+Step 9: the 「Text to Video」 page shows again
+Step 10: Home shows again
+Step 14: the 「Text to Video」 page shows again
+Step 15: Home shows again",P2,"R-002, R-070, R-096",Entry Home › 「Text to Video」 shortcut tile: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-125,Entry › Home › shortcut › Text to Image,Signed in with the test account (fixtures.md),"1. Open Home
+2. Tap the 「Text to Image」 shortcut tile
+3. Open the page's Recent tasks (its history or 「Recent」 control)","Step 2: the 「Text to Image」 page opens with no error
+Step 3: the Text to Image Recent tasks open, titled 「Text to Image」, newest first
+Step 3: they list every Text to Image task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-096","Entry Home › 「Text to Image」 shortcut tile. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-126,Entry › Home › shortcut › Text to Image,The account has a finished Text to Image task (TC-033),"1. Open Home
+2. Tap the 「Text to Image」 shortcut tile
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Tap a Text to Image item
+5. Tap ‹ on its preview page","Step 4: its preview (result) page opens with no error
+Step 5: the Text to Image Recent tasks show again, with no model tag on any item (Q-1)
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-022, R-096","Checklist: the primary row TC-033 and the Design's Text to Image path (My Artwork › Recent task › Preview page, 1794:3221). If the page shows other controls (⋯, Share, filters), press each once and record what it does. Entry Home › 「Text to Image」 shortcut tile: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-127,Entry › Home › shortcut › Text to Image,Signed in with the test account (fixtures.md),"1. Open Home
+2. Tap the 「Text to Image」 shortcut tile
+3. Type a short prompt
+4. Tap Generate and wait until it finishes
+5. Back on the 「Text to Image」 page, open its Recent tasks (its history or 「Recent」 control)
+6. Tap 「View」 on the new task (Text to Image: tap the new item)
+7. Tap ‹ on the result page
+8. Tap ‹ on the Recent tasks
+9. Tap ‹ on the 「Text to Image」 page","Step 5: the new task is listed first, with no model tag (Q-1)
+Step 6: the result page of the new task opens with no error
+Step 7: the Recent tasks show again
+Step 8: the 「Text to Image」 page shows again
+Step 9: Home shows again",P1,"R-002, R-022, R-096",Entry Home › 「Text to Image」 shortcut tile: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-128,Entry › Home › shortcut › Text to Image,The account has a finished Text to Image task (TC-033),"1. Open Home
+2. Tap the 「Text to Image」 shortcut tile
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Tap a Text to Image item
+5. Press system Back
+6. Press system Back
+7. Press system Back
+8. Open Home
+9. Tap the 「Text to Image」 shortcut tile
+10. Open the page's Recent tasks (its history or 「Recent」 control)
+11. Tap ‹ on the Recent tasks
+12. Tap ‹ on the 「Text to Image」 page","Step 5: the Recent tasks show again with the tags unchanged
+Step 6: the 「Text to Image」 page shows again
+Step 7: Home shows again
+Step 11: the 「Text to Image」 page shows again
+Step 12: Home shows again",P2,"R-002, R-070, R-096",Entry Home › 「Text to Image」 shortcut tile: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-129,Entry › Home › AI-Powered Creation › Image to Video,Signed in with the test account (fixtures.md),"1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Image to Video」 card
+3. Open the page's Recent tasks (its history or 「Recent」 control)","Step 2: the 「Image to Video」 page opens with no error
+Step 3: the Image to Video Recent tasks open, titled 「Image to Video」, newest first
+Step 3: they list every Image to Video task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-097","Entry Home › 「AI-Powered Creation」 › 「Image to Video」. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-130,Entry › Home › AI-Powered Creation › Image to Video,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Image to Video」 card
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Read the tag of every Image to Video card","Step 4: each card's tag reads the model its own task was generated with (as recorded in TC-003, TC-006 – TC-014), written as the model picker names it
+Step 4: the template card shows no tag and no empty line
+Step 4: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall",P1,"R-010, R-011, R-012, R-013, R-014, R-016, R-020, R-097",Entry Home › 「AI-Powered Creation」 › 「Image to Video」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-131,Entry › Home › AI-Powered Creation › Image to Video,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Image to Video」 card
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Tap the model tag of a card
+5. Tap 「View」 on a tagged card
+6. Tap ‹ on the result page
+7. Tap 「Manage」
+8. Tap the checkbox of a tagged card
+9. Tap 「Select All」
+10. Tap 「Deselect All」
+11. Tap 「Cancel」","Step 4: nothing opens and the card stays as it was (the Design draws the tag as a label)
+Step 5: the result page of that task opens with no error
+Step 6: the Recent tasks show again and the card keeps its tag
+Step 7: edit mode opens: an empty checkbox on every card, 「Select All」, 「Cancel」 and the 「Delete」 bar, every tag unchanged
+Step 8: that checkbox is ticked and the tag still shows
+Step 9: every checkbox is ticked and the button reads 「Deselect All」
+Step 10: every checkbox is empty
+Step 11: edit mode closes and every card shows 「View」 with the same tags
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-030, R-097","Checklist: the controls of the primary rows TC-005 and TC-035 – TC-037 (control-trace.json: card, model tag, 「View」, 「Manage」, checkbox, 「Select All」, 「Deselect All」, 「Cancel」; 「Delete」 is never tapped). The Recent page draws no ⋯ menu, filter, tab or Share: if the build shows one, press it once and record what it does. Entry Home › 「AI-Powered Creation」 › 「Image to Video」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-132,Entry › Home › AI-Powered Creation › Image to Video,"1. Signed in with the test account (fixtures.md)
+2. A photo in the gallery","1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Image to Video」 card
+3. Add the photo
+4. Pick the model 「Vidu Q2」
+5. Tap Generate and wait until it finishes
+6. Back on the 「Image to Video」 page, open its Recent tasks (its history or 「Recent」 control)
+7. Tap 「View」 on the new task (Text to Image: tap the new item)
+8. Tap ‹ on the result page
+9. Tap ‹ on the Recent tasks
+10. Tap ‹ on the 「Image to Video」 page","Step 4: 「Vidu Q2」 is selected
+Step 6: the new task is listed first and its tag reads 「Vidu Q2」
+Step 7: the result page of the new task opens with no error
+Step 8: the Recent tasks show again
+Step 9: the 「Image to Video」 page shows again
+Step 10: Home shows again",P1,"R-002, R-010, R-012, R-097",Entry Home › 「AI-Powered Creation」 › 「Image to Video」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-133,Entry › Home › AI-Powered Creation › Image to Video,The Image to Video tasks of TC-003 and TC-006 – TC-014 (one per model) and the template task of TC-029 exist,"1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Image to Video」 card
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Tap 「View」 on a tagged card
+5. Press system Back
+6. Tap 「Manage」
+7. Tap the checkbox of a card
+8. Press system Back
+9. Press system Back
+10. Press system Back
+11. Open Home
+12. In 「AI-Powered Creation」 tap the 「Image to Video」 card
+13. Open the page's Recent tasks (its history or 「Recent」 control)
+14. Tap ‹ on the Recent tasks
+15. Tap ‹ on the 「Image to Video」 page","Step 5: the Recent tasks show again with the tags unchanged
+Step 8: edit mode closes as with 「Cancel」, no task is deleted and every card keeps its tag (Q-5)
+Step 9: the 「Image to Video」 page shows again
+Step 10: Home shows again
+Step 14: the 「Image to Video」 page shows again
+Step 15: Home shows again",P2,"R-002, R-070, R-097",Entry Home › 「AI-Powered Creation」 › 「Image to Video」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-134,Entry › Home › AI-Powered Creation › Text to Video,Signed in with the test account (fixtures.md),"1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Text to Video」 card
+3. Open the page's Recent tasks (its history or 「Recent」 control)","Step 2: the 「Text to Video」 page opens with no error
+Step 3: the Text to Video Recent tasks open, titled 「Text to Video」, newest first
+Step 3: they list every Text to Video task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-097","Entry Home › 「AI-Powered Creation」 › 「Text to Video」. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-135,Entry › Home › AI-Powered Creation › Text to Video,The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist,"1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Text to Video」 card
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Read the tag of every Text to Video card","Step 4: each card's tag reads the model its own task was generated with (as recorded in TC-016, TC-019 – TC-026), written as the model picker names it
+Step 4: the template card shows no tag and no empty line
+Step 4: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall",P1,"R-010, R-011, R-012, R-013, R-014, R-016, R-020, R-097",Entry Home › 「AI-Powered Creation」 › 「Text to Video」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-136,Entry › Home › AI-Powered Creation › Text to Video,The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist,"1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Text to Video」 card
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Tap the model tag of a card
+5. Tap 「View」 on a tagged card
+6. Tap ‹ on the result page
+7. Tap 「Manage」
+8. Tap the checkbox of a tagged card
+9. Tap 「Select All」
+10. Tap 「Deselect All」
+11. Tap 「Cancel」","Step 4: nothing opens and the card stays as it was (the Design draws the tag as a label)
+Step 5: the result page of that task opens with no error
+Step 6: the Recent tasks show again and the card keeps its tag
+Step 7: edit mode opens: an empty checkbox on every card, 「Select All」, 「Cancel」 and the 「Delete」 bar, every tag unchanged
+Step 8: that checkbox is ticked and the tag still shows
+Step 9: every checkbox is ticked and the button reads 「Deselect All」
+Step 10: every checkbox is empty
+Step 11: edit mode closes and every card shows 「View」 with the same tags
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-030, R-097","Checklist: the controls of the primary rows TC-005 and TC-035 – TC-037 (control-trace.json: card, model tag, 「View」, 「Manage」, checkbox, 「Select All」, 「Deselect All」, 「Cancel」; 「Delete」 is never tapped). The Recent page draws no ⋯ menu, filter, tab or Share: if the build shows one, press it once and record what it does. Entry Home › 「AI-Powered Creation」 › 「Text to Video」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-137,Entry › Home › AI-Powered Creation › Text to Video,Signed in with the test account (fixtures.md),"1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Text to Video」 card
+3. Type a short prompt
+4. Pick the model 「Wan 2.7」
+5. Tap Generate and wait until it finishes
+6. Back on the 「Text to Video」 page, open its Recent tasks (its history or 「Recent」 control)
+7. Tap 「View」 on the new task (Text to Image: tap the new item)
+8. Tap ‹ on the result page
+9. Tap ‹ on the Recent tasks
+10. Tap ‹ on the 「Text to Video」 page","Step 4: 「Wan 2.7」 is selected
+Step 6: the new task is listed first and its tag reads 「Wan 2.7」
+Step 7: the result page of the new task opens with no error
+Step 8: the Recent tasks show again
+Step 9: the 「Text to Video」 page shows again
+Step 10: Home shows again",P1,"R-002, R-011, R-012, R-097",Entry Home › 「AI-Powered Creation」 › 「Text to Video」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-138,Entry › Home › AI-Powered Creation › Text to Video,The Text to Video tasks of TC-016 and TC-019 – TC-026 (one per model) and the template task of TC-030 exist,"1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Text to Video」 card
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Tap 「View」 on a tagged card
+5. Press system Back
+6. Tap 「Manage」
+7. Tap the checkbox of a card
+8. Press system Back
+9. Press system Back
+10. Press system Back
+11. Open Home
+12. In 「AI-Powered Creation」 tap the 「Text to Video」 card
+13. Open the page's Recent tasks (its history or 「Recent」 control)
+14. Tap ‹ on the Recent tasks
+15. Tap ‹ on the 「Text to Video」 page","Step 5: the Recent tasks show again with the tags unchanged
+Step 8: edit mode closes as with 「Cancel」, no task is deleted and every card keeps its tag (Q-5)
+Step 9: the 「Text to Video」 page shows again
+Step 10: Home shows again
+Step 14: the 「Text to Video」 page shows again
+Step 15: Home shows again",P2,"R-002, R-070, R-097",Entry Home › 「AI-Powered Creation」 › 「Text to Video」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-139,Entry › Home › AI-Powered Creation › Text to Image,Signed in with the test account (fixtures.md),"1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Text to Image」 card
+3. Open the page's Recent tasks (its history or 「Recent」 control)","Step 2: the 「Text to Image」 page opens with no error
+Step 3: the Text to Image Recent tasks open, titled 「Text to Image」, newest first
+Step 3: they list every Text to Image task of the account, also those started from AI Magic and the other entries, not only those started here",P1,"R-001, R-097","Entry Home › 「AI-Powered Creation」 › 「Text to Image」. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-140,Entry › Home › AI-Powered Creation › Text to Image,The account has a finished Text to Image task (TC-033),"1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Text to Image」 card
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Tap a Text to Image item
+5. Tap ‹ on its preview page","Step 4: its preview (result) page opens with no error
+Step 5: the Text to Image Recent tasks show again, with no model tag on any item (Q-1)
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-022, R-097","Checklist: the primary row TC-033 and the Design's Text to Image path (My Artwork › Recent task › Preview page, 1794:3221). If the page shows other controls (⋯, Share, filters), press each once and record what it does. Entry Home › 「AI-Powered Creation」 › 「Text to Image」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-141,Entry › Home › AI-Powered Creation › Text to Image,Signed in with the test account (fixtures.md),"1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Text to Image」 card
+3. Type a short prompt
+4. Tap Generate and wait until it finishes
+5. Back on the 「Text to Image」 page, open its Recent tasks (its history or 「Recent」 control)
+6. Tap 「View」 on the new task (Text to Image: tap the new item)
+7. Tap ‹ on the result page
+8. Tap ‹ on the Recent tasks
+9. Tap ‹ on the 「Text to Image」 page","Step 5: the new task is listed first, with no model tag (Q-1)
+Step 6: the result page of the new task opens with no error
+Step 7: the Recent tasks show again
+Step 8: the 「Text to Image」 page shows again
+Step 9: Home shows again",P1,"R-002, R-022, R-097",Entry Home › 「AI-Powered Creation」 › 「Text to Image」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-142,Entry › Home › AI-Powered Creation › Text to Image,The account has a finished Text to Image task (TC-033),"1. Open Home
+2. In 「AI-Powered Creation」 tap the 「Text to Image」 card
+3. Open the page's Recent tasks (its history or 「Recent」 control)
+4. Tap a Text to Image item
+5. Press system Back
+6. Press system Back
+7. Press system Back
+8. Open Home
+9. In 「AI-Powered Creation」 tap the 「Text to Image」 card
+10. Open the page's Recent tasks (its history or 「Recent」 control)
+11. Tap ‹ on the Recent tasks
+12. Tap ‹ on the 「Text to Image」 page","Step 5: the Recent tasks show again with the tags unchanged
+Step 6: the 「Text to Image」 page shows again
+Step 7: Home shows again
+Step 11: the 「Text to Image」 page shows again
+Step 12: Home shows again",P2,"R-002, R-070, R-097",Entry Home › 「AI-Powered Creation」 › 「Text to Image」: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-143,Entry › Home › What's Trending › template,"1. Signed in with the test account (fixtures.md)
+2. A photo in the gallery","1. Open Home
+2. In 「What's Trending」 tap an Image to Video template
+3. Start it with the photo
+4. Generate and wait until it finishes
+5. Open AI Magic › 「My Artwork」
+6. Tap 「Image to Video」","Step 2: the template page opens with no error
+Step 6: the template task is listed with no model tag and no empty line where the tag would be
+Step 6: its card is 120 pt tall, as the tagged cards",P2,"R-020, R-016, R-098",Checklist: the primary row TC-029 (Q-3 applies). Entry Home › 「What's Trending」 › template: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-144,Entry › Home › What's Trending › template,Signed in with the test account (fixtures.md),"1. Open Home
+2. In 「What's Trending」 tap a Text to Video template
+3. Start it
+4. Generate and wait until it finishes
+5. Open AI Magic › 「My Artwork」
+6. Tap 「Text to Video」","Step 2: the template page opens with no error
+Step 6: the template task is listed with no model tag and no empty line where the tag would be
+Step 6: its card is 120 pt tall, as the tagged cards",P2,"R-020, R-016, R-098",Checklist: the primary row TC-030 (Q-3 applies). Entry Home › 「What's Trending」 › template: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-145,Entry › Completion banner › Image to Video,"1. Signed in with the test account (fixtures.md)
+2. A photo in the gallery","1. Open AI Magic › 「Image to Video」
+2. Add the photo
+3. Pick the model 「Vidu Q2」
+4. Tap Generate and stay until it finishes
+5. Tap 「View」 on the completion banner
+6. Tap ‹ on the result page","Step 4: when the task finishes, a completion banner with 「View」 shows
+Step 5: the result page of that task opens with no error
+Step 6: the Image to Video Recent tasks open, titled 「Image to Video」, newest first
+Step 6: the new task is listed first and its tag reads 「Vidu Q2」
+Step 6: the list also holds the Image to Video tasks started from the other entries",P1,"R-001, R-002, R-010, R-012, R-099","Entry completion banner of 「Image to Video」 › 「View」 › ‹. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-146,Entry › Completion banner › Image to Video,The Image to Video Recent tasks reached in TC-145 are open,Read the tag of every Image to Video card,"Step 1: each card's tag reads the model its own task was generated with (as recorded in TC-003, TC-006 – TC-014), written as the model picker names it
+Step 1: the template card shows no tag and no empty line
+Step 1: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall",P1,"R-010, R-011, R-012, R-013, R-014, R-016, R-020, R-099",Entry completion banner of 「Image to Video」 › 「View」 › ‹: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-147,Entry › Completion banner › Image to Video,The Image to Video Recent tasks reached in TC-145 are open,"1. Tap the model tag of a card
+2. Tap 「View」 on a tagged card
+3. Tap ‹ on the result page
+4. Tap 「Manage」
+5. Tap the checkbox of a tagged card
+6. Tap 「Select All」
+7. Tap 「Deselect All」
+8. Tap 「Cancel」","Step 1: nothing opens and the card stays as it was (the Design draws the tag as a label)
+Step 2: the result page of that task opens with no error
+Step 3: the Recent tasks show again and the card keeps its tag
+Step 4: edit mode opens: an empty checkbox on every card, 「Select All」, 「Cancel」 and the 「Delete」 bar, every tag unchanged
+Step 5: that checkbox is ticked and the tag still shows
+Step 6: every checkbox is ticked and the button reads 「Deselect All」
+Step 7: every checkbox is empty
+Step 8: edit mode closes and every card shows 「View」 with the same tags
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-030, R-099","Checklist: the controls of the primary rows TC-005 and TC-035 – TC-037 (control-trace.json: card, model tag, 「View」, 「Manage」, checkbox, 「Select All」, 「Deselect All」, 「Cancel」; 「Delete」 is never tapped). The Recent page draws no ⋯ menu, filter, tab or Share: if the build shows one, press it once and record what it does. Entry completion banner of 「Image to Video」 › 「View」 › ‹: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-148,Entry › Completion banner › Image to Video,The Image to Video Recent tasks reached in TC-145 are open,"1. Tap 「View」 on a tagged card
+2. Press system Back
+3. Tap 「Manage」
+4. Tap the checkbox of a card
+5. Press system Back
+6. Tap ‹ on the Recent tasks
+7. Press system Back","Step 2: the Recent tasks show again with the tags unchanged
+Step 5: edit mode closes as with 「Cancel」, no task is deleted and every card keeps its tag (Q-5)
+Step 6: the 「Image to Video」 page shows again
+Step 7: AI Magic shows again",P2,"R-002, R-070, R-099",Entry completion banner of 「Image to Video」 › 「View」 › ‹: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-149,Entry › Completion banner › Text to Video,Signed in with the test account (fixtures.md),"1. Open AI Magic › 「Text to Video」
+2. Type a short prompt
+3. Pick the model 「Wan 2.7」
+4. Tap Generate and stay until it finishes
+5. Tap 「View」 on the completion banner
+6. Tap ‹ on the result page","Step 4: when the task finishes, a completion banner with 「View」 shows
+Step 5: the result page of that task opens with no error
+Step 6: the Text to Video Recent tasks open, titled 「Text to Video」, newest first
+Step 6: the new task is listed first and its tag reads 「Wan 2.7」
+Step 6: the list also holds the Text to Video tasks started from the other entries",P1,"R-001, R-002, R-011, R-012, R-099","Entry completion banner of 「Text to Video」 › 「View」 › ‹. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-150,Entry › Completion banner › Text to Video,The Text to Video Recent tasks reached in TC-149 are open,Read the tag of every Text to Video card,"Step 1: each card's tag reads the model its own task was generated with (as recorded in TC-016, TC-019 – TC-026), written as the model picker names it
+Step 1: the template card shows no tag and no empty line
+Step 1: every tag is one line, cut with 「…」 only when it does not fit, never overlapping 「View」, and every card is 120 pt tall",P1,"R-010, R-011, R-012, R-013, R-014, R-016, R-020, R-099",Entry completion banner of 「Text to Video」 › 「View」 › ‹: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-151,Entry › Completion banner › Text to Video,The Text to Video Recent tasks reached in TC-149 are open,"1. Tap the model tag of a card
+2. Tap 「View」 on a tagged card
+3. Tap ‹ on the result page
+4. Tap 「Manage」
+5. Tap the checkbox of a tagged card
+6. Tap 「Select All」
+7. Tap 「Deselect All」
+8. Tap 「Cancel」","Step 1: nothing opens and the card stays as it was (the Design draws the tag as a label)
+Step 2: the result page of that task opens with no error
+Step 3: the Recent tasks show again and the card keeps its tag
+Step 4: edit mode opens: an empty checkbox on every card, 「Select All」, 「Cancel」 and the 「Delete」 bar, every tag unchanged
+Step 5: that checkbox is ticked and the tag still shows
+Step 6: every checkbox is ticked and the button reads 「Deselect All」
+Step 7: every checkbox is empty
+Step 8: edit mode closes and every card shows 「View」 with the same tags
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-030, R-099","Checklist: the controls of the primary rows TC-005 and TC-035 – TC-037 (control-trace.json: card, model tag, 「View」, 「Manage」, checkbox, 「Select All」, 「Deselect All」, 「Cancel」; 「Delete」 is never tapped). The Recent page draws no ⋯ menu, filter, tab or Share: if the build shows one, press it once and record what it does. Entry completion banner of 「Text to Video」 › 「View」 › ‹: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-152,Entry › Completion banner › Text to Video,The Text to Video Recent tasks reached in TC-149 are open,"1. Tap 「View」 on a tagged card
+2. Press system Back
+3. Tap 「Manage」
+4. Tap the checkbox of a card
+5. Press system Back
+6. Tap ‹ on the Recent tasks
+7. Press system Back","Step 2: the Recent tasks show again with the tags unchanged
+Step 5: edit mode closes as with 「Cancel」, no task is deleted and every card keeps its tag (Q-5)
+Step 6: the 「Text to Video」 page shows again
+Step 7: AI Magic shows again",P2,"R-002, R-070, R-099",Entry completion banner of 「Text to Video」 › 「View」 › ‹: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
+TC-153,Entry › Completion banner › Text to Image,Signed in with the test account (fixtures.md),"1. Open AI Magic › 「Text to Image」
+2. Type a short prompt
+3. Tap Generate and stay until it finishes
+4. Tap 「View」 on the completion banner
+5. Tap ‹ on the result page","Step 3: when the task finishes, a completion banner with 「View」 shows
+Step 4: the result page of that task opens with no error
+Step 5: the Text to Image Recent tasks open, titled 「Text to Image」, newest first
+Step 5: the new task is listed first, with no model tag (Q-1)
+Step 5: the list also holds the Text to Image tasks started from the other entries",P1,"R-001, R-022, R-099","Entry completion banner of 「Text to Image」 › 「View」 › ‹. Presence: if the build has no such entry, record what is there instead; the absence is raised as a PM question at the phase wrap-up and the other rows of this Section are Blocked."
+TC-154,Entry › Completion banner › Text to Image,The Text to Image Recent tasks reached in TC-153 are open,"1. Tap a Text to Image item
+2. Tap ‹ on its preview page","Step 1: its preview (result) page opens with no error
+Step 2: the Text to Image Recent tasks show again, with no model tag on any item (Q-1)
+Every step: the app responds with no error, crash, freeze or empty screen",P2,"R-002, R-022, R-099","Checklist: the primary row TC-033 and the Design's Text to Image path (My Artwork › Recent task › Preview page, 1794:3221). If the page shows other controls (⋯, Share, filters), press each once and record what it does. Entry completion banner of 「Text to Image」 › 「View」 › ‹: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up."
+TC-155,Entry › Completion banner › Text to Image,The Text to Image Recent tasks reached in TC-153 are open,"1. Tap a Text to Image item
+2. Press system Back
+3. Tap ‹ on the Recent tasks
+4. Press system Back","Step 2: the Recent tasks show again with the tags unchanged
+Step 3: the 「Text to Image」 page shows again
+Step 4: AI Magic shows again",P2,"R-002, R-070, R-099",Entry completion banner of 「Text to Image」 › 「View」 › ‹: the row asserts the primary entry's behaviour (AI Magic › My Artwork); a difference is filed or raised at the phase wrap-up.
 TC-047,MUI,"1. The APK of the build under test in `~/.casebook/android/apks/<build>/` (the one installed for the run)
 2. `mui.json` has no `android_prefixes` for this feature yet: the read takes the strings of three or more words this table quotes (the feature names and the notice)","1. Run `node scripts/mui-strings.ts pdr/recent-task-model-info --apk <build dir> --out <run dir>/mui`
 2. Read every string of `mui-strings.json` in each language against its English","1. Each of the 26 languages (CHT, CHS, JPN, ESP, KOR, DEU, FRA, ITA, RUS, PTB, NLD, IND, THA, MAY, HIN, ESM, ARA, VIT, PLK, TRK, FAR, HEB, SVE, DAN, NOR, UKR) has its own text for every string read (「Image to Video」, 「Text to Video」, 「Text to Image」, 「Cinematic Reel Creator」, the notice 「Tasks are stored on the cloud for 1 Year. Please download any you want to keep in local storage.」): none shows the English default or another locale's text
