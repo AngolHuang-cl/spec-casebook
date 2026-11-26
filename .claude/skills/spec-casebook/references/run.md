@@ -53,7 +53,7 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
   phase: the next round's phase lists them in the stage segments where they belong. A round phase carries
   `"round": true` and `origin` (each row's earlier phase; `P9`-style ID for rows new in that draft); `plan-page.ts`
   then shows only that phase's own results, time and tokens. Phases that never ran get `merged_into` the round. A
-  **full run** lists every row by journey stage (templates after everything but the fresh-install cases), in
+  **full run** lists every row but the MUI phase's (`mui.md`, user 2026-11-24) by journey stage (templates after everything but the fresh-install cases), in
   segments of at most 40, with usage snapshots and the time and token summary at every segment.
 - **Needs, policy blocks and the gate (user, 2026-10-20).** `phases.json` tags cases with `needs` (`video`,
   `purchase`, `low-balance`, `new-account`, `chat-count`, `voice`, `system-setting`, `app-language`) and lists the
@@ -61,7 +61,9 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
   (test-data) at once; a reason that starts with a disposition (`"observability: no fault switch makes STT fail"`)
   records that disposition instead. Delete a line from `unavailable` when the user provides the fixture. Phone and
   app settings (`system-setting`, `app-language`, gallery contents such as `no-videos`) are never `unavailable`: the
-  run sets them itself (step 4, *Phone settings for fixtures*, user 2026-11-18). When a phase has `video` cases, its **first** step after setup is the preflight: one template drama
+  run sets them itself (step 4, *Phone settings for fixtures*, user 2026-11-18). MUI rows (Section `MUI`) are their own
+  phase, run on request and never in a full run, one language per segment, and need a tag for every language in `mui.json` first: ask the user before the run when
+  one is missing (`mui.md` §1, §3, user 2026-11-24). When a phase has `video` cases, its **first** step after setup is the preflight: one template drama
   straight to a Seedance 2.0 preview (`waitfor` with the success and failure texts), then
   `run-log.ts <run dir> gate video pass|fail "<time, duration, log cause>"`. A fail records every video case Blocked
   (defect, "Gate video failed …", retest queue); keep the preflight drama for the storyboard and video segments.
@@ -79,7 +81,8 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
   <run dir> (or start phase <Pn>) per <RUN-PLAN>: read the plan, run-state.md and `run-log.ts <run dir> next`;
   follow the spec-casebook skill (SKILL.md, references/run.md) and read `knowledge.ts <feature> <platform> --for run`; do exactly one segment, then pull and slice the logs,
   checkpoint, update the plan's Status and Log, and reply with at most 10 lines: tally, next case, blockers." A
-  phase's last segment adds the phase wrap-up (summary, `time`, tokens, eBug drafts and review page, report.md). The
+  phase's last segment adds the phase wrap-up (summary, `time`, tokens, eBug drafts and review page, report.md, and
+  every Open question settled: determined, filed or not reached, `ebugs.md` step 1). The
   orchestrator reads only that reply (never screenshots or logs), decides the next brief from `run-log next` and
   phases.json, and repeats until every phase in the plan is done, never asking the user between segments; after a
   compaction or restart it resumes from `run-log next`. A phase not yet released carries `hold` in phases.json
@@ -88,6 +91,17 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
   subagent that hits one stops and says so. Without subagents: one worker session the orchestrator clears
   (`clear_session`) and re-briefs after each segment. With neither, stop after the checkpoint and ask the user to open
   a new chat, giving the brief to paste.
+- **Stall watchdog, no polling (user, 2026-11-23).** With each segment brief the orchestrator also starts
+  `node scripts/run-watchdog.ts <run dir>` as a background command (Claude Code: Bash `run_in_background`; add
+  `--also <transcript>` when the segment's transcript path is known). It only reads file times, so waiting costs no
+  tokens, and the orchestrator never checks on a segment by polling, sleeping or `ScheduleWakeup` loops. When the
+  watchdog exits: `DONE` (exit 0, new checkpoint): nothing to do, the segment's own reply drives the next brief.
+  `STALL` (exit 3, nothing in the run folder changed for 20 min, longer when the last command is a `waitfor` with a
+  longer `--timeout`): read the usage card first; a usage-limit wait is not a stall, so restart the watchdog and wait.
+  Otherwise stop the segment (TaskStop the subagent, or `stop_session` the worker), record in the plan's Log that it
+  stalled after the last command the watchdog names, and brief a fresh segment, which resumes from `run-log.ts next`
+  as usual. `TIMEOUT` (exit 4, 8 h with activity but no checkpoint): treat like a stall. A segment reply that arrives
+  first ends the watchdog's purpose: stop it (TaskStop) before starting the next pair.
 - **Resuming** (after a reset, a usage-limit stop or a crash) starts with `device.ts <run dir> status` and
   `run-log.ts <run dir> next`, then a screenshot to confirm the phone matches the last checkpoint. Never redo recorded
   cases; Inconclusive ones are re-run from the recovery queue at the end of their segment.
@@ -197,7 +211,10 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
      never in a phase's run folder, whose `activity.log` decides the run's time and tokens; move stray commands out.
 2. `node scripts/run-log.ts <run dir> init <cases.csv> --phase <draft>/phases.json <phase id>`, then record every case
    as it is exercised: `set <ID> <Pass|Fail|Blocked|Inconclusive|Not run> "<what was seen>" [--as <disposition>]
-   screenshots/<file>.png …` (verdict rule 4). Quote on-screen strings exactly. `summary` shows the tally; the run is
+   screenshots/<file>.png …` (verdict rule 4). Quote on-screen strings exactly. **A Fail says the problem first
+   (user, 2026-11-25):** its text opens with one sentence naming what is wrong (what the app does against what was
+   expected), then the details; a row with several steps writes `Step N (…): … pass.` / `Step N: … defect …` per
+   step, so the Results page can list the steps and mark the failing one under 「What happened」. `summary` shows the tally; the run is
    complete only at 0 Not run and an empty Inconclusive queue.
 3. Device commands: `shot`, `els [filter]`, `source`, `logs [ID]`, `ledger [ID]`, `tap`, `hold`, `drag`, `id`, `lbl`,
    `type`, `pinch X Y FROM TO [ms]`, `setval <id> <text>` (fast long input), `clear <id>`, `hidekb`, `burst X Y [n]`,

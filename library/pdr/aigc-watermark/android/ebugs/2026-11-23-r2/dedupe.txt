@@ -1,0 +1,13 @@
+# AIGC Watermark Android R2 (2611193) — dedupe, Android pool only (per OS, user 2026-10-28), 2026-11-23
+
+Left off the drafts (same-OS ticket, open):
+- TC-121 (+ O-1): Text to Image saved with the switch On keeps Google's file and manifest, no CyberLink manifest
+  = DRA262611P0218 (Assigned, RD, Sev 3, build 2611161) "Text to Image: Image saved with the switch On is signed by
+  Google, not CyberLink (C2PA)". Still reproduces on 2611193 (TC-121, files/TC-121-t2i-on.*). Not commented (rule).
+- O-16 (music Generate with switch Off shows no AIGC dialog) = DRA262611P0229 (NewCreated, PM). Not commented.
+
+Drafted (no duplicate):
+- ISS-AWA-17 / TC-119 (songs carry no C2PA manifest): `ecl_query.py dedupe` searched 84 AI Music Generator tickets
+  (dedupe-query.txt): ranked candidates DRA262607-0285 (Favorite tab label) and DRA252502-0112 (file names) are
+  unrelated; open 16.9.0 music tickets P0222 (spoken clip), P0223 (project export dialog/label), P0229 (dialog) are
+  other defects. `ecl_query.py bugs --text "C2PA"`: P0218, P0220 (NAB), P0221 (NAB), none about audio.

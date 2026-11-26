@@ -124,7 +124,7 @@ PDR-I 16.8.0 - [EDF][UX] Save Result: no confirmation, and repeat taps silently 
 | `<PRODUCT>` | `PDR-I` for PowerDirector iOS, `PDR-A` Android, `PHD` PhotoDirector. **Never omit.** |
 | `<VERSION>` | the version actually tested, e.g. `16.8.0`. Not the build number. |
 | `<source>` | `[EDF]`, `[AIFound]`, `[AIAgent]` (spec-driven runs), `[MXFound]` — where the finding came from |
-| `<type>` | `[UI]` visible string/layout · `[UX]` interaction/flow resting on another product or on nothing (*UX basis rule*) · `[MX]` marketing/cost. Omit for functional. Stacks with source; see *Tagging* below. `[AIAgent]` never takes `[UX]`. |
+| `<type>` | `[MUI]` or language tags (`[JPN][DEU]`) for a casebook MUI finding (overlay rule 8) · `[UI]` visible string/layout · `[UX]` interaction/flow resting on another product or on nothing (*UX basis rule*) · `[MX]` marketing/cost. Omit for functional. Stacks with source; see *Tagging* below. `[AIAgent]` never takes `[UX]`. |
 | **`<Feature>`** | **the app's own on-screen feature name, verbatim, followed by a colon.** |
 | `<symptom>` | one specific line. ≤140 chars total for the whole string; budget ~120. |
 

@@ -1,0 +1,23 @@
+{
+  "model-info.png": {
+    "board": "1794:3210",
+    "group": null,
+    "hash": null,
+    "source_hash": "1725deee",
+    "captured_at": "2026-11-23T04:05:08.816Z"
+  },
+  "recent-video.png": {
+    "board": "1794:3214",
+    "group": null,
+    "hash": null,
+    "source_hash": "02ea8199",
+    "captured_at": "2026-11-23T04:05:13.048Z"
+  },
+  "recent-edit-mode.png": {
+    "board": "1794:3217",
+    "group": null,
+    "hash": null,
+    "source_hash": "d360d0cf",
+    "captured_at": "2026-11-23T04:05:13.239Z"
+  }
+}

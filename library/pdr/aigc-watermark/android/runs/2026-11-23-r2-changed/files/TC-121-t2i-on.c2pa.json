@@ -1,0 +1,40 @@
+{
+ "file": "TC-121-t2i-on.jpg",
+ "bytes": 2157262,
+ "stores": 1,
+ "manifests": [
+  {
+   "label": "urn:c2pa:26558b09-31dd-5562-8744-436acc74b954",
+   "assertions": [
+    "c2pa.hash.data",
+    "c2pa.actions.v2"
+   ],
+   "actions": [
+    {
+     "action": "c2pa.created",
+     "digitalSourceType": "trainedAlgorithmicMedia",
+     "description": "Created by Google Generative AI.",
+     "softwareAgent": null
+    },
+    {
+     "action": "c2pa.edited",
+     "digitalSourceType": "trainedAlgorithmicMedia",
+     "description": "Applied imperceptible SynthID watermark.",
+     "softwareAgent": null
+    }
+   ],
+   "ingredients": 0,
+   "claim_label": "c2pa.claim.v2",
+   "data_hash": "match",
+   "claim_generator": "{\"name\": \"Google C2PA Core Generator Library\", \"version\": \"1023856606:1023856606\"}",
+   "title": null,
+   "alg": "sha256",
+   "assertion_refs": 2,
+   "assertion_hash_problems": [],
+   "signer": "subject=C=US, O=Google LLC, OU=Google System 10274, CN=Google Media Processing Services\nissuer=C=US, O=Google LLC, CN=Google C2PA Media Services 1P ICA G3\nnotAfter=Feb 26 23:01:50 2027 GMT",
+   "signature_check": "Verified OK"
+  }
+ ],
+ "store_label": "c2pa",
+ "active_manifest": "urn:c2pa:26558b09-31dd-5562-8744-436acc74b954"
+}

@@ -1,0 +1,6 @@
+{
+ "run": true,
+ "tr": "TR261123-0015",
+ "build": "2611201",
+ "trNote": "TR261123-0015 — 16.9.0.2611201 (Deluxe) for CyberLink 9L+RUS+IDN+PTB+THA+HIN+MAY+VIE+NLD+ARA+TUR (R6), the build these cards were verified on (installed from the Google Play internal test; same build number). Tester list includes ETHAN_HSU. Earlier Video Enhance batches went on another TR, so confirm before filing."
+}

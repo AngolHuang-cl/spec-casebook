@@ -2,13 +2,13 @@
   "feature": "pdr/video-enhance",
   "platform": "android",
   "title": "Video Enhance",
-  "version": 10,
-  "approved_at": "2026-11-17T05:20:15.688Z",
-  "draft": "20261117-105552",
+  "version": 14,
+  "approved_at": "2026-11-26T00:47:52.826Z",
+  "draft": "20261125-190000",
   "spec_folder": "specs/2026-11-03",
   "spec_files": [],
   "spec_set_sha256": "c1d60aed2d699df6196069d8a0db670b4ca14529f0d3efaa4923aec852188bfe",
-  "cases": 219,
+  "cases": 250,
   "history": [
     {
       "version": 1,
@@ -97,6 +97,42 @@
       "spec_set_sha256": "c1d60aed2d699df6196069d8a0db670b4ca14529f0d3efaa4923aec852188bfe",
       "draft": "20261117-105552",
       "cases": 219,
+      "csv": "history/v10.csv",
+      "requirements": "history/v10-requirements.md"
+    },
+    {
+      "version": 11,
+      "approved_at": "2026-11-24T04:03:29.011Z",
+      "spec_set_sha256": "c1d60aed2d699df6196069d8a0db670b4ca14529f0d3efaa4923aec852188bfe",
+      "draft": "20261124-150000",
+      "cases": 246,
+      "csv": "history/v11.csv",
+      "requirements": "history/v11-requirements.md"
+    },
+    {
+      "version": 12,
+      "approved_at": "2026-11-25T06:49:48.172Z",
+      "spec_set_sha256": "c1d60aed2d699df6196069d8a0db670b4ca14529f0d3efaa4923aec852188bfe",
+      "draft": "edit-20261125-144948",
+      "cases": 246,
+      "csv": "history/v12.csv",
+      "requirements": "history/v12-requirements.md"
+    },
+    {
+      "version": 13,
+      "approved_at": "2026-11-25T09:27:47.499Z",
+      "spec_set_sha256": "c1d60aed2d699df6196069d8a0db670b4ca14529f0d3efaa4923aec852188bfe",
+      "draft": "20261125-171701",
+      "cases": 248,
+      "csv": "history/v13.csv",
+      "requirements": "history/v13-requirements.md"
+    },
+    {
+      "version": 14,
+      "approved_at": "2026-11-26T00:47:52.826Z",
+      "spec_set_sha256": "c1d60aed2d699df6196069d8a0db670b4ca14529f0d3efaa4923aec852188bfe",
+      "draft": "20261125-190000",
+      "cases": 250,
       "csv": "cases.csv",
       "requirements": "requirements.md"
     }

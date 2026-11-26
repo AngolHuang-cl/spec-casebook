@@ -1,0 +1,6 @@
+TC-223 natural 30 720p
+TC-225 natural 30 1080p
+TC-224 natural 30 4k
+TC-226 natural 60 720p
+TC-221 natural 60 1080p
+TC-227 natural 60 4k

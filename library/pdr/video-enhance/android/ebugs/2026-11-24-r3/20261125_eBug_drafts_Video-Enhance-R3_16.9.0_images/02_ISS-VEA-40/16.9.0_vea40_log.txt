@@ -1,0 +1,27 @@
+# ISS-VEA-40 The failed tasks behind the cards: applyEffect status Error (refunded at once), apply effect 401
+# PowerDirector Mobile for Android 16.9.0 (2611231), Stage server, Samsung SM-A5360 / Android 15 (phone time, UTC+8)
+# Video Enhance task lines (create session = the charge, transcode, S3 upload, apply effect, errors, toasts) and the
+# balance when it changes; tokens dropped, URL queries cut at '?'.
+
+## 21:04 task: retried upload, applyEffect status Error (2026-11-24 21:06:50–21:08:05; logs/R3-e-20261124-211841/logcat-live.txt)
+2026-11-24 21:06:58.011 Upload to S3: start
+2026-11-24 21:08:02.990 AIVideoAnime:  upload response code->200
+2026-11-24 21:08:02.990 Upload to S3: finish
+2026-11-24 21:08:02.991 Apply Effect: start
+2026-11-24 21:08:03.353 AIVideoAnime:  apply effect response code->200
+2026-11-24 21:08:03.640 AIFeatureRepository: applyEffect status: Error null
+2026-11-24 21:08:03.847 Apply Effect: finish
+
+## 21:54 task: upload ends, apply effect 401 (2026-11-24 23:05:15–23:05:30; logs/R3-f-20261124-231751/logcat-live.txt)
+2026-11-24 23:05:23.529 AIVideoAnime:  upload response code->200
+2026-11-24 23:05:23.529 Apply Effect: start
+2026-11-24 23:05:23.529 Upload to S3: finish
+2026-11-24 23:05:23.799 AIVideoAnime:  apply effect response code->401
+2026-11-24 23:05:23.846 Toast   : show: caller = znm.emit:84
+2026-11-24 23:05:25.042 Apply Effect: finish
+
+## Ledger: the 21:04 task's charge and its refund at the failure
+# From the app's getCreditHistory responses in logcat (server records; time = the record's createTime in UTC+8).
+# Refunds are server-side: the app logs no line when one is made.
+2026-11-24 21:04:12  -4  consume   Video Enhancer (genvideo_1_sec_byteplus_std_natural_720p_30fps)   (first in logcat 2026-11-24 21:11:30.306, logs/R3-e-20261124-211841)
+2026-11-24 21:08:03  +4  returned  Generation failed, credits returned   (first in logcat 2026-11-24 21:11:30.306, logs/R3-e-20261124-211841)

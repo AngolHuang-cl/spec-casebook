@@ -1,0 +1,109 @@
+{
+ "TC-092": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Flux, Image to Video; list read 2026-11-23"
+ },
+ "TC-095": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Hailuo, Image to Video; list read 2026-11-23"
+ },
+ "TC-101": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Flux, Text to Video; list read 2026-11-23"
+ },
+ "TC-103": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Vidu, Text to Video; list read 2026-11-23"
+ },
+ "TC-104": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Hailuo, Text to Video; list read 2026-11-23"
+ },
+ "TC-105": {
+  "label": "Model not offered by this build (n/a)",
+  "note": "Pixverse, Text to Video; list read 2026-11-23"
+ },
+ "TC-029": {
+  "label": "Video Object Removal not offered by this build",
+  "note": "2611193, rechecked 17:52"
+ },
+ "TC-030": {
+  "label": "Video Object Removal not offered by this build",
+  "note": "2611193, rechecked 17:52"
+ },
+ "TC-031": {
+  "label": "Video Object Removal not offered by this build",
+  "note": "2611193, rechecked 17:52"
+ },
+ "TC-109": {
+  "label": "Video Object Removal not offered by this build",
+  "note": "2611193, rechecked 17:52"
+ },
+ "TC-073": {
+  "label": "No AI Cartoon / AI Sketch in the editor on this build",
+  "note": "AI Style Transfer gone from the 2611193 editor; only the Launcher's AI Magic"
+ },
+ "TC-074": {
+  "label": "No AI Cartoon / AI Sketch in the editor on this build",
+  "note": "AI Style Transfer gone from the 2611193 editor; only the Launcher's AI Magic"
+ },
+ "TC-075": {
+  "label": "No AI Cartoon / AI Sketch in the editor on this build",
+  "note": "AI Style Transfer gone from the 2611193 editor; only the Launcher's AI Magic"
+ },
+ "TC-076": {
+  "label": "No AI Cartoon / AI Sketch in the editor on this build",
+  "note": "AI Style Transfer gone from the 2611193 editor; only the Launcher's AI Magic"
+ },
+ "TC-077": {
+  "label": "No AI Cartoon / AI Sketch in the editor on this build",
+  "note": "AI Style Transfer gone from the 2611193 editor; only the Launcher's AI Magic"
+ },
+ "TC-078": {
+  "label": "No AI Cartoon / AI Sketch in the editor on this build",
+  "note": "AI Style Transfer gone from the 2611193 editor; only the Launcher's AI Magic"
+ },
+ "TC-044": {
+  "group": "need:instagram",
+  "label": "Instagram not installed on the SM-A5360"
+ },
+ "TC-045": {
+  "group": "need:instagram",
+  "label": "Instagram not installed on the SM-A5360"
+ },
+ "TC-052": {
+  "group": "need:instagram",
+  "label": "Instagram not installed on the SM-A5360"
+ },
+ "TC-053": {
+  "group": "need:instagram",
+  "label": "Instagram not installed on the SM-A5360"
+ },
+ "TC-079": {
+  "group": "need:instagram",
+  "label": "Instagram not installed on the SM-A5360"
+ },
+ "TC-080": {
+  "group": "need:instagram",
+  "label": "Instagram not installed on the SM-A5360"
+ },
+ "TC-120": {
+  "label": "No song-from-lyrics path on Android",
+  "note": "AI Music Generator has chips only (KP-086)"
+ },
+ "TC-055": {
+  "group": "upstream",
+  "label": "Upstream TC-054: music AIGC dialog never opens",
+  "note": "DRA262611P0229"
+ },
+ "TC-056": {
+  "group": "upstream",
+  "label": "Upstream TC-054: music AIGC dialog never opens",
+  "note": "DRA262611P0229"
+ },
+ "TC-128": {
+  "group": "upstream",
+  "label": "Upstream TC-054: music AIGC dialog never opens",
+  "note": "DRA262611P0229"
+ }
+}

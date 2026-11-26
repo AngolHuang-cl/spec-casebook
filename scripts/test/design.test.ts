@@ -6,6 +6,7 @@
 import { after, before, test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
+import { PYTHON } from '../lib/python.ts';
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, utimesSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
@@ -93,7 +94,7 @@ from PIL import Image, ImageDraw
 j = json.load(sys.stdin); im = Image.new("RGB", (j["w"], j["h"]), "#101418"); d = ImageDraw.Draw(im)
 for b, c in j["blocks"]: d.rectangle(b, fill=c)
 im.save(j["path"])`;
-  const r = spawnSync('python3', ['-c', py], { input: JSON.stringify({ path, w, h, blocks }), encoding: 'utf8' });
+  const r = spawnSync(PYTHON, ['-c', py], { input: JSON.stringify({ path, w, h, blocks }), encoding: 'utf8' });
   assert.equal(r.status, 0, r.stderr);
 }
 const s3 = (b: number[], inset = 4) => [b[0] * 3 + inset, b[1] * 3 + inset, (b[0] + b[2]) * 3 - inset, (b[1] + b[3]) * 3 - inset];

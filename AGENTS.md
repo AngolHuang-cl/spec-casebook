@@ -180,6 +180,44 @@ lines; put the full rule in the skill or reference file that applies it and poin
   (`cases.zh-Hant.csv`) that the 中文 switch shows on Cases, Results, Progress and Coverage; it is natural Taiwan
   Chinese, never word by word, kept current row by row with `scripts/zh-copy.ts` after drafts and Saves; run results
   stay as recorded (`references/zh-copy.md`, `SKILL.md` step 4).
+- **MUI test (user, 2026-11-24).** Tables can end with an `MUI` section (translation and truncation per screen ×
+  language). At step 0 ask which languages are implemented and for the translation sheet; eBug language tags come
+  from the sheet, else ask the user before the run (`mui.json`). MUI bugs: `[AIAgent][MUI]` when every language lacks
+  the translation, else `[AIAgent][JPN][DEU]…`, one bug for missing translations, one per language for truncation
+  (`spec-casebook/references/mui.md`, overlay rule 8). **PowerDirector** (user, 2026-11-24): every feature is tested
+  in the 26 languages of `library/pdr/product.json` › `mui` (tags ENU…UKR); there is no translation sheet, so the run
+  judges each translation and lists doubtful ones on the eBug review page for the user to file or accept. **MUI is its
+  own phase (user, 2026-11-24)**, run on request and never in a full run; Android translations are read from the
+  build's APK (`scripts/mui-strings.ts`, no phone), the phone walks each language for truncation (iOS: translation
+  too) and starts no new task.
+- **Dashboard (user, 2026-11-25).** The pages server's first page is the Dashboard: two tabs, Agentic runs (tables
+  waiting for their conversion to AT) and Regression (AT) (converted), with the iOS / Android switch on the same line
+  (the two are never listed together), one toolbar (Product, Version, Sort, Search), then per product and app version
+  (16.9.0, never the build or the TR, and no build number anywhere on the page) one aligned line per feature: Cases,
+  Last run, Pass, Fail, Blocked (a column each), eBugs open / filed, Questions, MUI, Design, AT, and a total line.
+  Keep it a table: no sentences of figures in a cell (the first version was 「way too messy」), every column says what
+  its number is, and every figure opens the exact place behind it (Questions opens the Cases page's question panel,
+  a result count opens Results on that run and result). **MUI stays out of the counts:** cases, run tallies and eBugs
+  leave out MUI rows, runs and eBugs, which show only in the MUI column. **eBugs are open / filed** in three kinds
+  that never overlap: functional and UX (eBugs column), MUI (MUI column), [UI] (Design column); 「Refresh eBugs」 on a
+  version group reads their status from eCL (this computer only, statuses only, `lib/ebug-status.ts`; reading, never
+  commenting). A table is marked converted with 「Mark as AT」 on its line (this computer only) or
+  `node scripts/regression.ts <feature> <ios|android|both>` (`regression.json` in the feature folder, committed), only
+  when the user says it is converted (`scripts/boards-page.tpl`, `lib/boards.ts`, `lib/regression.ts`).
+- **No question left open by a completed run (user, 2026-11-25).** At every phase wrap-up each Open question is
+  determined (`<platform>/question-status.json`), filed as a PM eBug whose entry names the Q-id (also when no row
+  failed on it), or marked not reached with the reason; settled ones leave the Cases page's question list for its
+  closed 「Settled」 list and the Dashboard counts only what is open
+  (`spec-casebook/references/ebugs.md` step 1).
+- **Every Open question has a row (user, 2026-11-25).** A question is written together with a row that observes its
+  point and is named in it, so the next run reaches it; a new question from a ruling or a wrap-up gets its row in the
+  same draft. `check.ts` warns on a question no active row observes (`spec-casebook/references/analysis.md`).
+- **Results say the problem (user, 2026-11-25).** A failed case opens with a highlighted Problem block across the card
+  (each eBug's title and ticket, else the first sentence recorded), and 「What happened」, the run's own record one line
+  per step, is highlighted too; a Fail's recorded text starts with the problem sentence (`run.md` step 2,
+  `scripts/results-page.ts`).
+- **MUI rows are numbered (user, 2026-11-25).** Every multi-line cell of an MUI row is numbered, the Expected Result
+  too, never plain line breaks; `check.ts` warns (`spec-casebook/references/mui.md` §2).
 - **One step per line (user, 2026-11-03).** When a table cell holds two or more steps, each goes on its own
   numbered line, whether they were numbered (`1. … 2. …`) or plain sentences (`Open X, then tap Y`); `check.ts`
   warns (`formats.md`, writing rules).
@@ -274,7 +312,10 @@ lines; put the full rule in the skill or reference file that applies it and poin
   `--apply` to the user.
 - **Local run media: newest run only (user, 2026-11-20).** Keep screenshots, recordings and other media on this
   computer only for the newest run in each `library/<product>/<feature>/<platform>/runs/`. That is the newest full
-  run plus any recheck, verify or design runs made after it; an aborted run with no media doesn't count. When a run
+  run plus any recheck, verify or design runs made after it; an aborted run with no media doesn't count. **At least
+  one complete full run is always kept (user, 2026-11-24):** when the newest full run is partial (stopped, aborted
+  or still running while a row is still 「Not run」), the newest full run in which every row is Pass, Fail or
+  Blocked keeps its media too. MUI rows are not part of a full run (their own phase), so they never make one incomplete. When a run
   finishes, trim each older run in the same `runs/`: move images, video, audio, archives, app builds and any file
   over 1 MiB to the Trash under `run-media-prune-<YYYYMMDD>/pdr-spec-casebook/`, keeping the folder layout. Keep
   small text (notes, JSON/YAML, ledgers, page-source XML, HTML, logs up to 1 MiB) for reference. Never trim
@@ -292,9 +333,12 @@ lines; put the full rule in the skill or reference file that applies it and poin
   runs are too frequent and the repo would bloat. Pages say when a run's images are not on this computer.
 - **Page layout (user, 2026-11-06).** Every tab has the same page width and side gutter (`--gutter` in
   `scripts/page-shared.css.tpl`); Results shows each case in full by default, with Compact list as the option.
-- **Formatting check on every page (user, 2026-11-19).** Any HTML page or artifact made or changed is looked at
-  rendered before hand-over (about 1100 px and 375 px, both languages, light and dark): no mark orphaned on its own
-  line, even columns, unambiguous legends, a better side on every compared row; fix and look again
+- **Formatting and design check on every page (user, 2026-11-19; design rules 2026-11-25).** Any HTML page or artifact
+  made or changed is looked at rendered before hand-over (about 1100 px and 375 px, both languages, light and dark): no
+  mark orphaned on its own line, even columns, unambiguous legends, a better side on every compared row. A page with
+  controls is also held to the general UI design rules: one control style per kind of choice, a toolbar on one line
+  with nothing stranded, visible hierarchy, filter options scoped to their parent, every number labelled, quiet by
+  default. Judge the screenshot as a designer would; fix and look again
   (`spec-casebook/references/page-checks.md`).
 - **One-off HTML pages (user, 2026-11-05).** A page asked for as HTML is a local file, not an artifact, and never goes
   on the Desktop: it goes in `library/<product>/<feature>/comparisons/` (git-ignored, local only), named
@@ -350,6 +394,10 @@ lines; put the full rule in the skill or reference file that applies it and poin
   renumbered (README › *Before you push or open a PR*).
 - **Commit and push (user, 2026-10-27).** "Commit and push" (or "push") means push to `origin` right after the
   commit, with no second confirmation; a plain "commit" stays local.
+- **Stall watchdog, no polling (user, 2026-11-23).** Every segment runs beside a background
+  `scripts/run-watchdog.ts <run dir>` that exits on a new checkpoint (DONE) or 20 min without run-folder activity
+  (STALL); the orchestrator never polls a segment, and a stall is checked against usage before the segment is stopped
+  and resumed fresh (`run.md`, *Stall watchdog*).
 - **Parallel phones: investigate only.** Running segments on several phones at once is an open idea in
   `INVESTIGATE.md`; do not build multi-device support without asking.
 - **Seat size in Settings (user, 2026-11-17).** The account's seat size (Pro 1, Team 1.25 / 6.25) is set per computer on

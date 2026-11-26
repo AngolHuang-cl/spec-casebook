@@ -109,7 +109,7 @@ say 「Meme Dance Generator」; use the build's name and don't file the differen
 
 ## KP-078 The Launcher ☰ opens only on the Home tab
 - kind: quirk · platform: android · use: run · tags: launcher, menu, navigation
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-26 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-26; Video Enhance Android run 2026-11-24-r3-full setup · verified: 16.9.0 build 2611231 (2026-11-24)
 
 After leaving an editor the Launcher can come back on the Project tab, where ☰ does nothing: tap Home (107,2335 on the
-Sony) first. `lbl Project` matches 「New Project」.
+Sony) first. `lbl Project` and `lbl Pro` both match 「New Project」 (opening an empty project): tap the tab by bounds.

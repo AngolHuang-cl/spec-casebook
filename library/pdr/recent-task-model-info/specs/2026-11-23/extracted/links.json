@@ -1,0 +1,25 @@
+{
+  "links": [
+    {
+      "board": "d-model-info",
+      "at": [3258, 402],
+      "node": "1804:17",
+      "text": "開啟 Guideline · Cards ↗",
+      "target": "https://www.figma.com/design/qSdtJ1wbHddNm6ebWvF4ia/?node-id=142-4496",
+      "label": "Design Guideline · Cards › Card/RecentTask",
+      "file": "../Design Guideline Cards - Card-RecentTask.md",
+      "read": "2026-11-23",
+      "items": [
+        { "label": "showModel only for a user-chosen model", "text": "Card/RecentTask: showModel 只有使用者自己選 model 時打開(例 I2V Custom),範本生成不開。(component set description; row note 「AI 生成紀錄 · 使用者自己選 model 時才顯示 model」)" },
+        { "label": "tag column (done + model)", "text": "State table column 「tag」 (the 「+ model」 column): the done card with the model tag 「GPT-Image-2.5 Sunburst」 under the name, 「View」 at the right." },
+        { "label": "unselect", "text": "unselect: empty checkbox at the top right, 「View」 (多選中未選)." },
+        { "label": "select", "text": "select: ticked checkbox, 「View」 (多選中已選)." },
+        { "label": "processing / downloading", "text": "downloading: 「processing...」 over the thumbnail, 「9 minutes left ...」 and a progress bar, no button (生成中)." },
+        { "label": "error", "text": "error: 「Error」 with a caution icon over the thumbnail, button 「Retry」 (失敗)." },
+        { "label": "nsfw", "text": "nsfw: visibility-off icon over the thumbnail, button 「View Details」 (內容不適當)." },
+        { "label": "size", "text": "清單卡:寬 = 螢幕寬 − margin(mobile 16 / tablet 40),高度固定; every Card/RecentTask variant is 120 high; date 填「日期 · 長度」, name 填名稱." },
+        { "label": "model tag style", "text": "tag_card style=fill, size=S: 灰色屬性標籤・實心・S 高 20,放縮圖、清單。文字改 label。" }
+      ]
+    }
+  ]
+}

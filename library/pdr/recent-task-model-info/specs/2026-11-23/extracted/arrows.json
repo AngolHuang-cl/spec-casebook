@@ -1,0 +1,19 @@
+{
+  "arrows": [
+    {
+      "arrow": "1036-3983",
+      "node": "1036-3983",
+      "edge": "Recent video: My Artwork · 「+ 4」 → Recent",
+      "expected": "",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1036-3984",
+      "node": "1036-3984",
+      "edge": "Recent video: Recent · 「View」 → CineStory_Preview",
+      "expected": "",
+      "source": "figma-inventory"
+    }
+  ],
+  "count": 2
+}

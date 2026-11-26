@@ -20,7 +20,7 @@ user default or Trigger Crash there, and never capture the token rows.
 
 ## KP-003 Android debug controls
 - kind: fact · platform: android · use: analysis, run · tags: debug, pink, tier
-- source: run-android.md › Debug controls (team, 2026-10-27) · verified: 16.8.0 build 2610212 (2026-10-27)
+- source: run-android.md › Debug controls (team, 2026-10-27) · verified: 16.9.0 build 2611231 (2026-11-24)
 
 Android has no Pink, no fault switches, no tier switch, no Write Log and no developer-server switch. Launcher ☰ ›
 Menu ends with a QA block (download all contents, scoped-storage migration, 「QA: consume all non-consumables」, 「QA:

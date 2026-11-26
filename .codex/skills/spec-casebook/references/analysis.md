@@ -10,6 +10,15 @@ requirements (cite the board as usual). A cell the spec defines becomes a requir
 spec is silent on becomes an Open question, never an invented case, except the user's QA rules (Stop notice, leave
 and return, waits), which apply to every job.
 
+**Every Open question gets an observing row (user, 2026-11-25).** A question is not left to chance: when it is
+written (in an analysis, from a ruling, or at a phase wrap-up), a row is written with it that takes the app to the
+point in question and records what it does. Where the rows can rest on an assumption, the row asserts the assumption;
+where nothing can be assumed (「stop, jump back or loop?」), the row's Expected Result says what to record and that any
+outcome is recorded as a Fail (question) for the owner, not a pass. The question names the row's TC id, so the next
+run reaches it and its wrap-up can determine or file it (`ebugs.md` step 1). A question no row can observe (a spec
+file nobody has read) ends `No row: <why>`. `check.ts` warns on an Open question that names no active row. Video
+Enhance's Q-14 said 「No row asserts it」 and stayed open through three runs for that reason.
+
 1. **Flow arrows.** One requirement per arrow in `arrows.json` (`[DS: flow arrow <node> <Figma URL>]`). Each needs
    a row: its own, or an existing row that walks the edge, named on the requirement as `Walked by: TC-…`
    (`check.ts` accepts that as coverage). A forward edge does not cover its return edge. A row that stops at a

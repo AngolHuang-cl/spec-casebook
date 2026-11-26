@@ -21,6 +21,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync, rmSyn
 import { createHash } from 'node:crypto';
 import { dirname, join, basename, resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { PYTHON } from './lib/python.ts';
 
 // Only OK and Fail go on a QR; a bug not fully verified is Hold: left off the report and left alone (user, 2026-11-03).
 type Result = 'OK' | 'Fail' | 'Hold';
@@ -234,8 +235,7 @@ function upload(d: Draft, draftPath: string, send: boolean) {
   for (const r of filed(d)) {
     console.log(`--- ${r.bug} [${r.result}]`);
     try {
-      // Windows: `python3` is the Microsoft Store stub there; `python` is the real interpreter.
-      process.stdout.write(execFileSync(process.platform === 'win32' ? 'python' : 'python3', ['-I', script, 'upload', r.bug, ...rowFiles(r), ...(send ? [] : ['--dry-run'])],
+      process.stdout.write(execFileSync(PYTHON, ['-I', script, 'upload', r.bug, ...rowFiles(r), ...(send ? [] : ['--dry-run'])],
         { cwd: base, encoding: 'utf8' }));
       if (send) (d.uploaded ??= {})[r.bug] = rowFiles(r).map(f => basename(f));
     } catch (e: any) {

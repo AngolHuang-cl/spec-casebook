@@ -13,11 +13,15 @@
 //     earlier filed batch (ebug-defaults.ts --before <batch>), and filed_bugcodes.json once the batch is filed.
 //  4. Written next to the drafts as `<same name with _eBug_review_>.html`.
 //
+// A `## Translation doubts` table in the drafts (MUI, no translation sheet) becomes a panel where each doubt is Filed
+// or judged Fine as is; the choices go into Copy decisions (spec-casebook references/mui.md §4).
+//
 // Optional `review.json` in the batch folder holds what the drafts do not say (all keys optional):
 //   { "run": false (no run tally / Blocked rows), "tr": "TR261118-0074", "build": "2611181", "trNote": "…", "lede": "extra sentence(s)",
 //     "why": { "ISS-…": "one line on the card" }, "related": { "ISS-…": "context line" } }
 // Without it, the TR and build come from the drafts (the **Recheck…** line, else the H1 and **Source:** line).
 import { execFileSync, spawnSync } from 'node:child_process';
+import { PYTHON } from './lib/python.ts';
 import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { basename, join, relative, resolve } from 'node:path';
@@ -40,9 +44,7 @@ const md = readFileSync(DRAFTS, 'utf8');
 const SKILLS = join(ROOT, '.claude', 'skills');
 
 // 1–2. bodies.json and the format gate
-// Windows: `python3` is the Store stub and the console code page is not UTF-8, so use `python` in UTF-8 mode.
-const PY = process.platform === 'win32' ? 'python' : 'python3';
-const py = (script: string, a: string[]) => spawnSync(PY, [script, ...a], { cwd: DIR, encoding: 'utf8', env: { ...process.env, PYTHONUTF8: '1' } });
+const py = (script: string, a: string[]) => spawnSync(PYTHON, [script, ...a], { cwd: DIR, encoding: 'utf8', env: { ...process.env, PYTHONUTF8: '1' } });
 const b2 = py(join(SKILLS, 'ebug-draft-generator/scripts/drafts_to_bodies.py'), [DRAFTS, '--out', 'upload/bodies.json', '--stage', 'upload/',
   ...(existsSync(join(DIR, 'decisions.md')) ? ['--decisions', 'decisions.md'] : [])]);
 if (b2.status !== 0) { console.error(b2.stdout + b2.stderr); process.exit(1); }
@@ -52,7 +54,10 @@ const bodies: Record<string, Body> = JSON.parse(readFileSync(join(DIR, 'upload/b
 const first = Object.values(bodies)[0];
 const pv = first?.short.match(/^(\S+) (\d+\.\d+\.\d+) -/);
 if (!args.includes('--no-check') && pv) {
-  const ck = py(join(SKILLS, 'ebug-tr-filer/scripts/check_ebug_format.py'), ['--product', pv[1], '--version', pv[2], '--upload-dir', 'upload', 'upload/bodies.json']);
+  // MUI entries (user, 2026-11-24): the feature's mui.json holds the language tags they may carry
+  const mui = join(ROOT, 'library', product, feature, 'mui.json');
+  const ck = py(join(SKILLS, 'ebug-tr-filer/scripts/check_ebug_format.py'), ['--product', pv[1], '--version', pv[2], '--upload-dir', 'upload',
+    ...(existsSync(mui) ? ['--mui', mui] : []), 'upload/bodies.json']);
   const tail = (ck.stdout + ck.stderr).trim().split('\n').slice(-3).join('\n');
   writeFileSync(join(DIR, 'check.txt'), tail + '\n');
   if (ck.status !== 0) { console.error(ck.stdout + ck.stderr + '\nFormat check failed: no page built (fix the drafts, or --no-check).'); process.exit(1); }
@@ -83,6 +88,10 @@ for (const [re, label] of [[/Held/, 'HELD, NOT RE-VERIFIED'], [/Already filed/, 
   for (const r of rows(section(re))) if (r.length >= 2) fixes.push([`${r[0]} — ${r[1]}`, `${label} — ${r.slice(2).filter(Boolean).join(' · ')}`]);
 }
 const held = rows(section(/Held/)).map(r => r[0]);
+// MUI with no translation sheet (user, 2026-11-24): translations the run judged odd, for the reviewer to decide
+// | ID | Language | Screen | English | App shows | Why it seems off | Better wording |
+const doubts = rows(section(/Translation doubts/)).filter(r => r.length >= 6)
+  .map(([id, lang, screen, en, app, why, better]) => ({ id, lang, screen, en, app, why, better: better || '' }));
 
 // the run's results: tally and Blocked rows
 const runRel = (source.match(/`(library\/[^`]+\/runs\/[^`]+?)\/?`/) || [])[1];
@@ -152,7 +161,7 @@ const facts = [fact('Version', version), fact('Build No', build), device ? fact(
   fact('Account', 'needed', 'f-acct', true), fact('TRCode', `${tr}? confirm`, 'f-tr', true)].join('');
 const data = {
   meta: { key: `${product}-${feature}-${platform}-${batch}`, cases: nCases, round, trNote },
-  entries: entries.map(({ kind, ...e }) => e), blocked, counts, rechecks: [], fixes,
+  entries: entries.map(({ kind, ...e }) => e), blocked, counts, rechecks: [], fixes, doubts,
   defaults: DEF.found ? { ...DEF, from: `the ${feature} ${platform} batch ${DEF.from} (filed ${DEF.filed_on})`, tr, tr_prev: DEF.tr, version, build } : { found: false },
   filed,
 };

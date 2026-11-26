@@ -358,6 +358,8 @@ def cmd_create(a):
                "--upload-dir", os.path.dirname(os.path.abspath(a.bodies))]
         if os.environ.get("ALLOW_AGENT_UX") == "1":   # casebook: UX rule restored 2026-11-13 (overlay rule 5)
             cmd.append("--allow-agent-ux")
+        if a.mui:   # MUI language tags ([DEU] [NLD]…) are valid only against the feature's mui.json
+            cmd += ["--mui", a.mui]
         print(f"Format check: {short_product} {a.version}", flush=True)
         if subprocess.call(cmd) != 0:
             raise ECLError(
@@ -855,6 +857,8 @@ def main():
                    help="ECL login the token belongs to, when it differs from --creator")
     s.add_argument("--new-creator", action="store_true",
                    help="allow a Creator with no prior eBugs (first-time filer)")
+    s.add_argument("--mui", help="the feature's mui.json, passed to the format check so MUI "
+                   "language tags ([DEU] [NLD]…) are accepted")
     s.add_argument("--skip-format-check", action="store_true",
                    help="bypass check_ebug_format.py (every batch that did shipped malformed)")
     s.set_defaults(fn=cmd_create)

@@ -71,7 +71,7 @@
 //                             capture keeps running), a dump of the ring buffer, and the app's log files on shared
 //                             storage when it wrote any; prints a summary (failures, toasts, crash lines)
 //   wait SECONDS              sleep (keeps the session alive with a status call)
-//   waitfor "A|B" [--gone] [--bottom] [--timeout S] [--every S]
+//   waitfor "A|B" [--gone] [--bottom] [--fail "X|Y"] [--timeout S] [--every S]
 //                             poll quietly until any text is visible (text, content-desc or resource-id contains it), or
 //                             with --gone until none is; prints the elapsed seconds once. Exits 1 with a screenshot on
 //                             timeout. List the failure texts too, so a failure ends the wait. --bottom taps a chat's ↓
@@ -664,15 +664,23 @@ switch (cmd) {
     // waitfor "A|B|C" [--gone] [--timeout S] [--every S]: one page source per round, every text checked against it.
     const a = [...rest]; const take = (n: string) => { const i = a.indexOf(n); return i < 0 ? undefined : a.splice(i, 2)[1]; };
     const flag = (n: string) => { const i = a.indexOf(n); if (i >= 0) a.splice(i, 1); return i >= 0; };
+    // --fail "X|Y": stop at once (exit non-zero, screenshot) when a dead-end screen shows, e.g. a paywall after a tier
+    // lapse, instead of waiting out a long --timeout (2026-11-25: a lapsed Pro held a 1800 s wait for 25 min).
     const gone = flag('--gone'), toBottom = flag('--bottom');
     const timeout = Number(take('--timeout') ?? 600), every = Number(take('--every') ?? 2);
+    const fails = (take('--fail') ?? '').split('|').map(t => t.trim()).filter(Boolean);
     const alts = a.join(' ').split('|').map(t => t.trim()).filter(Boolean);
-    if (!alts.length) throw new Error('waitfor "TEXT[|TEXT…]" [--gone] [--bottom] [--timeout S] [--every S]');
+    if (!alts.length) throw new Error('waitfor "TEXT[|TEXT…]" [--gone] [--bottom] [--fail "X|Y"] [--timeout S] [--every S]');
     const t0 = Date.now(); const secs = () => Math.round((Date.now() - t0) / 1000);
     for (;;) {
       let xml = await source();
       if (toBottom && await jumpToBottom(xml)) xml = await source();
       const els = parse(xml); let hit = '';
+      const dead = fails.find(t => findText(els, t));
+      if (dead) {
+        const p = await quiet('shot', [`waitfor-fail-${stamp()}`]);
+        throw new Error(`waitfor: dead end "${dead}" visible after ${secs()} s (screenshot ${p})`);
+      }
       for (const t of alts) { const e = findText(els, t); if (e) { hit = `${t} | ${e.text || e.desc || e.id} | ${e.x},${e.y},${e.w},${e.h}`; break; } }
       if (!gone && hit) { const l = `found after ${secs()} s: ${hit}`; console.log(l); return l; }
       if (gone && !hit) { const l = `gone after ${secs()} s: ${alts.join(' | ')}`; console.log(l); return l; }

@@ -14,6 +14,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { CHANGES, COLUMNS, ROOT, arg, assertIds, draftsDir, featureDir, readManifest, readTable, tableDir } from './lib/library.ts';
 import { parseCsv } from './lib/csv.ts';
+import { parseQuestions, readAnswers, readSettled } from './lib/questions.ts';
 import { linkBlocks } from './lib/links.ts';
 import { skillDiffs } from './lib/skills.ts';
 import { KB_ID, applicable, knowledgeHash, loadKnowledge } from './lib/knowledge.ts';
@@ -63,6 +64,11 @@ rows.forEach((r, i) => {
       .some(l => l.includes(';') || /[^.][.!?]\s+[A-Z「]/.test(l));
     if (joined) warnings.push(`${at}: ${f} joins several items on one line (";" or two sentences); put each on its own line (formats.md, one item per line)`);
   }
+  // MUI rows (user, 2026-11-25): their long Expected Result is numbered line by line, not only broken into lines (mui.md §2)
+  if (r.Section === 'MUI') {
+    const lines = (r['Expected Result'] ?? '').split('\n').map(l => l.trim()).filter(Boolean);
+    if (lines.length > 1 && lines.some(l => !/^\d+[.)]\s/.test(l))) warnings.push(`${at}: MUI Expected Result has unnumbered lines; number every line (mui.md, Numbered lines)`);
+  }
   if (!r['Spec Ref']) errors.push(`${at}: empty Spec Ref (every case must trace to a requirement)`);
   else if (reqIds) for (const id of r['Spec Ref'].match(/\bR-\d{3,}\b/g) ?? []) if (!reqIds.has(id)) errors.push(`${at}: Spec Ref ${id} is not in requirements.md`);
   if (draft && r.Change && !CHANGES.includes(r.Change)) errors.push(`${at}: Change must be one of ${CHANGES.join(', ')}`);
@@ -91,6 +97,14 @@ if (reqText && reqIds) {
   }
   const unused = [...reqIds].filter(id => !used.has(id) && !new RegExp(`^- ${id}\\b.*NOT TESTABLE`, 'm').test(reqText));
   if (unused.length) warnings.push(`Requirements with no case: ${unused.join(', ')} (fine only if each is marked not testable in requirements.md)`);
+  // Every Open question is observed by a row (user, 2026-11-25): the next run then reaches it and can determine or file
+  // it. One no row can observe (an unread spec file) ends "No row: <why>".
+  // A row observes a question when the question names it, or names a requirement an active row cites. Questions already
+  // settled (answered, filed as an eBug or determined by a run: question-answers.json, question-status.json) are not held to it.
+  const answered = readAnswers(feature), settledQ = readSettled(tableDir(feature, platform));
+  const unobserved = parseQuestions(reqText).filter(q => !/\bNo row:/i.test(q.text) && !answered[q.id] && !['determined', 'filed'].includes(settledQ[q.id]?.state ?? '')
+    && !tcRefs(q.text).some(tc => active.has(tc)) && !(q.text.match(/\bR-\d{3,}\b/g) ?? []).some(id => used.has(id))).map(q => q.id);
+  if (unobserved.length) warnings.push(`Open questions no row observes: ${unobserved.join(', ')}; add a row that records what the app does on each and name its TC id in the question, or end the question "No row: <why none can exist>" (analysis.md, Open questions)`);
 
   // Flow arrows of the spec set.
   const specFolder = draft

@@ -42,7 +42,7 @@ Check project lists after AI results and empty projects.
 
 ## KP-075 The full-screen hint covers the first Play of each project
 - kind: quirk · platform: android · use: run · tags: editor, preview, hint
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-26 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-26; AIGC Watermark Android run 2026-11-23-r2-changed TC-060 · verified: 16.9.0 build 2611231 (2026-11-24)
 
 Every time a project opens, its first Play shows 「Double tap on preview to watch your video at full screen.」 while
 playback runs behind it. Close it with X (「Don't show again」 left unticked), seek to 0:00 and play again before

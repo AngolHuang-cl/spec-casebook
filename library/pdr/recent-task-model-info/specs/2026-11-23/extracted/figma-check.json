@@ -1,0 +1,2 @@
+{ "checked_at": "2026-11-23T00:00:00.000Z", "set": "2026-11-23", "unchanged": [], "changed": [], "removed": [], "baseline": [], "missed_arrows": [], "reread": [], "shots": [],
+  "new_boards": [ { "id": "1794:3210", "name": "1006 · Add model information (I2V/T2V)", "file": "design" }, { "id": "1794:3214", "name": "Video", "file": "design" }, { "id": "1794:3217", "name": "Video · 編輯模式", "file": "design" } ] }

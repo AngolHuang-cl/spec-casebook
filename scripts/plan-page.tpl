@@ -120,12 +120,16 @@ details.hist > summary { cursor: pointer; font-size: 13.5px; color: var(--muted)
 .lang button { font: 600 0.85rem var(--body); border: 0; background: transparent; color: var(--ink); padding: 5px 14px; cursor: pointer }
 .lang button[aria-pressed="true"] { background: var(--ink); color: var(--panel) }
 .lang button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.runpick { font: 600 0.82rem var(--mono); color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 3px 6px; margin-right: 6px; max-width: 100%; vertical-align: 1px }
+.runpick:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.run-links { font-size: 0.85rem }
+.run-links a { color: var(--accent); white-space: nowrap }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important } }
 </style>
 
 <div class="wrap">
   <header style="display:grid;gap:10px">
-    <div class="top"><div class="eyebrow"><span data-zh="測試表進度 · 本次執行">Casebook progress · current run</span></div><div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">English</button><button type="button" data-l="zh" aria-pressed="false">中文</button></div></div>
+    <div class="top"><div class="eyebrow" id="eyebrow"></div><div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">English</button><button type="button" data-l="zh" aria-pressed="false">中文</button></div></div>
     <h1>__TITLE__</h1>
     <div class="run-name" id="runname"></div>
     <div class="meta" id="meta"></div>
@@ -134,7 +138,7 @@ details.hist > summary { cursor: pointer; font-size: 13.5px; color: var(--muted)
   </header>
 
   <section class="ubox usage nosegs" id="usage-box" aria-labelledby="usage-h">
-    <div class="uh"><h2 id="usage-h"><span data-zh="時間與方案用量 · 本次執行">Time and plan usage · this run</span></h2><span class="uw" id="usage-when"></span></div>
+    <div class="uh"><h2 id="usage-h">Time and plan usage · this run</h2><span class="uw" id="usage-when"></span></div>
     <div id="usage-strip"></div>
     <div class="tbl"><table id="usage"></table></div>
     <div class="ufoot"><span class="tools"><button type="button" aria-pressed="false" onclick="toggleSegs(this)">Show segments</button></span>
@@ -166,9 +170,9 @@ details.hist > summary { cursor: pointer; font-size: 13.5px; color: var(--muted)
   </section>
 
   <section class="history" id="history" aria-labelledby="hist-h">
-    <div class="hist-head"><h2 id="hist-h"><span data-zh="先前的執行">Earlier runs</span></h2><span class="eyebrow" id="hist-sum"></span></div>
-    <section class="box usage nosegs" aria-label="Time and plan usage of earlier runs">
-      <h2><span data-zh="時間與方案用量 · 先前的執行">Time and plan usage · earlier runs</span></h2>
+    <div class="hist-head"><h2 id="hist-h"><span data-zh="其他執行">Other runs</span></h2><span class="eyebrow" id="hist-sum"></span></div>
+    <section class="box usage nosegs" aria-label="Time and plan usage of other runs">
+      <h2><span data-zh="時間與方案用量 · 其他執行">Time and plan usage · other runs</span></h2>
       <div class="tools"><button type="button" aria-pressed="false" onclick="toggleSegs(this)">Show segments</button></div>
       <div class="tbl"><table id="usage-hist"></table></div>
     </section>
@@ -196,6 +200,12 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '
 const PAGES = window.CASEBOOK?.pages ?? {};
 const xlinks = id => (PAGES.review || PAGES.coverage || PAGES.results) ? `<div class="xl">${PAGES.review ? `<a href="${esc(PAGES.review)}#${encodeURIComponent(id)}">${tx('cases', '案例')} →</a>` : ''}${PAGES.results ? `<a href="${esc(PAGES.results)}#case=${encodeURIComponent(id)}">${tx('results', '結果')} →</a>` : ''}${PAGES.coverage ? `<a href="${esc(PAGES.coverage)}#case=${encodeURIComponent(id)}">${tx('coverage', '覆蓋率')} →</a>` : ''}</div>` : '';
 let focusCase = '';
+// The run shown at the top: ?run=<phase id> (the run switcher, or Results' 「progress of this run」 link), else the
+// current run (phases.json "current", or the last round). The other phases are the earlier runs below it.
+let pick = '';
+const picked = () => DATA.phases.some(p => p.id === pick) ? DATA.phases.filter(p => p.id === pick) : DATA.phases.filter(p => p.current);
+const isDefault = () => !DATA.phases.some(p => p.id === pick && !(p.current && DATA.phases.filter(x => x.current).length === 1));
+const resultsLink = p => PAGES.results && p.runDir ? `<a href="${esc(PAGES.results)}?run=${encodeURIComponent(p.runDir.replace(/^runs\/|\/$/g, ''))}">${tx('Results of this run', '這次執行的結果')} →</a>` : '';
 const tally = cs => { const t = Object.fromEntries(RES.map(r => [r, 0])); cs.forEach(c => t[c.result in t ? c.result : 'Not run']++); return t; };
 const bar = t => { const n = Object.values(t).reduce((a, b) => a + b, 0) || 1; return RES.map(r => t[r] ? `<span style="width:${t[r] / n * 100}%;background:${COLOR[r]}" title="${resName(r)} ${t[r]}"></span>` : '').join(''); };
 const hm = ms => `${Math.floor(ms / 3600000)}h ${String(Math.round(ms / 60000) % 60).padStart(2, '0')}m`;
@@ -343,6 +353,7 @@ function renderBlocked(phases) {
     return `<details class="why-cat whyd" id="why--${esc(k)}"${openSegs.has(`why--${k}`) ? ' open' : ''}><summary><h3>${esc(catName(k))} <span class="n">${n(k)}</span></h3></summary>${CAT[k] ? `<p class="clears">${tx(CAT[k][2], CAT[k][3])}</p>` : ''}<ul>${groups}</ul></details>`;
   }).join('');
 }
+document.addEventListener('click', e => { const a = e.target.closest('a[data-run]'); if (!a) return; e.preventDefault(); pick = a.dataset.run; render(); saveView(); window.scrollTo({ top: 0 }); });
 // A case link in the Blocked panel opens its segment.
 document.addEventListener('click', e => { const a = e.target.closest('a[data-open]'); if (a) { const d = document.getElementById(a.dataset.open); if (d) { d.open = true; fillDetails(d); } } });
 // a segment's case table, drawn when the segment opens: a page holding every table of every run was 29,000 elements
@@ -365,7 +376,7 @@ function phaseHtml(p, history) {
   const cs = p.segments.flatMap(s => s.cases), t = tally(cs);
   const state = p.skip ? ['skip', 'Skipped this round'] : p.hold ? ['hold', 'Deferred'] : t['Not run'] === 0 ? ['done', 'Recording complete'] : t['Not run'] < cs.length ? ['active', 'In progress'] : ['pending', 'Pending'];
   const head = `<div class="phase-head"><span class="phase-id">${esc(p.id)}</span><h2>${esc(p.name)} <span class="eyebrow num">${tx(`${cs.length} cases · ${p.segments.length} segments`, `${cs.length} 個案例 · ${p.segments.length} 個區段`)}</span></h2><span class="state ${state[0]}">${stateName(state[1])}${state[0] === 'done' && t.Blocked ? tx(` — ${t.Blocked} blocked`, ` — ${t.Blocked} 個受阻`) : ''}</span>
-    <div class="phase-note">${esc(p.skip || p.hold || p.note || '')}${p.runDir ? ` <code>${esc(p.runDir)}</code>` : ''}${history ? statLine(p.stats) : ''}</div><div class="bar" style="grid-column:1/-1">${bar(t)}</div></div>`;
+    <div class="phase-note">${esc(p.skip || p.hold || p.note || '')}${p.runDir ? ` <code>${esc(p.runDir)}</code>` : ''}${history ? statLine(p.stats) : ''}${history && p.runDir ? ` <span class="run-links">${resultsLink(p)} ${DATA.phases.length > 1 ? `<a href="?run=${encodeURIComponent(p.id)}" data-run="${esc(p.id)}">${tx('Show at the top', '移到最上方')} ↑</a>` : ''}</span>` : ''}</div><div class="bar" style="grid-column:1/-1">${bar(t)}</div></div>`;
   const histOpen = openSegs.has(`hist--${p.id}`);
   const body = history ? `<details class="hist" id="hist--${esc(p.id)}"${histOpen ? ' open' : ''}><summary>${tx(`Show ${p.segments.length} segments and their cases`, `顯示 ${p.segments.length} 個區段與其案例`)}</summary>${histOpen ? phaseSegs(p) : ''}</details>` : phaseSegs(p);
   return `<section class="phase" aria-label="${esc(p.id)}">${head}${body}</section>`;
@@ -374,19 +385,30 @@ let openSegs = new Set();
 function render() {
 openSegs = new Set([...document.querySelectorAll('details.seg[open], details.hist[open], details.whyd[open]')].map(d => d.id));
 // Both parts keep the order the phases ran in; only the current run and the earlier runs are separated.
-const cur = DATA.phases.filter(p => p.current), hist = DATA.phases.filter(p => !p.current);
-renderUsage('usage', cur, tx('This run', '本次執行'), tx('No time recorded yet: the figures start with the first segment of this run.', '尚未記錄時間：數字從本次執行的第一個區段開始。'));
-renderUsage('usage-hist', hist, tx('Earlier runs total', '先前執行合計'), tx('No earlier runs.', '沒有先前的執行。'));
+const cur = picked(), hist = DATA.phases.filter(p => !cur.includes(p));
+const dflt = isDefault();
+document.getElementById('usage-h').textContent = tx('Time and plan usage · this run', `時間與方案用量 · ${dflt ? '本次執行' : '這次執行'}`);
+document.getElementById('eyebrow').textContent = tx(`Casebook progress · ${dflt ? 'current run' : 'earlier run'}`, `測試表進度 · ${dflt ? '本次執行' : '先前的執行'}`);
+// one button per run, newest first (as on Results); the current run's phases share a button
+const choices = [...DATA.phases.filter(p => !p.current && (p.runDir || p.stats)), ...(DATA.phases.some(p => p.current) ? [null] : [])].reverse();
+// one compact picker at the start of the run name line (no extra height): "R2 · 11-18", the current run marked
+const opt = p => { const ps = p ? [p] : DATA.phases.filter(x => x.current), on = p ? !dflt && p.id === pick : dflt;
+  const from = ps.map(x => x.stats?.from).filter(Boolean).sort()[0];
+  return `<option value="${p ? esc(p.id) : ''}"${on ? ' selected' : ''}>${esc(ps.map(x => x.id).join(' + '))}${from ? ` · ${esc(cbWhen(from).slice(0, 5))}` : ''}${p ? '' : ` · ${tx('current', '目前')}`}</option>`; };
+const picker = choices.length > 1 ? `<select class="runpick" id="runpick" aria-label="${tx('Run', '執行')}">${choices.map(opt).join('')}</select>` : '';
+renderUsage('usage', cur, dflt ? tx('This run', '本次執行') : tx('This run', '這次執行'), tx('No time recorded yet: the figures start with the first segment of this run.', '尚未記錄時間：數字從本次執行的第一個區段開始。'));
+renderUsage('usage-hist', hist, tx('Other runs total', '其他執行合計'), tx('No other runs.', '沒有其他執行。'));
 const all = cur.flatMap(p => p.skip || p.hold ? [] : p.segments.flatMap(s => s.cases));
 const nowCase = cur.flatMap(p => p.skip || p.hold ? [] : p.segments.flatMap(s => s.cases.map(c => ({ ...c, seg: s.id })))).find(c => c.result === 'Not run');
 const T = tally(all);
-document.getElementById('runname').textContent = cur.map(p => `${p.id} · ${p.name}`).join(' · ');
+const links = cur.map(resultsLink).filter(Boolean);
+document.getElementById('runname').innerHTML = picker + esc(cur.map(p => picker && cur.length === 1 ? p.name : `${p.id} · ${p.name}`).join(' · ')) + (links.length ? ` <span class="run-links">${links.length > 1 ? cur.filter(resultsLink).map(p => resultsLink(p).replace(/(→<\/a>)$/, `(${esc(p.id)}) $1`)).join(' ') : links[0]}</span>` : '');
 const testedV = cur.map(p => p.name.match(/\btable v(\d+)/i)?.[1]).find(Boolean), lastAct = cur.map(p => p.stats?.to).filter(Boolean).sort().at(-1);
 document.getElementById('meta').innerHTML = [
   [tx('Approved table', '核准的測試表'), `v${DATA.version} · ${tx(`${DATA.totalCases} cases`, `${DATA.totalCases} 個案例`)}`],
   // the table a run tested is often older than the approved one: its name says which (run plans name it)
-  [tx('This run tested', '本次執行測試'), `${testedV ? `${tx('table', '測試表')} v${esc(testedV)} · ` : ''}${tx(`${all.length} cases`, `${all.length} 個案例`)}`],
-  [tx('Build', '版本'), esc(DATA.build)],
+  [tx('This run tested', dflt ? '本次執行測試' : '這次執行測試'), `${testedV ? `${tx('table', '測試表')} v${esc(testedV)} · ` : ''}${tx(`${all.length} cases`, `${all.length} 個案例`)}`],
+  [tx('Build', '版本'), esc(cur.map(p => p.build).filter(Boolean).at(-1) || DATA.build)],
   [tx('Recorded', '已記錄'), `${all.length - T['Not run']} / ${all.length}`], ...(nowCase ? [[tx('Next', '下一個'), `${esc(nowCase.id)} (${esc(nowCase.seg)})`]] : []),
   ...(lastAct ? [[tx('Last run activity', '最後執行活動'), esc(cbWhenZ(lastAct, LANG))]] : []),
   [LIVE ? tx('Page updated', '頁面更新於') : tx('Generated', '產生於'), esc(cbWhenZ(DATA.generated, LANG))]
@@ -398,8 +420,12 @@ renderBlocked(cur);
 document.getElementById('history').hidden = !hist.length;
 document.getElementById('hist-sum').textContent = hist.length ? `${hist.map(p => p.id).join(', ')} · ${tx(`${hist.reduce((n, p) => n + p.segments.reduce((m, s) => m + s.cases.length, 0), 0)} cases`, `${hist.reduce((n, p) => n + p.segments.reduce((m, s) => m + s.cases.length, 0), 0)} 個案例`)}` : '';
 document.getElementById('hist-phases').innerHTML = hist.map(p => phaseHtml(p, true)).join('');
-document.getElementById('cps').innerHTML = DATA.checkpoints.map(c => `<div><span class="t">${esc(cbWhenZ(c.time, LANG))} · ${tx('next', '下一個')} ${esc(c.next)}</span><br>${esc(c.text)}</div>`).join('') || `<div>${tx('No checkpoints yet for this run.', '本次執行還沒有檢查點。')}</div>`;
-document.getElementById('log').innerHTML = DATA.log.map(l => `<li>${esc(l)}</li>`).join('');
+const rp = document.getElementById('runpick');
+if (rp) rp.onchange = () => { pick = rp.value; focusCase = ''; render(); saveView(); window.scrollTo({ top: 0 }); };
+const dirs = new Set(cur.map(p => p.runDir));
+document.getElementById('cps').innerHTML = DATA.checkpoints.filter(c => dirs.has(`runs/${c.run}/`)).slice(0, 6).map(c => `<div><span class="t">${esc(cbWhenZ(c.time, LANG))} · ${tx('next', '下一個')} ${esc(c.next)}</span><br>${esc(c.text)}</div>`).join('') || `<div>${tx('No checkpoints yet for this run.', '本次執行還沒有檢查點。')}</div>`;
+const own = cur.length === 1 ? cur[0].log : null;
+document.getElementById('log').innerHTML = (own ?? DATA.log).map(l => `<li>${esc(l)}</li>`).join('');
 }
 // Fixed text carries its Chinese in data-zh; the English is kept in data-en the first time it is swapped.
 function applyStatic() {
@@ -417,7 +443,7 @@ if (window.CASEBOOK) { document.querySelector('.lang')?.remove(); addEventListen
 function showCase() {
   const m = location.hash.match(/^#case=(.+)$/); if (!m) return;
   focusCase = decodeURIComponent(m[1]);
-  const order = [...DATA.phases.filter(p => p.current), ...DATA.phases.filter(p => !p.current).reverse()];
+  const order = [...picked(), ...DATA.phases.filter(p => !picked().includes(p)).reverse()];
   const p = order.find(p => p.segments.some(s => s.cases.some(c => c.id === focusCase))); if (!p) return;
   const s = p.segments.find(s => s.cases.some(c => c.id === focusCase));
   render();
@@ -430,13 +456,15 @@ addEventListener('hashchange', showCase);
 // browser tab, so leaving Progress for another page and coming back keeps them too.
 const VIEW = `plan-view:${location.pathname}`;   // one address serves every table now: a view per table
 function saveView() {
-  const ids = [...document.querySelectorAll('details.seg[open], details.hist[open]')].map(d => d.id), s = ids.length ? `open=${ids.map(encodeURIComponent).join(',')}` : '';
+  const ids = [...document.querySelectorAll('details.seg[open], details.hist[open]')].map(d => d.id);
+  const s = [pick && !isDefault() ? `run=${encodeURIComponent(pick)}` : '', ids.length ? `open=${ids.map(encodeURIComponent).join(',')}` : ''].filter(Boolean).join('&');
   try { history.replaceState(history.state, '', location.pathname + (s ? `?${s}` : '') + location.hash); sessionStorage.setItem(VIEW, s); } catch (e) {}
 }
 document.addEventListener('toggle', e => { if (e.target.matches?.('details.seg, details.hist')) { if (e.target.open) fillDetails(e.target); saveView(); } }, true);
 applyStatic();
-render();
 { let s = location.search.slice(1); if (!s && !location.hash) try { s = sessionStorage.getItem(VIEW) ?? ''; } catch (e) {}
+  pick = new URLSearchParams(s).get('run') ?? '';
+  render();
   for (const id of (new URLSearchParams(s).get('open') ?? '').split(',').filter(Boolean)) { const d = document.getElementById(id); if (d) { d.open = true; fillDetails(d); } } }
 showCase();
 /*LIVE*/

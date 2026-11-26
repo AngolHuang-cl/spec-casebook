@@ -1,0 +1,33 @@
+{
+  "feature": "pdr/cinematic-reel-recommendation",
+  "folder": "2026-11-23",
+  "received_at": "2026-11-23T03:49:22.869Z",
+  "spec_set_sha256": "3fe37ae7904cead1ab432f7a567bc490d6ba945308d85c305198d06d897f6f39",
+  "files": [
+    {
+      "name": "Cinestory CMS - Recommendation.md",
+      "sha256": "4a997249a9ceafb76d194a03e17ea4d75112c8c7ed448834c06c00d50b906701",
+      "bytes": 5216
+    },
+    {
+      "name": "PDRA-661 Jira description.md",
+      "sha256": "dca0c22bc2423621f7c4f6f04903a048d4a47fee30f62bceff21a0f5ebb51656",
+      "bytes": 886
+    },
+    {
+      "name": "Cinematic Reel Recommendation - Design Figma 107-2283.md",
+      "sha256": "fa0702f3d9841d86f4effbc8ef257bdb30424b5fda080264e0a23b54ce03174c",
+      "bytes": 8580
+    }
+  ],
+  "source_priority": [
+    "design",
+    "pm"
+  ],
+  "figma": {
+    "design": "https://www.figma.com/design/w2cTi3WTU9vGDE3laY1H1t/Cinematic-Reel-Creator--CineStory-?node-id=107-2283",
+    "pm": "https://www.figma.com/design/ITGFcSoXzw6dAXYBY3GMGR/CineStory?node-id=0-1"
+  },
+  "figma_only": true,
+  "note": "Figma-only spec set (user, 2026-11-23, REQ-001): Jira PDRA-661 (saved page) names the Design frame 107:2283 and the Cinestory CMS sheet; the .md files are text snapshots of the Jira description, the Design read and the CMS tabs. The PM Figma has no photo tips content (figma-frames.json)."
+}

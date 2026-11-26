@@ -54,15 +54,17 @@ states 「Retry」 and 「View Details」 were never reached.
 
 ## KP-079 Some tools save their result to the gallery by themselves
 - kind: fact · platform: android · use: analysis, run · tags: save, gallery, results
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-13, O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-13, O-18; corrected by AIGC Watermark Android run 2026-11-23-r2-changed O-5; corrected by AIGC Watermark Android run 2026-11-23-r3-full O-1, O-4 · verified: 16.9.0 build 2611193 (2026-11-23)
 
-Video Edit by Chat, Talking Avatar and AI Anime Video write the result to the gallery when the task finishes, with no
-「Save」 tap. Character Motion Swap, Cinematic Reel Creator and Text to Video do not. Whether this is intended is not in
-any spec.
+Video Edit by Chat, AI Anime Video and Talking Avatar write the result to the gallery when the task finishes, with no
+「Save」 tap and before the result is opened (2611193; R2 read Talking Avatar as writing at first open, R3 O-4 saw it
+write at finish with the result unopened). Text to Image's 「Add to Timeline」 also writes a gallery copy, which a later
+「Save」 reuses (KP-080). Character Motion Swap, Cinematic Reel Creator and Text to Video do not. Whether this is
+intended is not in any spec.
 
 ## KP-080 What a second Save does
 - kind: fact · platform: android · use: analysis, run · tags: save, gallery, files
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-6, O-10, O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-6, O-10, O-18 · verified: 16.9.0 build 2611193 (2026-11-23)
 
 A Text to Image result saved once is never written again: a second 「Save」 says 「Saved to Gallery」 and leaves the
 first file as it was. AI Art, Image to Video and Text to Video write a new file on every Save. In Image to Video file
@@ -75,40 +77,86 @@ names the number after the date counts saves, not tasks.
 「Create another one」 is available while a task is 「Processing…」, so generations can overlap to save time. A failed
 task's list item reads 「An Error Has Occurred / Credits have been refunded…」.
 
-## KP-082 Models and tools offered on Android (Free)
-- kind: fact · platform: android · use: analysis, run · tags: models, tier, image-to-video, text-to-video
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-9, O-17, O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+## KP-082 Models and tools offered on Android
+- kind: fact · platform: android · use: analysis, run · tags: models, tier, image-to-video, text-to-video, video-edit-by-chat
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-9, O-17, O-18; corrected by AIGC Watermark Android run 2026-11-23-r2-changed O-3, O-9, O-14 · verified: 16.9.0 build 2611193 (2026-11-23)
 
-Image to Video: Veo 3.1, Vidu Q2, Kling O3, Kling 4.0, Pixverse V6, Wan 2.7, Gemini Omni Flash 1.1, Happy Horse 1.1;
-Seedance 2.0 and 2.5 are Pro (「Subscribe Pro to Unlock」); no Flux or Hailuo. Text to Video: Kling 4.0, Wan 3.0,
-Seedance 2.5 / 2.0 (Pro), Gemini Omni Flash, Happy Horse 1.1, Wan 2.7, Veo 3.1, Kling O3; no Vidu, Pixverse, Hailuo
-or Flux. Text to Image defaults to 「GPT-Image-2.6 Sunburst」. Video Object Removal is not offered on Android.
+On 2611193 (Free and Pro list the same): Image to Video offers Kling 4.0, Kling O3, Pixverse V6, Wan 3.0, Gemini Omni
+Flash 1.1, Happy Horse 1.1, Seedance 2.0 (Pro), Veo 3.1, Vidu Q2, Wan 2.7; Text to Video Kling 4.0, Wan 3.0, Seedance
+2.0 (Pro), Gemini Omni Flash, Happy Horse 1.1, Wan 2.7, Veo 3.1, Kling O3; Video Edit by Chat Seedance 2.5 (default),
+Seedance 2.0, Gemini Omni Flash 1.1, Happy Horse, Kling O3, PixVerse V6. No Flux, Hailuo, or Seedance 2.5 in I2V / T2V
+(2611161 had 2.5 and no Wan 3.0 in I2V). Video Object Removal is not offered. Lists are server-set: reread each build.
 
 ## KP-083 Model pickers reset
 - kind: quirk · platform: android · use: run · tags: models, image-to-video, text-to-video, video-edit-by-chat
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-7, O-17, O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-7, O-17, O-18; corrected by AIGC Watermark Android run 2026-11-23-r2-changed O-9 · verified: 16.9.0 build 2611161 (2026-11-17); Video Edit by Chat part 2611193 (2026-11-23)
 
-Image to Video and Text to Video open on 「Kling 4.0」 each time (also after 「Create another one」); Video Edit by
-Chat resets to 「Seedance 2.5」 after a source video is picked. Pick the model last, right before Generate.
+Image to Video and Text to Video open on 「Kling 4.0」 each time (also after 「Create another one」). On 2611161 Video
+Edit by Chat reset to 「Seedance 2.5」 after a source video was picked; on 2611193 a model picked before the source
+stays selected. Still read the model back right before Generate.
 
-## KP-084 Portrait Text to Video files are stored landscape
+## KP-084 Portrait video results can be stored landscape
 - kind: fact · platform: android · use: run · tags: text-to-video, files, orientation
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-18 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-18; AIGC Watermark Android run 2026-11-23-r3-full O-3, TC-012 · verified: 16.9.0 build 2611193 (2026-11-23)
 
-A portrait result is stored 1920 × 1080 with a -90° display matrix (Kling O3 1080p, Wan 2.7 720p); players show it
-upright. Read sizes and positions in the displayed orientation.
+A portrait Text to Video result is stored 1920 × 1080 with a -90° display matrix (Kling O3 1080p, Wan 2.7 720p).
+A portrait Image to Video result (Veo 3.1) saved with the switch Off is stored 1280 × 720 with a -90° matrix; saved On
+it keeps the provider's 720 × 1280 upright file. Players show all upright: read sizes and positions in the displayed
+orientation.
 
 ## KP-085 AI Storytelling results live in its own history
 - kind: fact · platform: android · use: analysis, run · tags: ai-storytelling, my-artwork, tier
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-16, O-17 · verified: 16.9.0 build 2611161 (2026-11-17)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-16, O-17; AIGC Watermark Android run 2026-11-23-r2-changed O-11 · verified: 16.9.0 build 2611193 (2026-11-23)
 
 AI Storytelling results are not in My Artwork: they are under AI Storytelling › history 「Generated Story」 and are
 exported, not saved. A Free account gets one free story; more need Pro.
 
 ## KP-090 AI Art's result page has no 「Full Editor」
 - kind: fact · platform: both · use: analysis, run, ebug · tags: ai-art, results, full-editor
-- source: user, 2026-11-18 (eBug review of AIGC Watermark Android R1, F-2) · verified: 16.9.0 build 2611161 (2026-11-17, TC-046)
+- source: user, 2026-11-18 (eBug review of AIGC Watermark Android R1, F-2) · verified: 16.9.0 build 2611193 (2026-11-23)
 
 AI Art results cannot be opened in the editor: the result page has no 「Full Editor」 (Android shows feedback, share,
 download and 「Turn the image into a video」). A spec rule for every image result that names 「Full Editor」 (AIGC
 Watermark R-024) applies to AI Art without that step; Text to Image does have it.
+
+## KP-098 Gemini Omni Flash 1.1 in Image to Video always generates sound
+- kind: fact · platform: android · use: analysis, run · tags: image-to-video, models, sound
+- source: AIGC Watermark Android run 2026-11-23-r2-changed TC-098 · verified: 16.9.0 build 2611193 (2026-11-23)
+
+With 「Gemini Omni Flash 1.1」 picked in Image to Video, 「Generate Sound by AI」 is On and its Off is greyed out; the
+result has an audio track (5 s, 25 credits).
+
+## KP-099 Cinematic Reel Creator saves into the Video Enhance folder
+- kind: quirk · platform: android · use: run, ebug · tags: cinematic-reel, save, files
+- source: AIGC Watermark Android run 2026-11-23-r2-changed O-6 · verified: 16.9.0 build 2611193 (2026-11-23)
+
+Cinematic Reel Creator's Quick actions 「Save」 writes to Movies/cyberlink/PowerDirector/Video Enhance/ with an
+「ImageToVideo - <date> - N - <ms>.mp4」 name, not a Cinematic Reel folder, and no 「Saved to Gallery」 toast was caught.
+Find the file there by time.
+
+## KP-100 Source video uploads take minutes
+- kind: quirk · platform: android · use: run · tags: upload, ai-task, timing
+- source: AIGC Watermark Android run 2026-11-23-r2-changed O-7, O-10; AIGC Watermark Android run 2026-11-23-r3-full O-6 · verified: 16.9.0 build 2611193 (2026-11-23)
+
+Tools that upload a source video (AI Anime Video, Character Motion Swap, Video Edit by Chat, Cinematic Reel) show
+「100% Uploading / Please keep the app open」 for 4–8 min with a 10–13 s clip and about 1.5 min with a 5 s clip on the
+SM-A5360's Wi-Fi. A Cinematic Reel task can then sit on 「Retry」 in the task list; Retry re-uploads and may fail with a
+refund (KP-007). Plan waits and keep the app in front.
+AI Storytelling's upload may log `SocketTimeoutException` while showing 「Media Uploading... 8%」 and then go on by
+itself: not an error unless the screen shows one.
+
+## KP-102 AI Art 「Try with example」 can fail with 「Session timeout」
+- kind: quirk · platform: android · use: run · tags: ai-art, failure, refund, server
+- source: AIGC Watermark Android run 2026-11-23-r3-full O-2 · verified: 16.9.0 build 2611193 (2026-11-23)
+
+On Stage, AI Art 「Baby Face」 with 「Try with example」 failed twice (the second the banner's retry) with a grey tile and
+「Session timeout. Try again to proceed.」, though upload, apply and polling returned 200. The 6 credits came back about
+20 s later (KP-007). Reuse an earlier AI Art result from My Artwork rather than retrying.
+
+## KP-103 My Artwork tiles can stay 「Processing...」 after the task finished
+- kind: quirk · platform: android · use: run, ebug · tags: my-artwork, task-list, results
+- source: AIGC Watermark Android run 2026-11-23-r3-full O-5 · verified: 16.9.0 build 2611193 (2026-11-23)
+
+Cinematic Reel Creator and Talking Avatar tiles in My Artwork kept reading 「Processing...」 well after their task lists
+showed 「View」. Each updated only after its tool's task list was opened once and My Artwork reopened.
+

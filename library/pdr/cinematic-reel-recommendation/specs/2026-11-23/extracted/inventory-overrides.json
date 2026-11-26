@@ -1,0 +1,9 @@
+{
+  "add": [
+    {"screen":"107:2500","screens":["107:2500"],"label":"View photo tips","box":[53,137,103,22],"kind":"button","why":"0820 add photo tips tag: the chip is a plain frame 「tips」 inside the card instance, which the extractor does not take; arrow 1106:5840 starts on it (by hand, 2026-11-23)"}
+  ],
+  "drop": [],
+  "drop_screens": [],
+  "hide": [],
+  "merged": []
+}

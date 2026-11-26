@@ -56,3 +56,10 @@ skill's body. Rule numbers are cited elsewhere (AGENTS.md: "rule 5 of the eBug o
    stays a new card that names the closed ticket as related. The search covers the whole pool and every open
    ticket on the build's version is read against every entry (2026-11-19: Video Enhance Android R2 missed
    DRA262611P0113 / P0115 on a 90-of-182 search; `references/dedupe.md` › *Whole pool*).
+8. **MUI bugs (user, 2026-11-24).** Findings of a table's MUI section (spec-casebook `references/mui.md` §4) carry
+   `[AIAgent][MUI] <Feature>: …` when a translation is missing in every implemented language, else one tag per
+   language, `[AIAgent][JPN][DEU] <Feature>: …`: missing translations of the same languages are one bug, truncation
+   is one bug per language. No `[UI]` beside them; Class UI in the drafts. The language tags come from the
+   translation sheet, else from the user, asked before the run, and live in `library/<product>/<feature>/mui.json`.
+   Each entry has a `MUI: <translation|truncation> — <tags|all>` Note line and the sheet as Spec Link;
+   `check_ebug_format.py --mui <mui.json>` enforces it.

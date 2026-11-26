@@ -26,6 +26,27 @@ controls, and the `decision` entries (Won't Fix, NAB, PM rulings) that make a fi
      asking PM to decide. One eBug per question (its Fail (question) rows on the `Report step:` line); the Result says
      what the app does, the Expect states the decision needed with the sources and the proposal quoted, and the Note
      names the Q-id. A question another PM ruling or ticket already answers (on either OS) is not filed: cite it.
+   - **No question is left open by a completed run (user, 2026-11-25).** At the phase wrap-up, go through every Open
+     question of the table's `requirements.md` and settle each one of three ways, listing all of them with their
+     outcome in `report.md` (`## Open questions`):
+     1. **Determined:** the device, a ruling or an existing ticket answers it. Record it in the table's
+        `question-status.json` (`"Q-5": { "state": "determined", "by": "<phase> (<run id>, <version>)", "at":
+        "<date>", "note": "<what the app does, with the rows; or the ticket that rules>" }`): per platform, because a
+        device answers for its own app only. A row whose expectation the answer changes is named in the note and
+        changed at the next draft. (`question-answers.json` is for the team's answers about the spec itself.)
+     2. **Filed:** it becomes the PM eBug above. Its draft entry and Note name the Q-id exactly (`Q-13`), and a
+        question an existing same-OS ticket covers has its Q-id and that ticket's code on one line of `dedupe.txt`:
+        that is how the pages link it (`lib/boards.ts` `filedQuestions`). An older batch that carries the question
+        without naming its Q-id is linked in `question-status.json` instead (`"state": "filed", "codes": ["DRA…"]`). A question no row fails on is still filed
+        when the run cannot determine it: the filing rule follows the question list, not only the Fail (question)
+        rows (Video Enhance R1–R3 left Q-14 and Q-21 unfiled because nothing failed on them).
+     3. **Not reached:** its rows were Blocked or not in this phase (a question with no row at all gets one now,
+        in the next draft: `analysis.md`, *Every Open question gets an observing row*): `"state": "not-reached"` with the reason. It
+        stays open for the next run and is the only kind that may. One that must be filed but needs a check first is
+        `"state": "to-file"` with what is missing; it stays open, flagged, until it is filed.
+     Settled questions (determined or filed) leave the Cases page's question list for its closed 「Settled」 list.
+     The Dashboard's Questions figure counts only what is neither answered nor filed, so after a full run it should
+     be 0 or the not-reached ones.
    - the rule is written for the screen, state and entry path in the Repro steps; when the row's own path could not
      be reached, the row is Blocked (test-data) — never a finding on a nearby screen or a substitute flow;
    - **only the named Design source (user, 2026-11-11, Video Enhance REQ-010):** when the user names the Design page or
@@ -37,12 +58,18 @@ controls, and the `decision` entries (Won't Fix, NAB, PM rulings) that make a fi
    - the expectation is the spec's own words, not our paraphrase (`arrows.json` `expected`, requirement wording) and
      not sample AI text; a team rule (wait thresholds, R-1xx user rules) or an 「待 RD 確認」 item is named as such;
    - the Spec Link points at the board that states the rule, not one that matches the app;
+   - **MUI findings (user, 2026-11-24)** follow `references/mui.md` §4: `[AIAgent][MUI]` when a translation is
+     missing in every implemented language, else `[AIAgent][<LANG>]…` with one bug for the missing translations of
+     the same languages and one truncation bug per language; a `MUI:` Note line; the translation sheet as Spec Link;
+     tags only from `mui.json` (ask the user for a missing one before filing);
    - Repro steps say what the run did (a `setval` is not 「Paste」), with the platform condition (Android version,
      permission state), and every attachment shows the defect.
 2. `drafts_to_bodies.py … --out upload/bodies.json --stage upload/`, then `check_ebug_format.py` (0 errors) and
    `verify_ebug_drafts.py`. Avoid `{n}`-style placeholders in body text; they are read as attachments. The format
    check fails a `>` / `›` inside a Repro step, a missing or empty `Spec Link:`, an entry with no image, a video
-   attachment without `--videos-requested`; pass `--allow-agent-ux` (UX rule restored 2026-11-13).
+   attachment without `--videos-requested`; pass `--allow-agent-ux` (UX rule restored 2026-11-13). With
+   `--mui <feature>/mui.json` (passed by `ebug-review.ts` when the file exists) it holds MUI entries to
+   `references/mui.md` §4.
 3. Dedupe with `ecl_query.py dedupe upload/bodies.json --product "<ecl_product>"` (the tested platform's `ecl_product` in
    `library/<product>/product.json`, e.g. "PowerDirector Mobile for iOS") (the
    tested OS only) and read each candidate with `ecl_query.py bug <code>`. **Per OS (user, 2026-10-28):** a match on

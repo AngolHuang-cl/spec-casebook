@@ -77,7 +77,7 @@ One capability: the Mine Free card calls it 「Advanced Cutout」, the paywall's
 
 ## KP-094 Google sign-in goes through Chrome on Android
 - kind: howto · platform: android · use: run · tags: sign-in, google, chrome
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-27, O-28, O-29 (user approved 「Continue as Acda」, 2026-11-18) · verified: 16.9.0 build 2611161 (2026-11-18)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-27, O-28, O-29 (user approved 「Continue as Acda」, 2026-11-18) · verified: 16.9.0 build 2611231 (2026-11-24)
 
 Mine › User Sign in › Google opens Chrome (not the Android account chooser): first Chrome's 「Sign in to Chrome」 sheet
 (「Continue as <name>」 / 「Skip」). 「Continue as …」 signs Chrome into the phone's account and goes on without a

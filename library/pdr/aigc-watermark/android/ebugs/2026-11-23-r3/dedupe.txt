@@ -1,0 +1,24 @@
+# AIGC Watermark Android R3 (2611193) — dedupe, Android pool only (per OS, user 2026-10-28), 2026-11-23
+
+Left off the drafts (same-OS ticket; statuses read with ecl_query.py bug, 2026-11-23 20:2x):
+- TC-051, TC-089: Text to Image second Save writes no new file = DRA262611P0216 (RDResolved, RD, build 2611161).
+  Still reproduces on 2611193. (R3-b's results first named P0217 by mistake; corrected at wrap-up.)
+- TC-121: Text to Image saved On keeps Google's manifest = DRA262611P0218 (Assigned).
+- TC-017, TC-020, TC-023, TC-026, TC-035, TC-038, TC-041: full-screen player draws the 「AI」 badge over the first
+  1–4 s = DRA262611P0219 (Assigned).
+- TC-054, TC-057 (and TC-055/056/128 Blocked upstream): music Generate shows no AIGC dialog = DRA262611P0229 (NewCreated).
+- TC-061: music + photo project exports with no dialog / label = DRA262611P0223 (Assigned).
+- TC-064, TC-067, TC-070: no AI label in the editor preview (Q-10) = DRA262611P0224 (NewCreated).
+- TC-008: switch On by default on a fresh install (Q-1) = DRA262611P0227 (NewCreated).
+Not commented on any of them (rule 6).
+
+Left off, unfiled draft: TC-119 (songs carry no C2PA manifest) = R2 ISS-AWA-17 (ebugs/2026-11-23-r2), awaiting filing.
+
+Information only: DRA262611P0225 (Assigned; dialog after 「Produce」, Cancel back to Produce) no longer reproduces on
+2611193 (TC-084 / TC-085 Pass, O-8). Not commented.
+
+Drafted (no duplicate):
+- ISS-AWA-18 / O-9 (AI Voice Changer voice: Produce fails, cache m4a missing): `ecl_query.py bugs --text "Voice Changer"`
+  (Android, 300) and `--text "is missing"`: no ticket about Produce failing on a VoiceChanger/Cache file. Closest:
+  DRA242408-0154 (Close, 14.3.0, Voice-Over 「Media not found」 after AI Voice Changer), named as related.
+  dedupe-query.txt holds the ranked `ecl_query.py dedupe` output.

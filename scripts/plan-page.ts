@@ -54,20 +54,25 @@ const newStat = (): Stat => ({ first: Infinity, last: -Infinity, test: 0, idle: 
 function buildData() {
   // Phases merged into another (P2 and P3 inside P23) are shown only through the phase that runs them.
   const phasesFile = JSON.parse(readFileSync(join(base, 'drafts', draft, 'phases.json'), 'utf8'));
-  const phases = phasesFile.phases.filter((p: any) => !p.merged_into);
+  const own = (p: any, f: any) => ({ ...p, needsOf: f.needs ?? {} });
+  let phases = phasesFile.phases.filter((p: any) => !p.merged_into).map((p: any) => own(p, phasesFile));
   const lastRound = phases.map((p: any, i: number) => p.round ? i : -1).filter((i: number) => i >= 0).at(-1);
   const currentIds = new Set<string>(phasesFile.current ?? (lastRound === undefined ? phases.map((p: any) => p.id) : phases.slice(lastRound).map((p: any) => p.id)));
-  // Case text: the approved table, then the draft for rows it does not have yet (a run plan built before approval).
-  const draftCsv = join(base, 'drafts', draft, 'draft.csv');
-  const cases = Object.fromEntries([
-    ...(existsSync(draftCsv) ? readRecords(readFileSync(draftCsv, 'utf8')).map(r => [r.ID, r] as const) : []),
-    ...readRecords(readFileSync(join(base, 'cases.csv'), 'utf8')).map(r => [r.ID, r] as const),
-  ]);
-  // 中文 mode's case text (lib/zh.ts): the table's Chinese copy, then the draft's for rows only the draft has
-  const zh = {
-    ...(existsSync(draftCsv) ? zhCaseText(draftCsv, readRecords(readFileSync(draftCsv, 'utf8'))) : {}),
-    ...zhCaseText(join(base, 'cases.csv'), readRecords(readFileSync(join(base, 'cases.csv'), 'utf8'))),
-  };
+  // Runs planned in another draft's phases.json (round 1 of an older table): kept so Progress can switch to them, but
+  // only the phases that ran (a run folder's run-state names them); the plan's own draft wins for a phase in both.
+  const draftsDir = join(base, 'drafts');
+  const others = readdirSync(draftsDir).filter(d => d !== draft && existsSync(join(draftsDir, d, 'phases.json'))).sort();
+  const extra: { before: any[]; after: any[] } = { before: [], after: [] };
+  for (const d of others) {
+    let f: any; try { f = JSON.parse(readFileSync(join(draftsDir, d, 'phases.json'), 'utf8')); } catch { continue; }
+    for (const p of f.phases ?? []) if (!p.merged_into && ![...phases, ...extra.before, ...extra.after].some((x: any) => x.id === p.id)) (d < draft ? extra.before : extra.after).push({ ...own(p, f), fromDraft: d });
+  }
+  // Case text: the approved table, then the plan's draft for rows it does not have yet (a run plan built before
+  // approval), then the other drafts (rows an older run tested that the table has since dropped).
+  const csvs = [...others.map(d => join(draftsDir, d, 'draft.csv')), join(draftsDir, draft, 'draft.csv'), join(base, 'cases.csv')].filter(f => existsSync(f));
+  const cases = Object.fromEntries(csvs.flatMap(f => readRecords(readFileSync(f, 'utf8')).map(r => [r.ID, r] as const)));
+  // 中文 mode's case text (lib/zh.ts): the table's Chinese copy, then the drafts' for rows only a draft has
+  const zh = Object.assign({}, ...csvs.map(f => zhCaseText(f, readRecords(readFileSync(f, 'utf8')))));
   const manifest = existsSync(join(base, 'manifest.json')) ? JSON.parse(readFileSync(join(base, 'manifest.json'), 'utf8')) : {};
   
   // Latest result per case across run folders, and which run folder a phase uses.
@@ -80,11 +85,13 @@ function buildData() {
   const spans: Span[] = [], idles: { a: number; b: number; phase: string; seg: string }[] = [];
   const stat: Record<string, Stat> = {};   // keys: "<phase>" and "<phase>/<segment>"
   let build = '';
+  const phaseBuild: Record<string, string> = {};
   for (const d of readdirSync(runsDir).filter(d => statSync(join(runsDir, d)).isDirectory()).sort()) {
     const rc = join(runsDir, d, 'results.csv'); if (!existsSync(rc)) continue;
     const state = existsSync(join(runsDir, d, 'run-state.md')) ? readFileSync(join(runsDir, d, 'run-state.md'), 'utf8') : '';
-    const ph = state.match(/^# Run state — ([A-Z]+\d+)/m)?.[1]; if (ph) { phaseRun[ph] = `runs/${d}/`; runOf[ph] = d; }
-    const b = (state.match(/\b[A-Z][A-Za-z]+(?: iOS)? (\d+\.\d+\.\d+ \(\d+\))/)?.[1] ?? state.match(/\b[A-Z][A-Za-z]+(?: Mobile)? for Android (\d+\.\d+\.\d+) \(versionCode (\d+)\)/)?.slice(1).join(" (").concat(")")); if (b) build = b;
+    // the phase id: P1, R3, P23, and phases named without a number such as MUI (2026-11-24)
+    const ph = state.match(/^# Run state — ([A-Z][A-Za-z]*\d*)\b/m)?.[1]; if (ph) { phaseRun[ph] = `runs/${d}/`; runOf[ph] = d; }
+    const b = (state.match(/\b[A-Z][A-Za-z]+(?: iOS)? (\d+\.\d+\.\d+ \(\d+\))/)?.[1] ?? state.match(/\b[A-Z][A-Za-z]+(?: Mobile)? for Android (\d+\.\d+\.\d+) \(versionCode (\d+)\)/)?.slice(1).join(" (").concat(")") ?? state.match(/\b(\d+\.\d+\.\d+ \(\d{7}\))/)?.[1]); if (b) { build = b; if (ph) phaseBuild[ph] = b; }
     for (const m of state.matchAll(/^### (\S+)( · next (\S+) \(([^)]*)\)| · all recorded)?\n[^\n]*\n\n([\s\S]*?)(?=\n### |\s*$)/gm))
       checkpoints.push({ time: m[1].replace('T', ' ').slice(0, 16) + ' UTC', next: m[3] ? `${m[3]} (${m[4]})` : 'all recorded', text: m[5].trim().replace(/\s+/g, ' ').slice(0, 420) + (m[5].length > 420 ? '…' : ''), run: d });
     if (!ph) continue;   // older runs (before phases) don't count toward this plan
@@ -100,6 +107,8 @@ function buildData() {
     }
   }
   
+  phases = [...extra.before.filter((p: any) => runOf[p.id]), ...phases, ...extra.after.filter((p: any) => runOf[p.id])];
+
   // Tokens per run folder: its tokens.jsonl (committed, so every computer counts the same messages) plus what this
   // machine's transcripts add to it: messages of sessions that name the run folder, inside its active spans. A message
   // inside two runs' spans counts for the run that started later.
@@ -201,19 +210,29 @@ function buildData() {
     return { group, note: o.note ?? (group === 'upstream' || group === 'other' ? gist(a) : '') };
   };
 
-  const plan = readFileSync(planPath, 'utf8');
-  const log = (plan.split(/^## Log\s*$/m)[1] ?? '').split('\n').filter(l => l.startsWith('- ')).map(l => l.slice(2).replace(/\*\*/g, ''));
+  const logOf = (file: string) => (readFileSync(file, 'utf8').split(/^## Log\s*$/m)[1] ?? '').split('\n').filter(l => l.startsWith('- ')).map(l => l.slice(2).replace(/\*\*/g, '')).reverse();
+  const log = logOf(planPath);
+  // Each phase's own run plan, for its log when Progress shows that run: RUN-PLAN-<date>-<phase>.md, else the newest
+  // plan dated on or before its run folder (RUN-PLAN-20261019.md for runs/2026-10-19-p1-core), else the page's plan.
+  const planFiles = readdirSync(runsDir).filter(n => /^RUN-PLAN-.*\.md$/.test(n)).sort();
+  const planFor = (id: string) => {
+    const named = planFiles.filter(n => n.endsWith(`-${id}.md`)).at(-1); if (named) return join(runsDir, named);
+    const day = runOf[id]?.slice(0, 10).replace(/-/g, '');
+    const dated = day ? planFiles.filter(n => (n.match(/^RUN-PLAN-(\d{8})/)?.[1] ?? '99999999') <= day).at(-1) : undefined;
+    return dated ? join(runsDir, dated) : planPath;
+  };
   const short = (s: string, n = 120) => s.length > n ? s.slice(0, n - 1) + '…' : s;
   const data = {
     feature: manifest.title ?? feature, version: manifest.version ?? '?', totalCases: readRecords(readFileSync(join(base, 'cases.csv'), 'utf8')).length,
     build: build || '?', unavailable: phasesFile.unavailable ?? {}, generated: new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC',
     phases: phases.map((p: any) => ({
-      id: p.id, name: p.name, current: currentIds.has(p.id), note: p.note ?? '', skip: p.skip ?? '', hold: p.hold ?? '', runDir: phaseRun[p.id] ?? '', stats: pub(stat[p.id]),
+      id: p.id, name: p.name, current: currentIds.has(p.id), build: phaseBuild[p.id] ?? '', fromDraft: p.fromDraft ?? '',
+      log: currentIds.has(p.id) && planFor(p.id) === planPath ? null : logOf(planFor(p.id)), note: p.note ?? '', skip: p.skip ?? '', hold: p.hold ?? '', runDir: phaseRun[p.id] ?? '', stats: pub(stat[p.id]),
       wrapUp: pub(stat[`${p.id}/wrap-up`]),
       segments: p.segments.map((s: any) => ({ id: s.id, name: s.name, stats: pub(stat[`${p.id}/${s.id}`]), cases: s.cases.map((id: string) => {
         const runName = (phaseRun[p.id] ?? '').replace(/^runs\/|\/$/g, '');
         const l = p.round ? byRun[runName]?.[id] : latest[id];
-        return { id, origin: p.origin?.[id] ?? '', needs: (phasesFile.needs?.[id] ?? []).join(' '), section: cases[id]?.Section ?? '', action: short(cases[id]?.Action ?? ''), zh: zh[id] ? { section: zh[id].section, action: short(zh[id].action ?? '') } : undefined, result: l?.result ?? 'Not run', disp: l?.disp ?? '', actual: short(l?.actual ?? '', 400),
+        return { id, origin: p.origin?.[id] ?? '', needs: (p.needsOf[id] ?? []).join(' '), section: cases[id]?.Section ?? '', action: short(cases[id]?.Action ?? ''), zh: zh[id] ? { section: zh[id].section, action: short(zh[id].action ?? '') } : undefined, result: l?.result ?? 'Not run', disp: l?.disp ?? '', actual: short(l?.actual ?? '', 400),
           why: l?.result === 'Blocked' ? why(id, l) : undefined,
           at: l?.at ? new Date(l.at).toISOString().replace('T', ' ').slice(0, 16) + ' UTC' : '' };
       }) })),
@@ -224,9 +243,9 @@ function buildData() {
       calibration: cal ? { ...cal, basisWt: basisW, rate, weekRatio, weekBasis } : null,
       transcripts: files.length, ledgerMessages: claim.size,
       latest: last ? { at: last.at, seat: last.proMultiplier, fiveHourPct: last.fiveHourPct, weeklyPct: last.weeklyPct, fiveHourResetsAt: last.fiveHourResetsAt, weeklyResetsAt: last.weeklyResetsAt } : null },
-    // Checkpoints of the current run's folders only (a phase that has not started has none yet).
-    checkpoints: checkpoints.filter(c => [...currentIds].some(id => phaseRun[id] === `runs/${c.run}/`)).slice(-6).reverse(),
-    log: log.reverse(),
+    // Checkpoints of the run folders of phases, the last six of each: the page shows those of the run it shows.
+    checkpoints: Object.values(runOf).flatMap(d => checkpoints.filter(c => c.run === d).slice(-6)).reverse(),
+    log,
   };
   return { data, checkpointCount: checkpoints.length, logCount: log.length };
 }

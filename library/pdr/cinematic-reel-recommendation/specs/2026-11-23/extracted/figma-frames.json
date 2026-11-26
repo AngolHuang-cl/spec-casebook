@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-11-23",
+  "how": "Figma-only spec set (user, 2026-11-23, REQ-001). Design file 「Cinematic Reel Creator (CineStory)」 frame 107:2283 「26.07_v2」 on page 48:7599 「2026.06_Cinematic Reel Creator (CineStory)」, section 161:3691 (figma-design, qa-dm), group d-cinestory: the frame the Jira links. The photo tips sheet (1106:5162 with instance 1106:5373) and the 「View photo tips」 chip are the dated 0820 frames. The file's page 1249:3697 「2026.11_Reel Creator」 is the separate Reel Creator redesign (? opens a Demo there): not this ticket. The board's 「PM Spec Link」 opens the PM file 「CineStory」 ITGFcSoXzw6dAXYBY3GMGR (figma-pm, qa1): its pages Spec (0:1), Spec - support ai transition & opus5.5 templates (899:2) and draft (72:2) were searched by text; none mentions photo tips, recommendation or avoid, so no PM board is part of this spec. The board's 「CMS Link」 opens the Cinestory CMS sheet tab Recommendation (links.json).",
+  "pm_checked_at": "2026-11-23",
+  "files": {
+    "design": {
+      "fileKey": "w2cTi3WTU9vGDE3laY1H1t",
+      "page": "48:7599",
+      "url": "https://www.figma.com/design/w2cTi3WTU9vGDE3laY1H1t/Cinematic-Reel-Creator--CineStory-?node-id=107-2283",
+      "account": "qa-dm@cyberlink.com (Dev seat, CyberLink DC)"
+    },
+    "pm": {
+      "fileKey": "ITGFcSoXzw6dAXYBY3GMGR",
+      "page": "0:1",
+      "url": "https://www.figma.com/design/ITGFcSoXzw6dAXYBY3GMGR/CineStory?node-id=0-1",
+      "account": "qa1@cyberlink.com (Dev seat, PM Workspace)",
+      "note": "searched by text only; no board of this file is part of the spec"
+    }
+  },
+  "frames": [
+    { "label": "0820 add photo tips", "node": "1106:5841", "in_pdf": false, "read": "d-cinestory" },
+    { "label": "0820 add photo tips tag", "node": "1106:5843", "in_pdf": false, "read": "d-cinestory" },
+    { "label": "0709 add Marketing punchliner", "node": "767:23081", "in_pdf": false, "read": "d-cinestory" },
+    { "label": "0709 update navigation", "node": "767:23134", "in_pdf": false, "read": "d-cinestory" },
+    { "label": "0709 update download rule", "node": "767:23136", "in_pdf": false, "read": "d-cinestory" }
+  ]
+}

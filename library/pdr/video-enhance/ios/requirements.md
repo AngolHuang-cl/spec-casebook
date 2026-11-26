@@ -42,6 +42,21 @@ each way and the fractional boundaries (TC-274, TC-275, TC-075, TC-276); R-043 /
 360p, 718p, 722p and the Preview label (TC-052 – TC-058); R-060 / R-063 / R-065 at 30 s, 90 s and the Mode limit
 for every combination (TC-278 – TC-313, Q-26 prices); R-204 timed on 19 combination rows. Requirement text unchanged.
 
+Draft 20261124-150000 [Req: REQ-041]: the MUI section (spec-casebook references/mui.md). Every PowerDirector feature is
+tested in the 26 languages of `library/pdr/product.json` › `mui` besides English; there is no translation sheet, so
+each translation is judged by the run and doubtful ones go to the eBug review. iOS reads translations on the phone (the app bundle cannot be read on the QA iPhone): one walk per language checks translation and truncation together.
+The MUI rows are their own phase (phases.json `MUI`), never part of a full run. New: R-208, R-209; 26 rows, TC-321 – TC-346.
+
+Draft 20261125-171701 [Req: REQ-044]: the user's ruling on Q-21 (2026-11-25): 「play should start from where the playhead is and it can be dragged between the two white <> icons」. The playhead
+knob moves only between the two white trim handles and stops at a handle; play starts from the playhead's position.
+Changed: R-027, R-193; answered: Q-21; new: Q-28 (what play does at the end of the selection). Rows: TC-215 and TC-037
+modified, TC-347 (the stop at each handle) and TC-348 (play from the playhead) new.
+
+Draft 20261125-171701 [Req: REQ-045]: every Open question that is still open gets a row that takes the app to the point in
+question and records what it does (user, 2026-11-25: 「if it's a new question it should be added to the cases and be run next round」 and 「shouldn't they be added to cases already?」). New rows: TC-349 (Q-28: play to the right trim
+handle), TC-350 (Q-14: the first 「Enhance」 after a reset), TC-351 (Q-15: the panel's credit pill). Modified: TC-348 and TC-110 (Notes), TC-093 (records the trial line, Q-7).
+No requirement changed; Q-14, Q-28, Q-15, Q-7, Q-16, Q-17 and Q-19 now name their rows.
+
 ## Entry points
 - R-001 [DS:ds-main-flow Launcher_2026_08; DS:ds-routing 「Launcher / AI Magic → Demo page」] The Launcher big shortcut 「AI Video Enhance」 opens the Demo page (until 「Don’t show again」 was confirmed, R-009).
 - R-002 [DS:ds-entry-points Launcher_AI Magic; DS:ds-routing] The AI Magic tab's 「AI Enhance」 section has an 「AI Video Enhance」 card that opens the Demo page (same rule as R-001).
@@ -82,7 +97,7 @@ silent, so a difference is a PM question) (TC-315 – TC-317); R-046 is walked t
 - R-024 [PM:pm-draft-logic B2 [Design]] The ⓘ next to 「Selected Length」 opens the same bubble again.
 - R-025 [DS:ds-ai-video-enhance Settings › Mode] The ⓘ next to 「Mode」 shows the bubble 「Standard: Great quality · up to 8 min」 / 「Professional: Maximum detail · up to 2:30」 (PM 1002 「Standard: Great quality, quick results」 and PM 9/29 「Standard: up to 8 minutes. Professional: up to 2m 30s.」 are older).
 - R-026 [DS:ds-ai-video-enhance Settings › Enhancement style; PM:pm-defaults] The ⓘ next to 「Enhancement style」 shows the bubble 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」 / 「Sharp: Moderate enhancement for a sharp, clear image」.
-- R-027 [DS:ds-main-flow VE · 02] The Preview's play button plays the video from the selection and the full-screen icon opens a full-screen preview.
+- R-027 [DS:ds-main-flow VE · 02; Req: REQ-044] The Preview's play button plays the video from the playhead's position, which is always inside the selection (R-193), and the full-screen icon opens a full-screen preview.
 - R-200 [Req: REQ-008; spec agent TC-VE2-163 (generic player rule, not in the Design)] While the Preview plays, the same button pauses it: the time and the frame stop where they are until play is tapped again.
 - R-199 [Req: REQ-008; spec agent TC-VE2-276 (user requirement 2026-10-21; the Design draws 「00:00/12:30」 with no rounding rule)] The total after the slash in the Preview time is the source length rounded up to whole seconds: a 150.01 s video reads 「00:00/02:31」, never 「00:00/02:30」.
 - R-028 [DS:ds-main-flow arrow 3293-13716] The panel's back ‹ returns to Add Media (from the Timeline entry: R-133).
@@ -93,7 +108,7 @@ silent, so a difference is a PM question) (TC-315 – TC-317); R-046 is walked t
 - R-032 [PM:pm-draft-logic B1 [Design]] Dragging the middle of the selection moves the whole range at the same length and the Preview shows its first frame.
 - R-033 [PM:pm-main-flow 9/29 UI; PM:pm-draft-logic UI 規格] At the Mode limit the dragged handle (left or right) stops, the phone gives a light haptic and a bubble says 「Up to 8 minutes in Standard mode」 (Standard) or 「Up to 2m 30s in Professional mode」 (Professional).
 - R-192 [DS:ds-main-flow VE · 01 strip 「00:00」; DS:ds-ai-video-enhance Default / Length (bubbles 「00:00」, 「02:30」, 「01:00」, 「00:14」)] The strip carries a playhead: a line across the strip with a time bubble above it (「00:00」 on entry) and a ◀▶ drag knob (round/ic_btn_drag) under the strip. The bubble shows the same time as the Preview's 「mm:ss/<video length>」 (「00:14」 with 「00:14/01:30」, 「01:00」 with 「01:00/12:30」). The knob is the playhead's, not a trim handle (role read from the board images, analysis pass 11).
-- R-193 [DS:ds-ai-video-enhance Length; DS:ds-main-flow VE · 01 knob round/ic_btn_drag] Dragging the playhead knob moves the playhead: the Preview shows the frame under it and the bubble and the Preview time follow; the trim handles, Selected Length and the price do not change (how far it may go: Q-21).
+- R-193 [DS:ds-ai-video-enhance Length; DS:ds-main-flow VE · 01 knob round/ic_btn_drag; Req: REQ-044] Dragging the playhead knob moves the playhead: the Preview shows the frame under it and the bubble and the Preview time follow; the trim handles, Selected Length and the price do not change. The playhead moves only between the two white trim handles (the left ‹ and the right ›): dragged against a handle it stops there, with the bubble and the Preview time at that handle's time, and it cannot leave the selection. Tapping play starts playback from the playhead's position, not from the selection start (user ruling, 2026-11-25, REQ-044; answers Q-21).
 - R-034 [PM:pm-main-flow 9/29 ⑥; PM:pm-draft-logic B1-1 ⑥; Req: REQ-008; spec agent TC-VE2-026, TC-VE2-264 – TC-VE2-267] One strip width stands for the active Mode's limit: in Standard a video ≤ 8:00 fills the strip's width and a longer one scrolls sideways with 8:00 = one strip width; in Professional a video ≤ 2:30 fills the width and a longer one scrolls with 2:30 = one strip width. Switching Mode re-lays the strip to the new limit; the thumbnails stay in time order and the selection keeps its start, end and length. (Follows the spec agent's reading of ⑥, pending PM: Q-24.)
 - R-035 [PM:pm-draft-logic B1 [建議]] The shortest selection is 1 s, whichever handle is dragged toward the other.
 
@@ -203,32 +218,37 @@ silent, so a difference is a PM question) (TC-315 – TC-317); R-046 is walked t
 - R-142 [DS:ds-routing 「生成失敗系統自動退還 credit」; PM:pm-failure-refund §8.6; KB: KP-007] A failed generation refunds its credits automatically (the balance is back to what it was before the task); there is no Retry.
 - R-143 [PM:pm-draft-logic D1 [建議]] A failure in the background sends the notification 「Video Enhance didn't finish. Your credits have been refunded.」 (Q-16).
 
+## MUI
+- R-208 [Req: REQ-041] Every user-facing string of the feature (Launcher shortcut, Demo page, Add Media, panel and its bubbles, Free CTA, Mode toast, offline toast, processing and leave dialogs, Recent task cards, completion banner, Result and its save toast, system notification, error dialog, clip toolbar entry) shows in each language of the product list (CHT, CHS, JPN, ESP, KOR, DEU, FRA, ITA, RUS, PTB, NLD, IND, THA, MAY, HIN, ESM, ARA, VIT, PLK, TRK, FAR, HEB, SVE, DAN, NOR, UKR), in that language's own words with the English meaning, with no English, key or placeholder left. No translation sheet: the run judges each string; doubtful ones are listed for the eBug review, not failed.
+- R-209 [Req: REQ-041] In each of those languages no string of the feature is truncated, clipped or overlapping, and every control keeps its size and place; the right-to-left languages (ARA, FAR, HEB) run from the right.
+
 ## Open questions
 - Q-1 Demo page description: the Design draws AI Reframe's text 「AI reframe your video for any aspect ratio, then fine-tune the crop in real time.」; PM A1 [衝突] proposes 「Make blurry, noisy or dark videos look sharp and clear.」. Assumption: the description must not be AI Reframe's; the PM proposal is the expected text until the Design changes. R-007 (TC-011).
 - Q-2 Cancel during upload: Design 「Leaving this page will cancel the process, and the credits will not be restored.」 vs PM §8 (Cancel before the upload reaches the server charges nothing and creates no task) and PM C4 (Leave = keep running in the background). Assumption: the Design (newer, outranks): Leave cancels, back to the panel, credits not restored. R-088 (TC-113).
 - Q-5 Resolution of a portrait video: which side decides (PM B3 proposes the short side, 1080×1920 = 1080p). Assumption: short side. R-044 (TC-059).
 - Q-6 Disabled chips: which fps / Resolution combinations each Mode supports (BytePlus table [待確認]); the Design says a disabled chip cannot be tapped, PM B5 says a tap shows a toast. Assumption: a tap on a disabled chip changes nothing and shows no toast; the ECL table prices all 36 combinations, so every combination row expects its chips enabled, and a combination row whose chip is disabled on the build is recorded Blocked as a question. R-047 (TC-064, the combination rows TC-219 – TC-224, TC-225 – TC-254).
-- Q-7 Pro+ trial: the IAP page offers 「Try Pro+ 7 days for free」 and 「Receive 35 credits during free trial」 while PM §7 says no free trial in v1 (PM C2 [衝突]). Assumption: no row asserts the trial; the IAP page is checked as the Design draws it. R-072 (TC-093).
+- Q-7 Pro+ trial: the IAP page offers 「Try Pro+ 7 days for free」 and 「Receive 35 credits during free trial」 while PM §7 says no free trial in v1 (PM C2 [衝突]). Assumption: no row asserts the trial; the IAP page is checked as the Design draws it, and TC-093 records whether a trial line shows [Req: REQ-045]. R-072 (TC-093).
 - Q-8 「Manage」 on Recent task: the spec does not say what it opens. Assumption: a page to manage (download / delete) stored tasks. R-116 (TC-144).
 - Q-9 Back from Add Media and from the Result page: the spec draws ‹ but no arrow. Assumption: the previous page. R-014, R-125 (TC-021, TC-155).
 - Q-10 Timeline clip limits: PM 9/29 ⑦ (same trim rules, toast) vs draft B1-1 ⑦ / D4 (whole clip locked, Professional chip disabled for 2:30–8:00 clips, clip > 8:00 does not open). Assumption: the Design rule 「Professional 外觀正常，可點」 and ⑦ (toast) for 2:30–8:00; clip > 8:00 does not open (both PM drafts). R-057, R-058 (TC-160, TC-161).
 - Q-11 Timeline result: PM pastes the result back over the clip (「Applied Video Enhance」, form TBD), the Design routing note says every Enhance result is saved as a new video and 「不取代原 clip」. Assumption: PM paste-back for the Timeline entry (the Design note is about Add to Timeline); check on device. R-131 (TC-162).
 - Q-12 Concurrent tasks [待確認] (PM proposes up to 3). Assumption: a second task can start while one is processing. R-092 (TC-121).
 - Q-13 Supported sources [待確認]: length ≥ 1 s, MP4 / MOV (H.264 / HEVC), ≤ 4K; whether a 4K source can be used (draft notes, Gap 1). The Design's 預設值規則 (newer, 1005 labels) takes the highest option for a larger source, so 2K, 4K and 8K sources open the panel with 4K (R-196, REQ-011); PM E1's 「≤ 4K」 and its greying of larger sources stay open for PM. Assumption for the rest: PM E1 proposal (under 1 s and not MP4 / MOV are greyed with the toast). R-015, R-196 (TC-022).
-- Q-14 Disclosure: whether the existing GenAI consent dialog (covering the ByteDance cloud) is shown before the first upload (PM Open question 3, Legal). No row asserts it; a consent dialog on first use is recorded, not filed.
-- Q-15 The panel's credit pill: the spec does not say what tapping it opens. Its control is n/a until PM answers.
-- Q-16 Notifications: failure push (PM Gap 8, D1 [建議]) and the push copy for success are PM-only; the Design draws only the in-app banner. Assumption: Design copy in the app, PM copy for the system notification. R-100, R-103, R-143.
-- Q-17 Recent task entry and processing style [待確認] (Gap 7): the Design draws a Recent icon on the panel and 「4 minutes left...」; assumption: as drawn. R-111, R-113.
+- Q-14 Disclosure: whether the existing GenAI consent dialog (covering the ByteDance cloud) is shown before the first upload (PM Open question 3, Legal). Assumption: none, no source says whether it must show or what it reads. TC-350 takes a reset app to its first 「Enhance」 and records what shows between the tap and the processing dialog; either outcome is a Fail (question) for PM / Legal [Req: REQ-045]. On iOS the row is Blocked (test-data) while PowerDirector cannot be reinstalled on the QA iPhone. R-080, R-085 (TC-350).
+- Q-15 The panel's credit pill: the spec does not say what tapping it opens. Assumption: the Credit page (「My Credits」) with the same balance, as on the Android build (Android R3, 16.9.0); another target is a question for PM, not a defect [Req: REQ-045]. R-020 (TC-351).
+- Q-16 Notifications: failure push (PM Gap 8, D1 [建議]) and the push copy for success are PM-only; the Design draws only the in-app banner. Assumption: Design copy in the app, PM copy for the system notification. R-100, R-103, R-143 (TC-130, TC-133, TC-174).
+- Q-17 Recent task entry and processing style [待確認] (Gap 7): the Design draws a Recent icon on the panel and 「4 minutes left...」; assumption: as drawn. R-111, R-113 (TC-140, TC-114).
 - Q-18 Backgrounding or closing the app during the upload: PM C3 [建議] (cancel, no charge) vs the Design rule that a user cancel is not refunded. Assumption: PM C3 (the Design does not draw backgrounding); check on device. R-090 (TC-115).
-- Q-19 Selected Length format and the limit display: PM 9/29 「5m 00s / 8m max」 and B1 「18s」 vs the Design 「08:00」. Assumption: the Design (mm:ss, no 「/ max」). R-030.
-- Q-21 Playhead: the Design draws a playhead on the strip (a line, a time bubble and a ◀▶ knob) but no note says how far it may be dragged (only inside the selection, or the whole video) or whether play starts from it. Assumption: dragging it scrubs the Preview inside the selection and changes neither the selection nor the price. R-192, R-193 (TC-215).
+- Q-19 Selected Length format and the limit display: PM 9/29 「5m 00s / 8m max」 and B1 「18s」 vs the Design 「08:00」. Assumption: the Design (mm:ss, no 「/ max」). R-030 (TC-040).
 - Q-22 Completed task card: PM D2 says a completed card opens the Result when tapped (「Completed (tap → Result)」); the Design draws only the 「View」 button. Assumption: tapping the card's thumbnail opens the same Result as 「View」. R-112 (TC-143).
 - Q-24 Strip scale (REQ-008): PM 9/29 ⑥ says the strip's scale depends only on the video length and a Mode switch does not re-lay it (our v3 reading); the spec agent reads the same note as one strip width = the active Mode's limit (8:00 Standard, 2:30 Professional), re-laid on a Mode switch. Neither source is newer. Assumption: the spec agent's reading, pending PM confirmation of PM 9/29 ⑥; a difference on the build is a PM question, not a defect, until PM confirms. R-034 (TC-045, TC-264).
 - Q-26 iOS ECL rate table (REQ-008): the spec agent's rates (form 22061491221, actions genvideo_1_sec_byteplus_…) are its Android rate source, and its cases say to price each platform from that platform's ECL source (「Platform-specific ECL rate source」, TC-VE2-047, TC-VE2-115); no iOS rate is stated in the spec set, the spec agent cases or their snapshot. Assumption: iOS uses the same 36 rates (R-063); the price shown must match the iOS ECL rates, so a CTA, rate line or charge that differs from the stated number is checked against the iOS ECL table before it is filed (a difference that matches the iOS table updates the rows; one that matches neither is a defect). R-060, R-063, R-065 (TC-083, TC-087, TC-269, the combination rows TC-219 – TC-224, TC-225 – TC-254).
+- Q-28 Play at the end of the selection (REQ-044): the ruling on Q-21 says play starts from the playhead and the playhead stays between the trim handles, but no source says what playback does when it reaches the right trim handle (stop there, jump back to the selection start, or loop). Assumption: none. TC-349 plays to the right handle and records where the playhead and the Preview time end, whether play continues and the play button's state; any outcome is a Fail (question) for PM [Req: REQ-045]. TC-348 pauses before the end. R-027, R-193 (TC-349, TC-348, TC-037).
 
 ## Answered questions
 - Q-3 Which fps prices a task: PM main page said the source fps, PM B4 [衝突] proposed the output fps. Answer (2026-11-10, REQ-008; spec agent TC-VE2-117 – TC-VE2-149, ECL form 22061491221): the chosen output fps chip prices the task, by the ECL table. The rule holds on iOS; the rate numbers wait on Q-26. R-065 (TC-087, the combination rows).
 - Q-4 Per-second rate table: only 1080p Standard 30 fps = 2 credits/s was stated. Answer (2026-11-10, REQ-008; spec agent TC-VE2-185 – TC-VE2-220 fixtures, ECL form 22061491221): the full table is R-063 (Standard 720p 1/1/1, 1080p 2/2/2, 4K 3/6/8; Professional 720p 2/4/8, 1080p 4/8/16, 4K 12/24/48 for 30/60/120fps; Natural = Sharp), the spec agent's Android ECL source; on iOS the same numbers are expected until the iOS ECL rates are confirmed (Q-26). R-063, R-065 (TC-083, TC-087, the combination rows TC-219 – TC-224, TC-225 – TC-254).
+- Q-21 Playhead: the Design draws a playhead on the strip (a line, a time bubble and a ◀▶ knob) but no note says how far it may be dragged (only inside the selection, or the whole video) or whether play starts from it. Answer (2026-11-25, REQ-044; user ruling in chat): 「play should start from where the playhead is and it can be dragged between the two white <> icons」: the playhead knob can be dragged only between the two white trim handles and stops at a handle, and play starts from the playhead's position. What play does at the end of the selection is still open (Q-28). R-027, R-193 (TC-215, TC-347, TC-348, TC-037).
 
 ## Added 2026-11-04 — coverage passes and standing inputs
 
@@ -279,6 +299,8 @@ Clauses the screen does not show and how a tester observes them (pass 9).
 | R-203 | the charge is booked as one debit named 「AI Video Enhance」 | the credit history after each combination generation | TC-219, TC-223 |
 | R-198 | the task is kept on the cloud (one year) | the completed card and its Result after closing and reopening the app days later; the year itself is NOT TESTABLE (R-117) | TC-268 |
 | R-142 | the refund is automatic | the balance before the task, after the charge and after the failure | TC-173 |
+| R-193 | the playhead cannot pass a trim handle (REQ-044) | a selection shorter than the video at both ends (00:30–02:00 of 12:30) and the knob pushed past each handle: the bubble and the Preview time stop at the handle's time | TC-347 |
+| R-193 | play starts from the playhead, not from the selection start (REQ-044) | the playhead parked inside the selection away from its start before play: the first Preview time and burned-in frame after the tap | TC-348 |
 
 ### Variants
 One line per requirement × variant (pass 10).
@@ -336,6 +358,60 @@ One line per requirement × variant (pass 10).
 | R-204 | 1 s, card completion | TC-265 |
 | R-204 | 3.2 s, completion banner | TC-266 |
 | R-204 | 30 s, whichever comes first | TC-267 |
+| R-208 | CHT (Traditional Chinese) | TC-321 |
+| R-209 | CHT (Traditional Chinese) | TC-321 |
+| R-208 | CHS (Simplified Chinese) | TC-322 |
+| R-209 | CHS (Simplified Chinese) | TC-322 |
+| R-208 | JPN (Japanese) | TC-323 |
+| R-209 | JPN (Japanese) | TC-323 |
+| R-208 | ESP (Spanish) | TC-324 |
+| R-209 | ESP (Spanish) | TC-324 |
+| R-208 | KOR (Korean) | TC-325 |
+| R-209 | KOR (Korean) | TC-325 |
+| R-208 | DEU (German) | TC-326 |
+| R-209 | DEU (German) | TC-326 |
+| R-208 | FRA (French) | TC-327 |
+| R-209 | FRA (French) | TC-327 |
+| R-208 | ITA (Italian) | TC-328 |
+| R-209 | ITA (Italian) | TC-328 |
+| R-208 | RUS (Russian) | TC-329 |
+| R-209 | RUS (Russian) | TC-329 |
+| R-208 | PTB (Portuguese (Brazil)) | TC-330 |
+| R-209 | PTB (Portuguese (Brazil)) | TC-330 |
+| R-208 | NLD (Dutch) | TC-331 |
+| R-209 | NLD (Dutch) | TC-331 |
+| R-208 | IND (Indonesian) | TC-332 |
+| R-209 | IND (Indonesian) | TC-332 |
+| R-208 | THA (Thai) | TC-333 |
+| R-209 | THA (Thai) | TC-333 |
+| R-208 | MAY (Malay) | TC-334 |
+| R-209 | MAY (Malay) | TC-334 |
+| R-208 | HIN (Hindi) | TC-335 |
+| R-209 | HIN (Hindi) | TC-335 |
+| R-208 | ESM (Spanish (Mexico)) | TC-336 |
+| R-209 | ESM (Spanish (Mexico)) | TC-336 |
+| R-208 | ARA (Arabic) | TC-337 |
+| R-209 | ARA (Arabic) | TC-337 |
+| R-208 | VIT (Vietnamese) | TC-338 |
+| R-209 | VIT (Vietnamese) | TC-338 |
+| R-208 | PLK (Polish) | TC-339 |
+| R-209 | PLK (Polish) | TC-339 |
+| R-208 | TRK (Turkish) | TC-340 |
+| R-209 | TRK (Turkish) | TC-340 |
+| R-208 | FAR (Persian) | TC-341 |
+| R-209 | FAR (Persian) | TC-341 |
+| R-208 | HEB (Hebrew) | TC-342 |
+| R-209 | HEB (Hebrew) | TC-342 |
+| R-208 | SVE (Swedish) | TC-343 |
+| R-209 | SVE (Swedish) | TC-343 |
+| R-208 | DAN (Danish) | TC-344 |
+| R-209 | DAN (Danish) | TC-344 |
+| R-208 | NOR (Norwegian Bokmål) | TC-345 |
+| R-209 | NOR (Norwegian Bokmål) | TC-345 |
+| R-208 | UKR (Ukrainian) | TC-346 |
+| R-209 | UKR (Ukrainian) | TC-346 |
+| R-193 | the knob pushed past the right handle | TC-347 |
+| R-193 | the knob pushed past the left handle | TC-347 |
 
 ### Combinations
 Every combination of the four settings the panel lets the user choose together (analysis pass 10, user 2026-11-10,
@@ -443,3 +519,7 @@ None: no Testing Request build is named for this feature yet.
 | REQ-008 (table: cover all 271 spec agent cases; every Mode × Enhancement style × fps × Resolution combination priced, generated and checked; iOS brought to the Android v4 coverage under the same IDs) | R-015, R-034, R-044, R-060, R-062, R-063, R-065, R-087, R-088, R-122, R-194 (changed); R-070 (source added: Pro+ stays on iOS); R-196 – R-204 (new); Q-3, Q-4 (answered); Q-23, Q-24, Q-26; `### Combinations` (36 rows); mapping `comparisons/20261110b_casebook-vs-spec-agent.mapping.json` |
 | REQ-011 (analysis: spec agent cases from the old 26.09_v2 export never override today's board; the 2K+ block dropped) | R-015, R-044, R-196, Q-13 |
 | REQ-016 (table: scenario-level coverage of the spec agent's cases at 8b411402) | R-030, R-031, R-032, R-033, R-043, R-044, R-052, R-053, R-054, R-055, R-060, R-063, R-065, R-077, R-086, R-088, R-114, R-115, R-121, R-123, R-126, R-204 (rows only, no requirement changed) |
+| REQ-041 (table: MUI test in the 26 languages of the product list, no translation sheet) | R-208, R-209 (TC-321 – TC-346) |
+| REQ-042 (table: the MUI rows' Expected Result lines are numbered; numbering only) | R-208, R-209 (the MUI rows, TC-321 onward) |
+| REQ-044 (ruling: Q-21 — the playhead moves only between the two trim handles; play starts from the playhead) | R-027, R-193 (TC-215, TC-037, TC-347, TC-348); Q-28 |
+| REQ-045 (table: every Open question still open gets a row that reaches its point and records what the app does) | R-027, R-193 (TC-349, TC-348); R-080, R-085 (TC-350, TC-110); R-020, R-073 (TC-351); R-072 (TC-093); Q-28, Q-14, Q-15, Q-7 |

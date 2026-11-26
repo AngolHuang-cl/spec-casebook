@@ -4,10 +4,10 @@ S=$(dirname $0); ID=$1; NET=$2; LOOK=$3; PRE=${4:-"Only two copy strings differ 
 OUT=$(python3 $S/mk.py $ID x x x x "$NET" $MODE)
 T=$(echo "$OUT" | grep -v '^DISP=\|^TIMING=\|^EXTRA=' | sed "s|RESULTLOOK|$LOOK|")
 DISP=question
-if [ "$MODE" = professional ]; then
+if :; then
   DISP=$(echo "$OUT" | sed -n 's/^DISP=//p'); TM=$(echo "$OUT" | sed -n 's/^TIMING=//p'); EX=$(echo "$OUT" | sed -n 's/^EXTRA=//p')
   [ "$DISP" = defect ] && PRE="Defect: the task took $TM s from its card's first remaining time to Done, not 4.8 – 8 s (R-204; as TC-265 – TC-267, P0084); plus the two copy strings of TC-223."
   T="$T$EX"
 fi
 P=""; for s in panel chips 1s full up task done res play orig compare toast ledger; do P="$P screenshots/$ID-$s.png"; done
-cd /Users/ethanhsu/Desktop/pdr-spec-casebook && node scripts/run-log.ts library/pdr/video-enhance/android/runs/2026-11-18-r2-full set $ID Fail "$PRE $T" --as $DISP $P | tail -1
+cd /Users/ethanhsu/Desktop/pdr-spec-casebook && node scripts/run-log.ts ${RUN:-library/pdr/video-enhance/android/runs/2026-11-18-r2-full} set $ID Fail "$PRE $T" --as $DISP $P | tail -1

@@ -8,5 +8,180 @@
   "android": {
     "package": "com.cyberlink.powerdirector.DRA140225_01",
     "ecl_product": "PowerDirector Mobile for Android"
+  },
+  "mui": {
+    "_note": "Languages tested for every PowerDirector feature, with their eBug tags (user, 2026-11-24). code = launch --lang value; android = the APK resource qualifier (mui-strings.ts). A feature's mui.json says \"languages\": \"product\" to use this list.",
+    "base": "en-US",
+    "sheet": null,
+    "sheet_note": "No translation sheet (user, 2026-11-24): the run judges each translation itself and lists doubtful ones on the eBug review page (spec-casebook references/mui.md).",
+    "rtl": [
+      "ARA",
+      "FAR",
+      "HEB"
+    ],
+    "languages": [
+      {
+        "tag": "ENU",
+        "name": "English",
+        "code": "en-US",
+        "android": ""
+      },
+      {
+        "tag": "CHT",
+        "name": "Traditional Chinese",
+        "code": "zh-Hant-TW",
+        "android": "zh-rTW"
+      },
+      {
+        "tag": "CHS",
+        "name": "Simplified Chinese",
+        "code": "zh-Hans-CN",
+        "android": "zh-rCN"
+      },
+      {
+        "tag": "JPN",
+        "name": "Japanese",
+        "code": "ja-JP",
+        "android": "ja"
+      },
+      {
+        "tag": "ESP",
+        "name": "Spanish",
+        "code": "es-ES",
+        "android": "es"
+      },
+      {
+        "tag": "KOR",
+        "name": "Korean",
+        "code": "ko-KR",
+        "android": "ko"
+      },
+      {
+        "tag": "DEU",
+        "name": "German",
+        "code": "de-DE",
+        "android": "de"
+      },
+      {
+        "tag": "FRA",
+        "name": "French",
+        "code": "fr-FR",
+        "android": "fr"
+      },
+      {
+        "tag": "ITA",
+        "name": "Italian",
+        "code": "it-IT",
+        "android": "it"
+      },
+      {
+        "tag": "RUS",
+        "name": "Russian",
+        "code": "ru-RU",
+        "android": "ru"
+      },
+      {
+        "tag": "PTB",
+        "name": "Portuguese (Brazil)",
+        "code": "pt-BR",
+        "android": "pt-rBR"
+      },
+      {
+        "tag": "NLD",
+        "name": "Dutch",
+        "code": "nl-NL",
+        "android": "nl"
+      },
+      {
+        "tag": "IND",
+        "name": "Indonesian",
+        "code": "id-ID",
+        "android": "in"
+      },
+      {
+        "tag": "THA",
+        "name": "Thai",
+        "code": "th-TH",
+        "android": "th"
+      },
+      {
+        "tag": "MAY",
+        "name": "Malay",
+        "code": "ms-MY",
+        "android": "ms"
+      },
+      {
+        "tag": "HIN",
+        "name": "Hindi",
+        "code": "hi-IN",
+        "android": "hi"
+      },
+      {
+        "tag": "ESM",
+        "name": "Spanish (Mexico)",
+        "code": "es-MX",
+        "android": "es-rMX"
+      },
+      {
+        "tag": "ARA",
+        "name": "Arabic",
+        "code": "ar-SA",
+        "android": "ar"
+      },
+      {
+        "tag": "VIT",
+        "name": "Vietnamese",
+        "code": "vi-VN",
+        "android": "vi"
+      },
+      {
+        "tag": "PLK",
+        "name": "Polish",
+        "code": "pl-PL",
+        "android": "pl"
+      },
+      {
+        "tag": "TRK",
+        "name": "Turkish",
+        "code": "tr-TR",
+        "android": "tr"
+      },
+      {
+        "tag": "FAR",
+        "name": "Persian",
+        "code": "fa-IR",
+        "android": "fa"
+      },
+      {
+        "tag": "HEB",
+        "name": "Hebrew",
+        "code": "he-IL",
+        "android": "iw"
+      },
+      {
+        "tag": "SVE",
+        "name": "Swedish",
+        "code": "sv-SE",
+        "android": "sv"
+      },
+      {
+        "tag": "DAN",
+        "name": "Danish",
+        "code": "da-DK",
+        "android": "da"
+      },
+      {
+        "tag": "NOR",
+        "name": "Norwegian Bokmål",
+        "code": "nb-NO",
+        "android": "nb"
+      },
+      {
+        "tag": "UKR",
+        "name": "Ukrainian",
+        "code": "uk-UA",
+        "android": "uk"
+      }
+    ]
   }
 }

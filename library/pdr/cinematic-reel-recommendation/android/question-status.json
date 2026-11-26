@@ -1,0 +1,20 @@
+{
+  "Q-3": {
+    "state": "not-reached",
+    "by": "R1 (2026-11-24-r1-full, 16.9.0.2611201)",
+    "at": "2026-11-25",
+    "note": "「Got it」 closes the sheet (TC-007 Pass) and system Back closes it like 「Got it」, staying in Cinematic Reel Creator (TC-020 Pass). Tapping the dimmed area and swiping the sheet down were not tried in R1 and no row covers them; system Back on a sheet opened from Add Media is Blocked behind Q-1 (TC-021, DRA262611P0289)."
+  },
+  "Q-4": {
+    "state": "to-file",
+    "by": "R1 (2026-11-24-r1-full, 16.9.0.2611201)",
+    "at": "2026-11-25",
+    "note": "Not determined and no ticket carries it. Known: all six templates showed their CMS items (TC-001 – TC-006 Pass) and the app logs no CMS template data (TC-019 Blocked, observability); the table has no row for missing data. Still missing: what the template page and chip show with the phone offline (never tried), and PM's word on a template with no recommend_samples, which QA cannot set up."
+  },
+  "Q-5": {
+    "state": "determined",
+    "by": "R1 (2026-11-24-r1-full, 16.9.0.2611201)",
+    "at": "2026-11-25",
+    "note": "The Avoid row scrolls sideways: a swipe left brings 「Extreme Close-up」 fully into view and a swipe right puts 「Flat Composition」 back at the left edge, while the Recommendation items do not move (TC-008 Pass). Every template on the build has exactly two Recommendation items (TC-001 – TC-006), so a longer Recommendation row could not be seen. The assumption holds."
+  }
+}

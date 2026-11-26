@@ -110,10 +110,10 @@ TC-037,Panel layout and first-run bubble,"1. Panel open with the 12:30 video
 2. Tap the same button again (pause)
 3. Wait 3 s
 4. Tap the full-screen icon
-5. Close the full-screen preview","Step 1 plays from inside the selection (02:00 onward) and the time advances
+5. Close the full-screen preview","Step 1 plays from the playhead's position, which is inside the selection (02:00 or later), and the time advances from there
 Step 2 pauses it and the time and the frame stay the same through step 3
 Step 4 shows it full screen
-Step 5 returns to the panel with the same video, the selection 02:00–04:00 (「02:00」), 「Professional」, 「Sharp」, 「60fps」, 「4K」 and the noted CTA price",P3,"R-027, R-200","Pause: spec agent TC-VE2-163 (generic player rule, not in the Design) [Req: REQ-008]. A trimmed, non-default panel (spec agent TC-VE2-162, TC-VE2-170) [Req: REQ-016]."
+Step 5 returns to the panel with the same video, the selection 02:00–04:00 (「02:00」), 「Professional」, 「Sharp」, 「60fps」, 「4K」 and the noted CTA price",P3,"R-027, R-200","Pause: spec agent TC-VE2-163 (generic player rule, not in the Design) [Req: REQ-008]. A trimmed, non-default panel (spec agent TC-VE2-162, TC-VE2-170) [Req: REQ-016]. Play starts from the playhead (REQ-044); a start from a chosen point: TC-349."
 TC-038,Panel layout and first-run bubble,"Panel open from Add Media, nothing running",Tap ‹ in the panel's top bar,Add Media is shown again,P2,R-028,
 TC-040,Trim and selected length,"1. Signed in with a Pro account (no tier switch on Android)
 2. A 12:30 1080p 30 fps video in the album",Pick the video in Add Media,"The selection starts at 00:00 and 「Selected Length」 reads 「08:00」 (mm:ss)
@@ -193,7 +193,62 @@ Step 3: at every sampled moment the bubble, the Preview time and the frame's bur
 Step 4: it moves earlier the same way (about 「01:00」 and 「01:00/12:30」)
 Step 5: the bubble, the Preview time and the frame follow the knob both ways at every sampled moment
 Step 6: they stop at about 「02:00」
-Steps 3–6: both trim handles, 「Selected Length」 「08:00」 and the CTA price stay the same",P2,"R-192, R-193","The knob (round/ic_btn_drag) is the playhead, not a trim handle (analysis pass 11, role from the board image). Q-21: how far the playhead may go is not stated. Evidence: screen recording of the whole drag (run-android.md, *Judging a drag*); the fixture burns its time into every frame. Allowed delay: Q-27 (assumed: no visible lag)."
+Steps 3–6: both trim handles, 「Selected Length」 「08:00」 and the CTA price stay the same",P2,"R-192, R-193","The knob (round/ic_btn_drag) is the playhead, not a trim handle (analysis pass 11, role from the board image). The playhead moves only between the two trim handles (REQ-044, the answer to Q-21): its stop at each handle is TC-348, play from it TC-349. Evidence: screen recording of the whole drag (run-android.md, *Judging a drag*); the fixture burns its time into every frame. Allowed delay: Q-27 (assumed: no visible lag)."
+TC-348,Trim and selected length,"1. Panel open with the 12:30 video (time burned into every frame)
+2. Selection trimmed to 00:30–02:00 (「01:30」), shorter than the video at both ends
+3. Note the CTA price","1. Drag the ◀▶ knob to the right, past the right › handle, and keep pushing for a second
+2. Let go
+3. Drag the ◀▶ knob to the left, past the left ‹ handle, and keep pushing for a second
+4. Let go","Step 1: the playhead stops at the right handle and goes no further, however far the finger moves
+Step 1: the bubble reads 「02:00」 and the Preview reads 「02:00/12:30」
+Step 1: the Preview shows the frame at the right handle (burned-in 02:00)
+Step 2: the playhead stays at the right handle with the same bubble and Preview time
+Step 3: the playhead stops at the left handle and goes no further
+Step 3: the bubble reads 「00:30」 and the Preview reads 「00:30/12:30」
+Step 3: the Preview shows the frame at the left handle (burned-in 00:30)
+Step 4: the playhead stays at the left handle with the same bubble and Preview time
+Steps 1–4: both trim handles stay at 00:30 and 02:00
+Steps 1–4: 「Selected Length」 stays 「01:30」
+Steps 1–4: the CTA price stays the noted one",P2,R-193; REQ-044,"Ruling (user, 2026-11-25, REQ-044; the answer to Q-21): the playhead can be dragged only between the two white ‹ › trim handles. A selection shorter than the video at both ends tells a stop at a handle from a stop at the video's start or end. The playhead may land a frame off a handle (TC-273)."
+TC-349,Trim and selected length,"1. Panel open with the 12:30 video (time burned into every frame)
+2. Selection trimmed to 00:30–02:00 (「01:30」), shorter than the video at both ends
+3. The Preview is paused
+4. Note the CTA price","1. Drag the ◀▶ knob to about 01:00
+2. Let go and note the bubble's time
+3. Tap play under the Preview
+4. After about 5 s tap the same button (pause)
+5. Drag the ◀▶ knob to about 01:30
+6. Let go and note the bubble's time
+7. Tap play under the Preview
+8. After about 5 s tap the same button (pause)","Step 2: the bubble and the Preview time agree (about 「01:00」 and 「01:00/12:30」)
+Step 3: playback starts from the time noted in step 2, not from the selection start 00:30
+Step 3: the first frame played is the one at the noted time (burned-in time)
+Step 3: the playhead, the bubble and the Preview time advance together from the noted time
+Step 4: playback pauses about 5 s after the noted time (about 「01:05」)
+Step 6: the bubble and the Preview time agree (about 「01:30」 and 「01:30/12:30」)
+Step 7: playback starts from the time noted in step 6, not from 00:30 and not from where step 4 paused
+Step 7: the playhead, the bubble and the Preview time advance together from that time
+Steps 1–8: both trim handles stay at 00:30 and 02:00
+Steps 1–8: 「Selected Length」 stays 「01:30」
+Steps 1–8: the CTA price stays the noted one",P2,"R-193, R-027; REQ-044","Ruling (user, 2026-11-25, REQ-044; the answer to Q-21): play starts from where the playhead is. The pause is R-200 (TC-037). Both plays are paused before the right handle: what playback does on reaching the end of the selection is not stated (Q-28): TC-350 plays to the right handle and records it."
+TC-350,Trim and selected length,"1. Panel open with the 12:30 video (time burned into every frame)
+2. Selection trimmed to 00:30–02:00 (「01:30」), shorter than the video at both ends
+3. The Preview is paused","1. Drag the ◀▶ knob to about 01:50
+2. Let go and note the bubble's time
+3. Start a screen recording
+4. Tap play under the Preview
+5. Leave the screen untouched for 30 s (playback reaches the right handle at 02:00 after about 10 s)
+6. Stop the recording
+7. Tap the button under the Preview once more","Step 4: playback starts from the time noted in step 2, and the playhead, the bubble and the Preview time advance together up to the right handle (02:00)
+Step 5: what playback does on reaching the right handle is recorded: it stops there, it jumps back (to the selection start 00:30 or to the time noted in step 2) or it plays on past 02:00
+Step 5: after a jump back, whether it plays again by itself (a loop) or waits paused is recorded
+Step 5: where the playhead and its bubble rest 20 s after the handle was reached is recorded
+Step 5: the Preview time and the burned-in time of the frame shown at that moment are recorded
+Step 5: the state of the button under the Preview at that moment (play or pause icon) is recorded
+Step 7: what the tap does is recorded (it plays or pauses) and, when it plays, the time it starts from
+Steps 1–7: both trim handles stay at 00:30 and 02:00
+Steps 1–7: 「Selected Length」 stays 「01:30」
+No source states what play does at the end of the selection (Q-28), so whichever outcome is seen the row is recorded as Fail (question) for PM with what was recorded, never as a Pass",P2,"R-027, R-193; REQ-045","Q-28 [Req: REQ-045]: stop, jump back or loop is not stated by the Design, PM or the ruling on Q-21 (REQ-044), so nothing is asserted about the end itself and the run's wrap-up files the recorded outcome to PM for a decision (BugBelong PM). A selection that ends before the video's end (02:00 of 12:30) tells a stop at the handle from a stop at the end of the video. The start from the playhead is TC-349's check."
 TC-044,Trim and selected length,"Panel open with the 12:30 video in Standard, selection 00:00–06:00","1. Start a screen recording
 2. Drag the right handle to the right as far as it goes over 2–3 seconds
 3. Keep pushing it right for a second
@@ -959,7 +1014,18 @@ TC-110,Generating and cancel,"1. Signed in with a Pro account (no tier switch on
 2. Panel open with a 01:30 1080p 30 fps video and the defaults kept (Standard, Natural, 30fps, 1080p)
 3. Note the balance",Tap 「Enhance ◆ <credits>」,"No confirmation appears first
 A processing dialog covers the panel with a progress ring counting up (「25%」…), 「Video uploading...」, 「Please keep the app open」 and 「Cancel」
-The ring keeps moving (no frozen wait over 10 s)",P1,"R-080, R-085, R-070, R-194",
+The ring keeps moving (no frozen wait over 10 s)",P1,"R-080, R-085, R-070, R-194","A consent or disclosure screen on the first 「Enhance」 after a reset is TC-351's (Q-14), not this row's 「No confirmation」: run this row after it."
+TC-351,Generating and cancel,"1. PowerDirector's app data cleared (`adb shell pm clear`) or the app freshly installed, with 「Enhance」 not tapped since
+2. Signed in again with a Pro account (the phone's Google account button, no password) with enough credits
+3. Every consent, notice or permission screen seen since the reset noted (first launch, Demo page, first panel entry)
+4. Panel open with the 00:01 video (ve-000100-720p30, 「Enhance ◆ 1」) and the defaults kept","1. Tap 「Enhance ◆ <credits>」
+2. Take a screenshot of whatever shows before the processing dialog, without touching it
+3. Tap the accepting button of a consent or disclosure screen that showed","Step 1: what shows between the tap and the processing dialog is recorded: nothing (the processing dialog comes at once) or a consent or disclosure screen
+Step 2: the title, the whole text and the buttons of a screen that showed are recorded
+Step 2: whether its text says the video is sent to a third party's cloud for AI processing (ByteDance / BytePlus) is recorded
+Step 3: after the accepting button the processing dialog 「Video uploading...」 appears and the upload starts
+A consent or notice that showed earlier since the reset (precondition 3) is recorded with the screen it showed on
+No source says whether the dialog must show or what it reads (Q-14), so either outcome is recorded as Fail (question) for PM / Legal with what was recorded, never as a Pass",P2,"R-080, R-085; REQ-045","Q-14 (PM Open question 3, Legal) [Req: REQ-045]. One-way state (AGENTS.md, One-way state orders the run): only the first 「Enhance」 after a reset can show a first-use consent, so this is the first 「Enhance」 tap after the reset, on the same reset as TC-030 and before TC-110 and every other row that starts a task. When another row's first 「Enhance」 after the reset was already captured from the tap to the processing dialog, its evidence records this row. Nothing showing does not prove the dialog is missing when the account accepted it on an earlier install (the consent may be kept with the account): record whether the account had enhanced before. The upload is left to finish (the 00:01 video costs the least)."
 TC-111,Generating and cancel,Processing dialog showing (TC-110),Tap 「Cancel」,"The dialog 「Sure You Want to Leave?」 / 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」 appears with 「Leave」 and 「Keep Uploading」",P1,R-086,
 TC-112,Generating and cancel,Leave dialog showing (TC-111),"1. Look at the 「Enhance」 CTA behind the dialogs
 2. Tap 「Keep Uploading」","Step 1: the CTA behind the dialogs is greyed (disabled)
@@ -2027,3 +2093,1158 @@ TC-210,System back,The 「An Error Has Occurred」 dialog showing,Press system B
 TC-211,System back,The 「Turn on notifications」 dialog showing (TC-118 setup),Press system Back,The dialog closes like 「Later」,P3,"R-095, R-190",Q-20 (assumption). PM-only screen.
 TC-212,System back,Full-screen preview open from the panel,Press system Back,The full-screen preview closes and the panel is back unchanged,P3,"R-027, R-190",
 TC-213,System back,"Panel opened from the clip toolbar, nothing running",Press system Back,The editor is back with the project unchanged (same as ‹),P2,"R-133, R-190",
+TC-321,MUI,"1. The APK of the build under test in `~/.casebook/android/apks/<build>/` (the one installed for the run)
+2. `mui.json` names the feature's string prefixes (`android_prefixes`)","1. Run `node scripts/mui-strings.ts pdr/video-enhance --apk <build dir> --out <run dir>/mui`
+2. Read every string of `mui-strings.json` in each language against its English","1. Each of the 26 languages (CHT, CHS, JPN, ESP, KOR, DEU, FRA, ITA, RUS, PTB, NLD, IND, THA, MAY, HIN, ESM, ARA, VIT, PLK, TRK, FAR, HEB, SVE, DAN, NOR, UKR) has its own text for every string of the feature: none shows the English default or another locale's text
+2. No string is left identical to English, except names and units (「fps」, 「1080p」, product names)
+3. Placeholders and line breaks match the English in every language
+4. Each translation says what the English says, in that language's script and regional wording (CHT traditional and Taiwan, CHS simplified, PTB Brazilian, ESM Mexican)
+5. The feature name and the terms (Mode, Standard, Professional, Enhancement style, Natural, Sharp, Enhance) are translated the same way in every string
+6. No translation sheet (REQ-041): a string that only seems off is a translation doubt in mui-doubts.md, not a fail",P2,R-208; REQ-041,"MUI, all languages from the APK (no phone, no credits). The phone rows below check only truncation."
+TC-322,MUI,"1. App language set to Traditional Chinese (`launch --lang zh-Hant-TW`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI CHT (zh-Hant-TW). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-323,MUI,"1. App language set to Simplified Chinese (`launch --lang zh-Hans-CN`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI CHS (zh-Hans-CN). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-324,MUI,"1. App language set to Japanese (`launch --lang ja-JP`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI JPN (ja-JP). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-325,MUI,"1. App language set to Spanish (`launch --lang es-ES`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI ESP (es-ES). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-326,MUI,"1. App language set to Korean (`launch --lang ko-KR`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI KOR (ko-KR). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-327,MUI,"1. App language set to German (`launch --lang de-DE`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI DEU (de-DE). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-328,MUI,"1. App language set to French (`launch --lang fr-FR`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI FRA (fr-FR). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-329,MUI,"1. App language set to Italian (`launch --lang it-IT`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI ITA (it-IT). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-330,MUI,"1. App language set to Russian (`launch --lang ru-RU`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI RUS (ru-RU). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-331,MUI,"1. App language set to Portuguese (Brazil) (`launch --lang pt-BR`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI PTB (pt-BR). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-332,MUI,"1. App language set to Dutch (`launch --lang nl-NL`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI NLD (nl-NL). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-333,MUI,"1. App language set to Indonesian (`launch --lang id-ID`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI IND (id-ID). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-334,MUI,"1. App language set to Thai (`launch --lang th-TH`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI THA (th-TH). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-335,MUI,"1. App language set to Malay (`launch --lang ms-MY`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI MAY (ms-MY). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-336,MUI,"1. App language set to Hindi (`launch --lang hi-IN`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI HIN (hi-IN). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-337,MUI,"1. App language set to Spanish (Mexico) (`launch --lang es-MX`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI ESM (es-MX). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-338,MUI,"1. App language set to Arabic (`launch --lang ar-SA`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Arabic is right-to-left: text runs from the right and no string is clipped at the left edge
+6. Launcher shortcut: 「AI Video Enhance」
+7. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+8. Add Media: its title and the 「Video」 tab
+9. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+10. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+11. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+12. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+13. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+14. Offline toast: 「Upload failed. Check your connection and try again.」
+15. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+16. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+17. Recent task cards: 「View」, 「Error」, 「View Details」
+18. Result: its title and 「Save Result」
+19. Save toast: 「Saved to your device」
+20. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+21. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI ARA (ar-SA). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-339,MUI,"1. App language set to Vietnamese (`launch --lang vi-VN`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI VIT (vi-VN). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-340,MUI,"1. App language set to Polish (`launch --lang pl-PL`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI PLK (pl-PL). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-341,MUI,"1. App language set to Turkish (`launch --lang tr-TR`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI TRK (tr-TR). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-342,MUI,"1. App language set to Persian (`launch --lang fa-IR`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Persian is right-to-left: text runs from the right and no string is clipped at the left edge
+6. Launcher shortcut: 「AI Video Enhance」
+7. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+8. Add Media: its title and the 「Video」 tab
+9. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+10. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+11. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+12. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+13. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+14. Offline toast: 「Upload failed. Check your connection and try again.」
+15. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+16. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+17. Recent task cards: 「View」, 「Error」, 「View Details」
+18. Result: its title and 「Save Result」
+19. Save toast: 「Saved to your device」
+20. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+21. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI FAR (fa-IR). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-343,MUI,"1. App language set to Hebrew (`launch --lang he-IL`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Hebrew is right-to-left: text runs from the right and no string is clipped at the left edge
+6. Launcher shortcut: 「AI Video Enhance」
+7. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+8. Add Media: its title and the 「Video」 tab
+9. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+10. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+11. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+12. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+13. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+14. Offline toast: 「Upload failed. Check your connection and try again.」
+15. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+16. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+17. Recent task cards: 「View」, 「Error」, 「View Details」
+18. Result: its title and 「Save Result」
+19. Save toast: 「Saved to your device」
+20. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+21. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI HEB (he-IL). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-344,MUI,"1. App language set to Swedish (`launch --lang sv-SE`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI SVE (sv-SE). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-345,MUI,"1. App language set to Danish (`launch --lang da-DK`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI DAN (da-DK). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-346,MUI,"1. App language set to Norwegian Bokmål (`launch --lang nb-NO`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI NOR (nb-NO). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."
+TC-347,MUI,"1. App language set to Ukrainian (`launch --lang uk-UA`)
+2. After the row a plain `launch` (`locale reset`) restores the language
+3. Signed in with a Pro account (no tier switch on Android) with enough credits
+4. The 12:30 1080p 60 fps test video in the album
+5. A completed and a failed Video Enhance task already in Recent task (TC-143, TC-170; without a failed one the error dialog is not reached)
+6. A project with one video clip of 2:30 or less on the timeline (TC-003)
+7. The Demo page not dismissed for good (TC-014 not run yet on this install)","1. On the Launcher, read the big shortcut (TC-001)
+2. Tap the shortcut and read the Demo page (TC-010)
+3. Tap 「Try It Now」 and read Add Media (TC-020)
+4. Pick the 12:30 video and read the panel (TC-033)
+5. Tap ⓘ next to 「Selected Length」 and read the bubble (TC-031)
+6. Tap ⓘ next to 「Mode」 and read the bubble (TC-035)
+7. Tap ⓘ next to 「Enhancement style」 and read the bubble (TC-036)
+8. Trim the selection to 00:30–05:30 and tap 「Professional」 (TC-071)
+9. Turn Wi-Fi off and tap 「Enhance」 (TC-100)
+10. Turn Wi-Fi on
+11. Trim the selection to 00:30–00:40 (a 10 s task: leaving it costs its small price, TC-113)
+12. Tap 「Enhance」 and read the processing dialog (TC-110)
+13. Tap 「Cancel」 at once and read the leave dialog (TC-111)
+14. Tap 「Leave」
+15. Open Recent task and read the completed and failed cards (TC-143, TC-170)
+16. Tap 「View」 on the completed card and read the Result (TC-143)
+17. Tap 「Save Result」 (TC-152)
+18. Go back to Recent task and tap 「View Details」 on the failed card (TC-171)
+19. Open the project, tap the clip and read the clip toolbar (TC-003)","1. Every string on every screen of the walk shows in full: none ends in 「…」, is cut at an edge or loses a line
+2. No string overlaps another element or runs out of its button, chip, bubble, toast or dialog
+3. The CTA 「Enhance ◆ <credits>」, the chips (Standard, Professional, Natural, Sharp, fps, Resolution) and the dialog buttons keep their size and place
+4. Longest strings first: the leave dialog body, the error dialog body, the Professional toast, the three bubbles, 「Charge X credits per second」
+5. Launcher shortcut: 「AI Video Enhance」
+6. Demo page: 「AI Video Enhance」, the description, 「Don’t show again」, 「Try It Now」
+7. Add Media: its title and the 「Video」 tab
+8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
+9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
+10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
+12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
+13. Offline toast: 「Upload failed. Check your connection and try again.」
+14. Processing dialog: 「Video uploading...」, 「Please keep the app open」, 「Cancel」
+15. Leave dialog: 「Sure You Want to Leave?」, 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」, 「Leave」, 「Keep Uploading」
+16. Recent task cards: 「View」, 「Error」, 「View Details」
+17. Result: its title and 「Save Result」
+18. Save toast: 「Saved to your device」
+19. Error dialog: 「An Error Has Occurred」, 「Credits have been refunded.」, 「The server may be busy. Please try again later or use a different video.」, 「OK」
+20. Clip toolbar: 「AI Video Enhance」 (inside 「Enhance」 when the toolbar groups the tools)",P2,R-209; REQ-041,"MUI UKR (uk-UA). Truncation only (translations come from the APK, TC-321); one `texts` read and screenshot per screen; no new task."

@@ -1,0 +1,32 @@
+{
+  "feature": "pdr/recent-task-model-info",
+  "folder": "2026-11-23",
+  "received_at": "2026-11-23T03:54:15.864Z",
+  "spec_set_sha256": "e6b0aa63305ee29e15b1d5dc73f06ead25089576876f7e6129d97c13c3de042f",
+  "files": [
+    {
+      "name": "Design Guideline Cards - Card-RecentTask.md",
+      "sha256": "34bb6bed8600cd7872d325f1dd7697da3848b0902dcd4977043f8fedd7f80617",
+      "bytes": 2120
+    },
+    {
+      "name": "Recent Task Model Info - Design Figma 1794-3210.md",
+      "sha256": "4db021e0405abe73df0796c68c167e6e2bc8172de879af93990d87775b9fe1db",
+      "bytes": 2811
+    },
+    {
+      "name": "PDRA Jira - Add model information in recent task.md",
+      "sha256": "929c25874ce572d22c03c89e2785c337566b451e576cbf64b5ecc79ff12bdea1",
+      "bytes": 270
+    }
+  ],
+  "source_priority": [
+    "design"
+  ],
+  "figma": {
+    "design": "https://www.figma.com/design/1LZzcJyrhE2DjB8a8b92rt/AI-Magic?node-id=1794-3210",
+    "guideline": "https://www.figma.com/design/qSdtJ1wbHddNm6ebWvF4ia/?node-id=142-4496"
+  },
+  "figma_only": true,
+  "note": "Figma-only spec set (user, 2026-11-23, REQ-001): Jira 「(UI) Add model information in recent task (I2V/T2V/TTI)」 (PDRA, parent PDRA-627 16.9.0) links only the Design frame 1794:3210; the .md files are text snapshots of the Jira text, the Design read and the linked Design Guideline · Cards (Card/RecentTask). No PM Figma for this ticket (the section PM link has no model rule)."
+}

@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-11-23T03:56:25.110Z",
+  "feature": "pdr/cinematic-reel-recommendation",
+  "platform": "ios",
+  "set": "specs/2026-11-23",
+  "warnings": [],
+  "skipped": [
+    "CineStory 26.07_v2 (no text read from cinestory-26-07-v2.png)"
+  ]
+}

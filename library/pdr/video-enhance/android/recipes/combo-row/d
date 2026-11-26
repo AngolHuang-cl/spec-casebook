@@ -1,2 +1,2 @@
 #!/bin/bash
-cd /Users/ethanhsu/Desktop/pdr-spec-casebook && exec node scripts/device-android.ts library/pdr/video-enhance/android/runs/2026-11-18-r2-full "$@"
+cd /Users/ethanhsu/Desktop/pdr-spec-casebook && exec node scripts/device-android.ts ${RUN:-library/pdr/video-enhance/android/runs/2026-11-18-r2-full} "$@"

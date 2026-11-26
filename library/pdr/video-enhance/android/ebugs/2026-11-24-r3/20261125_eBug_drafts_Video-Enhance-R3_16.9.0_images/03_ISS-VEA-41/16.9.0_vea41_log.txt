@@ -1,0 +1,63 @@
+# ISS-VEA-41 Charged tasks that failed, and when their credits came back
+# PowerDirector Mobile for Android 16.9.0 (2611231), Stage server, Samsung SM-A5360 / Android 15 (phone time, UTC+8)
+# Video Enhance task lines (create session = the charge, transcode, S3 upload, apply effect, errors, toasts) and the
+# balance when it changes; tokens dropped, URL queries cut at '?'.
+
+## 20:40 task (01:30 1080p, charge 180): Enhance tap (2026-11-24 20:40:15–20:41:10; logs/R3-e-20261124-211841/logcat-live.txt)
+2026-11-24 20:40:18.707 CreditSystemManager: totalRemain=31322
+2026-11-24 20:40:19.603 Create session: start
+2026-11-24 20:40:20.066 AIVideoAnime:  create session response code->200
+2026-11-24 20:40:20.068 Create session: end
+2026-11-24 20:40:20.075 Transcode: start
+2026-11-24 20:41:08.596 Transcode: finish
+2026-11-24 20:41:08.755 Upload to S3: start
+
+## 20:40 task: S3 upload breaks off (Broken pipe), task failed (2026-11-24 20:49:40–20:49:45; logs/R3-e-20261124-211841/logcat-live.txt)
+2026-11-24 20:49:41.847 System.err: 	Suppressed: java.io.IOException: unexpected end of stream on https://cl-aol-media-demo.s3-accelerate.amazonaws.com/...
+2026-11-24 20:49:41.847 System.err: java.net.SocketException: Broken pipe
+2026-11-24 20:49:41.848 AIVideoAnimeServerAPI:  exception->java.net.SocketException: Broken pipe
+2026-11-24 20:49:41.849 Upload to S3: finish
+2026-11-24 20:49:41.883 Toast   : show: caller = znm.emit:84
+2026-11-24 20:49:43.081 Apply Effect: finish
+2026-11-24 20:49:43.545 Apply Effect: finish
+
+## 21:54 task (01:30 1080p, charge 180): Enhance tap (2026-11-24 21:54:15–21:55:30; logs/R3-f-20261124-231751/logcat-live.txt)
+2026-11-24 21:54:21.999 CreditSystemManager: totalRemain=31054
+2026-11-24 21:54:22.939 Create session: start
+2026-11-24 21:54:23.648 AIVideoAnime:  create session response code->200
+2026-11-24 21:54:23.651 Create session: end
+2026-11-24 21:54:23.670 Transcode: start
+2026-11-24 21:55:27.873 Transcode: finish
+2026-11-24 21:55:28.240 Upload to S3: start
+
+## 21:54 task: upload ends, apply effect 401 (2026-11-24 23:05:15–23:05:30; logs/R3-f-20261124-231751/logcat-live.txt)
+2026-11-24 23:05:23.529 AIVideoAnime:  upload response code->200
+2026-11-24 23:05:23.529 Apply Effect: start
+2026-11-24 23:05:23.529 Upload to S3: finish
+2026-11-24 23:05:23.799 AIVideoAnime:  apply effect response code->401
+2026-11-24 23:05:23.846 Toast   : show: caller = znm.emit:84
+2026-11-24 23:05:25.042 Apply Effect: finish
+
+## Ledger: Video Enhancer debits and 'Generation failed, credits returned' refunds, the failed tasks' debits and every refund to 2026-11-25 01:30
+# From the app's getCreditHistory responses in logcat (server records; time = the record's createTime in UTC+8).
+# Refunds are server-side: the app logs no line when one is made.
+2026-11-24 20:33:06  -4  consume   Video Enhancer (genvideo_1_sec_byteplus_std_natural_720p_30fps)   (first in logcat 2026-11-24 20:36:09.579, logs/R3-e-20261124-211841)
+2026-11-24 20:40:19  -180  consume   Video Enhancer (genvideo_1_sec_byteplus_std_natural_1080p_30fps)   (first in logcat 2026-11-24 20:50:38.800, logs/R3-e-20261124-211841)
+2026-11-24 20:58:04  -4  consume   Video Enhancer (genvideo_1_sec_byteplus_std_hd_720p_30fps)   (first in logcat 2026-11-24 20:58:36.929, logs/R3-e-20261124-211841)
+2026-11-24 21:04:12  -4  consume   Video Enhancer (genvideo_1_sec_byteplus_std_natural_720p_30fps)   (first in logcat 2026-11-24 21:11:30.306, logs/R3-e-20261124-211841)
+2026-11-24 21:08:03  +4  returned  Generation failed, credits returned   (first in logcat 2026-11-24 21:11:30.306, logs/R3-e-20261124-211841)
+2026-11-24 21:33:30  -31  consume   Video Enhancer (genvideo_1_sec_byteplus_std_natural_720p_30fps)   (first in logcat 2026-11-24 21:34:45.472, logs/R3-f-20261124-231751)
+2026-11-24 21:54:23  -180  consume   Video Enhancer (genvideo_1_sec_byteplus_std_natural_1080p_30fps)   (first in logcat 2026-11-24 23:10:25.894, logs/R3-f-20261124-231751)
+2026-11-24 23:40:00  +4  returned  Generation failed, credits returned   (first in logcat 2026-11-24 23:41:44.746, logs/R3-g1-20261125-004223)
+2026-11-25 00:19:08  +180  returned  Generation failed, credits returned   (first in logcat 2026-11-25 00:19:49.259, logs/R3-g1-20261125-004223)
+2026-11-25 00:19:08  +4  returned  Generation failed, credits returned   (first in logcat 2026-11-25 00:19:49.259, logs/R3-g1-20261125-004223)
+2026-11-25 00:40:00  +31  returned  Generation failed, credits returned   (first in logcat 2026-11-25 00:41:38.620, logs/R3-g1-20261125-004223)
+2026-11-25 01:19:08  +180  returned  Generation failed, credits returned   (first in logcat 2026-11-25 01:21:02.316, logs/R3-g2-20261125-031407)
+
+## Which refund belongs to which charge (run notes O-10 / O-16; amounts and order match)
+-4   20:33:06  S3 upload broke off 20:35:41            refund +4   23:40:00  3 h 4 min after the failure
+-180 20:40:19  S3 upload broke off 20:49:41 (above)    refund +180 00:19:08  3 h 29 min after the failure
+-4   20:58:04  「Leave」 during the upload (DRA262611P0094, not this bug)   refund +4 00:19:08
+-4   21:04:12  applyEffect status Error 21:08:03       refund +4   21:08:03  at once (the expected behaviour)
+-31  21:33:30  S3 upload broke off 21:34:12            refund +31  00:40:00  3 h 6 min after the failure
+-180 21:54:23  apply effect 401 at 23:05:23 (above)    refund +180 01:19:08  2 h 14 min after the failure

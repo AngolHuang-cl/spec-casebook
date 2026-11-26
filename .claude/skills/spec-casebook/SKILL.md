@@ -115,6 +115,12 @@ that showed it). No comparison runs during an analysis or before a proposal.
   missed or contradicted); `check.ts` warns when the two tables' spec sets differ this way.
 - Spec files: every file the user supplied for this feature (PDF, images, exported Figma pages, text).
   Ask for missing ones only if the user said there are more.
+- **MUI test (user, 2026-11-24).** When the feature has no `library/<product>/<feature>/mui.json`, it takes the
+  product's language list (`product.json` › `mui`; PowerDirector: 26 languages besides ENU, no translation sheet).
+  With no product list, ask with the questions above which languages are implemented, whether there is a translation
+  sheet (ask for it), and take each language's eBug tag from the sheet, else ask before the run. The table then ends with an `MUI` section, its own run phase
+  (Android: translations read from the APK, then a truncation walk per language; iOS: one walk per language), and MUI bugs carry `[MUI]` or language
+  tags (`references/mui.md`). "English only" records an empty list and is not asked again.
 
 ### 1. Fingerprint the spec
 
@@ -163,6 +169,10 @@ TypeScript (`build-draft.ts`, as in `pdr/ai-mini-drama/ios/drafts/20261021-15085
    belong. When a new rule is checked on the same screen with the same setup as an old row, modify that row
    (`modified`, reason) instead of adding one. Both are fine between rows that already ran; a changed row is re-run
    in the next round. After every analysis, check whether the order of rows and of the run should change.
+   **Removed or reversed rules (2026-11-23, pdr/aigc-watermark REQ-010).** When a requirement is removed or its
+   meaning reversed, search every row's Precondition, Action and Expected Result for its wording (the on-screen
+   string, its key phrase), not only the rows whose Spec Ref cites it: v2 removed the spoken clip (R-017, R-032 –
+   R-036) and fixed the rows citing those IDs, but TC-128 (iOS TC-126) cited only R-030 and still expected the clip.
 5. Show the user the plan summary in chat (counts, the notable changes and open questions) and ask them to
    go ahead with the review. Then `check.ts` and step 4.
 
@@ -254,6 +264,7 @@ CSV rather than asking the user to open the page. Never edit an approved `cases.
 | `references/run.md` | Any on-device run segment, phase wrap-up or run plan (iPhone and shared run rules) |
 | `references/run-android.md` | Android runs, together with `run.md` |
 | `references/ebugs.md` | Turning run failures into eBug drafts, the review page and filing |
+| `references/mui.md` | The MUI test: languages, translation sheet and tags, MUI rows, running them, MUI eBug tags |
 | `references/page-checks.md` | The formatting check every HTML page or artifact gets before hand-over |
 
 Paths are relative to this skill's folder (`.claude/skills/spec-casebook/`, Codex: `.codex/skills/spec-casebook/`).
