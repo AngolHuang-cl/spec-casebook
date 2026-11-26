@@ -68,6 +68,8 @@ h2 { font: 700 1.25rem var(--display); margin: 28px 0 0 }
 .c a .p, .c a .x, .c a .k, .c a.x, .c a.p, .c a.w, .c a.k { text-decoration-color: currentColor }
 .c a.x { color: var(--fail) } .c a.p { color: var(--pass) } .c a.w { color: var(--question) } .c a.k { color: var(--blocked) }
 .live { color: var(--pass); font-weight: 650 }
+.onv { white-space: nowrap } .onv.new { color: var(--accent); font-weight: 650 }
+.grp .rm b { color: var(--ink); font-variant-numeric: tabular-nums }
 .at-in { color: var(--pass); font-weight: 600 }
 /* this computer only: move a table into Regression (AT) or back */
 .atb { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; white-space: nowrap }
@@ -121,6 +123,10 @@ const COLS = () => [['cases', tx('Cases', '案例')], ['run', tx('Last run', '�
 const line = cells => `<div class="line">${COLS().map(([id, label], i) => `<div class="c c-${id}${cells[i] === dash || !cells[i] ? ' blank' : ''}" data-l="${cbEsc(label.replace(/<br>/g, ' ').replace(/<[^>]+>/g, ''))}">${cells[i] ?? ''}</div>`).join('')}</div>`;
 // eBugs of one kind: those still open (eCL's status at the last Refresh, else the status when filed) of those filed
 const bugPair = (b, href, what) => b?.filed ? `<a href="${href}" title="${cbEsc(tx(`${b.open} still open of ${b.filed} ${what} filed`, `${what}：已開 ${b.filed} 張，${b.open} 張未結`))}"><b class="${b.open ? 'x' : 'p'}">${b.open}</b> / ${b.filed}</a>` : '';
+// A table listed under its roadmap version but run on another build says so under the run's date; a run on the newest
+// version tested on this platform is highlighted (user, 2026-11-26).
+let NEWEST = '';
+const ranOn = p => p.ran && p.ran !== p.app ? `<small class="onv${p.ran === NEWEST ? ' new' : ''}" title="${cbEsc(p.ran === NEWEST ? tx(`Last run on ${p.ran}, the newest version tested`, `最近一次在 ${p.ran} 執行，為目前測過的最新版本`) : tx(`Last run on ${p.ran}`, `最近一次在 ${p.ran} 執行`))}">${tx('on', '於')} ${cbEsc(p.ran)}</small>` : '';
 function tableLine(f, p, s) {
   const root = `/${f.id}/${p.platform}`, r = p.last, w = p.waiting ?? {}, m = p.mui, d = p.design, B = p.bugs ?? {};
   const draft = p.drafts.at(-1), draftLink = draft ? `<a class="draft" href="${root}/draft/${draft}/cases/" title="${cbEsc(tx(`Open draft ${draft}, waiting for review`, `開啟待審草稿 ${draft}`))}">${tx('draft', '草稿')}</a>` : '';
@@ -128,7 +134,7 @@ function tableLine(f, p, s) {
   const cases = [p.version ? `<a href="${root}/cases/" title="${cbEsc(tx(`${num(p.cases)} test cases in the approved table (v${p.version})${p.mui_cases ? `, plus ${p.mui_cases} MUI rows counted under MUI` : ''}`, `已核准表格（v${p.version}）有 ${num(p.cases)} 個測試案例${p.mui_cases ? `，另有 ${p.mui_cases} 列 MUI 計入 MUI 欄` : ''}`))}">${num(p.cases)}</a>` : '', draftLink].filter(Boolean).join(' · ') || dash;
   // the latest full run's date (no build: groups go by version); opens the run plan
   const when = p.tested ? md(p.tested.date) : r ? cbWhen(r.at).slice(0, 5) : '';
-  const run = when ? `<a href="${root}/${p.plan ? 'progress' : 'results'}/" title="${cbEsc(r ? r.id : '')}">${cbEsc(when)}</a>${r?.live ? `<small class="live">${tx('Running', '執行中')}</small>` : ''}` : dash;
+  const run = when ? `<a href="${root}/${p.plan ? 'progress' : 'results'}/" title="${cbEsc(r ? r.id : '')}">${cbEsc(when)}</a>${r?.live ? `<small class="live">${tx('Running', '執行中')}</small>` : ''}${ranOn(p)}` : dash;
   // each count opens Results on that run, filtered to that result
   const res = (n, k, cls) => r ? `<a class="${cls}" href="${root}/results/?run=${encodeURIComponent(r.id)}&res=${k}" title="${cbEsc(`${r.id}\n${cbWhenZ(r.at, L)}`)}">${n}</a>` : dash;
   const bugs = bugPair(B.fn, `${root}/results/?bugs=1`, tx('eBugs (functional and UX)', '功能與 UX eBug')) || dash;
@@ -162,7 +168,7 @@ function refreshHtml(list) {
   return `<span class="ref"><span>${when}</span><button type="button" data-refresh="${cbEsc(key)}"${going ? ' disabled' : ''}>${going ? tx('Reading eCL…', '讀取 eCL 中…') : tx('Refresh eBugs', '更新 eBug')}</button></span>`;
 }
 // a group: the tables of one platform under one product and version, one line each
-const groupHtml = (title, list, s) => `<div class="grp"><h3>${cbEsc(title)}</h3><span>${tx(`${list.length} feature${list.length === 1 ? '' : 's'}`, `${list.length} 個功能`)}</span>${refreshHtml(list)}</div>
+const groupHtml = (title, list, s, extra = '') => `<div class="grp"><h3>${cbEsc(title)}</h3><span>${tx(`${list.length} feature${list.length === 1 ? '' : 's'}`, `${list.length} 個功能`)}</span>${extra}${refreshHtml(list)}</div>
   <div class="rows"><div class="feat hd"><div class="name">${tx('Feature', '功能')}</div><div class="lines">${line(COLS().map(c => c[1]))}</div></div>
   ${list.map(({ f, p }) => { const root = `/${f.id}/${p.platform}`; return `<div class="feat"><div class="name"><a href="${root}/${lastTab(root, s)}/" title="${cbEsc(f.id)}">${cbEsc(f.title)}</a></div><div class="lines">${tableLine(f, p, s)}</div></div>`; }).join('')}
   ${list.length > 1 ? `<div class="feat tot"><div class="name">${tx('Total', '合計')}</div><div class="lines">${totalLine(list)}</div></div>` : ''}</div>`;
@@ -222,7 +228,13 @@ function render() {
   const s = seen();
   const q = $('q').value.trim().toLowerCase();
   const shown = tabbed.filter(x => (!VIEW.ver || vOf(x) === VIEW.ver) && (!q || `${x.f.title} ${x.f.id}`.toLowerCase().includes(q))).sort((a, b) => order(a.f, b.f));
-  $('list').innerHTML = vers.filter(v => shown.some(x => vOf(x) === v)).map(v => groupHtml(`${prodName} ${vName(v)}`, shown.filter(x => vOf(x) === v), s)).join('');
+  // per version: how many of its cases have been run on a device, of the cases created (user, 2026-11-26): the approved
+  // tables' rows without MUI, and those of them with a Pass, Fail or Blocked result from any run (lib/boards.ts ranCases). Every table of the version counts, whatever the tab or the search shows.
+  NEWEST = platted.map(x => x.p.ran).filter(Boolean).sort((a, b) => verKey(a).localeCompare(verKey(b))).at(-1) ?? '';
+  const casesHtml = v => { const all = platted.filter(x => vOf(x) === v && x.p.version), total = all.reduce((n, x) => n + (x.p.cases ?? 0), 0);
+    const ran = all.reduce((n, x) => n + (x.p.ran_cases ?? 0), 0);
+    return total ? `<span class="rm" title="${cbEsc(tx(`${num(total)} cases created in this version's tables; ${num(ran)} of them have a result from a run on a device`, `此版本的表格共建立 ${num(total)} 個案例，其中 ${num(ran)} 個已在裝置上執行並有結果`))}">${tx(`<b>${num(ran)}</b> of ${num(total)} cases run (${Math.round(ran / total * 100)}%)`, `${num(total)} 個案例已執行 <b>${num(ran)}</b> 個（${Math.round(ran / total * 100)}%）`)}</span>` : ''; };
+  $('list').innerHTML = vers.filter(v => shown.some(x => vOf(x) === v)).map(v => groupHtml(`${prodName} ${vName(v)}`, shown.filter(x => vOf(x) === v), s, casesHtml(v))).join('');
   $('none').hidden = !!shown.length;
   const where = `${prodName} ${platName(VIEW.plat)}`;
   $('none').textContent = !mine.length ? tx(`No table for ${prodName} yet.`, `${prodName} 還沒有表格。`) : tabbed.length ? tx('No feature matches.', '沒有符合的功能。') : VIEW.tab === 'at'

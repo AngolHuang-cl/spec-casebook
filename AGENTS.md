@@ -219,9 +219,12 @@ lines; put the full rule in the skill or reference file that applies it and poin
   **2026-11-26:** no feature/table totals under the title and no counts on the product and platform switches or the two tabs; the
   columns are eBugs, MUI bugs, Design bugs (each open / filed, nothing else in the cell) and PM questions; 「Refresh
   eBugs」 works from any computer that reached the page, one read at a time per group (a second click joins the first),
-  read by bug-code prefix so a group takes seconds; a table not tested yet is listed under the version the Kanban
-  roadmap plans it for (`release.json` in the feature folder, per platform; written when a feature is added or the
-  roadmap moves it), and only one the roadmap does not list stays under 「Not tested yet」.
+  read by bug-code prefix so a group takes seconds; every feature is listed under the version the Kanban roadmap
+  puts it in (`release.json` in the feature folder: per platform the version and the roadmap items it covers; written
+  when a feature is added or the roadmap moves it), one the roadmap does not list goes by the version it was tested on,
+  else 「Not tested yet」; a table run on another version than its group says 「on 16.9.0」 under the run date, highlighted
+  when that is the newest version tested; each version's header says how many of its cases have been run on a device, of the
+  cases created (a case with a result from any run, MUI left out); cases, never roadmap items.
 - **No question left open by a completed run (user, 2026-11-25).** At every phase wrap-up each Open question is
   determined (`<platform>/question-status.json`), filed as a PM eBug whose entry names the Q-id (also when no row
   failed on it), or marked not reached with the reason; settled ones leave the Cases page's question list for its

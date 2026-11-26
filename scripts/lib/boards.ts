@@ -97,15 +97,14 @@ export function testedVersion(feature: string, platform: string): string {
   return found.sort((a, b) => verKey(a).localeCompare(verKey(b))).at(-1) ?? '';
 }
 
-/** The app version the Kanban roadmap plans the feature for on this platform (`release.json` in the feature folder; user,
- *  2026-11-26): where the Dashboard lists a table that has not been tested yet. */
-export function plannedVersion(feature: string, platform: string): string {
+/** Where the Kanban roadmap puts the feature on this platform (`release.json` in the feature folder; user, 2026-11-26):
+ *  the app version the Dashboard lists it under, and the roadmap items it covers. */
+export function planned(feature: string, platform: string): { version: string; items: string[] } | null {
   const file = join(LIBRARY, feature, 'release.json');
-  const v = (byFile(file, () => JSON.parse(readFileSync(file, 'utf8')), 'release:') as Record<string, unknown> | undefined)?.[platform];
-  const m = typeof v === 'string' ? v.match(/^v?(\d+)\.(\d+)(?:\.(\d+))?$/) : null;
-  return m ? `${m[1]}.${m[2]}.${m[3] ?? '0'}` : '';
+  const v = (byFile(file, () => JSON.parse(readFileSync(file, 'utf8')), 'release:') as Record<string, any> | undefined)?.[platform];
+  const m = String(typeof v === 'string' ? v : v?.version ?? '').match(/^v?(\d+)\.(\d+)(?:\.(\d+))?$/);
+  return m ? { version: `${m[1]}.${m[2]}.${m[3] ?? '0'}`, items: Array.isArray(v?.items) ? v.items.map(String) : [] } : null;
 }
-
 /** The table's latest full run with a build: its date and the build ("16.9.0 (2611231)"), a detail under the version. */
 const NOT_FULL = /design|mui|recheck|verify|check/i;
 export function lastTested(feature: string, platform: string): { date: string; build: string } | null {
@@ -125,6 +124,21 @@ export function lastTested(feature: string, platform: string): { date: string; b
 export function caseCounts(feature: string, platform: string): { cases: number; mui: number } | null {
   const csv = join(tableDir(feature, platform), 'cases.csv');
   return byFile(csv, () => { const rows = readRecords(readFileSync(csv, 'utf8')).filter(r => r.ID), mui = rows.filter(r => r.Section === 'MUI').length; return { cases: rows.length - mui, mui }; });
+}
+
+/** How many of the approved table's cases (MUI left out) have a Pass, Fail or Blocked result from any run on a device
+ *  (user, 2026-11-26: a version's header says how many of the cases created have been run). A case that only an older
+ *  run reached still counts; one removed from the table since does not. */
+export function ranCases(feature: string, platform: string): number {
+  const csv = join(tableDir(feature, platform), 'cases.csv'), dir = join(tableDir(feature, platform), 'runs');
+  const ids = byFile(csv, () => readRecords(readFileSync(csv, 'utf8')).filter(r => r.ID && r.Section !== 'MUI').map(r => r.ID), 'ids:') ?? [];
+  const ran = new Set<string>();
+  for (const n of names(dir)) {
+    if (n.startsWith('_')) continue;
+    const c = join(dir, n, 'results.csv');
+    for (const id of byFile(c, () => [...new Set(readRecords(readFileSync(c, 'utf8')).filter(r => r.ID && r.Section !== 'MUI' && /^(pass|fail|block)/i.test(r.Result ?? '')).map(r => r.ID))], 'ran:') ?? []) ran.add(id);
+  }
+  return ids.filter(id => ran.has(id)).length;
 }
 
 /** The eBugs filed from a table's runs (its batches' filed_bugcodes.json), in three kinds that never overlap: `mui`
@@ -222,8 +236,8 @@ export function listBoards() {
     const platforms = PLATFORMS.filter(p => existsSync(tableDir(id, p))).flatMap(platform => { try {
       const m = readManifest(id, platform), drafts = openDrafts(id, platform), plan = newestPlan(id, platform);
       title ||= m?.title ?? json(join(draftsDir(id, platform), drafts.at(-1) ?? '', 'spec.json'))?.title ?? '';
-      const n = m ? caseCounts(id, platform) : null;
-      return [{ platform, version: m?.version ?? null, cases: n?.cases ?? m?.cases ?? null, mui_cases: n?.mui ?? 0, approved_at: m?.approved_at ?? null, drafts, plan: !!(plan.md && plan.draft), runs: runCount(id, platform), last: lastRun(id, platform), waiting: waiting(id, platform, m ? undefined : drafts.at(-1)), app: testedVersion(id, platform) || plannedVersion(id, platform), tested: lastTested(id, platform), at: readRegression(id)[platform] ?? null,
+      const n = m ? caseCounts(id, platform) : null, plannedFor = planned(id, platform), ran = testedVersion(id, platform);
+      return [{ platform, version: m?.version ?? null, cases: n?.cases ?? m?.cases ?? null, mui_cases: n?.mui ?? 0, ran_cases: m ? ranCases(id, platform) : 0, approved_at: m?.approved_at ?? null, drafts, plan: !!(plan.md && plan.draft), runs: runCount(id, platform), last: lastRun(id, platform), waiting: waiting(id, platform, m ? undefined : drafts.at(-1)), app: plannedFor?.version || ran, ran, items: plannedFor?.items ?? [], tested: lastTested(id, platform), at: readRegression(id)[platform] ?? null,
         bugs: bugCounts(id, platform), mui: m ? muiStatus(id, platform) : null, design: designStatus(id, platform) }];
     } catch { return []; } }).filter(p => p.version || p.drafts.length);
     if (platforms.length) products.get(product)!.features.push({ id, title: title || id.split('/')[1], platforms });
