@@ -105,6 +105,13 @@ export function planned(feature: string, platform: string): { version: string; i
   const m = String(typeof v === 'string' ? v : v?.version ?? '').match(/^v?(\d+)\.(\d+)(?:\.(\d+))?$/);
   return m ? { version: `${m[1]}.${m[2]}.${m[3] ?? '0'}`, items: Array.isArray(v?.items) ? v.items.map(String) : [] } : null;
 }
+/** The GM date of each app version of a product, per platform (`library/<product>/releases.json`, from the Kanban
+ *  roadmap; user, 2026-11-26). */
+export function releases(product: string): { platform: string; version: string; gm: string }[] {
+  const file = join(LIBRARY, product, 'releases.json');
+  return (byFile(file, () => JSON.parse(readFileSync(file, 'utf8')).releases, 'releases:') as any[] | undefined) ?? [];
+}
+
 /** The table's latest full run with a build: its date and the build ("16.9.0 (2611231)"), a detail under the version. */
 const NOT_FULL = /design|mui|recheck|verify|check/i;
 export function lastTested(feature: string, platform: string): { date: string; build: string } | null {
@@ -227,10 +234,10 @@ export function designStatus(feature: string, platform: string) {
 }
 
 export function listBoards() {
-  const products = new Map<string, { id: string; name: string; features: unknown[] }>();
+  const products = new Map<string, { id: string; name: string; releases: unknown[]; features: unknown[] }>();
   for (const id of listFeatures()) {
     const product = id.split('/')[0];
-    if (!products.has(product)) products.set(product, { id: product, name: json(join(LIBRARY, product, 'product.json'))?.name ?? NAMES[product] ?? product, features: [] });
+    if (!products.has(product)) products.set(product, { id: product, name: json(join(LIBRARY, product, 'product.json'))?.name ?? NAMES[product] ?? product, releases: releases(product), features: [] });
     let title = '';
     // a table being saved right now (a half-written file) sits out this view; the rest of the list still shows
     const platforms = PLATFORMS.filter(p => existsSync(tableDir(id, p))).flatMap(platform => { try {

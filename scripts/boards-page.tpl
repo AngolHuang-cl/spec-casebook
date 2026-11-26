@@ -233,8 +233,11 @@ function render() {
   NEWEST = platted.map(x => x.p.ran).filter(Boolean).sort((a, b) => verKey(a).localeCompare(verKey(b))).at(-1) ?? '';
   const casesHtml = v => { const all = platted.filter(x => vOf(x) === v && x.p.version), total = all.reduce((n, x) => n + (x.p.cases ?? 0), 0);
     const ran = all.reduce((n, x) => n + (x.p.ran_cases ?? 0), 0);
-    return total ? `<span class="rm" title="${cbEsc(tx(`${num(total)} cases created in this version's tables; ${num(ran)} of them have a result from a run on a device`, `此版本的表格共建立 ${num(total)} 個案例，其中 ${num(ran)} 個已在裝置上執行並有結果`))}">${tx(`<b>${num(ran)}</b> of ${num(total)} cases run (${Math.round(ran / total * 100)}%)`, `${num(total)} 個案例已執行 <b>${num(ran)}</b> 個（${Math.round(ran / total * 100)}%）`)}</span>` : ''; };
-  $('list').innerHTML = vers.filter(v => shown.some(x => vOf(x) === v)).map(v => groupHtml(`${prodName} ${vName(v)}`, shown.filter(x => vOf(x) === v), s, casesHtml(v))).join('');
+    return total ? `<span class="rm" title="${cbEsc(tx(`${num(ran)} of the ${num(total)} cases created in this version's tables have a result from a run on a device (${Math.round(ran / total * 100)}%)`, `此版本的表格共建立 ${num(total)} 個案例，其中 ${num(ran)} 個已在裝置上執行並有結果（${Math.round(ran / total * 100)}%）`))}">${tx('Cases run', '已執行案例')} <b>${num(ran)}</b>/${num(total)}</span>` : ''; };
+  // the version's GM date, from the Kanban roadmap (releases.json of the product)
+  const rels = D.products.find(p => p.id === VIEW.prod)?.releases ?? [];
+  const gmHtml = v => { const gm = rels.find(r => r.platform === VIEW.plat && r.version === v)?.gm; return gm ? `<span class="rm" title="${cbEsc(tx('GM date on the Kanban roadmap', 'Kanban 路線圖上的 GM 日期'))}">GM <b>${cbEsc(gm)}</b></span>` : ''; };
+  $('list').innerHTML = vers.filter(v => shown.some(x => vOf(x) === v)).map(v => groupHtml(`${prodName} ${vName(v)}`, shown.filter(x => vOf(x) === v), s, gmHtml(v) + casesHtml(v))).join('');
   $('none').hidden = !!shown.length;
   const where = `${prodName} ${platName(VIEW.plat)}`;
   $('none').textContent = !mine.length ? tx(`No table for ${prodName} yet.`, `${prodName} 還沒有表格。`) : tabbed.length ? tx('No feature matches.', '沒有符合的功能。') : VIEW.tab === 'at'

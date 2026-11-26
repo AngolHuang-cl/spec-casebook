@@ -224,7 +224,8 @@ lines; put the full rule in the skill or reference file that applies it and poin
   when a feature is added or the roadmap moves it), one the roadmap does not list goes by the version it was tested on,
   else 「Not tested yet」; a table run on another version than its group says 「on 16.9.0」 under the run date, highlighted
   when that is the newest version tested; each version's header says how many of its cases have been run on a device, of the
-  cases created (a case with a result from any run, MUI left out); cases, never roadmap items.
+  cases created, written short (「Cases run 374/997」; a case with a result from any run, MUI left out; cases, never
+  roadmap items), beside the version's GM date from the roadmap (`library/<product>/releases.json`).
 - **No question left open by a completed run (user, 2026-11-25).** At every phase wrap-up each Open question is
   determined (`<platform>/question-status.json`), filed as a PM eBug whose entry names the Q-id (also when no row
   failed on it), or marked not reached with the reason; settled ones leave the Cases page's question list for its
