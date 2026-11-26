@@ -176,7 +176,10 @@ lines; put the full rule in the skill or reference file that applies it and poin
   frames in `extracted/`), then judge the build's current behaviour against that. An open question means Hold
   (`qa-report/SKILL.md` › *Expected = today's spec*). But a build that does what the bug expected is OK even
   with a board unread or a question open (user, 2026-11-05, REQ-098).
-- **AI Mini Drama credits (user, 2026-11-03, REQ-073, until lifted).** For runs and rechecks, use whatever credits a check needs for anything except a full video generation (characters, outlines, storyboards, regenerations, updates); a full video generation still needs the user's go-ahead or an existing video. Check every path a bug names rather than stopping at one to save credits.
+- **Credits: use what a row needs (user, 2026-11-26; replaces the AI Mini Drama rule of 2026-11-03, REQ-073).** On
+  every feature, runs, rechecks and verifies spend whatever in-app credits a row needs (generations, enhances, full
+  videos, a new result to test on) with no separate go-ahead, and a row is never Blocked only to save credits. Check
+  every path a bug names rather than stopping at one. Buying credits stays under *Test purchases in the app*.
 - **Chinese copy of every table (user, 2026-11-11).** Each table has a Traditional Chinese reading copy
   (`cases.zh-Hant.csv`) that the 中文 switch shows on Cases, Results, Progress and Coverage; it is natural Taiwan
   Chinese, never word by word, kept current row by row with `scripts/zh-copy.ts` after drafts and Saves; run results
@@ -192,8 +195,9 @@ lines; put the full rule in the skill or reference file that applies it and poin
   build's APK (`scripts/mui-strings.ts`, no phone), the phone walks each language for truncation (iOS: translation
   too) and starts no new task.
 - **Dashboard (user, 2026-11-25).** The pages server's first page is the Dashboard: two tabs, Agentic runs (tables
-  waiting for their conversion to AT) and Regression (AT) (converted), with the iOS / Android switch on the same line
-  (the two are never listed together), one toolbar (Product, Version, Sort, Search), then per product and app version
+  waiting for their conversion to AT) and Regression (AT) (converted), above them the product switch and then its platform switch (user, 2026-11-26: product first, then platform;
+  PowerDirector, PhotoDirector, Promeo, MyEdit Web · PC, Mac, Android, iOS, one without a table dimmed; platforms are
+  never listed together), one toolbar (Version, Sort, Search), then per product and app version
   (16.9.0, never the build or the TR, and no build number anywhere on the page) one aligned line per feature: Cases,
   Last run, Pass, Fail, Blocked (a column each), eBugs open / filed, Questions, MUI, Design, AT, and a total line.
   Keep it a table: no sentences of figures in a cell (the first version was 「way too messy」), every column says what

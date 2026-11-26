@@ -532,10 +532,11 @@ Only what is open runs: the server holds no table, a page's process starts on it
 after 10 idle minutes (`--idle <minutes>`; a hidden tab does not keep it alive). One server is enough: a second start prints the address of
 the running one and exits. Old temp files and thumbnails unused for 30 days are cleared at start and daily.
 
-The navigation page is the Dashboard (user, 2026-11-25). Two tabs split the tables: 「Agentic runs」 (tested by the
-agent, waiting for their conversion to AT) and 「Regression (AT)」 (converted to automated tests); under them, iOS and
-Android are sub tabs, never one list. Chips filter by product and by app version (16.9.0; never the build or the TR), and
-the list is grouped the same way, newest version first, then 「Not tested yet」. Each feature is one line with a column per
+The navigation page is the Dashboard (user, 2026-11-25). You choose the product first, then its platform (user,
+2026-11-26: PowerDirector, PhotoDirector, Promeo, MyEdit Web · PC, Mac, Android, iOS; one with no table yet is dimmed,
+and platforms are never one list). Two tabs then split that platform's tables: 「Agentic runs」 (tested by the agent,
+waiting for their conversion to AT) and 「Regression (AT)」 (converted to automated tests). A menu filters by app version
+(16.9.0; never the build or the TR), and the list is grouped by version, newest first, then 「Not tested yet」. Each feature is one line with a column per
 figure: cases, the last run's date, pass, fail and blocked of the latest run, eBugs still open of those filed, open
 questions, the MUI phase, the design check and AT; every figure opens the exact place behind it (Questions opens the
 question panel of Cases), and a total line closes each group. MUI rows, MUI runs and MUI eBugs are left out of cases,

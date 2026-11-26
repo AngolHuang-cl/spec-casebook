@@ -14,17 +14,20 @@ h1 { font: 700 1.6rem/1.2 var(--display); margin: 0; letter-spacing: -0.01em }
 /* Dashboard (user, 2026-11-25): two tabs (agentic runs, waiting for their conversion to AT · Regression (AT), converted),
    product and version filters, then one aligned line per table: every figure has its own column, named once in the
    group's header, so nothing has to be read out of a sentence. */
-/* Navigation, one line: the two tabs on the left, the platform switch (iOS · Android, never both in one list) on the
-   right. Then one toolbar: Product, Version, Sort and the search, the same control height, left to right, nothing
-   stranded on a line of its own (page-checks.md, UI design rules). */
-.nav2 { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px 16px; margin: 18px 0 0; border-bottom: 1px solid var(--line) }
+/* The scope first (user, 2026-11-26): the product, then its platform, as two switches on one line (a product or platform
+   with no table yet is dimmed; platforms are never listed together). Under them the two tabs, then one toolbar: Version,
+   Sort and the search, the same control height, nothing stranded on a line of its own (page-checks.md, UI design rules). */
+.scope { display: flex; flex-wrap: wrap; gap: 8px 12px; margin: 18px 0 0 }
+.nav2 { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px 16px; margin: 6px 0 0; border-bottom: 1px solid var(--line) }
 .tabs { display: flex; gap: 4px }
 .tabs button { font: 650 1rem var(--display); color: var(--muted); background: none; border: 0; border-bottom: 3px solid transparent; padding: 8px 14px; margin-bottom: -1px; cursor: pointer }
 .tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent) }
 .tabs button span, .seg button span { font: 600 0.78rem var(--mono); color: var(--muted); margin-left: 6px }
-.seg { display: inline-flex; margin-bottom: 8px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--panel) }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--panel) }
 .seg button { font: 600 0.88rem var(--body); color: var(--muted); background: none; border: 0; padding: 5px 14px; cursor: pointer }
 .seg button + button { border-left: 1px solid var(--line) }
+.seg button.zero:not([aria-selected="true"]) { font-weight: 500; opacity: 0.6 }
+.seg button:disabled { cursor: default }
 .seg button[aria-selected="true"] { background: var(--chip-bg); color: var(--ink); box-shadow: inset 0 -2px 0 var(--accent) }
 .bar { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin: 14px 0 0 }
 .bar label { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.88rem }
@@ -85,14 +88,15 @@ h2 { font: 700 1.25rem var(--display); margin: 28px 0 0 }
 footer { color: var(--muted); font-size: 0.86rem; margin-top: 18px }
 #none { color: var(--muted); margin-top: 24px }
 /* a phone: the toolbar's controls stack, each the full width with its label in one column */
-@media (max-width: 600px) { .bar label { flex: 1 1 100% } .bar label span { flex: 0 0 4em } .bar select { flex: 1 1 auto; min-width: 0 } .bar input { flex-basis: 100%; max-width: none } }
+@media (max-width: 600px) { .scope .seg { display: flex; flex: 1 1 100% } .scope .seg button { flex: 1 1 auto; padding-inline: 8px } #prods { display: grid; grid-template-columns: 1fr 1fr } #prods button:nth-child(odd) { border-left: 0 } #prods button:nth-child(n+3) { border-top: 1px solid var(--line) } .bar label { flex: 1 1 100% } .bar label span { flex: 0 0 4em } .bar select { flex: 1 1 auto; min-width: 0 } .bar input { flex-basis: 100%; max-width: none } }
 </style>
 </head>
 <body>
 <nav class="cb-tabs" aria-label="Casebook"><b>Casebook</b><span class="cb-note">__NOTE__</span><a class="cb-set" href="/settings/" data-en="Settings" data-zh="設定">Settings</a><span class="cb-lang" role="group" aria-label="Language"><button type="button" data-l="en">English</button><button type="button" data-l="zh">中文</button></span></nav>
 <div class="head"><div><h1 id="t"></h1><p id="s"></p></div></div>
-<div class="nav2"><div class="tabs" id="tabs" role="tablist"></div><div class="seg" id="plats" role="tablist"></div></div>
-<div class="bar"><label><span id="lprod"></span><select id="fprod"></select></label><label><span id="lver"></span><select id="fver"></select></label><label><span id="lsort"></span><select id="sort"></select></label><input id="q" type="search" autocomplete="off"></div>
+<div class="scope"><div class="seg" id="prods" role="tablist"></div><div class="seg" id="plats" role="tablist"></div></div>
+<div class="nav2"><div class="tabs" id="tabs" role="tablist"></div></div>
+<div class="bar"><label><span id="lver"></span><select id="fver"></select></label><label><span id="lsort"></span><select id="sort"></select></label><input id="q" type="search" autocomplete="off"></div>
 <main id="list"></main>
 <p id="none" hidden></p>
 <footer id="f"></footer>
@@ -102,7 +106,9 @@ let D = __DATA__;
 let L = 'en'; try { if (localStorage.getItem('casebook-lang') === 'zh') L = 'zh'; } catch (e) {}
 const $ = id => document.getElementById(id), tx = (en, zh) => L === 'zh' ? zh : en;
 const PAGES = [['cases', 'Cases', '案例'], ['progress', 'Progress', '進度'], ['results', 'Results', '結果'], ['coverage', 'Coverage', '覆蓋率'], ['design', 'Design', '設計比對']];
-const platName = p => p === 'ios' ? 'iOS' : 'Android';
+// Products and platforms the Dashboard offers (user, 2026-11-26), in this order; one without a table yet shows dimmed.
+const CATALOG = [['pdr', 'PowerDirector'], ['phd', 'PhotoDirector'], ['promeo', 'Promeo'], ['myedit-web', 'MyEdit Web']], PLATS = ['pc', 'mac', 'android', 'ios'];
+const platName = p => ({ pc: 'PC', mac: 'Mac', android: 'Android', ios: 'iOS' })[p] ?? '';
 // what this browser opened last, per table (the tab bar writes it): where a feature's name leads
 const seen = () => { try { return JSON.parse(localStorage.getItem('casebook-seen') || '{}'); } catch (e) { return {}; } };
 const lastTab = (root, s) => s[root]?.path ?? 'cases';
@@ -162,8 +168,8 @@ const groupHtml = (title, list, s) => `<div class="grp"><h3>${cbEsc(title)}</h3>
   <div class="rows"><div class="feat hd"><div class="name">${tx('Feature', '功能')}</div><div class="lines">${line(COLS().map(c => c[1]))}</div></div>
   ${list.map(({ f, p }) => { const root = `/${f.id}/${p.platform}`; return `<div class="feat"><div class="name"><a href="${root}/${lastTab(root, s)}/" title="${cbEsc(f.id)}">${cbEsc(f.title)}</a></div><div class="lines">${tableLine(f, p, s)}</div></div>`; }).join('')}
   ${list.length > 1 ? `<div class="feat tot"><div class="name">${tx('Total', '合計')}</div><div class="lines">${totalLine(list)}</div></div>` : ''}</div>`;
-// The view (user, 2026-11-25), remembered per browser: the tab (agentic runs · Regression (AT)), one product or all, one
-// version or all ('none' = not tested yet), and the platform: iOS and Android are never listed together.
+// The view (user, 2026-11-25/26), remembered per browser: the product, its platform (never two listed together), the tab
+// (agentic runs · Regression (AT)) and one version or all ('none' = not tested yet).
 let VIEW = { tab: 'runs', plat: '', prod: '', ver: '' }; try { VIEW = { ...VIEW, ...JSON.parse(localStorage.getItem('casebook-dash') || '{}') }; } catch (e) {}
 const keep = () => { try { localStorage.setItem('casebook-dash', JSON.stringify(VIEW)); } catch (e) {} };
 // Sort (user, 2026-11-24), inside each group, remembered per browser: recent activity (a run's last result, an approval or a draft,
@@ -184,51 +190,53 @@ function render() {
   const features = D.products.flatMap(p => p.features.map(f => Object.assign(f, { product: p.id })));
   // one entry per table; a table not approved yet (a draft only) is an agentic run too
   const tables = features.flatMap(f => f.platforms.map(p => ({ f, p }))), isAt = x => !!(x.p.version && x.p.at);
-  const inTab = x => isAt(x) === (VIEW.tab === 'at'), nAt = tables.filter(isAt).length;
+  const inTab = x => isAt(x) === (VIEW.tab === 'at');
   $('t').textContent = tx('Dashboard', '總覽');
   $('s').textContent = tx(`${features.length} features · ${tables.length} tables`, `${features.length} 個功能 · ${tables.length} 份表格`);
-  $('tabs').innerHTML = [['runs', tx('Agentic runs', 'Agent 執行'), tables.length - nAt, tx('Tables tested by the agent, waiting for their conversion to AT', '由 Agent 測試、待轉成 AT 的表格')], ['at', tx('Regression (AT)', '回歸測試（AT）'), nAt, tx('Tables converted to automated tests', '已轉成自動化測試的表格')]]
+  // the product first, then the platform (user, 2026-11-26): the catalog's products in its order, whether or not they
+  // have a table yet; a product the library holds beyond the catalog follows them
+  const PRODS = [...CATALOG, ...D.products.filter(p => !CATALOG.some(c => c[0] === p.id)).map(p => [p.id, p.name])];
+  const nProd = id => tables.filter(x => x.f.product === id).length;
+  if (!PRODS.some(p => p[0] === VIEW.prod)) VIEW.prod = [...PRODS].sort((a, b) => nProd(b[0]) - nProd(a[0]))[0][0];
+  const prodName = PRODS.find(p => p[0] === VIEW.prod)[1], mine = tables.filter(x => x.f.product === VIEW.prod);
+  const seg = (key, id, label, n, on, off) => `<button type="button" role="tab" data-${key}="${id}" aria-selected="${on}"${n ? '' : ' class="zero"'}${off ? ' disabled' : ''}>${cbEsc(label)}${n ? `<span>${n}</span>` : ''}</button>`;
+  $('prods').setAttribute('aria-label', tx('Product', '產品')); $('plats').setAttribute('aria-label', tx('Platform', '平台'));
+  $('prods').innerHTML = PRODS.map(([id, name]) => seg('prod', id, name, nProd(id), VIEW.prod === id)).join('');
+  // the platform: the one chosen while this product has tables on it, else the one with the most; one without a table
+  // cannot be chosen
+  const nPlat = pl => mine.filter(x => x.p.platform === pl).length;
+  if (!nPlat(VIEW.plat)) VIEW.plat = mine.length ? [...PLATS].sort((a, b) => nPlat(b) - nPlat(a))[0] : '';
+  $('plats').innerHTML = PLATS.map(pl => seg('plat', pl, platName(pl), nPlat(pl), VIEW.plat === pl, !nPlat(pl))).join('');
+  const platted = mine.filter(x => x.p.platform === VIEW.plat), nAt = platted.filter(isAt).length;
+  $('tabs').innerHTML = [['runs', tx('Agentic runs', 'Agent 執行'), platted.length - nAt, tx('Tables tested by the agent, waiting for their conversion to AT', '由 Agent 測試、待轉成 AT 的表格')], ['at', tx('Regression (AT)', '回歸測試（AT）'), nAt, tx('Tables converted to automated tests', '已轉成自動化測試的表格')]]
     .map(([id, label, n, tip]) => `<button type="button" role="tab" data-tab="${id}" aria-selected="${VIEW.tab === id}" title="${cbEsc(tip)}">${label}<span>${n}</span></button>`).join('');
-  const tabbed = tables.filter(inTab), PLATS = ['ios', 'android'];
-  // the platform: the one chosen, else the one with more tables in this tab
-  if (!PLATS.includes(VIEW.plat)) VIEW.plat = tabbed.filter(x => x.p.platform === 'ios').length > tabbed.filter(x => x.p.platform === 'android').length ? 'ios' : 'android';
-  $('plats').innerHTML = PLATS.map(pl => `<button type="button" role="tab" data-plat="${pl}" aria-selected="${VIEW.plat === pl}">${platName(pl)}<span>${tabbed.filter(x => x.p.platform === pl).length}</span></button>`).join('');
-  // the filters offer what the tab and platform hold; a choice that no longer exists falls back to All
-  const platted = tabbed.filter(x => x.p.platform === VIEW.plat);
-  if (VIEW.prod && !platted.some(x => x.f.product === VIEW.prod)) VIEW.prod = '';
-  const prodded = platted.filter(x => !VIEW.prod || x.f.product === VIEW.prod), vOf = x => x.p.app || 'none';
-  const vers = [...new Set(prodded.map(vOf))].sort((a, b) => (a === 'none') - (b === 'none') || verKey(b).localeCompare(verKey(a)));
+  // the version menu offers what this product, platform and tab hold; a choice that no longer exists falls back to All
+  const tabbed = platted.filter(inTab), vOf = x => x.p.app || 'none';
+  const vers = [...new Set(tabbed.map(vOf))].sort((a, b) => (a === 'none') - (b === 'none') || verKey(b).localeCompare(verKey(a)));
   if (VIEW.ver && !vers.includes(VIEW.ver)) VIEW.ver = '';
   const vName = v => v === 'none' ? tx('Not tested yet', '尚未測試') : v;
-  // Product and Version are menus like Sort; with every product shown, the versions are listed under their product
-  const opt = (k, v, label, n) => `<option value="${cbEsc(v)}"${VIEW[k] === v ? ' selected' : ''}>${cbEsc(label)} (${n})</option>`;
-  const prodsIn = D.products.filter(p => platted.some(x => x.f.product === p.id)), nVer = (v, pid) => prodded.filter(x => vOf(x) === v && (!pid || x.f.product === pid)).length;
-  $('lprod').textContent = tx('Product', '產品'); $('lver').textContent = tx('Version', '版本'); $('lsort').textContent = tx('Sort', '排序');
-  $('fprod').innerHTML = opt('prod', '', tx('All products', '全部產品'), platted.length) + prodsIn.map(p => opt('prod', p.id, p.name, platted.filter(x => x.f.product === p.id).length)).join('');
-  const real = vers.filter(v => v !== 'none');
-  $('fver').innerHTML = opt('ver', '', tx('All versions', '全部版本'), prodded.length)
-    + (!VIEW.prod && prodsIn.length > 1 ? prodsIn.map(p => { const mine = real.filter(v => nVer(v, p.id)); return mine.length ? `<optgroup label="${cbEsc(p.name)}">${mine.map(v => opt('ver', v, v, nVer(v, p.id))).join('')}</optgroup>` : ''; }).join('') : real.map(v => opt('ver', v, v, nVer(v))).join(''))
-    + (vers.includes('none') ? opt('ver', 'none', vName('none'), nVer('none')) : '');
+  const opt = (v, label, n) => `<option value="${cbEsc(v)}"${VIEW.ver === v ? ' selected' : ''}>${cbEsc(label)} (${n})</option>`, nVer = v => tabbed.filter(x => vOf(x) === v).length;
+  $('lver').textContent = tx('Version', '版本'); $('lsort').textContent = tx('Sort', '排序');
+  $('fver').innerHTML = opt('', tx('All versions', '全部版本'), tabbed.length) + vers.map(v => opt(v, vName(v), nVer(v))).join('');
   $('q').placeholder = tx('Search features', '搜尋功能');
   $('sort').setAttribute('aria-label', tx('Sort features', '功能排序'));
   $('sort').innerHTML = SORTS.map(([id, en, zh]) => `<option value="${id}"${id === SORT ? ' selected' : ''}>${tx(en, zh)}</option>`).join('');
+  document.querySelector('.bar').hidden = !platted.length;
   const s = seen();
   const q = $('q').value.trim().toLowerCase();
-  const shown = prodded.filter(x => (!VIEW.ver || vOf(x) === VIEW.ver) && (!q || `${x.f.title} ${x.f.id}`.toLowerCase().includes(q))).sort((a, b) => order(a.f, b.f));
-  // a product's name heads its groups only when more than one product shows
-  const prods = D.products.filter(p => shown.some(x => x.f.product === p.id));
-  $('list').innerHTML = prods.map(p => `${prods.length > 1 ? `<h2>${cbEsc(p.name)}</h2>` : ''}${vers.filter(v => shown.some(x => x.f.product === p.id && vOf(x) === v))
-    .map(v => groupHtml(prods.length > 1 ? vName(v) : `${p.name} ${vName(v)}`, shown.filter(x => x.f.product === p.id && vOf(x) === v), s)).join('')}`).join('');
+  const shown = tabbed.filter(x => (!VIEW.ver || vOf(x) === VIEW.ver) && (!q || `${x.f.title} ${x.f.id}`.toLowerCase().includes(q))).sort((a, b) => order(a.f, b.f));
+  $('list').innerHTML = vers.filter(v => shown.some(x => vOf(x) === v)).map(v => groupHtml(`${prodName} ${vName(v)}`, shown.filter(x => vOf(x) === v), s)).join('');
   $('none').hidden = !!shown.length;
-  $('none').textContent = platted.length ? tx('No feature matches.', '沒有符合的功能。') : VIEW.tab === 'at'
-    ? tx(`No ${platName(VIEW.plat)} table is converted to AT yet: they are under Agentic runs, waiting for their conversion.${D.local ? ' Use 「Mark as AT」 on a table there once it is converted.' : ''}`, `尚無 ${platName(VIEW.plat)} 表格轉成 AT：都在「Agent 執行」，待轉換。${D.local ? '轉換完成後，在該頁的表格按「標為已轉 AT」。' : ''}`)
-    : tx(`No ${platName(VIEW.plat)} table here.`, `這裡沒有 ${platName(VIEW.plat)} 表格。`);
+  const where = `${prodName} ${platName(VIEW.plat)}`;
+  $('none').textContent = !mine.length ? tx(`No table for ${prodName} yet.`, `${prodName} 還沒有表格。`) : tabbed.length ? tx('No feature matches.', '沒有符合的功能。') : VIEW.tab === 'at'
+    ? tx(`No ${where} table is converted to AT yet: they are under Agentic runs, waiting for their conversion.${D.local ? ' Use 「Mark as AT」 on a table there once it is converted.' : ''}`, `尚無 ${where} 表格轉成 AT：都在「Agent 執行」，待轉換。${D.local ? '轉換完成後，在該頁的表格按「標為已轉 AT」。' : ''}`)
+    : tx(`Every ${where} table is converted to AT: they are under Regression (AT).`, `${where} 表格都已轉成 AT：在「回歸測試（AT）」。`);
   $('f').textContent = tx(`A page starts when it is opened and stops after ${D.idleMinutes} idle minutes. Running now: ${D.live}. All times Taipei.`,
     `頁面開啟時才啟動，閒置 ${D.idleMinutes} 分鐘後停止。目前執行中：${D.live}。時間皆為台北時間。`);
 }
 $('tabs').onclick = e => { const b = e.target.closest('[data-tab]'); if (b) { VIEW.tab = b.dataset.tab; keep(); render(); } };
 $('plats').onclick = e => { const b = e.target.closest('[data-plat]'); if (b) { VIEW.plat = b.dataset.plat; keep(); render(); } };
-$('fprod').onchange = () => { VIEW.prod = $('fprod').value; keep(); render(); };
+$('prods').onclick = e => { const b = e.target.closest('[data-prod]'); if (b) { VIEW.prod = b.dataset.prod; VIEW.ver = ''; keep(); render(); } };
 $('fver').onchange = () => { VIEW.ver = $('fver').value; keep(); render(); };
 $('q').oninput = render;
 // the AT button (this computer only): confirm, save through the pages server, redraw from its answer
