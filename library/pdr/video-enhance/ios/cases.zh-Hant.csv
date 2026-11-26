@@ -110,10 +110,10 @@ TC-037,面板版面與首次提示泡泡,"1. 已用 12:30 的影片開啟面板
 2. 再點同一個按鈕（暫停）
 3. 等 3 秒
 4. 點全螢幕圖示
-5. 關閉全螢幕預覽","步驟 1 從選取範圍內（02:00 起）開始播放，時間往前走
+5. 關閉全螢幕預覽","步驟 1 從播放頭所在的位置開始播放，這個位置一定在選取範圍內（02:00 或更後面），時間從那裡往前走
 步驟 2 暫停，到步驟 3 結束為止時間和畫面都維持不動
 步驟 4 以全螢幕顯示
-步驟 5 回到面板，還是同一支影片，選取範圍 02:00–04:00（「02:00」）、「Professional」、「Sharp」、「60fps」、「4K」和先前記下的 CTA 價格都沒變",P3,"R-027, R-200",暫停：spec agent TC-VE2-163（通用播放器規則，Design 沒有畫）[Req: REQ-008]。這裡用的是裁切過、非預設設定的面板（spec agent TC-VE2-162、TC-VE2-170）[Req: REQ-016]。,未變更,
+步驟 5 回到面板，還是同一支影片，選取範圍 02:00–04:00（「02:00」）、「Professional」、「Sharp」、「60fps」、「4K」和先前記下的 CTA 價格都沒變",P3,"R-027, R-200",暫停：spec agent TC-VE2-163（通用播放器規則，Design 沒有畫）[Req: REQ-008]。這裡用的是裁切過、非預設設定的面板（spec agent TC-VE2-162、TC-VE2-170）[Req: REQ-016]。播放從播放頭的位置開始（REQ-044）；從指定位置開始播放的檢查在 TC-348。,修改,REQ-044：R-027 改為「從播放頭的位置開始播放」（Q-21 已有答案）
 TC-038,面板版面與首次提示泡泡,從 Add Media 進入面板，目前沒有任何處理中的工作,點面板頂端列的 ‹,回到 Add Media,P2,R-028,,未變更,
 TC-040,裁切與選取長度,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有一支 12:30、1080p、30 fps 的影片",在 Add Media 選這支影片,"選取範圍從 00:00 開始，「Selected Length」顯示「08:00」（mm:ss 格式）
@@ -182,7 +182,62 @@ TC-215,裁切與選取長度,"1. 已用 12:30 的影片開啟面板，選取範�
 步驟 3：往前移的反應相同（約「01:00」和「01:00/12:30」）
 步驟 4：泡泡、預覽區時間和畫面都隨圓鈕左右移動
 步驟 5：停在約「02:00」
-每個步驟中，兩側裁切把手、「Selected Length」的「08:00」和 CTA 的價格都維持不變",P2,"R-192, R-193",這個圓鈕（round/ic_btn_drag）是播放頭，不是裁切把手（分析第 11 輪，依看板圖片判斷其角色）。Q-21：播放頭可以拖到多遠，規格沒有寫。,未變更,
+每個步驟中，兩側裁切把手、「Selected Length」的「08:00」和 CTA 的價格都維持不變",P2,"R-192, R-193",這個圓鈕（round/ic_btn_drag）是播放頭，不是裁切把手（分析第 11 輪，依看板圖片判斷其角色）。播放頭只能在兩個裁切把手之間移動（REQ-044，Q-21 的答案）：拖到把手會停住的檢查在 TC-347，從播放頭開始播放在 TC-348。,修改,REQ-044：Q-21 已有答案（播放頭只會停留在兩個裁切把手之間）；備註不再寫「可拖曳範圍未說明」，改為指向 TC-347 和 TC-348
+TC-347,裁切與選取長度,"1. 已用 12:30 的影片開啟面板（每一格都燒有時間碼）
+2. 選取範圍裁成 00:30–02:00（「01:30」），前後兩端都比影片短
+3. 先記下 CTA 的價格","1. 把 ◀▶ 圓鈕向右拖，拖過右側的 › 把手後再繼續往右推一秒
+2. 放開
+3. 把 ◀▶ 圓鈕向左拖，拖過左側的 ‹ 把手後再繼續往左推一秒
+4. 放開","步驟 1：播放頭停在右側把手，手指再怎麼往右拖都不會超過
+步驟 1：泡泡顯示「02:00」，預覽區顯示「02:00/12:30」
+步驟 1：預覽區顯示右側把手位置的畫面（燒入時間 02:00）
+步驟 2：播放頭留在右側把手，泡泡和預覽區時間不變
+步驟 3：播放頭停在左側把手，不會再往左
+步驟 3：泡泡顯示「00:30」，預覽區顯示「00:30/12:30」
+步驟 3：預覽區顯示左側把手位置的畫面（燒入時間 00:30）
+步驟 4：播放頭留在左側把手，泡泡和預覽區時間不變
+步驟 1–4：兩側裁切把手都留在 00:30 和 02:00
+步驟 1–4：「Selected Length」維持「01:30」
+步驟 1–4：CTA 的價格和先前記下的一樣",P2,R-193; REQ-044,裁示（user，2026-11-25，REQ-044；Q-21 的答案）：播放頭只能在兩個白色 ‹ › 裁切把手之間拖曳。選取範圍前後兩端都比影片短，才分得出播放頭是停在把手，還是停在影片的開頭或結尾。播放頭可能和把手差一格（TC-273）。,新增,REQ-044：播放頭拖到任一側裁切把手就停住，離不開選取範圍（R-193）
+TC-348,裁切與選取長度,"1. 已用 12:30 的影片開啟面板（每一格都燒有時間碼）
+2. 選取範圍裁成 00:30–02:00（「01:30」），前後兩端都比影片短
+3. 預覽區處於暫停狀態
+4. 先記下 CTA 的價格","1. 把 ◀▶ 圓鈕拖到約 01:00
+2. 放開，記下泡泡上的時間
+3. 點預覽區下方的播放
+4. 約 5 秒後再點同一個按鈕（暫停）
+5. 把 ◀▶ 圓鈕拖到約 01:30
+6. 放開，記下泡泡上的時間
+7. 點預覽區下方的播放
+8. 約 5 秒後再點同一個按鈕（暫停）","步驟 2：泡泡和預覽區時間一致（約「01:00」和「01:00/12:30」）
+步驟 3：從步驟 2 記下的時間開始播放，不是從選取範圍起點 00:30 開始
+步驟 3：播出的第一格就是記下時間的那一格（看燒入的時間）
+步驟 3：播放頭、泡泡和預覽區時間從記下的時間一起往前走
+步驟 4：在記下的時間之後約 5 秒暫停（約「01:05」）
+步驟 6：泡泡和預覽區時間一致（約「01:30」和「01:30/12:30」）
+步驟 7：從步驟 6 記下的時間開始播放，不是從 00:30，也不是從步驟 4 暫停的位置
+步驟 7：播放頭、泡泡和預覽區時間從那個時間一起往前走
+步驟 1–8：兩側裁切把手都留在 00:30 和 02:00
+步驟 1–8：「Selected Length」維持「01:30」
+步驟 1–8：CTA 的價格和先前記下的一樣",P2,"R-193, R-027; REQ-044",裁示（user，2026-11-25，REQ-044；Q-21 的答案）：播放從播放頭所在的位置開始。暫停是 R-200（TC-037）。兩次播放都在到達右側把手前暫停：播到選取範圍結尾時會怎樣，規格沒有寫（Q-28），由 TC-349 一路播到右側把手並記錄下來。,新增,REQ-044：播放從播放頭的位置開始，不是從選取範圍起點（R-193、R-027）；REQ-045：備註補上 TC-349，也就是播到選取範圍結尾的那一列（Q-28）
+TC-349,裁切與選取長度,"1. 已用 12:30 的影片開啟面板（每一格都燒有時間碼）
+2. 選取範圍裁成 00:30–02:00（「01:30」），前後兩端都比影片短
+3. 預覽區處於暫停狀態","1. 把 ◀▶ 圓鈕拖到約 01:50
+2. 放開，記下泡泡上的時間
+3. 開始錄製螢幕
+4. 點預覽區下方的播放
+5. 30 秒內都不要碰畫面（約 10 秒後會播到 02:00 的右側把手）
+6. 停止錄影
+7. 再點一次預覽區下方的按鈕","步驟 4：從步驟 2 記下的時間開始播放，播放頭、泡泡和預覽區時間一起往前走，直到右側把手（02:00）
+步驟 5：記錄播到右側把手時的行為：停在那裡、跳回去（跳回選取範圍起點 00:30，或步驟 2 記下的時間），還是越過 02:00 繼續播
+步驟 5：如果跳回去，記錄它是自己再播一次（循環播放）還是停著等
+步驟 5：記錄播到把手 20 秒後，播放頭和泡泡停在哪裡
+步驟 5：記錄當時的預覽區時間，以及畫面上那一格燒入的時間
+步驟 5：記錄當時預覽區下方按鈕的狀態（播放圖示或暫停圖示）
+步驟 7：記錄這一下點了之後是播放還是暫停；如果是播放，記錄從哪個時間開始
+步驟 1–7：兩側裁切把手都留在 00:30 和 02:00
+步驟 1–7：「Selected Length」維持「01:30」
+播到選取範圍結尾該怎麼做，沒有任何來源寫明（Q-28），所以不管看到哪一種結果，這一列都連同記錄內容記為 Fail（question）交給 PM，不能記為 Pass",P2,"R-027, R-193; REQ-045",Q-28 [Req: REQ-045]：停住、跳回還是循環，Design、PM 和 Q-21 的裁示（REQ-044）都沒有寫，所以結尾的行為本身不做判定，由這一輪的收尾把記錄到的結果開給 PM 決定（BugBelong PM）。選取範圍的結尾早於影片結尾（12:30 的影片選到 02:00），才分得出是停在把手還是停在影片結尾。從播放頭開始播放是 TC-348 檢查的項目。,新增,REQ-045：待確認問題 Q-28 原本沒有任何一列走到它問的地方（TC-348 在結尾前就暫停）；這一列一路播到右側把手，記錄這個版本實際的行為
 TC-044,裁切與選取長度,已用 12:30 的影片以 Standard 開啟面板，選取範圍是 00:00–06:00,"1. 開始錄製螢幕
 2. 用 2–3 秒把右側把手向右拖到底
 3. 繼續往右推約一秒
@@ -906,7 +961,8 @@ TC-093,使用資格與購買,從面板開啟 IAP 頁（TC-090）,"1. 點「Month
 6. 點「Pro+」分頁","頁面上有 Pro / Pro+ 分頁、標有「Best Value」和「65% OFF」的「Yearly」、「Monthly」、「Continue」，以及頁尾的「Terms of Service」 「Privacy Policy」 「Restore purchase」
 點哪個方案就選中哪個方案
 比較表可以開啟也可以關閉
-每個分頁顯示各自的方案，切回「Pro+」時會再次出現 Pro+ 的方案",P3,R-072,價格是商店提供的資料，不要拿來當預期值（KP-042）。Q-7：試用期那行「Receive 35 credits during free trial」和 PM §7 衝突，所以不驗證。,未變更,
+每個分頁顯示各自的方案，切回「Pro+」時會再次出現 Pro+ 的方案
+記錄頁面上有沒有免費試用：有像「Try Pro+ 7 days for free」或「Receive 35 credits during free trial」這樣的文字，還是完全沒有",P3,R-072,價格是商店提供的資料，不要拿來當預期值（KP-042）。Q-7：試用期那行「Receive 35 credits during free trial」和 PM §7 衝突，所以兩邊都不當預期值，只把頁面實際顯示的內容記錄下來給 PM（Android 版沒有試用，R3）。,修改,REQ-045：這一列改成記錄有沒有出現試用文字，也就是待確認問題 Q-7 問的重點（原本只寫「not asserted」）
 TC-094,使用資格與購買,"1. 帳號等級 Free（Launcher › Pink › ☰ › [0] IAP › status = Free，並到 Mine 確認）
 2. 已開啟面板，選取範圍 00:30–05:30，並選了「Sharp」
 3. 已從 CTA 開啟 IAP 頁",不購買，直接點 IAP 頁上的 ‹,面板回到原本的狀態：選取長度 05:00、「Sharp」、CTA 「Unlock Pro+ to Enhance」,P2,R-073,,未變更,
@@ -925,6 +981,14 @@ TC-320,使用資格與購買,"1. 已從面板開啟 Credit 頁（TC-096），還
 2. 已記下面板上的選取範圍和各項設定",點 Credit 頁上的 ‹,"回到面板，影片、選取範圍和設定都沒變
 餘額沒有變
 沒有開始上傳，Recent task 也沒有多出卡片",P2,R-073,與 TC-096 一起暫緩（需要餘額不足的帳號）。PM C2 [建議]（spec agent TC-VE2-285）[Req: REQ-021]。TC-098 是領取之後才關閉這一頁。,未變更,REQ-021：沒購買也沒領取就關閉 Credit 頁（spec agent TC-VE2-285）
+TC-351,使用資格與購買,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
+2. 已開啟面板，選取範圍 00:30–05:30，並選了「Sharp」
+3. 先記下點數膠囊上的餘額","1. 點面板頂端列的點數膠囊
+2. 在開啟的頁面上點 ‹","步驟 1：開啟點數頁（「My Credits」），顯示的餘額和記下的一樣
+步驟 1：不會出現上傳對話框，Recent task 也不會多出卡片
+步驟 1：如果開的是別的頁面，或什麼都沒開，記錄這一下點了之後發生什麼（頁面標題和頁面上有什麼）
+步驟 2：回到面板，影片不變，選取範圍還是 00:30–05:30，「Sharp」也還選著
+步驟 2：點數膠囊顯示的餘額和記下的一樣",P3,"R-020, R-073; REQ-045",Q-15 [Req: REQ-045]：規格沒有寫點數膠囊會開什麼。這裡的假設來自 Android 版：點了會開啟「My Credits」（Android R3，16.9.0）；iOS 如果開的是別的地方，記為 Fail（question）交給 PM，不算缺陷。不需要餘額不足：帳號有點數時直接點膠囊就行。,新增,REQ-045：待確認問題 Q-15 在 iOS 沒有任何一列去點面板的點數膠囊（TC-096 是透過「Enhance」進點數頁，TC-097 因為要購買而暫緩）
 TC-097,使用資格與購買,同 TC-096 的設定：已從面板開啟點數頁，並記下餘額,"1. 點「Buy More」
 2. 在 App Store 購買視窗購買一個點數包（記下它的點數）
 3. 開啟 My Credits","步驟 2 之後 App 回到面板，影片、起點、終點、「Selected Length」、Mode、風格、fps 和解析度都和原本一樣
@@ -942,7 +1006,18 @@ TC-110,生成與取消,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0]
 2. 已開啟面板，影片是 01:30、1080p、30 fps，並維持預設值（Standard、Natural、30fps、1080p）
 3. 先記下餘額",點「Enhance ◆ <credits>」,"不會先跳出確認視窗
 處理中的對話框蓋住面板，上面有往上跑的進度圓環（「25%」…）、「Video uploading...」、「Please keep the app open」和「Cancel」
-圓環持續轉動（不會卡住超過 10 秒）",P1,"R-080, R-085, R-070, R-194",,未變更,
+圓環持續轉動（不會卡住超過 10 秒）",P1,"R-080, R-085, R-070, R-194",重置後第一次點「Enhance」如果跳出同意或告知畫面，那是 TC-350（Q-14）要記錄的，不算這一列的「No confirmation」不符：這一列排在 TC-350 之後執行。,修改,REQ-045：備註說明第一次使用的同意畫面歸 TC-350（Q-14），以免被當成「No confirmation」沒過
+TC-350,生成與取消,"1. PowerDirector 是全新安裝，這次安裝還沒點過「Enhance」
+2. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認），點數足夠
+3. 安裝之後看到的每個同意、告知或權限畫面都已記下（第一次啟動、Demo 頁、第一次進面板）
+4. 已用 00:01 的影片開啟面板，並維持預設值（價格最低）","1. 點「Enhance ◆ <credits>」
+2. 處理中的對話框出現之前，不管跳出什麼都先截圖，不要碰它
+3. 如果跳出同意或告知畫面，點它的同意按鈕","步驟 1：記錄從點下去到處理中的對話框之間出現了什麼：什麼都沒有（直接出現處理中的對話框），或是同意／告知畫面
+步驟 2：如果有畫面跳出，記錄它的標題、全文和按鈕
+步驟 2：記錄內文有沒有說明影片會送到第三方的雲端做 AI 處理（ByteDance / BytePlus）
+步驟 3：點同意按鈕之後，出現處理中的對話框「Video uploading...」並開始上傳
+重置之後更早出現過的同意或告知（前置條件 3），連同它出現在哪個畫面一起記錄
+這個對話框該不該出現、內容該寫什麼，沒有任何來源寫明（Q-14），所以不管是哪一種結果，都連同記錄內容記為 Fail（question）交給 PM / Legal，不能記為 Pass",P2,"R-080, R-085; REQ-045",Q-14（PM Open question 3，Legal）[Req: REQ-045]。iOS：QA iPhone 上的 PowerDirector 不能重新安裝（AGENTS.md，解除前都適用），所以在規則解除或拿到全新安裝的手機之前，這一列記為 Blocked --as test-data（「PowerDirector cannot be reinstalled on the QA iPhone」）。單向狀態（AGENTS.md，One-way state orders the run）：只有重置後第一次點「Enhance」才可能跳出第一次使用的同意畫面，所以這一列就是重置後的第一次「Enhance」，和 TC-030 用同一次重置，並排在 TC-110 和其他所有會開始任務的列之前。如果別的列在重置後第一次點「Enhance」時，已經把點下去到處理中對話框的過程完整擷取下來，就用那份證據記錄這一列。什麼都沒跳出，也不能證明沒有這個對話框：帳號可能在先前的安裝就同意過（同意紀錄可能跟著帳號），所以要一併記錄這個帳號之前有沒有跑過 Enhance。上傳就讓它跑完（00:01 的影片最便宜）。,新增,REQ-045：待確認問題 Q-14 寫著「No row asserts it」，Android 跑了三輪都還沒解決；這一列把重置過的 App 帶到第一次點「Enhance」，記錄上傳前出現了什麼
 TC-111,生成與取消,正在顯示處理中的對話框（TC-110）,點「Cancel」,"跳出對話框，標題「Sure You Want to Leave?」，內容「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」，有「Leave」和「Keep Uploading」兩個按鈕",P1,R-086,,未變更,
 TC-112,生成與取消,正在顯示離開確認對話框（TC-111）,"1. 查看對話框後方的「Enhance」 CTA
 2. 點「Keep Uploading」","步驟 1：對話框後方的 CTA 是灰色的（停用）
@@ -2046,7 +2121,7 @@ TC-321,MUI 多國語系,"1. App 語言設為繁體中文（`launch --lang zh-Han
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI CHT（zh-Hant-TW）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI CHT（zh-Hant-TW）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-322,MUI 多國語系,"1. App 語言設為簡體中文（`launch --lang zh-Hans-CN`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2099,7 +2174,7 @@ TC-322,MUI 多國語系,"1. App 語言設為簡體中文（`launch --lang zh-Han
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI CHS（zh-Hans-CN）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI CHS（zh-Hans-CN）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-323,MUI 多國語系,"1. App 語言設為日文（`launch --lang ja-JP`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2152,7 +2227,7 @@ TC-323,MUI 多國語系,"1. App 語言設為日文（`launch --lang ja-JP`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI JPN（ja-JP）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI JPN（ja-JP）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-324,MUI 多國語系,"1. App 語言設為西班牙文（`launch --lang es-ES`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2205,7 +2280,7 @@ TC-324,MUI 多國語系,"1. App 語言設為西班牙文（`launch --lang es-ES`
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI ESP（es-ES）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI ESP（es-ES）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-325,MUI 多國語系,"1. App 語言設為韓文（`launch --lang ko-KR`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2258,7 +2333,7 @@ TC-325,MUI 多國語系,"1. App 語言設為韓文（`launch --lang ko-KR`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI KOR（ko-KR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI KOR（ko-KR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-326,MUI 多國語系,"1. App 語言設為德文（`launch --lang de-DE`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2311,7 +2386,7 @@ TC-326,MUI 多國語系,"1. App 語言設為德文（`launch --lang de-DE`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI DEU（de-DE）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI DEU（de-DE）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-327,MUI 多國語系,"1. App 語言設為法文（`launch --lang fr-FR`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2364,7 +2439,7 @@ TC-327,MUI 多國語系,"1. App 語言設為法文（`launch --lang fr-FR`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI FRA（fr-FR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI FRA（fr-FR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-328,MUI 多國語系,"1. App 語言設為義大利文（`launch --lang it-IT`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2417,7 +2492,7 @@ TC-328,MUI 多國語系,"1. App 語言設為義大利文（`launch --lang it-IT`
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI ITA（it-IT）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI ITA（it-IT）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-329,MUI 多國語系,"1. App 語言設為俄文（`launch --lang ru-RU`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2470,7 +2545,7 @@ TC-329,MUI 多國語系,"1. App 語言設為俄文（`launch --lang ru-RU`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI RUS（ru-RU）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI RUS（ru-RU）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-330,MUI 多國語系,"1. App 語言設為巴西葡萄牙文（`launch --lang pt-BR`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2523,7 +2598,7 @@ TC-330,MUI 多國語系,"1. App 語言設為巴西葡萄牙文（`launch --lang 
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI PTB（pt-BR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI PTB（pt-BR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-331,MUI 多國語系,"1. App 語言設為荷蘭文（`launch --lang nl-NL`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2576,7 +2651,7 @@ TC-331,MUI 多國語系,"1. App 語言設為荷蘭文（`launch --lang nl-NL`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI NLD（nl-NL）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI NLD（nl-NL）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-332,MUI 多國語系,"1. App 語言設為印尼文（`launch --lang id-ID`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2629,7 +2704,7 @@ TC-332,MUI 多國語系,"1. App 語言設為印尼文（`launch --lang id-ID`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI IND（id-ID）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI IND（id-ID）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-333,MUI 多國語系,"1. App 語言設為泰文（`launch --lang th-TH`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2682,7 +2757,7 @@ TC-333,MUI 多國語系,"1. App 語言設為泰文（`launch --lang th-TH`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI THA（th-TH）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI THA（th-TH）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-334,MUI 多國語系,"1. App 語言設為馬來文（`launch --lang ms-MY`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2735,7 +2810,7 @@ TC-334,MUI 多國語系,"1. App 語言設為馬來文（`launch --lang ms-MY`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI MAY（ms-MY）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI MAY（ms-MY）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-335,MUI 多國語系,"1. App 語言設為印地文（`launch --lang hi-IN`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2788,7 +2863,7 @@ TC-335,MUI 多國語系,"1. App 語言設為印地文（`launch --lang hi-IN`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI HIN（hi-IN）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI HIN（hi-IN）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-336,MUI 多國語系,"1. App 語言設為墨西哥西班牙文（`launch --lang es-MX`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2841,7 +2916,7 @@ TC-336,MUI 多國語系,"1. App 語言設為墨西哥西班牙文（`launch --la
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI ESM（es-MX）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI ESM（es-MX）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-337,MUI 多國語系,"1. App 語言設為阿拉伯文（`launch --lang ar-SA`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2895,7 +2970,7 @@ TC-337,MUI 多國語系,"1. App 語言設為阿拉伯文（`launch --lang ar-SA`
 25. Result：標題和「Save Result」
 26. 儲存提示：「Saved to your device」
 27. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-28. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI ARA（ar-SA）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+28. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI ARA（ar-SA）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-338,MUI 多國語系,"1. App 語言設為越南文（`launch --lang vi-VN`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -2948,7 +3023,7 @@ TC-338,MUI 多國語系,"1. App 語言設為越南文（`launch --lang vi-VN`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI VIT（vi-VN）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI VIT（vi-VN）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-339,MUI 多國語系,"1. App 語言設為波蘭文（`launch --lang pl-PL`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -3001,7 +3076,7 @@ TC-339,MUI 多國語系,"1. App 語言設為波蘭文（`launch --lang pl-PL`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI PLK（pl-PL）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI PLK（pl-PL）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-340,MUI 多國語系,"1. App 語言設為土耳其文（`launch --lang tr-TR`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -3054,7 +3129,7 @@ TC-340,MUI 多國語系,"1. App 語言設為土耳其文（`launch --lang tr-TR`
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI TRK（tr-TR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI TRK（tr-TR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-341,MUI 多國語系,"1. App 語言設為波斯文（`launch --lang fa-IR`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -3108,7 +3183,7 @@ TC-341,MUI 多國語系,"1. App 語言設為波斯文（`launch --lang fa-IR`）
 25. Result：標題和「Save Result」
 26. 儲存提示：「Saved to your device」
 27. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-28. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI FAR（fa-IR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+28. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI FAR（fa-IR）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-342,MUI 多國語系,"1. App 語言設為希伯來文（`launch --lang he-IL`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -3162,7 +3237,7 @@ TC-342,MUI 多國語系,"1. App 語言設為希伯來文（`launch --lang he-IL`
 25. Result：標題和「Save Result」
 26. 儲存提示：「Saved to your device」
 27. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-28. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI HEB（he-IL）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+28. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI HEB（he-IL）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-343,MUI 多國語系,"1. App 語言設為瑞典文（`launch --lang sv-SE`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -3215,7 +3290,7 @@ TC-343,MUI 多國語系,"1. App 語言設為瑞典文（`launch --lang sv-SE`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI SVE（sv-SE）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI SVE（sv-SE）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-344,MUI 多國語系,"1. App 語言設為丹麥文（`launch --lang da-DK`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -3268,7 +3343,7 @@ TC-344,MUI 多國語系,"1. App 語言設為丹麥文（`launch --lang da-DK`）
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI DAN（da-DK）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI DAN（da-DK）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-345,MUI 多國語系,"1. App 語言設為挪威文（Bokmål）（`launch --lang nb-NO`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -3321,7 +3396,7 @@ TC-345,MUI 多國語系,"1. App 語言設為挪威文（Bokmål）（`launch --l
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI NOR（nb-NO）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI NOR（nb-NO）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）
 TC-346,MUI 多國語系,"1. App 語言設為烏克蘭文（`launch --lang uk-UA`）
 2. 這列做完後，用不帶參數的 `launch`把語言還原
 3. Tier 為 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並在 Mine 確認），點數足夠
@@ -3374,4 +3449,4 @@ TC-346,MUI 多國語系,"1. App 語言設為烏克蘭文（`launch --lang uk-UA`
 24. Result：標題和「Save Result」
 25. 儲存提示：「Saved to your device」
 26. 錯誤視窗：「An Error Has Occurred」、「Credits have been refunded.」、「The server may be busy. Please try again later or use a different video.」、「OK」
-27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI UKR（uk-UA）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,新增,REQ-041：每個語言走一次 MUI（翻譯和截斷）
+27. 影片工具列：「AI Video Enhance」（工具列有分組時在「Enhance」裡）",P2,R-208; R-209; REQ-041,MUI UKR（uk-UA）。每個畫面讀一次 `texts` 並截圖；不開新任務（10 秒任務離開時扣少量點數）。,未變更,REQ-041：每個語言走一次 MUI（翻譯和截斷）

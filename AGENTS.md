@@ -199,6 +199,9 @@ lines; put the full rule in the skill or reference file that applies it and poin
   failed on it), or marked not reached with the reason; settled ones leave the Cases page's question list for its
   closed 「Settled」 list and the Dashboard counts only what is open
   (`spec-casebook/references/ebugs.md` step 1).
+- **Every Open question has a row (user, 2026-11-25).** A question is written together with a row that observes its
+  point and is named in it, so the next run reaches it; a new question from a ruling or a wrap-up gets its row in the
+  same draft. `check.ts` warns on a question no active row observes (`spec-casebook/references/analysis.md`).
 - **Results say the problem (user, 2026-11-25).** A failed case opens with a highlighted Problem block across the card
   (each eBug's title and ticket, else the first sentence recorded), and 「What happened」, the run's own record one line
   per step, is highlighted too; a Fail's recorded text starts with the problem sentence (`run.md` step 2,

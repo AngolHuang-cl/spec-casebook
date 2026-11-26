@@ -18,3 +18,5 @@ None of this can be committed. Check it before the first segment; a new row that
 - The Cinematic Reel Creator tutorial (「What is Cinematic Reel Creator?」) shows on the first entry after an install
   or `pm clear`; close it with X before the first row (it stays closed across relaunches) and note it in the checkpoint.
 - Logs: `device-android.ts <run dir> pull-logs <segment>` (not `app-setup.ts`, which is iOS).
+- Wi-Fi (draft 20261125-190000): TC-078 and TC-079 turn Wi-Fi off and back on (`device-android.ts <run dir> wifi off|on`,
+  only with the phone on USB); the phone has no mobile data. Turn it back on right after each row.

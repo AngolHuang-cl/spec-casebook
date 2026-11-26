@@ -15,6 +15,11 @@ tested in the 26 languages of `library/pdr/product.json` › `mui` besides Engli
 each translation is judged by the run and doubtful ones go to the eBug review. Android reads every translation from the build's APK (one row, no phone); the phone walks one row per language for truncation only.
 The MUI rows are their own phase (phases.json `MUI`), never part of a full run. New: R-057, R-058; 27 rows, TC-130 – TC-156.
 
+Draft 20261125-190000 [Req: REQ-014]: every Open question that is still open gets a row that takes the app to the point in
+question (user, 2026-11-25: 「if it's a new question it should be added to the cases and be run next round」, 「shouldn't they be added to cases already?」). Changed rows: TC-128 (Q-8), TC-083 (Q-19);
+new rows: TC-158 (Q-19, switch On), TC-157 (Q-13); Q-14 and Q-16 end 「No row」; the other open questions now name the rows that observe them.
+No requirement changes.
+
 ## Settings entry
 - R-001 [DS:d-aigc-settings] Menu › Settings has the row 「Remove AIGC Watermark」: the remove-AI icon, the text, an ⓘ right after the text and a switch at the right (no chevron).
 - R-002 [DS:d-aigc-settings; PM:pm-settings Essential User] For a free (Essential) user the row sits directly below 「Remove Watermark」 and above 「Preferences」.
@@ -90,22 +95,22 @@ The MUI rows are their own phase (phases.json `MUI`), never part of a full run. 
 - R-058 [Req: REQ-011] In each of those languages no string of the feature is truncated, clipped or overlapping, and the Settings row's ⓘ and switch and the dialogs' checkbox and buttons keep their size and place; the right-to-left languages (ARA, FAR, HEB) run from the right.
 
 ## Open questions
-- Q-1 What is the switch's value on a fresh install, and is it kept across restarts? Both mockups draw 「Remove AIGC Watermark」 On; the dialogs say results 「will include an AIGC watermark」. Assumption: Off on a fresh install (results carry the watermark), kept after a restart. R-009, R-010.
+- Q-1 What is the switch's value on a fresh install, and is it kept across restarts? Both mockups draw 「Remove AIGC Watermark」 On; the dialogs say results 「will include an AIGC watermark」. Assumption: Off on a fresh install (results carry the watermark), kept after a restart. R-009, R-010. Rows: TC-008 (fresh install), TC-007 (restart).
 - Q-2 Is the switch free for every tier? The Essential (free) mockup draws it On next to the paid 「Remove Watermark」. Assumption: free for all tiers, no paywall. R-011.
 - Q-3 The 12% rule names images (「img 短邊」). Assumption: a video's label is also 12% of the frame's short side, at the same top-left corner with no margin beyond the asset's own padding. R-016.
-- Q-4 The PM lists Save / Share only under Video; Image lists thumbnail, View and Full Editor. Assumption: image Save and Share follow the switch too (Global Rule, Jira 「consistently across export/share/save」). R-025, R-026.
+- Q-4 The PM lists Save / Share only under Video; Image lists thumbnail, View and Full Editor. Assumption: image Save and Share follow the switch too (Global Rule, Jira 「consistently across export/share/save」). R-025, R-026. Rows: TC-047, TC-048, TC-050 – TC-053.
 - Q-6 Does the switch decide whether AI Music Generator shows its dialog? REQ-009 settles the clip itself (no song carries one); the dialog part moves to Q-20. R-031.
-- Q-7 When does the export dialog appear? The PM draws it after 「Export」 with no condition and no Cancel arrow. Assumption: only with the switch Off and AI content in the project; a project with no AI content exports with no dialog and no label; 「Cancel」 stays in the editor. R-041, R-045, R-043.
-- Q-8 Do the export and music dialogs share one 「Don’t show again」? Assumption: separate. R-030, R-046.
+- Q-7 When does the export dialog appear? The PM draws it after 「Export」 with no condition and no Cancel arrow. Assumption: only with the switch Off and AI content in the project; a project with no AI content exports with no dialog and no label; 「Cancel」 stays in the editor. R-041, R-045, R-043. Rows: TC-082, TC-084, TC-085.
+- Q-8 Do the export and music dialogs share one 「Don’t show again」? Assumption: separate. TC-128 ticks the music dialog's box and then opens the export dialog, which must still show (its steps 4–5); TC-129 ticks the export dialog's own. TC-128 was Blocked in R3 because the music dialog never opens (DRA262611P0229) and runs once it does. R-030, R-046 (TC-128, TC-129).
 - Q-9 The PM example puts the AI badge on the first clip, which is 「非 AI 素材」. Assumption: the label goes on the project's first two seconds wherever the AI clip is. R-040.
-- Q-10 「Timeline: 會根據 Preference 設定來決定會不會有 watermark」 for TTS, Voice Changer, AI Anime, AI Cartoon, AI Sketch, while My Artwork results show none in the timeline. Assumption: the editor preview shows the label over the project's first two seconds when the switch is Off. R-037.
+- Q-10 「Timeline: 會根據 Preference 設定來決定會不會有 watermark」 for TTS, Voice Changer, AI Anime, AI Cartoon, AI Sketch, while My Artwork results show none in the timeline. Assumption: the editor preview shows the label over the project's first two seconds when the switch is Off. R-037. Rows: TC-064, TC-066, TC-067, TC-069, TC-070, TC-072, TC-073, TC-075, TC-076, TC-078.
 - Q-11 Which scope items are My Artwork results and which are editor tools? Assumption: videos = Video Edit by Chat, Image to Video, Cinematic Reel Creator, Character Motion Swap, Video Object Removal, AI Storytelling, Text to Video, AI Anime Video, Talking Avatar; images = AI Art, Text to Image; timeline tools = AI Text to Speech, Voice Changer, AI Anime, AI Cartoon, AI Sketch (the PM timeline note names them); Music Generator = pure audio. Rows of a feature the build lacks on android are n/a.
-- Q-12 Which sheet effect does each PDR feature and model call? Since REQ-007 / REQ-008 [KB: KF-007] the signer is CyberLink on every path, so the answer no longer changes a row; the rows keep the sheet line in Notes for reference. QA reads the manifest with c2patool. R-050, R-056.
-- Q-13 Should an editor export that holds signed AI content carry C2PA metadata, and can a timeline tool's generated asset be read as a file? The spec is silent; no row asserts the exported project's metadata, and the timeline-tool rows are parked. R-053.
-- Q-14 The PM 「AIGC Watermark Spec.pptx」 (SharePoint) could not be opened; it may hold margin, opacity or per-feature rules not in Figma.
-- Q-16 A video result shorter than two seconds: assumption the label stays for the whole video (no row asserts it). R-015.
+- Q-12 Which sheet effect does each PDR feature and model call? Since REQ-007 / REQ-008 [KB: KF-007] the signer is CyberLink on every path, so the answer no longer changes a row; the rows keep the sheet line in Notes for reference. QA reads the manifest with c2patool. R-050, R-056. Rows: TC-090 – TC-122.
+- Q-13 Should an editor export that holds signed AI content carry C2PA metadata, and can a timeline tool's generated asset be read as a file? The spec is silent. Assumption: none. TC-157 reads the Content Credentials of the AI Text to Speech and AI Anime exports (the files of TC-065, TC-071 and, with the switch On, TC-066) and records what each carries as Fail (question) for PM. A timeline tool's own asset cannot be read as a file, so those rows stay parked (TC-123 – TC-127). R-053.
+- Q-14 The PM 「AIGC Watermark Spec.pptx」 (SharePoint) could not be opened; it may hold margin, opacity or per-feature rules not in Figma. No row: nobody has read the file, so there is no rule of it to take the app to; the rows measured on the device follow the Figma rules only (TC-009 – TC-013). PM has to supply the file.
+- Q-16 A video result shorter than two seconds: assumption the label stays for the whole video. R-015. No row: no feature or model is known to return a result shorter than two seconds (the shortest seen is about 4 s, Text to Video with Veo 3.1 4s, and Video Edit by Chat takes a 3–10 s source), so the app cannot be taken there. When one can, a row saves that result with the switch Off and grabs its frames up to the last one.
 - Q-17 The Jira is iOS (PDRIOS-722). Is Android in the same release with the same rules? The Android table assumes so.
-- Q-19 A My Artwork video opened with 「Full Editor」 and exported: the PM says only that the timeline shows no watermark. Assumption: the export follows the switch like other AI content. R-042.
+- Q-19 A My Artwork video opened with 「Full Editor」 and exported: the PM says only that the timeline shows no watermark. Assumption: the export follows the switch like other AI content. TC-083 (switch Off) and TC-158 (switch On) export a result that was never saved with the switch Off, so the export's own label can be told from one burned into the clip. R-042.
 - Q-20 AI Music Generator still shows 「AIGC Watermark」 「Your generated music will include an AIGC watermark…」 with the switch Off (PM pm-music), but REQ-009 drops the audio watermark, and a song only gets the visible label once it is exported in a project (R-035). Does the music dialog stay, and what does its text promise? Assumption: the dialog stays as the PM draws it (R-027 – R-031 unchanged); DRA262611P0229 (no dialog) is open. R-027, R-028, R-029, R-030, R-031.
 
 ## Added 2026-11-17 — coverage passes and standing inputs
@@ -139,6 +144,9 @@ The MUI rows are their own phase (phases.json `MUI`), never part of a full run. 
 | R-055 | no spoken AI clip on any song | the preview, the downloaded file and the timeline | TC-014, TC-058, TC-059, TC-060, TC-063 |
 | R-028 | Cancel takes no credits | the credit balance before and after | TC-055 |
 | R-053 | timeline-tool assets are signed | no file to read on the phone (parked, Q-13) | TC-123, TC-124, TC-125, TC-126, TC-127 |
+| R-053 | whether an editor export that holds signed AI content carries a manifest (Q-13) | c2patool on the exported files of the AI Text to Speech and AI Anime projects | TC-157 |
+| R-046 | the export dialog's 「Don’t show again」 is its own, not the music dialog's (Q-8) | the export dialog opened after the music dialog's box was ticked | TC-128 |
+| R-042 | the label is the export's own, not one burned into the clip (Q-19) | a result never saved with the switch Off, exported Off and On | TC-083, TC-158 |
 
 ### Variants
 | Requirement | Variant | Rows |
@@ -293,3 +301,4 @@ The MUI rows are their own phase (phases.json `MUI`), never part of a full run. 
 | REQ-010 | R-055 (row fix: TC-128 Android / TC-126 iOS, Step 3 no spoken clip) |
 | REQ-011 (table: MUI test in the 26 languages of the product list, no translation sheet) | R-057, R-058 (TC-130 – TC-156) |
 | REQ-012 (table: plan the MUI cases, 2026-11-25) | R-057, R-058 |
+| REQ-014 (table: every Open question still open gets an observing row, 2026-11-25) | R-030, R-046 (TC-128); R-042 (TC-083, TC-158); R-053 (TC-157); Q-8, Q-13, Q-14, Q-16, Q-19 |

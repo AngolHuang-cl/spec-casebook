@@ -69,6 +69,20 @@ TC-007,拍照建議面板,"1. PowerDirector 已用測試帳號登入
 3. 再點一次同一張卡片上的「View photo tips」","步驟 2：面板關閉，背景不再變暗
 步驟 2：template 頁仍停在「Micro Cinema」卡片，和步驟 1 之前一樣
 步驟 3：再次打開同一個 Micro Cinema 拍照建議面板",P1,"R-010, R-003",Design 只畫了「Got it」這個關閉方式（Q-3）。,未變更,
+TC-046,拍照建議面板,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁
+5. 畫面上是「Micro Cinema」卡片","1. 點「Micro Cinema」卡片上的「View photo tips」
+2. 點面板上方變暗的 template 頁（標題列以下的位置）
+3. 如果面板還開著，點「Got it」
+4. 再點一次同一張卡片上的「View photo tips」
+5. 從面板的第一句文字開始往下滑（不要從「Avoid」那一排開始）
+6. 如果面板還開著，點「Got it」","步驟 2：記下面板是關閉還是維持開啟
+步驟 2：變暗區域後面的東西都不會有反應：template 頁仍停在「Micro Cinema」卡片，沒有開啟其他畫面
+步驟 5：記下面板是關閉、跟著手指移動後彈回，還是完全不動
+步驟 3 和 6：面板關閉後變暗效果消失，template 頁顯示「Micro Cinema」卡片，和步驟 1 之前一樣
+步驟 2 和 5：Design 只畫了「Got it」，沒有提到這兩種手勢（Q-3），所以兩種結果都不算 Pass：把各自的行為記為 Fail（question）交給 PM",P3,R-010; REQ-009,Q-3：「Got it」由 TC-007 檢查。從 Add Media 開啟的面板要做同樣兩種手勢，得等 Q-1 有結果（那裡目前還沒有「?」）。,新增,REQ-009：Q-3 — 之前沒有任何一列去點變暗區域或把面板往下滑（R-010）
 TC-008,拍照建議面板,"1. PowerDirector 已用測試帳號登入
 2. App 語言為英文
 3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
@@ -168,6 +182,42 @@ TC-019,資料來源,"1. PowerDirector 已用測試帳號登入
 4. 點「Got it」
 5. 拉取 App log","步驟 5：log 裡有從 CMS 取得的 template 資料，每個 template 都帶 recommend_samples
 步驟 5：每個面板顯示的項目和該 template 的 recommend_samples 一致",P3,R-014,隱藏條款（pass 9）。如果 log 看不到 CMS template 資料，這列先擱置（needs: cms-log）。,未變更,
+TC-047,資料來源,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. PowerDirector 已強制停止（沒有在執行）
+5. Wi-Fi 關閉，也沒有行動網路（手機接 USB，先確認 Appium 連線正常）","1. 啟動 PowerDirector
+2. 在 Launcher 點「Cinematic Reel Creator」
+3. 滑過所有 template 卡片
+4. 在第一張有 chip 的卡片上點「View photo tips」（如果沒有任何卡片顯示 chip，跳過步驟 4–5）
+5. 點「Got it」
+6. 把 Wi-Fi 重新打開
+7. 離開 Cinematic Reel Creator 再進來一次
+8. 點「Micro Cinema」卡片上的「View photo tips」","步驟 2：記下開啟的是什麼：有卡片的 template 頁、空白頁、載入中的狀態，還是離線訊息（照抄訊息文字）
+步驟 3：記下顯示了哪些卡片，以及每張卡片有沒有「View photo tips」chip
+步驟 4：記下面板顯示的內容：開頭的句子、標題和說明文字，以及圖片是載入了還是空白
+步驟 1–5：App 不會閃退或卡住，每個畫面都離得開
+步驟 8：恢復連線後，Micro Cinema 的面板在「Recommendation」下顯示「Mid-Distance Framing」和「Rich Visual Details」，在「Avoid」下顯示「Flat Composition」、「Visible Text or Logos」和「Extreme Close-up」，每項都有圖片
+步驟 2–4：沒有任何規格寫到連不上 CMS 時這個功能要顯示什麼（Q-4），所以任何結果都不算 Pass：記為 Fail（question）交給 PM",P2,"R-014, R-001, R-012; REQ-009",Q-4 的離線部分：在沒有網路的情況下重新啟動 App。之前連線時留在手機上的資料可能還會顯示：如果頁面看起來很完整，要註明。這是真的斷網；不管發生什麼事，步驟 6 都要把 Wi-Fi 打開。Q-4 的另一半（範本沒有 recommend_samples）QA 做不出來（CMS 在伺服器端）。,新增,REQ-009：Q-4 — 之前沒有任何一列在離線時開啟這個功能（R-014、R-001）
+TC-048,資料來源,"1. PowerDirector 已用測試帳號登入
+2. App 語言為英文
+3. 之前已關閉過 Cinematic Reel Creator 教學（進入後直接到 template 頁）
+4. 全新的 App 程序：PowerDirector 強制停止後，在 Wi-Fi 開啟的狀態下重新啟動
+5. 已從 Launcher › 「Cinematic Reel Creator」進到 template 頁
+6. 手機接 USB（已確認 Appium 連線正常）","1. 點「Micro Cinema」卡片上的「View photo tips」，等圖片出現
+2. 點「Got it」
+3. 關閉 Wi-Fi
+4. 再點一次「Micro Cinema」卡片上的「View photo tips」
+5. 點「Got it」
+6. 點「Time Lapse」卡片上的「View photo tips」（這次啟動後還沒開過）
+7. 點「Got it」
+8. 把 Wi-Fi 重新打開
+9. 點「Time Lapse」卡片上的「View photo tips」","步驟 4：記下面板有沒有開啟，以及句子、說明文字和圖片是否還在
+步驟 6：記下面板有沒有開啟，以及說明文字和圖片是正常顯示、空白，還是出現訊息（照抄訊息文字）
+步驟 3–7：記下卡片上的「View photo tips」chip 是否還在
+步驟 3–7：App 不會閃退或卡住，每個開啟的面板都能用「Got it」關閉
+步驟 9：恢復連線後，Time Lapse 的面板在「Recommendation」下顯示「Visible Sky」和「Cityscape or Landscape」，在「Avoid」下顯示「Portrait as Subject」、「Indoor Close-up」和「Extreme Close-up」，每項都有圖片
+步驟 4 和 6：沒有任何規格寫到連不上 CMS 時面板要顯示什麼（Q-4），所以任何結果都不算 Pass：記為 Fail（question）交給 PM",P2,"R-014, R-012; REQ-009",Q-4 的離線部分：先載入一個面板，之後才斷網。手機沒有行動網路。Time Lapse 的圖片如果在前面的列載入過，可能還會顯示：要註明。這是真的斷網；不管發生什麼事，步驟 8 都要把 Wi-Fi 打開。,新增,REQ-009：Q-4 — 之前沒有任何一列在斷網後重開已載入的面板，或開啟一個新的面板（R-014）
 TC-020,MUI 多國語系,"1. App 語言設為繁體中文（`launch --lang zh-Hant-TW`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -206,7 +256,7 @@ TC-020,MUI 多國語系,"1. App 語言設為繁體中文（`launch --lang zh-Han
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI CHT（zh-Hant-TW）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI CHT（zh-Hant-TW）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-021,MUI 多國語系,"1. App 語言設為簡體中文（`launch --lang zh-Hans-CN`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -245,7 +295,7 @@ TC-021,MUI 多國語系,"1. App 語言設為簡體中文（`launch --lang zh-Han
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI CHS（zh-Hans-CN）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI CHS（zh-Hans-CN）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-022,MUI 多國語系,"1. App 語言設為日文（`launch --lang ja-JP`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -284,7 +334,7 @@ TC-022,MUI 多國語系,"1. App 語言設為日文（`launch --lang ja-JP`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI JPN（ja-JP）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI JPN（ja-JP）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-023,MUI 多國語系,"1. App 語言設為西班牙文（`launch --lang es-ES`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -323,7 +373,7 @@ TC-023,MUI 多國語系,"1. App 語言設為西班牙文（`launch --lang es-ES`
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI ESP（es-ES）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI ESP（es-ES）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-024,MUI 多國語系,"1. App 語言設為韓文（`launch --lang ko-KR`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -362,7 +412,7 @@ TC-024,MUI 多國語系,"1. App 語言設為韓文（`launch --lang ko-KR`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI KOR（ko-KR）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI KOR（ko-KR）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-025,MUI 多國語系,"1. App 語言設為德文（`launch --lang de-DE`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -401,7 +451,7 @@ TC-025,MUI 多國語系,"1. App 語言設為德文（`launch --lang de-DE`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI DEU（de-DE）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI DEU（de-DE）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-026,MUI 多國語系,"1. App 語言設為法文（`launch --lang fr-FR`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -440,7 +490,7 @@ TC-026,MUI 多國語系,"1. App 語言設為法文（`launch --lang fr-FR`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI FRA（fr-FR）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI FRA（fr-FR）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-027,MUI 多國語系,"1. App 語言設為義大利文（`launch --lang it-IT`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -479,7 +529,7 @@ TC-027,MUI 多國語系,"1. App 語言設為義大利文（`launch --lang it-IT`
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI ITA（it-IT）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI ITA（it-IT）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-028,MUI 多國語系,"1. App 語言設為俄文（`launch --lang ru-RU`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -518,7 +568,7 @@ TC-028,MUI 多國語系,"1. App 語言設為俄文（`launch --lang ru-RU`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI RUS（ru-RU）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI RUS（ru-RU）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-029,MUI 多國語系,"1. App 語言設為葡萄牙文（巴西）（`launch --lang pt-BR`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -557,7 +607,7 @@ TC-029,MUI 多國語系,"1. App 語言設為葡萄牙文（巴西）（`launch -
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI PTB（pt-BR）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI PTB（pt-BR）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-030,MUI 多國語系,"1. App 語言設為荷蘭文（`launch --lang nl-NL`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -596,7 +646,7 @@ TC-030,MUI 多國語系,"1. App 語言設為荷蘭文（`launch --lang nl-NL`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI NLD（nl-NL）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI NLD（nl-NL）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-031,MUI 多國語系,"1. App 語言設為印尼文（`launch --lang id-ID`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -635,7 +685,7 @@ TC-031,MUI 多國語系,"1. App 語言設為印尼文（`launch --lang id-ID`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI IND（id-ID）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI IND（id-ID）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-032,MUI 多國語系,"1. App 語言設為泰文（`launch --lang th-TH`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -674,7 +724,7 @@ TC-032,MUI 多國語系,"1. App 語言設為泰文（`launch --lang th-TH`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI THA（th-TH）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI THA（th-TH）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-033,MUI 多國語系,"1. App 語言設為馬來文（`launch --lang ms-MY`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -713,7 +763,7 @@ TC-033,MUI 多國語系,"1. App 語言設為馬來文（`launch --lang ms-MY`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI MAY（ms-MY）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI MAY（ms-MY）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-034,MUI 多國語系,"1. App 語言設為印地文（`launch --lang hi-IN`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -752,7 +802,7 @@ TC-034,MUI 多國語系,"1. App 語言設為印地文（`launch --lang hi-IN`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI HIN（hi-IN）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI HIN（hi-IN）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-035,MUI 多國語系,"1. App 語言設為西班牙文（墨西哥）（`launch --lang es-MX`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -791,7 +841,7 @@ TC-035,MUI 多國語系,"1. App 語言設為西班牙文（墨西哥）（`launc
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI ESM（es-MX）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI ESM（es-MX）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-036,MUI 多國語系,"1. App 語言設為阿拉伯文（`launch --lang ar-SA`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -831,7 +881,7 @@ TC-036,MUI 多國語系,"1. App 語言設為阿拉伯文（`launch --lang ar-SA`
 10. 阿拉伯文是由右到左：文字從右邊開始，沒有字串在左邊緣被切掉
 11. 卡片：六個名稱、六段說明、每張卡片上的標籤
 12. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-13. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI ARA（ar-SA）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+13. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI ARA（ar-SA）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-037,MUI 多國語系,"1. App 語言設為越南文（`launch --lang vi-VN`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -870,7 +920,7 @@ TC-037,MUI 多國語系,"1. App 語言設為越南文（`launch --lang vi-VN`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI VIT（vi-VN）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI VIT（vi-VN）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-038,MUI 多國語系,"1. App 語言設為波蘭文（`launch --lang pl-PL`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -909,7 +959,7 @@ TC-038,MUI 多國語系,"1. App 語言設為波蘭文（`launch --lang pl-PL`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI PLK（pl-PL）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI PLK（pl-PL）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-039,MUI 多國語系,"1. App 語言設為土耳其文（`launch --lang tr-TR`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -948,7 +998,7 @@ TC-039,MUI 多國語系,"1. App 語言設為土耳其文（`launch --lang tr-TR`
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI TRK（tr-TR）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI TRK（tr-TR）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-040,MUI 多國語系,"1. App 語言設為波斯文（`launch --lang fa-IR`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -988,7 +1038,7 @@ TC-040,MUI 多國語系,"1. App 語言設為波斯文（`launch --lang fa-IR`）
 10. 波斯文是由右到左：文字從右邊開始，沒有字串在左邊緣被切掉
 11. 卡片：六個名稱、六段說明、每張卡片上的標籤
 12. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-13. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI FAR（fa-IR）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+13. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI FAR（fa-IR）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-041,MUI 多國語系,"1. App 語言設為希伯來文（`launch --lang he-IL`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -1028,7 +1078,7 @@ TC-041,MUI 多國語系,"1. App 語言設為希伯來文（`launch --lang he-IL`
 10. 希伯來文是由右到左：文字從右邊開始，沒有字串在左邊緣被切掉
 11. 卡片：六個名稱、六段說明、每張卡片上的標籤
 12. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-13. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI HEB（he-IL）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+13. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI HEB（he-IL）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-042,MUI 多國語系,"1. App 語言設為瑞典文（`launch --lang sv-SE`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -1067,7 +1117,7 @@ TC-042,MUI 多國語系,"1. App 語言設為瑞典文（`launch --lang sv-SE`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI SVE（sv-SE）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI SVE（sv-SE）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-043,MUI 多國語系,"1. App 語言設為丹麥文（`launch --lang da-DK`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -1106,7 +1156,7 @@ TC-043,MUI 多國語系,"1. App 語言設為丹麥文（`launch --lang da-DK`）
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI DAN（da-DK）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI DAN（da-DK）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-044,MUI 多國語系,"1. App 語言設為挪威文（書面挪威語）（`launch --lang nb-NO`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -1145,7 +1195,7 @@ TC-044,MUI 多國語系,"1. App 語言設為挪威文（書面挪威語）（`la
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI NOR（nb-NO）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI NOR（nb-NO）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
 TC-045,MUI 多國語系,"1. App 語言設為烏克蘭文（`launch --lang uk-UA`）
 2. 這列跑完後用一般的 `launch` 把語言改回來
 3. PowerDirector 已用測試帳號登入
@@ -1184,4 +1234,4 @@ TC-045,MUI 多國語系,"1. App 語言設為烏克蘭文（`launch --lang uk-UA`
 9. 先看最長的字串：卡片上的說明、面板開頭那句、最長的圖片說明
 10. 卡片：六個名稱、六段說明、每張卡片上的標籤
 11. 六個面板各自的：開頭那句、「Recommendation」和底下兩個說明、「Avoid」和底下三個說明、底部按鈕
-12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI UKR（uk-UA）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,新增,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）
+12. Add Media 「?」打開的面板：第一張卡片範本的同一組字串",P2,R-028; R-029; REQ-002; REQ-007,MUI UKR（uk-UA）。每個畫面（每張卡片、每個面板）一次 `texts` 讀取加截圖；不產生任何東西。各語言的卡片順序和圖片由 Android 的 Language 各列檢查（REQ-006，iOS 尚未納入）。,未變更,REQ-002：每種語言一趟 MUI 檢查（翻譯和截斷）

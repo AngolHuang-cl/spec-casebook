@@ -7,6 +7,10 @@ Draft 20261125-160000 [Req: REQ-002, REQ-007]: the MUI section (spec-casebook re
 `library/pdr/product.json` › `mui` besides English. Android: one row reads the app's own strings from the build's APK; the CMS text is already checked per language by the Language rows, which now also check the truncation of the chip and the sheet sentence (no second walk per language).
 The MUI rows are their own phase (phases.json `MUI`), never part of a full run. New: R-035, R-036; 1 rows, TC-076; 52 Language rows modified.
 
+Draft 20261125-190000 [Req: REQ-009]: every Open question that is still open gets a row that takes the app to the point in
+question (user, 2026-11-25: 「if it's a new question it should be added to the cases and be run next round」, 「shouldn't they be added to cases already?」). New rows: TC-077 (Q-3: tap the dimmed area, swipe the sheet
+down), TC-078 and TC-079 (Q-4: offline). Q-1, Q-2 and Q-5 already name the rows that observe them. No requirement changes.
+
 ## View photo tips chip
 - R-001 [DS:d-cinestory 0820 add photo tips tag 1106:5843] Every template card on the Cinematic Reel Creator template page shows a 「View photo tips」 chip with a lightbulb icon at the card's top-left corner, over the preview video.
 - R-002 [DS: flow arrow 1106-5840 https://www.figma.com/design/w2cTi3WTU9vGDE3laY1H1t/Cinematic-Reel-Creator--CineStory-?node-id=1106-5840] Template card 「View photo tips」 → photo tips sheet: tapping the chip opens the photo tips sheet over the template page.
@@ -70,8 +74,8 @@ The MUI rows are their own phase (phases.json `MUI`), never part of a full run. 
 ## Open questions
 - Q-1 Media room 「?」: the Jira says the Add Media room has a 「?」 that opens the recommendation page, but the Design 26.07_v2 draws Add Media without one (the round/ic_info layer is hidden), and the template page's own 「?」 is the tutorial. Where is the 「?」, what icon, and does it show the tips of the template the room was opened from? Assumption: a 「?」 in the Add Media header opens the tips of that template; 「Got it」 returns to Add Media. R-004, TC-010 – TC-016, TC-021.
 - Q-2 Language: the sheets translate the template names (Cinestory CMS › Template Name Localization) and every caption (I2V Recommendation › Localization, 28 languages), but no sheet gives the chip 「View photo tips」 or the sentence 「For best results with the <template> template, follow this advice:」 in other languages. Are they translated? Filed as DRA262611P0290 (PM). Assumption: names and captions are checked per language; the chip and sentence words are recorded and not failed. R-015, R-032, TC-017, TC-018 and the Language rows. MUI (REQ-002): every PowerDirector feature is implemented in the 26 languages of the product list, so the APK row TC-076 expect the chip and sentence translated; a miss is DRA262611P0290, cited, not filed again.
-- Q-3 Closing: the Design draws only 「Got it」. Does tapping the dimmed area or swiping the sheet down close it, and does system Back? Assumption: only 「Got it」 is checked; system Back closes the sheet like it. R-010, R-016, TC-007, TC-020, TC-021.
-- Q-4 Missing data: what shows when a template has no recommend_samples in the CMS, or the CMS cannot be reached (offline)? Assumption: none written; no row until PM answers. R-001, R-012, R-014.
+- Q-3 Closing: the Design draws only 「Got it」. Does tapping the dimmed area or swiping the sheet down close it, and does system Back? Assumption: system Back closes the sheet like 「Got it」 (TC-020; from Add Media TC-021); none for the other two: TC-077 does both and records what each does as Fail (question) for PM. R-010, R-016, TC-007, TC-020, TC-021, TC-077.
+- Q-4 Missing data: what shows when a template has no recommend_samples in the CMS, or the CMS cannot be reached (offline)? Assumption: none. Offline: TC-078 (the app started with no network) and TC-079 (a sheet loaded online, then reopened offline, and one not opened before) record what the template page, the chip and the sheet show as Fail (question) for PM. A template with no recommend_samples cannot be set up by QA (the CMS is the server's and every template has its items): that half needs PM's answer and has no row. R-001, R-012, R-014, TC-078, TC-079.
 - Q-5 Scrolling: the Design draws the third Avoid item past the sheet's edge. Does the Avoid row scroll sideways, and would the Recommendation row scroll if a template had more than two? Assumption: the Avoid row scrolls sideways. R-009, TC-008.
 
 ## Added 2026-11-23 — coverage passes and standing inputs
@@ -84,6 +88,8 @@ The MUI rows are their own phase (phases.json `MUI`), never part of a full run. 
 | Requirement | Hidden clause | Observed through | Rows |
 |---|---|---|---|
 | R-014 | The items come from the CMS field recommend_samples, not the app | The app log after a log pull (CMS template data), compared with what each sheet showed | TC-019 |
+| R-014 | The items are fetched from the server, so they can be out of reach (Q-4) | The template page, the chips and the sheets with the phone offline, at a cold start and after one sheet was loaded | TC-078, TC-079 |
+| R-010 | 「Got it」 is the only way to close that the Design draws (Q-3) | A tap on the dimmed area and a swipe down on the sheet | TC-077 |
 
 ### Variants
 
@@ -185,6 +191,7 @@ The MUI rows are their own phase (phases.json `MUI`), never part of a full run. 
 | REQ-001 (analysis, both) | R-001 – R-015 (the whole table) |
 | REQ-002 (table: MUI test in the 26 languages of the product list, no translation sheet) | R-035, R-036 (TC-076; truncation on the Language rows) |
 | REQ-007 (table: plan the MUI cases, 2026-11-25) | R-035, R-036 |
+| REQ-009 (table: every Open question still open gets an observing row, 2026-11-25) | R-010 (TC-077); R-014, R-001, R-012 (TC-078, TC-079); Q-3, Q-4 |
 
 ## Added 2026-11-25 — REQ-006 (TR261019-014, TR260923-022)
 

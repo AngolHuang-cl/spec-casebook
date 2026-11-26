@@ -408,12 +408,20 @@ TC-082,Editor — AI content on the timeline,"1. Menu › Settings › 「Remove
 3. Copy the file to the computer","Step 1: no AIGC dialog, the Produce sheet opens directly
 Step 3: no AI label",P2,R-041,Q-7.
 TC-083,Editor — AI content on the timeline,"1. Menu › Settings › 「Remove AIGC Watermark」 is Off
-2. An Image to Video result opened with 「Full Editor」 (no other change)","1. Tap 「Export」
+2. An Image to Video result that was never saved with the switch Off (a new result, or one saved only with the switch On), opened with 「Full Editor」 (no other change)","1. Tap 「Export」
 2. Tap 「Export」 in the AIGC dialog if shown
 3. Tap 「Produce」
 4. Copy the file to the computer
 5. Grab frames of the file at 0.0 s, 1.9 s and 2.1 s on the computer (ffmpeg)","The AIGC dialog appears
-The produced file has the AI label at 0.0 s and 1.9 s, none from 2.1 s",P2,R-042,Q-19: the PM says only that the timeline shows no watermark; export assumed to follow the switch.
+The produced file has the AI label at 0.0 s and 1.9 s, none from 2.1 s",P2,R-042; REQ-014,"Q-19: the PM says only that the timeline shows no watermark; export assumed to follow the switch. The result must not have been saved with the switch Off: its timeline clip can be the gallery file with the label already burned in (R3), and the export's own label then cannot be told from the clip's. Switch On: TC-158."
+TC-158,Editor — AI content on the timeline,"1. Menu › Settings › 「Remove AIGC Watermark」 is On
+2. An Image to Video result that was never saved with the switch Off (a new result, or one saved only with the switch On), opened with 「Full Editor」 (no other change)","1. Play the project from 0:00 in the editor preview
+2. Tap 「Export」
+3. Tap 「Produce」
+4. Copy the file to the computer
+5. Grab frames of the file at 0.0 s, 1.9 s and 2.1 s on the computer (ffmpeg)","Step 1: no AI label in the preview
+Step 2: no AIGC dialog, the Produce sheet opens directly
+Step 5: no AI label at 0.0 s, 1.9 s or 2.1 s",P2,"R-042, R-047; REQ-014","Q-19, the switch On side (not run in R3). With the switch On nothing adds a label, so a label in step 1 or step 5 is one burned into the clip itself, not the export's: with TC-083 on the same kind of result this tells the two apart."
 TC-084,Export dialog,"1. Menu › Settings › 「Remove AIGC Watermark」 is Off
 2. A project with AI Anime content",Tap 「Export」,"The dialog 「AIGC Watermark」 opens over the dimmed editor
 Body 「Your exported file will include an AIGC watermark. To remove the watermark, go to Menu > Settings.」
@@ -676,12 +684,26 @@ TC-126,C2PA metadata,A project with Voice Changer content,"1. Find a way to read
 2. Read its Content Credentials",The Voice Changer asset carries a C2PA manifest signed by CyberLink,P3,R-053,Sheet line: Apt1 VoiceChangerV2 有簽章 (CyberLink). Parked: the asset stays inside the project (Q-13).
 TC-127,C2PA metadata,A project with AI Text to Speech content,"1. Find a way to read the generated asset as a file
 2. Read its Content Credentials",The AI Text to Speech asset carries a C2PA manifest signed by CyberLink,P3,R-053,Sheet line: Apt1 TextToSpeechCL 有簽章 (CyberLink). Parked: the asset stays inside the project (Q-13).
+TC-157,C2PA metadata,"1. The file TC-065 exported (AI Text to Speech project, switch Off) on the computer
+2. The file TC-071 exported (AI Anime project, switch Off) on the computer
+3. The file TC-066 exported (AI Text to Speech project, switch On) on the computer","1. Read the Content Credentials of the TC-065 file (c2patool <file>)
+2. Read the Content Credentials of the TC-071 file
+3. Read the Content Credentials of the TC-066 file","Steps 1–3: record for each file whether it carries a C2PA manifest or c2patool answers 「No claim found」
+Steps 1–3: for each manifest found, record its signer, its actions with their digitalSourceType, and any ingredient
+Step 3: record whether the switch On export differs from the switch Off export of the same project (step 1)
+Steps 1–3: the spec does not say whether an editor export carries a manifest (Q-13), so no outcome is a Pass: record what was read as Fail (question) for PM",P2,R-053; REQ-014,"Q-13. No new export: the row reads the files TC-065, TC-071 and TC-066 produced, so keep them in the run folder's files/. Known: a photo + song project exported with the switch Off wrote no claim although the C2PA library loaded (KF-008). The timeline tool's own asset still cannot be read as a file (TC-123 – TC-127)."
 TC-128,Music Generator (pure audio),"1. Menu › Settings › 「Remove AIGC Watermark」 is Off
-2. The music AIGC dialog open","1. Tick 「Don’t show again」
+2. The music AIGC dialog open
+3. The export dialog has never been silenced (TC-129 not run yet)
+4. The project with AI Text to Speech content (TC-065) saved","1. Tick 「Don’t show again」
 2. Tap 「Generate」
-3. When it finishes, start another generation","Step 2: the generation starts
+3. When it finishes, start another generation
+4. Open the project with AI Text to Speech content and tap 「Export」
+5. Tap 「Cancel」","Step 2: the generation starts
 Step 3: no AIGC dialog, the second generation starts at once
-Step 3: the second song starts straight with the music, with no spoken clip 「This audio was generated by AI.」",P2,"R-030, R-055",One-way state: runs after every row that needs the music dialog. Q-8: does it also silence the export dialog?
+Step 3: the second song starts straight with the music, with no spoken clip 「This audio was generated by AI.」
+Step 4: the export 「AIGC Watermark」 dialog still opens, with 「Don’t show again」 unticked
+Step 5: the dialog closes and nothing is produced",P2,"R-030, R-055, R-046; REQ-014",One-way state: runs after every row that needs the music dialog and before TC-129. Q-8: steps 4–5 show whether the music dialog's tick also silences the export dialog (assumption: separate). Blocked while the music dialog does not open (DRA262611P0229).
 TC-129,Export dialog,"1. Menu › Settings › 「Remove AIGC Watermark」 is Off
 2. A project with AI Sketch content
 3. The export dialog has never been silenced","1. Tap 「Export」

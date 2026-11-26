@@ -40,7 +40,8 @@ controls, and the `decision` entries (Won't Fix, NAB, PM rulings) that make a fi
         without naming its Q-id is linked in `question-status.json` instead (`"state": "filed", "codes": ["DRA…"]`). A question no row fails on is still filed
         when the run cannot determine it: the filing rule follows the question list, not only the Fail (question)
         rows (Video Enhance R1–R3 left Q-14 and Q-21 unfiled because nothing failed on them).
-     3. **Not reached:** its rows were Blocked or not in this phase: `"state": "not-reached"` with the reason. It
+     3. **Not reached:** its rows were Blocked or not in this phase (a question with no row at all gets one now,
+        in the next draft: `analysis.md`, *Every Open question gets an observing row*): `"state": "not-reached"` with the reason. It
         stays open for the next run and is the only kind that may. One that must be filed but needs a check first is
         `"state": "to-file"` with what is missing; it stays open, flagged, until it is filed.
      Settled questions (determined or filed) leave the Cases page's question list for its closed 「Settled」 list.

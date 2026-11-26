@@ -84,6 +84,20 @@ TC-020,Photo tips sheet,"1. PowerDirector signed in on the test account
 4. Launcher › 「Cinematic Reel Creator」 open on its template page
 5. The Micro Cinema photo tips sheet open (its chip)",Press system Back,"The sheet closes and the template page shows the 「Micro Cinema」 card
 The app does not leave Cinematic Reel Creator",P2,R-016,System back on every sheet (team rule 2026-10-28). Design draws only 「Got it」 (Q-3): assumed to act like it.
+TC-077,Photo tips sheet,"1. PowerDirector signed in on the test account
+2. App language English
+3. The Cinematic Reel Creator tutorial was dismissed before (its template page opens directly)
+4. Launcher › 「Cinematic Reel Creator」 open on its template page
+5. The 「Micro Cinema」 card in view","1. Tap 「View photo tips」 on the 「Micro Cinema」 card
+2. Tap the dimmed template page above the sheet, below the header
+3. If the sheet is still open, tap 「Got it」
+4. Tap 「View photo tips」 on the same card again
+5. Swipe the sheet down, starting on its first sentence (not on the 「Avoid」 row)
+6. If the sheet is still open, tap 「Got it」","Step 2: record whether the sheet closes or stays open
+Step 2: nothing behind the dim reacts: the template page stays on the 「Micro Cinema」 card and no other screen opens
+Step 5: record whether the sheet closes, follows the finger and springs back, or does not move
+Steps 3 and 6: once the sheet is closed the dim is gone and the template page shows the 「Micro Cinema」 card, as before step 1
+Steps 2 and 5: the Design draws only 「Got it」 and says nothing of these two gestures (Q-3), so neither outcome is a Pass: record what each does as Fail (question) for PM",P3,R-010; REQ-009,Q-3: 「Got it」 is TC-007. System Back is TC-020. The same two gestures on a sheet opened from Add Media wait for Q-1 (no 「?」 there yet).
 TC-009,Photo tips sheet,"1. PowerDirector signed in on the test account
 2. App language English
 3. The Cinematic Reel Creator tutorial was dismissed before (its template page opens directly)
@@ -1603,6 +1617,42 @@ TC-019,Data source,"1. PowerDirector signed in on the test account
 4. Tap 「Got it」
 5. Pull the app log","Step 5: the log shows the template data from the CMS with recommend_samples for each template
 Step 5: the items each sheet showed match that template's recommend_samples",P3,R-014,Hidden clause (pass 9). Park (needs: cms-log) if the log shows no CMS template data.
+TC-078,Data source,"1. PowerDirector signed in on the test account
+2. App language English
+3. The Cinematic Reel Creator tutorial was dismissed before (its template page opens directly)
+4. PowerDirector force-stopped (not running)
+5. Wi-Fi off (device-android.ts wifi off, the phone on USB) and no mobile data","1. Launch PowerDirector
+2. Tap 「Cinematic Reel Creator」 on the Launcher
+3. Swipe through the template cards
+4. Tap 「View photo tips」 on the first card that shows the chip (skip steps 4–5 when no card shows one)
+5. Tap 「Got it」
+6. Turn Wi-Fi back on
+7. Leave Cinematic Reel Creator and open it again
+8. Tap 「View photo tips」 on the 「Micro Cinema」 card","Step 2: record what opens: the template page with its cards, an empty page, a loading state or an offline message (quote it)
+Step 3: record which cards show and whether each has the 「View photo tips」 chip
+Step 4: record what the sheet shows: its sentence, headings and captions, and whether the pictures load or stay blank
+Steps 1–5: the app does not crash or freeze, and every screen can be left
+Step 8: back online the Micro Cinema sheet shows 「Mid-Distance Framing」 and 「Rich Visual Details」 under 「Recommendation」 and 「Flat Composition」, 「Visible Text or Logos」 and 「Extreme Close-up」 under 「Avoid」, each with its picture
+Steps 2–4: no spec says what the feature shows without the CMS (Q-4), so no outcome is a Pass: record it as Fail (question) for PM",P2,"R-014, R-001, R-012; REQ-009","Q-4, the offline half: a new app process with no network. Data kept on the phone from an earlier online visit may still show: say so if the page looks complete. Real network loss; turn Wi-Fi back on in step 6 whatever happened. The other half of Q-4, a template with no recommend_samples, cannot be set up by QA (the CMS is the server's)."
+TC-079,Data source,"1. PowerDirector signed in on the test account
+2. App language English
+3. The Cinematic Reel Creator tutorial was dismissed before (its template page opens directly)
+4. A new app process: PowerDirector force-stopped and launched again with Wi-Fi on
+5. Launcher › 「Cinematic Reel Creator」 open on its template page
+6. The phone on USB (Appium confirmed)","1. Tap 「View photo tips」 on the 「Micro Cinema」 card and wait for its pictures
+2. Tap 「Got it」
+3. Turn Wi-Fi off
+4. Tap 「View photo tips」 on the 「Micro Cinema」 card again
+5. Tap 「Got it」
+6. Tap 「View photo tips」 on the 「Time Lapse」 card (not opened since the launch)
+7. Tap 「Got it」
+8. Turn Wi-Fi back on
+9. Tap 「View photo tips」 on the 「Time Lapse」 card","Step 4: record whether the sheet opens and whether its sentence, captions and pictures still show
+Step 6: record whether the sheet opens and whether its captions and pictures show, stay blank or give a message (quote it)
+Steps 3–7: record whether the cards keep their 「View photo tips」 chips
+Steps 3–7: the app does not crash or freeze, and each sheet that opened closes with 「Got it」
+Step 9: back online the Time Lapse sheet shows 「Visible Sky」 and 「Cityscape or Landscape」 under 「Recommendation」 and 「Portrait as Subject」, 「Indoor Close-up」 and 「Extreme Close-up」 under 「Avoid」, each with its picture
+Steps 4 and 6: no spec says what a sheet shows without the CMS (Q-4), so no outcome is a Pass: record it as Fail (question) for PM",P2,"R-014, R-012; REQ-009","Q-4, the offline half: the network is lost after one sheet was loaded. No mobile data on the phone (device-android.ts wifi off). Pictures of Time Lapse kept from an earlier row may still show: say so. Real network loss; turn Wi-Fi back on in step 8 whatever happened."
 TC-076,MUI,"1. The APK of the build under test in `~/.casebook/android/apks/<build>/` (the one installed for the run)
 2. `mui.json` names the feature's string resources (`android_prefixes`: cine_story_view_photo_tips, cine_story_photo_tips_description)","1. Run `node scripts/mui-strings.ts pdr/cinematic-reel-recommendation --apk <build dir> --out <run dir>/mui`
 2. Read every string of `mui-strings.json` in each language against its English

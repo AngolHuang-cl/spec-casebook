@@ -1,7 +1,9 @@
-// Draft 20261125-171701 (both platforms; the iOS draft folder holds the same file): the user's ruling on Q-21
+// Draft 20261125-171701 (written for both platforms; Android saved its copy as v13, this is the iOS one): the user's ruling on Q-21
 // [Req: REQ-044]: the playhead knob moves only between the two white trim handles, and play starts from the playhead.
 // Rebuilds draft.csv, requirements.md, spec.json, update-plan.md, control-trace.json and phases.json in this folder from
 // the approved table (v12 Android / v9 iOS). Run: node library/pdr/video-enhance/<platform>/drafts/20261125-171701/build-draft.ts
+// Extended the same day [Req: REQ-045]: after the rebuild, req-045.ts (same folder, the file the Android draft
+// 20261125-190000 also uses) adds a row for every Open question that is still open and fills the plan's <!-- REQ-045 --> line.
 import { readFileSync, writeFileSync, copyFileSync, existsSync } from 'node:fs';
 import { dirname, join, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -237,6 +239,8 @@ ${/REQ-042/.test(readFileSync(join(TABLE, 'requirements.md'), 'utf8')) ? '' : '|
 - phases.json is carried over unchanged from draft ${PREV}; the two new and two modified rows join the plan of the next
   run or recheck (${STOP} and ${PLAY} sit with TC-215 in the 「Panel layout, first-run bubble and trim」 segment).
 
+<!-- REQ-045 -->
+
 ## Questions for PM
 - Q-28 What does playback do when it reaches the right trim handle: stop there, jump back to the selection start, or loop?
 
@@ -248,3 +252,5 @@ ${/REQ-042/.test(readFileSync(join(TABLE, 'requirements.md'), 'utf8')) ? '' : '|
 for (const [from, to] of [['cases.zh-Hant.csv', 'draft.zh-Hant.csv'], ['cases.zh-Hant.prints.json', 'draft.zh-Hant.prints.json']])
   if (existsSync(join(TABLE, from)) && !existsSync(join(DIR, to))) copyFileSync(join(TABLE, from), join(DIR, to));
 console.log(`${PLATFORM}: ${body.length} approved rows (2 modified) + 2 new (${STOP}, ${PLAY}) → ${join(DIR, 'draft.csv')}`);
+
+await import('./req-045.ts');

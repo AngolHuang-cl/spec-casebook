@@ -219,7 +219,25 @@ Step 7: playback starts from the time noted in step 6, not from 00:30 and not fr
 Step 7: the playhead, the bubble and the Preview time advance together from that time
 Steps 1–8: both trim handles stay at 00:30 and 02:00
 Steps 1–8: 「Selected Length」 stays 「01:30」
-Steps 1–8: the CTA price stays the noted one",P2,"R-193, R-027; REQ-044","Ruling (user, 2026-11-25, REQ-044; the answer to Q-21): play starts from where the playhead is. The pause is R-200 (TC-037). Both plays are paused before the right handle: what playback does on reaching the end of the selection is not stated (Q-28), so it is not asserted here.",new,"REQ-044: play starts from the playhead's position, not from the selection start (R-193, R-027)"
+Steps 1–8: the CTA price stays the noted one",P2,"R-193, R-027; REQ-044","Ruling (user, 2026-11-25, REQ-044; the answer to Q-21): play starts from where the playhead is. The pause is R-200 (TC-037). Both plays are paused before the right handle: what playback does on reaching the end of the selection is not stated (Q-28): TC-349 plays to the right handle and records it.",new,"REQ-044: play starts from the playhead's position, not from the selection start (R-193, R-027); REQ-045: the Notes name TC-349, the row that plays to the end of the selection (Q-28)"
+TC-349,Trim and selected length,"1. Panel open with the 12:30 video (time burned into every frame)
+2. Selection trimmed to 00:30–02:00 (「01:30」), shorter than the video at both ends
+3. The Preview is paused","1. Drag the ◀▶ knob to about 01:50
+2. Let go and note the bubble's time
+3. Start a screen recording
+4. Tap play under the Preview
+5. Leave the screen untouched for 30 s (playback reaches the right handle at 02:00 after about 10 s)
+6. Stop the recording
+7. Tap the button under the Preview once more","Step 4: playback starts from the time noted in step 2, and the playhead, the bubble and the Preview time advance together up to the right handle (02:00)
+Step 5: what playback does on reaching the right handle is recorded: it stops there, it jumps back (to the selection start 00:30 or to the time noted in step 2) or it plays on past 02:00
+Step 5: after a jump back, whether it plays again by itself (a loop) or waits paused is recorded
+Step 5: where the playhead and its bubble rest 20 s after the handle was reached is recorded
+Step 5: the Preview time and the burned-in time of the frame shown at that moment are recorded
+Step 5: the state of the button under the Preview at that moment (play or pause icon) is recorded
+Step 7: what the tap does is recorded (it plays or pauses) and, when it plays, the time it starts from
+Steps 1–7: both trim handles stay at 00:30 and 02:00
+Steps 1–7: 「Selected Length」 stays 「01:30」
+No source states what play does at the end of the selection (Q-28), so whichever outcome is seen the row is recorded as Fail (question) for PM with what was recorded, never as a Pass",P2,"R-027, R-193; REQ-045","Q-28 [Req: REQ-045]: stop, jump back or loop is not stated by the Design, PM or the ruling on Q-21 (REQ-044), so nothing is asserted about the end itself and the run's wrap-up files the recorded outcome to PM for a decision (BugBelong PM). A selection that ends before the video's end (02:00 of 12:30) tells a stop at the handle from a stop at the end of the video. The start from the playhead is TC-348's check.",new,REQ-045: Open question Q-28 had no row that reaches its point (TC-348 pauses before the end); this row plays to the right handle and records what the build does
 TC-044,Trim and selected length,"Panel open with the 12:30 video in Standard, selection 00:00–06:00","1. Start a screen recording
 2. Drag the right handle to the right as far as it goes over 2–3 seconds
 3. Keep pushing it right for a second
@@ -943,7 +961,8 @@ TC-093,Eligibility and purchase,IAP page open from the panel (TC-090),"1. Tap �
 6. Tap the 「Pro+」 tab","The page shows the Pro / Pro+ tabs, 「Yearly」 with 「Best Value」 and 「65% OFF」, 「Monthly」, 「Continue」 and the footer 「Terms of Service」 「Privacy Policy」 「Restore purchase」
 Each plan tap selects that plan
 The comparison opens and closes
-Each tab shows its own plans and 「Pro+」 brings back the Pro+ plans",P3,R-072,Prices are store data: never assert them (KP-042). Q-7: the trial line 「Receive 35 credits during free trial」 conflicts with PM §7; not asserted.,unchanged,
+Each tab shows its own plans and 「Pro+」 brings back the Pro+ plans
+Whether the page offers a free trial is recorded: a line such as 「Try Pro+ 7 days for free」 or 「Receive 35 credits during free trial」, or none",P3,R-072,"Prices are store data: never assert them (KP-042). Q-7: the trial line 「Receive 35 credits during free trial」 conflicts with PM §7, so neither is asserted and what the page shows is recorded for PM (the Android build shows no trial, R3).",modified,"REQ-045: the row records whether a trial line shows, the point of Open question Q-7 (it was only 「not asserted」)"
 TC-094,Eligibility and purchase,"1. Tier Free (Launcher › Pink › ☰ › [0] IAP › status = Free, checked in Mine)
 2. Panel open with selection 00:30–05:30 and 「Sharp」
 3. IAP page opened from the CTA",Tap ‹ on the IAP page without buying,"The panel is back unchanged: selection 05:00, 「Sharp」, CTA 「Unlock Pro+ to Enhance」",P2,R-073,,unchanged,
@@ -962,6 +981,14 @@ TC-320,Eligibility and purchase,"1. Credit page open from the panel (TC-096), no
 2. The panel's selection and settings noted",Tap ‹ on the Credit page,"The panel is back with the same video, selection and settings
 The balance is unchanged
 No upload starts and Recent task gets no card",P2,R-073,Parked with TC-096 (needs low-balance). PM C2 [建議] (spec agent TC-VE2-285) [Req: REQ-021]. TC-098 closes the page after a claim.,unchanged,
+TC-351,Eligibility and purchase,"1. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine)
+2. Panel open with selection 00:30–05:30 and 「Sharp」
+3. Note the balance in the credit pill","1. Tap the credit pill in the panel's top bar
+2. Tap ‹ on the page that opened","Step 1: the Credit page opens (「My Credits」) and shows the noted balance
+Step 1: no upload dialog appears and Recent task gets no card
+Step 1: when another page opens, or nothing does, what the tap does is recorded (the page's title and what it offers)
+Step 2: the panel is back with the same video, the selection 00:30–05:30 and 「Sharp」
+Step 2: the credit pill shows the noted balance",P3,"R-020, R-073; REQ-045","Q-15 [Req: REQ-045]: the spec does not say what the pill opens. Assumption from the Android build, where the tap opens 「My Credits」 (Android R3, 16.9.0); another target on iOS is recorded as Fail (question) for PM, not as a defect. Needs no low balance: the pill is tapped with credits on the account.",new,"REQ-045: Open question Q-15 had no iOS row that taps the panel's credit pill (TC-096 reaches the Credit page through 「Enhance」, TC-097 is parked on a purchase)"
 TC-097,Eligibility and purchase,"TC-096 setup: Credit page open from the panel, the balance noted","1. Tap 「Buy More」
 2. Buy a credit pack on the App Store purchase sheet (note its credits)
 3. Open My Credits","After step 2 the app returns to the panel with the same video, start, end, 「Selected Length」, Mode, style, fps and resolution
@@ -979,7 +1006,18 @@ TC-110,Generating and cancel,"1. Tier Pro+ (Launcher › Pink › ☰ › [0] IA
 2. Panel open with a 01:30 1080p 30 fps video and the defaults kept (Standard, Natural, 30fps, 1080p)
 3. Note the balance",Tap 「Enhance ◆ <credits>」,"No confirmation appears first
 A processing dialog covers the panel with a progress ring counting up (「25%」…), 「Video uploading...」, 「Please keep the app open」 and 「Cancel」
-The ring keeps moving (no frozen wait over 10 s)",P1,"R-080, R-085, R-070, R-194",,unchanged,
+The ring keeps moving (no frozen wait over 10 s)",P1,"R-080, R-085, R-070, R-194","A consent or disclosure screen on the first 「Enhance」 after a reset is TC-350's (Q-14), not this row's 「No confirmation」: run this row after it.",modified,REQ-045: the Notes send a first-use consent screen to TC-350 (Q-14) so it is not read as a failed 「No confirmation」
+TC-350,Generating and cancel,"1. PowerDirector freshly installed, with 「Enhance」 never tapped on this install
+2. Tier Pro+ (Launcher › Pink › ☰ › [0] IAP › status = Pro+, checked in Mine) with enough credits
+3. Every consent, notice or permission screen seen since the install noted (first launch, Demo page, first panel entry)
+4. Panel open with a 00:01 video and the defaults kept (the lowest price)","1. Tap 「Enhance ◆ <credits>」
+2. Take a screenshot of whatever shows before the processing dialog, without touching it
+3. Tap the accepting button of a consent or disclosure screen that showed","Step 1: what shows between the tap and the processing dialog is recorded: nothing (the processing dialog comes at once) or a consent or disclosure screen
+Step 2: the title, the whole text and the buttons of a screen that showed are recorded
+Step 2: whether its text says the video is sent to a third party's cloud for AI processing (ByteDance / BytePlus) is recorded
+Step 3: after the accepting button the processing dialog 「Video uploading...」 appears and the upload starts
+A consent or notice that showed earlier since the reset (precondition 3) is recorded with the screen it showed on
+No source says whether the dialog must show or what it reads (Q-14), so either outcome is recorded as Fail (question) for PM / Legal with what was recorded, never as a Pass",P2,"R-080, R-085; REQ-045","Q-14 (PM Open question 3, Legal) [Req: REQ-045]. iOS: PowerDirector cannot be reinstalled on the QA iPhone (AGENTS.md, until lifted), so this row is recorded Blocked --as test-data (「PowerDirector cannot be reinstalled on the QA iPhone」) until the rule is lifted or a phone with a fresh install is supplied. One-way state (AGENTS.md, One-way state orders the run): only the first 「Enhance」 after a reset can show a first-use consent, so this is the first 「Enhance」 tap after the reset, on the same reset as TC-030 and before TC-110 and every other row that starts a task. When another row's first 「Enhance」 after the reset was already captured from the tap to the processing dialog, its evidence records this row. Nothing showing does not prove the dialog is missing when the account accepted it on an earlier install (the consent may be kept with the account): record whether the account had enhanced before. The upload is left to finish (the 00:01 video costs the least).",new,REQ-045: Open question Q-14 said 「No row asserts it」 and stayed open through three Android runs; this row takes a reset app to its first 「Enhance」 and records what shows before the upload
 TC-111,Generating and cancel,Processing dialog showing (TC-110),Tap 「Cancel」,"The dialog 「Sure You Want to Leave?」 / 「Your video is still uploading. Leaving this page will cancel the process, and the credits will not be restored.」 appears with 「Leave」 and 「Keep Uploading」",P1,R-086,,unchanged,
 TC-112,Generating and cancel,Leave dialog showing (TC-111),"1. Look at the 「Enhance」 CTA behind the dialogs
 2. Tap 「Keep Uploading」","Step 1: the CTA behind the dialogs is greyed (disabled)
