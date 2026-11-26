@@ -219,9 +219,9 @@ The first time the form is filled on a new template, record the field names you 
 
 ## Evidence on each eBug (user, 2026-11-05, REQ-099 / REQ-101)
 
-**Text only (user, 2026-11-13): this section is on hold.** The QR is filled with text alone: set `"textOnly": true`
-in the draft, so Reasons and Details name no files and `upload` refuses; the screenshots stay in the run folder for
-the review page. Old-ASP bugs (`PHA252025-…`) cannot take API uploads anyway.
+This section is in force on every TR except PhotoDirector Android, whose team template is text only (*PHD-A QR*,
+`"textOnly": true`); the 2026-11-13 hold on it elsewhere was not adopted (user, 2026-11-26). `"textOnly": true` is
+otherwise only for a bug that cannot take files: old-ASP bugs (`PHA252025-…`) cannot take API uploads.
 
 A QR's Reason reaches every linked bug, so each bug's evidence goes on that bug, and the QR carries no ZIP (others
 check the bug and the files there; `pack` refuses per-bug drafts):

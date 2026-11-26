@@ -44,11 +44,14 @@ lines; put the full rule in the skill or reference file that applies it and poin
 - **Dedupe per OS (user, 2026-10-28).** A ticket on the other OS never makes a finding a duplicate; a same-OS match is
   left off the drafts and review page (kept only in `dedupe.txt`), unless that ticket is **closed** and the bug is
   back: then it is a new card naming the closed ticket (overlay, *Dedupe per OS*).
-- **eBug owner and type (user, 2026-11-13 — the 2026-10-20 rule restored; replaces RD's 2026-10-21 no-`[UX]` rule).**
-  A UX problem goes to PM (BugBelong PM), who decides before handing it to RD. A problem that plainly needs an RD fix
-  (performance, waits, missing behaviour) is Functional, owner RD, with no `[UX]` tag. Casebook UX findings file as
-  `[AIAgent][UX]` (`check_ebug_format.py --allow-agent-ux`, `ALLOW_AGENT_UX=1 verify_ebug_drafts.py`; overlay rule 5).
-  Restored on AI Hair Color Custom ISS-HCC-10 (TR261111-0042). Exploration (`[AIFound]`) keeps filing `[UX]`.
+- **eBug owner and type (RD, 2026-10-21 — replaces the 2026-10-20 rule; revertible).** Casebook findings are
+  `[AIAgent]` Functional or `[UI]`, owner RD, never `[UX]`; RD forwards to PM when it wants a ruling. A
+  finding with no spec basis is filed to PM for a decision (2026-11-11, below). Exploration (`[AIFound]`) keeps filing `[UX]`.
+  The 2026-11-13 restore of the 2026-10-20 rule (PR 7, PhotoDirector Android) was not adopted (user, 2026-11-26).
+  **Revert** — the user may restore the 2026-10-20 rule: "A UX problem goes to PM (BugBelong PM), who decides before
+  handing it to RD. A problem that plainly needs an RD fix (performance, waits, missing behaviour) is Functional,
+  owner RD, with no `[UX]` tag." Put that text back here, then follow the revert steps in overlay rule 5
+  (`--allow-agent-ux` / `ALLOW_AGENT_UX=1`).
 - **Text bugs go to RD or PM (user, 2026-11-11).** Text that differs from the spec is RD when the spec states it and
   the app shows something else (fix the app's text), PM when the spec's own text must change (wrong, unclear, two
   sheets disagree, or none states it); never Doc (`ebug-draft-generator` › Owner, overlay rule 5).
@@ -159,13 +162,11 @@ lines; put the full rule in the skill or reference file that applies it and poin
   shows it, with its tier (`Account: cltqauiap2@gmail.com (Premium)`), read from the menu at each verify run
   (`qa-report/SKILL.md` › *Wording*). An app not signed in is written `Not signed in (Free)`; no sign-in just for
   the QR (user, 2026-11-13).
-- **QR text only (user, 2026-11-13).** A QR is filled with text only: no screenshots or logs uploaded to the eBugs
-  and no file names in the Reasons (draft `"textOnly": true`); evidence stays in the local run folder. Replaces
-  *Evidence on each eBug* (REQ-099) until the user asks for files again.
 - **PHD-A QRs (user, 2026-11-13).** On PhotoDirector Android TRs only: verify every bug on the verify list whoever
   created it, and write the QR exactly like the team template QR261102-0081 (TR's Short Description, Details = the
-  Test Result line, `Verified OK with <build> build.` + one sentence + `Risk test: n/a`); `qa-report/SKILL.md` ›
-  *PHD-A QR*, draft `"style": "phd-a"`.
+  Test Result line, `Verified OK with <build> build.` + one sentence + `Risk test: n/a`, text only); `qa-report/SKILL.md` ›
+  *PHD-A QR*, draft `"style": "phd-a"`. Every other TR keeps *Evidence on each eBug* (REQ-099): the 2026-11-13
+  text-only QR rule was not adopted outside PHD-A (user, 2026-11-26).
 - **RD's resolve note on PHD-A bugs (user, 2026-11-25).** Before verifying a PhotoDirector Android bug, read RD's
   newest resolve note (RootCause, Solution / Workaround, might-impact area, Changeset; `ecl_query.py resolve`), test
   what its Solution says and check its impact area for side effects; a Solution that changes the expectation is what
