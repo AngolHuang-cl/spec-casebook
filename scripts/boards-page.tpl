@@ -53,13 +53,13 @@ h2 { font: 700 1.25rem var(--display); margin: 28px 0 0 }
 .name { font-weight: 650; overflow-wrap: anywhere; padding-block: 2px }
 .feat.hd .name, .feat.tot .name { font-weight: inherit }
 .lines { display: grid; gap: 4px }
-.line { display: grid; grid-template-columns: 86px 58px 40px 40px 52px 92px 78px 92px 116px 84px; gap: 0 12px; align-items: baseline; font-size: 0.9rem; font-variant-numeric: tabular-nums; padding-block: 2px }
+.line { display: grid; grid-template-columns: 86px 58px 40px 40px 52px 92px 92px 96px 78px 84px; gap: 0 12px; align-items: baseline; font-size: 0.9rem; font-variant-numeric: tabular-nums; padding-block: 2px }
 .feat.hd .line { font-size: inherit; align-items: end }
 .c small { display: block; font-size: 0.8rem; color: var(--muted); white-space: nowrap }
 .feat.hd { align-items: end } .c small a { color: inherit } .c small a:hover { color: var(--accent) }
 .c { min-width: 0 }
 .c a { color: var(--accent); text-decoration: none } .c a:hover { text-decoration: underline }
-.c-cases, .c-pass, .c-fail, .c-blocked, .c-bugs, .c-qs { text-align: right }
+.c-cases, .c-pass, .c-fail, .c-blocked, .c-bugs, .c-mui, .c-design, .c-qs { text-align: right }
 .name a { color: var(--accent); text-decoration: none } .name a:hover { text-decoration: underline }
 .c .no, .c .dim { color: var(--muted) } .c .no { white-space: nowrap }
 .c .draft { color: var(--blocked) }
@@ -80,7 +80,7 @@ h2 { font: 700 1.25rem var(--display); margin: 28px 0 0 }
   .feat.hd { display: none }
   .lines { gap: 8px }
   .line { display: flex; flex-wrap: wrap; gap: 2px 14px }
-  .c-cases, .c-pass, .c-fail, .c-blocked, .c-bugs, .c-qs { text-align: left }
+  .c-cases, .c-pass, .c-fail, .c-blocked, .c-bugs, .c-mui, .c-design, .c-qs { text-align: left }
   .c small { display: inline; margin-left: 6px }
   .c[data-l]::before { content: attr(data-l) ' '; font: 600 0.66rem var(--mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted) }
   .c.blank { display: none }
@@ -93,7 +93,7 @@ footer { color: var(--muted); font-size: 0.86rem; margin-top: 18px }
 </head>
 <body>
 <nav class="cb-tabs" aria-label="Casebook"><b>Casebook</b><span class="cb-note">__NOTE__</span><a class="cb-set" href="/settings/" data-en="Settings" data-zh="設定">Settings</a><span class="cb-lang" role="group" aria-label="Language"><button type="button" data-l="en">English</button><button type="button" data-l="zh">中文</button></span></nav>
-<div class="head"><div><h1 id="t"></h1><p id="s"></p></div></div>
+<div class="head"><div><h1 id="t"></h1></div></div>
 <div class="scope"><div class="seg" id="prods" role="tablist"></div><div class="seg" id="plats" role="tablist"></div></div>
 <div class="nav2"><div class="tabs" id="tabs" role="tablist"></div></div>
 <div class="bar"><label><span id="lver"></span><select id="fver"></select></label><label><span id="lsort"></span><select id="sort"></select></label><input id="q" type="search" autocomplete="off"></div>
@@ -117,7 +117,7 @@ const md = d => d ? d.slice(5) : '', num = x => x.toLocaleString('en-US'), dash 
 const verKey = v => v.split('.').map(n => n.padStart(6, '0')).join('.');
 // a table is in Regression (AT) once it is marked converted (lib/regression.ts); until then it is an agentic run
 const COLS = () => [['cases', tx('Cases', '案例')], ['run', tx('Last run', '最近執行')], ['pass', `<span class="p">${tx('Pass', '通過')}</span>`], ['fail', `<span class="x">${tx('Fail', '失敗')}</span>`], ['blocked', `<span class="k">${tx('Blocked', '受阻')}</span>`],
-  ['bugs', tx('eBugs<br>open\u00a0/\u00a0filed', 'eBug<br>未結\u00a0/\u00a0已開')], ['qs', tx('Questions', '待答問題')], ['mui', 'MUI'], ['design', tx('Design', '設計比對')], ['at', 'AT']];
+  ['bugs', tx('eBugs<br>open\u00a0/\u00a0filed', 'eBug<br>未結\u00a0/\u00a0已開')], ['mui', tx('MUI bugs<br>open\u00a0/\u00a0filed', 'MUI bug<br>未結\u00a0/\u00a0已開')], ['design', tx('Design bugs<br>open\u00a0/\u00a0filed', '設計 bug<br>未結\u00a0/\u00a0已開')], ['qs', tx('PM<br>questions', 'PM<br>待答問題')], ['at', 'AT']];
 const line = cells => `<div class="line">${COLS().map(([id, label], i) => `<div class="c c-${id}${cells[i] === dash || !cells[i] ? ' blank' : ''}" data-l="${cbEsc(label.replace(/<br>/g, ' ').replace(/<[^>]+>/g, ''))}">${cells[i] ?? ''}</div>`).join('')}</div>`;
 // eBugs of one kind: those still open (eCL's status at the last Refresh, else the status when filed) of those filed
 const bugPair = (b, href, what) => b?.filed ? `<a href="${href}" title="${cbEsc(tx(`${b.open} still open of ${b.filed} ${what} filed`, `${what}：已開 ${b.filed} 張，${b.open} 張未結`))}"><b class="${b.open ? 'x' : 'p'}">${b.open}</b> / ${b.filed}</a>` : '';
@@ -135,33 +135,31 @@ function tableLine(f, p, s) {
   const wait = (w.questions ?? 0) + (w.answers ?? 0) + (w.notes ?? 0);
   const qTip = tx(`${w.questions ?? 0} open questions (not answered, not filed, not determined by a run; ${w.filed ?? 0} more are filed as an eBug), ${w.answers ?? 0} answers to apply, ${w.notes ?? 0} new-case notes`, `${w.questions ?? 0} 個無人回答也未開單的問題、${w.filed ?? 0} 個已開單、${w.answers ?? 0} 個待套用答案、${w.notes ?? 0} 則新案例備註`);
   const qs = wait ? `<a class="w" href="${root}/cases/#questions" title="${cbEsc(qTip)}"><b>${wait}</b></a>` : dash;
-  const muiBugs = bugPair(B.mui, `${root}/results/?bugs=1${m?.run ? `&run=${encodeURIComponent(m.run)}` : ''}`, tx('MUI eBugs', 'MUI eBug'));
-  const mui = (m?.run ? `<a class="${m.fail ? 'x' : m.blocked ? 'k' : 'p'}" href="${root}/results/?run=${encodeURIComponent(m.run)}&res=${m.fail ? 'Fail' : 'all'}" title="${cbEsc(tx(`MUI run ${m.run}: ${m.pass} pass, ${m.fail} fail, ${m.blocked} blocked`, `MUI 執行 ${m.run}：${m.pass} 通過、${m.fail} 失敗、${m.blocked} 受阻`))}">${m.fail ? tx(`${m.fail} fail`, `${m.fail} 失敗`) : m.blocked ? tx(`${m.blocked} blocked`, `${m.blocked} 受阻`) : tx('All pass', '全部通過')}</a>` : m?.due ? `<span class="no">${tx('Not run', '未執行')}</span>` : '')
-    + (muiBugs ? `<small>eBugs ${muiBugs}</small>` : '') || dash;
-  const dTip = d?.screens ? tx(`${d.screens} screens measured: ${d.differs} differ, ${d.question} with a question, ${d.unreviewed} not reviewed`, `已量測 ${d.screens} 個畫面：${d.differs} 個有差異、${d.question} 個待確認、${d.unreviewed} 個未審`) : '';
-  const uiBugs = bugPair(B.ui, `${root}/results/?bugs=1`, tx('UI eBugs', 'UI eBug'));
-  const design = (d?.screens ? `<a class="${d.differs ? 'x' : d.question || d.unreviewed ? 'w' : 'p'}" href="${root}/design/" title="${cbEsc(dTip)}">${d.differs ? tx(`${d.differs} differ`, `${d.differs} 有差異`) : d.question || d.unreviewed ? tx(`${d.question + d.unreviewed} to review`, `${d.question + d.unreviewed} 待審`) : tx('Matches', '相符')}</a>`
-    : d?.due && p.version ? `<a class="no" href="${root}/design/">${tx('Not checked', '未比對')}</a>` : '') + (uiBugs ? `<small>${tx('UI eBugs', 'UI eBug')} ${uiBugs}</small>` : '') || dash;
+  // MUI and Design (user, 2026-11-26): the eBugs of that kind, open of filed, like the eBugs column; nothing else
+  const mui = bugPair(B.mui, `${root}/results/?bugs=1${m?.run ? `&run=${encodeURIComponent(m.run)}` : ''}`, tx('MUI eBugs', 'MUI eBug')) || dash;
+  const design = bugPair(B.ui, `${root}/results/?bugs=1`, tx('Design ([UI]) eBugs', '設計（[UI]）eBug')) || dash;
   const btn = on => D.local ? `<button type="button" class="atb" data-f="${cbEsc(f.id)}" data-p="${p.platform}" data-on="${on ? '1' : ''}" data-t="${cbEsc(`${f.title} · ${platName(p.platform)}`)}">${on ? tx('Mark as AT', '標為已轉 AT') : tx('undo', '復原')}</button>` : '';
   const at = !p.version ? dash : p.at ? `<span class="at-in" title="${cbEsc([tx(`In regression (AT) since ${p.at.since}`, `${p.at.since} 起納入回歸（AT）`), p.at.note].filter(Boolean).join('\n'))}">✓ ${md(p.at.since)}</span>${D.local ? ` · ${btn(false)}` : ''}`
     : btn(true) || `<span class="no">${tx('Waiting', '待轉')}</span>`;
-  return line([cases, run, res(r?.pass, 'Pass', 'p'), res(r?.fail, 'Fail', 'x'), res(r?.blocked, 'Blocked', 'k'), bugs, qs, mui, design, at]);
+  return line([cases, run, res(r?.pass, 'Pass', 'p'), res(r?.fail, 'Fail', 'x'), res(r?.blocked, 'Blocked', 'k'), bugs, mui, design, qs, at]);
 }
 // a group's last line: its tables added up, under the same columns
 function totalLine(list) {
   const t = list.map(x => x.p), sum = k => t.reduce((a, p) => a + (k(p) ?? 0), 0);
   const pass = sum(p => p.last?.pass), fail = sum(p => p.last?.fail), blocked = sum(p => p.last?.blocked), ran = pass + fail + blocked;
-  const filed = sum(p => p.bugs?.fn.filed), open = sum(p => p.bugs?.fn.open), qs = sum(p => (p.waiting?.questions ?? 0) + (p.waiting?.answers ?? 0) + (p.waiting?.notes ?? 0));
+  const pair = k => { const filed = sum(p => k(p)?.filed), open = sum(p => k(p)?.open); return filed ? `<span class="${open ? 'x' : 'p'}">${num(open)}</span> / ${num(filed)}` : ''; };
+  const qs = sum(p => (p.waiting?.questions ?? 0) + (p.waiting?.answers ?? 0) + (p.waiting?.notes ?? 0));
   return line([num(sum(p => p.version ? p.cases : 0)), '', ran ? `<span class="p">${num(pass)}</span>` : '', ran ? `<span class="x">${num(fail)}</span>` : '', ran ? `<span class="k">${num(blocked)}</span>` : '',
-    filed ? `<span class="${open ? 'x' : 'p'}">${num(open)}</span> / ${num(filed)}` : '', qs ? `<span class="w">${num(qs)}</span>` : '', '', '', '']);
+    pair(p => p.bugs?.fn), pair(p => p.bugs?.mui), pair(p => p.bugs?.ui), qs ? `<span class="w">${num(qs)}</span>` : '', '']);
 }
-// when the group's eBug statuses were last read from eCL, and (this computer) the button that reads them again
+// when the group's eBug statuses were last read from eCL, and the button that reads them again
 function refreshHtml(list) {
   const withBugs = list.filter(x => { const b = x.p.bugs; return b && b.fn.filed + b.ui.filed + b.mui.filed; });
   if (!withBugs.length) return '';
   const at = Math.min(...withBugs.map(x => x.p.bugs.checked));
   const when = at ? tx(`eBug status read ${cbWhen(new Date(at).toISOString())}`, `eBug 狀態讀取於 ${cbWhen(new Date(at).toISOString())}`) : tx('eBug status as filed, not read from eCL yet', 'eBug 狀態為開單當時，尚未從 eCL 讀取');
-  return `<span class="ref"><span>${when}</span>${D.local ? `<button type="button" data-refresh="${cbEsc(JSON.stringify(withBugs.map(x => [x.f.id, x.p.platform])))}">${tx('Refresh eBugs', '更新 eBug')}</button>` : ''}</span>`;
+  const key = JSON.stringify(withBugs.map(x => [x.f.id, x.p.platform]).sort()), going = (D.refreshing ?? []).includes(key);
+  return `<span class="ref"><span>${when}</span><button type="button" data-refresh="${cbEsc(key)}"${going ? ' disabled' : ''}>${going ? tx('Reading eCL…', '讀取 eCL 中…') : tx('Refresh eBugs', '更新 eBug')}</button></span>`;
 }
 // a group: the tables of one platform under one product and version, one line each
 const groupHtml = (title, list, s) => `<div class="grp"><h3>${cbEsc(title)}</h3><span>${tx(`${list.length} feature${list.length === 1 ? '' : 's'}`, `${list.length} 個功能`)}</span>${refreshHtml(list)}</div>
@@ -192,14 +190,13 @@ function render() {
   const tables = features.flatMap(f => f.platforms.map(p => ({ f, p }))), isAt = x => !!(x.p.version && x.p.at);
   const inTab = x => isAt(x) === (VIEW.tab === 'at');
   $('t').textContent = tx('Dashboard', '總覽');
-  $('s').textContent = tx(`${features.length} features · ${tables.length} tables`, `${features.length} 個功能 · ${tables.length} 份表格`);
   // the product first, then the platform (user, 2026-11-26): the catalog's products in its order, whether or not they
   // have a table yet; a product the library holds beyond the catalog follows them
   const PRODS = [...CATALOG, ...D.products.filter(p => !CATALOG.some(c => c[0] === p.id)).map(p => [p.id, p.name])];
   const nProd = id => tables.filter(x => x.f.product === id).length;
   if (!PRODS.some(p => p[0] === VIEW.prod)) VIEW.prod = [...PRODS].sort((a, b) => nProd(b[0]) - nProd(a[0]))[0][0];
   const prodName = PRODS.find(p => p[0] === VIEW.prod)[1], mine = tables.filter(x => x.f.product === VIEW.prod);
-  const seg = (key, id, label, n, on, off) => `<button type="button" role="tab" data-${key}="${id}" aria-selected="${on}"${n ? '' : ' class="zero"'}${off ? ' disabled' : ''}>${cbEsc(label)}${n ? `<span>${n}</span>` : ''}</button>`;
+  const seg = (key, id, label, n, on, off) => `<button type="button" role="tab" data-${key}="${id}" aria-selected="${on}"${n ? '' : ' class="zero"'}${off ? ' disabled' : ''}>${cbEsc(label)}</button>`;
   $('prods').setAttribute('aria-label', tx('Product', '產品')); $('plats').setAttribute('aria-label', tx('Platform', '平台'));
   $('prods').innerHTML = PRODS.map(([id, name]) => seg('prod', id, name, nProd(id), VIEW.prod === id)).join('');
   // the platform: the one chosen while this product has tables on it, else the one with the most; one without a table
@@ -209,7 +206,7 @@ function render() {
   $('plats').innerHTML = PLATS.map(pl => seg('plat', pl, platName(pl), nPlat(pl), VIEW.plat === pl, !nPlat(pl))).join('');
   const platted = mine.filter(x => x.p.platform === VIEW.plat), nAt = platted.filter(isAt).length;
   $('tabs').innerHTML = [['runs', tx('Agentic runs', 'Agent 執行'), platted.length - nAt, tx('Tables tested by the agent, waiting for their conversion to AT', '由 Agent 測試、待轉成 AT 的表格')], ['at', tx('Regression (AT)', '回歸測試（AT）'), nAt, tx('Tables converted to automated tests', '已轉成自動化測試的表格')]]
-    .map(([id, label, n, tip]) => `<button type="button" role="tab" data-tab="${id}" aria-selected="${VIEW.tab === id}" title="${cbEsc(tip)}">${label}<span>${n}</span></button>`).join('');
+    .map(([id, label, n, tip]) => `<button type="button" role="tab" data-tab="${id}" aria-selected="${VIEW.tab === id}" title="${cbEsc(tip)}">${label}</button>`).join('');
   // the version menu offers what this product, platform and tab hold; a choice that no longer exists falls back to All
   const tabbed = platted.filter(inTab), vOf = x => x.p.app || 'none';
   const vers = [...new Set(tabbed.map(vOf))].sort((a, b) => (a === 'none') - (b === 'none') || verKey(b).localeCompare(verKey(a)));
@@ -251,10 +248,10 @@ $('list').addEventListener('click', async e => {
     D = j; render();
   } catch (err) { b.disabled = false; alert(tx(`Not saved: ${err.message}`, `未儲存：${err.message}`)); }
 });
-// Refresh eBugs (this computer only): read the group's eBug statuses from eCL, then redraw from the answer
+// Refresh eBugs (any computer; one read at a time per group, the server joins a second click to the first): read the group's eBug statuses from eCL, then redraw from the answer
 $('list').addEventListener('click', async e => {
   const b = e.target.closest('[data-refresh]'); if (!b) return;
-  b.disabled = true; b.textContent = tx('Reading eCL (about a second per eBug)…', '讀取 eCL 中（每張約 1 秒）…');
+  b.disabled = true; b.textContent = tx('Reading eCL…', '讀取 eCL 中…');
   try {
     const r = await fetch('/ebugs/refresh', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ tables: JSON.parse(b.dataset.refresh) }) }), j = await r.json();
     if (!r.ok) throw new Error(j.error ?? r.status);

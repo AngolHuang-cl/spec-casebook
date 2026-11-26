@@ -541,7 +541,8 @@ figure: cases, the last run's date, pass, fail and blocked of the latest run, eB
 questions, the MUI phase, the design check and AT; every figure opens the exact place behind it (Questions opens the
 question panel of Cases), and a total line closes each group. MUI rows, MUI runs and MUI eBugs are left out of cases,
 results and eBugs: they show in the MUI column only, and [UI] eBugs under Design. 「Refresh eBugs」 on a version group
-reads the eBugs' current status from eCL (this computer only; about a second per eBug). A question a filed eBug already
+reads the eBugs' current status from eCL (from any computer on the page; a few seconds per group, one read at a time). A table not
+tested yet is listed under the version the Kanban roadmap plans it for (`release.json` in the feature folder). A question a filed eBug already
 carries shows as filed, not open. On this computer 「Mark as AT」 on a line moves the table into Regression (or `node scripts/regression.ts <feature>
 <ios|android|both>`; the mark is `regression.json` in the feature folder). A feature's name opens on the tab you left it on. Design cards use small copies; comparisons, crops and Coverage boards are always the full image,
 loaded in the background behind a small copy, with the neighbours fetched ahead. A pair of crops on the Design tab opens

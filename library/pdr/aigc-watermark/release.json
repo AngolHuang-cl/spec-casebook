@@ -1,0 +1,9 @@
+{
+  "_note": "The app version this feature is planned for, per platform, from the Kanban roadmap (user, 2026-11-26). The Dashboard lists a table not tested yet under it; a tested table goes by the version it was tested on.",
+  "source": "Kanban App Compiled Roadmap (Google Sheets 17ohWkcbvz9qhg-ZoYImtGWFcAxti4myKib4ePd1b74Q)",
+  "tab": "PDRM Roadmap",
+  "item": "Result video, image with AIGC Watermark (visible) + 掛上 meta data",
+  "read": "2026-11-26",
+  "android": "16.9.0",
+  "ios": "17.0.0"
+}
