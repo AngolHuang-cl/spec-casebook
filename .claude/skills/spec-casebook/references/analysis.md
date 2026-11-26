@@ -131,6 +131,11 @@ Enhance's Q-14 said 「No row asserts it」 and stayed open through three runs f
    does not cover them (TC-218 stood for three tiers). Fill `### Variants`: one line per requirement × variant with
    its rows. `check.ts` fails a requirement naming two or more tiers, or "each tier / model / language", that lacks a
    line per variant.
+   **Languages reach every text screen (2026-11-26, christmas-new-year-sale REQ-009).** When the feature ships in
+   several languages, every screen or dialog with user-facing text the feature adds or restyles gets a row per
+   language, whether or not a translation sheet names it; with no sheet, the row checks the text is in that language,
+   complete and fits, and an Open question records that the wording is unspecified. (v2 gave the 27 languages only to
+   the interstitial the 多國文案 sheet covers; the Not Enough Credit dialog had English rows only.)
    **A setting's values are variants too (2026-11-04, Video Enhance).** Every value the user can choose for a
    setting that changes what the feature makes (Mode, style, fps, resolution, quality, length, voice) gets a row that
    *uses* it: chosen, carried through the action it changes (generate, export, save) and checked in the result (the
