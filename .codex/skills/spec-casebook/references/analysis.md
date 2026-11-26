@@ -197,6 +197,44 @@ Enhance's Q-14 said 「No row asserts it」 and stayed open through three runs f
      「00:00」 bubble) was traced as the trim handle, so no row scrubbed the playhead.
    - Check every `how: label` or `how: arrow` auto trace against the same rule: an auto trace that names a row
      pressing the control's twin or look-alike is replaced by a row that presses this one.
+12. **Every entry point, every control once (user, 2026-11-26).** A feature reached from more than one place gets
+   its full flow from the primary entry, and from every other entry a UI pass that presses each control once. Never
+   assume two entries lead to the same screen or behave the same way.
+   - **Find every entry.** For editor-toolbar places, run `node scripts/entry-points.ts <product> fetch`, then
+     `node scripts/entry-points.ts <product> "<tool name>"`. The fetch reads the newest dated tab of the product team's
+     toolbar sheet (`product.json` › `entry_points`, KP-107). Also list every other entry the spec, Figma, the knowledge
+     (`knowledge.ts … --grep entry`) or a build shows: Launcher big and small shortcuts, the AI Magic tab, Mine ›
+     demos, banners, notifications and push, deep links, another tool's 「You might also like」, the tool's own task
+     list or history. The sheet's brackets limit an entry to a platform or release (「Android沒有」, 「4/E IOS」).
+     The same tool under two selection toolbars counts as two entries: Video and PIP Video act on the main track and an
+     overlay, and Photo and PIP Photo do the same.
+   - **`### Entry points` in `requirements.md`.** Write one line per entry: its path
+     (`Editor › select a main-track video › Enhance › Video Enhance`), where it comes from (sheet tab, board, KP),
+     its platforms, and the Section that holds its rows. Mark the entry the spec draws as `primary`.
+   - **Primary entry: the full table.** The rows the other passes write run from the primary entry, as before.
+   - **Every other entry: a UI pass (user, 2026-11-26; replaces 「full flow per entry」 of the same day).** Each
+     entry gets its own Section (`Entry › <path>`) with a few rows, each step on its own line, that together:
+     - reach the feature through that entry and check the landing screen and what it brings in (the selected clip,
+       the photo under the playhead, nothing, an Add Media pick)
+     - check every value the screen reads from that input against the input's own (fps, resolution, length, aspect,
+       the selection): an imported timeline clip is where these go wrong (Video Enhance read the wrong fps from a
+       timeline clip)
+     - press every control and choose every option once (each chip value, toggle, slider, tab, sheet, ⓘ, link),
+       with no combinations and no scenario variants, and check that each one responds as the spec says, with no
+       error, crash, freeze, empty state or wrong value
+     - press the main action once (Generate, Enhance, Apply, Export) and check where its result lands from this
+       entry (it replaces the clip on its own track, opens a new project, or is saved to the album)
+     - press each exit and, on Android, system Back once, and check where each one leads
+     Use the control inventory (pass 11, `control-trace.json`) or the primary rows' controls as the checklist and name
+     it in the row's Notes. Combinations, limits, failures, tiers, MUI and one-way states stay with the primary entry.
+   - **When the spec is silent (user, 2026-11-26).** Where the spec draws one entry and says nothing of another, the
+     other entry's rows assert the primary entry's behaviour, with no Open question. A difference a run finds is filed
+     or raised at the phase wrap-up (`ebugs.md` step 1). Open a question in the draft only for a real unknown that the
+     primary behaviour cannot answer: what an entry brings in that the primary does not (a selected or trimmed clip,
+     an overlay), where its result lands, an entry only one source places (the sheet but no board), or a behaviour
+     the user reported. One question per such unknown, never one per entry asking 「the same as the primary?」 (the
+     first drafts of 2026-11-26 had 42 of them). An entry the build does not show gets a row that records its absence;
+     the absence becomes a PM question at the wrap-up and the entry is never dropped.
 
 ## Standing inputs (user, 2026-10-21)
 

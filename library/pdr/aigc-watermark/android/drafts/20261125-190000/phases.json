@@ -1,7 +1,7 @@
 {
   "draft": "20261125-190000",
   "current": [
-    "R3"
+    "Q1"
   ],
   "needs": {
     "TC-009": [
@@ -1211,6 +1211,27 @@
           "name": "Ukrainian (uk-UA)",
           "cases": [
             "TC-156"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q1",
+      "name": "Question round: rows that observe Open questions (REQ-111 / REQ-045 / REQ-014 / REQ-009)",
+      "round": true,
+      "origin": {
+        "TC-157": "Q1",
+        "TC-158": "Q1"
+      },
+      "note": "Every row here is recorded Fail (question) for PM with what it saw, never Pass, unless its Expected Result passes outright. Credits: use what a row needs (AGENTS.md, 2026-11-26).",
+      "segments": [
+        {
+          "id": "Q1-a",
+          "name": "Content Credentials of editor exports (Q-13) and the 「Full Editor」 export with the switch On (Q-19)",
+          "note": "TC-157 reads the R3 files in runs/2026-11-23-r3-full/files/ with c2patool, no phone. TC-158 makes a new Image to Video result (credits allowed), switch On, Full Editor, export, ffmpeg frames. Restore the switch to its value at the start.",
+          "cases": [
+            "TC-157",
+            "TC-158"
           ]
         }
       ]

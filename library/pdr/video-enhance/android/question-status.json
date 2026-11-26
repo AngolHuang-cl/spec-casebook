@@ -51,18 +51,32 @@
     "state": "not-reached",
     "by": "R3 (2026-11-24-r3-full, 16.9.0)",
     "at": "2026-11-25",
-    "note": "System Back closes a bubble, asks on the processing dialog and keeps uploading on the leave dialog (TC-203, TC-204, TC-205 Pass). The notification prompt was not reached: the 「Turn on notifications」 dialog never appeared (TC-211 Blocked, TC-118 Fail)."
+    "note": "System Back closes a bubble, asks on the processing dialog and keeps uploading on the leave dialog (TC-203, TC-204, TC-205 Pass). The notification prompt was not reached: the 「Turn on notifications」 dialog never appeared (TC-211 Blocked, TC-118 Fail). Q1 (2026-11-26) had no row on it: still not reached."
   },
   "Q-14": {
-    "state": "to-file",
-    "by": "R3 (2026-11-24-r3-full, 16.9.0)",
-    "at": "2026-11-25",
-    "note": "No row asserts the GenAI consent dialog and no run recorded one before the first upload, so the run cannot say whether the disclosure is shown. It needs a first-upload check on a fresh install, then a PM eBug (Legal question)."
+    "state": "filed",
+    "by": "Q1 (2026-11-26-q1-questions, 16.9.0.2611231)",
+    "at": "2026-11-26",
+    "drafted": "ISS-VEA-59 (ebugs/2026-11-26-q1, [AIAgent][UX], BugBelong PM; filed DRA262611P0326 on TR261123-0070, 2026-11-26)",
+    "codes": [
+      "DRA262611P0326"
+    ],
+    "note": "After `pm clear` the first 「Enhance」 (TC-351, Pro, Stage) went straight to 「Video uploading...」: no consent or disclosure screen between the tap and the processing dialog (12 rapid screencaps), and none of the screens since the reset (Welcome with Terms of Service / Privacy Policy, notification prompt, Pro credits dialog, Account Sign In notice, Demo page, file-access and media permissions) mentions AI processing in a third party's cloud. The account had run Enhance before, so a consent kept with the account is not ruled out. PM / Legal decide whether the GenAI consent dialog must show and its text. Rows to change at the next draft: TC-351's Expected Result (record → the ruling) and its precondition price (ve-000100-720p30 is 「Enhance ◆ 2」, KF-001)."
   },
   "Q-21": {
     "state": "determined",
     "by": "ruling 2026-11-25 (user, REQ-044)",
     "at": "2026-11-25",
     "note": "Ruling: the playhead can be dragged only between the two white trim handles (‹ ›), and play starts from where the playhead is. R3 recorded the drag inside the selection (TC-215); dragging against a handle and play from the playhead are not yet run and become rows in the next draft. The drafted PM eBug ISS-VEA-57 is withdrawn."
+  },
+  "Q-28": {
+    "state": "filed",
+    "by": "Q1 (2026-11-26-q1-questions, 16.9.0.2611231)",
+    "at": "2026-11-26",
+    "drafted": "ISS-VEA-58 (ebugs/2026-11-26-q1, [AIAgent][UX], BugBelong PM; filed DRA262611P0325 on TR261123-0070, 2026-11-26)",
+    "codes": [
+      "DRA262611P0325"
+    ],
+    "note": "On 2611231 play from 01:50 in a 00:30–02:00 selection runs to the right trim handle and stops there by itself (「02:01/12:30」, ▶ back), no jump back, no loop, never past the handle; it stays there; the next play starts from the selection start 00:30 (TC-350 Fail question; TC-037 / R3 O-2 saw the same jump from the end). Handles and 「Selected Length」 unchanged. PM decides the end-of-selection behaviour. Row to change at the next draft: TC-350's Expected Result (record → the ruling). DRA262611P0230 (fixed in 2611251) may change the restart on a later build."
   }
 }

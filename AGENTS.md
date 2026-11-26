@@ -104,6 +104,13 @@ lines; put the full rule in the skill or reference file that applies it and poin
   Design, PM and MX Figma files draw is inventoried, traced to a row and pressed in runs; the coverage page proves it
   and marks everything on every board, superseded versions as Excluded (`reading-the-spec.md` step 10, `analysis.md`
   pass 11, `run.md`).
+- **Every entry point, every control once (user, 2026-11-26).** A feature reached from several places (toolbar
+  entries, Launcher, AI Magic, banners…) keeps its full table on the primary entry. Every other entry gets a UI pass
+  in its own Section: the landing and the values read from its input (fps, resolution, length), every control and
+  option pressed once with no error, the main action once, and every exit. Nothing is assumed to behave the same from
+  each entry. Editor-toolbar entries come from the newest dated tab of the toolbar sheet
+  (`node scripts/entry-points.ts pdr fetch`, KP-107). Other entries come from the spec, Figma and knowledge
+  (`analysis.md` pass 12).
 - **Figma access (user, 2026-10-28/29).** Design only through the `figma-design` MCP server (qa-dm@cyberlink.com), PM
   and MX only through `figma-pm` (qa1@cyberlink.com); never swap accounts by hand or use a claude.ai Figma connector (`.claude/settings.json` blocks it for terminal and IDE
   sessions; desktop app users disconnect it at claude.ai › Settings › Connectors);

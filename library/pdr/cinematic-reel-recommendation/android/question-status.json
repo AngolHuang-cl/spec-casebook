@@ -1,15 +1,38 @@
 {
-  "Q-3": {
-    "state": "not-reached",
+  "Q-1": {
+    "state": "filed",
     "by": "R1 (2026-11-24-r1-full, 16.9.0.2611201)",
-    "at": "2026-11-25",
-    "note": "「Got it」 closes the sheet (TC-007 Pass) and system Back closes it like 「Got it」, staying in Cinematic Reel Creator (TC-020 Pass). Tapping the dimmed area and swiping the sheet down were not tried in R1 and no row covers them; system Back on a sheet opened from Add Media is Blocked behind Q-1 (TC-021, DRA262611P0289)."
+    "at": "2026-11-24",
+    "codes": [
+      "DRA262611P0289"
+    ],
+    "note": "Filed as ISS-CRA-01 (Add Media has no 「?」); RDResolved on 2026-11-26's pool read. TC-016, TC-021 wait for it."
+  },
+  "Q-2": {
+    "state": "filed",
+    "by": "R1 (2026-11-24-r1-full, 16.9.0.2611201)",
+    "at": "2026-11-24",
+    "codes": [
+      "DRA262611P0290"
+    ],
+    "note": "Filed as ISS-CRA-02 (chip and sentence stay English in 繁中 and 日本語)."
+  },
+  "Q-3": {
+    "state": "determined",
+    "by": "user ruling 2026-11-26 (REQ-011)",
+    "at": "2026-11-26",
+    "codes": [],
+    "note": "User on the eBug review of ISS-CRA-03 (held, not filed): 「That is intended behavior」. A tap on the dimmed template page and a swipe down both close the photo tips sheet, as seen on 2611231 (TC-077). TC-077 expects this at the next draft."
   },
   "Q-4": {
-    "state": "to-file",
-    "by": "R1 (2026-11-24-r1-full, 16.9.0.2611201)",
-    "at": "2026-11-25",
-    "note": "Not determined and no ticket carries it. Known: all six templates showed their CMS items (TC-001 – TC-006 Pass) and the app logs no CMS template data (TC-019 Blocked, observability); the table has no row for missing data. Still missing: what the template page and chip show with the phone offline (never tried), and PM's word on a template with no recommend_samples, which QA cannot set up."
+    "state": "filed",
+    "by": "Q1 (2026-11-26-q1-questions, 16.9.0.2611231)",
+    "at": "2026-11-26",
+    "drafted": "ISS-CRA-04 (ebugs/2026-11-26-q1, [AIAgent][UX], BugBelong PM; filed DRA262611P0321 on TR261123-0070, 2026-11-26)",
+    "codes": [
+      "DRA262611P0321"
+    ],
+    "note": "Offline half observed on 2611231: the template page, all six cards and their chips come up complete from data kept on the phone (credit pill 「--」, still pictures instead of videos); a sheet loaded before reopens complete; a sheet not loaded before shows its sentence and captions but empty picture boxes with no message or retry (Time Lapse, TC-079; Horror Movie after an offline launch, TC-078); back online every picture loads. The no-recommend_samples half cannot be set up by QA and is asked in the same entry."
   },
   "Q-5": {
     "state": "determined",

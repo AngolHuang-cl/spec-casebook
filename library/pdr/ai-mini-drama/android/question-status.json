@@ -24,10 +24,14 @@
     "note": "The build ships the ⓘ dialog for a 4xx failure: a scene image failed with error_code 4000 shows 「Couldn't create image ⓘ」 / 「Your credits have been refunded. The service is busy — try again later.」 with Edit, and ⓘ opens 「Couldn't generate this image」 with the terms-of-service text and 「Got it」 (TC-067 Pass, TC-489 Pass), so the 10/6 plan of one copy with no dialog is not what v1 does. The 5xx card with no ⓘ was not seen (TC-068 Blocked, no fault switch on Android 16.8)."
   },
   "Q-5": {
-    "state": "to-file",
-    "by": "A7 (2026-10-29-a7-full, 16.8.0)",
-    "at": "2026-11-25",
-    "note": "No row reads either string and no recorded result of any run shows 「Every frame is done. Ready to create your video?」: after a storyboard the chat goes to 「Here's your storyboard」 and the 「Choose your video settings」 card (TC-494, TC-501). Still missing: whether the two string keys are still used in the current PM flow (the text is only on the pm-top-mockups board of the 10/16–10/21 sets) and, if so, PM's word on whether one English text for both is intended."
+    "state": "filed",
+    "by": "Q1 (2026-11-26-q1-questions, 16.9.0.2611231)",
+    "at": "2026-11-26",
+    "drafted": "ISS-AMDA-72 (ebugs/2026-11-26-q1, [AIAgent][UI], BugBelong PM; filed DRA262611P0324 on TR261123-0070, 2026-11-26)",
+    "codes": [
+      "DRA262611P0324"
+    ],
+    "note": "「Every frame is done. Ready to create your video?」 shows nowhere on 2611231 (Stage): after a new storyboard nothing stands between the Storyboard Result and 「Choose your video settings」, before or after the Storyboard Preview plays (TC-581 Fail question); after the Preview video the chat asks 「Looking good! Ready for the full video?」 above 「Create the rest of the video (60 sec)」 (TC-582 Fail question), and after the rest of the video 「Ready for the next episode?」. The exported session has the string nowhere; the APK holds only the key beat.all_videos_done.text (text comes from the server). PM decides whether storyboard.all_videos.q and ladder.beat_video.q are still used and where. Rows to change at the next draft: TC-581 / TC-582 Expected Result (record → the ruling); TC-086 / R-075 card title now reads 「Create the rest of the video (60 sec)」 (60 s = DRA262610P0159, PM, Close)."
   },
   "Q-6": {
     "state": "determined",
@@ -102,15 +106,19 @@
     "note": "Decided 2026-10-22 (user): the PM 10/20 §13.2 ③ rule applies. On the device the earlier storyboard card is left as it was, but no new storyboard card is added after a scene image update: the chat goes straight to 「Choose your video settings」 (TC-073 Fail defect, existing ticket DRA262610P0134)."
   },
   "Q-18": {
-    "state": "to-file",
-    "by": "A7 (2026-10-29-a7-full, 16.8.0)",
-    "at": "2026-11-25",
-    "note": "No row checks the store region. Known: on the Stage server the test phone, whose Play store is Taiwan (IAP prices in NT$, TC-542), shows all 20 templates in 5 categories (TC-010, A7-i1), so this build does not limit them to US and JP. Still missing: PM's word on what 「day 1 只有 US & JP」 limits on Production (templates, presets or the feature) and a check on a non-US/JP store there."
+    "state": "filed",
+    "by": "Q1 (2026-11-26-q1-questions, 16.9.0.2611231)",
+    "at": "2026-11-26",
+    "drafted": "ISS-AMDA-71 (ebugs/2026-11-26-q1, [AIAgent][UX], BugBelong PM; filed DRA262611P0323 on TR261123-0070, 2026-11-26)",
+    "codes": [
+      "DRA262611P0323"
+    ],
+    "note": "On the SM-A5360 (Stage, account cltqauiap2@gmail.com, Free) Google Play's Country and profiles names no current country and offers only 「Switch to the Taiwan Play Store」, while every price is NT$ (packs NT$330 – NT$6990): a non-US/JP billing region. The landing shows 6 templates and More all 20 in 5 categories (5 / 5 / 4 / 4 / 2) (TC-580 Fail question). So Stage applies no US / JP limit; Production and a confirmed US or JP store were not checked (the run does not change the Play account). PM decides what 「day 1 只有 US & JP」 limits. Row to change at the next draft: TC-580's Expected Result (record → the ruling)."
   },
   "Q-19": {
     "state": "not-reached",
-    "by": "A7 (2026-10-29-a7-full, 16.8.0)",
-    "at": "2026-11-25",
-    "note": "The build shows no 「More ideas +」 chip once the chat has content, with the keyboard open or closed, so there was nothing to tap (TC-019 Fail defect; the missing chip is DRA262610P0380, filed from A4). What a tap shows can only be recorded once the chip exists."
+    "by": "Q1 (2026-11-26-q1-questions, 16.9.0.2611231)",
+    "at": "2026-11-26",
+    "note": "Still no 「More ideas +」 chip on 16.9.0.2611231: the Q1 template chat (After Closing) showed only the input box and mic above the keyboard area at every stage read (TC-581, TC-582 page sources), so there is nothing to tap (TC-019 Fail defect on 16.8.0; the missing chip is DRA262610P0380, filed from A4). TC-019 was not in phase Q1. What a tap shows can only be recorded once the chip exists."
   }
 }

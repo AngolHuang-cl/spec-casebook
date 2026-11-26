@@ -1,3 +1,4 @@
 {"at":"2026-11-24T03:03:52.281Z","fiveHourPct":18,"fiveHourResetsAt":"2026-11-24T05:40:00.000Z","weeklyPct":14,"weeklyResetsAt":"2026-11-28T15:00:00.000Z","proMultiplier":6.25,"note":"R1 start"}
 {"at":"2026-11-24T03:29:26.561Z","fiveHourPct":21,"fiveHourResetsAt":"2026-11-24T05:40:00.000Z","weeklyPct":14,"weeklyResetsAt":"2026-11-28T15:00:00.000Z","proMultiplier":6.25,"note":"R1-a end"}
 {"at":"2026-11-24T06:32:11.248Z","fiveHourPct":7,"fiveHourResetsAt":"2026-11-24T10:40:00.000Z","weeklyPct":18,"weeklyResetsAt":"2026-11-28T15:00:00.000Z","proMultiplier":6.25,"note":"R1 end (5-hour window reset during run)"}
+{"at":"2026-11-26T02:39:39.451Z","fiveHourPct":12,"fiveHourResetsAt":"2026-11-26T05:39:59.000Z","weeklyPct":53,"weeklyResetsAt":"2026-11-28T14:59:59.000Z","proMultiplier":6.25,"note":"Q1 start"}

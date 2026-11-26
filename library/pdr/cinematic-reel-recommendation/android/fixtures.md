@@ -8,10 +8,18 @@ None of this can be committed. Check it before the first segment; a new row that
   from the Google Play internal test track (REQ-003, 2026-11-24); reinstall from Play if it serves an older version.
   Check `device-android.ts <run dir> build` reads 2611201 at the run start.
 - Account: the phone's Google account (acda.test7), signed in with the app's account button, never a password.
-- Credits: none. No row generates a video; stop at Add Media and never pick a photo or press Generate.
+- Credits: the photo tips rows spend none (stop at Add Media, never pick a photo or press Generate). Draft 20261126-111221
+  (REQ-010, user ruling 2026-11-26) generates Micro Cinema reels: two from the Launcher (TC-081, TC-082) and one per other
+  entry (TC-087, TC-091, TC-095, TC-099; a second only if leaving cancelled the first): six, up to ten. The account needs
+  that many times the price on 「Generate」; spend them (AGENTS.md › Credits).
 
 ## Media
 - At least one photo in the gallery so Add Media shows its grid (no photo is picked by any row).
+- Entry Sections (draft 20261126-111221, REQ-010): a saved editor project with one photo on the main track and one photo
+  on an overlay track, reached from the Launcher's Project tab; the editor-entry rows open Cinematic Reel Creator from it
+  and leave it unchanged.
+- Generation photo (REQ-010): one gallery photo that is not in that project, so a generation row can tell which photo
+  Cinematic Reel Creator took.
 
 ## Settings the run changes (and restores)
 - App language: TC-017 繁體中文, TC-018 日本語 (`launch --lang zh-Hant|ja`, then `locale reset`).

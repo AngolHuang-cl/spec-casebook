@@ -1,0 +1,33 @@
+{
+  "draft": "20261125-190000",
+  "current": [
+    "Q1"
+  ],
+  "needs": {},
+  "unavailable": {},
+  "phases": [
+    {
+      "id": "Q1",
+      "name": "Question round: rows that observe Open questions (REQ-111 / REQ-045 / REQ-014 / REQ-009)",
+      "round": true,
+      "origin": {
+        "TC-580": "Q1",
+        "TC-581": "Q1",
+        "TC-582": "Q1"
+      },
+      "note": "Every row here is recorded Fail (question) for PM with what it saw, never Pass, unless its Expected Result passes outright. Credits: use what a row needs (AGENTS.md, 2026-11-26).",
+      "segments": [
+        {
+          "id": "Q1-a",
+          "name": "Template availability by store (Q-18) and 「Every frame is done」 (Q-5)",
+          "note": "TC-580 reads the Play store country and the template counts. TC-581 follows a new storyboard (credits allowed). TC-582 reads a drama with a finished Preview video; if none exists in History, generate one (credits allowed, user 2026-11-26).",
+          "cases": [
+            "TC-580",
+            "TC-581",
+            "TC-582"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "draft": "20261126-111221",
+  "current": [
+    "Q1"
+  ],
+  "needs": {},
+  "unavailable": {},
+  "phases": [
+    {
+      "id": "MUI",
+      "name": "MUI: app strings in every language from the APK",
+      "note": "REQ-002 (user, 2026-11-24). Run on request, never in a full run. Truncation per language is checked by the Language rows of the full run. Doubtful translations go to mui-doubts.md (references/mui.md §3).",
+      "segments": [
+        {
+          "id": "MUI-apk",
+          "name": "Translations from the APK (no phone)",
+          "cases": [
+            "TC-076"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q1",
+      "name": "Question round: rows that observe Open questions (REQ-111 / REQ-045 / REQ-014 / REQ-009)",
+      "round": true,
+      "origin": {
+        "TC-077": "Q1",
+        "TC-079": "Q1",
+        "TC-078": "Q1"
+      },
+      "note": "Every row here is recorded Fail (question) for PM with what it saw, never Pass, unless its Expected Result passes outright. Credits: use what a row needs (AGENTS.md, 2026-11-26).",
+      "segments": [
+        {
+          "id": "Q1-a",
+          "name": "Photo tips sheet gestures (Q-3) and offline data source (Q-4)",
+          "note": "Q-3: dimmed-area tap and swipe-down on the sheet. Q-4: offline after a sheet loaded (TC-079), then a cold start offline (TC-078). Wi-Fi back on after each row.",
+          "cases": [
+            "TC-077",
+            "TC-079",
+            "TC-078"
+          ]
+        }
+      ]
+    }
+  ]
+}
