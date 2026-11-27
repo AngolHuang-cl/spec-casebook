@@ -231,6 +231,26 @@ lines; put the full rule in the skill or reference file that applies it and poin
   when that is the newest version tested; each version's header says how many of its cases have been run on a device, of the
   cases created, written short (「Cases run 374/997」; a case with a result from any run, MUI left out; cases, never
   roadmap items), beside the version's GM date from the roadmap (`library/<product>/releases.json`).
+- **Dashboard style: Vercel / Geist (user, 2026-11-27).** The Dashboard follows the Vercel (Geist) layout rules listed
+  at the top of `scripts/boards-page.tpl`: a top bar `Casebook / product / platform` (two menus), underline tabs, one
+  section and card per version with a cases-run gauge, cases and last run on each feature's second line, monospace
+  figures, colour only for failures and open bugs. All of it is the repo's own CSS: nothing (stylesheet, script, font,
+  icon) is loaded from a third party, and the Geist fonts are only named. Other pages keep the shared palette. The list
+  also holds Vercel's interface guidelines (user, 2026-11-27): 4px grid, keyboard tabs, 24px / 44px touch targets,
+  16px fields on a phone, visible labels over hover tips, the view in the address, undo instead of a confirm box.
+- **Settings: this computer and this browser (user, 2026-11-27).** The Settings page keeps this computer's settings
+  (seat size, saved outside the repo) apart from this browser's, which apply at once from any computer: Appearance
+  (System / Light / Dark on every page, `lib/page-shared.ts` sets it before the page draws), Language, the name signed
+  under question answers, and 「Forget remembered views」 (never the language, theme, name or unsaved answers).
+  **Rollback** — when the user asks to roll the Dashboard back: the earlier look is `scripts/boards-page.tpl` at commit
+  `07e93e8` (`git show 07e93e8:scripts/boards-page.tpl`); restore that file, carry over any data columns added since,
+  and remove this entry.
+- **Dashboard versions and results (user, 2026-11-27).** Pass, Fail and Blocked count each case at its newest result
+  from any run (R1 pass, pass, fail; R2 re-runs 2 and 3 as fail, blocked → 1 / 1 / 1), opening Results' 「Latest
+  results」 (`boards.ts latestTally`, `results-page.ts`). Versions follow the roadmap's GM dates: the next version before
+  its GM on top, with its roadmap items that no table covers (`releases.json` › `items`, read from the Kanban sheet),
+  then later ones, then versions past GM, folded to one line; every version folds from its heading (per browser).
+  An empty figure is 「–」 when it never had a value and 0 when it had one and is now none (questions all settled: 0).
 - **No question left open by a completed run (user, 2026-11-25).** At every phase wrap-up each Open question is
   determined (`<platform>/question-status.json`), filed as a PM eBug whose entry names the Q-id (also when no row
   failed on it), or marked not reached with the reason; settled ones leave the Cases page's question list for its

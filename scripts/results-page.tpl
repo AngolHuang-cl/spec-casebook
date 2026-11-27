@@ -25,6 +25,7 @@ h1 { font: 750 1.9rem var(--display); margin: 0; letter-spacing: -0.01em; text-w
 .runs { display: flex; flex-wrap: wrap; gap: 6px }
 .runs button { font: 600 0.82rem var(--mono); border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 6px; padding: 6px 10px; cursor: pointer; text-align: left }
 .runs button[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); color: var(--accent) }
+.runs button.all { border-style: dashed }
 .runs button small { display: block; font: 400 0.72rem var(--mono); color: var(--muted) }
 .bar { display: flex; height: 12px; border-radius: 3px; overflow: hidden; background: var(--chip-bg) }
 .bar span { display: block; height: 100% }
@@ -129,6 +130,7 @@ let L = 'en';
 if (window.CASEBOOK) L = window.CASEBOOK.lang; else try { if (localStorage.getItem('casebook-lang') === 'zh') L = 'zh'; } catch (e) {}
 const T = {
   en: { eyebrow: 'Casebook results', title: f => `${f} · Results`, run: 'Run', build: 'Build', cases: 'cases', recorded: 'Recorded', all: 'All',
+    latest: 'Latest results', latestMeta: n => `Each case at its newest result from any of ${n} run${n === 1 ? '' : 's'}`, from: 'from',
     allSeg: 'All segments', allDisp: 'All dispositions', search: 'Search ID, section, action, result or eBug', only: 'With screenshots only',
     compact: 'Compact list', attention: 'Needs attention', noBugF: 'Fail with no eBug', gone: n => `Screenshots for ${n} cases stay on the computer that ran the test, so they are not shown here.`, notHere: 'not on this computer',
     shown: (n, m) => `${n} of ${m}`, pre: 'Precondition', action: 'Action', expected: 'Expected result', actual: 'What happened', why: 'Blocked because',
@@ -138,6 +140,7 @@ const T = {
     kindT: { filed: 'Filed from this run: the eBug draft names this case as a report step.', known: 'An existing ticket this failure repeats (the batch\'s dedupe list), so no new eBug was filed.', mentioned: 'An eBug code named in the recorded result.' },
     noBugT: 'No filed batch names this case and its result names no eBug code.' },
   zh: { eyebrow: '測試表執行結果', title: f => `${f} · 結果`, run: '執行', build: '版本', cases: '個案例', recorded: '記錄時間', all: '全部',
+    latest: '最新結果', latestMeta: n => `每個案例取 ${n} 次執行中最新的結果`, from: '來自',
     allSeg: '全部段落', allDisp: '全部歸類', search: '搜尋 ID、區段、操作、結果或 eBug', only: '只看有截圖的',
     compact: '精簡清單', attention: '需要處理', noBugF: '失敗但沒有 eBug', gone: n => `${n} 個案例的截圖留在執行測試的電腦上，這裡不會顯示。`, notHere: '不在這台電腦上',
     shown: (n, m) => `${n} / ${m}`, pre: '前置條件', action: '操作', expected: '預期結果', actual: '實際情況', why: '受阻原因',
@@ -194,17 +197,19 @@ const loaded = {};
 async function ensure(r) { if (!r || r.cases) return; if (!loaded[r.id]) { const x = await fetch(`run.json?id=${encodeURIComponent(r.id)}`, { cache: 'no-store' }); loaded[r.id] = await x.json(); } r.cases = loaded[r.id]; }
 // Progress shows a run that has a phase (its run-state names one: P1, R2, MUI); design passes and rechecks have none
 const planOf = r => PAGES.plan && r.phase ? `${PAGES.plan}?run=${encodeURIComponent(r.phase)}` : '';
-const runName = r => r.phase || r.id.replace(/^\d{4}-\d{2}-\d{2}-/, '').toUpperCase();
+const runName = r => r.all ? t('latest') : r.phase || r.id.replace(/^\d{4}-\d{2}-\d{2}-/, '').toUpperCase();
+// the runs and, first, 「Latest results」: each case at its newest result from any run (the Dashboard's Pass, Fail, Blocked)
+const ALL = () => D.latest ? [D.latest, ...D.runs] : D.runs;
 
 function header() {
   document.documentElement.lang = L === 'zh' ? 'zh-Hant' : 'en';
   $('eyebrow').textContent = t('eyebrow');
   $('h').textContent = t('title')(D.title);
   document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.l === L)));
-  $('runs').innerHTML = D.runs.map((r, i) => `<button type="button" data-i="${i}" aria-pressed="${r === run}" title="${esc(r.id)}">${esc(runName(r))} · ${esc(cbWhen(r.first).slice(0, 5))}<small>${r.n} ${t('cases')} · ${RES.filter(x => r.tally[x]).map(x => `${esc(resName(x))} ${r.tally[x]}`).join(' · ')}</small></button>`).join('');
-  $('runs').querySelectorAll('button').forEach(b => b.onclick = async () => { const r = D.runs[+b.dataset.i]; await ensure(r); run = r; seg = disp = ''; flip.clear(); render(); });
+  $('runs').innerHTML = ALL().map((r, i) => `<button type="button"${r.all ? ' class="all"' : ''} data-i="${i}" aria-pressed="${r === run}" title="${esc(r.all ? t('latestMeta')(r.runs) : r.id)}">${esc(runName(r))}${r.all ? '' : ` · ${esc(cbWhen(r.first).slice(0, 5))}`}<small>${r.n} ${t('cases')} · ${RES.filter(x => r.tally[x]).map(x => `${esc(resName(x))} ${r.tally[x]}`).join(' · ')}</small></button>`).join('');
+  $('runs').querySelectorAll('button').forEach(b => b.onclick = async () => { const r = ALL()[+b.dataset.i]; await ensure(r); run = r; seg = disp = ''; flip.clear(); render(); });
   if (!run) { $('meta').textContent = ''; $('bar').innerHTML = ''; return; }
-  $('meta').innerHTML = [`<span>${t('run')} <b>${esc(run.id)}</b></span>`, run.build && `<span>${t('build')} <b>${esc(run.build)}</b></span>`,
+  $('meta').innerHTML = [run.all ? `<span><b>${esc(t('latestMeta')(run.runs))}</b></span>` : `<span>${t('run')} <b>${esc(run.id)}</b></span>`, run.build && `<span>${t('build')} <b>${esc(run.build)}</b></span>`,
     `<span>${t('recorded')} <b>${esc(cbSpan(run.first, run.last, L))}</b></span>`, run.report && `<span>${t('report')}</span>`,
     planOf(run) && `<span><a href="${esc(planOf(run))}">${t('runPlan')} →</a></span>`].filter(Boolean).join('');
   const gone = run.cases.filter(c => !c.shots.length && c.files.some(f => IMG.test(f))).length;
@@ -249,7 +254,7 @@ const oneLine = c => { const s = String((c.result === 'Fail' && c.ebugs.find(b =
   const x = m ? m[0] : s; return x.length > 170 ? `${x.slice(0, 169)}…` : x; };
 function card(c) {
   const k = esc(c.result.replace(' ', '')), on = isOpen(c.id), bug = c.ebugs[0];
-  return `<details class="case ${k}${c.id === focus ? ' focus' : ''}" id="c-${esc(c.id)}" data-id="${esc(c.id)}"${on ? ' open' : ''}><summary><span class="cid">${esc(c.id)}</span><span class="res ${k}">${esc(resName(c.result))}</span><span class="one">${esc(oneLine(c))}</span><span class="facts"><span class="sec">${esc(ZT(c, 'section'))}</span>${c.prio ? `<span class="disp">${t('prio')} ${esc(c.prio)}</span>` : ''}${c.needs ? `<span class="disp">${t('needs')} ${esc(c.needs)}</span>` : ''}${c.disp ? `<span class="disp">${esc(c.disp)}</span>` : ''}</span>${bug ? `<a class="bug" href="${ECL(bug.code)}" target="_blank" rel="noopener noreferrer">${esc(bug.code)}</a>${c.ebugs.length > 1 ? `<span class="disp">+${c.ebugs.length - 1}</span>` : ''}` : ''}</summary><div class="cbody">${on ? cardBody(c) : ''}</div></details>`;
+  return `<details class="case ${k}${c.id === focus ? ' focus' : ''}" id="c-${esc(c.id)}" data-id="${esc(c.id)}"${on ? ' open' : ''}><summary><span class="cid">${esc(c.id)}</span><span class="res ${k}">${esc(resName(c.result))}</span><span class="one">${esc(oneLine(c))}</span><span class="facts">${c.from ? `<span class="disp" title="${esc(c.from)}">${t('from')} ${esc(c.fromName)}</span>` : ''}<span class="sec">${esc(ZT(c, 'section'))}</span>${c.prio ? `<span class="disp">${t('prio')} ${esc(c.prio)}</span>` : ''}${c.needs ? `<span class="disp">${t('needs')} ${esc(c.needs)}</span>` : ''}${c.disp ? `<span class="disp">${esc(c.disp)}</span>` : ''}</span>${bug ? `<a class="bug" href="${ECL(bug.code)}" target="_blank" rel="noopener noreferrer">${esc(bug.code)}</a>${c.ebugs.length > 1 ? `<span class="disp">+${c.ebugs.length - 1}</span>` : ''}` : ''}</summary><div class="cbody">${on ? cardBody(c) : ''}</div></details>`;
 }
 function list() {
   if (!run) { $('list').innerHTML = `<p class="empty">${t('noRuns')}</p>`; $('count').textContent = ''; return; }
@@ -274,7 +279,7 @@ function saveView() {
 async function loadView() {
   let s = location.search.slice(1); if (!s && !location.hash) try { s = sessionStorage.getItem(VIEW) ?? ''; } catch (e) {}
   const u = new URLSearchParams(s);
-  run = D.runs.find(r => r.id === u.get('run')) ?? D.runs[0]; await ensure(run);
+  run = ALL().find(r => r.id === u.get('run')) ?? D.runs[0]; await ensure(run);
   res = u.get('res') || 'attention'; seg = u.get('seg') ?? ''; disp = u.get('disp') ?? '';
   $('q').value = u.get('q') ?? ''; q = $('q').value.trim().toLowerCase();
   only = $('only').checked = u.has('shots'); onlyBug = $('onlybug').checked = u.has('bugs'); noBug = $('nobug').checked = u.has('nobug');
@@ -317,7 +322,7 @@ document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang
 if (window.CASEBOOK) { document.querySelector('.lang')?.remove(); addEventListener('casebook-lang', e => { L = e.detail; render(); }); }
 addEventListener('hashchange', showCase);
 // served by scripts/pages.ts: new results are drawn in place, on the same run and filters
-if (window.CASEBOOK) CASEBOOK.onData = d => { if (run?.cases) loaded[run.id] = run.cases; D = d; for (const r of D.runs) if (!r.cases && loaded[r.id]) r.cases = loaded[r.id]; run = D.runs.find(r => r.id === run?.id) ?? D.runs[0]; run.cases ??= []; if (shots.length && $('lb').classList.contains('on')) shots = run?.cases.find(c => c.id === cap)?.shots ?? shots; render(); };
+if (window.CASEBOOK) CASEBOOK.onData = d => { if (run?.cases && !run.all) loaded[run.id] = run.cases; D = d; for (const r of D.runs) if (!r.cases && loaded[r.id]) r.cases = loaded[r.id]; delete loaded.latest; run = ALL().find(r => r.id === run?.id) ?? D.runs[0]; if (run.all && !run.cases) { ensure(run).then(render); return; } run.cases ??= []; if (shots.length && $('lb').classList.contains('on')) shots = run?.cases.find(c => c.id === cap)?.shots ?? shots; render(); };
 loadView().then(() => { render(); showCase(); });
 </script>
 </body>
