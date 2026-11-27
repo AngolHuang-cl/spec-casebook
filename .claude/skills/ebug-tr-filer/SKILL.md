@@ -336,4 +336,4 @@ decision and wastes their time.
 | `references/casebook-overlay.md` | the casebook's reviewer rules 1–7, shared with `ebug-draft-generator`; read first |
 | `scripts/check_ebug_format.py` | the pre-filing validator; run it on every batch |
 | `scripts/ecl_if3.py` | the IF3 REST client — `preflight` / `create` (Creator-verified) / `assign` / `resolve` / `codereview` / `buildresolve` / `readback` / `export-filing`. Stdlib only; token from `~/.ecl_token` |
-| `scripts/ecl_query.py` | **searching, without spending tokens** — `bugs` / `bug` / `tr` / `dedupe` / `calibrate`. Use this instead of the MCP for anything repetitive |
+| `scripts/ecl_query.py` | **searching, without spending tokens** — `bugs` / `bug` / `tr` / `comments` / `dedupe` / `calibrate`. Use this instead of the MCP for anything repetitive |

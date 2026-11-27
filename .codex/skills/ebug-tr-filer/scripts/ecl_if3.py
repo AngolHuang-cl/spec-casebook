@@ -866,6 +866,44 @@ def cmd_export_filing(a):
 
 # --------------------------------------------------------------------- main
 
+def cmd_comment(a):
+    """Add one comment to an IF3 eBug (public API doc #api-18, 2026-11-27).
+
+    POST /IF3/ebug/api/Comment/Code/{BugCode} {"Content": …}. Always HTTP 200; the
+    body's status says what happened. The commenter is the token's account and
+    the usual comment mail goes out. "Send Event fail." means the comment WAS
+    saved and only the mail failed: never resend, read it back instead.
+
+    Casebook overlay rule 6 / AGENTS.md: no comments on existing eBugs until the
+    user lifts it. Refused unless ALLOW_ECL_COMMENT=1, which only that allows.
+    """
+    if os.environ.get("ALLOW_ECL_COMMENT") != "1":
+        raise ECLError("Refused: no comments on existing eBugs (casebook overlay rule 6, "
+                       "AGENTS.md › No comments on existing eBugs). Only the user lifting "
+                       "that rule allows ALLOW_ECL_COMMENT=1.")
+    code = a.bugcode.upper()
+    if not re.match(r"^[A-Z]+\d{6}P\d{4}$", code):
+        raise ECLError(f"{code} is not an IF3 eBug (P separator); old ASP tickets take no API comment.")
+    text = a.text if a.text is not None else open(a.file, encoding="utf-8").read()
+    if not text.strip():
+        raise ECLError("Empty comment.")
+    if a.dry_run:
+        print(f"[dry-run] would comment on {code}:\n{text.strip()}")
+        return 0
+    try:
+        call("POST", f"/IF3/ebug/api/Comment/Code/{code}", {"Content": text})
+    except ECLError as e:
+        if "Send Event fail" in str(e):
+            print(f"{code}: comment saved, notification mail failed (Send Event fail). "
+                  f"Do NOT resend; check with `ecl_query.py comments {code}`.", file=sys.stderr)
+            return 0
+        if "No found user" in str(e):
+            raise ECLError("Token invalid or expired (the comment API says 'No found user', not 401).")
+        raise
+    print(f"{code}: comment added. Read back with `ecl_query.py comments {code}`.")
+    return 0
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -950,6 +988,15 @@ def main():
     s = sub.add_parser("files", help="list the attachments each eBug page shows (UploadFiles)")
     s.add_argument("bugcodes", nargs="+")
     s.set_defaults(fn=cmd_files)
+
+    s = sub.add_parser("comment", help="add a comment to an IF3 eBug (blocked by overlay rule 6 "
+                       "unless ALLOW_ECL_COMMENT=1)")
+    s.add_argument("bugcode")
+    g = s.add_mutually_exclusive_group(required=True)
+    g.add_argument("--text")
+    g.add_argument("--file", help="comment text from a UTF-8 file")
+    s.add_argument("--dry-run", action="store_true")
+    s.set_defaults(fn=cmd_comment)
 
     s = sub.add_parser("export-filing",
                        help="read filed bugs back into filed_bugcodes.json for the report")

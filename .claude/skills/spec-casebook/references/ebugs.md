@@ -74,7 +74,11 @@ controls, and the `decision` entries (Won't Fix, NAB, PM rulings) that make a fi
    tested OS only) and read each candidate with `ecl_query.py bug <code>`. **Per OS (user, 2026-10-28):** a match on
    the other OS is not a duplicate (new entry; its BugCode may go in the Note); a match on the same OS's TRs, open or
    resolved, is left off the drafts and the review page entirely and recorded only in `dedupe.txt`; a **closed**
-   same-OS ticket whose bug is back stays a new entry naming the closed ticket as related.
+   same-OS ticket whose bug is back stays a new entry naming the closed ticket as related. A **cancelled or declined**
+   match is judged by why it ended, from the comments `dedupe` prints under it (user, 2026-11-27): wrongly filed →
+   judge against the refiled ticket; a ruling → dropped unless a newer spec contradicts it; fixed / not reproducible →
+   a card only if it reproduces now; no reason → a card naming it for the reviewer (`ebug-tr-filer/references/dedupe.md`
+   › *Ended tickets: read why*).
    **Whole pool (2026-11-19, Video Enhance Android R2).** Check that each entry's `searched N candidate(s)` matches the
    pool (`ecl_query.py bugs --text "<feature core>" --product "<ecl_product>"`), and read every ticket in the
    closing 「Open in the pool on <version>」 list against every entry, ranked or not. The R2 batch searched 90 of 182

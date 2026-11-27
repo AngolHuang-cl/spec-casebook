@@ -46,6 +46,11 @@ lines; put the full rule in the skill or reference file that applies it and poin
   `ebug-tr-filer/references/api-filing.md`).
 - **No comments on existing eBugs (2026-10-21, until lifted).** Never comment on, reopen or reject the fix of an
   existing ticket; rechecks and fixed tickets are listed for information only (overlay).
+- **Ended tickets: read why (user, 2026-11-27).** A cancelled, declined or closed dedupe match is judged by why it
+  ended, from its eBug comments (`TSR.EbugComments`, printed by `ecl_query.py dedupe`): wrongly filed → the refiled
+  ticket; a ruling → dropped unless a newer spec contradicts it; fixed / not reproducible → a card only if it
+  reproduces now; no reason → a card for the reviewer (`ebug-tr-filer/references/dedupe.md`). The add-comment API
+  stays blocked by the rule below (`ALLOW_ECL_COMMENT=1` only when it is lifted).
 - **Dedupe per OS (user, 2026-10-28).** A ticket on the other OS never makes a finding a duplicate; a same-OS match is
   left off the drafts and review page (kept only in `dedupe.txt`), unless that ticket is **closed** and the bug is
   back: then it is a new card naming the closed ticket (overlay, *Dedupe per OS*).
