@@ -66,3 +66,11 @@ In the editor `lbl Audio` can hit `[AID]TimeLine_Audio` instead of the Global to
 on the Sony); `lbl Male` matches Female; `lbl Replace` on 「Generate Another Voice?」 hits the tick label (tap
 action1Button); wrapped toolbar labels (「Text to Image」) do not match: tap by position. A preview Play with a clip
 selected plays only to that clip's end.
+
+## KP-136 Add Media and the New Project picker share one sort setting
+- kind: quirk · platform: android · use: run · tags: add-media, sort, fixtures
+- source: Video Enhance Android run 2026-11-26-r4-full O-18, O-21 · verified: 16.9.0 build 2611251 (2026-11-26)
+
+A sort set in Add Media (Duration) also showed in the New Project picker, so one change moves the first tile in both;
+a recent synthetic file (TC-VE2-153-local-04-3_2s-720p30.mp4) can sit first under Date / Descending. Pick fixtures by
+name, not by tile position, and set the sort back to Date / Descending (KP-073).

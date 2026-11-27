@@ -125,7 +125,7 @@ The Preview with 「60fps · 1080p」 at its lower right, 「00:00/12:30」, pla
 CTA 「Enhance ◆ <credits>」 with 「Charge X credits per second」 under it",P1,"R-020, R-021, R-045, R-070, R-192",
 TC-259,Panel layout and first-run bubble,"1. Signed in with a Pro account (no tier switch on Android)
 2. A 02:30.01 (150.01 s, length checked with ffprobe) video in the album (made for the test)",Open the panel with the video and read the Preview time,"The Preview time reads 「00:00/02:31」 (the total rounded up), not 「00:00/02:30」",P3,R-199,Not from the spec: user requirement 2026-10-21 via the spec agent's TC-VE2-276 [Req: REQ-008]. Same fixture as TC-262 and TC-264.
-TC-035,Panel layout and first-run bubble,Panel open,Tap ⓘ next to 「Mode」,A bubble shows 「Standard: Great quality · up to 8 min」 and 「Professional: Maximum detail · up to 2:30」,P3,R-025,"PM 1002 「Great quality, quick results」 and PM 9/29 「Standard: up to 8 minutes…」 are older."
+TC-035,Panel layout and first-run bubble,Panel open,Tap ⓘ next to 「Mode」,A bubble shows 「Standard: Great quality · up to 08:00」 and 「Professional: Maximum detail · up to 02:30」,P3,R-025,"PM 1002 「Great quality, quick results」 and PM 9/29 「Standard: up to 8 minutes…」 are older."
 TC-036,Panel layout and first-run bubble,Panel open,Tap ⓘ next to 「Enhancement style」,"A bubble shows 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」 and 「Sharp: Moderate enhancement for a sharp, clear image」",P3,R-026,
 TC-037,Panel layout and first-run bubble,"1. Panel open with the 12:30 video
 2. Selection trimmed to 02:00–04:00 (「02:00」) with 「Professional」, 「Sharp」, 「60fps」 and 「4K」, the CTA price noted","1. Tap play under the Preview
@@ -2202,7 +2202,7 @@ TC-354,Entry › AI Magic tab › AI Enhance › AI Video Enhance,"1. Entry: onl
 14. Tap 「720p」
 15. Tap 「4K」
 16. Tap 「1080p」","Step 1: the bubble 「Max 8 minutes. Drag to choose which part.」 shows
-Step 3: the bubble shows 「Standard: Great quality · up to 8 min」 and 「Professional: Maximum detail · up to 2:30」
+Step 3: the bubble shows 「Standard: Great quality · up to 08:00」 and 「Professional: Maximum detail · up to 02:30」
 Step 5: the bubble shows 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」 and 「Sharp: Moderate enhancement for a sharp, clear image」
 Steps 2, 4 and 6: the bubble closes
 Step 7: 「Professional」 is selected, the other chip of its group is not, and the CTA reads 「Enhance ◆ 120」 (Professional 1080p 30fps, 4/s)
@@ -2375,7 +2375,7 @@ TC-360,Entry › Editor › main-track video › Enhance › Video Enhance,"1. E
 14. Tap 「720p」
 15. Tap 「4K」
 16. Tap 「1080p」","Step 1: the bubble 「Max 8 minutes. Drag to choose which part.」 shows
-Step 3: the bubble shows 「Standard: Great quality · up to 8 min」 and 「Professional: Maximum detail · up to 2:30」
+Step 3: the bubble shows 「Standard: Great quality · up to 08:00」 and 「Professional: Maximum detail · up to 02:30」
 Step 5: the bubble shows 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」 and 「Sharp: Moderate enhancement for a sharp, clear image」
 Steps 2, 4 and 6: the bubble closes
 Step 7: 「Professional」 is selected, the other chip of its group is not, and the CTA reads 「Enhance ◆ 120」 (Professional 1080p 30fps, 4/s)
@@ -2552,7 +2552,7 @@ TC-367,Entry › Editor › PIP video › Enhance › Video Enhance,"1. Entry: o
 14. Tap 「720p」
 15. Tap 「4K」
 16. Tap 「1080p」","Step 1: the bubble 「Max 8 minutes. Drag to choose which part.」 shows
-Step 3: the bubble shows 「Standard: Great quality · up to 8 min」 and 「Professional: Maximum detail · up to 2:30」
+Step 3: the bubble shows 「Standard: Great quality · up to 08:00」 and 「Professional: Maximum detail · up to 02:30」
 Step 5: the bubble shows 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」 and 「Sharp: Moderate enhancement for a sharp, clear image」
 Steps 2, 4 and 6: the bubble closes
 Step 7: 「Professional」 is selected, the other chip of its group is not, and the CTA reads 「Enhance ◆ 120」 (Professional 1080p 30fps, 4/s)
@@ -2689,7 +2689,7 @@ TC-322,MUI,"1. App language set to Traditional Chinese (`launch --lang zh-Hant-T
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -2733,7 +2733,7 @@ TC-323,MUI,"1. App language set to Simplified Chinese (`launch --lang zh-Hans-CN
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -2777,7 +2777,7 @@ TC-324,MUI,"1. App language set to Japanese (`launch --lang ja-JP`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -2821,7 +2821,7 @@ TC-325,MUI,"1. App language set to Spanish (`launch --lang es-ES`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -2865,7 +2865,7 @@ TC-326,MUI,"1. App language set to Korean (`launch --lang ko-KR`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -2909,7 +2909,7 @@ TC-327,MUI,"1. App language set to German (`launch --lang de-DE`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -2953,7 +2953,7 @@ TC-328,MUI,"1. App language set to French (`launch --lang fr-FR`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -2997,7 +2997,7 @@ TC-329,MUI,"1. App language set to Italian (`launch --lang it-IT`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3041,7 +3041,7 @@ TC-330,MUI,"1. App language set to Russian (`launch --lang ru-RU`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3085,7 +3085,7 @@ TC-331,MUI,"1. App language set to Portuguese (Brazil) (`launch --lang pt-BR`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3129,7 +3129,7 @@ TC-332,MUI,"1. App language set to Dutch (`launch --lang nl-NL`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3173,7 +3173,7 @@ TC-333,MUI,"1. App language set to Indonesian (`launch --lang id-ID`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3217,7 +3217,7 @@ TC-334,MUI,"1. App language set to Thai (`launch --lang th-TH`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3261,7 +3261,7 @@ TC-335,MUI,"1. App language set to Malay (`launch --lang ms-MY`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3305,7 +3305,7 @@ TC-336,MUI,"1. App language set to Hindi (`launch --lang hi-IN`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3349,7 +3349,7 @@ TC-337,MUI,"1. App language set to Spanish (Mexico) (`launch --lang es-MX`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3394,7 +3394,7 @@ TC-338,MUI,"1. App language set to Arabic (`launch --lang ar-SA`)
 8. Add Media: its title and the 「Video」 tab
 9. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 10. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-11. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 12. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 13. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 14. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3438,7 +3438,7 @@ TC-339,MUI,"1. App language set to Vietnamese (`launch --lang vi-VN`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3482,7 +3482,7 @@ TC-340,MUI,"1. App language set to Polish (`launch --lang pl-PL`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3526,7 +3526,7 @@ TC-341,MUI,"1. App language set to Turkish (`launch --lang tr-TR`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3571,7 +3571,7 @@ TC-342,MUI,"1. App language set to Persian (`launch --lang fa-IR`)
 8. Add Media: its title and the 「Video」 tab
 9. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 10. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-11. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 12. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 13. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 14. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3616,7 +3616,7 @@ TC-343,MUI,"1. App language set to Hebrew (`launch --lang he-IL`)
 8. Add Media: its title and the 「Video」 tab
 9. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 10. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-11. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+11. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 12. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 13. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 14. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3660,7 +3660,7 @@ TC-344,MUI,"1. App language set to Swedish (`launch --lang sv-SE`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3704,7 +3704,7 @@ TC-345,MUI,"1. App language set to Danish (`launch --lang da-DK`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3748,7 +3748,7 @@ TC-346,MUI,"1. App language set to Norwegian Bokmål (`launch --lang nb-NO`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」
@@ -3792,7 +3792,7 @@ TC-347,MUI,"1. App language set to Ukrainian (`launch --lang uk-UA`)
 7. Add Media: its title and the 「Video」 tab
 8. Panel: 「AI Video Enhance」, 「Selected Length」, 「Mode」, 「Standard」, 「Professional」, 「Enhancement style」, 「Natural」, 「Sharp」, 「fps」, 「Resolution」, 「60fps · 1080p」, 「Enhance ◆ <credits>」, 「Charge X credits per second」
 9. Selected Length bubble: 「Max 8 minutes. Drag to choose which part.」
-10. Mode bubble: 「Standard: Great quality · up to 8 min」, 「Professional: Maximum detail · up to 2:30」
+10. Mode bubble: 「Standard: Great quality · up to 08:00」, 「Professional: Maximum detail · up to 02:30」
 11. Enhancement style bubble: 「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」, 「Sharp: Moderate enhancement for a sharp, clear image」
 12. Mode toast: 「Professional supports clips up to 2:30. Shorten your selection to switch.」
 13. Offline toast: 「Upload failed. Check your connection and try again.」

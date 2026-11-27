@@ -125,7 +125,7 @@ TC-033,面板版面與首次提示泡泡,"1. 帳號等級 Pro+（Launcher › Pi
 CTA 按鈕是「Enhance ◆ <credits>」，下方有「Charge X credits per second」",P1,"R-020, R-021, R-045, R-070, R-192",,未變更,
 TC-259,面板版面與首次提示泡泡,"1. 帳號等級 Pro+（Launcher › Pink › ☰ › [0] IAP › status = Pro+，並到 Mine 確認）
 2. 相簿裡有一支 02:30.01（150.01 秒，用 ffprobe 確認長度）的影片（為測試自製）",用這支影片開啟面板，查看預覽區的時間,預覽區時間顯示「00:00/02:31」（總長無條件進位），不是「00:00/02:30」,P3,R-199,規格沒有寫：使用者 2026-10-21 的需求，對應 spec agent 的 TC-VE2-276 [Req: REQ-008]。和 TC-262、TC-264 用同一支測試影片。iOS：spec agent 已替 PDRi 審過這個案例，追蹤編號是 DRI261897P0040（開在 16.9.0.189729）；這裡如果失敗，就是該單在此版本上重現，僅列出供參考。,未變更,
-TC-035,面板版面與首次提示泡泡,已開啟面板,點「Mode」旁的 ⓘ,跳出泡泡，內容是「Standard: Great quality · up to 8 min」和「Professional: Maximum detail · up to 2:30」,P3,R-025,"PM 1002 的「Great quality, quick results」和 PM 9/29 的「Standard: up to 8 minutes…」是較舊的版本。",未變更,
+TC-035,面板版面與首次提示泡泡,已開啟面板,點「Mode」旁的 ⓘ,跳出泡泡，內容是「Standard: Great quality · up to 08:00」和「Professional: Maximum detail · up to 02:30」,P3,R-025,"PM 1002 的「Great quality, quick results」和 PM 9/29 的「Standard: up to 8 minutes…」是較舊的版本。",未變更,
 TC-036,面板版面與首次提示泡泡,已開啟面板,點「Enhancement style」旁的 ⓘ,"跳出泡泡，內容是「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」和「Sharp: Moderate enhancement for a sharp, clear image」",P3,R-026,,未變更,
 TC-037,面板版面與首次提示泡泡,"1. 已用 12:30 的影片開啟面板
 2. 選取範圍裁成 02:00–04:00（「02:00」），設定為「Professional」、「Sharp」、「60fps」、「4K」，並記下 CTA 上的價格","1. 點預覽區下方的播放
@@ -2178,7 +2178,7 @@ TC-354,入口 › AI Magic 分頁 › AI Enhance › AI Video Enhance,"1. 入口
 14. 點「720p」
 15. 點「4K」
 16. 點「1080p」","步驟 1：顯示泡泡「Max 8 minutes. Drag to choose which part.」
-步驟 3：泡泡顯示「Standard: Great quality · up to 8 min」和「Professional: Maximum detail · up to 2:30」
+步驟 3：泡泡顯示「Standard: Great quality · up to 08:00」和「Professional: Maximum detail · up to 02:30」
 步驟 5：泡泡顯示「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」和「Sharp: Moderate enhancement for a sharp, clear image」
 步驟 2、4、6：泡泡關閉
 步驟 7：「Professional」被選取，同組的其他選項沒有被選取，CTA 顯示「Enhance ◆ 120」（Professional 1080p 30fps, 4/s）
@@ -2334,7 +2334,7 @@ TC-360,入口 › 編輯器 › 主軌影片 › Enhance › Video Enhance,"1. �
 14. 點「720p」
 15. 點「4K」
 16. 點「1080p」","步驟 1：顯示泡泡「Max 8 minutes. Drag to choose which part.」
-步驟 3：泡泡顯示「Standard: Great quality · up to 8 min」和「Professional: Maximum detail · up to 2:30」
+步驟 3：泡泡顯示「Standard: Great quality · up to 08:00」和「Professional: Maximum detail · up to 02:30」
 步驟 5：泡泡顯示「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」和「Sharp: Moderate enhancement for a sharp, clear image」
 步驟 2、4、6：泡泡關閉
 步驟 7：「Professional」被選取，同組的其他選項沒有被選取，CTA 顯示「Enhance ◆ 120」（Professional 1080p 30fps, 4/s）
@@ -2498,7 +2498,7 @@ TC-367,入口 › 編輯器 › 子母畫面（PIP）影片 › Enhance › Vide
 14. 點「720p」
 15. 點「4K」
 16. 點「1080p」","步驟 1：顯示泡泡「Max 8 minutes. Drag to choose which part.」
-步驟 3：泡泡顯示「Standard: Great quality · up to 8 min」和「Professional: Maximum detail · up to 2:30」
+步驟 3：泡泡顯示「Standard: Great quality · up to 08:00」和「Professional: Maximum detail · up to 02:30」
 步驟 5：泡泡顯示「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」和「Sharp: Moderate enhancement for a sharp, clear image」
 步驟 2、4、6：泡泡關閉
 步驟 7：「Professional」被選取，同組的其他選項沒有被選取，CTA 顯示「Enhance ◆ 120」（Professional 1080p 30fps, 4/s）
@@ -2622,7 +2622,7 @@ TC-321,MUI 多國語系,"1. App 語言設為繁體中文（`launch --lang zh-Han
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -2675,7 +2675,7 @@ TC-322,MUI 多國語系,"1. App 語言設為簡體中文（`launch --lang zh-Han
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -2728,7 +2728,7 @@ TC-323,MUI 多國語系,"1. App 語言設為日文（`launch --lang ja-JP`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -2781,7 +2781,7 @@ TC-324,MUI 多國語系,"1. App 語言設為西班牙文（`launch --lang es-ES`
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -2834,7 +2834,7 @@ TC-325,MUI 多國語系,"1. App 語言設為韓文（`launch --lang ko-KR`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -2887,7 +2887,7 @@ TC-326,MUI 多國語系,"1. App 語言設為德文（`launch --lang de-DE`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -2940,7 +2940,7 @@ TC-327,MUI 多國語系,"1. App 語言設為法文（`launch --lang fr-FR`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -2993,7 +2993,7 @@ TC-328,MUI 多國語系,"1. App 語言設為義大利文（`launch --lang it-IT`
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3046,7 +3046,7 @@ TC-329,MUI 多國語系,"1. App 語言設為俄文（`launch --lang ru-RU`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3099,7 +3099,7 @@ TC-330,MUI 多國語系,"1. App 語言設為巴西葡萄牙文（`launch --lang 
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3152,7 +3152,7 @@ TC-331,MUI 多國語系,"1. App 語言設為荷蘭文（`launch --lang nl-NL`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3205,7 +3205,7 @@ TC-332,MUI 多國語系,"1. App 語言設為印尼文（`launch --lang id-ID`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3258,7 +3258,7 @@ TC-333,MUI 多國語系,"1. App 語言設為泰文（`launch --lang th-TH`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3311,7 +3311,7 @@ TC-334,MUI 多國語系,"1. App 語言設為馬來文（`launch --lang ms-MY`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3364,7 +3364,7 @@ TC-335,MUI 多國語系,"1. App 語言設為印地文（`launch --lang hi-IN`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3417,7 +3417,7 @@ TC-336,MUI 多國語系,"1. App 語言設為墨西哥西班牙文（`launch --la
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3471,7 +3471,7 @@ TC-337,MUI 多國語系,"1. App 語言設為阿拉伯文（`launch --lang ar-SA`
 14. Add Media：標題和「Video」分頁
 15. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 16. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-17. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+17. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 18. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 19. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 20. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3524,7 +3524,7 @@ TC-338,MUI 多國語系,"1. App 語言設為越南文（`launch --lang vi-VN`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3577,7 +3577,7 @@ TC-339,MUI 多國語系,"1. App 語言設為波蘭文（`launch --lang pl-PL`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3630,7 +3630,7 @@ TC-340,MUI 多國語系,"1. App 語言設為土耳其文（`launch --lang tr-TR`
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3684,7 +3684,7 @@ TC-341,MUI 多國語系,"1. App 語言設為波斯文（`launch --lang fa-IR`）
 14. Add Media：標題和「Video」分頁
 15. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 16. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-17. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+17. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 18. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 19. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 20. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3738,7 +3738,7 @@ TC-342,MUI 多國語系,"1. App 語言設為希伯來文（`launch --lang he-IL`
 14. Add Media：標題和「Video」分頁
 15. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 16. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-17. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+17. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 18. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 19. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 20. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3791,7 +3791,7 @@ TC-343,MUI 多國語系,"1. App 語言設為瑞典文（`launch --lang sv-SE`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3844,7 +3844,7 @@ TC-344,MUI 多國語系,"1. App 語言設為丹麥文（`launch --lang da-DK`）
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3897,7 +3897,7 @@ TC-345,MUI 多國語系,"1. App 語言設為挪威文（Bokmål）（`launch --l
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」
@@ -3950,7 +3950,7 @@ TC-346,MUI 多國語系,"1. App 語言設為烏克蘭文（`launch --lang uk-UA`
 13. Add Media：標題和「Video」分頁
 14. 面板：「AI Video Enhance」、「Selected Length」、「Mode」、「Standard」、「Professional」、「Enhancement style」、「Natural」、「Sharp」、「fps」、「Resolution」、「60fps · 1080p」、「Enhance ◆ <credits>」、「Charge X credits per second」
 15. Selected Length 泡泡：「Max 8 minutes. Drag to choose which part.」
-16. Mode 泡泡：「Standard: Great quality · up to 8 min」、「Professional: Maximum detail · up to 2:30」
+16. Mode 泡泡：「Standard: Great quality · up to 08:00」、「Professional: Maximum detail · up to 02:30」
 17. Enhancement style 泡泡：「Natural: Lighter enhancement with fewer artifacts, for a more realistic look」、「Sharp: Moderate enhancement for a sharp, clear image」
 18. Free 的 CTA：「Unlock Pro+ to Enhance」、「Charge X credits per second」
 19. Mode 提示：「Professional supports clips up to 2:30. Shorten your selection to switch.」

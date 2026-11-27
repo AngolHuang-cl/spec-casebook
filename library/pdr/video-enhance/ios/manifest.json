@@ -2,9 +2,9 @@
   "feature": "pdr/video-enhance",
   "platform": "ios",
   "title": "Video Enhance",
-  "version": 11,
-  "approved_at": "2026-11-26T07:49:29.636Z",
-  "draft": "20261126-111500",
+  "version": 12,
+  "approved_at": "2026-11-26T08:11:23.904Z",
+  "draft": "20261126-170000",
   "spec_folder": "specs/2026-11-03",
   "spec_files": [],
   "spec_set_sha256": "c1d60aed2d699df6196069d8a0db670b4ca14529f0d3efaa4923aec852188bfe",
@@ -105,6 +105,15 @@
       "approved_at": "2026-11-26T07:49:29.636Z",
       "spec_set_sha256": "c1d60aed2d699df6196069d8a0db670b4ca14529f0d3efaa4923aec852188bfe",
       "draft": "20261126-111500",
+      "cases": 259,
+      "csv": "history/v11.csv",
+      "requirements": "history/v11-requirements.md"
+    },
+    {
+      "version": 12,
+      "approved_at": "2026-11-26T08:11:23.904Z",
+      "spec_set_sha256": "c1d60aed2d699df6196069d8a0db670b4ca14529f0d3efaa4923aec852188bfe",
+      "draft": "20261126-170000",
       "cases": 259,
       "csv": "cases.csv",
       "requirements": "requirements.md"

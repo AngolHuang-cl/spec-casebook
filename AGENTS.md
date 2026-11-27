@@ -39,8 +39,18 @@ lines; put the full rule in the skill or reference file that applies it and poin
 - **Filing account.** Review pages prefill Creator, TRCode, source tag and method from the newest filed batch
   (`node scripts/ebug-defaults.ts`); "Same build" / "Same TR" means that batch's TR once its header names the tested
   build (overlay rule 4).
+- **eBugs go on the TR's own template (user, 2026-11-27).** An API filing uses the eBug template whose name and
+  product match the TR's (`ecl_query.py tr <TR>`, e.g. 「Generic v16.9」), never 「AIFound eBugs pool」 by default;
+  `ecl_if3.py create` refuses any other template or a TR for another build, and `--other-template "<reason>"` is
+  only for a pool the user named (Video Enhance R4: P0335 – P0337 cancelled, refiled as P0338 – P0340;
+  `ebug-tr-filer/references/api-filing.md`).
 - **No comments on existing eBugs (2026-10-21, until lifted).** Never comment on, reopen or reject the fix of an
   existing ticket; rechecks and fixed tickets are listed for information only (overlay).
+- **Ended tickets: read why (user, 2026-11-27).** A cancelled, declined or closed dedupe match is judged by why it
+  ended, from its eBug comments (`TSR.EbugComments`, printed by `ecl_query.py dedupe`): wrongly filed → the refiled
+  ticket; a ruling → dropped unless a newer spec contradicts it; fixed / not reproducible → a card only if it
+  reproduces now; no reason → a card for the reviewer (`ebug-tr-filer/references/dedupe.md`). The add-comment API
+  stays blocked by the rule below (`ALLOW_ECL_COMMENT=1` only when it is lifted).
 - **Dedupe per OS (user, 2026-10-28).** A ticket on the other OS never makes a finding a duplicate; a same-OS match is
   left off the drafts and review page (kept only in `dedupe.txt`), unless that ticket is **closed** and the bug is
   back: then it is a new card naming the closed ticket (overlay, *Dedupe per OS*).
@@ -227,9 +237,33 @@ lines; put the full rule in the skill or reference file that applies it and poin
   **2026-11-26:** no feature/table totals under the title and no counts on the product and platform switches or the two tabs; the
   columns are eBugs, MUI bugs, Design bugs (each open / filed, nothing else in the cell) and PM questions; 「Refresh
   eBugs」 works from any computer that reached the page, one read at a time per group (a second click joins the first),
-  read by bug-code prefix so a group takes seconds; a table not tested yet is listed under the version the Kanban
-  roadmap plans it for (`release.json` in the feature folder, per platform; written when a feature is added or the
-  roadmap moves it), and only one the roadmap does not list stays under 「Not tested yet」.
+  read by bug-code prefix so a group takes seconds; every feature is listed under the version the Kanban roadmap
+  puts it in (`release.json` in the feature folder: per platform the version and the roadmap items it covers; written
+  when a feature is added or the roadmap moves it), one the roadmap does not list goes by the version it was tested on,
+  else 「Not tested yet」; a table run on another version than its group says 「on 16.9.0」 under the run date, highlighted
+  when that is the newest version tested; each version's header says how many of its cases have been run on a device, of the
+  cases created, written short (「Cases run 374/997」; a case with a result from any run, MUI left out; cases, never
+  roadmap items), beside the version's GM date from the roadmap (`library/<product>/releases.json`).
+- **Dashboard style: Vercel / Geist (user, 2026-11-27).** The Dashboard follows the Vercel (Geist) layout rules listed
+  at the top of `scripts/boards-page.tpl`: a top bar `Casebook / product / platform` (two menus), underline tabs, one
+  section and card per version with a cases-run gauge, cases and last run on each feature's second line, monospace
+  figures, colour only for failures and open bugs. All of it is the repo's own CSS: nothing (stylesheet, script, font,
+  icon) is loaded from a third party, and the Geist fonts are only named. Other pages keep the shared palette. The list
+  also holds Vercel's interface guidelines (user, 2026-11-27): 4px grid, keyboard tabs, 24px / 44px touch targets,
+  16px fields on a phone, visible labels over hover tips, the view in the address, undo instead of a confirm box.
+- **Settings: this computer and this browser (user, 2026-11-27).** The Settings page keeps this computer's settings
+  (seat size, saved outside the repo) apart from this browser's, which apply at once from any computer: Appearance
+  (System / Light / Dark on every page, `lib/page-shared.ts` sets it before the page draws), Language, the name signed
+  under question answers, and 「Forget remembered views」 (never the language, theme, name or unsaved answers).
+  **Rollback** — when the user asks to roll the Dashboard back: the earlier look is `scripts/boards-page.tpl` at commit
+  `07e93e8` (`git show 07e93e8:scripts/boards-page.tpl`); restore that file, carry over any data columns added since,
+  and remove this entry.
+- **Dashboard versions and results (user, 2026-11-27).** Pass, Fail and Blocked count each case at its newest result
+  from any run (R1 pass, pass, fail; R2 re-runs 2 and 3 as fail, blocked → 1 / 1 / 1), opening Results' 「Latest
+  results」 (`boards.ts latestTally`, `results-page.ts`). Versions follow the roadmap's GM dates: the next version before
+  its GM on top, with its roadmap items that no table covers (`releases.json` › `items`, read from the Kanban sheet),
+  then later ones, then versions past GM, folded to one line; every version folds from its heading (per browser).
+  An empty figure is 「–」 when it never had a value and 0 when it had one and is now none (questions all settled: 0).
 - **No question left open by a completed run (user, 2026-11-25).** At every phase wrap-up each Open question is
   determined (`<platform>/question-status.json`), filed as a PM eBug whose entry names the Q-id (also when no row
   failed on it), or marked not reached with the reason; settled ones leave the Cases page's question list for its

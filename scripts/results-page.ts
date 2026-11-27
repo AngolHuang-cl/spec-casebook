@@ -120,12 +120,32 @@ function buildData(link: (abs: string) => string) {
       n: list.length, tally: Object.fromEntries([...new Set(list.map(c => c.result))].map(r => [r, list.filter(c => c.result === r).length])),
       ids: list.map(c => c.id), cases: list.map(({ t, ...c }) => c) });
   }
-  return { feature, title, platform, built_at: new Date().toISOString(), runs: runs.sort((a, b) => (b.first || b.id).localeCompare(a.first || a.id)) };
+  runs.sort((a, b) => (b.first || b.id).localeCompare(a.first || a.id));
+  return { feature, title, platform, built_at: new Date().toISOString(), runs, latest: latestOf(runs, cases) };
+}
+
+// 「Latest results」 (user, 2026-11-27): each case of the approved table (MUI left out) at its newest result from any run,
+// the view behind the Dashboard's Pass, Fail and Blocked (lib/boards.ts latestTally). A record with no result or 「Not
+// run」 leaves the earlier one standing; each case keeps the run it came from (`from`).
+export const LATEST = 'latest';
+function latestOf(runs: any[], cases: Record<string, string>[]) {
+  const ids = new Set(cases.filter(r => r.ID && r.Section !== 'MUI').map(r => r.ID));
+  const best = new Map<string, any>();
+  for (const r of [...runs].reverse()) for (const c of r.cases) {
+    if (!ids.has(c.id) || !c.result || /^not run/i.test(c.result)) continue;
+    if ((Date.parse(best.get(c.id)?.at) || -1) <= (Date.parse(c.at) || 0)) best.set(c.id, { ...c, from: r.id, fromName: r.phase || r.id.replace(/^\d{4}-\d{2}-\d{2}-/, '').toUpperCase() });
+  }
+  if (!best.size) return null;
+  const list = [...best.values()].sort((a, b) => a.seg.localeCompare(b.seg, 'en', { numeric: true }) || a.id.localeCompare(b.id, 'en', { numeric: true }));
+  const times = list.map(c => Date.parse(c.at)).filter(Boolean);
+  return { id: LATEST, all: true, phase: '', build: '', report: false, first: times.length ? new Date(Math.min(...times)).toISOString() : '', last: times.length ? new Date(Math.max(...times)).toISOString() : '',
+    n: list.length, runs: new Set(list.map(c => c.from)).size, tally: Object.fromEntries([...new Set(list.map(c => c.result))].map(x => [x, list.filter(c => c.result === x).length])),
+    ids: list.map(c => c.id), cases: list };
 }
 
 // served, the page carries the newest run's cases and fetches another run's when it is opened (run.json): all of them
 // together were 2 MB, for one shown
-const newestOnly = (d: ReturnType<typeof buildData>) => ({ ...d, runs: d.runs.map((r, i) => i ? { ...r, cases: null } : r) });
+const newestOnly = (d: ReturnType<typeof buildData>) => ({ ...d, runs: d.runs.map((r, i) => i ? { ...r, cases: null } : r), latest: d.latest && { ...d.latest, cases: null } });
 const page = (data: unknown) => withShared(readFileSync(join(import.meta.dirname, 'results-page.tpl'), 'utf8'))
   .replaceAll('__TITLE__', `${title} Results`).replace('__DATA__', () => JSON.stringify(data).replace(/</g, '\\u003c'));
 
@@ -155,7 +175,7 @@ if (serve) {
         res.end(JSON.stringify(newestOnly(dataFor(req)))); return;
       }
       if (url.startsWith('/run.json')) {
-        const id = new URL(url, 'http://x').searchParams.get('id'), r = dataFor(req).runs.find(x => x.id === id);
+        const id = new URL(url, 'http://x').searchParams.get('id'), d = dataFor(req), r = id === LATEST ? d.latest : d.runs.find(x => x.id === id);
         res.writeHead(r ? 200 : 404, { 'content-type': 'application/json', 'cache-control': 'no-store' }); res.end(JSON.stringify(r?.cases ?? [])); return;
       }
       // screenshots: images under this table's runs folder only

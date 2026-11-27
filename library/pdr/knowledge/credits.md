@@ -39,7 +39,7 @@ relaunch before reading prices or the pill.
 
 ## KP-070 Credit Details drops the current month after local midnight
 - kind: quirk · platform: android · use: run, ebug · tags: credits, ledger, date
-- source: Video Enhance Android run 2026-11-18-r2-full O-25, O-31; Video Enhance Android run 2026-11-24-r3-full O-17 · verified: 16.9.0 build 2611231 (2026-11-25)
+- source: Video Enhance Android run 2026-11-18-r2-full O-25, O-31; Video Enhance Android run 2026-11-24-r3-full O-17; Video Enhance Android run 2026-11-26-r4-full O-25 · verified: 16.9.0 build 2611251 (2026-11-27)
 
 Between local midnight (UTC+8) and the server's UTC date change, Mine › Credits › Details opened on the previous
 month's group with no current-month group, also after a relaunch, while logcat `getCreditHistory` listed the new
@@ -48,13 +48,15 @@ before filing.
 
 ## KP-071 Buying credits is followed by an offer and a backup dialog
 - kind: fact · platform: android · use: analysis, run · tags: credits, buy-more, dialog
-- source: Video Enhance Android run 2026-11-18-r2-full O-12; Video Enhance Android run 2026-11-24-r3-full O-5 · verified: 16.9.0 build 2611231 (2026-11-24)
+- source: Video Enhance Android run 2026-11-18-r2-full O-12; Video Enhance Android run 2026-11-24-r3-full O-5; Video Enhance Android run 2026-11-26-r4-full O-12 · verified: 16.9.0 build 2611251 (2026-11-26)
 
 After a 500-credit test purchase the app offers another pack, which varies between purchases (「Want to get 50
-Credits, too?」 「NT$170.00」 on 2611091, 「Want to get 1000 Credits, too?」 「NT$2,010.00」 on 2611231), with 「Not now」;
+Credits, too?」 「NT$170.00」 on 2611091 and 2611251, 「Want to get 1000 Credits, too?」 「NT$2,010.00」 on 2611231), with
+「Not now」;
 「Not now」 then opens 「Check Backup Protection」 over My Credits (「Back up now」, 「Later」, 「Don't show again」
-unticked). On 2611231 the pack page itself opens on a pre-selected 「Annual Auto Pass Discount」 card (「Continue with the
-best deal」): tap the wanted pack tile first. None of this is in a feature spec; close both dialogs before the next step.
+unticked). The pack page opens on a pre-selected server-set promotion: 「Annual Auto Pass Discount」 1000 +1000 NT$2490
+(「Continue with the best deal」) on 2611231, a 「BLACK FRIDAY SALE」 header with a countdown and 「Special Offer」 1000 +1000
+NT$2740 (「Get 2000 Credits for NT$2740」) on 2611251: tap the wanted pack tile first. None of this is in a feature spec; close both dialogs before the next step.
 
 ## KP-091 Credit prices seen on Android (Free, Stage)
 - kind: fact · platform: android · use: analysis, run · tags: credits, price

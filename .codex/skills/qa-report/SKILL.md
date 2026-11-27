@@ -138,7 +138,8 @@ holds now. First bring the repo up to date: the Figma change check of `spec-case
 Figma file, `figma-check.ts`; 2026-11-05: no run between 10/29 and 11/05 did it, and PM had redrawn 18 boards and
 added 5). A changed board that touches a bug's flow is read before its verdict; the full analysis pass can follow
 later. Beyond that, no Figma or PDF call is needed when the repo already has it:
-- the eBug page's newest comments and Resolve note (RD often cites a spec change there);
+- the eBug page's newest comments (`ecl_query.py comments <code>`, IF3 bugs) and Resolve note (RD often cites a
+  spec change there);
 - the table row the bug came from (`cases.csv`, its Notes) and its R- rules in `requirements.md`: `Changed` notes
   and Open questions;
 - the newest spec set's `extracted/` (`board-notes.md`, Figma frames dated after the filing, `figma/` board images).

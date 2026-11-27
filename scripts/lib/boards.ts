@@ -72,12 +72,14 @@ export function waiting(feature: string, platform: string, draft?: string) {
   const dir = draft ? join(draftsDir(feature, platform), draft) : tableDir(feature, platform);
   const questions = byFile(join(dir, 'requirements.md'), () => parseQuestions(readFileSync(join(dir, 'requirements.md'), 'utf8')).map(q => q.id)) ?? [];
   const answers = readAnswers(feature);
-  const notes = byFile(join(tableDir(feature, platform), 'new-case-notes.json'), () => (json(join(tableDir(feature, platform), 'new-case-notes.json'))?.notes ?? []).filter((n: any) => n.status === 'open').length) ?? 0;
+  const allNotes: any[] = byFile(join(tableDir(feature, platform), 'new-case-notes.json'), () => json(join(tableDir(feature, platform), 'new-case-notes.json'))?.notes ?? []) ?? [];
+  const notes = allNotes.filter(n => n.status === 'open').length;
   // a question nobody answered and no filed eBug carries is still to be determined; one an eBug carries is filed
   // … and one a completed run determined (question-status.json) is settled too
   const filed = filedQuestions(feature, platform), settled = draft ? {} : readSettled(tableDir(feature, platform));
   const unanswered = questions.filter(id => !answers[id] && settled[id]?.state !== 'determined'), isFiled = (id: string) => !!filed[id] || settled[id]?.state === 'filed';
-  return { questions: unanswered.filter(id => !isFiled(id)).length, filed: unanswered.filter(isFiled).length, answers: questions.filter(id => answers[id]?.status === 'open').length, notes };
+  // asked: every question and new-case note the table ever had, so the Dashboard tells 「none left」 (0) from 「never any」 (–)
+  return { questions: unanswered.filter(id => !isFiled(id)).length, filed: unanswered.filter(isFiled).length, answers: questions.filter(id => answers[id]?.status === 'open').length, notes, asked: questions.length + allNotes.length };
 }
 
 // The app version a table was last tested on (user, 2026-11-25: the dashboard groups features by version, 16.9.0, not by
@@ -97,13 +99,19 @@ export function testedVersion(feature: string, platform: string): string {
   return found.sort((a, b) => verKey(a).localeCompare(verKey(b))).at(-1) ?? '';
 }
 
-/** The app version the Kanban roadmap plans the feature for on this platform (`release.json` in the feature folder; user,
- *  2026-11-26): where the Dashboard lists a table that has not been tested yet. */
-export function plannedVersion(feature: string, platform: string): string {
+/** Where the Kanban roadmap puts the feature on this platform (`release.json` in the feature folder; user, 2026-11-26):
+ *  the app version the Dashboard lists it under, and the roadmap items it covers. */
+export function planned(feature: string, platform: string): { version: string; items: string[] } | null {
   const file = join(LIBRARY, feature, 'release.json');
-  const v = (byFile(file, () => JSON.parse(readFileSync(file, 'utf8')), 'release:') as Record<string, unknown> | undefined)?.[platform];
-  const m = typeof v === 'string' ? v.match(/^v?(\d+)\.(\d+)(?:\.(\d+))?$/) : null;
-  return m ? `${m[1]}.${m[2]}.${m[3] ?? '0'}` : '';
+  const v = (byFile(file, () => JSON.parse(readFileSync(file, 'utf8')), 'release:') as Record<string, any> | undefined)?.[platform];
+  const m = String(typeof v === 'string' ? v : v?.version ?? '').match(/^v?(\d+)\.(\d+)(?:\.(\d+))?$/);
+  return m ? { version: `${m[1]}.${m[2]}.${m[3] ?? '0'}`, items: Array.isArray(v?.items) ? v.items.map(String) : [] } : null;
+}
+/** The GM date of each app version of a product, per platform (`library/<product>/releases.json`, from the Kanban
+ *  roadmap; user, 2026-11-26). */
+export function releases(product: string): { platform: string; version: string; gm: string }[] {
+  const file = join(LIBRARY, product, 'releases.json');
+  return (byFile(file, () => JSON.parse(readFileSync(file, 'utf8')).releases, 'releases:') as any[] | undefined) ?? [];
 }
 
 /** The table's latest full run with a build: its date and the build ("16.9.0 (2611231)"), a detail under the version. */
@@ -125,6 +133,21 @@ export function lastTested(feature: string, platform: string): { date: string; b
 export function caseCounts(feature: string, platform: string): { cases: number; mui: number } | null {
   const csv = join(tableDir(feature, platform), 'cases.csv');
   return byFile(csv, () => { const rows = readRecords(readFileSync(csv, 'utf8')).filter(r => r.ID), mui = rows.filter(r => r.Section === 'MUI').length; return { cases: rows.length - mui, mui }; });
+}
+
+/** How many of the approved table's cases (MUI left out) have a Pass, Fail or Blocked result from any run on a device
+ *  (user, 2026-11-26: a version's header says how many of the cases created have been run). A case that only an older
+ *  run reached still counts; one removed from the table since does not. */
+export function ranCases(feature: string, platform: string): number {
+  const csv = join(tableDir(feature, platform), 'cases.csv'), dir = join(tableDir(feature, platform), 'runs');
+  const ids = byFile(csv, () => readRecords(readFileSync(csv, 'utf8')).filter(r => r.ID && r.Section !== 'MUI').map(r => r.ID), 'ids:') ?? [];
+  const ran = new Set<string>();
+  for (const n of names(dir)) {
+    if (n.startsWith('_')) continue;
+    const c = join(dir, n, 'results.csv');
+    for (const id of byFile(c, () => [...new Set(readRecords(readFileSync(c, 'utf8')).filter(r => r.ID && r.Section !== 'MUI' && /^(pass|fail|block)/i.test(r.Result ?? '')).map(r => r.ID))], 'ran:') ?? []) ran.add(id);
+  }
+  return ids.filter(id => ran.has(id)).length;
 }
 
 /** The eBugs filed from a table's runs (its batches' filed_bugcodes.json), in three kinds that never overlap: `mui`
@@ -212,18 +235,38 @@ export function designStatus(feature: string, platform: string) {
   return { screens: seen.size, differs: n('differs'), question: n('question'), unreviewed: n('unreviewed') };
 }
 
+/** Each case of the approved table (MUI left out) at its newest result from any run (user, 2026-11-27): R1 passed 1, 2
+ *  and failed 3, R2 re-ran 2 (Fail) and 3 (Blocked) → 1 Pass, 1 Fail, 1 Blocked. A record with no result or 「Not run」
+ *  leaves the earlier one standing; a case removed from the table since is left out. Ties go to the later run folder.
+ *  Results opens the same view as its 「Latest results」 run (results-page.ts). */
+export function latestTally(feature: string, platform: string): { pass: number; fail: number; blocked: number; other: number } | null {
+  const csv = join(tableDir(feature, platform), 'cases.csv'), dir = join(tableDir(feature, platform), 'runs');
+  const ids = new Set(byFile(csv, () => readRecords(readFileSync(csv, 'utf8')).filter(r => r.ID && r.Section !== 'MUI').map(r => r.ID), 'ids:') ?? []);
+  const best = new Map<string, { at: number; result: string }>();
+  for (const n of names(dir).sort()) {
+    if (n.startsWith('_')) continue;
+    const c = join(dir, n, 'results.csv');
+    const recs = byFile(c, () => readRecords(readFileSync(c, 'utf8')).filter(r => r.ID && r.Section !== 'MUI' && r.Result && !/^not run/i.test(r.Result)).map(r => ({ id: r.ID, at: Date.parse(r['Recorded At']) || 0, result: r.Result })), 'latest:') ?? [];
+    for (const r of recs) if (ids.has(r.id) && (best.get(r.id)?.at ?? -1) <= r.at) best.set(r.id, { at: r.at, result: r.result });
+  }
+  if (!best.size) return null;
+  const n = (re: RegExp) => [...best.values()].filter(x => re.test(x.result)).length;
+  const pass = n(/^pass/i), fail = n(/^fail/i), blocked = n(/^block/i);
+  return { pass, fail, blocked, other: best.size - pass - fail - blocked };
+}
+
 export function listBoards() {
-  const products = new Map<string, { id: string; name: string; features: unknown[] }>();
+  const products = new Map<string, { id: string; name: string; releases: unknown[]; features: unknown[] }>();
   for (const id of listFeatures()) {
     const product = id.split('/')[0];
-    if (!products.has(product)) products.set(product, { id: product, name: json(join(LIBRARY, product, 'product.json'))?.name ?? NAMES[product] ?? product, features: [] });
+    if (!products.has(product)) products.set(product, { id: product, name: json(join(LIBRARY, product, 'product.json'))?.name ?? NAMES[product] ?? product, releases: releases(product), features: [] });
     let title = '';
     // a table being saved right now (a half-written file) sits out this view; the rest of the list still shows
     const platforms = PLATFORMS.filter(p => existsSync(tableDir(id, p))).flatMap(platform => { try {
       const m = readManifest(id, platform), drafts = openDrafts(id, platform), plan = newestPlan(id, platform);
       title ||= m?.title ?? json(join(draftsDir(id, platform), drafts.at(-1) ?? '', 'spec.json'))?.title ?? '';
-      const n = m ? caseCounts(id, platform) : null;
-      return [{ platform, version: m?.version ?? null, cases: n?.cases ?? m?.cases ?? null, mui_cases: n?.mui ?? 0, approved_at: m?.approved_at ?? null, drafts, plan: !!(plan.md && plan.draft), runs: runCount(id, platform), last: lastRun(id, platform), waiting: waiting(id, platform, m ? undefined : drafts.at(-1)), app: testedVersion(id, platform) || plannedVersion(id, platform), tested: lastTested(id, platform), at: readRegression(id)[platform] ?? null,
+      const n = m ? caseCounts(id, platform) : null, plannedFor = planned(id, platform), ran = testedVersion(id, platform);
+      return [{ platform, version: m?.version ?? null, cases: n?.cases ?? m?.cases ?? null, mui_cases: n?.mui ?? 0, ran_cases: m ? ranCases(id, platform) : 0, approved_at: m?.approved_at ?? null, drafts, plan: !!(plan.md && plan.draft), runs: runCount(id, platform), last: lastRun(id, platform), latest: m ? latestTally(id, platform) : null, waiting: waiting(id, platform, m ? undefined : drafts.at(-1)), app: plannedFor?.version || ran, ran, items: plannedFor?.items ?? [], tested: lastTested(id, platform), at: readRegression(id)[platform] ?? null,
         bugs: bugCounts(id, platform), mui: m ? muiStatus(id, platform) : null, design: designStatus(id, platform) }];
     } catch { return []; } }).filter(p => p.version || p.drafts.length);
     if (platforms.length) products.get(product)!.features.push({ id, title: title || id.split('/')[1], platforms });
