@@ -39,6 +39,11 @@ lines; put the full rule in the skill or reference file that applies it and poin
 - **Filing account.** Review pages prefill Creator, TRCode, source tag and method from the newest filed batch
   (`node scripts/ebug-defaults.ts`); "Same build" / "Same TR" means that batch's TR once its header names the tested
   build (overlay rule 4).
+- **eBugs go on the TR's own template (user, 2026-11-27).** An API filing uses the eBug template whose name and
+  product match the TR's (`ecl_query.py tr <TR>`, e.g. 「Generic v16.9」), never 「AIFound eBugs pool」 by default;
+  `ecl_if3.py create` refuses any other template or a TR for another build, and `--other-template "<reason>"` is
+  only for a pool the user named (Video Enhance R4: P0335 – P0337 cancelled, refiled as P0338 – P0340;
+  `ebug-tr-filer/references/api-filing.md`).
 - **No comments on existing eBugs (2026-10-21, until lifted).** Never comment on, reopen or reject the fix of an
   existing ticket; rechecks and fixed tickets are listed for information only (overlay).
 - **Dedupe per OS (user, 2026-10-28).** A ticket on the other OS never makes a finding a duplicate; a same-OS match is

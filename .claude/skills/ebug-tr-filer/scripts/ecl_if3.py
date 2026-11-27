@@ -342,6 +342,38 @@ def cmd_create(a):
             "by the server — it opens a broken ticket. Run `preflight` first.")
     t = tpl[0]
 
+    # The eBug template must be the TR's own (2026-11-27): Video Enhance R4 was filed into
+    # 「AIFound eBugs pool」 (23321) while the TR and every other bug on it used 「Generic v16.9」
+    # (23176), and had to be cancelled and refiled. A TR's own record names its template
+    # (TemplateName; its TemplateID is the TR template's, not the eBug one's), and its build.
+    trs = query("TR.SP.GetOldTRData", [{"field": "TRCode", "term": {"query": a.tr}}], page_size=1)
+    if not trs:
+        raise ECLError(f"TR {a.tr} not found — nothing was sent.")
+    tr = trs[0]
+    tr_tpl, tr_prod = tr.get("TemplateName"), tr.get("ProductID")
+    if (t["TemplateName"] != tr_tpl or (tr_prod and t["ProductID"] != tr_prod)) and not a.other_template:
+        want = query("TSR.ProjectTemplate",
+                     [{"field": "TemplateType", "term": {"query": "Ebug"}},
+                      {"field": "IsIF3Project", "term": {"query": "true"}},
+                      {"field": "TemplateName", "match": {"query": tr_tpl or ""}}],
+                     page_size=20)
+        ids = [str(w["TemplateID"]) for w in want
+               if w.get("TemplateName") == tr_tpl and (not tr_prod or w.get("ProductID") == tr_prod)]
+        raise ECLError(
+            f"TemplateID {a.template_id} is 「{t['TemplateName']}」 but {a.tr} is on 「{tr_tpl}」 "
+            f"(product {tr.get('ProductName')}). File on the TR's own template"
+            + (f": --template-id {' or '.join(ids)}" if ids else "")
+            + ". Nothing was sent. Only when the user named another pool for this batch, pass "
+            "--other-template \"<the user's reason>\".")
+    if a.other_template:
+        print(f"  Template 「{t['TemplateName']}」 differs from the TR's 「{tr_tpl}」 — "
+              f"--other-template: {a.other_template}")
+    else:
+        print(f"  Template 「{t['TemplateName']}」 ({t['TemplateID']}) = the TR's template")
+    tr_build = str(tr.get("TRBuild") or "")
+    if f"{a.version}.{a.build}" not in tr_build:
+        raise ECLError(f"{a.tr} is for 「{tr_build}」, not {a.version}.{a.build}. Nothing was sent.")
+
     # The format check is a GATE, not a separate step someone can forget. Filing is
     # irreversible and emails three people per ticket; a malformed Short Description
     # then has to be corrected one bug at a time through the web edit form.
@@ -422,6 +454,13 @@ def cmd_create(a):
             continue
 
         dupes = _find_duplicate(short)
+        # A cancelled ticket is not a duplicate: it is how a mis-filed bug is withdrawn before
+        # refiling (2026-11-27, Video Enhance R4: P0335 – P0337 cancelled, then refiled).
+        cancelled = [d for d in dupes if str(d.get("Status", "")).lower() == "cancelled"]
+        dupes = [d for d in dupes if d not in cancelled]
+        if cancelled:
+            print(f"[{key}] same Short Description as cancelled "
+                  f"{', '.join(d['BugCode'] for d in cancelled)} — not a duplicate")
         if dupes and not a.allow_duplicate:
             print(f"[{key}] SKIPPED — identical Short Description already filed as "
                   f"{', '.join(d['BugCode'] for d in dupes)}")
@@ -861,6 +900,9 @@ def main():
                    "language tags ([DEU] [NLD]…) are accepted")
     s.add_argument("--skip-format-check", action="store_true",
                    help="bypass check_ebug_format.py (every batch that did shipped malformed)")
+    s.add_argument("--other-template", default="",
+                   help="file on a template other than the TR's own; only when the user named "
+                        "that pool for the batch — the value is their reason, printed and kept")
     s.set_defaults(fn=cmd_create)
 
     s = sub.add_parser("assign")
