@@ -106,9 +106,10 @@ visible effect.
 
 ## KP-074 The Pro paywall opens by itself on a Free account
 - kind: quirk · platform: android · use: run · tags: paywall, tier, export
-- source: AIGC Watermark Android run 2026-11-17-r1-full O-2, O-21, O-23; AIGC Watermark Android run 2026-11-23-r3-full O-7, O-8 · verified: 16.9.0 build 2611231 (2026-11-25)
+- source: AIGC Watermark Android run 2026-11-17-r1-full O-2, O-21, O-23; AIGC Watermark Android run 2026-11-23-r3-full O-7, O-8; corrected by AIGC Watermark Android run 2026-11-26-r4-changed O-4 · verified: 16.9.0 build 2611201 (2026-11-26)
 
-On a Free account the 「PowerDirector Pro」 paywall can open at a launch, and opens after every 「Produce」 (over
-「Saved to Gallery」). Close it with `[AID]IAP_Back`; the file is saved regardless. On 2611193 an export 「AIGC
+On a Free account the 「PowerDirector Pro」 paywall can open at a launch, and opens at 「Produce」 (2611201: right away,
+before 「Saved to Gallery」). Some exports show a 「Your video is awesome!」 rating dialog (「Not now」 / 「Rate now」) instead.
+Close the paywall with `[AID]IAP_Back`, the dialog with 「Not now」; the file is saved regardless. On 2611193 an export 「AIGC
 Watermark」 dialog comes before it, at the editor's 「Export」 (KF-005).
 

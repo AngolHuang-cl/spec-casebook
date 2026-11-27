@@ -6,7 +6,7 @@
     "codes": [
       "DRA262611P0289"
     ],
-    "note": "Filed as ISS-CRA-01 (Add Media has no 「?」); RDResolved on 2026-11-26's pool read. TC-016, TC-021 wait for it."
+    "note": "Filed as ISS-CRA-01 (Add Media has no 「?」); RDResolved on 2026-11-26's pool read. TC-016, TC-021 wait for it. E1 (2611251, Sony): Add Media opened from the template card now shows 「?」 (btn_cine_story_photo_tips) and it opens the template's photo tips sheet (TC-086, TC-090, TC-094, TC-098): ready for verification."
   },
   "Q-2": {
     "state": "filed",
@@ -39,5 +39,37 @@
     "by": "R1 (2026-11-24-r1-full, 16.9.0.2611201)",
     "at": "2026-11-25",
     "note": "The Avoid row scrolls sideways: a swipe left brings 「Extreme Close-up」 fully into view and a swipe right puts 「Flat Composition」 back at the left edge, while the Recommendation items do not move (TC-008 Pass). Every template on the build has exactly two Recommendation items (TC-001 – TC-006), so a longer Recommendation row could not be seen. The assumption holds."
+  },
+  "Q-8": {
+    "state": "filed",
+    "by": "E1 (2026-11-26-e1-entries, 16.9.0.2611251)",
+    "at": "2026-11-26",
+    "drafted": "ISS-CRA-05 (ebugs/2026-11-26-e1, [AIAgent][UX], BugBelong PM; not filed: same-OS duplicate of AIGC Watermark ISS-AWA-20, filed as DRA262611P0341 on TR261125-0064, 2026-11-27)",
+    "codes": [
+      "DRA262611P0341"
+    ],
+    "note": "In the build, not where the toolbar sheet puts it: with a main-track photo selected, Photo Toolbar › Effects has no Cinematic Reel Creator; it is a first-layer button after Split (TC-092; added for DRA262608-0041, closed). The rest is determined: it opens the Launcher's template page, brings nothing in, Add Media opens as from the Launcher (TC-094), the reel lands only in the task list and My Artwork, the main-track photo kept, and ‹ / system Back return to the editor with the photo still selected (TC-095). The place is filed to PM. TC-092 – TC-095 name 「Effects」 in their steps: reword to the first-layer button at the next draft unless PM moves it.",
+    "cancelled": "DRA262611P0341 cancelled on eCL (user, 2026-11-27): its 「no AI Remove」 part was wrong, AI Remove is iOS only (REQ-020). No live ticket for this question."
+  },
+  "Q-9": {
+    "state": "filed",
+    "by": "E1 (2026-11-26-e1-entries, 16.9.0.2611251)",
+    "at": "2026-11-26",
+    "drafted": "ISS-CRA-05 (ebugs/2026-11-26-e1, merged with Q-8; not filed: same-OS duplicate of AIGC Watermark ISS-AWA-20, filed as DRA262611P0341 on TR261125-0064, 2026-11-27)",
+    "codes": [
+      "DRA262611P0341"
+    ],
+    "note": "Same as Q-8 on the PIP Photo Toolbar: Effects has no Cinematic Reel Creator; it is a first-layer button after Split (TC-096). Determined: same template page, the overlay photo not brought in (TC-098), the reel not added to the project, ‹ / system Back to the editor with the overlay photo still selected on its track (TC-099). The place is filed to PM with Q-8.",
+    "cancelled": "DRA262611P0341 cancelled on eCL (user, 2026-11-27): its 「no AI Remove」 part was wrong, AI Remove is iOS only (REQ-020). No live ticket for this question."
+  },
+  "Q-10": {
+    "state": "filed",
+    "by": "E1 (2026-11-26-e1-entries, 16.9.0.2611251)",
+    "at": "2026-11-26",
+    "drafted": "ISS-CRA-06 (ebugs/2026-11-26-e1, [AIAgent][UX], BugBelong PM; filed DRA262611P0359 on TR261125-0064, 2026-11-27)",
+    "codes": [
+      "DRA262611P0359"
+    ],
+    "note": "From every entry: system Back during the upload spinner (TC-082) or on Analyzing & Generating (TC-087, TC-091, TC-095, TC-099) returns to the preview with the photo kept and 「Generate ◆ 48」 active, no dialog; the task runs on and is charged once. System Back on the result page goes to the task list (TC-083 and the entry rows). Filed to PM for the intended behaviour."
   }
 }

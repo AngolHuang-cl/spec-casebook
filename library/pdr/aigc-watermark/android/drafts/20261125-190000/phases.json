@@ -1020,6 +1020,36 @@
       ]
     },
     {
+      "id": "R4",
+      "name": "Round 4: v5 rows for Q-13 and Q-19 (REQ-014), with the exports TC-157 reads",
+      "round": true,
+      "origin": {
+        "TC-065": "R3",
+        "TC-066": "R3",
+        "TC-071": "R3",
+        "TC-083": "R3",
+        "TC-128": "R3",
+        "TC-157": "R4",
+        "TC-158": "R4"
+      },
+      "note": "REQ-017 (user, 2026-11-26). TC-065/066/071 are re-run only to produce the files TC-157 reads (R3 files are not on this computer). TC-083 and TC-158 use an Image to Video result never saved with the switch Off. TC-128 last (one-way); Blocked while the music dialog does not open (DRA262611P0229). Every file to files/ at full resolution; ffmpeg frames 0.0/1.9/2.1 s; c2patool.",
+      "segments": [
+        {
+          "id": "R4-a",
+          "name": "Editor exports, C2PA read, Image to Video export On/Off, music tick",
+          "cases": [
+            "TC-065",
+            "TC-066",
+            "TC-071",
+            "TC-157",
+            "TC-083",
+            "TC-158",
+            "TC-128"
+          ]
+        }
+      ]
+    },
+    {
       "id": "MUI",
       "name": "MUI: 26 languages (translations from the APK, truncation on the phone)",
       "note": "REQ-011 (user, 2026-11-24). Run on request, never in a full run. One segment per language; every segment ends with a plain launch (locale reset). Needs both 「Don’t show again」 unticked (before TC-128 / TC-129, or after TC-008). Doubtful translations go to mui-doubts.md (references/mui.md §3).",

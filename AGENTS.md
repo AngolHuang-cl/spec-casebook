@@ -54,7 +54,11 @@ lines; put the full rule in the skill or reference file that applies it and poin
   (`--allow-agent-ux` / `ALLOW_AGENT_UX=1`).
 - **Text bugs go to RD or PM (user, 2026-11-11).** Text that differs from the spec is RD when the spec states it and
   the app shows something else (fix the app's text), PM when the spec's own text must change (wrong, unclear, two
-  sheets disagree, or none states it); never Doc (`ebug-draft-generator` › Owner, overlay rule 5).
+  sheets disagree, or none states it); translations: next rule (`ebug-draft-generator` › Owner, overlay rule 5).
+- **Translation problems go to PC-Doc (user, 2026-11-26).** Anything whose fix is the wording of a translated string
+  (wrong, missing, left in English, half-translated screen, capitalisation or punctuation of a translation, a filed
+  translation doubt) is BugBelong PC-Doc, never PM; RD keeps truncation, mid-word breaks and layout. The English
+  source text keeps the rule above (`ebug-draft-generator` › Owner, overlay rules 5 and 8, `mui.md` §4).
 - **Visible defects and open questions are filed (user, 2026-11-11).** A plainly wrong screen is filed even when its
   exact expected wording is only a PM proposal or open question; a question the run cannot settle (an undecided
   string, a proposal the app differs from) is filed to PM (BugBelong PM) for a decision, not held; one already
@@ -111,6 +115,10 @@ lines; put the full rule in the skill or reference file that applies it and poin
   each entry. Editor-toolbar entries come from the newest dated tab of the toolbar sheet
   (`node scripts/entry-points.ts pdr fetch`, KP-107). Other entries come from the spec, Figma and knowledge
   (`analysis.md` pass 12).
+- **Toolbar sheet per platform (user, 2026-11-27).** The toolbar sheet marks iOS-only and Android-only places and
+  behaviours (「4/E IOS」, 「(iOS)」, 「Android沒有」, 「only Android」); a table reads it for its own platform only
+  (`entry-points.ts … --platform`) and never checks, questions or files the other platform's items (KP-107,
+  `analysis.md` pass 12; DRA262611P0341 reported the iOS-only 「AI Remove」 missing on Android).
 - **Figma access (user, 2026-10-28/29).** Design only through the `figma-design` MCP server (qa-dm@cyberlink.com), PM
   and MX only through `figma-pm` (qa1@cyberlink.com); never swap accounts by hand or use a claude.ai Figma connector (`.claude/settings.json` blocks it for terminal and IDE
   sessions; desktop app users disconnect it at claude.ai › Settings › Connectors);

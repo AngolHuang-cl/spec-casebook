@@ -83,3 +83,11 @@ Mine › User Sign in › Google opens Chrome (not the Android account chooser):
 (「Continue as <name>」 / 「Skip」). 「Continue as …」 signs Chrome into the phone's account and goes on without a
 password (Stage lands on mauth-stage.cyberlink.com 「You Are All Set!」); 「Skip」 leads to an empty Google 「Email or
 phone」 page, which needs the user. Any other account needs its password typed by the user.
+
+## KP-127 Two My Artwork pages on Android
+- kind: fact · platform: android · use: analysis, run, ebug · tags: my-artwork, navigation, layout
+- source: Recent Task Model Info Android run 2026-11-26-r1-full O-9 (inbox I-026); AIGC Watermark Android run 2026-11-26-e1-entries O-17 · verified: 16.9.0 build 2611251 (2026-11-27)
+
+☰ › My Artwork switches to the AI Magic tab's My Artwork (46 px side gutter), like iOS (KP-032). Pro / Mine › 「My
+Artwork」 opens a separate page whose titles and tiles start at x = 0 with no side margin and its ‹ / title row at
+y = 0. Not in a spec; compare with the Design's My Artwork board before filing.

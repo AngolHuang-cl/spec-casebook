@@ -206,6 +206,11 @@ Enhance's Q-14 said 「No row asserts it」 and stayed open through three runs f
      (`knowledge.ts … --grep entry`) or a build shows: Launcher big and small shortcuts, the AI Magic tab, Mine ›
      demos, banners, notifications and push, deep links, another tool's 「You might also like」, the tool's own task
      list or history. The sheet's brackets limit an entry to a platform or release (「Android沒有」, 「4/E IOS」).
+     **Read the sheet for the table's own platform (user, 2026-11-27):** run the lookup with `--platform ios|android`.
+     A place marked for the other platform only (「(4/E IOS)」, 「(iOS)」, 「Android沒有」, 「only Android」) gets no row,
+     no Open question and no eBug on this platform, and a note split 「(iOS) … (Android) …」 counts only its own
+     platform's part: some behaviours are iOS- or Android-specific. Shown 2026-11-27: the Android AIGC Watermark
+     table wrote 12 rows for 「AI Remove (4/E IOS)」 (TC-214 – 225), and DRA262611P0341 reported it missing on Android.
      The same tool under two selection toolbars counts as two entries: Video and PIP Video act on the main track and an
      overlay, and Photo and PIP Photo do the same.
    - **`### Entry points` in `requirements.md`.** Write one line per entry: its path

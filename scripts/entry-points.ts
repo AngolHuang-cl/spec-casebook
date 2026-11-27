@@ -12,6 +12,10 @@
 //        extracted/toolbar.md committed). Unchanged since the last fetch: only source.json's `checked` moves.
 //   node scripts/entry-points.ts <product> "<tool>"   every place the tool appears in the newest extracted copy
 //        (case-, space- and bracket-insensitive substring), e.g. "Video Enhance", "Cinematic Reel"
+//   node scripts/entry-points.ts <product> "<tool>" --platform ios|android
+//        the same for one platform: places the sheet limits to the other platform (「4/E IOS」, 「Android沒有」,
+//        「only Android」) are listed apart as not on this platform, and a note's other-platform part is dropped
+//        (user, 2026-11-27: the Android table read 「AI Remove (4/E IOS)」 as an Android entry, DRA262611P0341)
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -219,12 +223,75 @@ if (verb === 'fetch') {
   const multi = (md.split('## Where each tool appears')[1] ?? '').split('\n').filter(l => /^- \*\*.*\*\* \(([2-9]|\d{2,})\)/.test(l)).length;
   console.log(`Tab 「${tab.name}」: ${secs.length} toolbars, ${multi} tools in more than one place → ${join(dir, 'extracted', 'toolbar.md')}${prev ? ` (previous: ${prev})` : ''}`);
 } else {
+  // A tool lookup, optionally for one platform: `node scripts/entry-points.ts pdr "<tool>" [--platform ios|android]`.
+  const platArg = process.argv.indexOf('--platform');
+  const want = platArg > 0 ? (process.argv[platArg + 1] ?? '').toLowerCase() : '';
+  if (want && want !== 'ios' && want !== 'android') { console.error('--platform takes ios or android'); process.exit(2); }
   const prev = newestFolder();
   if (!prev) { console.error(`No ${SLUG} source yet: run node scripts/entry-points.ts ${product} fetch`); process.exit(1); }
   const md = readFileSync(join(sourcesDir, prev, 'extracted', 'toolbar.md'), 'utf8');
   const q = norm(verb);
   const hits = (md.split('## Where each tool appears')[1] ?? '').split('\n').filter(l => l.startsWith('- **') && norm(l.match(/^- \*\*(.*?)\*\*/)![1]).includes(q));
   const src = JSON.parse(readFileSync(join(sourcesDir, prev, 'source.json'), 'utf8'));
-  console.log(`Toolbar sheet tab 「${src.tab}」 (fetched ${src.received}, checked ${src.checked}):`);
-  console.log(hits.length ? hits.join('\n') : `「${verb}」 is not in the toolbar sheet: its entry points come from the spec, Figma and knowledge only.`);
+  console.log(`Toolbar sheet tab 「${src.tab}」 (fetched ${src.received}, checked ${src.checked})${want ? `, for ${want === 'ios' ? 'iOS' : 'Android'}` : ''}:`);
+  if (!hits.length) {
+    console.log(`「${verb}」 is not in the toolbar sheet: its entry points come from the spec, Figma and knowledge only.`);
+    process.exit(0);
+  }
+  const notes = toolbarNotes(md);
+  for (const h of hits) {
+    const name = h.match(/^- \*\*(.*?)\*\*/)![1];
+    const places = h.replace(/^- \*\*.*?\*\* \(\d+\): /, '').split(' · ');
+    console.log(`- **${name}**`);
+    const off: string[] = [];
+    for (const place of places) {
+      const p = platformOf(place);
+      const tag = p.only ? ` [${p.only === 'ios' ? 'iOS only' : 'Android only'}]` : '';
+      if (want && p.only && p.only !== want) { off.push(place + tag); continue; }
+      console.log(`  - ${place}${tag}${p.release ? ` [release: ${p.release}]` : ''}`);
+      const [toolbar, column] = place.split(' › ');
+      for (const n of notes.get(toolbar) ?? []) {
+        if (norm(n.split(':')[0]) !== norm(column)) continue;
+        const pn = platformNote(n, want);
+        if (pn) console.log(`    note: ${pn}`);
+      }
+    }
+    if (off.length) console.log(`  not on ${want === 'ios' ? 'iOS' : 'Android'} (the sheet limits these to the other platform; write no ${want === 'ios' ? 'iOS' : 'Android'} row for them):\n${off.map(o => `    - ${o}`).join('\n')}`);
+  }
+}
+
+/** Which platform a sheet text limits itself to (user, 2026-11-27): 「Android沒有」/「(4/E IOS)」 → iOS only; 「(only
+ *  Android)」/「(android only)」 → Android only; 「(iOS 11/M; And 12/E)」 → both, released at different times. */
+function platformOf(text: string): { only?: 'ios' | 'android'; release?: string } {
+  const flat = text.toLowerCase().replace(/\s+/g, '');
+  if (/(android|andorid)沒有/.test(flat)) return { only: 'ios' };
+  if (/onlyandroid|androidonly/.test(flat)) return { only: 'android' };
+  for (const b of text.match(/\(([^)]*)\)/g) ?? []) {
+    if (/first layer/i.test(b)) continue;
+    const ios = /\bios\b/i.test(b), and = /\b(and|android|andorid)\b/i.test(b);
+    if (ios && !and) return { only: 'ios', release: b.slice(1, -1) };
+    if (and && !ios) return { only: 'android', release: b.slice(1, -1) };
+    if (ios && and) return { release: b.slice(1, -1) };
+  }
+  return {};
+}
+
+/** A toolbar note split by platform: 「(iOS) … (Android) …」 keeps the wanted platform's part, marked. */
+function platformNote(note: string, want: string): string {
+  const parts = note.split(/(?=\((?:iOS|Android)\)|\b(?:iOS|Android):)/i);
+  if (parts.length < 2 || !want) return note;
+  const head = parts[0];
+  const keep = parts.slice(1).filter(p => new RegExp(`^\\(?${want === 'ios' ? 'iOS' : 'Android'}\\)?:?`, 'i').test(p));
+  return keep.length ? `${head}${keep.join(' ')} (${want === 'ios' ? 'iOS' : 'Android'} part of the note)` : '';
+}
+
+/** Each toolbar's Notes lines, keyed by toolbar heading. */
+function toolbarNotes(md: string): Map<string, string[]> {
+  const out = new Map<string, string[]>();
+  for (const block of md.split('\n## ').slice(1)) {
+    const name = block.split('\n')[0].trim();
+    const notes = block.split('\nNotes:\n')[1];
+    if (notes) out.set(name, notes.split('\n').filter(l => l.startsWith('- ')).map(l => l.slice(2)));
+  }
+  return out;
 }

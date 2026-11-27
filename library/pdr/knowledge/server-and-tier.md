@@ -27,7 +27,7 @@ are server-configured: Free 10, Pro 100.
 
 ## KP-068 A Play test subscription ends within hours
 - kind: quirk · platform: android · use: run · tags: tier, billing, subscription
-- source: Video Enhance Android run 2026-11-10-r1-full O-30; Video Enhance Android run 2026-11-18-r2-full O-17, O-23, O-26, O-28; AIGC Watermark Android run 2026-11-23-r2-changed (Pro from 14:22, still Pro at 15:14); AIGC Watermark Android run 2026-11-23-r3-full O-7 (bought 14:22, lapsed 17:58; no bonus clawback in the credits by 18:12); Video Enhance Android run 2026-11-24-r3-full O-3, O-12, O-17 · verified: 16.9.0 build 2611231 (2026-11-25)
+- source: Video Enhance Android run 2026-11-10-r1-full O-30; Video Enhance Android run 2026-11-18-r2-full O-17, O-23, O-26, O-28; AIGC Watermark Android run 2026-11-23-r2-changed (Pro from 14:22, still Pro at 15:14); AIGC Watermark Android run 2026-11-23-r3-full O-7 (bought 14:22, lapsed 17:58; no bonus clawback in the credits by 18:12); Video Enhance Android run 2026-11-24-r3-full O-3, O-12, O-17; AIGC Watermark Android run 2026-11-26-e1-entries O-13 (inbox I-010, I-017) · verified: 16.9.0 build 2611251 (2026-11-26)
 
 A Play test subscription renews every 30 minutes (the test sheet reads 「NT$1,190.00/30 min」 and 「This is a test
 subscription. It will recur according to this schedule.」) and ends after a few renewals: on the shared test account
@@ -38,6 +38,9 @@ Mine and the panel keep acting Pro until the next launch shows 「Free」 「Cla
 tier at each segment start, and re-buy on the Play test sheet (「Test card, always approves」, no password), tapping its Subscribe button by bounds:
 a label match hits the sheet's terms link (opens payments.google.com in Chrome; Back). A sheet left open for hours fails (billing responseCode 6, 「Error / Server error」), so open a fresh one.
 AIGC Watermark's runs saw the same: 17:08 → ended by 22:37 (R1), 14:22 → 17:58 (R3, no clawback seen by 18:12).
+On 2611251 Mine › 「Claim offer」 › 「Get 7-Day Free Trial」 opened a test sheet with 「3-minute free trial」, then
+「NT$1,080.00/30 min」: the first Subscribe tap only expanded the sheet, the second subscribed, adding +35 credits at once
+(`giveaway_free_trial`, the paywall's 「Receive 35 credits during free trial」; compare KP-049).
 
 ## KP-093 Sign-in after `pm clear` on Stage
 - kind: quirk · platform: android · use: run, ebug · tags: server, sign-in, credits, reset

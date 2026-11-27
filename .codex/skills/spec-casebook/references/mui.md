@@ -147,9 +147,11 @@ MUI findings follow the eBug rules of `ebugs.md` and the casebook overlay (rule 
   as in the Short Description: `MUI: translation — JPN, DEU`, `MUI: translation — all`, `MUI: truncation — DEU`.
   The Spec Link is the translation sheet (file name or URL, tab and row or key); with no sheet, the Design or PM board
   that draws the English string.
-- **Owner** (the text rule, AGENTS.md *Text bugs go to RD or PM*): the sheet has the text and the app shows
-  something else, or truncates it → RD; the sheet has no text for that language (`null`), or its own text cannot
-  fit and must change → PM.
+- **Owner** (AGENTS.md *Translation problems go to PC-Doc*; user, 2026-11-26, replaces PM here): the app truncates
+  or breaks a translation, or does not show one the build has → RD; anything whose fix is the translation's own
+  wording → **PC-Doc** (BugBelong `PC-Doc`), never PM: no text for that language (`null`), a string left in English,
+  a wrong, unnatural or inconsistent translation, its capitalisation or punctuation, a text that cannot fit and must
+  be reworded, and every filed translation doubt.
 - **Dedupe** per OS and per language: an existing same-OS ticket on the same strings and language makes the finding
   a duplicate (`dedupe.txt`); one on other languages does not.
 - **Translation doubts (no sheet, user 2026-11-24).** The run's doubts go in the drafts as a `## Translation doubts`
