@@ -77,6 +77,8 @@ Test setup (ruling Q-1, REQ-002): RD sets a test date on the stage server, and t
 - R-057 [PM:pm-xmas-credit] The dialog's ⓧ closes it, back on the feature page with nothing charged.
 - R-058 [PM:pm-ny-credit] In the New Year campaign the dialog background and image are the New Year theme as the Design draws it (ruling Q-15, REQ-002; the PM New Year frames still read 「CHRISTMAS SALE」).
 - R-070 [Rule: localization; ruling Q-16, REQ-002; request REQ-009] The Not Enough Credit dialog, free (R-055) and paid (R-053), shows its title, body and CTA in the app language in every shipped language (all 27, Q-16), complete, not clipped or overlapped and not left in English, right to left in Arabic, Persian and Hebrew; the campaign art has no text and is the same in every language. Wording: Q-19.
+- R-071 [DS:ds-xmas-iap-credit; DS:ds-ny-iap-credit; request REQ-012] The IAP page follows the app's appearance as the Design draws IAP_year dark and light: dark — black page, annual card dark seasonal (Christmas red, New Year navy) with a gold border, monthly card black; light — white page, annual card pale cream with a yellow border, monthly card white; the banner art is the same in both.
+- R-072 [DS:ds-xmas-iap-credit; DS:ds-ny-iap-credit; request REQ-012] The credit purchase page follows the app's appearance as the Design draws it: dark — black page, dark grey pack tiles; light — white page, pale blue pack tiles; the banner art and the offer card's gradient header are the same in both.
 
 ## Landscape (Design 「Landscape」)
 - R-059 [DS:ds-xmas-landscape] In landscape the Launcher shows the campaign top banner and pill over the regular landscape Launcher (My Projects, tool row).
@@ -279,6 +281,14 @@ Test setup (ruling Q-1, REQ-002): RD sets a test date on the stage server, and t
 | R-005 | New Year SKU | TC-024, TC-107 |
 | R-006 | Christmas SKU | TC-105 |
 | R-006 | New Year SKU | TC-106 |
+| R-071 | Christmas · dark | TC-206 |
+| R-071 | Christmas · light | TC-207 |
+| R-071 | New Year · dark | TC-208 |
+| R-071 | New Year · light | TC-209 |
+| R-072 | Christmas · dark | TC-210 |
+| R-072 | Christmas · light | TC-211 |
+| R-072 | New Year · dark | TC-212 |
+| R-072 | New Year · light | TC-213 |
 | R-048 | without Auto Pass, Christmas | TC-125, TC-120 |
 | R-048 | without Auto Pass, New Year | TC-121 |
 | R-048 | with Auto Pass, Christmas | TC-126, TC-122 |
@@ -297,6 +307,7 @@ Test setup (ruling Q-1, REQ-002): RD sets a test date on the stage server, and t
 | REQ-003 | Correction of Q-9 / Q-11: the New Year campaign keeps its countdowns, only Christmas drops them: R-029, R-038, R-049 |
 | REQ-002 | Question answers 2026-11-20 (Q-1 – Q-6, Q-8 – Q-12, Q-14 – Q-17): R-001, R-002, R-005, R-006, R-012, R-018, R-020, R-022, R-025, R-028, R-029, R-035, R-036, R-038, R-044, R-048, R-049, R-058, R-007, R-077 |
 | REQ-011 | DRA262611P0311 re-verified under the Q-14 ruling: the 2000-credit pack sale only with Credit Auto Pass: R-046, R-048 |
+| REQ-012 | Why DRA262611P0331 was missed: dark / light drawn by the Design became no variant: R-071, R-072 |
 
 ## Answered questions
 - Q-1 How does QA put the app into each campaign window before 12/11? Assumption: set the phone date and time by hand (Settings › Date & time, automatic off) to a day inside the window; if the window is server-checked, RD gives a test switch or server. Rows: every row with a 「Campaign」 precondition. Answer (2026-11-20, REQ-002, Cases page): RD sets a test date on the stage server; inside that window the app is tested on the stage server. Every row's campaign precondition is the RD test date.

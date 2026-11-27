@@ -594,11 +594,11 @@ TC-100,Mine and IAP,"1. Free account (not subscribed) signed in
 「PowerDirector Pro」 and 「No Watermark. Unlimited  Assets. No Ads. 50% Off Credit Pack.」
 Feature cards 「Auto Edit」, 「4K Output」, 「Remove Watermark」
 The annual card is selected
-Annual card: seasonal background, top-right tag 「Christmas Treat」 with a small decoration, 「Save <xx>%」 on its right half, 「<annual price>/Year」 and 「with 7-day free trial」
+Annual card: seasonal background (colours per appearance: TC-206 – TC-209), top-right tag 「Christmas Treat」 with a small decoration, 「Save <xx>%」 on its right half, 「<annual price>/Year」 and 「with 7-day free trial」
 Monthly card: the original price struck through and the discounted price
 「Receive 35 credits during free trial」 above the CTA
 No countdown on or under 「Get 7-Day Free Trial」
-No 「Offer」 wording anywhere on the page",P1,"R-034, R-035, R-037, R-038, R-039, R-040, R-007","Q-10 ruling (REQ-002): the PM 1104 version; the Design plan card draws Special Offer, 67% OFF and $31.99. Q-11 ruling (REQ-003): no countdown in the Christmas campaign.",unchanged,
+No 「Offer」 wording anywhere on the page",P1,"R-034, R-035, R-037, R-038, R-039, R-040, R-007","Q-10 ruling (REQ-002): the PM 1104 version; the Design plan card draws Special Offer, 67% OFF and $31.99. Q-11 ruling (REQ-003): no countdown in the Christmas campaign.",modified,REQ-012: the Design draws this page in dark and light; one row per appearance (DRA262611P0331 was missed with one row)
 TC-101,Mine and IAP,"1. Free account (not subscribed) signed in
 2. Google Play account in the US store (Play Billing Lab)
 3. Christmas window: stage server, RD test date 2026-12-15
@@ -612,11 +612,43 @@ TC-102,Mine and IAP,"1. Free account (not subscribed) signed in
 「PowerDirector Pro」 and 「No Watermark. Unlimited  Assets. No Ads. 50% Off Credit Pack.」
 Feature cards 「Auto Edit」, 「4K Output」, 「Remove Watermark」
 The annual card is selected
-Annual card: seasonal background, top-right tag 「New Year Treat」 with a small decoration, 「Save <xx>%」 on its right half, 「<annual price>/Year」 and 「with 7-day free trial」
+Annual card: seasonal background (colours per appearance: TC-206 – TC-209), top-right tag 「New Year Treat」 with a small decoration, 「Save <xx>%」 on its right half, 「<annual price>/Year」 and 「with 7-day free trial」
 Monthly card: the original price struck through and the discounted price
 「Receive 35 credits during free trial」 above the CTA
 Under 「Get 7-Day Free Trial」 a clock icon and a countdown 「<d>D hh:mm:ss」 (TC-089 checks its value)
-No 「Offer」 wording anywhere on the page",P1,"R-034, R-035, R-037, R-038, R-039, R-040, R-007","Q-10 ruling (REQ-002): the PM 1104 version; the Design plan card draws Special Offer, 67% OFF and $31.99. Q-11 ruling (REQ-003): the New Year campaign keeps the countdown the Design draws under the CTA (the PM 1104 note removing it is overruled).",unchanged,
+No 「Offer」 wording anywhere on the page",P1,"R-034, R-035, R-037, R-038, R-039, R-040, R-007","Q-10 ruling (REQ-002): the PM 1104 version; the Design plan card draws Special Offer, 67% OFF and $31.99. Q-11 ruling (REQ-003): the New Year campaign keeps the countdown the Design draws under the CTA (the PM 1104 note removing it is overruled).",modified,REQ-012: the Design draws this page in dark and light; one row per appearance (DRA262611P0331 was missed with one row)
+TC-206,Mine and IAP,"1. Free account (not subscribed) signed in
+2. Christmas window: stage server, RD test date 2026-12-15
+3. App Appearance 「Dark Mode」 (☰ › Preferences › Appearance; it overrides the phone setting)
+4. IAP page open from Mine",Look at the page colours,"Top banner 「Christmas Special」 art as in the other appearance
+Page background black
+Annual card: dark red background with a gold border
+Monthly card: black with a grey border, its texts white
+Texts and prices readable on their background, nothing left in the other appearance's colours",P2,"R-071, R-035",Design IAP_year dark (Christmas). REQ-012.,new,REQ-012: the Design draws this page in dark and light; one row per appearance (DRA262611P0331 was missed with one row)
+TC-207,Mine and IAP,"1. Free account (not subscribed) signed in
+2. Christmas window: stage server, RD test date 2026-12-15
+3. App Appearance 「Light Mode」 (☰ › Preferences › Appearance; it overrides the phone setting)
+4. IAP page open from Mine",Look at the page colours,"Top banner 「Christmas Special」 art as in the other appearance
+Page background white
+Annual card: pale cream background with a yellow border, no dark art
+Monthly card: white with a grey border, its texts dark grey
+Texts and prices readable on their background, nothing left in the other appearance's colours",P1,"R-071, R-035",Design IAP_year light (Christmas). REQ-012.,new,REQ-012: the Design draws this page in dark and light; one row per appearance (DRA262611P0331 was missed with one row)
+TC-208,Mine and IAP,"1. Free account (not subscribed) signed in
+2. New Year window: stage server, RD test date 2026-12-30
+3. App Appearance 「Dark Mode」 (☰ › Preferences › Appearance; it overrides the phone setting)
+4. IAP page open from Mine",Look at the page colours,"Top banner 「New Year Special」 art as in the other appearance
+Page background black
+Annual card: dark navy background with a gold border
+Monthly card: black with a grey border, its texts white
+Texts and prices readable on their background, nothing left in the other appearance's colours",P2,"R-071, R-035",Design IAP_year dark (New Year). REQ-012.,new,REQ-012: the Design draws this page in dark and light; one row per appearance (DRA262611P0331 was missed with one row)
+TC-209,Mine and IAP,"1. Free account (not subscribed) signed in
+2. New Year window: stage server, RD test date 2026-12-30
+3. App Appearance 「Light Mode」 (☰ › Preferences › Appearance; it overrides the phone setting)
+4. IAP page open from Mine",Look at the page colours,"Top banner 「New Year Special」 art as in the other appearance
+Page background white
+Annual card: pale cream background with a yellow border, no dark art
+Monthly card: white with a grey border, its texts dark grey
+Texts and prices readable on their background, nothing left in the other appearance's colours",P1,"R-071, R-035",Design IAP_year light (New Year). REQ-012.,new,REQ-012: the Design draws this page in dark and light; one row per appearance (DRA262611P0331 was missed with one row)
 TC-103,Mine and IAP,"1. Free account (not subscribed) signed in
 2. Google Play account in the US store (Play Billing Lab)
 3. New Year window: stage server, RD test date 2026-12-30
@@ -717,6 +749,38 @@ Packs 50, 100, 200, 500, 1000, 2000 credits, each with its original price struck
 「Each credit for about $0.1」 and 「The expiration period for consumed credits is one year.」
 「Privacy Policy」 | 「Terms of Use」
 Above the CTA a clock icon and a countdown 「<d>D hh:mm:ss」 (TC-089 checks its value)",P1,"R-045, R-048, R-050, R-052, R-049","US mockup prices: $9.99→$4.99, $17.99→$8.99, $31.99→$15.99, $69.99→$34.99, $119.99→$59.99, $199.99→$99.99. The New Year campaign keeps the countdown: Q-11 ruling (REQ-003). Without Auto Pass: Q-14 ruling (REQ-002), REQ-011.",modified,REQ-011: R-048 (Q-14) — without Credit Auto Pass the Auto Pass sale leads; the 2000-credit pack sale only with Auto Pass (DRA262611P0311 NAB)
+TC-210,Credit purchase page,"1. Pro account (subscribed) signed in
+2. Christmas window: stage server, RD test date 2026-12-15
+3. App Appearance 「Dark Mode」 (☰ › Preferences › Appearance; it overrides the phone setting)
+4. Credit purchase page open (Mine › Credits)",Look at the page colours,"Top banner 「Christmas Special」 art as in the other appearance
+Page background black, balance and texts white
+Pack tiles dark grey with dark price strips
+The top offer card keeps its green-blue gradient header, its body in the page colour
+Texts and prices readable on their background, nothing left in the other appearance's colours",P2,"R-072, R-045",Design credit page dark (Christmas). REQ-012.,new,REQ-012: the Design draws this page in dark and light; one row per appearance (DRA262611P0331 was missed with one row)
+TC-211,Credit purchase page,"1. Pro account (subscribed) signed in
+2. Christmas window: stage server, RD test date 2026-12-15
+3. App Appearance 「Light Mode」 (☰ › Preferences › Appearance; it overrides the phone setting)
+4. Credit purchase page open (Mine › Credits)",Look at the page colours,"Top banner 「Christmas Special」 art as in the other appearance
+Page background white, balance and texts dark
+Pack tiles pale blue with grey price strips
+The top offer card keeps its green-blue gradient header, its body in the page colour
+Texts and prices readable on their background, nothing left in the other appearance's colours",P1,"R-072, R-045",Design credit page light (Christmas). REQ-012.,new,REQ-012: the Design draws this page in dark and light; one row per appearance (DRA262611P0331 was missed with one row)
+TC-212,Credit purchase page,"1. Pro account (subscribed) signed in
+2. New Year window: stage server, RD test date 2026-12-30
+3. App Appearance 「Dark Mode」 (☰ › Preferences › Appearance; it overrides the phone setting)
+4. Credit purchase page open (Mine › Credits)",Look at the page colours,"Top banner 「New Year Special」 art as in the other appearance
+Page background black, balance and texts white
+Pack tiles dark grey with dark price strips
+The top offer card keeps its green-blue gradient header, its body in the page colour
+Texts and prices readable on their background, nothing left in the other appearance's colours",P2,"R-072, R-045",Design credit page dark (New Year). REQ-012.,new,REQ-012: the Design draws this page in dark and light; one row per appearance (DRA262611P0331 was missed with one row)
+TC-213,Credit purchase page,"1. Pro account (subscribed) signed in
+2. New Year window: stage server, RD test date 2026-12-30
+3. App Appearance 「Light Mode」 (☰ › Preferences › Appearance; it overrides the phone setting)
+4. Credit purchase page open (Mine › Credits)",Look at the page colours,"Top banner 「New Year Special」 art as in the other appearance
+Page background white, balance and texts dark
+Pack tiles pale blue with grey price strips
+The top offer card keeps its green-blue gradient header, its body in the page colour
+Texts and prices readable on their background, nothing left in the other appearance's colours",P1,"R-072, R-045",Design credit page light (New Year). REQ-012.,new,REQ-012: the Design draws this page in dark and light; one row per appearance (DRA262611P0331 was missed with one row)
 TC-122,Credit purchase page,"1. Pro account (subscribed) signed in
 2. Christmas window: stage server, RD test date 2026-12-15
 3. Credit Auto Pass subscribed (the 2000-credit pack sale shows only then, R-048)

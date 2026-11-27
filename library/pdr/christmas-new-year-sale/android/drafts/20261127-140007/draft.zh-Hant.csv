@@ -594,11 +594,11 @@ TC-100,Mine 與 IAP,"1. 已登入免費帳號（未訂閱）
 「PowerDirector Pro」與「No Watermark. Unlimited  Assets. No Ads. 50% Off Credit Pack.」
 功能卡片「Auto Edit」、「4K Output」、「Remove Watermark」
 預設選取年方案卡片
-年方案卡片：節慶背景，右上角有「Christmas Treat」標籤並附小裝飾，右半邊為「Save <xx>%」，另有「<annual price>/Year」與「with 7-day free trial」
+年方案卡片：節慶背景（各外觀的配色見 TC-206 – TC-209），右上角有「Christmas Treat」標籤並附小裝飾，右半邊為「Save <xx>%」，另有「<annual price>/Year」與「with 7-day free trial」
 月方案卡片：原價加刪除線，並顯示折扣後價格
 CTA 上方有「Receive 35 credits during free trial」
 「Get 7-Day Free Trial」上方或下方都沒有倒數
-頁面上任何地方都沒有「Offer」字樣",P1,"R-034, R-035, R-037, R-038, R-039, R-040, R-007",Q-10 裁定（REQ-002）：採 PM 1104 版本；Design 的方案卡仍畫著 Special Offer、67% OFF 和 $31.99。Q-11 裁定（REQ-003）：聖誕檔期沒有倒數。,未變更,
+頁面上任何地方都沒有「Offer」字樣",P1,"R-034, R-035, R-037, R-038, R-039, R-040, R-007",Q-10 裁定（REQ-002）：採 PM 1104 版本；Design 的方案卡仍畫著 Special Offer、67% OFF 和 $31.99。Q-11 裁定（REQ-003）：聖誕檔期沒有倒數。,修改,REQ-012：Design 把這個頁面畫了深色與淺色兩種；每種外觀各一個案例（只有一個案例時漏掉了 DRA262611P0331）
 TC-101,Mine 與 IAP,"1. 已登入免費帳號（未訂閱）
 2. Google Play 帳號在美國商店（用 Play Billing Lab 設定）
 3. 聖誕檔期：連 stage server，RD 測試日期 2026-12-15
@@ -612,11 +612,43 @@ TC-102,Mine 與 IAP,"1. 已登入免費帳號（未訂閱）
 「PowerDirector Pro」與「No Watermark. Unlimited  Assets. No Ads. 50% Off Credit Pack.」
 功能卡片「Auto Edit」、「4K Output」、「Remove Watermark」
 預設選取年方案卡片
-年方案卡片：節慶背景，右上角有「New Year Treat」標籤並附小裝飾，右半邊為「Save <xx>%」，另有「<annual price>/Year」與「with 7-day free trial」
+年方案卡片：節慶背景（各外觀的配色見 TC-206 – TC-209），右上角有「New Year Treat」標籤並附小裝飾，右半邊為「Save <xx>%」，另有「<annual price>/Year」與「with 7-day free trial」
 月方案卡片：原價加刪除線，並顯示折扣後價格
 CTA 上方有「Receive 35 credits during free trial」
 「Get 7-Day Free Trial」下方有時鐘圖示與倒數「<d>D hh:mm:ss」（數值由 TC-089 檢查）
-頁面上任何地方都沒有「Offer」字樣",P1,"R-034, R-035, R-037, R-038, R-039, R-040, R-007",Q-10 裁定（REQ-002）：採 PM 1104 版本；Design 的方案卡仍畫著 Special Offer、67% OFF 和 $31.99。Q-11 裁定（REQ-003）：新年檔期保留 Design 在 CTA 下方畫的倒數（PM 1104 移除倒數的註記不適用）。,未變更,
+頁面上任何地方都沒有「Offer」字樣",P1,"R-034, R-035, R-037, R-038, R-039, R-040, R-007",Q-10 裁定（REQ-002）：採 PM 1104 版本；Design 的方案卡仍畫著 Special Offer、67% OFF 和 $31.99。Q-11 裁定（REQ-003）：新年檔期保留 Design 在 CTA 下方畫的倒數（PM 1104 移除倒數的註記不適用）。,修改,REQ-012：Design 把這個頁面畫了深色與淺色兩種；每種外觀各一個案例（只有一個案例時漏掉了 DRA262611P0331）
+TC-206,Mine 與 IAP,"1. 已登入免費帳號（未訂閱）
+2. 聖誕活動期間：stage 伺服器，RD 測試日期 2026-12-15
+3. App 外觀設為「Dark Mode」（☰ › Preferences › Appearance，此設定會蓋過手機的設定）
+4. 已從 Mine 開啟 IAP 頁面",查看頁面配色,"頂部 banner「Christmas Special」的圖與另一種外觀相同
+頁面背景為黑色
+年方案卡片：深紅色背景，金色外框
+月方案卡片：黑底灰框，文字白色
+文字與價格在背景上都清楚可讀，沒有殘留另一種外觀的配色",P2,"R-071, R-035",Design IAP_year 深色（聖誕）。REQ-012。,新增,REQ-012：Design 把這個頁面畫了深色與淺色兩種；每種外觀各一個案例（只有一個案例時漏掉了 DRA262611P0331）
+TC-207,Mine 與 IAP,"1. 已登入免費帳號（未訂閱）
+2. 聖誕活動期間：stage 伺服器，RD 測試日期 2026-12-15
+3. App 外觀設為「Light Mode」（☰ › Preferences › Appearance，此設定會蓋過手機的設定）
+4. 已從 Mine 開啟 IAP 頁面",查看頁面配色,"頂部 banner「Christmas Special」的圖與另一種外觀相同
+頁面背景為白色
+年方案卡片：淺米色背景，黃色外框，沒有深色圖樣
+月方案卡片：白底灰框，文字深灰色
+文字與價格在背景上都清楚可讀，沒有殘留另一種外觀的配色",P1,"R-071, R-035",Design IAP_year 淺色（聖誕）。REQ-012。,新增,REQ-012：Design 把這個頁面畫了深色與淺色兩種；每種外觀各一個案例（只有一個案例時漏掉了 DRA262611P0331）
+TC-208,Mine 與 IAP,"1. 已登入免費帳號（未訂閱）
+2. 新年活動期間：stage 伺服器，RD 測試日期 2026-12-30
+3. App 外觀設為「Dark Mode」（☰ › Preferences › Appearance，此設定會蓋過手機的設定）
+4. 已從 Mine 開啟 IAP 頁面",查看頁面配色,"頂部 banner「New Year Special」的圖與另一種外觀相同
+頁面背景為黑色
+年方案卡片：深藍色背景，金色外框
+月方案卡片：黑底灰框，文字白色
+文字與價格在背景上都清楚可讀，沒有殘留另一種外觀的配色",P2,"R-071, R-035",Design IAP_year 深色（新年）。REQ-012。,新增,REQ-012：Design 把這個頁面畫了深色與淺色兩種；每種外觀各一個案例（只有一個案例時漏掉了 DRA262611P0331）
+TC-209,Mine 與 IAP,"1. 已登入免費帳號（未訂閱）
+2. 新年活動期間：stage 伺服器，RD 測試日期 2026-12-30
+3. App 外觀設為「Light Mode」（☰ › Preferences › Appearance，此設定會蓋過手機的設定）
+4. 已從 Mine 開啟 IAP 頁面",查看頁面配色,"頂部 banner「New Year Special」的圖與另一種外觀相同
+頁面背景為白色
+年方案卡片：淺米色背景，黃色外框，沒有深色圖樣
+月方案卡片：白底灰框，文字深灰色
+文字與價格在背景上都清楚可讀，沒有殘留另一種外觀的配色",P1,"R-071, R-035",Design IAP_year 淺色（新年）。REQ-012。,新增,REQ-012：Design 把這個頁面畫了深色與淺色兩種；每種外觀各一個案例（只有一個案例時漏掉了 DRA262611P0331）
 TC-103,Mine 與 IAP,"1. 已登入免費帳號（未訂閱）
 2. Google Play 帳號在美國商店（用 Play Billing Lab 設定）
 3. 新年檔期：連 stage server，RD 測試日期 2026-12-30
@@ -717,6 +749,38 @@ TC-121,點數購買頁,"1. Pro 帳號（已訂閱）已登入
 「Each credit for about $0.1」和「The expiration period for consumed credits is one year.」
 「Privacy Policy」|「Terms of Use」
 CTA 上方有時鐘圖示與倒數「<d>D hh:mm:ss」（數值由 TC-089 檢查）",P1,"R-045, R-048, R-050, R-052, R-049",美國版示意價格：$9.99→$4.99、$17.99→$8.99、$31.99→$15.99、$69.99→$34.99、$119.99→$59.99、$199.99→$99.99。新年活動保留倒數：Q-11 裁定（REQ-003）。未訂閱 Auto Pass：Q-14 裁定（REQ-002）、REQ-011。,修改,REQ-011：依 R-048（Q-14），未訂閱 Credit Auto Pass 時頁面主打 Auto Pass 優惠；訂閱 Auto Pass 後才會出現 2000 點特惠包（DRA262611P0311 判定 NAB）
+TC-210,點數購買頁,"1. 已登入 Pro 帳號（已訂閱）
+2. 聖誕活動期間：stage 伺服器，RD 測試日期 2026-12-15
+3. App 外觀設為「Dark Mode」（☰ › Preferences › Appearance，此設定會蓋過手機的設定）
+4. 點數購買頁已開啟（Mine › Credits）",查看頁面配色,"頂部 banner「Christmas Special」的圖與另一種外觀相同
+頁面背景黑色，餘額與文字為白色
+點數包方塊為深灰色，價格列也是深色
+最上方的優惠卡片保留綠藍漸層標題列，卡片本體與頁面同色
+文字與價格在背景上都清楚可讀，沒有殘留另一種外觀的配色",P2,"R-072, R-045",Design 點數購買頁 深色（聖誕）。REQ-012。,新增,REQ-012：Design 把這個頁面畫了深色與淺色兩種；每種外觀各一個案例（只有一個案例時漏掉了 DRA262611P0331）
+TC-211,點數購買頁,"1. 已登入 Pro 帳號（已訂閱）
+2. 聖誕活動期間：stage 伺服器，RD 測試日期 2026-12-15
+3. App 外觀設為「Light Mode」（☰ › Preferences › Appearance，此設定會蓋過手機的設定）
+4. 點數購買頁已開啟（Mine › Credits）",查看頁面配色,"頂部 banner「Christmas Special」的圖與另一種外觀相同
+頁面背景白色，餘額與文字為深色
+點數包方塊為淡藍色，價格列為灰色
+最上方的優惠卡片保留綠藍漸層標題列，卡片本體與頁面同色
+文字與價格在背景上都清楚可讀，沒有殘留另一種外觀的配色",P1,"R-072, R-045",Design 點數購買頁 淺色（聖誕）。REQ-012。,新增,REQ-012：Design 把這個頁面畫了深色與淺色兩種；每種外觀各一個案例（只有一個案例時漏掉了 DRA262611P0331）
+TC-212,點數購買頁,"1. 已登入 Pro 帳號（已訂閱）
+2. 新年活動期間：stage 伺服器，RD 測試日期 2026-12-30
+3. App 外觀設為「Dark Mode」（☰ › Preferences › Appearance，此設定會蓋過手機的設定）
+4. 點數購買頁已開啟（Mine › Credits）",查看頁面配色,"頂部 banner「New Year Special」的圖與另一種外觀相同
+頁面背景黑色，餘額與文字為白色
+點數包方塊為深灰色，價格列也是深色
+最上方的優惠卡片保留綠藍漸層標題列，卡片本體與頁面同色
+文字與價格在背景上都清楚可讀，沒有殘留另一種外觀的配色",P2,"R-072, R-045",Design 點數購買頁 深色（新年）。REQ-012。,新增,REQ-012：Design 把這個頁面畫了深色與淺色兩種；每種外觀各一個案例（只有一個案例時漏掉了 DRA262611P0331）
+TC-213,點數購買頁,"1. 已登入 Pro 帳號（已訂閱）
+2. 新年活動期間：stage 伺服器，RD 測試日期 2026-12-30
+3. App 外觀設為「Light Mode」（☰ › Preferences › Appearance，此設定會蓋過手機的設定）
+4. 點數購買頁已開啟（Mine › Credits）",查看頁面配色,"頂部 banner「New Year Special」的圖與另一種外觀相同
+頁面背景白色，餘額與文字為深色
+點數包方塊為淡藍色，價格列為灰色
+最上方的優惠卡片保留綠藍漸層標題列，卡片本體與頁面同色
+文字與價格在背景上都清楚可讀，沒有殘留另一種外觀的配色",P1,"R-072, R-045",Design 點數購買頁 淺色（新年）。REQ-012。,新增,REQ-012：Design 把這個頁面畫了深色與淺色兩種；每種外觀各一個案例（只有一個案例時漏掉了 DRA262611P0331）
 TC-122,點數購買頁,"1. 已登入 Pro 帳號（已訂閱）
 2. 聖誕活動期間：stage 伺服器，RD 測試日期 2026-12-15
 3. 已訂閱 Credit Auto Pass（2000 點特惠包只在這時出現，R-048）

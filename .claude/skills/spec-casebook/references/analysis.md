@@ -136,6 +136,14 @@ Enhance's Q-14 said 「No row asserts it」 and stayed open through three runs f
    language, whether or not a translation sheet names it; with no sheet, the row checks the text is in that language,
    complete and fits, and an Open question records that the wording is unspecified. (v2 gave the 27 languages only to
    the interstitial the 多國文案 sheet covers; the Not Enough Credit dialog had English rows only.)
+   **Every drawn appearance is a variant (2026-11-27, christmas-new-year-sale DRA262611P0331).** When the Design
+   draws a screen in more than one appearance (dark / light, landscape, a short device), each appearance is a variant
+   of that screen's requirement, whether or not the PM text names it, and its row says what changes per appearance
+   (the background or art of each themed element, read from the frame: 「pale cream card」, not 「seasonal
+   background」). A row with an appearance sets it in its Precondition, with the app's own Appearance setting
+   (Android ☰ › Preferences › Appearance overrides the system switch). (v2 split dark / light only for the Launcher
+   banner, whose PM line said 「dark / light」; the IAP page, drawn as IAP_year dark and light, kept one row whose
+   「seasonal background」 passed a navy dark-mode card seen in light mode in R2.)
    **A setting's values are variants too (2026-11-04, Video Enhance).** Every value the user can choose for a
    setting that changes what the feature makes (Mode, style, fps, resolution, quality, length, voice) gets a row that
    *uses* it: chosen, carried through the action it changes (generate, export, save) and checked in the result (the
